@@ -9,7 +9,7 @@ nav ul li {
     list-style-type: none;
 }
 nav ul li a {
-    display: block
+    display: block;
     padding: .5rem lrem;
     background-color: #f89c1f;
 }
