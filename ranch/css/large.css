@@ -1,6 +1,6 @@
 @media only screen and (min-width:1028px) {
 
-nav, main {max-width: 75rem; margin: auto;}
+main {max-width: 75rem; margin: auto;}
 
     nav ul {padding-left: 2%;}
     nav li {width: auto;}
