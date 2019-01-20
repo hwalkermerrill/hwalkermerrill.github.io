@@ -33,3 +33,15 @@ nav a {
     text-decoration: none;
 }
 nav a:hover {background-color: #444}
+
+
+
+
+
+
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
