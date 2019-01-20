@@ -34,10 +34,19 @@ nav a {
 }
 nav a:hover {background-color: #444}
 
+/* main rules here */
+main{
+    padding: 1rem 2%;
+    display: block;
+}
+main h1 {color: #17a8e4;}
 
-
-
-
+main figure img {width: 100%;}
+main figure{
+    width: 100%;
+    margin: 0;
+}
+main figcaption {text-align: center; font-size: .8rem;}
 
 
 .clearfix:after {
