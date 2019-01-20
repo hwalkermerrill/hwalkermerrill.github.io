@@ -9,5 +9,11 @@ main figure {
     padding-bottom: .5rem;
 }
 
+div.news {
+    clear: both;
+    column-count: 2;
+    column-rule: 1px solid #ddd;
+}
+
 
 } /*end of media query/*
