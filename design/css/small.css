@@ -55,6 +55,7 @@ main {
     min-height: 10rem;
 }
 main img {float: right; margin-left: 10px; margin-bottom: 10px; width: 100%}
+main figcaption {float: center;} 
 
 /*----------- FOOTER --------------*/
 footer {
