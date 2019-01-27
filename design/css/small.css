@@ -54,8 +54,8 @@ main {
     padding: 0 2%;
     min-height: 10rem;
 }
-main img {float: right; margin-left: 10px; margin-bottom: 10px; width: 100%}
-main figcaption {float: center;} 
+main figure {float: right; text-align: center; margin: 0.5rem; padding: 0.5rem;}
+main img {margin-top: 10px; margin-left: 10px; margin-bottom: 10px; width: 100%}
 
 /*----------- FOOTER --------------*/
 footer {
