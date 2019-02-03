@@ -15,7 +15,7 @@ body {
 /*----------- HEADER --------------*/
 header {
     padding: .5rem 2%;
-    background-color: #ddd;
+    background-color: #00ff00;
 }
 header img {float: left; margin-right: 10px; width:50px;}
 header h1 {margin: 0; font-size: 1.3rem}
@@ -23,7 +23,7 @@ header h2 {margin: 0; font-weight: normal; font-size: 1rem}
 
 /*----------- NAVIGATION --------------*/
 nav {
-    background-color: #666;
+    background-color: #00ff00;
 }
 nav ul {
     list-style-type: none;
