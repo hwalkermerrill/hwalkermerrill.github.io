@@ -18,8 +18,8 @@ header {
     background-color: #00ff00;
 }
 header img {float: left; margin-right: 10px; width:50px;}
-header h1 {margin: 0; font-weight: bold; font-size: 40px; color:#ffd700}
-header h2 {margin: 0; font-weight: normal; font-size: 30px; color:#ffd700}
+header h1 {margin: 0; font-weight: bold; font-size: 40px;}
+header h2 {margin: 0; font-weight: normal; font-size: 30px;}
 
 /*----------- NAVIGATION --------------*/
 nav {
@@ -33,7 +33,7 @@ nav ul {
 
 nav ul li a {
     display: block;
-    color: #eee;
+    color: #ffd700;
     padding: .5rem 0;
     text-decoration: none;
     font-size: .9rem;
@@ -43,11 +43,11 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #aaa;
-    color: #333;
+    color: #ffd700;
 }
 nav ul li.active a {
-    background-color: #000;
-    color: #fff;
+    background-color: #ffd700;
+    color: #00ff00;
 }
 /*----------- MAIN --------------*/
 main {
