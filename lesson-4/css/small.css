@@ -18,8 +18,8 @@ header {
     background-color: #00ff00;
 }
 header img {float: left; margin-right: 10px; width:50px;}
-header h1 {margin: 0; font-size: 1.3rem}
-header h2 {margin: 0; font-weight: normal; font-size: 1rem}
+header h1 {margin: 0; font-weight: bold; font-size: 40px; color:#ffd700}
+header h2 {margin: 0; font-weight: normal; font-size: 30px; color:#ffd700}
 
 /*----------- NAVIGATION --------------*/
 nav {
