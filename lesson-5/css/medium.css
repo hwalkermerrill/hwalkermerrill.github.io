@@ -14,7 +14,7 @@
     nav ul li a{padding: .5rem 1rem;}
 
 /*----------- MAIN --------------*/
-main .row section:nth-child(1) {
+main .row section:nth-child(1), main .row section table, main .row section th, main .row section td{
     display: block;
     width: 100%;
     margin-left: auto;
