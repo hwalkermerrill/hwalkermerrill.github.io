@@ -14,13 +14,16 @@
     nav ul li a{padding: .5rem 1rem;}
 
 /*----------- MAIN --------------*/
-main .row section:nth-child(1), main .row section table, main .row section th, main .row section td{
+main .row section:nth-child(1){
     display: block;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #000;
     padding: 0.2rem;
+}
+table, tr, td {
+    border: 1px solid #000;
+    border-collapse: collapse;
     text-align: center;
 }
 main .row section:nth-child(2){
