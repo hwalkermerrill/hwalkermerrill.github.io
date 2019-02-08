@@ -26,9 +26,8 @@ main .row section:nth-child(3){
     float: left;
 }
 main .row section:nth-child(4) {
-    background-color: #ffd700;
-    color: #0033ff;
     column-count: 2;
+    float: bottom;
 }
 /*----------- FOOTER --------------*/
     
