@@ -83,9 +83,9 @@ main .herodiv .conditions {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    background: radial-gradient(#eee, #00ff00);
+    background: radial-gradient(#eee, #aaa);
     border: 1px solid #000;
-    padding: 1.5rem;
+    padding: 0.5rem;
     box-shadow: 0 0 30px #fff;
 }
 /*main figure {
