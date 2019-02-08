@@ -16,7 +16,7 @@
 /*----------- MAIN --------------*/
 main img {width: 50%}
 main .row section:nth-child(1) {
-    display: all;
+    display: block;
 }
 main .row section:nth-child(2){
     width: 50%;
