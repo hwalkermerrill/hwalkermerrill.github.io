@@ -88,6 +88,9 @@ main .herodiv .conditions {
     padding: 0.2rem;
     box-shadow: 0 0 30px #fff;
 }
+main .herodiv .conditions p {
+    margin: 0.2rem;
+}
 /*main figure {
     display: block;
     margin-block-start: 0.5em;
