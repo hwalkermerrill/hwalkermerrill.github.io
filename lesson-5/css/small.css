@@ -71,6 +71,7 @@ main .herodiv {
     padding: 0;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 main .herodiv img {
     width: 100%;
@@ -79,9 +80,9 @@ main .herodiv img {
     margin-right: auto;
 }
 main .herodiv .conditions {
-    position: relative;
-    top: 10px;
-    left: 10px;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
     background: radial-gradient(#eee, #00ff00);
     border: 1px solid #000;
     padding: 1.5rem;
