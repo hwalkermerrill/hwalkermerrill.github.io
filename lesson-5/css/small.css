@@ -127,6 +127,7 @@ footer {
     color: #0033ff;
     padding: .5rem 2%;
     text-align: center;
+    clear: both;
 }
 
 /*----- Clearfix: Force an Element not to collapse -----*/

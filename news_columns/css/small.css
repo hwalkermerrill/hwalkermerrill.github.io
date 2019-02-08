@@ -58,12 +58,21 @@ main {
     min-height: 10rem;
 }
 
+main h1 {padding: 0 2%;}
 
+figure {margin: 0; width: 100%}
+figure img {width: 100%;}
+
+iframe {width:100%;}
+
+div.row {clear: both;}
+div.row section {padding: 0 2%;}
 /*----------- FOOTER --------------*/
 footer {
     background-color: #ddd;
     padding: .5rem 2%;
     text-align: center;
+    clear: both;
 }
 
 
