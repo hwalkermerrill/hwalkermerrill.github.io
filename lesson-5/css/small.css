@@ -67,14 +67,12 @@ main {
     min-height: 10rem;
 }
 main h1 {
-    margin: 0;
     font-weight: bold;
     font-size: 40px;
     color: #0033ff;
     text-shadow: 4px 4px 4px #aaa
 }
 Main h2 {
-    margin: 0;
     font-weight: normal;
     font-size: 30px;
     color: #0033ff;
@@ -119,7 +117,7 @@ main .row section:nth-child(4) p {
     margin: 0.2rem;
 }
 main .row section:nth-child(4) h2 {
-    margin: 0.2rem;
+    margin: 0;
 }
 /*main figure {
     display: block;
