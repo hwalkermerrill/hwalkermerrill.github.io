@@ -4,22 +4,36 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 /*----------- apply a natural box layout model to all elements --------------*/
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-
 /*----------- BODY --------------*/
 body {
     font-size: 16px;
     font-family: 'Cabin', Verdana, sans-serif;
 }
 
-
 /*----------- HEADER --------------*/
 header {
     padding: .5rem 2%;
     background-color: #00ff00;
 }
-header img {float: left; margin-right: 10px; width:50px;}
-header h1 {margin: 0; font-weight: bold; font-size: 40px; color: #0033ff; text-shadow: 4px 4px 4px #aaa}
-header h2 {margin: 0; font-weight: normal; font-size: 30px; color: #0033ff; text-shadow: 4px 4px 4px #aaa}
+header img {
+    float: left;
+    margin-right: 10px;
+    width:50px;
+}
+header h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 40px;
+    color: #0033ff;
+    text-shadow: 4px 4px 4px #aaa
+}
+header h2 {
+    margin: 0;
+    font-weight: normal;
+    font-size: 30px;
+    color: #0033ff;
+    text-shadow: 4px 4px 4px #aaa
+}
 
 /*----------- NAVIGATION --------------*/
 nav {
@@ -30,7 +44,6 @@ nav ul {
     padding: 0;
     margin: 0;
 }
-
 nav ul li a {
     display: block;
     color: #0033ff;
@@ -39,8 +52,6 @@ nav ul li a {
     font-size: 20px;
     text-align: center;
 }
-
-
 nav ul li a:hover {
     background-color: #ffd700;
     color: #0033ff;
@@ -49,13 +60,30 @@ nav ul li.active a {
     background-color: #0033ff;
     color: #00ff00;
 }
+
 /*----------- MAIN --------------*/
 main {
     padding: 0 2%;
     min-height: 10rem;
 }
-main figure img {width: 100%; margin-left: auto; margin-right:auto; margin-bottom: 10px }
-main figure figcaption {float: right; text-align: right; margin: 0.5rem; padding: 0.5rem;}
+main figure img {
+    width: 100%;
+    margin-left: auto;
+    margin-right:auto;
+    margin-bottom: 0.5rem;
+}
+main figure figcaption {
+    float: right;
+    text-align: right;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+main img {
+    width:100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0.5rem;
+}
 
 /*----------- FOOTER --------------*/
 footer {
@@ -64,8 +92,6 @@ footer {
     padding: .5rem 2%;
     text-align: center;
 }
-
-
 
 /*----- Clearfix: Force an Element not to collapse -----*/
 .clearfix:after {
