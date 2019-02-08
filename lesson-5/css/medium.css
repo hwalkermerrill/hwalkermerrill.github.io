@@ -14,7 +14,6 @@
     nav ul li a{padding: .5rem 1rem;}
 
 /*----------- MAIN --------------*/
-main img {width: 50%}
 main .row section:nth-child(1) {
     display: block;
 }
@@ -24,6 +23,7 @@ main .row section:nth-child(2){
 }
 main .row section:nth-child(3){
     width: 50%;
+    float: left;
 }
 main .row section:nth-child(4) {
     background-color: #ffd700;
