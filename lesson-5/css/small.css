@@ -102,7 +102,10 @@ main .row section:nth-child(4) {
     color: #0033ff;
 }
 main .row section:nth-child(4) p {
-    border: 0.2rem;
+    margin: 0.2rem;
+}
+main .row section:nth-child(4) h2 {
+    margin: 0.2rem;
 }
 /*main figure {
     display: block;
