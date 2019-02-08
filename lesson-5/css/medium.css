@@ -24,10 +24,10 @@ main .row section:nth-child(1){
 table, tr, td {
     border: 1px solid #000;
     border-collapse: collapse;
-    text-align: center;
     padding: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+}
+table th {
+    background: #ffd700
 }
 main .row section:nth-child(2){
     width: 50%;
