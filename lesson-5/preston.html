@@ -48,7 +48,17 @@
     <main class="clearfix">
         <h1>Preston</h1>
         <div class="herodiv">
-            <img src="images/splitsun_skew.png" alt="Sunny">
+            <img srcset="images/franklin_micro.jpg 320w,
+                images/franklin_small 560w,
+                images/franklin_medium 1020w,
+                images/franklin_large 1920w,
+                images/franklin_uhd 3840w"
+                sizes="(max-width: 320px) 320px,
+               (max-width: 560px) 560px,
+               (max width: 1020px) 1020px,
+               (max width: 1920px) 1920px,
+               3840px"
+                src="images/franklin_large.jpg" alt="Frankling-Preston">
             <section class="conditions">
                 <h3>Current Conditions</h3>
                 <p>Sunny</p>
