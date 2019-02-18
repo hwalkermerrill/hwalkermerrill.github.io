@@ -1,5 +1,5 @@
-/* 35em is also 560px (if basefont is 16px) */
-@media only screen and (min-width: 35rem) {
+/* 45em is also 720px (if basefont is 16px) */
+@media only screen and (min-width: 45rem) {
 
 /*----------- BODY --------------*/
 
