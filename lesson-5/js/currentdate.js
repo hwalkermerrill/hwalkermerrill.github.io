@@ -40,4 +40,4 @@ if (mm < 4) {
     else mm = "December" 
 
 today = dw + ", " + dd + " " + mm + " " + yyyy;
-return today;
+document.write(today);
