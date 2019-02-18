@@ -37,8 +37,7 @@ if (mm < 4) {
     }
     else if (mm == 11) {mm = "October"}
     else if (mm == 12) {mm = "November"}
-    else mm = "December"
-} 
+    else mm = "December" 
 
 today = dw + ", " + dd + " " + mm + " " + yyyy;
 return today;
