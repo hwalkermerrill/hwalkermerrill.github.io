@@ -9,9 +9,15 @@
     header h2 {font-size: 1.5rem;}
 
 /*----------- NAVIGATION --------------*/
+    nav button {display: none;}
+    nav ul.hide {display: block;}
     nav ul {margin-left: 2%;}
     nav ul li {float: left;}
-    nav ul li a{padding: .5rem 1rem;}
+    nav ul li a{
+    border: none;
+    border-right: 1px solid rgba(0,0,8,0.3);
+    padding: .8rem 1rem;
+}
 
 /*----------- MAIN --------------*/
 main .row section:nth-child(1){

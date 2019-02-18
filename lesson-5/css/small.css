@@ -36,6 +36,13 @@ header h2 {
 }
 
 /*----------- NAVIGATION --------------*/
+nav button {
+    margin: .2rem 2%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.6 rem;
+    color: #555;
+}
 nav {
     background-color: #00ff00;
 }
@@ -47,6 +54,7 @@ nav ul {
 nav ul li a {
     display: block;
     color: #0033ff;
+    border-top: 1px solid rgba(0,0,0,0.3);
     padding: .5rem 0;
     text-decoration: none;
     font-size: 20px;
@@ -59,6 +67,9 @@ nav ul li a:hover {
 nav ul li.active a {
     background-color: #0033ff;
     color: #00ff00;
+}
+nav ul.hide {
+    display: none;
 }
 
 /*----------- MAIN --------------*/
