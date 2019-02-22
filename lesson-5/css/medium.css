@@ -50,6 +50,12 @@ main .row section:nth-child(4) {
     column-count: 2;
     float: none;
 }
+main .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 2%;
+    width: 46%;
+}
 /*----------- FOOTER --------------*/
     
 } /* end of media query */
