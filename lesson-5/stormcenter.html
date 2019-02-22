@@ -23,17 +23,24 @@
 <link href="css/large.css" rel="stylesheet">
 
 
-     
+<script src="js/hamburger.js"></script>
 </head>
 <body>
 <!-- HEADER HERE -->
 	<header class="clearfix">
-	<img src="images/logo.png" alt="logo">
-    <h1>Hometown Weather</h1>
-    <h2>Your Center for Local Weather</h2>
-    </header>
-    
-    
+    <figure class="logo">
+        <img src="images/logo.png" alt="logo"
+        srcset="images/logo.png 1x, images/logo2x.png 2x, images/logo3x.png 3x">
+    </figure>
+    <div class="slogan">
+        <h1>Hometown Weather</h1>
+        <h2>Your Center for Local Weather</h2>
+    </div>
+    <div class="menu">
+        <button onclick="toggleMenu()">&#9776;</button>
+    </div>
+</header>
+        
 <!-- NAVIGATION HERE -->
     <nav class="clearfix">
         <ul >
@@ -72,7 +79,7 @@
     
 <!-- FOOTER HERE -->   
     <footer>
-        &copy; 2019. &bull; Harrison Merrill &bull; All rights reserved
+        &copy; <script src="js/currentdate.js"></script> &bull; Harrison Merrill &bull; All rights reserved
     </footer>
 
 </body>
