@@ -21,10 +21,10 @@ header figure {
     margin: 0;
 }
 header button {
-    margin: .2rem 2%;
+    margin: 1rem 2%;
     background-color: transparent;
     border: none;
-    font-size: 1.6rem;
+    font-size: 5rem;
     color: #555;
 }
 header h1 {
