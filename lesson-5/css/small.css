@@ -15,17 +15,16 @@ header {
     padding: .5rem 2%;
     background-color: #00ff00;
     display: grid;
-    grid-template-columns: 85px auto 25px;
+    grid-template-columns: 85px auto 5rem;
 }
 header figure {
     margin: 0;
 }
 header button {
-    margin: .2rem 2%;
-    margin-right: 10px;
+    margin: 1rem 2%;
     background-color: transparent;
     border: none;
-    font-size: 5rem;
+    font-size: 4rem;
     color: #555;
 }
 header h1 {
