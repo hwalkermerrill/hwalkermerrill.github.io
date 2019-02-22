@@ -143,8 +143,13 @@ main .row section:nth-child(4) h2 {
 main .gallery {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 2%;
-    width: 96%;
+}
+main .gallery figure {
+    flex-basis: 96%;
+    margin: 1rem 2%;
+}
+main .gallery figure img {
+    width: 100%;
 }
 /*main figure {
     display: block;
