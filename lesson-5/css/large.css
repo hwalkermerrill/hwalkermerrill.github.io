@@ -17,6 +17,7 @@
 main .gallery figure {
     flex-basis: 29%;
 }
+main .gallery:hover {box-shadow: 0 0 50px #333;}
 
 /*----------- FOOTER --------------*/
     
