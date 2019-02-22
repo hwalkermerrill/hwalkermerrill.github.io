@@ -17,11 +17,9 @@ header {
     display: grid;
     grid-template-columns: 85px auto;
 }
-/*header img {
-    float: left;
-    margin-right: 10px;
-    width:50px;
-}*/
+header figure {
+    margin: 0;
+}
 header h1 {
     margin: 0;
     margin-top: 1rem;
