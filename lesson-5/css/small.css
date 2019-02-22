@@ -132,6 +132,7 @@ main .row section:nth-child(1) {
 main .row section:nth-child(4) {
     background-color: #ffd700;
     color: #0033ff;
+    padding: 0 2%;
 }
 main .row section:nth-child(4) p {
     margin: 0.2rem;
