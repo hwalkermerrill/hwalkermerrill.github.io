@@ -15,10 +15,17 @@ header {
     padding: .5rem 2%;
     background-color: #00ff00;
     display: grid;
-    grid-template-columns: 85px auto;
+    grid-template-columns: 85px auto 15px;
 }
 header figure {
     margin: 0;
+}
+header button {
+    margin: .2rem 2%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.6rem;
+    color: #555;
 }
 header h1 {
     margin: 0;
@@ -37,13 +44,13 @@ header h2 {
 }
 
 /*----------- NAVIGATION --------------*/
-nav button {
+/*nav button {
     margin: .2rem 2%;
     background-color: transparent;
     border: none;
-    font-size: 1.6 rem;
+    font-size: 1.6rem;
     color: #555;
-}
+}*/
 nav {
     background-color: #00ff00;
 }
