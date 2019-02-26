@@ -4,6 +4,7 @@
 /*----------- BODY --------------*/
 
 /*----------- HEADER --------------*/
+    header {grid-template-columns: 85px auto;}
     header img {width: auto;}
     header h1 {font-size: 2rem;}
     header h2 {font-size: 1.5rem;}
