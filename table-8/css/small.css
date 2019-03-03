@@ -46,11 +46,11 @@ main table tbody th {
     background-color: #628ca6;
     color: white;
 }
-main table tbody tr :nth-child(3) {background-color: #e7ffed;}
-main table tbody :nth-child(5) {background-color: #e7ffed;}
-main table tbody :nth-child(7) {background-color: #e7ffed;}
+main table tbody tr:nth-of-type(3) {background-color: #e7ffed;}
+main table tbody tr:nth-of-type(5) {background-color: #e7ffed;}
+main table tbody tr:nth-of-type(7) {background-color: #e7ffed;}
 
-main table tbody :nth-child(5) :nth-child(3) {background-color: #628ca6; color: white;}
+main table tbody tr:nth-of-type(5) :nth-child(3) {background-color: #628ca6; color: white;}
 
 main table tfoot {
     padding: 2% 0;
