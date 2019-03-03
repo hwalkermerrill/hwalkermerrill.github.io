@@ -7,7 +7,7 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 /*----------- BODY --------------*/
 body {
     font-size: 16px;
-    font-family: 'Cabin', Verdana, sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 /*----------- HEADER --------------*/
@@ -27,6 +27,25 @@ main {
 main table {
     text-align: center;
     margin: 2em auto;
+}
+main table thead {
+    background-color: #7fb9c2;
+    color: black
+}
+main table tbody {
+    background-color: #e7f0ed;
+    color: black
+}
+main table tbody th {
+    background-color: #628ca6;
+    color: white;
+}
+main table tbody :nth-child(odd) {
+    background-color: #e7ffed;
+}
+main table tfoot {
+    background-color: #7fb9c2;
+    color: black
 }
 
 /*----------- FOOTER --------------*/
