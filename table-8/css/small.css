@@ -27,18 +27,19 @@ main {
 main table {
     text-align: center;
     margin: 2em auto;
+    padding: 15px;
 }
-main table, th, td {
+table, th, td {
     border: 1px solid #000;
+    border-collapse: collapse;
 }
+th, td {padding: 15px;}
 main table thead {
-    padding: 2% 0;
     background-color: #7fb9c2;
     color: black;
     font-size: 36px;
 }
 main table tbody {
-    padding: 2% 0;
     background-color: #e7f0ed;
     color: black;
     font-size: 24px;
@@ -54,7 +55,6 @@ main table tbody tr:nth-of-type(7) {background-color: #e7ffed;}
 main table tbody tr:nth-of-type(5) :nth-child(3) {background-color: #628ca6; color: white;}
 
 main table tfoot {
-    padding: 2% 0;
     background-color: #7fb9c2;
     color: black;
 }
