@@ -30,19 +30,28 @@ main table {
 }
 main table thead {
     background-color: #7fb9c2;
-    color: black
+    color: black;
+    font-size: 36px;
 }
 main table tbody {
     background-color: #e7f0ed;
-    color: black
+    color: black;
+    font-size: 24px;
 }
 main table tbody th {
     background-color: #628ca6;
     color: white;
 }
-main table tbody :nth-child(odd) {
-    background-color: #e7ffed;
-}
+main table tbody :nth-child(7) {background-color: #e7ffed;}
+main table tbody :nth-child(8) {background-color: #e7ffed;}
+main table tbody :nth-child(9) {background-color: #e7ffed;}
+main table tbody :nth-child(13) {background-color: #e7ffed;}
+main table tbody :nth-child(14) {background-color: #e7ffed;}
+main table tbody :nth-child(15) {background-color: #628ca6; color: white;}
+main table tbody :nth-child(18) {background-color: #e7ffed;}
+main table tbody :nth-child(19) {background-color: #e7ffed;}
+main table tbody :nth-child(20) {background-color: #e7ffed;}
+
 main table tfoot {
     background-color: #7fb9c2;
     color: black
