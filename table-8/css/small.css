@@ -25,18 +25,22 @@ main {
     min-height: 10rem;
 }
 main table {
+    padding: 2% 2%;
     text-align: center;
     margin: 2em auto;
+    border: 1px solid #000;
 }
 main table thead {
     background-color: #7fb9c2;
     color: black;
     font-size: 36px;
+    border: 1px solid #000;
 }
 main table tbody {
     background-color: #e7f0ed;
     color: black;
     font-size: 24px;
+    border: 1px solid #000;
 }
 main table tbody th {
     background-color: #628ca6;
@@ -54,7 +58,8 @@ main table tbody :nth-child(20) {background-color: #e7ffed;}
 
 main table tfoot {
     background-color: #7fb9c2;
-    color: black
+    color: black;
+    border: 1px solid #000;
 }
 
 /*----------- FOOTER --------------*/
