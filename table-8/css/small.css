@@ -18,18 +18,15 @@ header {
 }
 
 /*----------- NAVIGATION --------------*/
-/*nav button {
-    margin: .2rem 2%;
-    background-color: transparent;
-    border: none;
-    font-size: 1.6rem;
-    color: #555;
-}*/
 
 /*----------- MAIN --------------*/
 main {
     padding: 0 2%;
     min-height: 10rem;
+}
+main table {
+    text-align: center;
+    margin: 2em auto;
 }
 
 /*----------- FOOTER --------------*/
