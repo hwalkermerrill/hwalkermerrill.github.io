@@ -25,18 +25,18 @@ main {
     min-height: 10rem;
 }
 main table {
-    padding: 2% 2%;
     text-align: center;
     margin: 2em auto;
-    border: 1px solid #000;
 }
 main table thead {
+    padding: 2% 0;
     background-color: #7fb9c2;
     color: black;
     font-size: 36px;
     border: 1px solid #000;
 }
 main table tbody {
+    padding: 2% 0;
     background-color: #e7f0ed;
     color: black;
     font-size: 24px;
@@ -46,13 +46,14 @@ main table tbody th {
     background-color: #628ca6;
     color: white;
 }
-main table tbody :nth-child(3) {background-color: #e7ffed;}
+main table tbody tr :nth-child(3) {background-color: #e7ffed;}
 main table tbody :nth-child(5) {background-color: #e7ffed;}
 main table tbody :nth-child(7) {background-color: #e7ffed;}
 
 main table tbody :nth-child(5) :nth-child(3) {background-color: #628ca6; color: white;}
 
 main table tfoot {
+    padding: 2% 0;
     background-color: #7fb9c2;
     color: black;
     border: 1px solid #000;
