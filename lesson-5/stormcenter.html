@@ -63,18 +63,19 @@
     
 <!-- CONTENT HERE -->
     <main class="clearfix">
-        <h1>Course Proposal Application</h1>
+        <h1>Report-A-Storm</h1>
         <form method="get" action="thanks.html">
             <fieldset>
-                <legend>Applicant Information</legend>
+                <legend>Reporter Details</legend>
                 <label class="top">First Name* <input type="text" name="fname" required></label>
                 <label class="top">Last Name* <input type="text" name="lname" required></label>
-                <label class="top">Phone <input type="tel" name="phone" placeholder="1235551234"></label>
-                <label class="top">Email* <input type="email" name="email" placeholder="someone@gmail.com" required></label>
-                <label class="top">Website <input type="url" name="url" placeholder="http://"></label>
+                <label class="top">Phone <input type="tel" name="phone" placeholder="1235551234" required></label>
+                <label class="top">Email <input type="email" name="email" placeholder="someone@gmail.com"></label>
             </fieldset>
             <fieldset>
-                <legend>Course Information</legend>
+                <legend>Storm Details</legend>
+                <label class="top">Zip Code* <input type="number" name="zip" required></label>
+                <label class="top">Storm Date <input type="date" name="completeDate" placeholder="today()"></label>
                 <div>Audience</div>
                 <label class="sbs"><input type="radio" name="audience" value="beginner"> Beginner</label>
                 <label class="sbs"><input type="radio" name="audience" value="intermediate"> Intermediate</label>
