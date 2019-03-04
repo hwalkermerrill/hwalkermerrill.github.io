@@ -30,7 +30,7 @@ main table {
     padding: 15px;
 }
 table, th, td {
-    border: 1px solid #000;
+    border: 1px solid #999;
     border-collapse: collapse;
 }
 th, td {padding: 15px;}
