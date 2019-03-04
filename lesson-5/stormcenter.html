@@ -76,8 +76,7 @@
                 <legend>Storm Details</legend>
                 <label class="top">Zip Code* <input type="number" name="zip" required></label>
                 <label class="top">Storm Date <input type="date" name="stormDate"></label>
-                <label class="top">Course Subject<select name="subject">
-                    <option value="">Please Select &#9662;</option>
+                <label class="top">Storm Type<input type="text" list="storms" name="stormType"><datalist id="storms">
                     <option value="flood">Flash Flood</option>
                     <option value="hail">Hail</option>
                     <option value="surf">High-Surf</option>
@@ -86,7 +85,7 @@
                     <option value="thunder">Thunderstorm</option>
                     <option value="twister">Tornado</option>
                     <option value="vog">Vog (Dangerous)</option>
-                </select></label>
+                </datalist></label>
                 <label class="top">Severity <input type="email" name="email" placeholder="someone@gmail.com"></label>
 
                 <div>Audience</div>
