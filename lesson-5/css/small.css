@@ -170,7 +170,7 @@ form legend {
     padding: 0 .5rem;
 }
 
-form label.top, form div, label.textarea {
+form label.top, form div {
     display: block;
     padding-top: 1rem;
     color: #9c2c13;
@@ -215,7 +215,7 @@ form label.top input:required:valid {
     border-left: green solid 6px;
 }
 
-form label.textarea input {
+form label.top textarea {
     margin: 2% 0;
     width: 100%;
     max-width: 32rem;
