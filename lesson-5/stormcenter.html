@@ -69,9 +69,9 @@
         <form method="get" action="thanks.html">
             <fieldset>
                 <legend>Reporter Details</legend>
-                <label class="top">Name* <input type="text" name="name" required pattern="[A-Za-z' -]" minlength="5"></label>
+                <label class="top">Name* <input type="text" name="name" required pattern="[A-Za-z '-]{5-99}"></label>
                 <label class="top">Phone* <input type="tel" name="phone" placeholder="1235551234" required pattern="[0-9 -]{9,15}"></label>
-                <label class="top">Zip Code* <input type="number" name="zip" required pattern="[0-9 -]" minlength="5" maxlength="12"></label>
+                <label class="top">Zip Code* <input type="number" name="zip" required pattern="[0-9 -]{5,12}"></label>
                 <label class="top">Email <input type="email" name="email" placeholder="someone@gmail.com"></label>
             </fieldset>
             <fieldset>
