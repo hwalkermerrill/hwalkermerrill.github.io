@@ -196,11 +196,8 @@ form label.sbs {
     color: #555;
 }
 
-form label.sb2 {
-    display: block;
-    padding: 1rem;
+form div.line label.top select {
     width: 8rem;
-    color: #555;
 }
 
 form input.submitBtn {
