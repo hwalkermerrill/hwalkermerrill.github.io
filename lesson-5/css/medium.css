@@ -54,6 +54,13 @@ main .row section:nth-child(4) {
 main .gallery figure {
     flex-basis: 46%;
 }
+
+/*----------- FORM --------------*/
+
+form label.top textarea {
+    height: 12rem;
+}
+
 /*----------- FOOTER --------------*/
     
 } /* end of media query */
