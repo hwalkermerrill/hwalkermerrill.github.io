@@ -170,14 +170,14 @@ form legend {
     padding: 0 .5rem;
 }
 
-form label.top, form div {
+form label.top, form div, label.textarea {
     display: block;
     padding-top: 1rem;
     color: #9c2c13;
     font-size: .8rem;
 }
 
-form label.top input, form lable.top select {
+form label.top input, form label.top select {
     -webkit-appearance: none;
     display: block;
     font-size: 1rem;
@@ -210,8 +210,16 @@ form input.submitBtn {
 form label.top input:required {
     border-left: red solid 6px;
 }
+
 form label.top input:required:valid {
     border-left: green solid 6px;
+}
+
+form label.textarea input {
+    margin: 2% 0;
+    width: 100%;
+    max-width: 32rem;
+    height: 16rem;
 }
 /*----------- FOOTER --------------*/
 footer {
