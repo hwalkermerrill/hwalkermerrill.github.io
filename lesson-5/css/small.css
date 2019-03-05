@@ -173,7 +173,8 @@ form legend {
 form label.top, form div, form label.slide {
     display: block;
     padding-top: 1rem;
-    color: #ffd700;
+    background-color: #ffd700;
+    color: #0033ff;
     font-size: .8rem;
 }
 
