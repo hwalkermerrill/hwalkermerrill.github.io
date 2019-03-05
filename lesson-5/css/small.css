@@ -196,6 +196,13 @@ form label.sbs {
     color: #555;
 }
 
+form label.sb2 {
+    display: block;
+    padding: 1rem;
+    width: 8rem;
+    color: #555;
+}
+
 form input.submitBtn {
     border: none;
     background-color: #9c2c13;
