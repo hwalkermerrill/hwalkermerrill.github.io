@@ -196,8 +196,18 @@ form label.sbs {
     color: #555;
 }
 
-form div.line label.top select {
-    width: 8rem;
+form label.slide {
+    display: block;
+    padding-top: 1rem;
+    color: #9c2c13;
+    font-size: 1rem;
+    border: solid 1px #999;
+    border-radius: 4px;
+    padding: .75rem;
+    color: #555;
+    width: 100%;
+    max-width: 20rem;
+    background-color: rgba(0,0,0,0.1);
 }
 
 form input.submitBtn {
