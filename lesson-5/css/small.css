@@ -170,7 +170,7 @@ form legend {
     padding: 0 .5rem;
 }
 
-form label.top, form div {
+form label.top, form div, form label.slide {
     display: block;
     padding-top: 1rem;
     color: #9c2c13;
@@ -196,10 +196,8 @@ form label.sbs {
     color: #555;
 }
 
-form label.slide {
+form label.slide input {
     display: block;
-    padding-top: 1rem;
-    color: #9c2c13;
     font-size: 1rem;
     border: solid 1px #999;
     border-radius: 4px;
