@@ -68,6 +68,7 @@ main .e404 figure {
 }
 main .e404 button {
     float: center;
+    margin: 10rem;
 }
 /*----------- FOOTER--------------*/
 footer {
