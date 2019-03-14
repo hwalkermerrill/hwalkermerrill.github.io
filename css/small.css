@@ -52,15 +52,15 @@ main figcaption {text-align: center; font-size: .8rem;}
 /*----------- 404 --------------*/
 main .e404 {
     background-color: #17a8e4;
-    font-size: 32px;
+    font-size: 28px;
     float: right;
     text-align: center;
 }
 main .e404 h1{
-    font-size: 64px;
+    font-size: 48px;
 }
 main .e404 h2{
-    font-size: 48px;
+    font-size: 36px;
 }
 main .e404 figure {
     float: left;
