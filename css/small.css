@@ -52,12 +52,15 @@ main figcaption {text-align: center; font-size: .8rem;}
 /*----------- 404 --------------*/
 main .e404 {
     background-color: #17a8e4;
+    padding: 2%;
     font-size: 28px;
     float: right;
     text-align: center;
 }
 main .e404 h1{
-    font-size: 48px;
+    color: #444;
+    font-size: 52px;
+    margin-top: 2rem;
 }
 main .e404 h2{
     font-size: 36px;
