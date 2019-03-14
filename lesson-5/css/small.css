@@ -245,7 +245,9 @@ section h2 {
     color: #0033ff;
     text-shadow: 4px 4px 4px #aaa
 }
-
+section.article {
+    border: #555 6px
+}
 /*----------- FOOTER --------------*/
 footer {
     background-color: #00ff00;
