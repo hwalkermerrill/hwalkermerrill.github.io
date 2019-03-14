@@ -54,7 +54,7 @@ main .e404 {
     background-color: #17a8e4;
     font-size: 32px;
     float: right;
-    align-items: center;
+    text-align: center;
 }
 main .e404 h1{
     font-size: 64px;
@@ -65,9 +65,9 @@ main .e404 h2{
 main .e404 figure {
     float: left;
     margin-top: 8rem;
+    margin-bottom: 12rem;
 }
 main .e404 button {
-    float: center;
     margin: 4rem;
 }
 /*----------- FOOTER--------------*/
