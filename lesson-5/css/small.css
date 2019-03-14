@@ -238,9 +238,11 @@ form label.top textarea {
 main .town {
     display: flex;
     flex-wrap: wrap;
-    border: #555 6px;
     flex-basis: 96%;
     margin: 1rem 2%;
+}
+main .town article {
+    border: #555 6px;
 }
 main .town article figure img {
     width: 100%;
