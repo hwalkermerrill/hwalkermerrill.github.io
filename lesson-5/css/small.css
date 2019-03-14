@@ -238,16 +238,16 @@ form label.top textarea {
 main .town {
     display: flex;
     flex-wrap: wrap;
-    flex-basis: 96%;
+    flex-basis: 88%;
     margin: 1rem 2%;
 }
 main .town article {
     border-style: ridge;
     border-color: #ffd700;
-    border-width: 8px;
-    padding: 8px;
+    border-width: 2%;
+    padding: 2%;
 }
-main .town article figure img {
+main .town article img {
     width: 100%;
 }
 

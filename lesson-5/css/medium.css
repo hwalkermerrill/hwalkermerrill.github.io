@@ -52,7 +52,7 @@ main .row section:nth-child(4) {
     float: none;
 }
 main .gallery figure {
-    flex-basis: 46%;
+    flex-basis: 38%;
 }
 
 /*----------- ARTICLE --------------*/
