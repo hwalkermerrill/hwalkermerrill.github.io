@@ -241,10 +241,10 @@ main .town {
 }
 main .town article {
     margin: 1rem 2%;
-    flex-basis: 88%;
+    flex-basis: 96%;
     border-style: ridge;
     border-color: #ffd700;
-    border-width: 2%;
+    border-width: 6px;
     padding: 2%;
 }
 main .town article img {
