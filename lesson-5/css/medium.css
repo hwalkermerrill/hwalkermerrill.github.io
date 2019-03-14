@@ -55,6 +55,11 @@ main .gallery figure {
     flex-basis: 46%;
 }
 
+/*----------- ARTICLE --------------*/
+main article {
+    flex-basis: 46%;
+}
+
 /*----------- FORM --------------*/
 
 form label.top textarea {

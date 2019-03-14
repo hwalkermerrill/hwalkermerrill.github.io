@@ -234,6 +234,18 @@ form label.top textarea {
     height: 8rem;
 }
 
+/*----------- ARTICLE --------------*/
+main article {
+    display: flex;
+    flex-wrap: wrap;
+    border: #555 6px;
+    flex-basis: 96%;
+    margin: 1rem 2%;
+}
+main article figure img {
+    width: 100%;
+}
+
 /*----------- FOOTER --------------*/
 footer {
     background-color: #00ff00;
