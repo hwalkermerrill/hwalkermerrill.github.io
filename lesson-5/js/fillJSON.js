@@ -10,7 +10,7 @@ function fillJSON(){
     request.send();
     request.onload = function() {
         var localTowns = request.response;
-        populateHeader(localTowns);
+        //populateHeader(localTowns);
         showTowns(localTowns);
     }
     /*function populateHeader(jsonObj) {
