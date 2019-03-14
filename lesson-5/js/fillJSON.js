@@ -13,7 +13,7 @@ function fillJSON(){
         populateHeader(superHeroes);
         showHeroes(superHeroes);
     }
-    function populateHeader(jsonObj) {
+    /*function populateHeader(jsonObj) {
         var myH1 = document.createElement('h1');
         myH1.textContent = jsonObj['squadName'];
         header.appendChild(myH1);
@@ -21,7 +21,7 @@ function fillJSON(){
         var myPara = document.createElement('p');
         myPara.textContent = 'Hometown: ' + jsonObj['homeTown'] + ' // Formed: ' + jsonObj['formed'];
         header.appendChild(myPara);
-    }
+    }*/
     function showHeroes(jsonObj) {
         var heroes = jsonObj['members'];
 
