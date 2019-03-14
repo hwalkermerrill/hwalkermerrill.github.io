@@ -151,6 +151,9 @@ main .gallery figure {
 main .gallery figure img {
     width: 100%;
 }
+main .gallery figure img:hover {
+    box-shadow: 0 0 10px #ffd700;
+}
 main img {
     width:100%;
     margin-right: auto;
@@ -249,6 +252,9 @@ main .town article {
 }
 main .town article img {
     width: 100%;
+}
+main .town article:hover {
+    box-shadow: 0 0 10px #555;
 }
 
 /*----------- FOOTER --------------*/
