@@ -233,11 +233,17 @@ form label.top textarea {
     max-width: 32rem;
     height: 8rem;
 }
-/*----------- FOOTER --------------*/
-footer {
-    background-color: #ddd;
-    padding: .5rem 2%;
-    text-align: center;
+/*----------- SECTION --------------*/
+section {
+    padding: 0 2%;
+    min-height: 10rem;
+}
+section h2 {
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 30px;
+    color: #0033ff;
+    text-shadow: 4px 4px 4px #aaa
 }
 
 /*----------- FOOTER --------------*/
