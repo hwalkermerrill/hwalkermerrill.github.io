@@ -49,7 +49,7 @@ function fillJSON(){
                 myIMG.setAttribute('src', 'images/kailua.jpg');
                 myIMG.setAttribute('alt', 'Placerton');
             } else if (towns[i].name == "Preston") {
-                myIMG.setAttribute('src', '/images/ewabeach.jpg');
+                myIMG.setAttribute('src', 'images/ewabeach.jpg');
                 myIMG.setAttribute('alt', 'Preston');
             } else if (towns[i].name == "Soda Springs") {
                 myIMG.setAttribute('src', 'images/kahului.jpg');
