@@ -64,6 +64,7 @@ main .e404 h2{
 }
 main .e404 figure {
     float: left;
+    margin-top: auto;
 }
 main .e404 button {
     float: center;
