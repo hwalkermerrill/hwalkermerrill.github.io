@@ -12,7 +12,6 @@ body {
 header {
     background-color: #17a8e4;
     padding: 1rem 2%;
-    text-align: center;
 }
 header h1 {
     margin: 0;
@@ -35,7 +34,11 @@ nav a {
 }
 nav a:hover {background-color: #444}
 nav ul li a {border-top: 1px solid rgba(0,0,0,0.3);}
-nav ul.hide {display: none;}
+nav ul.hide {
+    display: none;
+    margin-right: auto;
+    margin-left: auto;
+}
 /*----------- MAIN --------------*/
 main{
     padding: 1rem 2%;
