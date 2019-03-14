@@ -235,14 +235,14 @@ form label.top textarea {
 }
 
 /*----------- ARTICLE --------------*/
-main article {
+main .town {
     display: flex;
     flex-wrap: wrap;
     border: #555 6px;
     flex-basis: 96%;
     margin: 1rem 2%;
 }
-main article figure img {
+main .town article figure img {
     width: 100%;
 }
 

@@ -56,7 +56,7 @@ main .gallery figure {
 }
 
 /*----------- ARTICLE --------------*/
-main article {
+main .town {
     flex-basis: 46%;
 }
 
