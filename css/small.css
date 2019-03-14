@@ -35,7 +35,7 @@ nav a {
 nav a:hover {background-color: #444}
 nav ul li a {border-top: 1px solid rgba(0,0,0,0.3);}
 nav ul.hide {display: none;}
-/* main rules here */
+/*----------- MAIN --------------*/
 main{
     padding: 1rem 2%;
     display: block;
@@ -49,13 +49,30 @@ main figure{
 }
 main figcaption {text-align: center; font-size: .8rem;}
 
-
+/*----------- 404 --------------*/
+main .e404 {
+    background-color: #17a8e4;
+    font-size: 32px;
+    float: right;
+    align-items: center;
+}
+main .e404 h1{
+    font-size: 64px;
+}
+main .e404 h2{
+    font-size: 48px;
+}
+main .e404 figure {
+    float: left;
+}
+/*----------- FOOTER--------------*/
 footer {
     text-align: center;
     padding: 1rem 2%;
     background-color: #eee;
 }
 
+/*----------- CLEARFIX --------------*/
 .clearfix:after {
     content: "";
     display: table;
