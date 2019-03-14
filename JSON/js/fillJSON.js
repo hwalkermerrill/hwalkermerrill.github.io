@@ -3,7 +3,7 @@ window.onload = fillJSON;
 function fillJSON(){
     var header = document.querySelector('header');
     var section = document.querySelector('section');
-    var requestURL = 'JSON\json\superheroes.json';
+    var requestURL = 'https://github.com/hwalkermerrill/hwalkermerrill.github.io/blob/master/JSON/json/superheroes.json';
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);
     request.responseType = 'json';
