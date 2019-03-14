@@ -3,7 +3,7 @@ window.onload = fillJSON;
 function fillJSON(){
     //var header = document.querySelector('header');
     var section = document.querySelector('section');
-    var requestURL = 'towndata.json';
+    var requestURL = 'js/towndata.json';
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);
     request.responseType = 'json';
