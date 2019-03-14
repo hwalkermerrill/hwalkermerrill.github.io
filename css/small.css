@@ -65,6 +65,9 @@ main .e404 h2{
 main .e404 figure {
     float: left;
 }
+main .e404 button {
+    float: center;
+}
 /*----------- FOOTER--------------*/
 footer {
     text-align: center;
