@@ -29,6 +29,13 @@ form label.top textarea {
     height: 16rem;
 }
 
+/*----------- SECTION --------------*/
+section.article {
+    clear: both;
+    column-count: 3;
+    column-rule: 1px solid #ddd;
+}
+
 /*----------- FOOTER --------------*/
     
 } /* end of media query */
