@@ -30,7 +30,7 @@ form label.top textarea {
 }
 
 /*----------- SECTION --------------*/
-section.article {
+section {
     clear: both;
     column-count: 3;
     column-rule: 1px solid #ddd;
