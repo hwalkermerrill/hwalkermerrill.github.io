@@ -64,11 +64,11 @@ main .e404 h2{
 }
 main .e404 figure {
     float: left;
-    margin-top: auto;
+    margin-top: 8rem;
 }
 main .e404 button {
     float: center;
-    margin: 10rem;
+    margin: 4rem;
 }
 /*----------- FOOTER--------------*/
 footer {
