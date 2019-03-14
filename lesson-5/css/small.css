@@ -147,8 +147,10 @@ main .gallery {
 main .gallery figure {
     flex-basis: 96%;
     margin: 1rem 2%;
-    padding: 1%;
     transition: all .2s ease-in-out;
+}
+main .gallery figure figcaption {
+    padding: 1%;
 }
 main .gallery figure:hover {
     transform: scale(1.05);
