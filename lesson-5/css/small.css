@@ -252,7 +252,7 @@ main .town article {
     border-style: ridge;
     border-color: #ffd700;
     border-width: 6px;
-    padding: 2%;
+    padding: 1%;
     transition: all .2s ease-in-out;
 }
 main .town article img {
