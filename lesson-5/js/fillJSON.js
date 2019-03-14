@@ -2,7 +2,7 @@ window.onload = fillJSON;
 
 function fillJSON(){
     //var header = document.querySelector('header');
-    var section = document.querySelector('section');
+    var section = document.querySelector('main');
     var requestURL = 'js/towndata.json';
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);

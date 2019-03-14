@@ -61,13 +61,6 @@ form label.top textarea {
     height: 12rem;
 }
 
-/*----------- SECTION --------------*/
-section {
-    clear: both;
-    column-count: 2;
-    column-rule: 1px solid #ddd;
-}
-
 /*----------- FOOTER --------------*/
     
 } /* end of media query */
