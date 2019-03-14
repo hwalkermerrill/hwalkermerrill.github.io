@@ -34,6 +34,30 @@ function fillJSON(){
             var myPara4 = document.createElement('p');
             var myPara5 = document.createElement('p');
             var myList = document.createElement('ul');
+            var myIMG = document.createElement('img');
+
+            if (towns[i].name == "Franklin") {
+                myImg.setAttribute('src', 'lesson-5\images\honolulu.jpg');
+                myImg.setAttribute('alt', 'Franklin Image');
+            } else if (towns[i].name == "Fish Haven") {
+                myImg.setAttribute('src', 'lesson-5\images\wahiawa.jpg');
+                myImg.setAttribute('alt', 'Fish Haven');
+            } else if (towns[i].name == "Greenville") {
+                myImg.setAttribute('src', 'lesson-5\images\lanakila.jpg');
+                myImg.setAttribute('alt', 'Greenville');
+            } else if (towns[i].name == "Placerton") {
+                myImg.setAttribute('src', 'lesson-5\images\kailua.jpg');
+                myImg.setAttribute('alt', 'Placerton');
+            } else if (towns[i].name == "Preston") {
+                myImg.setAttribute('src', 'lesson-5\images\ewabeach.jpg');
+                myImg.setAttribute('alt', 'Preston');
+            } else if (towns[i].name == "Soda Springs") {
+                myImg.setAttribute('src', 'lesson-5\images\kahului.jpg');
+                myImg.setAttribute('alt', 'Soda Springs');
+            } else {
+                myImg.setAttribute('src', 'lesson-5\images\waianae.jpg');
+                myImg.setAttribute('alt', 'Springfield');
+            }
 
             myH2.textContent = towns[i].name;
             myPara1.textContent = 'Motto: ' + towns[i].motto;
@@ -56,6 +80,7 @@ function fillJSON(){
             myArticle.appendChild(myPara4);
             myArticle.appendChild(myPara5);
             myArticle.appendChild(myList);
+            myArticle.appendChild(myIMG);
 
             section.appendChild(myArticle);
         }
