@@ -20,7 +20,7 @@ main .gallery figure {
 main .gallery figure:hover {box-shadow: 0 0 50px #333;}
 
 /*----------- ARTICLE --------------*/
-main .town {
+main .town article {
     flex-basis: 21%;
 }
 
