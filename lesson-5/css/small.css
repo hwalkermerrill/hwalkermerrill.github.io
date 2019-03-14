@@ -244,7 +244,8 @@ main .town {
 main .town article {
     border-style: ridge;
     border-color: #ffd700;
-    border-width: 7px;
+    border-width: 8px;
+    padding: 8px;
 }
 main .town article figure img {
     width: 100%;
