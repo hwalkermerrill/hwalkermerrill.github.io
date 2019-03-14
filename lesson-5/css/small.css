@@ -242,7 +242,7 @@ main .town {
     margin: 1rem 2%;
 }
 main .town article {
-    border: #555 6px;
+    border: 25px #555;
 }
 main .town article figure img {
     width: 100%;
