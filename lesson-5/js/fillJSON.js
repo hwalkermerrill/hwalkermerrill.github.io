@@ -37,25 +37,25 @@ function fillJSON(){
             var myIMG = document.createElement('img');
 
             if (towns[i].name == "Franklin") {
-                myIMG.setAttribute('src', 'lesson-5\images\honolulu.jpg');
+                myIMG.setAttribute('src', 'images/honolulu.jpg');
                 myIMG.setAttribute('alt', 'Franklin Image');
             } else if (towns[i].name == "Fish Haven") {
-                myIMG.setAttribute('src', 'lesson-5\images\wahiawa.jpg');
+                myIMG.setAttribute('src', 'images/wahiawa.jpg');
                 myIMG.setAttribute('alt', 'Fish Haven');
             } else if (towns[i].name == "Greenville") {
-                myIMG.setAttribute('src', 'lesson-5\images\lanakila.jpg');
+                myIMG.setAttribute('src', 'images/lanakila.jpg');
                 myIMG.setAttribute('alt', 'Greenville');
             } else if (towns[i].name == "Placerton") {
-                myIMG.setAttribute('src', 'lesson-5\images\kailua.jpg');
+                myIMG.setAttribute('src', 'images/kailua.jpg');
                 myIMG.setAttribute('alt', 'Placerton');
             } else if (towns[i].name == "Preston") {
-                myIMG.setAttribute('src', 'lesson-5\images\ewabeach.jpg');
+                myIMG.setAttribute('src', '/images/ewabeach.jpg');
                 myIMG.setAttribute('alt', 'Preston');
             } else if (towns[i].name == "Soda Springs") {
-                myIMG.setAttribute('src', 'lesson-5\images\kahului.jpg');
+                myIMG.setAttribute('src', 'images/kahului.jpg');
                 myIMG.setAttribute('alt', 'Soda Springs');
             } else {
-                myIMG.setAttribute('src', 'lesson-5\images\waianae.jpg');
+                myIMG.setAttribute('src', 'images/waianae.jpg');
                 myIMG.setAttribute('alt', 'Springfield');
             }
 
