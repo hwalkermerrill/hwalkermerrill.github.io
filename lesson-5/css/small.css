@@ -82,23 +82,21 @@ nav ul.hide {
 
 /*----------- MAIN --------------*/
 main {
-    padding: 0;
+    padding: 2%;
     min-height: 10rem;
-    margin-right: 2%;
-    margin-left: 2%;
 }
 main h1 {
     font-weight: bold;
     font-size: 40px;
     color: #0033ff;
-    text-shadow: 4px 4px 4px #aaa
+    text-shadow: 4px 4px 4px #aaa;
 }
 Main h2 {
     margin-bottom: 0;
     font-weight: normal;
     font-size: 30px;
     color: #0033ff;
-    text-shadow: 4px 4px 4px #aaa
+    text-shadow: 4px 4px 4px #aaa;
 }
 main .herodiv {
     width: 100%;
