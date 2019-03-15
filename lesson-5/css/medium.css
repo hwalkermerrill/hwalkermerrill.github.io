@@ -42,7 +42,7 @@ main .row section:nth-child(2){
     float: left;
 }
 main .row section:nth-child(3){
-    width: 50%;
+    width: 48%;
     float: left;
     margin-top: 52px;
 }
