@@ -13,17 +13,12 @@
 /*----------- NAVIGATION --------------*/
 
 /*----------- MAIN --------------*/
-
 main .gallery figure {
     flex-basis: 29%;
 }
 main .gallery figure:hover {box-shadow: 0 0 50px #333;}
 
 /*----------- ARTICLE --------------*/
-main .town {
-    justify-content: center;
-}
-
 main .town article {
     flex-basis: 29%;
 }
