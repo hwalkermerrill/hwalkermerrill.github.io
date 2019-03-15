@@ -66,6 +66,13 @@ form label.top textarea {
     height: 12rem;
 }
 
+/*----------- CONTACT --------------*/
+body .contact {
+    width: 100%;
+    column-count: 2;
+    float: none;
+}
+
 /*----------- FOOTER --------------*/
     
 } /* end of media query */
