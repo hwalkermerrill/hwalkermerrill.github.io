@@ -22,6 +22,7 @@ main .gallery figure:hover {box-shadow: 0 0 50px #333;}
 /*----------- ARTICLE --------------*/
 main .town article {
     flex-basis: 29%;
+    justify-content: center;
 }
 
 /*----------- FORM --------------*/
