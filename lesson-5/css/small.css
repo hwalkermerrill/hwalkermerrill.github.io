@@ -176,14 +176,12 @@ form legend {
     margin: 0 1rem;
     padding: 0 .5rem;
 }
-
 form label.top, form div, form label.slide {
     display: block;
     padding-top: 1rem;
     color: #0033ff;
     font-size: .8rem;
 }
-
 form label.top input, form label.top select {
     -webkit-appearance: none;
     display: block;
@@ -196,13 +194,11 @@ form label.top input, form label.top select {
     max-width: 20rem;
     background-color: rgba(0,0,0,0.1);
 }
-
 form label.sbs {
     display: block;
     padding: .75rem 0;
     color: #555;
 }
-
 form label.slide input {
     display: block;
     font-size: 1rem;
@@ -214,7 +210,6 @@ form label.slide input {
     max-width: 20rem;
     background-color: rgba(0,0,0,0.1);
 }
-
 form input.submitBtn {
     border: none;
     background-color: #ffd700;
@@ -225,15 +220,12 @@ form input.submitBtn {
     width: 96%;
     max-width: 20rem;
 }
-
 form label.top input:required {
     border-left: red solid 6px;
 }
-
 form label.top input:required:valid {
     border-left: green solid 6px;
 }
-
 form label.top textarea {
     margin: 2% 0;
     width: 100%;
@@ -261,6 +253,19 @@ main .town article img {
 main .town article:hover {
     box-shadow: 0 0 12px #555;
     transform: scale(1.05);
+}
+
+/*----------- CONTACT --------------*/
+body .contact {
+    background-color: #ffd700;
+    color: #0033ff;
+    padding: 0 2%;
+}
+body .contact p {
+    margin: 0.2rem;
+}
+body .contact h2 {
+    margin: 0;
 }
 
 /*----------- FOOTER --------------*/
