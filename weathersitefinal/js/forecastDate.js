@@ -20,5 +20,5 @@ function forecastDate(x) {
     }
     else dw = "Sunday"
 
-    return dw
+    document.write(dw);
 }
