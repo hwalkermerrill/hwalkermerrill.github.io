@@ -29,8 +29,9 @@
 <!-- enhance-desktop -->
 <link href="css/large.css" rel="stylesheet">
 
-<script src="js/windchill.js"></script>
 <script src="js/hamburger.js"></script>
+<script src="js/getweather.js"></script>
+<script src="js/windchill.js"></script>
 </head>
 <body>
 <!-- HEADER HERE -->
@@ -72,7 +73,7 @@
                     images/franklin_medium.jpg 1020w,
                     images/franklin_large.jpg 1920w">
             <section class="conditions">
-                <h3>Current Conditions</h3>
+                <h3>Current Conditions <script>currentweather(preston)</script></h3>
                 <p>Sunny</p>
                 <p>Low 69°</p>
                 <p>High 78°</p>
@@ -148,7 +149,6 @@
     </main>
     
 <!-- SCRIPT HERE -->      
-<script src="js/getweather.js"></script>
 
 <!-- CONTACT HERE -->
     <div class="contact">
