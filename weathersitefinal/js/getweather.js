@@ -10,8 +10,10 @@ function currentWeather(x){
         var weatherInfo = JSON.parse(weatherObject.responseText);
         console.log(weatherInfo);
 
-        document.getElementById('place').innerHTML = weatherInfo.name;
+        document.getElementById('currentType').innerHTML = weatherInfo.weather.description;
         document.getElementById('currentTemp').innerHTML = weatherInfo.main.temp;
+        document.getElementById('lowTemp').innerHTML = weatherInfo.main.temp_min;
+        document.getElementById('highTemp').innerHTML = weatherInfo.main.temp_max;
         document.getElementById('currentWind').innerHTML = weatherInfo.wind.speed;
 
         var iconcode = weatherInfo.weather[0].icon;
