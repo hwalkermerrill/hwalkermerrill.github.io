@@ -1,8 +1,12 @@
-var weatherObject = new XMLHttpRequest;
-weatherObject.open('GET','//api.openweathermap.org/data/2.5/weather?zip=02111,us&appid=fb75400a87c1c698878761e1d3548782&units=imperial',true);
-
-weatherObject.send();
-
+function currentWeather(x){
+    var cid
+    if (x == preston) {cid = 5604473}
+    else if (x == soda) {cid = 0}
+    else if (x == fish) {cid = 0}
+    var weatherObject = new XMLHttpRequest;
+    weatherObject.open('GET','//api.openweathermap.org/data/2.5/weather?id=' + cid + ',us&appid=fb75400a87c1c698878761e1d3548782&units=imperial',true);
+    weatherObject.send();
+}
 weatherObject.onload = function() {
     var weatherInfo = JSON.parse(weatherObject.responseText);
     console.log(weatherInfo);
