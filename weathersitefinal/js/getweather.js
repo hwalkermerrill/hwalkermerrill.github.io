@@ -10,7 +10,7 @@ function currentWeather(x) {
         var weatherInfo = JSON.parse(weatherObject.responseText);
         console.log(weatherInfo);
 
-        document.getElementById('currentType').innerHTML = weatherInfo.weather.description;
+        document.getElementById('currentType').innerHTML = weatherInfo.weather[0].description;
         //document.getElementById('currentTemp').innerHTML = weatherInfo.main.temp;
         document.getElementById('lowTemp').innerHTML = weatherInfo.main.temp_min;
         document.getElementById('highTemp').innerHTML = weatherInfo.main.temp_max;
