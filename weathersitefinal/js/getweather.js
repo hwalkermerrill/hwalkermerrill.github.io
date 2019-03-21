@@ -11,9 +11,9 @@ function currentWeather(x) {
         console.log(weatherInfo);
 
         document.getElementById('currentType').innerHTML = weatherInfo.weather[0].description;
-        document.getElementById('humidity').innerHTML = weatherInfo.main.humidity;
-        document.getElementById('lowTemp').innerHTML = weatherInfo.main.temp_min;
-        document.getElementById('highTemp').innerHTML = weatherInfo.main.temp_max;
+        document.getElementById('humidity').innerHTML = Math.round(weatherInfo.main.humidity);
+        document.getElementById('lowTemp').innerHTML = Math.round(weatherInfo.main.temp_min);
+        document.getElementById('highTemp').innerHTML = Math.round(weatherInfo.main.temp_max);
 
         var iconcode = weatherInfo.weather[0].icon;
         var icon_path = "//openweathermap.org/img/w/" + iconcode + ".png";
