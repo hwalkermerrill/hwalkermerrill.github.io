@@ -11,10 +11,10 @@ function currentWeather(x) {
         console.log(weatherInfo);
 
         document.getElementById('currentType').innerHTML = weatherInfo.weather.description;
-        document.getElementById('currentTemp').innerHTML = weatherInfo.main.temp;
+        //document.getElementById('currentTemp').innerHTML = weatherInfo.main.temp;
         document.getElementById('lowTemp').innerHTML = weatherInfo.main.temp_min;
         document.getElementById('highTemp').innerHTML = weatherInfo.main.temp_max;
-        document.getElementById('currentWind').innerHTML = weatherInfo.wind.speed;
+        //document.getElementById('currentWind').innerHTML = weatherInfo.wind.speed;
 
         var iconcode = weatherInfo.weather[0].icon;
         var icon_path = "//openweathermap.org/img/w/" + iconcode + ".png";
