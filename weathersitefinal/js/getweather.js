@@ -18,4 +18,4 @@ function currentWeather(x){
         var icon_path = "//openweathermap.org/img/w/" + iconcode + ".png";
         document.getElementById('weather_icon').src = icon_path;
 
-}} // end of functiona
+}} // end of function
