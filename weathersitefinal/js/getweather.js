@@ -1,8 +1,8 @@
 function currentWeather(x){
     var cid
-    if (x == preston) {cid = 5604473}
-    else if (x == soda) {cid = 5678757}
-    else if (x == fish) {cid = 5585010}
+    if (x == 1) {cid = 5604473} // preston
+    else if (x == 2) {cid = 5678757} // soda springs
+    else if (x == 3) {cid = 5585010} // fish haven  
     var weatherObject = new XMLHttpRequest;
     weatherObject.open('GET','//api.openweathermap.org/data/2.5/weather?id=' + cid + ',us&appid=fb75400a87c1c698878761e1d3548782&units=imperial',true);
     weatherObject.send();
@@ -18,4 +18,4 @@ function currentWeather(x){
         var icon_path = "//openweathermap.org/img/w/" + iconcode + ".png";
         document.getElementById('weather_icon').src = icon_path;
 
-}} // end of function
+}} // end of functiona
