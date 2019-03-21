@@ -9,16 +9,16 @@ function forecastDate(x) {
     }
 
     if (dw < 4) {
-        if (dw == 1) {dw = "Monday"}
-    else if (dw == 2) {dw = "Tuesday"}
-    else dw = "Wednesday"
+        if (dw == 1) {dw = "Sunday"}
+    else if (dw == 2) {dw = "Monday"}
+    else dw = "Tuesday"
     }
     else if (dw < 7) {
-        if (dw == 4) {dw = "Thursday"}
-        else if (dw == 5) {dw = "Friday"}
-        else dw = "Saturday"
+        if (dw == 4) {dw = "Wednesday"}
+        else if (dw == 5) {dw = "Thursday"}
+        else dw = "Friday"
     }
-    else dw = "Sunday"
+    else dw = "Saturday"
 
     document.write(dw);
 }
