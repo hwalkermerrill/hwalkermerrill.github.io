@@ -17,7 +17,7 @@ function currentWeather(x) {
 
         var iconcode = weatherInfo.weather[0].icon;
         var icon_path = "//openweathermap.org/img/w/" + iconcode + ".png";
-        document.getElementById('weather_icon').src = icon_path;
+        //document.getElementById('weather_icon').src = icon_path;
 
         // Feels Like - Wind Chill
         var tempF = parseFloat(document.getElementById('currentTemp').innerHTML = weatherInfo.main.temp);
