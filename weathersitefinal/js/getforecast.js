@@ -10,14 +10,14 @@ function futureWeather(x) {
         var weatherInfo = JSON.parse(weatherObject.responseText);
         console.log(weatherInfo);
 
-        document.getElementById('currentType').innerHTML = weatherInfo.weather[0].description;
+        /*document.getElementById('currentType').innerHTML = weatherInfo.weather[0].description;
         document.getElementById('humidity').innerHTML = weatherInfo.main.humidity;
         document.getElementById('lowTemp').innerHTML = weatherInfo.main.temp_min;
         document.getElementById('highTemp').innerHTML = weatherInfo.main.temp_max;
 
         var iconcode = weatherInfo.weather[0].icon;
         var icon_path = "//openweathermap.org/img/w/" + iconcode + ".png";
-        //document.getElementById('weather_icon').src = icon_path;
+        //document.getElementById('weather_icon').src = icon_path;*/
 
         /* Feels Like - Wind Chill
         var tempF = parseFloat(weatherInfo.main.temp);
