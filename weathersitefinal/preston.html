@@ -75,7 +75,7 @@
             <section class="conditions">
                 <h3>Current Conditions <script>currentWeather(1)</script></h3>
                 <p><span id="currentType">Cloudy</span><!--<img src="images/placeholder.png" alt="current weather" id="weather_icon">--></p>
-                <p>Feels Like: <script>windchill("currentTemp", "currentWind")</script>&deg;</p>
+                <p>Feels Like: <script>windchill(<span id="currentTemp">00</span>, <span id="currentWind">00</span>)</script>&deg;</p>
                 <p>Low <span id="lowTemp">00</span>&deg;</p>
                 <p>High <span id="highTemp">00</span>&deg;</p>
                 <p>Humidity <span id="humidity">00</span>%</p>
