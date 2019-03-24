@@ -134,7 +134,7 @@ main .row section:nth-child(3) {
     margin-left: 2%;
     margin-right: 0;
 }
-main .row section:nth-child(4) {
+/*main .row section:nth-child(4) {
     background-color: #ffd700;
     color: #0033ff;
     padding: 0 2%;
@@ -144,7 +144,7 @@ main .row section:nth-child(4) p {
 }
 main .row section:nth-child(4) h2 {
     margin: 0;
-}
+}*/
 main .gallery {
     display: flex;
     flex-wrap: wrap;
