@@ -11,7 +11,7 @@ function currentWeather(x) {
         console.log(weatherInfo);
 
         document.getElementById('currentType').innerHTML = weatherInfo.weather[0].description;
-        document.getElementById('humidity').innerHTML = Math.round(weatherInfo.main.humidity);
+        document.getElementById('wind').innerHTML = Math.round(weatherInfo.wind.speed);
         document.getElementById('lowTemp').innerHTML = Math.round(weatherInfo.main.temp_min);
         document.getElementById('highTemp').innerHTML = Math.round(weatherInfo.main.temp_max);
 
