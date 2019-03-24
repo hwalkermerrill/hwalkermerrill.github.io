@@ -79,15 +79,15 @@
             <fieldset>
                 <legend>Storm Details</legend>
                 <label class="top">Storm Date <input type="date" name="stormDate"></label>
-                <label class="top">Storm Type<input type="text" list="storms" name="stormType" pattern="[A-Za-a' -]"><datalist id="storms">
+                <label class="top">Storm Type<input type="text" list="storms" name="stormType" pattern="[A-Za-z ]{4,}"><datalist id="storms">
+                    <option value="Dangerous Vog">Dangerous Vog</option>
                     <option value="Flash Flood">Flash Flood</option>
                     <option value="Hail">Hail</option>
-                    <option value="High-Surf">High-Surf</option>
-                    <option value="High-Winds">High-Winds</option>
+                    <option value="High Surf">High Surf</option>
+                    <option value="High Winds">High Winds</option>
                     <option value="Hurricane">Hurricane</option>
                     <option value="Thunderstorm">Thunderstorm</option>
                     <option value="Tornado">Tornado</option>
-                    <option value="Vog (Dangerous)">Vog (Dangerous)</option>
                 </datalist></label>
                 <label class="slide">Storm Severity  <input type="range" name="severity" min="1" max="10" step="1"></label>
                 <label class="top">Storm Region  <select name="subject">
