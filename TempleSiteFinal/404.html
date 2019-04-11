@@ -1,60 +1,73 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-us">
 <head>
-    <meta charset="utf-8">
-    <title>Page Not Found</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
+<meta charset="utf-8">
+<meta name="description" content="404 Error Page">
+<meta name="author" content="Harrison Merrill">
 
-        * {
-            line-height: 1.2;
-            margin: 0;
-        }
+<title>Error 404: Page Not Found</title>
 
-        html {
-            color: #888;
-            display: table;
-            font-family: sans-serif;
-            height: 100%;
-            text-align: center;
-            width: 100%;
-        }
+<!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH & stops the font from enlarging when a phone is turned sideways-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        body {
-            display: table-cell;
-            vertical-align: middle;
-            margin: 2em auto;
-        }
+<!-- This loads the "Cabin" font style on the user device while browsing this HTML-->
+<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
 
-        h1 {
-            color: #555;
-            font-size: 2em;
-            font-weight: 400;
-        }
+<!-- STYLE SHEETS -->
+<link href="css/normalize.css" rel="stylesheet">
+<!-- phone-default -->
+<link href="css/error1.css" rel="stylesheet">
+<!-- enhance-tablet -->
+<link href="css/error2.css" rel="stylesheet">
+<!-- enhance-desktop -->
+<link href="css/error3.css" rel="stylesheet">
 
-        p {
-            margin: 0 auto;
-            width: 280px;
-        }
-
-        @media only screen and (max-width: 280px) {
-
-            body, p {
-                width: 95%;
-            }
-
-            h1 {
-                font-size: 1.5em;
-                margin: 0 0 0.3em;
-            }
-
-        }
-
-    </style>
+<script src="js/hamburger.js"></script>
 </head>
 <body>
-    <h1>Page Not Found</h1>
-    <p>Sorry, but the page you were trying to view does not exist.</p>
+<!-- HEADER HERE -->
+<header class="clearfix">
+    
+</header>
+        
+<!-- NAVIGATION HERE -->
+    <nav class="clearfix">
+        <ul id="primaryNav" class="hide">
+            <li><a href="https://hwalkermerrill.github.io/index.html">Main</a></li>
+            <li><a href="https://hwalkermerrill.github.io/weathersitefinal/index.html">Weather Site</a></li>
+            <li><a href="https://hwalkermerrill.github.io/war4crown/index.html">War for the Crown</a></li>
+        </ul>
+    </nav>
+
+<!-- CONTENT HERE -->
+    <main class="clearfix">
+        <div class="e404">
+            <figure>
+                <img src="images/404 Detective.png" alt="Missing Page Detective">
+                <figcaption></figcaption>
+            </figure>
+            <h1>404</h1>
+            <h2>Looks like this page is missing.</h2>
+            <h2>Don't worry though, our best man is on the case.</h2>
+            <p>Meanwhile, why don't you follow a link above,</p>
+            <br>
+            <p>or</p>
+            <button onclick="history.go(-1)">GO BACK</button>
+        </div>
+    </main>
+    
+
+<!-- SECTION HERE -->
+    <section class="clearfix">
+        
+    </section>
+
+<!-- SCRIPT HERE -->      
+    
+<!-- FOOTER HERE -->   
+    <footer>
+        &copy; <script src="js/currentdate.js"></script> &bull; Harrison Merrill &bull; All rights reserved
+    </footer>
+
 </body>
 </html>
-<!-- IE needs 512+ bytes: https://blogs.msdn.microsoft.com/ieinternals/2010/08/18/friendly-http-error-pages/ -->
