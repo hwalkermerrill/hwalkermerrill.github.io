@@ -14,7 +14,7 @@ body {
 /*----------- HEADER --------------*/
 header {
     padding: .5rem 2%;
-    background-color: #00ff00;
+    background-color: #c0c0c0;
     display: grid;
     grid-template-columns: 85px auto 5rem;
 }
@@ -33,14 +33,14 @@ header h1 {
     margin-top: 1rem;
     font-weight: bold;
     font-size: 40px;
-    color: #0033ff;
+    color: #527ee9;
     text-shadow: 4px 4px 4px #aaa
 }
 header h2 {
     margin: 0;
     font-weight: normal;
     font-size: 30px;
-    color: #0033ff;
+    color: #527ee9;
     text-shadow: 4px 4px 4px #aaa
 }
 
@@ -53,7 +53,7 @@ header h2 {
     color: #555;
 }*/
 nav {
-    background-color: #00ff00;
+    background-color: #c0c0c0;
 }
 nav ul {
     list-style-type: none;
@@ -62,7 +62,7 @@ nav ul {
 }
 nav ul li a {
     display: block;
-    color: #0033ff;
+    color: #527ee9;
     border-top: 1px solid rgba(0,0,0,0.3);
     padding: .5rem 0;
     text-decoration: none;
@@ -71,11 +71,11 @@ nav ul li a {
 }
 nav ul li a:hover {
     background-color: #ffd700;
-    color: #0033ff;
+    color: #527ee9;
 }
 nav ul li.active a {
-    background-color: #0033ff;
-    color: #00ff00;
+    background-color: #527ee9;
+    color: #c0c0c0;
 }
 nav ul.hide {
     display: none;
@@ -89,14 +89,14 @@ main {
 main h1 {
     font-weight: bold;
     font-size: 40px;
-    color: #0033ff;
+    color: #527ee9;
     text-shadow: 4px 4px 4px #aaa;
 }
 Main h2 {
     margin-bottom: 0;
     font-weight: normal;
     font-size: 30px;
-    color: #0033ff;
+    color: #527ee9;
     text-shadow: 4px 4px 4px #aaa;
 }
 main .herodiv {
@@ -172,19 +172,19 @@ main img {
 /*----------- FORM --------------*/
 form fieldset {
     margin: 2rem 0;
-    border: 1px solid #0033ff;
+    border: 1px solid #527ee9;
     border-radius: 10px;
     padding: .5rem 2%;
 }
 form legend {
-    color: #0033ff;
+    color: #527ee9;
     margin: 0 1rem;
     padding: 0 .5rem;
 }
 form label.top, form div, form label.slide {
     display: block;
     padding-top: 1rem;
-    color: #0033ff;
+    color: #527ee9;
     font-size: .8rem;
 }
 form label.top input, form label.top select {
@@ -217,7 +217,7 @@ form label.slide input {
 }
 form input.submitBtn {
     border: none;
-    background-color: #ffd700;
+    background-color: #527ee9;
     color: black;
     border-radius: 1rem;
     padding: .75rem 1.5rem;
@@ -247,7 +247,7 @@ main .town article {
     margin: 1rem 2%;
     flex-basis: 96%;
     border-style: ridge;
-    border-color: #ffd700;
+    border-color: #527ee9;
     border-width: 6px;
     padding: 1%;
     transition: all .2s ease-in-out;
@@ -262,8 +262,8 @@ main .town article:hover {
 
 /*----------- CONTACT --------------*/
 body .contact {
-    background-color: #ffd700;
-    color: #0033ff;
+    background-color: #527ee9;
+    color: #c0c0c0;
     padding: 0 2%;
 }
 body .contact p {
@@ -275,8 +275,8 @@ body .contact h2 {
 
 /*----------- FOOTER --------------*/
 footer {
-    background-color: #00ff00;
-    color: #0033ff;
+    background-color: #c0c0c0;
+    color: #527ee9;
     padding: .5rem 2%;
     text-align: center;
     clear: both;
