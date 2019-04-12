@@ -11,18 +11,6 @@ function currentWeather(x) {
         console.log(weatherInfo);
 
         document.getElementById('currentType').innerHTML = weatherInfo.weather[0].description;
-        document.getElementById('wind').innerHTML = Math.round(weatherInfo.wind.speed);
-        document.getElementById('lowTemp').innerHTML = Math.round(weatherInfo.main.temp_min);
-        document.getElementById('highTemp').innerHTML = Math.round(weatherInfo.main.temp_max);
-
-        var iconcode = weatherInfo.weather[0].icon;
-        var icon_path = "//openweathermap.org/img/w/" + iconcode + ".png";
-        //document.getElementById('weather_icon').src = icon_path;
-
-        // Feels Like - Wind Chill
-        var tempF = parseFloat(weatherInfo.main.temp);
-        var windSpeed = parseFloat(weatherInfo.wind.speed);
-        var windTemp = 35.74 + (0.6215 * tempF) - (35.75 * (Math.pow(windSpeed, 0.16))) + (0.4275 * tempF * (Math.pow(windSpeed, 0.16)));
-        document.getElementById('windChill').innerHTML = Math.round(windTemp, 1)
-
-}} // end of function
+        document.getElementById('mainTemp').innerHTML = Math.round(weatherInfo.main.temp);
+    }
+} // end of function

@@ -32,6 +32,7 @@
 
 <!-- SCRIPT HERE -->
 <script src="js/hamburger.js"></script>
+<script src="js/getweather.js"></script>
 </head>
 <body>
 <!-- HEADER HERE -->
@@ -89,12 +90,12 @@
             </figure>
             <section class="actioncall">
                 <h3>Temple Weather Today</h3>
-                <p>Indianapolis IN: </p>
-                <p>Laie Hawaii: </p>
-                <p>Louisville KY: </p>
-                <p>Nauvoo Illinois: </p>
-                <p>Redlands CA: </p>
-                <p>Winter Quarters: </p>
+                <p>Indianapolis IN: <script>currentWeather(1)</script><span id="mainTemp">00</span>&deg; and <span id="currentType">Cloudy</span></p>
+                <p>Laie Hawaii: <script>currentWeather(2)</script><span id="mainTemp">00</span>&deg; and <span id="currentType">Cloudy</p>
+                <p>Louisville KY: <script>currentWeather(3)</script><span id="mainTemp">00</span>&deg; and <span id="currentType">Cloudy</p>
+                <p>Nauvoo Illinois: <script>currentWeather(1)</script><span id="mainTemp">00</span>&deg; and <span id="currentType">Cloudy</p>
+                <p>Redlands CA: <script>currentWeather(2)</script><span id="mainTemp">00</span>&deg; and <span id="currentType">Cloudy</p>
+                <p>Winter Quarters: <script>currentWeather(3)</script><span id="mainTemp">00</span>&deg; and <span id="currentType">Cloudy</p>
                 <form method="get" action="reservation.html"><button type="submit"><b>Book Now</b></button></form>
             </section>
         </div>
@@ -115,7 +116,7 @@
 
 <!-- SCRIPT HERE -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/banner.js"></script>  
+    <script src="js/banner.js"></script>
     <script src="js/fillJSON.js"></script>
 
 </body>
