@@ -242,11 +242,11 @@ form label.top textarea {
 }
 
 /*----------- ARTICLE --------------*/
-main .town {
+main .temples {
     display: flex;
     flex-wrap: wrap;
 }
-main .town article {
+main .temples article {
     margin: 1rem 2%;
     flex-basis: 96%;
     border-style: ridge;
@@ -255,10 +255,10 @@ main .town article {
     padding: 1%;
     transition: all .2s ease-in-out;
 }
-main .town article img {
+main .temples article img {
     width: 100%;
 }
-main .town article:hover {
+main .temples article:hover {
     box-shadow: 0 0 12px #555;
     transform: scale(1.05);
 }

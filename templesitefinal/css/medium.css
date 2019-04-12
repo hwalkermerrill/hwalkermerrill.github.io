@@ -47,10 +47,10 @@ main .gallery figure {
 }
 
 /*----------- ARTICLE --------------*/
-main .town {
+main .temples {
     justify-content: center;
 }
-main .town article {
+main .temples article {
     flex-basis: 46%;
 }
 
