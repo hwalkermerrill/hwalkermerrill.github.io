@@ -263,19 +263,6 @@ main .town article:hover {
     transform: scale(1.05);
 }
 
-/*----------- CONTACT --------------*/
-body .contact {
-    background-color: #527ee9;
-    color: #c0c0c0;
-    padding: 0 2%;
-}
-body .contact p {
-    margin: 0.2rem;
-}
-body .contact h2 {
-    margin: 0;
-}
-
 /*----------- FOOTER --------------*/
 footer {
     background-color: #c0c0c0;
