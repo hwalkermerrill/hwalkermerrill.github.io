@@ -12,7 +12,7 @@ function currentWeather(x) {
     weatherObject.onload = function pullWeather() {
         var weatherInfo = JSON.parse(weatherObject.responseText);
         console.log(weatherInfo);
-        if (weatherInfo.name == Indianapolis) /* noblesville indiana */ {
+        if (weatherInfo.name == "Indianapolis") /* noblesville indiana */ {
             document.getElementById('currentType1').innerHTML = weatherInfo.weather[0].description;
             document.getElementById('mainTemp1').innerHTML = Math.round(weatherInfo.main.temp);
         }
@@ -37,4 +37,4 @@ function currentWeather(x) {
             document.getElementById('mainTemp6').innerHTML = Math.round(weatherInfo.main.temp);
         }
     }
-} // end of function
+} // end of function line
