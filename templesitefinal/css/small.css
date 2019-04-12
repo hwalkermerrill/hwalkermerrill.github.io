@@ -109,15 +109,13 @@ main .herodiv .actioncall {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    color: #527ee9;
-    background: radial-gradient(#aaa, #c0c0c0);
+    background: #c0c0c0;
     border: 1px solid #000;
     padding: 0.2rem;
     box-shadow: 0 0 30px #fff;
 }
 main .herodiv .actioncall button {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 1.5rem;
 }
 main .herodiv .actioncall h3 {
     margin: 0.5rem;
