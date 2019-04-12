@@ -56,7 +56,7 @@ function fillJSON(){
             }
 
             myH2.textContent = temples[i].name;
-            myH3.textContent = 'Est.' + temples[i].hisotry[3];
+            myH3.textContent = 'Est.' + temples[i].history[3];
             myPara2.textContent = 'Address: ' + temples[i].address;
             myPara3.textContent = 'Telephone: ' + temples[i].telephone;
             myPara4.textContent = 'Email: ' + temples[i].email;
