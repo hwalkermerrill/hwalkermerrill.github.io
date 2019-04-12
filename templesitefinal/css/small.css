@@ -179,7 +179,7 @@ form {
     flex-basis: 96%;
 }
 form fieldset {
-    margin: 2rem 1%;
+    margin: 2rem 2%;
     border: 1px solid #527ee9;
     border-radius: 10px;
     padding: .5rem 2%;
@@ -204,7 +204,7 @@ form label.top input, form label.top select {
     padding: .75rem;
     color: #555;
     width: 100%;
-    max-width: 20rem;
+    max-width: 25rem;
     background-color: rgba(0,0,0,0.1);
 }
 form label.sbs {
@@ -220,7 +220,7 @@ form label.slide input {
     padding: .75rem;
     color: #555;
     width: 100%;
-    max-width: 20rem;
+    max-width: 25rem;
     background-color: rgba(0,0,0,0.1);
 }
 form input.submitBtn {
@@ -231,7 +231,7 @@ form input.submitBtn {
     padding: .75rem 1.5rem;
     margin: 0 0 2rem 2%;
     width: 96%;
-    max-width: 20rem;
+    max-width: 25rem;
 }
 form label.top input:required {
     border-left: red solid 6px;
