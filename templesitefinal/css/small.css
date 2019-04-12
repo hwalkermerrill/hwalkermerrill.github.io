@@ -264,7 +264,7 @@ main .town article:hover {
 }
 
 /*----------- CONTACT --------------*/
-/*body .contact {
+body .contact {
     background-color: #527ee9;
     color: #c0c0c0;
     padding: 0 2%;
@@ -274,7 +274,7 @@ body .contact p {
 }
 body .contact h2 {
     margin: 0;
-}*/
+}
 
 /*----------- FOOTER --------------*/
 footer {
