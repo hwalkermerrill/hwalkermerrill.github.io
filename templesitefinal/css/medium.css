@@ -60,6 +60,10 @@ form label.top textarea {
     height: 12rem;
 }
 
+form fieldset {
+    flex-basis: 42%;
+}
+
 /*----------- CONTACT --------------*/
 body .contact {
     width: 100%;
