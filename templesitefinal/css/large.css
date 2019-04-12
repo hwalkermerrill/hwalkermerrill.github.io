@@ -19,9 +19,9 @@ main .gallery figure {
 main .gallery figure:hover {box-shadow: 0 0 50px #333;}
 
 /*----------- ARTICLE --------------*/
-main .temples article {
+/*main .temples article {
     flex-basis: 29%;
-}
+}*/
 
 /*----------- FORM --------------*/
 
