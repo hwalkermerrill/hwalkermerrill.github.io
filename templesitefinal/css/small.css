@@ -112,7 +112,7 @@ main .herodiv img {
     margin-left: auto;
     margin-right: auto;
 }
-main .herodiv .conditions {
+main .herodiv .actioncall {
     position: absolute;
     top: 1rem;
     left: 1rem;
@@ -121,30 +121,22 @@ main .herodiv .conditions {
     padding: 0.2rem;
     box-shadow: 0 0 30px #fff;
 }
-main .herodiv .conditions h3 {
+main .herodiv .actioncall h3 {
     margin: 0.5rem;
 }
-main .herodiv .conditions p {
+main .herodiv .actioncall p {
     margin: 0.2rem;
 }
-main .row section:nth-child(1) {
-    display: none;
+main .row {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.2rem;
 }
-main .row section:nth-child(3) {
+main .row section:nth-child(3){
     margin-left: 2%;
-    margin-right: 0;
 }
-/*main .row section:nth-child(4) {
-    background-color: #ffd700;
-    color: #0033ff;
-    padding: 0 2%;
-}
-main .row section:nth-child(4) p {
-    margin: 0.2rem;
-}
-main .row section:nth-child(4) h2 {
-    margin: 0;
-}*/
 main .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -168,7 +160,16 @@ main img {
     margin-right: auto;
     margin-left: auto;
 }
-
+/*----------- MAIN --------------*/
+#slideshow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#slideshow img {
+    float: left;
+    margin: 0 -100% 0 0;
+}
 /*----------- FORM --------------*/
 form fieldset {
     margin: 2rem 0;
