@@ -178,6 +178,7 @@ form fieldset {
     border: 1px solid #527ee9;
     border-radius: 10px;
     padding: .5rem 2%;
+    flex: wrap;
 }
 form legend {
     color: #527ee9;
