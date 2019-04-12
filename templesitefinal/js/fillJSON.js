@@ -56,15 +56,15 @@ function fillJSON(){
             }
 
             myH2.textContent = temples[i].name;
-            myH3.textContent = 'Est.' + temples[i].history[3];
+            myH3.textContent = 'Est. ' + temples[i].history[2];
             myPara2.textContent = 'Address: ' + temples[i].address;
             myPara3.textContent = 'Telephone: ' + temples[i].telephone;
             myPara4.textContent = 'Email: ' + temples[i].email;
-            myPara5.textContent = 'Services:';
-            myPara6.textContent = 'Ordinances:';
-            myPara7.textContent = 'Endowment Schedule:';
-            myPara8.textContent = 'Closure Schedule:';
-            myPara9.textContent = 'History:';
+            myPara5.textContent = 'Services: ';
+            myPara6.textContent = 'Ordinances: ';
+            myPara7.textContent = 'Endowment Schedule: ';
+            myPara8.textContent = 'Closure Schedule: ';
+            myPara9.textContent = 'History: ';
 
             var services = temples[i].services;
             for (var j = 0; j < services.length; j++) {
