@@ -109,7 +109,8 @@ main .herodiv .actioncall {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    background: radial-gradient(transparent, #aaa);
+    color: #527ee9;
+    background: radial-gradient(#aaa, #c0c0c0);
     border: 1px solid #000;
     padding: 0.2rem;
     box-shadow: 0 0 30px #fff;
@@ -259,7 +260,7 @@ main .town article:hover {
 }
 
 /*----------- CONTACT --------------*/
-body .contact {
+/*body .contact {
     background-color: #527ee9;
     color: #c0c0c0;
     padding: 0 2%;
@@ -269,7 +270,7 @@ body .contact p {
 }
 body .contact h2 {
     margin: 0;
-}
+}*/
 
 /*----------- FOOTER --------------*/
 footer {
