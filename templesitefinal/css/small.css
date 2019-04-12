@@ -179,7 +179,7 @@ form fieldset {
     border-radius: 10px;
     padding: .5rem 2%;
     display:flex;
-    flex: wrap;
+    flex-wrap: wrap;
     flex-basis: 96%;
 }
 form legend {
