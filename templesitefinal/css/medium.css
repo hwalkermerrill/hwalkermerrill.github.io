@@ -60,7 +60,7 @@ form label.top textarea {
     height: 12rem;
 }
 
-form fieldset {
+form {
     flex-basis: 42%;
 }
 
