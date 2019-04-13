@@ -18,6 +18,9 @@ header {
     display: grid;
     grid-template-columns: 85px auto 5rem;
 }
+header h2 .mobileHide {
+    display: none;
+}
 header figure {
     margin: 0;
 }
