@@ -2,7 +2,10 @@ var today = new Date();
 var dw = today.getDay() + 1;
 var dd = today.getDate();
 var mm = today.getMonth() + 1;
+var m2 = mm;
 var yyyy = today.getFullYear();
+
+if (m2 < 10) {m2 = '0' + m2}
 
 if (dw < 4) { 
         if (dw == 1) {dw = "Sunday"}
@@ -41,3 +44,12 @@ if (mm < 4) {
 
 today = dw + ", " + dd + " " + mm + " " + yyyy;
 document.write(today);
+function minDate(dd,m2,yyyy){
+    minDate = yyyy + "-" + m2 + "-" + dd;
+    return minDate;
+}
+function maxDate(dd,m2,yyyy){
+    yyyy++;
+    maxDate = yyyy + "-" + m2 + "-" + dd;
+    return maxDate;
+}

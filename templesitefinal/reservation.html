@@ -77,13 +77,13 @@
                 <label class="top">Last Name* <input type="text" name="lname" required pattern="[A-Za-z ]{5,}"></label>
                 <label class="top">Phone* <input type="tel" name="phone" placeholder="1235551234" required pattern="[0-9 -]{9,15}"></label>
                 <label class="top">Email* <input type="email" name="email" placeholder="someone@email.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></label>
-                <label class="top">Home State/Country <input type="text" name="state" pattern="[A-Za-z ]{5,}"></label>
+                <label class="top">Home State or Country <input type="text" name="frmCountryS" placeholder="USA" pattern="[A-Za-z ]{2,}"></label>
             </fieldset>
             <fieldset>
                 <legend>Location Information</legend>
-                <label class="top">Check-In Date <input type="date" name="stormDate"></label>
-                <label class="top">Check-Out Date <input type="date" name="stormDate"></label>
-                <label class="top">Location <select name="subject">
+                <label class="top">Check-In Date* <input type="date" name="inDate" required></label>
+                <label class="top">Check-Out Date* <input type="date" name="outDate" required></label>
+                <label class="top">Location* <select name="inntempleloc" required>
                     <option value="">Please Select &#9662;</option>
                     <option value="Dixie - Louisville Kentucky Temple">Dixie - Louisville Kentucky Temple</option>
                     <option value="Nauvoo - Nauvoo Illinois Temple">Nauvoo - Nauvoo Illinois Temple</option>
@@ -92,7 +92,7 @@
                     <option value="Palm Desert - Redlands California Temple">Palm Desert - Redlands California Temple</option>
                     <option value="Pounders - Laie Hawaii Temple">Pounders - Laie Hawaii Temple</option>
                 </select></label>
-                <label class="top">Main Room <select name="subject">
+                <label class="top">Main Room* <select name="room1">
                     <option value="">Please Select &#9662;</option>
                     <option value="Honeymoon Suite">Honeymoon Suite</option>
                     <option value="Bussiness Suite">Bussiness Suite</option>
@@ -103,7 +103,7 @@
                     <option value="1 King Bedroom">1 King Bedroom</option>
                     <option value="1 Queen Bedroom">1 Queen Bedroom</option>
                 </select></label>
-                <label class="top">Second Room <select name="subject">
+                <label class="top">Second Room <select name="room2">
                     <option value="">None &#9662;</option>
                     <option value="Honeymoon Suite">Honeymoon Suite</option>
                     <option value="Bussiness Suite">Bussiness Suite</option>
@@ -114,7 +114,7 @@
                     <option value="1 King Bedroom">1 King Bedroom</option>
                     <option value="1 Queen Bedroom">1 Queen Bedroom</option>
                 </select></label>
-                <label class="top">Third Room<select name="subject">
+                <label class="top">Third Room<select name="room3">
                     <option value="">None &#9662;</option>
                     <option value="Honeymoon Suite">Honeymoon Suite</option>
                     <option value="Bussiness Suite">Bussiness Suite</option>
