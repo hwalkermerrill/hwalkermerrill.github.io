@@ -37,14 +37,14 @@ header h1 {
     font-weight: bold;
     font-size: 40px;
     color: #0e2043;
-    text-shadow: -4px 0px 4px #d48f2a, 0px 4px 4px #d48f2a, 4px 0px 4px #d48f2a, 0px -4px 4px #d48f2a;
+    text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
 }
 header h2 {
     margin: 0;
     font-weight: normal;
     font-size: 30px;
     color: #0e2043;
-    text-shadow: -4px 0px 4px #d48f2a, 0px 4px 4px #d48f2a, 4px 0px 4px #d48f2a, 0px -4px 4px #d48f2a;
+    text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
 }
 
 /*----------- NAVIGATION --------------*/
@@ -64,7 +64,7 @@ nav ul li a {
     text-decoration: none;
     font-size: 20px;
     text-align: center;
-    text-shadow: -4px 0px 4px #d48f2a, 0px 4px 4px #d48f2a, 4px 0px 4px #d48f2a, 0px -4px 4px #d48f2a;
+    text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
 }
 nav ul li a:hover {
     background-color: #d48f2a;
@@ -73,6 +73,7 @@ nav ul li a:hover {
 nav ul li.active a {
     background-color: #0e2043;
     color: #00572f;
+    text-shadow: 0px #d48f2a;
 }
 nav ul.hide {
     display: none;
@@ -290,7 +291,7 @@ footer {
     padding: .5rem 2%;
     text-align: center;
     clear: both;
-    text-shadow: -4px 0px 4px #d48f2a, 0px 4px 4px #d48f2a, 4px 0px 4px #d48f2a, 0px -4px 4px #d48f2a;
+    text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
 }
 
 /*----- Clearfix: Force an Element not to collapse -----*/
