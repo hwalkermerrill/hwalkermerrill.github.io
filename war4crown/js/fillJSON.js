@@ -11,7 +11,6 @@ function fillJSON(){
     var localTemples = request.response;
     showTemples(localTemples);
     }
-  }
   function showTemples(jsonObj) {
     var temples = jsonObj['temples'];
 
@@ -119,4 +118,5 @@ function fillJSON(){
 
       section.appendChild(myArticle);
     }
+  }
 }
