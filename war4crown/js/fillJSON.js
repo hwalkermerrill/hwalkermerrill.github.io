@@ -15,7 +15,7 @@ function fillJSON(s){
     }
   function showTemples(jsonObj, s) {
     var s = s
-    var temples = jsonObj[s];
+    var temples = jsonObj['temples'];
 
     for (var i = 0; i < temples.length; i++) {
       var myArticle = document.createElement('article');
