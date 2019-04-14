@@ -7,13 +7,13 @@
     }
 
 /*----------- BODY --------------*/
-body {
+/*body {
   border-image-source: url(https://hwalkermerrill.github.io/war4crown/images/border900x.png);
   border-image-slice: 20;
-}
+}*/
 
 /*----------- BORDER --------------*/
-.border {
+/*.border {
   display: block;
   max-width: 88rem;
   position: absolute;
