@@ -2,8 +2,8 @@
 @media only screen and (min-width: 64rem) {
 
     header, nav, main, section, footer, body .contact {
-        margin: 4rem;
-        max-width: 72rem;
+        margin: 12rem;
+        max-width: 88rem;
         margin:auto;
     }
 
@@ -12,7 +12,7 @@
 /*----------- BORDER --------------*/
 .border {
   display: block;
-  max-width: 72rem;
+  max-width: 88rem;
   position: absolute;
   z-index: 1;
   width: 100%;
