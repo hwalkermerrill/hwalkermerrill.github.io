@@ -291,7 +291,6 @@ footer {
     padding: .5rem 2%;
     text-align: center;
     clear: both;
-    text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
 }
 
 /*----- Clearfix: Force an Element not to collapse -----*/
