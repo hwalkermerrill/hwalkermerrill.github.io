@@ -13,8 +13,11 @@
   display: block;
   max-width: 72rem;
   min-width: 45rem;
-  position: relative;
+  position: absolute;
   z-index: 1;
+}
+.border figure {
+  margin: 0;
 }
 
 /*----------- HEADER --------------*/
