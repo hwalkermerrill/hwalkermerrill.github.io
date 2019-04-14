@@ -9,7 +9,7 @@ function fillJSON(s){
   request.send();
   request.onload = function(s) {
     var localTemples = request.response;
-    showTemples(localTemples, s);
+    showTemples(localTemples, 'temples');
     }
   function showTemples(jsonObj, s) {
     var s = s
