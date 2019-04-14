@@ -86,14 +86,14 @@ main h1 {
     font-weight: bold;
     font-size: 40px;
     color: #0e2043;
-    text-shadow: -2px 0px 2px #d48f2a, 0px 2px 2px #d48f2a, 2px 0px 2px #d48f2a, 0px -2px 2px #d48f2a;
+    text-shadow: 4px 4px 4px #aaa;
 }
 Main h2 {
     margin-bottom: 0;
     font-weight: normal;
     font-size: 30px;
     color: #0e2043;
-    text-shadow: -2px 0px 2px #d48f2a, 0px 2px 2px #d48f2a, 2px 0px 2px #d48f2a, 0px -2px 2px #d48f2a;
+    text-shadow: 4px 4px 4px #aaa;
 }
 main .herodiv {
     width: 100%;
@@ -289,6 +289,7 @@ footer {
     padding: .5rem 2%;
     text-align: center;
     clear: both;
+    text-shadow: -1px 0px 1px #d48f2a, 0px 1px 1px #d48f2a, 1px 0px 1px #d48f2a, 0px -1px 1px #d48f2a
 }
 
 /*----- Clearfix: Force an Element not to collapse -----*/
