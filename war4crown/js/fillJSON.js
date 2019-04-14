@@ -8,8 +8,9 @@ function fillJSON(s){
   request.responseType = 'json';
   request.send();
   request.onload = function(s) {
+    var s = s;
     var localTemples = request.response;
-    showTemples(localTemples, 'temples');
+    showTemples(localTemples, s);
     }
   function showTemples(jsonObj, s) {
     var s = s
