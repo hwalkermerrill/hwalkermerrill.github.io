@@ -2,15 +2,18 @@
 @media only screen and (min-width: 64rem) {
 
     header, nav, main, section, footer, body .contact {
-        margin: 12rem;
         max-width: 88rem;
         margin:auto;
     }
 
 /*----------- BODY --------------*/
+body {
+  border-image-source: url(war4crown\images\border900x.png);
+  border-image-slice: 20;
+}
 
 /*----------- BORDER --------------*/
-.border {
+/*.border {
   display: block;
   max-width: 88rem;
   position: absolute;
@@ -22,7 +25,7 @@
 }
 .border figure {
   margin: 0;
-}
+}*/
 
 /*----------- HEADER --------------*/
 
