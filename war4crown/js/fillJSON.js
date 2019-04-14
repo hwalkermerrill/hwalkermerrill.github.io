@@ -1,18 +1,20 @@
-window.onload = fillJSON
+window.onload = fillJSON(temples)
 
-function fillJSON(){
-  var section = document.querySelector('main .temples');
+function fillJSON(s){
+  var s = s;
+  var sl = 'main .' + s;
+  var section = document.querySelector(sl);
   var requestURL = 'js/templedata.json';
   var request = new XMLHttpRequest();
   request.open('GET', requestURL);
   request.responseType = 'json';
   request.send();
-  request.onload = function() {
+  request.onload = function(sl) {
     var localTemples = request.response;
-    showTemples(localTemples);
+    showTemples(localTemples, sl);
     }
-  function showTemples(jsonObj) {
-    var tst = 'temples'
+  function showTemples(jsonObj, tst) {
+    var tst = tst
     var temples = jsonObj[tst];
 
     for (var i = 0; i < temples.length; i++) {
