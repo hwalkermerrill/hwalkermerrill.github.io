@@ -1,4 +1,4 @@
-[
+{ "personas": [
 	{
 		"status": "active",
 		"title": "Baron",
@@ -1104,4 +1104,4 @@
 		"remain": "",
 		"totalneed": "0"
 	}
-]
+]}
