@@ -11,6 +11,11 @@ body {
     min-width: 320px;
 }
 
+/*----------- BORDER --------------*/
+.border {
+  display: none;
+}
+
 /*----------- HEADER --------------*/
 header {
     padding: .5rem 2%;

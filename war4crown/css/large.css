@@ -8,6 +8,14 @@
 
 /*----------- BODY --------------*/
 
+/*----------- BORDER --------------*/
+.border {
+  display: block;
+  max-width: 72rem;
+  min-width: 45rem;
+  position: absolute;
+}
+
 /*----------- HEADER --------------*/
 
 /*----------- NAVIGATION --------------*/
