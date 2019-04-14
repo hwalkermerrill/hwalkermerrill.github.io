@@ -1,0 +1,214 @@
+{
+    "temples": [
+      {
+        "name": "Indianapolis Indiana Temple",
+        "address": "11565 Temple Dr., Carmel IN 46032",
+        "telephone": "(317) 993-3800",
+        "email": "Log in to churchofjesuschrist.org to send email to temple",
+        "services": [
+          "No clothing rental available",
+          "No cafeteria available",
+          "No patron housing available",
+          "No distribution center nearby"
+        ],
+        "history": [
+          "2 October 2010 - Announced",
+          "29 September 2012 - Groundbreaking",
+          "23 August 2015 - Dedicated"
+        ],
+        "ordSched": [
+          "Living or Group Ordinances: By Appointment",
+          "Baptistry: Wednesday, Friday, Saturday",
+          "Other Ordiances: Tuesday - Saturday"
+        ],
+        "sesSched": [
+          "Tuesday & Friday: 6:00pm, 7:30pm",
+          "Wednesday & Friday: 10:00am, 12:00pm, 6:00pm, 7:30pm",
+          "Saturday: 8:30am, 10:00am, 12:00pm, 1:30pm"
+        ],
+        "closureSchedule": [
+          "4 July 2019",
+          "26 August - 9 September 2019",
+          "5 October 2019",
+          "27-28 November 2019",
+          "24-25 December 2019",
+          "31 December 2019"
+        ]
+      },
+      {
+        "name": "Laie Hawaii Temple",
+        "address": "55-600 Naniloa Loop, Laie HI 96762",
+        "telephone": "(808) 293-2427",
+        "email": "Log in to churchofjesuschrist.org to send email to temple",
+        "services": [
+          "Clothing rental available",
+          "Cafeteria available",
+          "No patron housing available",
+          "Distribution center nearby"
+        ],
+        "history": [
+          "3 October 1915 - Announced",
+          "8 February 1916 - Groundbreaking",
+          "27 November 1919 - Dedicated",
+          "13 June 1978 - Rededicated",
+          "21 November 2010 - Rededicated"
+        ],
+        "ordSched": [
+          "Living or Group Ordinances: By Appointment",
+          "Walk-in Ordiances Daily"
+        ],
+        "sesSched": [
+          "Tuesday - Friday: Every Hour from 7:00am - 8:00pm",
+          "Saturday: Every Hour from 6:00am - 1:00pm"
+        ],
+        "closureSchedule": [
+          "28-29 June 2019 (limited hours)",
+          "1-15 July 2019",
+          "4 October 2019 (limited hours)",
+          "5 October 2019",
+          "27 November 2019 (limited hours)",
+          "28 November 2019",
+          "24-25 December 2019",
+          "27-28 December 2019 (limited hours)",
+          "30-31 December 2019"
+        ]
+      },
+      {
+        "name": "Louisville Kentucky Temple",
+        "address": "7116 West Hwy 22, Crestwood KY 40014",
+        "telephone": "(502) 241-4115",
+        "email": "Log in to churchofjesuschrist.org to send email to temple",
+        "services": [
+          "No clothing rental available",
+          "No cafeteria available",
+          "No patron housing available",
+          "No distribution center nearby"
+        ],
+        "history": [
+          "17 March 1999 - Announced",
+          "29 May 1999 - Groundbreaking",
+          "19 March 2000 - Dedicated"
+        ],
+        "ordSched": [
+          "Living or Group Ordinances: By Appointment",
+          "Baptistry: Wednesday, Friday, Saturday",
+          "Other Ordiances Daily"
+        ],
+        "sesSched": [
+          "Tuesday & Thursday: 6:15am, 7:30am",
+          "Wednesday: 10:15am, 11:30am",
+          "Friday: 10:15am, 11:30am, 6:15pm, 7:30pm",
+          "Saturday: 9:00am, 11:00am, 1:00pm, 3:00pm"
+        ],
+        "closureSchedule": [
+          "1-15 July 2019",
+          "5 October 2019",
+          "27-28 November 2019",
+          "2-16 December 2019",
+          "24-25 December 2019",
+          "31 December 2019"
+        ]
+      },
+      {
+        "name": "Nauvoo Illinois Temple",
+        "address": "50 N Wells St., Nauvoo IL 62354",
+        "telephone": "(217) 453-6252",
+        "email": "Log in to churchofjesuschrist.org to send email to temple",
+        "services": [
+          "Clothing rental available",
+          "No cafeteria available",
+          "No patron housing available",
+          "No distribution center nearby"
+        ],
+        "history": [
+          "4 April 1999 - Announced",
+          "24 October 1999 - Groundbreaking",
+          "27 June 2002 - Dedicated"
+        ],
+        "ordSched": [
+          "Living or Group Ordinances: By Appointment",
+          "Walk-in Ordiances Daily"
+        ],
+        "sesSched": [
+          "Tuesday & Thursday: 9:00am, 10:00am, 11:00am, 12:00pm",
+          "Wednesday & Friday: 3:00pm, 4:00pm, 5:00pm, 6:00pm",
+          "Saturday: Every Hour from 8:00am - 5:00pm"
+        ],
+        "closureSchedule": [
+          "29 April - 12 May 2019",
+          "5 October 2019",
+          "11-25 November 2019",
+          "27-28 November 2019",
+          "25 December 2019"
+        ]
+      },
+      {
+        "name": "Redlands California Temple",
+        "address": "1761 Fifth Ave., Redlands CA 92374",
+        "telephone": "(909) 389-7369",
+        "email": "Log in to churchofjesuschrist.org to send email to temple",
+        "services": [
+          "No clothing rental available",
+          "No cafeteria available",
+          "No patron housing available",
+          "Distribution center nearby"
+        ],
+        "history": [
+          "21 April 2001 - Announced",
+          "1 December 2001 - Groundbreaking",
+          "14 September 2003 - Dedicated"
+        ],
+        "ordSched": [
+          "All Ordinances: By Appointment"
+        ],
+        "sesSched": [
+          "Tuesday - Saturday: By Appointment Only"
+        ],
+        "closureSchedule": [
+          "2-15 April 2019",
+          "4 July 2019",
+          "5 October 2019",
+          "15-28 October 2019",
+          "27 November 2019 (limited hours)",
+          "28 November 2019",
+          "24-25 December 2019",
+          "31 December 2019"
+        ]
+      },
+      {
+        "name": "Winter Quarters Nebraska Temple",
+        "address": "8283 N 34th St., Omaha NE 68112",
+        "telephone": "(402) 453-3406",
+        "email": "Log in to churchofjesuschrist.org to send email to temple",
+        "services": [
+          "No clothing rental available",
+          "No cafeteria available",
+          "No patron housing available",
+          "No distribution center nearby"
+        ],
+        "history": [
+          "14 June 1999 - Announced",
+          "28 November 1999 - Groundbreaking",
+          "22 April 2001 - Dedicated"
+        ],
+        "ordSched": [
+          "Living or Group Ordinances: By Appointment",
+          "Baptistry: Friday, All other days By Appointment",
+          "Other Ordiances Daily"
+        ],
+        "sesSched": [
+          "Tuesday & Thursday: 6:00pm, 7:30pm",
+          "Wednesday: 9:30am, 11:00am, 7:00pm",
+          "Friday: 6:00am, 10:00am, 12:00pm, 6:00pm, 7:30pm",
+          "Saturday: 8:00am, 10:00am, 12:00pm, 2:00pm, 4:00pm, 6:00pm"
+        ],
+        "closureSchedule": [
+          "4 July 2019",
+          "22 September - 7 October 2019",
+          "27-28 November 2019",
+          "24-25 December 2019",
+          "31 December 2019"
+        ]
+      }
+    ]
+  }

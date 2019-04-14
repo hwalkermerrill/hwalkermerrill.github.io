@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Temple Site Project">
+<meta name="author" content="Harrison Merrill">
+<meta name="slogan" content="Our Labors of Love">
+<meta name="theme-color" content="#c0c0c0">
+
+<title>Temple Inn & Suites: Locations</title>
+<link href="images/logofav.png" rel="icon">
+<link href="images/logo_apple120x.png" rel="apple-touch-icon">
+<link href="images/logo_apple152x.png" rel="apple-touch-icon" sizes="152x152">
+<link href="images/logo_apple167x.png" rel="apple-touch-icon" sizes="167x167">
+<link href="images/logo_apple180x.png" rel="apple-touch-icon" sizes="180x180">
+<link href="images/logo_icon192x.png" rel="icon" sizes="192x192">
+<link href="images/logo_icon128x.png" rel="icon" sizes="128x128">
+
+<!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH & stops the font from enlarging when a phone is turned sideways-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- This loads the "Amiri" font style on the user device while browsing this HTML-->
+<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+
+<!-- STYLE SHEETS -->
+<link href="css/normalize.css" rel="stylesheet">
+<!-- phone-default -->
+<link href="css/small.css" rel="stylesheet">
+<!-- enhance-tablet -->
+<link href="css/medium.css" rel="stylesheet">
+<!-- enhance-desktop -->
+<link href="css/large.css" rel="stylesheet">
+
+<!-- SCRIPT HERE -->
+<script src="js/hamburger.js"></script>
+<script src="js/getweather.js"></script>
+</head>
+<body>
+<!-- HEADER HERE -->
+    <header class="clearfix">
+        <figure class="logo">
+            <a href="index.html">
+            <img src="images/logo.png" alt="logo"
+            srcset="images/logo.png 1x, images/logo2x.png 2x, images/logo3x.png 3x">
+            </a>
+        </figure>
+        <div class="slogan">
+            <h1>Temple Inn & Suites</h1>
+            <h2>Restful Living Near the House of the Lord</h2>
+        </div>
+        <div class="menu">
+            <button onclick="toggleMenu()">&#8801;</button>
+        </div>
+    </header>
+        
+<!-- NAVIGATION HERE -->
+    <nav class="clearfix">
+        <ul id="primaryNav" class="hide">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="templeloc.html">Temple Locations</a></li>
+            <li><a href="reservation.html">Make Reservation</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="contacts.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+<!-- CONTENT HERE -->
+    <main class="clearfix">
+        <h1>Temples Near Our Locations</h1>
+        <h3>"The House(s) of the Lord"</h3>
+        <p>Weather forecast information provided by <a href="//openweathermap.org">Open Weather Map</a></p>
+        <div class="herodiv">
+            <figure id="slideshow">
+                <img src="images/indianapolis-indiana-720w.jpg" alt="Indianapolis Indiana" sizes="100vw"
+                srcset="images/indianapolis-indiana-720w.jpg 720w,
+                        images/indianapolis-indiana.jpg 1280w">
+                <img src="images/laie-hawaii-720w.jpg" alt="Laie Hawaii" sizes="100vw"
+                srcset="images/laie-hawaii-720w.jpg 720w,
+                        images/laie-hawaii.jpg 1280w">
+                <img src="images/louisville-kentucky-720w.jpg" alt="Louisville Kentucky" sizes="100vw"
+                srcset="images/louisville-kentucky-720w.jpg 720w,
+                        images/louisville-kentucky.jpg 1280w">
+                <img src="images/nauvoo-illinois-720w.jpg" alt="Nauvoo Illinois" sizes="100vw"
+                srcset="images/nauvoo-illinois-720w.jpg 720w,
+                        images/nauvoo-illinois.jpg 1280w">
+                <img src="images/redlands-california-720w.jpg" alt="Redlands California" sizes="100vw"
+                srcset="images/redlands-california-720w.jpg 720w,
+                        images/redlands-california.jpg 1280w">
+                <img src="images/winter-quarters-nebraska-720w.jpg" alt="Winter Quarters Nebraska" sizes="100vw"
+                srcset="images/winter-quarters-nebraska-720w.jpg 720w,
+                        images/winter-quarters-nebraska.jpg 1280w">
+            </figure>
+            <section class="actioncall">
+                <h3>Temple Weather Today</h3>
+                <p>Indianapolis IN: <script>currentWeather(1)</script><span id="mainTemp1">00</span>&deg; and <span id="currentType1">Cloudy</span></p>
+                <p>Laie Hawaii: <script>currentWeather(2)</script><span id="mainTemp2">00</span>&deg; and <span id="currentType2">Cloudy</span></p>
+                <p>Louisville KY: <script>currentWeather(3)</script><span id="mainTemp3">00</span>&deg; and <span id="currentType3">Cloudy</span></p>
+                <p>Nauvoo Illinois: <script>currentWeather(4)</script><span id="mainTemp4">00</span>&deg; and <span id="currentType4">Cloudy</span></p>
+                <p>Redlands CA: <script>currentWeather(5)</script><span id="mainTemp5">00</span>&deg; and <span id="currentType5">Cloudy</span></p>
+                <p>Winter Quarters: <script>currentWeather(6)</script><span id="mainTemp6">00</span>&deg; and <span id="currentType6">Cloudy</span></p>
+                <form method="get" action="reservation.html"><button type="submit"><b>Book Now</b></button></form>
+            </section>
+        </div>
+        <div class="temples">
+
+        </div>
+    </main>
+    
+<!-- SECTION HERE -->
+    <section class="clearfix">
+        
+    </section>
+
+<!-- FOOTER HERE -->   
+    <footer>
+        &copy; <script src="js/currentdate.js"></script> &bull; Harrison Merrill &bull; All rights reserved
+    </footer>
+
+<!-- SCRIPT HERE -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/banner.js"></script>
+    <script src="js/fillJSON.js"></script>
+
+</body>
+</html>

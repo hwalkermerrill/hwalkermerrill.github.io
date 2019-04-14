@@ -1,0 +1,75 @@
+/* 45em is also 720px (if basefont is 16px) */
+@media only screen and (min-width: 45rem) {
+
+/*----------- BODY --------------*/
+
+/*----------- HEADER --------------*/
+    header button {display: none;}
+    header img {width: auto;}
+    header h1 {font-size: 2rem;}
+    header h2 {font-size: 1.5rem;}
+    /*header .slogan {display: block;}*/
+/*----------- NAVIGATION --------------*/
+    nav ul.hide {display: block;}
+    nav ul {margin-left: 2%;}
+    nav ul li {float: left;}
+    nav ul li a{
+    border: none;
+    border-right: 1px solid rgba(0,0,8,0.3);
+    padding: .8rem 1rem;
+}
+
+/*----------- MAIN --------------*/
+table {
+    width: 100%;
+}
+table, tr, td {
+    border: 1px solid #000;
+    border-collapse: collapse;
+    padding: 1rem;
+    text-align: center;
+}
+table th {
+    background: #ffd700
+}
+main .row section:nth-child(2){
+    width: 50%;
+    float: left;
+}
+main .row section:nth-child(3){
+    width: 48%;
+    float: left;
+    margin-top: 52px;
+}
+main .gallery figure {
+    flex-basis: 46%;
+}
+
+/*----------- ARTICLE --------------*/
+main .temples {
+    justify-content: center;
+}
+main .temples article {
+    flex-basis: 46%;
+}
+
+/*----------- FORM --------------*/
+
+form label.top textarea {
+    height: 12rem;
+}
+
+form {
+    flex-basis: 42%;
+}
+
+/*----------- CONTACT --------------*/
+body .contact {
+    width: 100%;
+    column-count: 2;
+    float: none;
+}
+
+/*----------- FOOTER --------------*/
+    
+}
