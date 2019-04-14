@@ -7,11 +7,11 @@ function fillJSON(s){
   request.open('GET', requestURL);
   request.responseType = 'json';
   request.send();
-  request.onload = jsonjobcreate(/*s*/)
-  function jsonjobcreate(/*s*/) {
+  request.onload = function(/*s*/) {
     /*var s = s;*/
     var localTemples = request.response;
     showTemples(localTemples, /*s*/);
+  }
   function showTemples(jsonObj, /*s*/) {
     /*var s = s;*/
     var temples = jsonObj['temples'];
@@ -120,6 +120,5 @@ function fillJSON(s){
 
       section.appendChild(myArticle);
     }
-  }
   }
 }
