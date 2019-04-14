@@ -1,5 +1,3 @@
-window.onload = fillJSON(temples)
-
 function fillJSON(s){
   var s = s;
   var sl = 'main .' + s;
