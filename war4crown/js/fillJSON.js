@@ -1,5 +1,4 @@
 function fillJSON(s){
-  var s = s;
   var sl = 'main .' + s;
   var section = document.querySelector(sl);
   var requestURL = 'js/templedata.json';
@@ -7,16 +6,14 @@ function fillJSON(s){
   request.open('GET', requestURL);
   request.responseType = 'json';
   request.send();
-  request.onload = function(/*s*/) {
-    /*var s = s;*/
-    var localTemples = request.response;
-    showTemples(localTemples, /*s*/);
+  request.onload = function (s) {
+    var localJObj = request.response;
+    showTemples(localJObj, s);
   }
-  function showTemples(jsonObj, /*s*/) {
-    /*var s = s;*/
-    var temples = jsonObj['temples'];
+  function showTemples(jsonObj, s) {
+    var localJObj = jsonObj[s];
 
-    for (var i = 0; i < temples.length; i++) {
+    for (var i = 0; i < localJObj.length; i++) {
       var myArticle = document.createElement('article');
       var myH2 = document.createElement('h2');
       var myH3 = document.createElement('h3');
@@ -35,19 +32,19 @@ function fillJSON(s){
       var myList5 = document.createElement('ul');
       var myIMG = document.createElement('img');
 
-      if (temples[i].name == "Indianapolis Indiana Temple") {
+      if (localJObj[i].name == "Indianapolis Indiana Temple") {
         myIMG.setAttribute('src', 'images/indianapolis-indiana-720w.jpg');
         myIMG.setAttribute('alt', 'Indianapolis');
-      } else if (temples[i].name == "Laie Hawaii Temple") {
+      } else if (localJObj[i].name == "Laie Hawaii Temple") {
         myIMG.setAttribute('src', 'images/laie-hawaii-720w.jpg');
         myIMG.setAttribute('alt', 'Hawaii');
-      } else if (temples[i].name == "Louisville Kentucky Temple") {
+      } else if (localJObj[i].name == "Louisville Kentucky Temple") {
         myIMG.setAttribute('src', 'images/louisville-kentucky-720w.jpg');
         myIMG.setAttribute('alt', 'Kentucky');
-      } else if (temples[i].name == "Nauvoo Illinois Temple") {
+      } else if (localJObj[i].name == "Nauvoo Illinois Temple") {
         myIMG.setAttribute('src', 'images/nauvoo-illinois-720w.jpg');
         myIMG.setAttribute('alt', 'Nauvoo');
-      } else if (temples[i].name == "Redlands California Temple") {
+      } else if (localJObj[i].name == "Redlands California Temple") {
         myIMG.setAttribute('src', 'images/redlands-california-720w.jpg');
         myIMG.setAttribute('alt', 'Redlands');
         } else {
@@ -55,46 +52,46 @@ function fillJSON(s){
         myIMG.setAttribute('alt', 'Winter Quarters');
       }
 
-      myH2.textContent = temples[i].name;
-      myH3.textContent = 'Est. ' + temples[i].history[2];
-      myPara2.textContent = 'Address: ' + temples[i].address;
-      myPara3.textContent = 'Telephone: ' + temples[i].telephone;
-      myPara4.textContent = 'Email: ' + temples[i].email;
+      myH2.textContent = localJObj[i].name;
+      myH3.textContent = 'Est. ' + localJObj[i].history[2];
+      myPara2.textContent = 'Address: ' + localJObj[i].address;
+      myPara3.textContent = 'Telephone: ' + localJObj[i].telephone;
+      myPara4.textContent = 'Email: ' + localJObj[i].email;
       myPara5.textContent = 'Services: ';
       myPara6.textContent = 'Ordinances: ';
       myPara7.textContent = 'Endowment Schedule: ';
       myPara8.textContent = 'Closure Schedule: ';
       myPara9.textContent = 'History: ';
 
-      var services = temples[i].services;
+      var services = localJObj[i].services;
       for (var j = 0; j < services.length; j++) {
         var listItem = document.createElement('li');
         listItem.textContent = services[j];
         myList1.appendChild(listItem);
       }
 
-      var ordSched = temples[i].ordSched;
+      var ordSched = localJObj[i].ordSched;
       for (var j = 0; j < ordSched.length; j++) {
         var listItem = document.createElement('li');
         listItem.textContent = ordSched[j];
         myList2.appendChild(listItem);
       }
 
-      var sesSched = temples[i].sesSched;
+      var sesSched = localJObj[i].sesSched;
       for (var j = 0; j < sesSched.length; j++) {
         var listItem = document.createElement('li');
         listItem.textContent = sesSched[j];
         myList3.appendChild(listItem);
       }
 
-      var closureSchedule = temples[i].closureSchedule;
+      var closureSchedule = localJObj[i].closureSchedule;
       for (var j = 0; j < closureSchedule.length; j++) {
         var listItem = document.createElement('li');
         listItem.textContent = closureSchedule[j];
         myList4.appendChild(listItem);
       }
 
-      var history = temples[i].history;
+      var history = localJObj[i].history;
       for (var j = 0; j < history.length; j++) {
         var listItem = document.createElement('li');
         listItem.textContent = history[j];
