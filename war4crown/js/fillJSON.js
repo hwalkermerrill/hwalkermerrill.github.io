@@ -11,7 +11,8 @@ function fillJSON(s){
     showTemples(localJObj,s);
   }
   function showTemples(jsonObj,s) {
-    var localJObj = jsonObj['temples'];
+    var s = String(s)
+    var localJObj = jsonObj[s];
 
     for (var i = 0; i < localJObj.length; i++) {
       var myArticle = document.createElement('article');
