@@ -7,7 +7,7 @@ function fillJSON(s){
   request.responseType = 'json';
   request.send();
   request.onload = fillJ2(s)
-}
+
   function fillJ2(s) {
     var localJObj = request.response;
     var jsonObj = localJObj[s]
@@ -122,3 +122,4 @@ function fillJSON(s){
       section.appendChild(myArticle);
     }
   }
+}
