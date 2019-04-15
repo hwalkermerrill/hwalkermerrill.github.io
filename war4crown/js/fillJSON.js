@@ -1,5 +1,5 @@
-function fillJSON(s){
-  var sl = 'main .' + s;
+function fillJSON(divClass){
+  var sl = 'main .' + divClass;
   var section = document.querySelector(sl);
   var requestURL = 'js/templedata.json';
   var request = new XMLHttpRequest();
@@ -8,10 +8,10 @@ function fillJSON(s){
   request.send();
   request.onload = function() {
     var localJObj = request.response;
-    showJSON(localJObj,s);
+    showJSON(localJObj,divClass);
   }
-  function showJSON(jsonObj,s) {
-    var localJObj = jsonObj[s];
+  function showJSON(jsonObj,divClass) {
+    var localJObj = jsonObj[divClass];
 
     for (var i = 0; i < localJObj.length; i++) {
       var myArticle = document.createElement('article');
