@@ -10,7 +10,7 @@ function fillJSON(s){
 
   function fillJ2(s) {
     var localJObj = request.response;
-    var jsonObj = localJObj[s]
+    var jsonObj = localJObj['temples']
     showJSON(jsonObj);
 
   }
