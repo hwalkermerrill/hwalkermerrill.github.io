@@ -8,10 +8,9 @@ function fillJSON(s){
   request.send();
   request.onload = function (s) {
     var localJObj = request.response;
-    showTemples(localJObj,s);
+    showJSON(localJObj,s);
   }
-  function showTemples(jsonObj,s) {
-    var s = String(s)
+  function showJSON(jsonObj,s) {
     var localJObj = jsonObj[s];
 
     for (var i = 0; i < localJObj.length; i++) {
