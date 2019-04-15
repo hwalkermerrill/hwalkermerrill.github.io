@@ -10,8 +10,8 @@ function fillJSON(s){
     var localJObj = request.response;
     showTemples(localJObj[s]);
   }
-  function showTemples(jsonObj[s]) {
-    var localJObj = jsonObj[s];
+  function showTemples(jsonObj) {
+    var localJObj = jsonObj;
 
     for (var i = 0; i < localJObj.length; i++) {
       var myArticle = document.createElement('article');
