@@ -6,13 +6,14 @@ function fillJSON(s){
   request.open('GET', requestURL);
   request.responseType = 'json';
   request.send();
-  request.onload = function (s) {
+  request.onload = fillJ2(s)
+  function fillJ2(s) {
     var localJObj = request.response;
     var jsonObj = localJObj[s]
-    showTemples(jsonObj);
+    showJSON(jsonObj);
 
   }
-  function showTemples(jsonObj) {
+  function showJSON(jsonObj) {
     var localJObj = jsonObj;
 
     for (var i = 0; i < localJObj.length; i++) {
