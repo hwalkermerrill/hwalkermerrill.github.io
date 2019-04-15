@@ -6,7 +6,7 @@ function fillJSON(s){
   request.open('GET', requestURL);
   request.responseType = 'json';
   request.send();
-  request.onload = function (s) {
+  request.onload = function() {
     var localJObj = request.response;
     showJSON(localJObj,s);
   }
