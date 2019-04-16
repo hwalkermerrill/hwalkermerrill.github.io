@@ -19,7 +19,7 @@ function fillJSON(divClass){
       var myH3 = document.createElement('h3');
       var myPara1 = document.createElement('p');
       var myPara2 = document.createElement('p');
-      if (divClass == "dead" || "dpc") {var myPara3 = document.createElement('p')} else {};
+      var myPara3 = document.createElement('p');
       var myPara4 = document.createElement('p');
       var myIMG = document.createElement('img');
       var myList1 = document.createElement('ul');
@@ -52,7 +52,7 @@ function fillJSON(divClass){
       myH3.textContent = localJObj[i].title +' ' + localJObj[i].name;
       myPara1.textContent = 'Appearance: ' + localJObj[i].appearance;
       myPara2.textContent = 'Background: ' + localJObj[i].background;
-      if (divClass == "dead" || "dpc") {myPara3.textContent = 'Cause of Death: ' + localJObj[i].email} else {};
+      myPara3.textContent = 'Cause of Death: ' + localJObj[i].email;
       myPara4.textContent = 'Social Skills: ';
 
       myArticle.appendChild(myH2);
@@ -60,7 +60,7 @@ function fillJSON(divClass){
       myArticle.appendChild(myIMG);
       myArticle.appendChild(myPara1);
       myArticle.appendChild(myPara2);
-      if (divClass == "dead" || "dpc") {myArticle.appendChild(myPara3)} else {};
+      myArticle.appendChild(myPara3);
       myArticle.appendChild(myPara4);
       myArticle.appendChild(myList1);
 
