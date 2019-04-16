@@ -14,13 +14,12 @@ function fillJSON(divClass){
     var localJObj = jsonObj[divClass];
 
     for (var i = 0; i < localJObj.length; i++) {
-      var death = 'death'
       var myArticle = document.createElement('article');
       var myH2 = document.createElement('h2');
       var myH3 = document.createElement('h3');
       var myPara1 = document.createElement('p');
       var myPara2 = document.createElement('p');
-      var myPara3 = document.createElement('p class="' + death + '"');
+      var myPara3 = document.createElement('p');
       var myPara4 = document.createElement('p');
       var myIMG = document.createElement('img');
       var myList1 = document.createElement('ul');
