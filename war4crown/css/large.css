@@ -38,9 +38,9 @@ main .gallery figure {
 main .gallery figure:hover {box-shadow: 0 0 50px #333;}
 
 /*----------- ARTICLE --------------*/
-/*main .temples article {
+main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article {
     flex-basis: 29%;
-}*/
+}
 
 /*----------- FORM --------------*/
 
