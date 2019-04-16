@@ -257,11 +257,11 @@ form label.top textarea {
 }
 
 /*----------- ARTICLE --------------*/
-main .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown {
+main .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown, main .target {
     display: flex;
     flex-wrap: wrap;
 }
-main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article {
+main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article, main .target article {
     margin: 1rem 2%;
     flex-basis: 96%;
     border-style: ridge;
@@ -270,10 +270,10 @@ main .active article, main .dead article, main .dpc article, main .pc article, m
     padding: 1%;
     transition: all .2s ease-in-out;
 }
-main .active article img, main .dead article img, main .dpc article img, main .pc article img, main .inactive article img, main .unknown article img {
+main .active article img, main .dead article img, main .dpc article img, main .pc article img, main .inactive article img, main .unknown article img, main .target article img {
     width: 100%;
 }
-main .active article:hover, main .dead article:hover, main .dpc article:hover, main .pc article:hover, main .inactive article:hover, main .unknown article:hover {
+main .active article:hover, main .dead article:hover, main .dpc article:hover, main .pc article:hover, main .inactive article:hover, main .unknown article:hover, main .target article:hover {
     box-shadow: 0 0 12px #555;
     transform: scale(1.05);
 }
