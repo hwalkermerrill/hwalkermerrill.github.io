@@ -11,26 +11,26 @@ function fillJSON(divClass){
     showJSON(localJObj,divClass);
   }
   function showJSON(jsonObj,divClass) {
-    var localJObj = jsonObj[divClass];
+  var localJObj = jsonObj[divClass];
+  var myArticle = document.createElement('article');
+  var myH2 = document.createElement('h2');
+  var myH3 = document.createElement('h3');
+  var myPara2 = document.createElement('p');
+  var myPara3 = document.createElement('p');
+  var myPara4 = document.createElement('p');
+  var myPara5 = document.createElement('p');
+  var myList1 = document.createElement('ul');
+  var myPara6 = document.createElement('p');
+  var myList2 = document.createElement('ul');
+  var myPara7 = document.createElement('p');
+  var myList3 = document.createElement('ul');
+  var myPara8 = document.createElement('p');
+  var myList4 = document.createElement('ul');
+  var myPara9 = document.createElement('p');
+  var myList5 = document.createElement('ul');
+  var myIMG = document.createElement('img');
 
     for (var i = 0; i < localJObj.length; i++) {
-      var myArticle = document.createElement('article');
-      var myH2 = document.createElement('h2');
-      var myH3 = document.createElement('h3');
-      var myPara2 = document.createElement('p');
-      var myPara3 = document.createElement('p');
-      var myPara4 = document.createElement('p');
-      var myPara5 = document.createElement('p');
-      var myList1 = document.createElement('ul');
-      var myPara6 = document.createElement('p');
-      var myList2 = document.createElement('ul');
-      var myPara7 = document.createElement('p');
-      var myList3 = document.createElement('ul');
-      var myPara8 = document.createElement('p');
-      var myList4 = document.createElement('ul');
-      var myPara9 = document.createElement('p');
-      var myList5 = document.createElement('ul');
-      var myIMG = document.createElement('img');
 
       if (localJObj[i].name == "Indianapolis Indiana Temple") {
         myIMG.setAttribute('src', 'images/indianapolis-indiana-720w.jpg');
