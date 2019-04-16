@@ -52,7 +52,7 @@ function fillJSON(divClass){
       myH3.textContent = localJObj[i].title +' ' + localJObj[i].name;
       myPara1.textContent = 'Appearance: ' + localJObj[i].appearance;
       myPara2.textContent = 'Background: ' + localJObj[i].background;
-      myPara3.textContent = 'Cause of Death: ' + localJObj[i].email;
+      if (divClass == "dead" || "dpc") {myPara3.textContent = 'Cause of Death: ' + localJObj[i].email} else {};
       myPara4.textContent = 'Social Skills: ';
 
       myArticle.appendChild(myH2);
