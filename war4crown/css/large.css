@@ -1,10 +1,10 @@
 /* 64em is also 1028px (if basefont is 16px) */
 @media only screen and (min-width: 64rem) {
 
-    header, nav, main, section, footer, body .contact {
-        max-width: 64rem;
-        margin:auto;
-    }
+header, nav, main, section, footer, body .contact {
+  max-width: 64rem;
+  margin:auto;
+}
 
 /*----------- BODY --------------*/
 /*body {
@@ -33,25 +33,25 @@
 
 /*----------- MAIN --------------*/
 main .gallery figure {
-    flex-basis: 29%;
+  flex-basis: 29%;
 }
 main .gallery figure:hover {box-shadow: 0 0 50px #333;}
 
 /*----------- ARTICLE --------------*/
 main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article, main .target article {
-    flex-basis: 29%;
+  flex-basis: 29%;
 }
 
 /*----------- FORM --------------*/
 
 form label.sbs{
-    padding: .4rem 0;
+  padding: .4rem 0;
 }
 
 form label.top textarea {
-    height: 16rem;
+  height: 16rem;
 }
 
 /*----------- FOOTER --------------*/
-    
+  
 }
