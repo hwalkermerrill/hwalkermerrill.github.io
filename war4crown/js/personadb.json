@@ -308,6 +308,37 @@
       "death": "Slain in combat by Rodrigo Hernandez, wielding Soldiers Glory, while retaking the Silent Repository safehouse."
     }
   ],
+  "dpc": [
+    {
+  		"status": "dpc",
+  		"name": "Cross Lotheed",
+  		"attitude": "Hostile",
+  		"race": "Human",
+  		"remain": "0",
+  		"death": "Bled to death after accidentally stabbing himself in fright while exploring the Tomb of Honaria Alcasti.",
+  		"deadorder": "1"
+  	},
+  	{
+  		"status": "dpc",
+  		"name": "Tim Tim",
+  		"attitude": "Helpful",
+  		"race": "Human",
+  		"remain": "0",
+  		"death": "Electrocuted by a damaged clockwork familiar which was defending the Tomb of Honaria Alcasti.",
+  		"deadorder": "2"
+  	},
+  	{
+  		"status": "dpc",
+  		"title": "Knight",
+  		"name": "Gene Starwind",
+  		"attitude": "Helpful",
+  		"announce": "Sir",
+  		"race": "Catfolk",
+  		"remain": "0",
+  		"death": "Pierced through the skull by a spike from the tail of the Iron Lash of Meratt.",
+  		"deadorder": "3"
+  	}
+  ],
   "inactive": [
     {
       "status": "inactive",
@@ -435,6 +466,49 @@
       "secretweak": "Despite her seemingly rough demeanor, Captain Seferi just want to earn the approval of Princess Eutropia, and has no idea how to do it. Giving her advice on how to dress or act encourages her, and a gift of a proper set of clothing to wear or a good gift to offer the Princess after the vote can help her find the confidence uses as she faces the rest of the world.",
       "remain": "0"
     }
+  ],
+  "pc": [
+    {
+  		"status": "pc",
+  		"name": "Dave",
+  		"attitude": "Indifferent",
+  		"race": "Human",
+  		"remain": "0"
+  	},
+  	{
+  		"status": "pc",
+  		"title": "Knight",
+  		"name": "Hypatia",
+  		"attitude": "Helpful",
+  		"announce": "Dame",
+  		"race": "Human",
+  		"remain": "0"
+  	},
+  	{
+  		"status": "pc",
+  		"name": "Ingoma",
+  		"attitude": "Friendly",
+  		"race": "Elf",
+  		"remain": "0"
+  	},
+  	{
+  		"status": "pc",
+  		"title": "Knight",
+  		"name": "Mai Vernisant",
+  		"attitude": "Helpful",
+  		"announce": "Dame",
+  		"race": "Human",
+  		"remain": "0"
+  	},
+  	{
+  		"status": "pc",
+  		"title": "Tribune",
+  		"name": "Rodrigo Hernandez",
+  		"attitude": "Helpful",
+  		"announce": "Lord",
+  		"race": "Human",
+  		"remain": "0"
+  	}
   ],
   "target": [
     {
