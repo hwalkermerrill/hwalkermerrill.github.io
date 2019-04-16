@@ -33,7 +33,7 @@ function fillJSON(divClass){
       }
 
       var listSkill = document.createElement('li');
-      listSkill.textContent = 'Influenced by ' + localJObj[i].skills;
+      listSkill.textContent = 'Influenced by: ' + localJObj[i].skills;
       myList1.appendChild(listSkill);
 
       var listBias = document.createElement('li');
