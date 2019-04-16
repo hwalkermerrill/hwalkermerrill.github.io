@@ -263,7 +263,7 @@ main .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown, ma
   display: flex;
   flex-wrap: wrap;
 }
-main .active article p:nth-child(3), main .pc article p:nth-child(3), main .inactive article p:nth-child(3), main .unknown article p:nth-child(3), main .target article p:nth-child(3) {
+main .active article:nth-child(3), main .pc article:nth-child(3), main .inactive article:nth-child(3), main .unknown article:nth-child(3), main .target article:nth-child(3) {
   display: none;
 }
 main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article, main .target article {
