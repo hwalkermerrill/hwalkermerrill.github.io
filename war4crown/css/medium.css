@@ -46,10 +46,10 @@ main .gallery figure {
 }
 
 /*----------- ARTICLE --------------*/
-main .active, .dead, .dpc, .pc, .inactive, .unknown {
+main .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown {
     justify-content: center;
 }
-main .active, .dead, .dpc, .pc, .inactive, .unknown article {
+main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article {
     flex-basis: 46%;
 }
 

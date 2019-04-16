@@ -257,11 +257,11 @@ form label.top textarea {
 }
 
 /*----------- ARTICLE --------------*/
-main .active, .dead, .dpc, .pc, .inactive, .unknown {
+main .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown {
     display: flex;
     flex-wrap: wrap;
 }
-main .active, .dead, .dpc, .pc, .inactive, .unknown article {
+main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article {
     margin: 1rem 2%;
     flex-basis: 96%;
     border-style: ridge;
@@ -270,10 +270,10 @@ main .active, .dead, .dpc, .pc, .inactive, .unknown article {
     padding: 1%;
     transition: all .2s ease-in-out;
 }
-main .active, .dead, .dpc, .pc, .inactive, .unknown article img {
+main .active article img, main .dead article img, main .dpc article img, main .pc article img, main .inactive article img, main .unknown article img {
     width: 100%;
 }
-main .active, .dead, .dpc, .pc, .inactive, .unknown article:hover {
+main .active article:hover, main .dead article:hover, main .dpc article:hover, main .pc article:hover, main .inactive article:hover, main .unknown article:hover {
     box-shadow: 0 0 12px #555;
     transform: scale(1.05);
 }
