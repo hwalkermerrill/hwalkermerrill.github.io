@@ -19,7 +19,7 @@ function fillJSON(divClass){
       var myH3 = document.createElement('h3');
       var myPara1 = document.createElement('p');
       var myPara2 = document.createElement('p');
-      var myPara3 = document.createElement('p');
+      var myPara3 = document.createElement('p class="death"');
       var myPara4 = document.createElement('p');
       var myIMG = document.createElement('img');
       var myList1 = document.createElement('ul');

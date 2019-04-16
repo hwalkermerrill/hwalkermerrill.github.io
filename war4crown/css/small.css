@@ -261,7 +261,7 @@ main .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown, ma
     display: flex;
     flex-wrap: wrap;
 }
-main .active article:nth-child(6), main .pc article:nth-child(6), main .inactive article:nth-child(6), main .unknown article:nth-child(6), main .target article:nth-child(6) {
+main .active article .death, main .pc article .death, main .inactive article .death, main .unknown article .death, main .target article .death {
   display: none;
 }
 main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article, main .target article {
