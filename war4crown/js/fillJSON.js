@@ -60,7 +60,7 @@ function fillJSON(divClass){
       myArticle.appendChild(myIMG);
       myArticle.appendChild(myPara1);
       myArticle.appendChild(myPara2);
-      myArticle.appendChild(myPara3);
+      if (divClass == "dead" || "dpc") {myArticle.appendChild(myPara3)};
       myArticle.appendChild(myPara4);
       myArticle.appendChild(myList1);
 
