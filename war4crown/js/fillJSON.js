@@ -25,7 +25,7 @@ function fillJSON(divClass){
       var myList1 = document.createElement('ul');
 
       if (divClass == "dead" || "dpc") {
-        myIMG.setAttribute('src', 'images/unknown.jpg');
+        myIMG.setAttribute('src', 'images/unknown.png');
         myIMG.setAttribute('alt', 'Unknown');
       } else {
         myIMG.setAttribute('src', localJObj[i].imgref);
