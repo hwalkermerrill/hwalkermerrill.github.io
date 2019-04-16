@@ -257,11 +257,11 @@ form label.top textarea {
 }
 
 /*----------- ARTICLE --------------*/
-main .temples {
+main .active, .dead, .dpc, .pc, .inactive, .unknown {
     display: flex;
     flex-wrap: wrap;
 }
-main .temples article {
+main .active, .dead, .dpc, .pc, .inactive, .unknown article {
     margin: 1rem 2%;
     flex-basis: 96%;
     border-style: ridge;
@@ -270,10 +270,10 @@ main .temples article {
     padding: 1%;
     transition: all .2s ease-in-out;
 }
-main .temples article img {
+main .active, .dead, .dpc, .pc, .inactive, .unknown article img {
     width: 100%;
 }
-main .temples article:hover {
+main .active, .dead, .dpc, .pc, .inactive, .unknown article:hover {
     box-shadow: 0 0 12px #555;
     transform: scale(1.05);
 }

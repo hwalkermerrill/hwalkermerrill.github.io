@@ -46,10 +46,10 @@ main .gallery figure {
 }
 
 /*----------- ARTICLE --------------*/
-main .temples {
+main .active, .dead, .dpc, .pc, .inactive, .unknown {
     justify-content: center;
 }
-main .temples article {
+main .active, .dead, .dpc, .pc, .inactive, .unknown article {
     flex-basis: 46%;
 }
 
