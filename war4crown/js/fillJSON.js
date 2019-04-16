@@ -100,6 +100,7 @@ function fillJSON(divClass){
 
       myArticle.appendChild(myH2);
       myArticle.appendChild(myH3);
+      myArticle.appendChild(myIMG);
       myArticle.appendChild(myPara2);
       myArticle.appendChild(myPara3);
       myArticle.appendChild(myPara4);
@@ -113,7 +114,6 @@ function fillJSON(divClass){
       myArticle.appendChild(myList4);
       myArticle.appendChild(myPara9);
       myArticle.appendChild(myList5);
-      myArticle.appendChild(myIMG);
 
       section.appendChild(myArticle);
     }
