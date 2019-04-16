@@ -34,6 +34,7 @@
 
 <!-- SCRIPT HERE -->
 <script src="js/hamburger.js"></script>
+<script src="js/fillJSON.js"></script>
 </head>
 <body>
 <!-- BORDER ART-->
@@ -64,10 +65,10 @@
 <!-- NAVIGATION HERE -->
   <nav class="clearfix">
     <ul id="primaryNav" class="hide">
-      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="heroes.html">Agents</a></li>
       <li><a href="npcs.html">Dossiers</a></li>
-      <li><a href="obituaries.html">Glorious Dead</a></li>
+      <li class="active"><a href="obituaries.html">Glorious Dead</a></li>
       <li><a href="assets.html">Assets</a></li>
       <li><a href="adventure.html">Reports</a></li>
       <li><a href="map.html">Maps</a></li>
@@ -76,8 +77,8 @@
 
 <!-- CONTENT HERE -->
   <main class="clearfix">
-    <h1>Roll for Initiative!</h1>
-    <h3>Yokota AB Pathfinder Group</h3>
+    <h1>Available Dossiers</h1>
+    <h3>Known and Potential Persons of Interest</h3>
     <!-- <div class="herodiv">
       <figure id="slideshow">
         <img src="images/indianapolis-indiana-720w.jpg" alt="Indianapolis Indiana" sizes="100vw"
@@ -109,21 +110,20 @@
         <form method="get" action="reservation.html"><button type="submit"><b>Book Now</b></button></form>
       </section>
     </div>-->
-    <div class="row">
-      <section>
-        <h2>How this works</h2>
-        <p>This site is meant as a resource for my players and is maintained directly and manually by the GM. This site is for use with the War for the Crown adventure path. Follow the tabs in the navigation bar to find:</p>
-        <ul style="list-style-type:circle">
-          <li>Agents: The agents, companions, and cohorts available to take missions</li>
-          <li>Dossiers: Profiles on all known persons of interest along with their current known status</li>
-          <li>Glorious Dead: The biographies and circumstances surrounding the fallen agents and persons of interest</li>
-          <li>Assets: Artifacts, relics, and property at the agents disposal, along with any earned loyalties and boons</li>
-          <li>Reports: Brief mission reports of agent activities since initial contact to their last known status</li>
-          <li>Maps: Current maps and geographical resources available for agent usage.</li>
-        </ul> 
-      </section>
+    <h2>Agents Killed in Action</h2>
+    <div class="dpc">
+      <script>fillJSON('dpc')</script>
+    </div>
+    <h2>Deceased Persons of Interest</h2>
+    <div class="dead">
+      <script>fillJSON('dead')</script>
     </div>
   </main>
+
+<!-- SECTION HERE -->
+  <section class="clearfix">
+        
+  </section>
 
 <!-- FOOTER HERE -->   
   <footer>
