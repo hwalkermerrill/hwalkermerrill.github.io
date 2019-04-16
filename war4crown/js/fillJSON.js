@@ -49,7 +49,7 @@ function fillJSON(divClass){
       myList1.appendChild(listWeak);
 
       myH2.textContent = localJObj[i].announce;
-      myH3.textContent = localJObj[i].title +' ' + localJObj[i].name[i];
+      myH3.textContent = localJObj[i].title +' ' + localJObj[i].name;
       myPara1.textContent = 'Appearance: ' + localJObj[i].appearance;
       myPara2.textContent = 'Background: ' + localJObj[i].background;
       myPara3.textContent = 'Cause of Death: ' + localJObj[i].email;
