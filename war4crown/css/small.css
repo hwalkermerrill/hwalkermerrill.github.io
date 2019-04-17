@@ -156,6 +156,10 @@ main .gallery {
 main .gallery figure {
   flex-basis: 96%;
   margin: 1rem 2%;
+  border-style: ridge;
+  border-color: #0e2043;
+  border-width: 6px;
+  padding: 1%;
   transition: all .2s ease-in-out;
 }
 main .gallery figure figcaption {
@@ -258,7 +262,7 @@ form label.top textarea {
   height: 8rem;
 }
 
-/*----------- ARTICLE --------------*/
+/*----------- ARTICLE (JSON READ) --------------*/
 main .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown, main .target {
   display: flex;
   flex-wrap: wrap;
