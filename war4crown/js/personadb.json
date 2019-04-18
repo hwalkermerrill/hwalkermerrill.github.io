@@ -179,7 +179,7 @@
     {
       "status": "active",
       "title": "Count",
-      "name": "Orlundo ",
+      "name": "Orlundo *The Iron Gar*",
       "surname": "Zespire",
       "attitude": "Helpful",
       "appearance": "Orlundo wears traditional Taldan outfits that seem a bit over starched. His graying, short hair is smoothed back from his tired face. Worn around the edges, Zespire keeps his smiles subdued and almost flat.",
@@ -390,6 +390,7 @@
     {
       "status": "crown",
       "title": "Baroness",
+      "name": "*Blackwater Kelly*",
       "surname": "Cyris",
       "attitude": "Unfriendly",
       "appearance": "Dressed in an admirals uniform dyed black and gold, blackwater kelly keeps her hair pulled back in a bun and and she speaks with a somewhat country accent often with colorful language. She looks obvious of noble descent, though she lacks the mannerisms of someone raised with any amount of court training.",
@@ -461,7 +462,7 @@
     {
       "status": "crown",
       "title": "Knight",
-      "name": "Valenar ",
+      "name": "Valenar *the Green*",
       "surname": "Thaena",
       "attitude": "Indifferent",
       "appearance": "Valenar ",
