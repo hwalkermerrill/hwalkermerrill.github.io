@@ -121,7 +121,7 @@ main .herodiv2 figure {
   margin-left: auto;
   margin-right: auto;
 }
-main .herodiv .actioncall {
+main .herodiv .actioncall, main .herodiv2 .actioncall {
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -130,7 +130,7 @@ main .herodiv .actioncall {
   padding: 0.2rem;
   box-shadow: 0 0 30px #fff;
 }
-main .herodiv .actioncall button {
+main .herodiv .actioncall button, main .herodiv2 .actioncall button {
   border: none;
   background-color: #0e2043;
   color: black;
@@ -139,10 +139,10 @@ main .herodiv .actioncall button {
   width: 96%;
   max-width: 20rem;
 }
-main .herodiv .actioncall h3 {
+main .herodiv .actioncall h3, main .herodiv2 .actioncall h3 {
   margin: 0.5rem;
 }
-main .herodiv .actioncall p {
+main .herodiv .actioncall p, main .herodiv2 .actioncall p {
   margin: 0.2rem;
 }
 main .row {
