@@ -120,8 +120,6 @@ main .herodiv2 figure {
   padding: 0;
   margin-left: 14rem;
   margin-right: auto;
-  display: grid;
-  grid-template-columns: auto auto;
 }
 main .herodiv .actioncall, main .herodiv2 .actioncall {
   position: absolute;
