@@ -118,7 +118,7 @@ main .herodiv figure {
 main .herodiv2 figure {
   width: 30%;
   padding: 0;
-  margin-left: auto;
+  margin-left: 14rem;
   margin-right: auto;
 }
 main .herodiv .actioncall, main .herodiv2 .actioncall {
