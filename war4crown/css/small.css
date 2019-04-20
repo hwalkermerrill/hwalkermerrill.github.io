@@ -182,8 +182,11 @@ main img {
   margin-right: auto;
   margin-left: auto;
 }
+main .pchide, main .dpchide, main .crownhide, main .activehide, main .inactivehide, main .deadhide, main .targethide, main .unknownhide {
+  display: none;
+}
 
-/*----------- MAIN --------------*/
+/*----------- Slideshow --------------*/
 #slideshow:after {
   content: "";
   display: table;
