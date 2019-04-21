@@ -4,3 +4,8 @@ function toggleMenu() {
 /*function toggleDiv(x) {
   document.getElementById(x).classList.toggle(x + "hide");
 }*/
+function toggleClick(x){
+  $( "article" ).click(function() {
+    $( this ).toggleClass( "click" );
+  });
+}
