@@ -288,17 +288,25 @@ main .active article, main .dead article, main .dpc article, main .pc article, m
 main .active article img, main .dead article img, main .dpc article img, main .pc article img, main .inactive article img, main .unknown article img, main .target article img, main .crown article img, main .asset section img {
   width: 100%;
 }
-main .active article p, main .dead article p, main .dpc article p, main .pc article p, main .inactive article p, main .unknown article p, main .target article p, main .crown article p, main .asset section p {
-  display: none;
-}
 main .active article:hover, main .dead article:hover, main .dpc article:hover, main .pc article:hover, main .inactive article:hover, main .unknown article:hover, main .target article:hover, main .crown article:hover, main .asset section:hover {
   box-shadow: 0 0 12px #555;
   transform: scale(1.05);
 }
-main .active .click p, main .dead .click p, main .dpc .click p, main .pc .click p, main .inactive .click p, main .unknown .click p, main .target .click p, main .crown .click p, main .asset section:active p {
+/*---START toggleClass sub-CSS---*/
+main .active article p, main .dead article p, main .dpc article p, main .pc article p, main .inactive article p, main .unknown article p, main .target article p, main .crown article p, main .asset section p {
+  display: none;
+}
+main .active article ul, main .dead article ul, main .dpc article ul, main .pc article ul, main .inactive article ul, main .unknown article ul, main .target article ul, main .crown article ul, main .asset section ul {
+  display: none;
+}
+main .active .click p, main .dead .click p, main .dpc .click p, main .pc .click p, main .inactive .click p, main .unknown .click p, main .target .click p, main .crown .click p, main .asset .click p {
   display: block;
 }
-main .active p:nth-of-type(3), main .pc p:nth-of-type(3), main .inactive p:nth-of-type(3), main .unknown p:nth-of-type(3), main .target p:nth-of-type(3), main .crown  p:nth-last-of-type(3) {
+main .active .click ul, main .dead .click ul, main .dpc .click ul, main .pc .click ul, main .inactive .click ul, main .unknown .click ul, main .target .click ul, main .crown .click ul, main .asset .click ul {
+  display: block;
+}
+/*---END toggleClass sub-CSS---*/
+main .active p:nth-of-type(3), main .pc p:nth-of-type(3), main .inactive p:nth-of-type(3), main .unknown p:nth-of-type(3), main .target p:nth-of-type(3), main .crown  p:nth-of-type(3) {
   display: none;
 }
 main .dead p:nth-of-type(4), main .dpc p:nth-of-type(4), main .inactive p:nth-of-type(4), main .unknown p:nth-of-type(4) {
