@@ -14,8 +14,8 @@ function fillJSON(divClass){
     var localJObj = jsonObj[divClass];
 
     for (var i = 0; i < localJObj.length; i++) {
-      let cName = localJObj[i].attitude;
-      var myArticle = document.createElement('article').className(cName);
+      var myArticle = document.createElement('article');
+      el.className = localJObj[i].attitude;
       var myH2 = document.createElement('h2');
       var myH3 = document.createElement('h3');
       var myPara1 = document.createElement('p');
