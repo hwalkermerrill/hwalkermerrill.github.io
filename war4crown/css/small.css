@@ -295,14 +295,7 @@ main .active article:hover, main .dead article:hover, main .dpc article:hover, m
   box-shadow: 0 0 12px #555;
   transform: scale(1.05);
 }
-main .active article:active, main .dead article:active, main .dpc article:active, main .pc article:active, main .inactive article:active, main .unknown article:active, main .target article:active, main .crown article:active, main .asset section:active {
-  box-shadow: 0 0 12px #555;
-  transform: scale(1.05);
-}
-main .active article:active p, main .dead article:active p, main .dpc article:active p, main .pc article:active p, main .inactive article:active p, main .unknown article:active p, main .target article:active p, main .crown article:active p, main .asset section:active p {
-  display: block;
-}
-main .active article:focus p, main .dead article:focus p, main .dpc article:focus p, main .pc article:focus p, main .inactive article:focus p, main .unknown article:focus p, main .target article:focus p, main .crown article:focus p, main .asset section:focus p {
+main .active .click p, main .dead .click p, main .dpc .click p, main .pc .click p, main .inactive .click p, main .unknown .click p, main .target .click p, main .crown .click p, main .asset section:active p {
   display: block;
 }
 main .active p:nth-of-type(3), main .pc p:nth-of-type(3), main .inactive p:nth-of-type(3), main .unknown p:nth-of-type(3), main .target p:nth-of-type(3), main .crown  p:nth-last-of-type(3) {
