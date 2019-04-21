@@ -5,7 +5,7 @@ function toggleMenu() {
   document.getElementById(x).classList.toggle(x + "hide");
 }*/
 function toggleClick(x){
-  $( "article" ).click(function() {
+  $( x ).click(function() {
     $( this ).toggleClass( "click" );
   });
 }
