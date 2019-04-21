@@ -14,9 +14,7 @@ function fillJSON(divClass){
     var localJObj = jsonObj[divClass];
 
     for (var i = 0; i < localJObj.length; i++) {
-      var article = 'article'
-      var myArticle = document.createElement(article);
-      article.className = localJObj[i].attitude;
+      var myArticle = document.createElement('article');
       var myH2 = document.createElement('h2');
       var myH3 = document.createElement('h3');
       var myPara1 = document.createElement('p');
@@ -33,6 +31,8 @@ function fillJSON(divClass){
         myIMG.setAttribute('src', localJObj[i].imgref);
         myIMG.setAttribute('alt', localJObj[i].name);
       }
+
+      document.getElementById('article').className = localJObj[i].attitude;
 
       var listSkill = document.createElement('li');
       listSkill.textContent = 'Influenced by: ' + localJObj[i].skills;
