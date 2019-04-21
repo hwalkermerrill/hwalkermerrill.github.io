@@ -117,9 +117,10 @@
 <!-- SCRIPT HERE -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/banner.js"></script>
-  <script>$(window).on("load",( "article" ).click(function() {
+  <script>$(window).on("load",function() {
+    $( "article" ).click(function() {
     $( this ).toggleClass( "click" );
-    }));
+    })});
   </script>
 </body>
 </html>
