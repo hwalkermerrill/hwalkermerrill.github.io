@@ -32,8 +32,6 @@ function fillJSON(divClass){
         myIMG.setAttribute('alt', localJObj[i].name);
       }
 
-      document.getElementById('article').className = localJObj[i].attitude;
-
       var listSkill = document.createElement('li');
       listSkill.textContent = 'Influenced by: ' + localJObj[i].skills;
       myList1.appendChild(listSkill);
@@ -67,6 +65,8 @@ function fillJSON(divClass){
       myArticle.appendChild(myList1);
 
       section.appendChild(myArticle);
+
+      document.getElementById('article').className = localJObj[i].attitude;
     }
   }
 }
