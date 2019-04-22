@@ -66,7 +66,11 @@ function fillJSON(divClass){
 
       section.appendChild(myArticle);
 
-      myArticle.setAttribute("class", localJObj[i].attitude);
+      if (divClass == "unknown") {
+        myArticle.setAttribute("class", "unknown");
+      } else {
+        myArticle.setAttribute("class", localJObj[i].attitude);
+      }
     }
   }
 }
