@@ -307,23 +307,23 @@ main .hostile {
   border-color: #d48f2a;
 }
 /*---START toggleClass sub-CSS---*/
-main .active article p, main .dead article p, main .dpc article p, main .pc article p, main .inactive article p, main .unknown article p, main .target article p, main .crown article p, main .asset section p {
+main .active article p, main .dead article p, main .dpc article p, main .pc article p, main .inactive article p, main .unknown article p, main .target article p, main .crown article p, main .asset section p, main .agent article p {
   display: none;
 }
-main .active article ul, main .dead article ul, main .dpc article ul, main .pc article ul, main .inactive article ul, main .unknown article ul, main .target article ul, main .crown article ul, main .asset section ul {
+main .active article ul, main .dead article ul, main .dpc article ul, main .pc article ul, main .inactive article ul, main .unknown article ul, main .target article ul, main .crown article ul, main .asset section ul, main .agent article ul {
   display: none;
 }
-main .active .click p, main .dead .click p, main .dpc .click p, main .pc .click p, main .inactive .click p, main .unknown .click p, main .target .click p, main .crown .click p, main .asset .click p {
+main .active .click p, main .dead .click p, main .dpc .click p, main .pc .click p, main .inactive .click p, main .unknown .click p, main .target .click p, main .crown .click p, main .asset .click p, main .agent .click p {
   display: block;
 }
-main .active .click ul, main .dead .click ul, main .dpc .click ul, main .pc .click ul, main .inactive .click ul, main .unknown .click ul, main .target .click ul, main .crown .click ul, main .asset .click ul {
+main .active .click ul, main .dead .click ul, main .dpc .click ul, main .pc .click ul, main .inactive .click ul, main .unknown .click ul, main .target .click ul, main .crown .click ul, main .asset .click ul, main .agent .click ul {
   display: block;
 }
 /*---END toggleClass sub-CSS---*/
-main .active p:nth-of-type(3), main .pc p:nth-of-type(3), main .inactive p:nth-of-type(3), main .unknown p:nth-of-type(3), main .target p:nth-of-type(3), main .crown  p:nth-of-type(3) {
+main .active p:nth-of-type(3), main .pc p:nth-of-type(3), main .inactive p:nth-of-type(3), main .unknown p:nth-of-type(3), main .target p:nth-of-type(3), main .crown p:nth-of-type(3), main .agent p:nth-of-type(3) {
   display: none;
 }
-main .dead p:nth-of-type(4), main .dpc p:nth-of-type(4), main .inactive p:nth-of-type(4), main .unknown p:nth-of-type(4) {
+main .dead p:nth-of-type(4), main .inactive p:nth-of-type(4), main .unknown p:nth-of-type(4) {
   display: none;
 }
 main .dead ul, main .inactive ul, main .unknown ul {
