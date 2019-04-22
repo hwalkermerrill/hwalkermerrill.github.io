@@ -292,11 +292,11 @@ main .active article:hover, main .dead article:hover, main .dpc article:hover, m
   box-shadow: 0 0 12px #555;
   transform: scale(1.05);
 }
-main article .helpful, main section .helpful {
+main .helpful {
   background-color: #0e2043;
   color: #d48f2a
 }
-main article .hostile, main section .hostile {
+main .hostile {
   background-color: rgba(0,0,0,.1);
   color: white
 }
