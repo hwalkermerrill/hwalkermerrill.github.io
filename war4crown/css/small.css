@@ -292,14 +292,7 @@ main .active article:hover, main .dead article:hover, main .dpc article:hover, m
   box-shadow: 0 0 12px #555;
   transform: scale(1.05);
 }
-main .active article .helpful, main .dead article .helpful, main .dpc article .helpful, main .pc article .helpful, main .inactive article .helpful, main .unknown article .helpful, main .target article .helpful, main .crown article .helpful, main .asset section .helpful {
-  background-color: #0e2043;
-  color: #d48f2a
-}
-main .active article .hostile, main .dead article .hostile, main .dpc article .hostile, main .pc article .hostile, main .inactive article .hostile, main .unknown article .hostile, main .target article .hostile, main .crown article .hostile, main .asset section .hostile {
-  background-color: rgba(0,0,0,0);
-  color: white
-}
+
 /*---START toggleClass sub-CSS---*/
 main .active article p, main .dead article p, main .dpc article p, main .pc article p, main .inactive article p, main .unknown article p, main .target article p, main .crown article p, main .asset section p {
   display: none;
