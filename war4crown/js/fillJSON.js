@@ -67,8 +67,8 @@ function fillJSON(divClass){
       section.appendChild(myArticle);
 
       if (divClass == "unknown") {
-        
-      }else {
+
+      } else {
         myArticle.setAttribute("class", localJObj[i].attitude);
       }
     }
