@@ -294,7 +294,8 @@ main .active article:hover, main .dead article:hover, main .dpc article:hover, m
 }
 main .helpful {
   background-color: #0e2043;
-  color: #d48f2a
+  color: #d48f2a;
+  border-color: #d48f2a;
 }
 main .helpful h2, main .hostile h2 {
   color: #00572f;
@@ -302,7 +303,8 @@ main .helpful h2, main .hostile h2 {
 }
 main .hostile {
   background-color: rgba(0,0,0,1);
-  color: white
+  color: white;
+  border-color: #d48f2a;
 }
 /*---START toggleClass sub-CSS---*/
 main .active article p, main .dead article p, main .dpc article p, main .pc article p, main .inactive article p, main .unknown article p, main .target article p, main .crown article p, main .asset section p {
