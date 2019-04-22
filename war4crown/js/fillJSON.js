@@ -66,7 +66,7 @@ function fillJSON(divClass){
 
       section.appendChild(myArticle);
 
-      document.getElementById("article").className = localJObj[i].attitude;
+      myArticle.setAttribute("class", localJObj[i].attitude);
     }
   }
 }
