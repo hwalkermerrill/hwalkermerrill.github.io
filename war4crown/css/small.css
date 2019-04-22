@@ -296,8 +296,12 @@ main .helpful {
   background-color: #0e2043;
   color: #d48f2a
 }
+main .helpful h2, main .hostile h2 {
+  color: #00572f;
+  text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
+}
 main .hostile {
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0,0,0,0);
   color: white
 }
 /*---START toggleClass sub-CSS---*/
