@@ -771,6 +771,7 @@
       "status": "dpc",
       "title": " ",
       "name": "Tim Tim",
+      "surname": "*The Destroyer*",
       "attitude": "Helpful",
       "biases": " ",
       "strengths": " ",
@@ -1030,8 +1031,8 @@
     {
       "status": "pc",
       "title": "Knight",
-      "name": " ",
-      "surname": "Hypatia",
+      "name": "Hypatia",
+      "surname": "Crabbe",
       "attitude": "Helpful",
       "biases": " ",
       "strengths": " ",
