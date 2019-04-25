@@ -117,22 +117,11 @@
 
 <!-- SCRIPT HERE -->
   <script src="js/banner.js"></script>
-  <script src="js/clickload.js?<%=DateTime.Now.Ticks.ToString()%>"></script>
-  <script>$(window).on("load", clickLoad('article'))</script>
-  <script>$(document).ready(function() {
-      // executes when HTML-Document is loaded and DOM is ready
-      console.log("document is ready");
+  <script>$(document).ready(function clickLoad() {
+      $('article').click(function() {
+        $(this).toggleClass( "click" );
+      })
     });
-  </script>
-    <script>$(window).on("load", function() {
-        // executes when HTML-Document is loaded and DOM is ready
-        console.log("document is loaded");
-      });
-  </script>
-    <script>$(window).on("pagecreate", function() {
-        // executes when HTML-Document is loaded and DOM is ready
-        console.log("document is page created");
-      });
   </script>
 </body>
 </html>
