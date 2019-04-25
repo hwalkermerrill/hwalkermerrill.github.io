@@ -118,18 +118,18 @@
 <!-- SCRIPT HERE -->
   <script src="js/banner.js"></script>
   <script src="js/clickload.js"></script>
-  <script>$(window).ready(clickLoad('article'))</script>
+  <script>$(document).ready(clickLoad('article'))</script>
   <script>$(document).ready(function() {
       // executes when HTML-Document is loaded and DOM is ready
       console.log("document is ready");
     });
   </script>
-    <script>$(document).on("load", function() {
+    <script>$(window).on("load", function() {
         // executes when HTML-Document is loaded and DOM is ready
         console.log("document is loaded");
       });
   </script>
-    <script>$(document).on("pagecreate", function() {
+    <script>$(window).on("pagecreate", function() {
         // executes when HTML-Document is loaded and DOM is ready
         console.log("document is page created");
       });
