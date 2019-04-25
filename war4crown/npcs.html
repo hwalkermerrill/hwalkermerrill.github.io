@@ -118,6 +118,6 @@
 <!-- SCRIPT HERE -->
   <script src="js/banner.js"></script>
   <script src="js/clickload.js"></script>
-  <script>setTimeout(clickLoad('article'),3000)</script>
+  <script>$(window).on("load", clickLoad('article'))</script>
 </body>
 </html>
