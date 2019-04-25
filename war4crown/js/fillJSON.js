@@ -73,7 +73,7 @@ function fillJSON(divClass){
       }
     }
   }
-  clickLoad('article')
+  clickLoad2Fill('article')
 }
 
 function fillPCDB(divClass){
@@ -145,10 +145,10 @@ function fillPCDB(divClass){
       myArticle.setAttribute("class", localJObj[i].attitude);
     }
   }
-  clickLoad('article')
+  clickLoad2Fill('article')
 }
 
-function clickLoad(clickClass) {
+function clickLoad2Fill(clickClass) {
   $(clickClass).click(function() {
     $(this).toggleClass( "click" );
   })
