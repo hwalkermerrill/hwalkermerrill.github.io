@@ -73,13 +73,12 @@ function fillJSON(divClass){
       }
     }
   }
-  function load_js() {
-    var head = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.src = 'clickload.js';
-    head.appendChild(script('article'));
+  function clickLoad(clickClass) {
+    $(clickClass).click(function() {
+      $(this).toggleClass( "click" );
+    })
   }
-  load_js;
+  clickLoad('article')
 }
 
 function fillPCDB(divClass){
@@ -151,11 +150,10 @@ function fillPCDB(divClass){
       myArticle.setAttribute("class", localJObj[i].attitude);
     }
   }
-  function load_js() {
-    var head = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.src = 'clickload.js';
-    head.appendChild(script('article'));
+  function clickLoad(clickClass) {
+    $(clickClass).click(function() {
+      $(this).toggleClass( "click" );
+    })
   }
-  load_js;
+  clickLoad('article')
 }
