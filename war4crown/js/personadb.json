@@ -983,11 +983,11 @@
       "race": "Catfolk",
       "death": "Pierced through the skull by a spike from the tail of the Iron Lash of Meratt.",
       "order": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gene-starwind.png",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/placeholder-3-2.png",
       "classes": "Solar-blooded Sorcerer 4",
       "camptrait": "Young Reformer",
       "noblerank": "None",
-      "persona": "Martyr"
+      "persona": "Martyr 1"
     }
   ],
   "inactive": [
@@ -1125,7 +1125,7 @@
       "achievements": " ",
       "announce": " ",
       "race": "Human",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/dave.png",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/placeholder-3-2.png",
       "classes": " ",
       "camptrait": " ",
       "persona": " "
@@ -1148,7 +1148,7 @@
       "classes": "Fighter 4",
       "camptrait": "Senatorial Hopeful",
       "noblerank": "Lesser",
-      "persona": "Hero"
+      "persona": "Hero 1"
     },
     {
       "status": "pc",
@@ -1164,11 +1164,11 @@
       "achievements": "Rescuing Martella, Winning the Dance of the Phalanx at the Tanager Jubilee, Slaying the Iron Lash of Meratt",
       "announce": "Dame",
       "race": "Human",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/hypatia.png",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/placeholder-3-2.png",
       "classes": "Alchemist 4",
       "camptrait": "Rising Star",
       "noblerank": "Lesser",
-      "persona": "Genius"
+      "persona": "Genius 1"
     },
     {
       "status": "pc",
@@ -1188,7 +1188,7 @@
       "classes": "Bard 3 Vivisection Alchemist 1",
       "camptrait": "Rising Star",
       "noblerank": "None",
-      "persona": " "
+      "persona": "Politician 1"
     },
     {
       "status": "pc",
@@ -1208,7 +1208,7 @@
       "classes": "Witch 4",
       "camptrait": "Child of Oppara",
       "noblerank": "Major",
-      "persona": "Genius"
+      "persona": "Genius 1"
     }
   ],
   "target": [
