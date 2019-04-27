@@ -120,7 +120,7 @@
       "surname": "Okerra",
       "attitude": "helpful",
       "appearance": "This handsome bear of a man stands a head taller than the crowd, and while starting to show his age with flecks of white in his black hair and beard, he retains a youthful smile and gentle eyes.",
-      "background": "A popular noble and hero of Meratt, Baron Okerra is as equally renowned for his good looks as he is for his strict honor code. He returned home from his military career to raise his daughter, Selli, after his late wife Nirvenna was killed by a troll.",
+      "background": "A popular noble and hero from Meratt, Nicolaus Okerra’s salt-and-pepper hair is the only suggestion that time may be beginning to slow him down. He lives to do right by those who depend on him: as a soldier, as a leader, and as a father, having returned home from his military career to raise his daughter, Selli, after his late wife Nirvenna was killed by a troll.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -225,6 +225,24 @@
     }
   ],
   "agent": [
+    {
+      "status": "agent",
+      "title": " ",
+      "name": " ",
+      "surname": "Blunk",
+      "attitude": "friendly",
+      "appearance": "The eldest of Alice's three domovoi friends, Blunk speaks for his group to those outside of the faen court. A smoker with a gruff beard and long toenails, Blunk is suspicious but generally helpful.",
+      "background": "Alice Betony's imaginary friends turned out to be three domovoi by the name of Blunk, Nod, and Wink. Sharing and caring for the Betony estate, they continue to guard, clean, and repair the interior property and its other caretakers.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "announce": "Faen",
+      "race": "Fey",
+      "remain": "0",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/blunk.png",
+      "": ""
+    },
     {
       "status": "agent",
       "title": "Knight",
@@ -784,7 +802,7 @@
       "surname": "Stavian III",
       "attitude": "unfriendly",
       "appearance": "Dressed perfectly in regal attire, his clothes don't show even a hint of wear. He smiles often and slightly too widely.",
-      "background": "Grand Prince Stavian III is considered as ineffectual as the empire he rules. For all Stavian’s faults, he has managed to hold the empire together through intelligent political maneuvering and a keen understanding of human nature.",
+      "background": "Grand Prince Stavian III is considered as ineffectual as the empire he rules. For all Stavian’s faults, he has managed to hold the empire together through intelligent political maneuvering and a keen understanding of human nature. ",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -1236,7 +1254,7 @@
       "name": "Bartelby",
       "surname": "Lotheed",
       "attitude": "friendly",
-      "appearance": "Bartelby is tall, thin, and handsome, with thick hair and expressive eyes.",
+      "appearance": "Handsome but vaguely unsettling, Bartelby has the demeanor of a man comfortable in his superiority. His face is expressive of his ever-changing moods—warm one moment, cold and distant the next. ",
       "background": "The current steward of the Palace of Birdsong and the County of Meratt, Count Lotheed comes from a long line of talented arcanists.",
       "biases": "???",
       "strengths": "???",
@@ -1269,6 +1287,24 @@
       "race": "Human",
       "remain": "0",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/cateline-lotheed.png",
+      "": ""
+    },
+    {
+      "status": "target",
+      "title": "Duchess",
+      "name": "Veleto",
+      "surname": "Lotheed",
+      "attitude": "indifferent",
+      "appearance": "Old and gray, her face is crossed with smile wrinkles and her clothing looks just slightly large and worn, as if she's had them for a long time and has steadily lost weight. She walks gracefully and upright and looks rather pretty despite her advanced age.",
+      "background": "A woman of wit, guile, and uncanny insight, the Duchess Veleto was a legendary infiltrator in her youth until she married and shifted roles to a manipulative grand dame of the Opparan social scene. Now of venerably old age, she mostly stays at the Palace of Birdsong under the care of her great nephew Bartelby.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "announce": "Her Grace",
+      "race": "Human",
+      "remain": "0",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/veleto-lotheed.png",
       "": ""
     },
     {
@@ -1314,7 +1350,7 @@
       "name": "The Night",
       "surname": "Swan",
       "attitude": "hostile",
-      "appearance": "Descriptions vary wildly between *eyewitness* accounts. All agree the night swan is fast, young, and masked, but as to gender, color, height, or race, it is impossible to know.",
+      "appearance": "Descriptions vary wildly between *eyewitness* accounts. Proportedly garbed in white, silver, and gold, this woman is described as holding herself with both grace and stength.",
       "background": "While many claim the Night Swan is an ancient and mythical fey, others claim it is a simple bandit. Either way, attacks are recent and relatively frequent, and most attacks on the road are attributed to The Night Swan, deserved or not.",
       "biases": "???",
       "strengths": "???",
@@ -1346,6 +1382,24 @@
     }
   ],
   "unknown": [
+    {
+      "status": "unknown",
+      "title": " ",
+      "name": "Zenobius",
+      "surname": "Caal",
+      "attitude": "indifferent",
+      "appearance": "Short, balding, and lazy, Zenobius Caal peruses financial records in his spare time, pursuing careful mathematical notation with a rarely rivaled zeal.",
+      "background": "Count Lotheed's accountant and moneychanger, Zenobius Caal keeps the palace's books and arranges loans to and collections from local nobles and institutions.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "announce": "Mister",
+      "race": "Human",
+      "remain": "0",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/zenobius-caal.png",
+      "": ""
+    },
     {
       "status": "unknown",
       "title": "Viscount",
@@ -1437,8 +1491,7 @@
       "race": "Human",
       "secretweak": "Landgrave Jarlbjorn detests anything that has a feeling of “witch magic” to it, keeping his childhood superstitions withheld from those around him but it can be a “weakness” that others might exploit.",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/ogvai-jarbjorn.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/ogvai-jarbjorn.png"
     },
     {
       "status": "unknown",
@@ -1455,8 +1508,7 @@
       "announce": "Mister",
       "race": "Human",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/jeke.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/jeke.png"
     },
     {
       "status": "unknown",
@@ -1474,8 +1526,7 @@
       "race": "Human",
       "secretweak": "Octavia Nicodemius is not one for the distractions of the Exaltation Gala or senate life, she’s focused on completing a compilation of her archiving of the Endless Repository. She can be seen testing potential replacements to her seat and stewardship of the Repository as the Gala allows her access to a lot of talented people that may impress her enough to seek more from them.",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/octavia-nicodemius.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/octavia-nicodemius.png"
     },
     {
       "status": "unknown",
@@ -1492,8 +1543,7 @@
       "announce": "Her Holiness",
       "race": "Human",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/achbanker-paril.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/achbanker-paril.png"
     },
     {
       "status": "unknown",
@@ -1510,8 +1560,7 @@
       "announce": "Lord",
       "race": "Human",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/dominicus-rell.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/dominicus-rell.png"
     },
     {
       "status": "unknown",
@@ -1529,8 +1578,7 @@
       "race": "Human",
       "secretweak": "Talbot’s distrust of close connections may make it harder for those seeking to get into his good graces. The betrayal of his son’s to the faith of Abadar still stings, which makes those words appealing to his family or boasts of adventuring fall on deaf ears.",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/georgi-blackus-talbot.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/georgi-blackus-talbot.png"
     },
     {
       "status": "unknown",
@@ -1548,8 +1596,7 @@
       "race": "Human",
       "secretbias": " ",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/araig-telus.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/araig-telus.png"
     },
     {
       "status": "unknown",
@@ -1557,8 +1604,8 @@
       "name": "Yarelle",
       "surname": "Towsine",
       "attitude": "indifferent",
-      "appearance": "Dressed in farmer clothing, she doesn't look like the young noble born some sixty years ago.",
-      "background": "A distant cousin of Adella Voinum, she ran off to study magic before dropping off the map. Now she administers a small hamlet on the outskirts of the Voinum Barony.",
+      "appearance": "Friendly and welcoming, she has gray hair and watches everyone carefully.",
+      "background": "A distant cousin - several times removed - of Adella Voinum, Yarelle studied the arcane in Oppara only to discover she missed the country side. She now helps to lead the tiny hamlet of Cascina.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -1566,8 +1613,24 @@
       "announce": "Lady",
       "race": "Human",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/yarelle-towsine.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/yarelle-towsine.png"
+    },
+    {
+      "status": "unknown",
+      "title": "Baronet",
+      "name": "Caphridius",
+      "surname": "Vort",
+      "attitude": "indifferent",
+      "appearance": "Dressed in worn nobles clothing, Caphridius looks grim and tired. A gregarious man and happy to meet visitors, he can’t help but mention his community’s struggles, lack of resources, and poor infrastructure. ",
+      "background": "Count Caliphalig Vort's cousin and the former assistant to Baron Telus, Caphridius is far more interested in acting and opera than frontier living. Though miserable, he continues to work hard to lead his community, while quietly nursing a self-loathing.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "announce": "Honorable Lord",
+      "race": "Human",
+      "remain": "0",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/caphridius-vort.png"
     }
   ]
 }
