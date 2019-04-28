@@ -8,20 +8,21 @@
       "attitude": "friendly",
       "appearance": "Cropped, curly hair, plucked eyebrows, manicured beard and nails, Remaio looks every bit like a man born into Nobility.",
       "background": "A descendent of the Countess Remaio Alcasti, his family once ruled the county of Meratt before the titles were stripped away. Their direct lands are now the Telus Barony, and in Baron Telus' absence, Remaio seeks to reclaim his familial lands.",
-      "biases": "???",
+      "biases": "Remaio can't stand the rigidness of lawful types, and has a secret fascination with the night swan and her supporters.",
       "strengths": "???",
-      "weakness": "???",
-      "skills": "Diplomacy, Stealth, Bluff, Disable Device",
+      "weakness": "Strapped for cash, gifts of coin grant benefits to influence checks made that day at +1 per 100gp, max +5.",
+      "skills": "Diplomacy, Stealth, Bluff, Disable Device and K: Local",
       "announce": "His Lordship",
       "race": "Human",
       "secretbias": "Remaio can't stand the rigidness of lawful types (–2), and has a secret fascination with the night swan and her supporters (+2).",
       "secretstrength": "Remaio can feel the pulse of the underworld, and threats will not move him.",
       "secretweak": "Strapped for cash, gifts of coin grant benefits to influence checks (+1 per 100gp, max +5) made that day.",
-      "successes": "2",
-      "remain": "8",
+      "successes": "1",
+      "remain": "9",
       "totalneed": "10",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/remaio-alcasti.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/remaio-alcasti.png"
     },
     {
       "status": "active",
@@ -40,11 +41,12 @@
       "secretbias": "Parthena’s shallow judgment of others means appearances are what really matter; she’s predisposed toward anyone sporting at least 500 gp worth of jewelry (+2). While she has a thick skin regarding her own physique, she is extremely protective of her daughter and holds a grudge against anyone who insults the girl (–2).",
       "secretstrength": "Dame Crabbe is bored by anyone taking their noble responsibilities too seriously—one of the few reasons she hasn’t tried to pursue Baron Okerra for herself.",
       "secretweak": "Anyone who seems romantically inclined toward Sepsinia—or better yet, attempts to woo her (+4)—will find Dame Crabbe very friendly. Parthena hasn’t noticed her own lack of love life and is easily flustered by anyone flirting with her. (+2)",
-      "successes": "1",
-      "remain": "4",
+      "successes": "0",
+      "remain": "5",
       "totalneed": "5",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/parthena-crabbe.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/parthena-crabbe.png"
     },
     {
       "status": "active",
@@ -64,8 +66,9 @@
       "secretstrength": " ",
       "secretweak": " ",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/lucinia-mag.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/lucinia-mag.png"
     },
     {
       "status": "active",
@@ -84,11 +87,12 @@
       "secretbias": "The Lucretzia hates nobles and those who serve them (–2), but she has an immediate affection for anyone working to root out corruption and abuse (+2).",
       "secretstrength": "Lucretzia hates anyone implying she doesn’t understand what she’s doing or the needs of others—whether she does or not.",
       "secretweak": "Lucretzia has a solid appreciation for Galtan history and writing, and couching new ideas in relation to revolutionary writers is sure to make an impression.",
-      "successes": "1",
-      "remain": "4",
+      "successes": "0",
+      "remain": "5",
       "totalneed": "5",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/lucretzia-marthane.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/lucretzia-marthane.png"
     },
     {
       "status": "active",
@@ -107,11 +111,12 @@
       "secretbias": "Tribune Aric is highly opinionated and can't stand people who take the spotlight from him or ignore him (–2), but anyone with several knowledge skills or feigning interest in his opinions find him to be quite talkative (+2).",
       "secretstrength": "Well versed in double-speak, it is hard to win his favor from a platform you don't actually support.",
       "secretweak": "Not actually a noble, but instead representing other interests, he loves to swap rumors while he digs for information.",
-      "successes": "2",
-      "remain": "3",
+      "successes": "1",
+      "remain": "4",
       "totalneed": "5",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/aric-of.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/aric-of.png"
     },
     {
       "status": "active",
@@ -130,11 +135,31 @@
       "secretbias": "Nicolaus respects integrity, and has a predilection for other lawful characters (+2).",
       "secretstrength": " Nicolaus is especially resistant to any discussions that suggest subterfuge or all-out revolution.",
       "secretweak": "Baron Okerra has always associated goodness with obedience and service, but he’s increasingly questioning the morality of his life since the Exaltation Massacre). Any expression of sympathy touches Nicolaus’s heart.",
-      "successes": "2",
-      "remain": "4",
+      "successes": "1",
+      "remain": "5",
       "totalneed": "6",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/nicolaus-okerra.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/nicolaus-okerra.png"
+    },
+    {
+      "status": "active",
+      "title": "Archbanker",
+      "name": "Lady",
+      "surname": "Paril",
+      "attitude": "friendly",
+      "appearance": "Dressed in immaculate priestess robes, the Archbanker always smells like a different perfume each day.",
+      "background": "The Archbanker of the Grand Bank of Abadar in Lotheedar, Paril is perhaps the most important and useful non-noble in Meratt.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "announce": "Her Holiness",
+      "race": "Human",
+      "remain": "0",
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/achbanker-paril.png"
     },
     {
       "status": "active",
@@ -153,11 +178,12 @@
       "secretbias": "Tribune Piscum despises anyone who flaunts their wealth and power (–2), but she warms up to anyone who clearly understands a practical skill or two, such as Craft, Handle Animal, Profession, or Survival (+2).",
       "secretstrength": "Onora has a quiet hatred for Count Bartelby and is especially cold to anyone who tries to use his name or influence to persuade her.",
       "secretweak": "Onora has a deep love for homespun metaphors and colloquialisms.",
-      "successes": "1",
-      "remain": "3",
+      "successes": "0",
+      "remain": "4",
       "totalneed": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/onora-piscum.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/onora-piscum.png"
     },
     {
       "status": "active",
@@ -174,8 +200,9 @@
       "announce": "Initiate",
       "race": "Dwarf",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/polgrin.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/polgrin.png"
     },
     {
       "status": "active",
@@ -194,11 +221,12 @@
       "secretbias": "Baroness Voinum dislikes the wanton ways of youth and has a bias against any character younger than 25 years old unless they are lawful (–2). She has a soft spot for wine and is far more amicable when drinking (+2).",
       "secretstrength": "Onora has a quiet hatred for Count Bartelby and is especially cold to anyone who tries to use his name or influence to persuade her. ",
       "secretweak": "Baroness Voinum respects those with regard for tradition and an interest in history of the county and the nation.",
-      "successes": "6",
-      "remain": "1",
+      "successes": "5",
+      "remain": "2",
       "totalneed": "7",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/adella-voinum.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/adella-voinum.png"
     },
     {
       "status": "active",
@@ -220,8 +248,9 @@
       "successes": "0",
       "remain": "6",
       "totalneed": "6",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/orlundo-zespire.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/orlundo-zespire.png"
     }
   ],
   "agent": [
@@ -232,7 +261,7 @@
       "surname": "Blunk",
       "attitude": "friendly",
       "appearance": "The eldest of Alice's three domovoi friends, Blunk speaks for his group to those outside of the faen court. A smoker with a gruff beard and long toenails, Blunk is suspicious but generally helpful.",
-      "background": "Alice Betony's imaginary friends turned out to be three domovoi by the name of Blunk, Nod, and Wink. Sharing and caring for the Betony estate, they continue to guard, clean, and repair the interior property and its other caretakers.",
+      "background": "Alice Betony's imaginary friends turned out to be three domovoi by the name of Blunk, Nodd, and Wink. Sharing and caring for the Betony estate, they continue to guard, clean, and repair the interior property and its other caretakers.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -240,8 +269,9 @@
       "announce": "Faen",
       "race": "Fey",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/blunk.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/blunk.png"
     },
     {
       "status": "agent",
@@ -258,8 +288,9 @@
       "announce": "Sir",
       "race": "Human",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/aayef-ghazali.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/aayef-ghazali.png"
     },
     {
       "status": "agent",
@@ -276,8 +307,28 @@
       "announce": "Lady",
       "race": "Human",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/martella-lotheed.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/martella-lotheed.png"
+    },
+    {
+      "status": "agent",
+      "title": "Acolyte",
+      "name": "Festo",
+      "surname": "Mise",
+      "attitude": "helpful",
+      "appearance": "Incorporating priest robes with heavy armor, festo follows the principles of balance and order as best as he can manage in both his personal actions and his physical appearance.",
+      "background": "A devout acolyte of Abadar, Festo Mise worked at the Grand Bank in Lotheedar until his best friend was killed on pilgrimage to Goldpebble Canyon. After being rescued by the Tribunes of Stachys, he decided to move to their small community to help as best he can to rebuild the community and construct a local temple bank to Abadar.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "announce": "Honorable Lord",
+      "race": "Human",
+      "remain": "0",
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/festo-mise.png"
     },
     {
       "status": "agent",
@@ -295,8 +346,9 @@
       "race": "Human",
       "secretweak": "Lady Morilla finds nobles with interest in more common",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gloriana-morilla.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gloriana-morilla.png"
     },
     {
       "status": "agent",
@@ -313,8 +365,9 @@
       "announce": "Miss",
       "race": "Vishkanya",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/kathann-zalar.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/kathann-zalar.png"
     }
   ],
   "crown": [
@@ -334,9 +387,9 @@
       "race": "Human",
       "secretweak": "The High Strategos is practical. As a honed equestrian, he lowers his social guard for any talks that involve animal development or riding tricks. He also shares a similar love of the hiking, mountain climbing, the outdoors, and otherwise challenging the elements to maintain his physical fitness. Discussing any of these more mundane topics can soften up the otherwise gruff Maxillar Pythareus.",
       "remain": "0",
+      "death": " ",
       "order": "1",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/maxillar-pythareus.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/maxillar-pythareus.png"
     },
     {
       "status": "crown",
@@ -354,9 +407,9 @@
       "race": "Human",
       "secretweak": "If Eutropia has one true weakness, it is her love of animals, especially her trusted canine, Taldogis.",
       "remain": "0",
+      "death": " ",
       "order": "2",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/eutropia-stavian.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/eutropia-stavian.png"
     },
     {
       "status": "crown",
@@ -373,9 +426,9 @@
       "announce": "His Imperial Highness",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "3",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/thestro-briarsmith.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/thestro-briarsmith.png"
     },
     {
       "status": "crown",
@@ -392,9 +445,9 @@
       "announce": "Her Imperial Highness",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cisera-tiberan.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cisera-tiberan.png"
     },
     {
       "status": "crown",
@@ -411,9 +464,9 @@
       "announce": "Their Highborn Lordship",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "5",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/merkander.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/merkander.png"
     },
     {
       "status": "crown",
@@ -430,9 +483,9 @@
       "announce": "Her Grace",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "6",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/helinara-lawsus.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/helinara-lawsus.png"
     },
     {
       "status": "crown",
@@ -454,9 +507,9 @@
       "successes": "0",
       "remain": "7",
       "totalneed": "7",
+      "death": " ",
       "order": "7",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/tanasha-starborne.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/tanasha-starborne.png"
     },
     {
       "status": "crown",
@@ -473,9 +526,9 @@
       "announce": "His Imperial Highness",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "8",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/borand-heskillar.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/borand-heskillar.png"
     },
     {
       "status": "crown",
@@ -492,9 +545,9 @@
       "announce": "Her Imperial Highness",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "9",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/destelita-solari.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/destelita-solari.png"
     },
     {
       "status": "crown",
@@ -511,9 +564,9 @@
       "announce": "His Lordship",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "10",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/winton-bilos-phaeben.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/winton-bilos-phaeben.png"
     },
     {
       "status": "crown",
@@ -530,9 +583,9 @@
       "announce": "Her Ladyship",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "11",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/blackwater-kelly.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/blackwater-kelly.png"
     },
     {
       "status": "crown",
@@ -549,9 +602,9 @@
       "announce": "Master",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "12",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/zhen-kiu.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/zhen-kiu.png"
     },
     {
       "status": "crown",
@@ -568,9 +621,9 @@
       "announce": "Their Honorable Lordship",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "13",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/tarq.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/tarq.png"
     },
     {
       "status": "crown",
@@ -587,9 +640,9 @@
       "announce": "His Excellency",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "14",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/caliphalig-vort.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/caliphalig-vort.png"
     },
     {
       "status": "crown",
@@ -606,9 +659,9 @@
       "announce": "Sir",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "15",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/valenar-green.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/valenar-green.png"
     },
     {
       "status": "crown",
@@ -625,9 +678,9 @@
       "announce": "His Excellency",
       "race": "Human",
       "remain": "0",
+      "death": " ",
       "order": "16",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/krekari-nazezi.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/krekari-nazezi.png"
     },
     {
       "status": "crown",
@@ -644,9 +697,9 @@
       "announce": "Lord",
       "race": "Dwarf",
       "remain": "0",
+      "death": " ",
       "order": "17",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/phini.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/phini.png"
     }
   ],
   "dead": [
@@ -667,8 +720,7 @@
       "remain": "0",
       "death": "Beaten unconscious and promptly murdered by Ingoma beneath the Basilica of the Last Man",
       "order": "1",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/thessel-ratfolk.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/thessel-ratfolk.png"
     },
     {
       "status": "dead",
@@ -687,8 +739,7 @@
       "remain": "0",
       "death": "Fatally stabbed by Grand Prince Stavian III, commencing the Exaltation Massacre.",
       "order": "2",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/kalbio.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/kalbio.png"
     },
     {
       "status": "dead",
@@ -708,8 +759,7 @@
       "remain": "0",
       "death": "Shot with bolts fired by an Andoren mercenary during the Exaltation Massacre.",
       "order": "3",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/duranis-cicato.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/duranis-cicato.png"
     },
     {
       "status": "dead",
@@ -729,8 +779,7 @@
       "remain": "0",
       "death": "Stabbed by an Ulfen Guard while fleeing the Exaltation Massacre.",
       "order": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/charlotte-deschamps.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/charlotte-deschamps.png"
     },
     {
       "status": "dead",
@@ -750,8 +799,7 @@
       "remain": "0",
       "death": "Cut down by an Andoren mercenary during the Exaltation Massacre.",
       "order": "5",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/avernathus.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/avernathus.png"
     },
     {
       "status": "dead",
@@ -771,8 +819,7 @@
       "remain": "0",
       "death": "Trampled to death during the Exaltation Massacre.",
       "order": "6",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/leonard-centimus.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/leonard-centimus.png"
     },
     {
       "status": "dead",
@@ -792,8 +839,7 @@
       "remain": "0",
       "death": "Slain by an Ulfen Guard during the Exaltation Massacre.",
       "order": "7",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/solmon-menander.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/solmon-menander.png"
     },
     {
       "status": "dead",
@@ -812,8 +858,7 @@
       "remain": "0",
       "death": "Fatally stabbed by a Lion's Blade during the Exaltation Massacre, his body was recovered by imperial magisters.",
       "order": "8",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/stavian-3.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/stavian-3.png"
     },
     {
       "status": "dead",
@@ -833,8 +878,7 @@
       "remain": "0",
       "death": "Slain by Pathfinders during the Exaltation Massacre.",
       "order": "9",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/karina-deckland.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/karina-deckland.png"
     },
     {
       "status": "dead",
@@ -854,8 +898,7 @@
       "remain": "0",
       "death": "Slain by Pathfinders during the Exaltation Massacre.",
       "order": "10",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/calhadion-vernisant.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/calhadion-vernisant.png"
     },
     {
       "status": "dead",
@@ -874,8 +917,7 @@
       "remain": "0",
       "death": "Died shortly after being forced to ingest his own poison by Rodrigo Hernandez after attempting to murder the party while they slept in the panic room beneath the senate.",
       "order": "11",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/imistos-gulbend.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/imistos-gulbend.png"
     },
     {
       "status": "dead",
@@ -895,8 +937,7 @@
       "remain": "0",
       "death": "Slain in combat by Rodrigo Hernandez, wielding Soldiers Glory, while retaking the Dignified Repository safehouse.",
       "order": "12",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/wyssilika.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/wyssilika.png"
     },
     {
       "status": "dead",
@@ -915,8 +956,7 @@
       "remain": "0",
       "death": "Committed suicide a few days after escaping the Exaltation Massacre after being haunted by the memory of the murder of her father.",
       "order": "13",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/malphene-trant.png",
-      "": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/malphene-trant.png"
     }
   ],
   "dpc": [
@@ -1025,8 +1065,9 @@
       "race": "Elf",
       "secretweak": "Father Basri dedicated his life to Aroden over a century ago, and he remembers fondly the times before the commencement of the Age of Lost Omens. Those who use Arodenite aphorisms in their speech can quickly coax a warm smile from Father Basri.",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/father-basri.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/father-basri.png"
     },
     {
       "status": "inactive",
@@ -1048,8 +1089,9 @@
       "successes": "0",
       "remain": "4",
       "totalneed": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/sespina-crabbe.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/sespina-crabbe.png"
     },
     {
       "status": "inactive",
@@ -1067,8 +1109,9 @@
       "race": "Human",
       "secretweak": "Remilliard can be a bit too focused on his need for vengeance against the slights his family name has endured since the separation of Cheliax from Taldor. He can be goaded into lengthy diatribes against any move towards a peaceful future with Cheliax that may allow some to circumvent his own progressive plans.",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/remilliard-kastner.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/remilliard-kastner.png"
     },
     {
       "status": "inactive",
@@ -1086,8 +1129,9 @@
       "race": "Human",
       "secretweak": "She has an obvious willingness to quickly shift her political stance depending on whom she's speaking with.",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/abrielle-pace.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/abrielle-pace.png"
     },
     {
       "status": "inactive",
@@ -1105,8 +1149,9 @@
       "race": "Human",
       "secretweak": "Despite her seemingly rough demeanor, Captain Seferi just want to earn the approval of Princess Eutropia, and has no idea how to do it. Giving her advice on how to dress or act encourages her, and a gift of a proper set of clothing to wear or a good gift to offer the Princess after the vote can help her find the confidence uses as she faces the rest of the world.",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/captain-seferi.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/captain-seferi.png"
     },
     {
       "status": "inactive",
@@ -1124,8 +1169,9 @@
       "race": "Human",
       "secretweak": "The peacemaking with Qadira and making reports to the Grand Prince have been taking their toll on Gahez’s resolve. Each senate decision regarding Qadira sends Varima in a flurry of diplomatic activity. Those looking to pressure Earl Varima may be spreading inflammatory rumors that cause his anxiety to rise.",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gahez-varima.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gahez-varima.png"
     }
   ],
   "pc": [
@@ -1146,6 +1192,7 @@
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/placeholder-3-2.png",
       "classes": " ",
       "camptrait": " ",
+      "noblerank": " ",
       "persona": " "
     },
     {
@@ -1166,7 +1213,7 @@
       "classes": "Fighter 4",
       "camptrait": "Senatorial Hopeful",
       "noblerank": "Lesser",
-      "persona": "Hero 1"
+      "persona": "Hero 2"
     },
     {
       "status": "pc",
@@ -1186,7 +1233,7 @@
       "classes": "Alchemist 4",
       "camptrait": "Rising Star",
       "noblerank": "Lesser",
-      "persona": "Genius 1"
+      "persona": "Martyr 2"
     },
     {
       "status": "pc",
@@ -1245,8 +1292,9 @@
       "announce": "Sir",
       "race": "Half-Elf",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gul-gusairne.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gul-gusairne.png"
     },
     {
       "status": "target",
@@ -1268,8 +1316,9 @@
       "successes": "0",
       "remain": "10",
       "totalneed": "10",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/bartelby-lotheed.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/bartelby-lotheed.png"
     },
     {
       "status": "target",
@@ -1286,8 +1335,9 @@
       "announce": "Lady",
       "race": "Human",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cateline-lotheed.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cateline-lotheed.png"
     },
     {
       "status": "target",
@@ -1304,8 +1354,9 @@
       "announce": "Her Grace",
       "race": "Human",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/veleto-lotheed.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/veleto-lotheed.png"
     },
     {
       "status": "target",
@@ -1322,8 +1373,9 @@
       "announce": "His Grace",
       "race": "Human",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/panivar-lotheed.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/panivar-lotheed.png"
     },
     {
       "status": "target",
@@ -1341,8 +1393,9 @@
       "race": "Human",
       "secretweak": "Surprisingly discerning for an alcoholic, Titus is easy to distract with gifts of alcohol worth at least 10gp more than what is otherwise available to him at the moment. Pouring elven wine into him is an especially good way to distract him or get him off your back, for a moment anyway.",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/titus-lotheed-casava.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/titus-lotheed-casava.png"
     },
     {
       "status": "target",
@@ -1359,8 +1412,9 @@
       "announce": " ",
       "race": "Unknown",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/unknown.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/unknown.png"
     },
     {
       "status": "target",
@@ -1377,8 +1431,9 @@
       "announce": "Miss",
       "race": "Human",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/rena-winterall.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/rena-winterall.png"
     }
   ],
   "unknown": [
@@ -1397,8 +1452,9 @@
       "announce": "Mister",
       "race": "Human",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/zenobius-caal.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/zenobius-caal.png"
     },
     {
       "status": "unknown",
@@ -1416,8 +1472,9 @@
       "race": "Human",
       "secretweak": "Caring for the preservation of his family history, he appreciates anyone demonstrating a similar knowledge of their heritage as well as anyone who holds a deep respect for tradition and bloodlines.",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/theon-cenabri.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/theon-cenabri.png"
     },
     {
       "status": "unknown",
@@ -1435,8 +1492,9 @@
       "race": "Human",
       "secretweak": "Lady Clement is deeply concerned about her family’s position in Taldor. Despite coming into the senate on the family’s growing merits, this fear is never far from her mind. While some just see her meticulous mien, she can be focused on hearing about her family’s status. In the current political climate, she tries to use what she gleans so she can react to her efforts to assist the claim that Princess Eutropia is making for the Lion Throne while keeping her family’s position intact.",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/zariyah-clement.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/zariyah-clement.png"
     },
     {
       "status": "unknown",
@@ -1453,8 +1511,9 @@
       "announce": "Miss",
       "race": "Half-Elf",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/felsha.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/felsha.png"
     },
     {
       "status": "unknown",
@@ -1472,8 +1531,9 @@
       "race": "Dwarf",
       "secretweak": "As one of only a handful of dwarven Senators, Gengethlia has a weakness for his own people and their stories. Anyone with the knowledge of dwarven kind can pick easily pick up the notes of oral traditions in his speech, and those who use them back find themselves immediately endearing to the old Skald.",
       "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gengethlia.png",
-      "": ""
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gengethlia.png"
     },
     {
       "status": "unknown",
@@ -1491,6 +1551,8 @@
       "race": "Human",
       "secretweak": "Landgrave Jarlbjorn detests anything that has a feeling of “witch magic” to it, keeping his childhood superstitions withheld from those around him but it can be a “weakness” that others might exploit.",
       "remain": "0",
+      "death": " ",
+      "order": " ",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/ogvai-jarbjorn.png"
     },
     {
@@ -1508,6 +1570,8 @@
       "announce": "Mister",
       "race": "Human",
       "remain": "0",
+      "death": " ",
+      "order": " ",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/jeke.png"
     },
     {
@@ -1526,24 +1590,9 @@
       "race": "Human",
       "secretweak": "Octavia Nicodemius is not one for the distractions of the Exaltation Gala or senate life, she’s focused on completing a compilation of her archiving of the Endless Repository. She can be seen testing potential replacements to her seat and stewardship of the Repository as the Gala allows her access to a lot of talented people that may impress her enough to seek more from them.",
       "remain": "0",
+      "death": " ",
+      "order": " ",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/octavia-nicodemius.png"
-    },
-    {
-      "status": "unknown",
-      "title": "Archbanker",
-      "name": "Lady",
-      "surname": "Paril",
-      "attitude": "indifferent",
-      "appearance": "Dressed in immaculate priestess robes, the Archbanker always smells like a different perfume each day.",
-      "background": "The Archbanker of the Grand Bank of Abadar in Lotheedar, Paril is perhaps the most important and useful non-noble in Meratt.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "announce": "Her Holiness",
-      "race": "Human",
-      "remain": "0",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/achbanker-paril.png"
     },
     {
       "status": "unknown",
@@ -1560,6 +1609,8 @@
       "announce": "Lord",
       "race": "Human",
       "remain": "0",
+      "death": " ",
+      "order": " ",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/dominicus-rell.png"
     },
     {
@@ -1578,6 +1629,8 @@
       "race": "Human",
       "secretweak": "Talbot’s distrust of close connections may make it harder for those seeking to get into his good graces. The betrayal of his son’s to the faith of Abadar still stings, which makes those words appealing to his family or boasts of adventuring fall on deaf ears.",
       "remain": "0",
+      "death": " ",
+      "order": " ",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/georgi-blackus-talbot.png"
     },
     {
@@ -1596,6 +1649,8 @@
       "race": "Human",
       "secretbias": " ",
       "remain": "0",
+      "death": " ",
+      "order": " ",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/araig-telus.png"
     },
     {
@@ -1613,6 +1668,8 @@
       "announce": "Lady",
       "race": "Human",
       "remain": "0",
+      "death": " ",
+      "order": " ",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/yarelle-towsine.png"
     },
     {
@@ -1630,6 +1687,8 @@
       "announce": "Honorable Lord",
       "race": "Human",
       "remain": "0",
+      "death": " ",
+      "order": " ",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/caphridius-vort.png"
     }
   ]
