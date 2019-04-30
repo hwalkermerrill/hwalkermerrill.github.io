@@ -75,9 +75,8 @@
     <div class="herodiv">
       <figure>
         <a><!--href="images/map-meratt-poster.jpg"--> 
-          <img class="light-zoom" src="images/map-meratt-poster.jpg" alt="County of Meratt" sizes="100vw"><!--
-          srcset="images/map-meratt-poster720.jpg 720w,
-                  images/map-meratt-poster1920.jpg 1920w,
+          <img class="light-zoom" src="images/map-meratt-poster.jpg" alt="County of Meratt" sizes="100vw">
+          <!--srcset="images/map-meratt-poster720.jpg 720w,
                   images/map-meratt-poster.jpg 6640w">-->
         </a>
       </figure>
@@ -116,10 +115,9 @@
       </figure>
       <figure>
         <a href="images/map-meratt-poster.jpg">
-          <img src="images/map-meratt-poster720.jpg" alt="County of Meratt"
-          srcset="images/map-meratt-poster720.jpg 720w,
-                  images/map-meratt-poster1920.jpg 1920w,
-                  images/map-meratt-poster.jpg 6640w">
+          <img src="images/map-meratt-poster720.jpg" alt="County of Meratt">
+          <!--srcset="images/map-meratt-poster720.jpg 720w,
+                    images/map-meratt-poster.jpg 6640w">-->
         </a>
         <figcaption>Map of Meratt County</figcaption>
       </figure>
@@ -155,7 +153,7 @@
     $(window).on("load", function () {
       $('img.light-zoom').lightzoom({
         zoomPower   : 3,    //Default
-        glassSize   : 180,  //Default
+        glassSize   : 270,  //Default
       });
     });
   </script>
