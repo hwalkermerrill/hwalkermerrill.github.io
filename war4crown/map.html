@@ -37,7 +37,7 @@
 <!-- SCRIPT HERE -->
 <script src="js/hamburger.js"></script>
 <script src="js/jquery.min.js"></script>
-<script src="js/jquery.spzoom.js"></script>
+<script src="js/lightzoom.js"></script>
 </head>
 <body>
 <!-- HEADER HERE -->
@@ -152,8 +152,12 @@
 <!-- SCRIPT HERE -->
   <script src="js/banner.js"></script>
   <script>
-    $(window).on("load", function() {
-        $('[data-spzoom]').spzoom();
+
+    $(document).ready(function () {
+      $('img.herodiv').lightzoom({
+        zoomPower   : 3,    //Default
+        glassSize   : 180,  //Default
+      });
     });
   </script>
 </body>
