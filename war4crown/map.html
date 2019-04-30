@@ -37,7 +37,7 @@
 <!-- SCRIPT HERE -->
 <script src="js/hamburger.js"></script>
 <script src="js/jquery.min.js"></script>
-<script src="js/image-tooltip.js"></script>
+<script src="jquery.spzoom.js"></script>
 </head>
 <body>
 <!-- HEADER HERE -->
@@ -75,7 +75,7 @@
     <div class="herodiv">
       <figure>
         <a href="images/map-meratt-poster.jpg">
-          <img id="my-image" src="images/map-meratt-poster720.jpg" alt="County of Meratt" sizes="100vw"
+          <img data-spzoom src="images/map-meratt-poster720.jpg" alt="County of Meratt" sizes="100vw"
           srcset="images/map-meratt-poster720.jpg 720w,
                   images/map-meratt-poster1920.jpg 1920w,
                   images/map-meratt-poster.jpg 6640w">
@@ -152,10 +152,9 @@
 <!-- SCRIPT HERE -->
   <script src="js/banner.js"></script>
   <script>
-    $(document).ready(function () {
-      $('#my-image').imageTooltip();
+    $(function() {
+        $('[data-spzoom]').spzoom();
     });
   </script>
-    
 </body>
 </html>
