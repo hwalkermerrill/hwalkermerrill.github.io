@@ -251,6 +251,25 @@
       "death": " ",
       "order": " ",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/orlundo-zespire.png"
+    },
+    {
+      "status": "active",
+      "title": "Baronet",
+      "name": "Caphridius",
+      "surname": "Vort",
+      "attitude": "indifferent",
+      "appearance": "Dressed in worn nobles clothing, Caphridius looks grim and tired. A gregarious man and happy to meet visitors, he can’t help but mention his community’s struggles, lack of resources, and poor infrastructure. ",
+      "background": "Count Caliphalig Vort's cousin and the former assistant to Baron Telus, Caphridius is far more interested in acting and opera than frontier living. Though miserable, he continues to work hard to lead his community, while quietly nursing a self-loathing.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "announce": "Honorable Lord",
+      "race": "Human",
+      "remain": "0",
+      "death": " ",
+      "order": " ",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/caphridius-vort.png"
     }
   ],
   "agent": [
@@ -1671,25 +1690,6 @@
       "death": " ",
       "order": " ",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/yarelle-towsine.png"
-    },
-    {
-      "status": "unknown",
-      "title": "Baronet",
-      "name": "Caphridius",
-      "surname": "Vort",
-      "attitude": "indifferent",
-      "appearance": "Dressed in worn nobles clothing, Caphridius looks grim and tired. A gregarious man and happy to meet visitors, he can’t help but mention his community’s struggles, lack of resources, and poor infrastructure. ",
-      "background": "Count Caliphalig Vort's cousin and the former assistant to Baron Telus, Caphridius is far more interested in acting and opera than frontier living. Though miserable, he continues to work hard to lead his community, while quietly nursing a self-loathing.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "announce": "Honorable Lord",
-      "race": "Human",
-      "remain": "0",
-      "death": " ",
-      "order": " ",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/caphridius-vort.png"
     }
   ]
 }
