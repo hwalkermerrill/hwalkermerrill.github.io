@@ -39,9 +39,9 @@
 <script src="js/hamburger.js"></script>
 <script src="js/banner.js"></script>
 <script>function loyalty(x){
-  document.getElementById('merratLoyal').innerHTML = "Meratt Loyalty: " + (x * 1.5) + "%";
-}
-</script>
+  x = x * 1.5;
+  return x;
+}</script>
 </head>
 <body>
 <!-- BORDER ART-->
@@ -111,8 +111,8 @@
         <p>Current Crown Rivals: 16</p>
         <p>Agent Secured Allies: 4</p>
         <p>Allied Agents: 6</p>
-        <p>Deceased Agents: 6</p><script>loyalty(10)</script>
-        <p id="merattLoyal"></p> 
+        <p>Deceased Agents: 6</p>
+        <p>Meratt Loyalty: <script>document.write(loyalty(10))</script>%</p> 
         <p>Perception: Relative Strangers</p>
         <p>Stachys Upgrades: 2</p>
         <p>Stachys Resources: 2,000gp</p>
