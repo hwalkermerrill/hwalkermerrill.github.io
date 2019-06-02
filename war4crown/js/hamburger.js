@@ -2,7 +2,7 @@ function toggleMenu() {
   document.getElementById("primaryNav").classList.toggle("hide");
 }
 function toggleVisible(className) {
-  var elements = document.getElementsByClassName(document, className);
+  var elements = getElementsByClassName(document, className);
   n = elements.length;
   for (var i = 0; i < n; i++) {
     var e = elements[i]
