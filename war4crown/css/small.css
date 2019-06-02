@@ -272,9 +272,6 @@ form label.top textarea {
 }
 
 /*----------- ARTICLE (JSON READ) --------------*/
-main .hide {
-  display:none;
-}
 main .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown, main .target, main .crown, main .asset, main .agent, main .secrown {
   display: flex;
   flex-wrap: wrap;
@@ -337,7 +334,12 @@ main .dead p:nth-of-type(4), main .inactive p:nth-of-type(4), main .unknown p:nt
 main .dead ul, main .inactive ul, main .unknown ul {
   display: none;
 }
-
+main .hide {
+  display:none;
+}
+main article .hide {
+  display:none;
+}
 /*----------- CONTACT --------------*/
 body .contact {
   padding: 0 2%;
