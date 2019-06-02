@@ -318,10 +318,10 @@ main .secrown article p, main .active article p, main .dead article p, main .dpc
 main .secrown article ul, main .active article ul, main .dead article ul, main .dpc article ul, main .pc article ul, main .inactive article ul, main .unknown article ul, main .target article ul, main .crown article ul, main .asset section ul, main .agent article ul {
   display: none;
 }
-main .secrown article .click p, main .active .click p, main .dead .click p, main .dpc .click p, main .pc .click p, main .inactive .click p, main .unknown .click p, main .target .click p, main .crown .click p, main .asset .click p, main .agent .click p {
+main .secrown .click p, main .active .click p, main .dead .click p, main .dpc .click p, main .pc .click p, main .inactive .click p, main .unknown .click p, main .target .click p, main .crown .click p, main .asset .click p, main .agent .click p {
   display: block;
 }
-main .secrown article .click ul, main .active .click ul, main .dead .click ul, main .dpc .click ul, main .pc .click ul, main .inactive .click ul, main .unknown .click ul, main .target .click ul, main .crown .click ul, main .asset .click ul, main .agent .click ul {
+main .secrown .click ul, main .active .click ul, main .dead .click ul, main .dpc .click ul, main .pc .click ul, main .inactive .click ul, main .unknown .click ul, main .target .click ul, main .crown .click ul, main .asset .click ul, main .agent .click ul {
   display: block;
 }
 /*---END toggleClass sub-CSS---*/
