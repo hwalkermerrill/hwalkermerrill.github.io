@@ -276,7 +276,7 @@ main .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown, ma
   display: flex;
   flex-wrap: wrap;
 }
-main article, main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article, main .target article, main .crown article, main .asset section, main .agent article {
+main .secrown article, main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article, main .target article, main .crown article, main .asset section, main .agent article {
   margin: 1rem 2%;
   flex-basis: 96%;
   border-style: ridge;
@@ -285,10 +285,10 @@ main article, main .active article, main .dead article, main .dpc article, main 
   padding: 1%;
   transition: all .2s ease-in-out;
 }
-main article img, main .active article img, main .dead article img, main .dpc article img, main .pc article img, main .inactive article img, main .unknown article img, main .target article img, main .crown article img, main .asset section img, main .agent article img {
+main .secrown article img, main .active article img, main .dead article img, main .dpc article img, main .pc article img, main .inactive article img, main .unknown article img, main .target article img, main .crown article img, main .asset section img, main .agent article img {
   width: 100%;
 }
-main article:hover, main .active article:hover, main .dead article:hover, main .dpc article:hover, main .pc article:hover, main .inactive article:hover, main .unknown article:hover, main .target article:hover, main .crown article:hover, main .asset section:hover, main .agent article:hover {
+main .secrown article:hover, main .active article:hover, main .dead article:hover, main .dpc article:hover, main .pc article:hover, main .inactive article:hover, main .unknown article:hover, main .target article:hover, main .crown article:hover, main .asset section:hover, main .agent article:hover {
   box-shadow: 0 0 12px #555;
   transform: scale(1.05);
 }
@@ -312,16 +312,16 @@ main .locked {
   border-color: #d48f2a;
 }
 /*---START toggleClass sub-CSS---*/
-main article p, main .active article p, main .dead article p, main .dpc article p, main .pc article p, main .inactive article p, main .unknown article p, main .target article p, main .crown article p, main .asset section p, main .agent article p {
+main .secrown article p, main .active article p, main .dead article p, main .dpc article p, main .pc article p, main .inactive article p, main .unknown article p, main .target article p, main .crown article p, main .asset section p, main .agent article p {
   display: none;
 }
-main article ul, main .active article ul, main .dead article ul, main .dpc article ul, main .pc article ul, main .inactive article ul, main .unknown article ul, main .target article ul, main .crown article ul, main .asset section ul, main .agent article ul {
+main .secrown article ul, main .active article ul, main .dead article ul, main .dpc article ul, main .pc article ul, main .inactive article ul, main .unknown article ul, main .target article ul, main .crown article ul, main .asset section ul, main .agent article ul {
   display: none;
 }
-main article .click p, main .active .click p, main .dead .click p, main .dpc .click p, main .pc .click p, main .inactive .click p, main .unknown .click p, main .target .click p, main .crown .click p, main .asset .click p, main .agent .click p {
+main .secrown article .click p, main .active .click p, main .dead .click p, main .dpc .click p, main .pc .click p, main .inactive .click p, main .unknown .click p, main .target .click p, main .crown .click p, main .asset .click p, main .agent .click p {
   display: block;
 }
-main article .click ul, main .active .click ul, main .dead .click ul, main .dpc .click ul, main .pc .click ul, main .inactive .click ul, main .unknown .click ul, main .target .click ul, main .crown .click ul, main .asset .click ul, main .agent .click ul {
+main .secrown article .click ul, main .active .click ul, main .dead .click ul, main .dpc .click ul, main .pc .click ul, main .inactive .click ul, main .unknown .click ul, main .target .click ul, main .crown .click ul, main .asset .click ul, main .agent .click ul {
   display: block;
 }
 /*---END toggleClass sub-CSS---*/

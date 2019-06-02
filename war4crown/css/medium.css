@@ -46,10 +46,10 @@ main .gallery figure {
 }
 
 /*----------- ARTICLE --------------*/
-main .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown, main .target, main .crown, main .asset, main .agent, main .secrown {
+main .secrown .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown, main .target, main .crown, main .asset, main .agent, main .secrown {
   justify-content: center;
 }
-main article, main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article, main .target article, main .crown article, main .asset section, main .agent article {
+main .secrown article, main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article, main .target article, main .crown article, main .asset section, main .agent article {
   flex-basis: 46%;
 }
 
