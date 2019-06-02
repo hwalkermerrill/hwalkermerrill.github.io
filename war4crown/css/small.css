@@ -272,6 +272,9 @@ form label.top textarea {
 }
 
 /*----------- ARTICLE (JSON READ) --------------*/
+main .hide {
+  display:none;
+}
 main .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown, main .target, main .crown, main .asset, main .agent, main .secrown {
   display: flex;
   flex-wrap: wrap;
@@ -325,7 +328,7 @@ main .secrown .click ul, main .active .click ul, main .dead .click ul, main .dpc
   display: block;
 }
 /*---END toggleClass sub-CSS---*/
-main .active p:nth-of-type(3), main .pc p:nth-of-type(3), main .inactive p:nth-of-type(3), main .unknown p:nth-of-type(3), main .target p:nth-of-type(3), main .crown p:nth-of-type(3), main .agent p:nth-of-type(3) {
+main .secrown .p:nth-of-type(3), main .active p:nth-of-type(3), main .pc p:nth-of-type(3), main .inactive p:nth-of-type(3), main .unknown p:nth-of-type(3), main .target p:nth-of-type(3), main .crown p:nth-of-type(3), main .agent p:nth-of-type(3) {
   display: none;
 }
 main .dead p:nth-of-type(4), main .inactive p:nth-of-type(4), main .unknown p:nth-of-type(4) {
