@@ -10,8 +10,3 @@ $(window).on("load", function(){
        $("li", this).toggle();
   });
 });
-function toggleVisible(className) {
-  $(function() {
-    $(className).toggleClass( "hide" );
-  })
-}
