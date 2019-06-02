@@ -38,7 +38,7 @@ main .gallery figure {
 main .gallery figure:hover {box-shadow: 0 0 50px #333;}
 
 /*----------- ARTICLE --------------*/
-main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article, main .target article, main .crown article, main .asset section, main .agent article {
+main article, main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .unknown article, main .target article, main .crown article, main .asset section, main .agent article {
   flex-basis: 29%;
 }
 
