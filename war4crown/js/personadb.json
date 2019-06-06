@@ -21,8 +21,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -45,8 +44,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -69,8 +67,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -93,8 +90,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -117,8 +113,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -141,8 +136,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -165,8 +159,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -175,7 +168,7 @@
       "surname": "Mosle",
       "attitude": "helpful",
       "appearance": "When seen out and about, he wears Baron Telus' colors beneath his muted green game-wardens cloth, often making him blend in to the environment. He's trained his men to do likewise, and while there's no evidence anything they do is outside the confines of the law, others view them as bandits.",
-      "background": "Baron Telus's game warden, Master Frater Mosle grew up with Araig and possibly knows him better than anyone else. Protective of his underlings and Baron Telus, he turns away everyone seeking the Baron, explaining that he is still recovering.",
+      "background": "Baron Telus' game warden, Master Frater Mosle grew up with Araig and possibly knows him better than anyone else. Protective of his underlings and Baron Telus, he turns away everyone seeking the Baron, explaining that he is still recovering.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -189,8 +182,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -213,8 +205,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -222,7 +213,7 @@
       "name": "Sepsina",
       "surname": "Crabbe",
       "attitude": "locked",
-      "appearance": "Sepsina is rail-thin and pale, looking vaguely surprised or frightened by everything, though her eyes have a bit of piece behind them, and shes begun answering questions more completely.",
+      "appearance": "Sepsina is rail-thin and pale, looking vaguely surprised or frightened by everything, though her eyes have a bit of piece behind them, and she's begun answering questions more completely.",
       "background": "Dame Crabbe's daughter, Sepsina fell into despondency after the suicide of her fiancé. After being disenchanted, she's become more outgoing while also not attending as many social events.",
       "biases": "???",
       "strengths": "???",
@@ -237,8 +228,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -261,8 +251,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -285,8 +274,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -295,7 +283,7 @@
       "surname": "Mag",
       "attitude": "locked",
       "appearance": "Covered in mud and smelling like cow pies, Lucinia looks relatively sober today.",
-      "background": "Local drunk and troublemaker, Lucinia has been arrested several times before, most recently for starting a brawl, punching the sheriff, and stealing whiskey and tips from the Wolf's Whisker pup. She's now doing paid community service, watching chickens and doing farmwork.",
+      "background": "Local drunk and troublemaker, Lucinia has been arrested several times before, most recently for starting a brawl, punching the sheriff, and stealing whiskey and tips from the Wolf's Whisker pup. She's now doing paid community service, watching chickens and doing farm work.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -309,8 +297,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -333,8 +320,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -342,8 +328,8 @@
       "name": "Selli",
       "surname": "Okerra",
       "attitude": "locked",
-      "appearance": "High-spirited and enthusiastic, Selli prefers going everywhere in her custom leather armor, a habit her father has done nothing to discourage. Adventurous and with an inherited love for story-telling, she happilly explains to anyone who asks how the scar over her eye was from barely dodging an assasins arrow while fishing, the scars on her cheek from when she wrestled a wolf to the ground over an insult he gave to her father, and how she lost the two small fingers of her right hand to a fox in a crooked game of cards.",
-      "background": "Nicolaus’s greatest weakness and blind spot is his highspirited daughter, Selli. Inheriting her fathers zeal for adventure, she grew up on tales of heroism and wants to be a great hero like her father, but at only 10 years old, she has a lot of learning to do first. Moreover, while Nicholaus once promised she could join the military, since the death of his wife Nirvenna, he has been trying to kindle an interest in acedemia in her heart before she dies on a battlefield far from home.",
+      "appearance": "High-spirited and enthusiastic, Selli prefers going everywhere in her custom leather armor, a habit her father has done nothing to discourage. Adventurous and with an inherited love for story-telling, she happily explains to anyone who asks how the scar over her eye was from barely dodging an assassins arrow while fishing, the scars on her cheek from when she wrestled a wolf to the ground over an insult he gave to her father, and how she lost the two small fingers of her right hand to a fox in a crooked game of cards.",
+      "background": "Nicolaus’s greatest weakness and blind spot is his high-spirited daughter, Selli. Inheriting her fathers zeal for adventure, she grew up on tales of heroism and wants to be a great hero like her father, but at only 10 years old, she has a lot of learning to do first. Moreover, while Nicholaus once promised she could join the military, since the death of his wife Nirvenna, he has been trying to kindle an interest in academia in her heart before she dies on a battlefield far from home.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -357,8 +343,7 @@
       "determination": "",
       "vdueltac": "",
       "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "secretbias": ""
     },
     {
       "status": "active",
@@ -376,13 +361,7 @@
       "race": "Human",
       "class": "ranger 5",
       "order": "15",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/rena-winterall.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/rena-winterall.png"
     },
     {
       "status": "active",
@@ -400,13 +379,7 @@
       "race": "Half-Elf",
       "class": "brawler 3",
       "order": "16",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/felsha.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/felsha.png"
     },
     {
       "status": "active",
@@ -424,13 +397,7 @@
       "race": "Half-Orc",
       "class": "warrior 4",
       "order": "16",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/partulles-mayne.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/partulles-mayne.png"
     },
     {
       "status": "active",
@@ -448,13 +415,7 @@
       "race": "Half-Orc",
       "class": "cleric of norgorber 6",
       "order": "16",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gurta-thresh.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gurta-thresh.png"
     }
   ],
   "agent": [
@@ -464,7 +425,7 @@
       "name": "Festo",
       "surname": "Mise",
       "attitude": "helpful",
-      "appearance": "Incorporating priest robes with heavy armor, festo follows the principles of balance and order as best as he can manage in both his personal actions and his physical appearance.",
+      "appearance": "Incorporating priest robes with heavy armor, Festo follows the principles of balance and order as best as he can manage in both his personal actions and his physical appearance.",
       "background": "A devout acolyte of Abadar, Festo Mise worked at the Grand Bank in Lotheedar until his best friend was killed on pilgrimage to Goldpebble Canyon. After being rescued by the Tribunes of Stachys, he decided to move to their small community to help rebuild the community and construct a local temple bank to Abadar.",
       "biases": "???",
       "strengths": "???",
@@ -472,15 +433,9 @@
       "skills": "???",
       "announce": "Honorable Lord",
       "race": "Human",
-      "class": "cleric of aadar 2",
+      "class": "cleric of abadar 2",
       "order": "10",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/festo-mise.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/festo-mise.png"
     },
     {
       "status": "agent",
@@ -498,13 +453,7 @@
       "race": "Human",
       "class": "aristocrat 3, majordomo investigator 5",
       "order": "11",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/martella-lotheed.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/martella-lotheed.png"
     },
     {
       "status": "agent",
@@ -522,13 +471,7 @@
       "race": "Human",
       "class": "aristocrat 2, bard 10",
       "order": "11",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gloriana-morilla.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gloriana-morilla.png"
     },
     {
       "status": "agent",
@@ -537,22 +480,16 @@
       "surname": "Crabbe",
       "attitude": "helpful",
       "appearance": "Short with wild hair, this alchemist always smells like chemicals and nuts. She is often seen at parties with her adopted mother, Parthena, and wearing her Jubilee Mask.",
-      "background": "Diving into alchemy in an effort to cure her sick mother, Hypatia clings to secrets surounding her death. A talented alchemist without a home to turn to, she was sponsored by the alchemist Lady Martella Lotheed until she was adopted into House Crabbe.",
+      "background": "Diving into alchemy in an effort to cure her sick mother, Hypatia clings to secrets surrounding her death. A talented alchemist without a home to turn to, she was sponsored by the alchemist Lady Martella Lotheed until she was adopted into House Crabbe.",
       "biases": "She has fascination with knowledge and discovery, but is easily threatened with heights.",
       "strengths": "Surprisingly, logical routes are often shut down when trying to influence Hypatia.",
-      "weakness": "Hypatia is much more easily appealed to by appealing to her emotions, either by motivating her through compasion or through threat against her friends.",
+      "weakness": "Hypatia is much more easily appealed to by appealing to her emotions, either by motivating her through compassion or through threat against her friends.",
       "skills": "???",
       "announce": "Dame",
       "race": "Human",
       "class": "alchemist 4",
       "order": "12",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/hypatia.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/hypatia.png"
     },
     {
       "status": "agent",
@@ -568,15 +505,9 @@
       "skills": "???",
       "announce": "Sir",
       "race": "Human",
-      "class": "aristocrat 4, daring champion cavlier of the lion 2",
+      "class": "aristocrat 4, daring champion cavalier of the lion 2",
       "order": "12",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/aayef-ghazali.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/aayef-ghazali.png"
     },
     {
       "status": "agent",
@@ -594,13 +525,7 @@
       "race": "Fey",
       "class": "domovoi",
       "order": "16",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/blunk.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/blunk.png"
     },
     {
       "status": "agent",
@@ -618,13 +543,7 @@
       "race": "Vishkanya",
       "class": "rogue 5, lion blade 7",
       "order": "16",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/kathann-zalar.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/kathann-zalar.png"
     }
   ],
   "crown": [
@@ -644,13 +563,7 @@
       "race": "Human",
       "class": "cavalier 14",
       "order": "1",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/maxillar-pythareus.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/maxillar-pythareus.png"
     },
     {
       "status": "crown",
@@ -668,13 +581,7 @@
       "race": "Human",
       "class": "aristocrat 7, swashbuckler 6",
       "order": "2",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/eutropia-stavian.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/eutropia-stavian.png"
     },
     {
       "status": "crown",
@@ -691,13 +598,7 @@
       "announce": "His Imperial Highness",
       "race": "Human",
       "order": "3",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/thestro-briarsmith.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/thestro-briarsmith.png"
     },
     {
       "status": "crown",
@@ -714,13 +615,7 @@
       "announce": "Their Highbourn Lordship",
       "race": "Human",
       "order": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/merkander.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/merkander.png"
     },
     {
       "status": "crown",
@@ -737,13 +632,7 @@
       "announce": "Her Imperial Highness",
       "race": "Human",
       "order": "5",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/destelita-solari.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/destelita-solari.png"
     },
     {
       "status": "crown",
@@ -760,13 +649,7 @@
       "announce": "His Lordship",
       "race": "Human",
       "order": "6",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/winton-bilos-phaeben.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/winton-bilos-phaeben.png"
     },
     {
       "status": "crown",
@@ -783,13 +666,7 @@
       "announce": "His Imperial Highness",
       "race": "Human",
       "order": "7",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/borand-heskillar.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/borand-heskillar.png"
     },
     {
       "status": "crown",
@@ -807,13 +684,7 @@
       "race": "Human",
       "class": "aristocrat 9",
       "order": "8",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/helinara-lawsus.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/helinara-lawsus.png"
     },
     {
       "status": "crown",
@@ -831,13 +702,7 @@
       "race": "Gnome",
       "class": "aristocrat 2, sorcerer 5",
       "order": "9",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/tanasha-starborne.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/tanasha-starborne.png"
     },
     {
       "status": "crown",
@@ -854,13 +719,7 @@
       "announce": "Her Ladyship",
       "race": "Human",
       "order": "10",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/blackwater-kelly.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/blackwater-kelly.png"
     },
     {
       "status": "crown",
@@ -877,13 +736,7 @@
       "announce": "Master",
       "race": "Human",
       "order": "11",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/zhen-kiu.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/zhen-kiu.png"
     },
     {
       "status": "crown",
@@ -901,13 +754,7 @@
       "race": "Human",
       "class": "cavalier 7",
       "order": "12",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/caliphalig-vort.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/caliphalig-vort.png"
     },
     {
       "status": "crown",
@@ -924,13 +771,7 @@
       "announce": "Their Honorable Lordship",
       "race": "Human",
       "order": "13",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/tarq.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/tarq.png"
     },
     {
       "status": "crown",
@@ -947,13 +788,7 @@
       "announce": "His Excellency",
       "race": "Human",
       "order": "14",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/krekari-nazezi.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/krekari-nazezi.png"
     },
     {
       "status": "crown",
@@ -962,7 +797,7 @@
       "surname": "Phini",
       "attitude": "locked",
       "appearance": "Dressed in Kravenkus Clan armor, Phini wears the ceremonial armor of the Lord of the Worlds Edge whenever he leaves his mountain. Very formal, Phini refuses to speak with people below his station who do not have the courtesy of addressing him in dwarven.",
-      "background": "A powerful duke, Lord Phini represents the dwarven miners of Kravenkus within the Worlds Edge Mountains, which form the mineral backbone and primary eastern barrier of Taldor. While his claim lacks any royal blood, they have more than enough economic clout to ceed if they believe it to be in their best interests.",
+      "background": "A powerful duke, Lord Phini represents the dwarven miners of Kravenkus within the Worlds Edge Mountains, which form the mineral backbone and primary eastern barrier of Taldor. While his claim lacks any royal blood, they have more than enough economic clout to cede if they believe it to be in their best interests.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -970,13 +805,7 @@
       "announce": "Lord",
       "race": "Dwarf",
       "order": "15",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/phini.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/phini.png"
     }
   ],
   "dead": [
@@ -997,13 +826,7 @@
       "class": "rogue 2",
       "death": "Beaten unconscious and promptly murdered by Ingoma beneath the Basilica of the Last Man",
       "order": "1",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/thessel-ratfolk.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/thessel-ratfolk.png"
     },
     {
       "status": "dead",
@@ -1022,13 +845,7 @@
       "class": "commoner 5",
       "death": "Fatally stabbed by Grand Prince Stavian III, commencing the Exaltation Massacre.",
       "order": "2",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/kalbio.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/kalbio.png"
     },
     {
       "status": "dead",
@@ -1047,13 +864,7 @@
       "class": "aristocrat 4, fighter 5",
       "death": "Shot with bolts fired by an Andoren mercenary during the Exaltation Massacre.",
       "order": "3",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/duranis-cicato.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/duranis-cicato.png"
     },
     {
       "status": "dead",
@@ -1072,13 +883,7 @@
       "class": "rogue 8, shadowdancer 4",
       "death": "Stabbed by an Ulfen Guard while fleeing the Exaltation Massacre.",
       "order": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/charlotte-deschamps.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/charlotte-deschamps.png"
     },
     {
       "status": "dead",
@@ -1097,13 +902,7 @@
       "class": "aristocrat 1, magus 13",
       "death": "Cut down by an Andoren mercenary during the Exaltation Massacre.",
       "order": "5",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/avernathus.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/avernathus.png"
     },
     {
       "status": "dead",
@@ -1122,13 +921,7 @@
       "class": "aristocrat 5",
       "death": "Trampled to death during the Exaltation Massacre.",
       "order": "6",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/leonard-centimus.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/leonard-centimus.png"
     },
     {
       "status": "dead",
@@ -1147,13 +940,7 @@
       "class": "investigator 5",
       "death": "Slain by an Ulfen Guard during the Exaltation Massacre.",
       "order": "7",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/solmon-menander.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/solmon-menander.png"
     },
     {
       "status": "dead",
@@ -1172,13 +959,7 @@
       "class": "aristocrat 8, enchanter 4",
       "death": "Fatally stabbed by a Lion's Blade during the Exaltation Massacre, his body was recovered by imperial magisters.",
       "order": "8",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/stavian-3.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/stavian-3.png"
     },
     {
       "status": "dead",
@@ -1187,7 +968,7 @@
       "surname": "Deckland",
       "attitude": "locked",
       "appearance": "Katrina's most striking feature is easily her singular red eye, rumored by many as a sign of a pact with infernal powers. With long, wispy black hair and a tendency to lock eyes for just a little too long, she seems to thrive on unnerving those around her.",
-      "background": "A guest of Earl Calhadion Vernisant and the now-eldest daughter of a small family of Chelish Nobles, Karina rose to prominence after her half-sisters murder by Pathfinder agents several years ago. She makes no secret of her distaste for the society or other ",
+      "background": "A guest of Earl Calhadion Vernisant and the now-eldest daughter of a small family of Chelish Nobles, Karina rose to prominence after her half-sisters murder by Pathfinder agents several years ago. She makes no secret of her distaste for the society or other *murder hobos*.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -1197,13 +978,7 @@
       "class": "magus 9",
       "death": "Slain by Pathfinders during the Exaltation Massacre.",
       "order": "9",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/karina-deckland.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/karina-deckland.png"
     },
     {
       "status": "dead",
@@ -1222,13 +997,7 @@
       "class": "cavalier 13",
       "death": "Slain by Pathfinders during the Exaltation Massacre.",
       "order": "10",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/calhadion-vernisant.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/calhadion-vernisant.png"
     },
     {
       "status": "dead",
@@ -1247,13 +1016,7 @@
       "class": "rogue 3",
       "death": "Died shortly after being forced to ingest his own poison by Rodrigo Hernandez after attempting to murder the party while they slept in the panic room beneath the senate.",
       "order": "11",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/imistos-gulbend.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/imistos-gulbend.png"
     },
     {
       "status": "dead",
@@ -1272,13 +1035,7 @@
       "class": "warpriest 5",
       "death": "Slain in combat by Rodrigo Hernandez, wielding Soldiers Glory, while retaking the Dignified Repository safehouse.",
       "order": "12",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/wyssilika.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/wyssilika.png"
     },
     {
       "status": "dead",
@@ -1297,13 +1054,7 @@
       "class": "aristocrat 2",
       "death": "Committed suicide a few days after escaping the Exaltation Massacre after being haunted by the memory of the murder of her father.",
       "order": "13",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/malphene-trant.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/malphene-trant.png"
     }
   ],
   "dpc": [
@@ -1457,13 +1208,7 @@
       "race": "Human",
       "class": "aristocrat 9",
       "order": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/georgi-blackus-talbot.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/georgi-blackus-talbot.png"
     },
     {
       "status": "inactive",
@@ -1481,13 +1226,7 @@
       "race": "Human",
       "class": "barbarian 7",
       "order": "6",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/ogvai-jarlbjorn.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/ogvai-jarlbjorn.png"
     },
     {
       "status": "inactive",
@@ -1495,7 +1234,7 @@
       "name": "Yander",
       "surname": "Merkondus",
       "attitude": "locked",
-      "appearance": "Dressed in blues and silvers and wearing and wearing his signature snow-leopard cloak of resistance, Earl Yander Merkondus leans on an elegant cain while he walk and speaks flatteringly to those worth his time.",
+      "appearance": "Dressed in blues and silvers and wearing and wearing his signature snow-leopard cloak of resistance, Earl Yander Merkondus leans on an elegant cane while he walk and speaks flatteringly to those worth his time.",
       "background": "A man of endless charm and twisted but brilliant intellect, Earl Yander Merkondus is an aristocratic merchant and Imperialist supporter from southwest Taldor. He has recently appointed himself an emissary of Maxillar Pythareus and is a friend of Count Bartelby Lotheed.",
       "biases": "???",
       "strengths": "???",
@@ -1505,13 +1244,7 @@
       "race": "Human",
       "class": "bard 9",
       "order": "7",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/yander-merkondus.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/yander-merkondus.png"
     },
     {
       "status": "inactive",
@@ -1529,13 +1262,7 @@
       "race": "Human",
       "class": "aristocrat 4, bard 2",
       "order": "7",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gahez-varima.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gahez-varima.png"
     },
     {
       "status": "inactive",
@@ -1553,13 +1280,7 @@
       "race": "Human",
       "class": "aristocrat 6",
       "order": "8",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/abrielle-pace.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/abrielle-pace.png"
     },
     {
       "status": "inactive",
@@ -1577,13 +1298,7 @@
       "race": "Human",
       "class": "swashbuckler 11",
       "order": "8",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/orlundo-zespire.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/orlundo-zespire.png"
     },
     {
       "status": "inactive",
@@ -1601,13 +1316,7 @@
       "race": "Human",
       "class": "aristocrat 6",
       "order": "9",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/theon-cenabri.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/theon-cenabri.png"
     },
     {
       "status": "inactive",
@@ -1625,13 +1334,7 @@
       "race": "Dwarf",
       "class": "skald 8",
       "order": "9",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gengethlia.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gengethlia.png"
     },
     {
       "status": "inactive",
@@ -1639,8 +1342,8 @@
       "name": "Octavia",
       "surname": "Nicodemius",
       "attitude": "locked",
-      "appearance": "A wizened woman in dark noble clothing, Octavia Nicodemius’ eyes have a hint of cataracts. Her white hair is unkempt, and her bearing is one that long ago left worrying about appearance and etiquett to the younger nobles.",
-      "background": "One of the longest serving senators, Octavia Nicodemius is well into her nineties and far more focused on completing her magnum opus - The Endless Repository - and both finishing its catelouging and finding a sucessor than the war for the crown. She may be moved to favor the Princess Eutropia, but currently prefers the stability of the status quo.",
+      "appearance": "A wizened woman in dark noble clothing, Octavia Nicodemius’ eyes have a hint of cataracts. Her white hair is unkempt, and her bearing is one that long ago left worrying about appearance and etiquette to the younger nobles.",
+      "background": "One of the longest serving senators, Octavia Nicodemius is well into her nineties and far more focused on completing her magnum opus - The Endless Repository - and both finishing its cataloguing and finding a successor than the war for the crown. She may be moved to favor the Princess Eutropia, but currently prefers the stability of the status quo.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -1649,13 +1352,7 @@
       "race": "Human",
       "class": "occultist 11",
       "order": "9",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/octavia-nicodemius.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/octavia-nicodemius.png"
     },
     {
       "status": "inactive",
@@ -1673,13 +1370,7 @@
       "race": "Human",
       "class": "aristocrat 9",
       "order": "11",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/zariyah-clement.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/zariyah-clement.png"
     },
     {
       "status": "inactive",
@@ -1697,13 +1388,7 @@
       "race": "Human",
       "class": "vigilante 7",
       "order": "11",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/aric-of.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/aric-of.png"
     },
     {
       "status": "inactive",
@@ -1721,13 +1406,7 @@
       "race": "Human",
       "class": "bard 3, rogue 3, lion blade 3",
       "order": "11",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/dominicus-rell.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/dominicus-rell.png"
     },
     {
       "status": "inactive",
@@ -1745,13 +1424,7 @@
       "race": "Elf",
       "class": "ex-cleric 12",
       "order": "14",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/father-basri.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/father-basri.png"
     },
     {
       "status": "inactive",
@@ -1769,13 +1442,7 @@
       "race": "Human",
       "class": "magus 7",
       "order": "14",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/captain-seferi.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/captain-seferi.png"
     },
     {
       "status": "inactive",
@@ -1793,13 +1460,7 @@
       "race": "Human",
       "class": "druid 3",
       "order": "15",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/anllel-oakleaf.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/anllel-oakleaf.png"
     },
     {
       "status": "inactive",
@@ -1817,13 +1478,7 @@
       "race": "Dwarf",
       "class": "druid 1",
       "order": "16",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/polgrin.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/polgrin.png"
     }
   ],
   "pc": [
@@ -1932,13 +1587,7 @@
       "announce": "Her Imperial Highness",
       "race": "Human",
       "order": "3",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/vivexis-darahan.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/vivexis-darahan.png"
     },
     {
       "status": "secrown",
@@ -1955,13 +1604,7 @@
       "announce": "His Imperial Highness",
       "race": "Human",
       "order": "3",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/nestor-delriddia.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/nestor-delriddia.png"
     },
     {
       "status": "secrown",
@@ -1969,7 +1612,7 @@
       "name": "Mellea",
       "surname": "Denzarni",
       "attitude": "locked",
-      "appearance": "Smelling faintly of strawberries, Mellea Denzarni prides herself as much in her blond hair, multi-colored eyes, and creamy skin as she is in her aslant bloodline. She has an easy laugh and a light voice, with a seemingly supernatural ability to draw smiles from those around her.",
+      "appearance": "Smelling faintly of strawberries, Mellea Denzarni prides herself as much in her blond hair, multi-colored eyes, and creamy skin as she is in her Azlanti bloodline. She has an easy laugh and a light voice, with a seemingly supernatural ability to draw smiles from those around her.",
       "background": "Grand Duchess Mellea Denzarni maintains opulent country estates and loves hosting weeklong galas and trysts, as well as teaching her house and those around them about the Denzarni's Azlanti heritage with the blood of ancient kings and gods run through their veins. Her prefecture of Kazuhn is the breadbasket of the Empire.",
       "biases": "???",
       "strengths": "???",
@@ -1979,13 +1622,7 @@
       "race": "Human",
       "class": "witch 11",
       "order": "3",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/mellea-denzarni.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/mellea-denzarni.png"
     },
     {
       "status": "secrown",
@@ -2002,13 +1639,7 @@
       "announce": "Her Imperial Highness",
       "race": "Human",
       "order": "3",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/breateeza-fahlspar.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/breateeza-fahlspar.png"
     },
     {
       "status": "secrown",
@@ -2017,7 +1648,7 @@
       "surname": "Tiberan",
       "attitude": "locked",
       "appearance": "Grand Duchess Tiberan has long since switched from the elegant dresses of Oppara for a more practical and conservative look appropriate both for someone of her station and someone who hunts down smugglers. With green eyes and soft features, Ciseran realizes that while looks can be distracting, they can also have practical uses.",
-      "background": "With Cassomir - the second largest port city in Taldor and Avistan - as her prefecture, Cisera Tiberan effectively controls, inspects, and taxes all trade along the Sellen River, which comprises a full third of Taldor's shipping, a quarter of Andorans, and the majority of Galt's, the River Kingdoms, The Wildwood Lodge, Yonin, The Five Kings, Brevoy, Numeria, Ustalav, and Mendev. Controlling the port that links the northern kingdoms with the inner sea means two things: money and pirates. She recently granted a non-interferance to the claim of the Palace of Birdsong. Duke Centimus was from her court, and Emily Tiberan is her niece 3 times removed.",
+      "background": "With Cassomir - the second largest port city in Taldor and Avistan - as her prefecture, Cisera Tiberan effectively controls, inspects, and taxes all trade along the Sellen River, which comprises a full third of Taldor's shipping, a quarter of Andoran's, and the majority of Galt's, the River Kingdoms', The Wildwood Lodge's, Yonin's, The Five King's Mountains', Brevoy's, Numeria's, Ustalav's, and Mendev's. Controlling the port that links the northern kingdoms with the inner sea means two things: money and pirates. She recently granted a non-interference to the claim of the Palace of Birdsong. Duke Centimus was from her court, and Emily Tiberan is her niece 3 times removed.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -2025,13 +1656,7 @@
       "announce": "Her Imperial Highness",
       "race": "Human",
       "order": "3",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cisera-tiberan.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cisera-tiberan.png"
     },
     {
       "status": "secrown",
@@ -2048,13 +1673,7 @@
       "announce": "His Imperial Highness",
       "race": "Human",
       "order": "3",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/morrin-zellvyngian.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/morrin-zellvyngian.png"
     },
     {
       "status": "secrown",
@@ -2072,13 +1691,7 @@
       "race": "Human",
       "class": "aristocrat 11",
       "order": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/quintus-avellius-corcina.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/quintus-avellius-corcina.png"
     },
     {
       "status": "secrown",
@@ -2095,13 +1708,7 @@
       "announce": "His Grace",
       "race": "Human",
       "order": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/felinax-zespire.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/felinax-zespire.png"
     },
     {
       "status": "secrown",
@@ -2118,13 +1725,7 @@
       "announce": "His Excellency",
       "race": "Human",
       "order": "8",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cypristian-merrosett.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cypristian-merrosett.png"
     },
     {
       "status": "secrown",
@@ -2141,13 +1742,7 @@
       "announce": "Her Ladyship",
       "race": "Human",
       "order": "9",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/diddima-ennoi.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/diddima-ennoi.png"
     },
     {
       "status": "secrown",
@@ -2165,13 +1760,7 @@
       "race": "Human",
       "class": "paladin of ragathiel 10",
       "order": "12",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/remilliard-kastner.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/remilliard-kastner.png"
     },
     {
       "status": "secrown",
@@ -2189,13 +1778,7 @@
       "race": "Human",
       "class": "druid 5, green faith acolyte 8",
       "order": "12",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/valenar-green.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/valenar-green.png"
     }
   ],
   "target": [
@@ -2215,13 +1798,7 @@
       "race": "Trompe l'oeil Human",
       "class": "rogue 8",
       "order": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/veleto-lotheed.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/veleto-lotheed.png"
     },
     {
       "status": "target",
@@ -2229,8 +1806,8 @@
       "name": "Panivar",
       "surname": "Lotheed VI",
       "attitude": "locked",
-      "appearance": "Too few have seen Duke Panivar in recent years to get an accurate description.",
-      "background": "Lady Martella's Uncle, Duke Panivar is a renowned archmage and is not to be trifled with. Avoid at all costs.",
+      "appearance": "Duke Panivar Lotheed IV wears immaculate, fitted clothing and dresses in pale blues and grays. He is never seen without his raven-topped staff, and while often unseen, he purportedly always travels with his unseen servants. Old and graying, he is supposedly the spitting image of his father and namesake, Panivar Lotheed V.",
+      "background": "Lady Martella's Uncle, Duke Panivar is a powerful and renowned conjurer and the Lotheed family's most magically gifted wizard. Along with his deep reservoir of knowledge and magical talent, he is vastly wealthy and influential and is not to be trifled with.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -2239,13 +1816,7 @@
       "race": "Human",
       "class": "conjurer 18",
       "order": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/panivar-lotheed.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/panivar-lotheed.png"
     },
     {
       "status": "target",
@@ -2263,13 +1834,7 @@
       "race": "Human",
       "class": "aristocrat 4, cavalier 2",
       "order": "4",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/adella-voinum.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/adella-voinum.png"
     },
     {
       "status": "target",
@@ -2287,13 +1852,7 @@
       "race": "Human",
       "class": "magus 7",
       "order": "8",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/bartelby-lotheed.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/bartelby-lotheed.png"
     },
     {
       "status": "target",
@@ -2311,13 +1870,7 @@
       "race": "Human",
       "class": "fighter 6",
       "order": "9",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/nicolaus-okerra.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/nicolaus-okerra.png"
     },
     {
       "status": "target",
@@ -2326,7 +1879,7 @@
       "surname": "Telus",
       "attitude": "locked",
       "appearance": "Often dressed in royal blues, Araig Telus has been reported seen by few and is apparently still recovering from a curse.",
-      "background": "The baron of a strong and stable barony, Araig Telus is proud and aloof most of the time. When visited, all but critical visitors and members of his court are turned awa, with his servants explaining that he is still in recovery. The town of Jambis has recently been reclaimed by much of its citezenry, though few have seen the Baron in person.",
+      "background": "The baron of a strong and stable barony, Araig Telus is proud and aloof most of the time. When visited, all but critical visitors and members of his court are turned away, with his servants explaining that he is still in recovery. The town of Jambis has recently been reclaimed by much of its citizenry, though few have seen the Baron in person.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -2335,13 +1888,7 @@
       "race": "Human",
       "class": "sorcerer 5",
       "order": "9",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/araig-telus.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/araig-telus.png"
     },
     {
       "status": "target",
@@ -2359,13 +1906,7 @@
       "race": "Human",
       "class": "conjurer 7 (Use Conjurist NPC)",
       "order": "11",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cateline-lotheed.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cateline-lotheed.png"
     },
     {
       "status": "target",
@@ -2383,13 +1924,7 @@
       "race": "Human",
       "class": "fighter 6",
       "order": "11",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/titus-lotheed-casava.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/titus-lotheed-casava.png"
     },
     {
       "status": "target",
@@ -2407,13 +1942,7 @@
       "race": "Half-Elf",
       "class": "inquisitor of abadar 6",
       "order": "12",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gul-gusairne.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/gul-gusairne.png"
     },
     {
       "status": "target",
@@ -2421,7 +1950,7 @@
       "name": "The Night",
       "surname": "Swan",
       "attitude": "hostile",
-      "appearance": "Descriptions vary wildly between *eyewitness* accounts. Proportedly garbed in white, silver, and gold, this woman is described as holding herself with both grace and stength.",
+      "appearance": "Descriptions vary wildly between *eyewitness* accounts. Purportedly garbed in white, silver, and gold, this woman is described as holding herself with both grace and strength.",
       "background": "While many claim the Night Swan is an ancient and mythical fey, others claim it is a simple bandit. Either way, attacks are recent and relatively frequent, and most attacks on the road are attributed to The Night Swan, deserved or not.",
       "biases": "???",
       "strengths": "???",
@@ -2430,13 +1959,7 @@
       "announce": " ",
       "race": "Unknown",
       "order": "16",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/unknown.png",
-      "cr": "",
-      "determination": "",
-      "vdueltac": "",
-      "updatebook": "",
-      "secretbias": "",
-      "secretstrength": ""
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/unknown.png"
     }
   ]
 }
