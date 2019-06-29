@@ -325,7 +325,7 @@ main .secrown .click ul, main .active .click ul, main .dead .click ul, main .dpc
   display: block;
 }
 /*---END toggleClass sub-CSS---*/
-main .secrown .p:nth-of-type(3), main .active p:nth-of-type(3), main .pc p:nth-of-type(3), main .inactive p:nth-of-type(3), main .unknown p:nth-of-type(3), main .target p:nth-of-type(3), main .crown p:nth-of-type(3), main .agent p:nth-of-type(3) {
+main .secrown p:nth-of-type(3), main .active p:nth-of-type(3), main .pc p:nth-of-type(3), main .inactive p:nth-of-type(3), main .unknown p:nth-of-type(3), main .target p:nth-of-type(3), main .crown p:nth-of-type(3), main .agent p:nth-of-type(3) {
   display: none;
 }
 main .dead p:nth-of-type(4), main .inactive p:nth-of-type(4), main .unknown p:nth-of-type(4) {
