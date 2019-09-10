@@ -49,6 +49,11 @@ main .relic ul .column2, main .journal ul .column2, main .gishvit ul .column2, m
   -webkit-columns: 2;
   -moz-columns: 2;
 }
+main ul img {
+  width: 48%;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 /*----------- ARTICLE --------------*/
 main .secrown, main .active, main .dead, main .dpc, main .pc, main .inactive, main .unknown, main .target, main .crown, main .asset, main .agent, main .secrown, main .gallery {
