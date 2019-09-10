@@ -48,11 +48,13 @@ main .relic ul.column2, main .journal ul.column2, main .gishvit ul.column2, main
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
+  float: right;
 }
 main ul img {
   width: 48%;
   margin-right: auto;
   margin-left: auto;
+  float: left;
 }
 
 /*----------- ARTICLE --------------*/
