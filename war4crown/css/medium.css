@@ -44,15 +44,13 @@ main .row section:nth-child(3){
 main .gallery figure {
   flex-basis: 46%;
 }
-main .relic ul.column2, main .journal ul.column2, main .gishvit ul.column2, main .journalplay ul.column2 {
+/*main .relic ul.column2, main .journal ul.column2, main .gishvit ul.column2, main .journalplay ul.column2 {
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
-}
+}*/
 main ul img {
   width: 48%;
-  margin-right: auto;
-  margin-left: auto;
   float: left;
   padding: 2%;
 }
