@@ -337,6 +337,9 @@ main .dead p:nth-of-type(4), main .inactive p:nth-of-type(4), main .unknown p:nt
 main .dead ul, main .inactive ul, main .unknown ul {
   display: none;
 }
+main .dead li, main .inactive li, main .unknown li {
+  display: none;
+}
 main .hide {
   display:none;
 }
