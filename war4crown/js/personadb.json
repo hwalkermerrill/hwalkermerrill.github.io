@@ -143,6 +143,24 @@
       "class": "magus 7",
       "order": "14",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/captain-seferi.png"
+    },
+    {
+      "status": "active",
+      "title": " ",
+      "name": "Arraio",
+      "surname": "Garicus",
+      "attitude": "indifferent",
+      "appearance": "This jolly orator is both plump and tidy. Often bathing with specialized bath salts, tending to his hair and goatee with pricey oils, and always wearing freshly laundered and scented clothing, Arraio has a clean look and a complex scented profile.",
+      "background": "The proprietor of the Baths of Dioclytus, the largest and most famous of Zimar's bathhouses - which also includes a laundry, café, massage parlor, and upscale inn - this wealthy bard makes his living providing a comfortable place to rest after a journey and spill secrets.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "announce": "Mister",
+      "race": "Human",
+      "class": "bard 7",
+      "order": "15",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/arraio-garicus.png"
     }
   ],
   "agent": [
@@ -2507,24 +2525,6 @@
   "target": [
     {
       "status": "target",
-      "title": "Inquisitor General",
-      "name": "Feradica",
-      "surname": "Torcamay",
-      "attitude": "locked",
-      "appearance": "A devout man and a dedicated Inquisitor, Feradica Torcamay lost an eye defending his golden-masked taxmasters from ambush by Qadiran spies and thieves. While a traditional stoic man, he has become more complacent with cruelty since Enumerator Iovinus was appointed over him and his faith.",
-      "background": "The tyrannical subordinate of Enumerator Iovinus, Inquisitor General Feradica Torcamay oversees the daily responsibilities of the House of Gold and of both the Golden Templars and the Templars of the Vault and Chain. While the ancient *Taxmasters* and the heretical *Vault and Chain* have different philosophies, these paramilitary orders work and train side-by-side, serve the same deity and enumerator, and defend Zimar and Taldors markets from foreign intervention.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "announce": "Inquisitor General",
-      "race": "Human",
-      "class": "vault and chain templar",
-      "order": "8",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/feradica-torcamay.png"
-    },
-    {
-      "status": "target",
       "title": "Baron",
       "name": "Astor",
       "surname": "Roderus",
@@ -2576,6 +2576,24 @@
       "class": "tyrant anti-paladin 12",
       "order": "10",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/palo-iovinus.png"
+    },
+    {
+      "status": "target",
+      "title": "Inquisitor General",
+      "name": "Feradica",
+      "surname": "Torcamay",
+      "attitude": "locked",
+      "appearance": "A devout man and a dedicated Inquisitor, Feradica Torcamay lost an eye defending his golden-masked taxmasters from ambush by Qadiran spies and thieves. While a traditional stoic man, he has become more complacent with cruelty since Enumerator Iovinus was appointed over him and his faith.",
+      "background": "The tyrannical subordinate of Enumerator Iovinus, Inquisitor General Feradica Torcamay oversees the daily responsibilities of the House of Gold and of both the Golden Templars and the Templars of the Vault and Chain. While the ancient *Taxmasters* and the heretical *Vault and Chain* have different philosophies, these paramilitary orders work and train side-by-side, serve the same deity and enumerator, and defend Zimar and Taldors markets from foreign intervention.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "announce": "Inquisitor General",
+      "race": "Human",
+      "class": "vault and chain templar",
+      "order": "10",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/feradica-torcamay.png"
     },
     {
       "status": "target",
@@ -2738,24 +2756,6 @@
       "class": "spy rogue 7 (master spy villain codex p.242)",
       "order": "15",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/gannaius.png"
-    },
-    {
-      "status": "target",
-      "title": " ",
-      "name": "Arraio",
-      "surname": "Garicus",
-      "attitude": "indifferent",
-      "appearance": "This jolly orator is both plump and tidy. Often bathing with specialized bath salts, tending to his hair and goatee with pricey oils, and always wearing freshly laundered and scented clothing, Arraio has a clean look and a complex scented profile.",
-      "background": "The proprietor of the Baths of Dioclytus, the largest and most famous of Zimar's bathhouses - which also includes a laundry, café, massage parlor, and upscale inn - this wealthy bard makes his living providing a comfortable place to rest after a journey and spill secrets.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "announce": "Mister",
-      "race": "Human",
-      "class": "bard 7",
-      "order": "15",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/arraio-garicus.png"
     },
     {
       "status": "target",
