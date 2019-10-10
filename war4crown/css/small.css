@@ -314,6 +314,16 @@ main .locked {
   color: rgba(0,0,0,1);
   border-color: #d48f2a;
 }
+main .friendly {
+  background-color: #90EE90;
+  color: rgba(0,0,0,1);
+  border-color: #d48f2a;
+}
+main .unfriendly {
+  background-color: #F08080;
+  color: rgba(0,0,0,1);
+  border-color: #d48f2a;
+}
 /*---START toggleClass sub-CSS---*/
 main .secrown article p, main .active article p, main .dead article p, main .dpc article p, main .pc article p, main .inactive article p, main .unknown article p, main .target article p, main .crown article p, main .asset section p, main .agent article p {
   display: none;
