@@ -37,7 +37,7 @@
 <!-- SCRIPT HERE -->
 <script src="js/jquery.min.js"></script>
 <script src="js/hamburger.js"></script>
-<script defer src="js/fillJSON.js"></script>
+<script src="js/fillJSON.js"></script>
 </head>
 <body>
 <!-- BORDER ART-->
@@ -85,23 +85,23 @@
     <p>Color Code: Blue = Helpful; Light Green = Friendly; White = Indifferent; Gray = Unable to Influence; Light Red = Unfriendly; Black = Hostile - Approach with Caution <button onclick="toggleLocked()">Show/Hide Grayed-Out NPC's</button></p>
     <h2>Primogen Crown Claimants by Order of Support</h2> <!--<button onclick="clickLoad()">Refresh</button>-->
     <div class="crown">
-      <script>fillJSON('crown')</script>
+      <script>$(document).ready(fillJSON('crown'))</script>
     </div>
     <h2>Very Important Persons (VIPs) to Current Operations by Order of Rank and Name</h2>
     <div class="target">
-      <script>fillJSON('target')</script>
+      <script>$(document).ready(fillJSON('target'))</script>
     </div>
     <h2>Persons of Interest in Operation Area by Order of Rank and Name</h2>
     <div class="active">
-      <script>fillJSON('active')</script>
+      <script>$(document).ready(fillJSON('active'))</script>
     </div>
     <h2>Withdrawn Claimants to the Crown by Order of Rank and Name</h2> 
     <div class="secrown">
-      <script>fillJSON('secrown')</script>
+      <script>$(document).ready(fillJSON('secrown'))</script>
     </div>
     <h2>Watchlist - Persons of Interest Outside of Operation Area by Order of Rank and Name</h2> 
     <div class="inactive">
-      <script>fillJSON('inactive')</script>
+      <script>$(document).ready(fillJSON('inactive'))</script>
     </div>
   </main>
 
@@ -117,7 +117,7 @@
 
 <!-- SCRIPT HERE -->
   <script src="js/banner.js"></script>
-  <script>$(window).on("load", function clickLoad() {
+  <script>$(document).ready(function clickLoad() {
       $('article').click(function() {
         $(this).toggleClass( "click" );
       })
