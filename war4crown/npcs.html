@@ -38,6 +38,12 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/hamburger.js"></script>
 <script src="js/fillJSON.js"></script>
+<script>$(document).ready(function clickLoad() {
+  $('article').click(function() {
+    $(this).toggleClass( "click" );
+  })
+});
+</script>
 </head>
 <body>
 <!-- BORDER ART-->
@@ -117,12 +123,12 @@
 
 <!-- SCRIPT HERE -->
   <script src="js/banner.js"></script>
-  <script>$(document).ready(function clickLoad() {
+  <!--<script>$(document).ready(function clickLoad() {
       $('article').click(function() {
         $(this).toggleClass( "click" );
       })
     });
-  </script>
+  </script>-->
   <script>function toggleLocked() {
     $('.locked').toggle();
   };
