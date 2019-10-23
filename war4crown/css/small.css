@@ -294,6 +294,7 @@ main .secrown article img, main .active article img, main .dead article img, mai
 main .secrown article:hover, main .active article:hover, main .dead article:hover, main .dpc article:hover, main .pc article:hover, main .inactive article:hover, main .unknown article:hover, main .target article:hover, main .crown article:hover, main .asset section:hover, main .agent article:hover {
   box-shadow: 0 0 12px #555;
   transform: scale(1.05);
+  cursor: pointer;
 }
 main .helpful {
   background-color: #0e2043;
@@ -324,6 +325,7 @@ main .unfriendly {
   color: rgba(0,0,0,1);
   border-color: #d48f2a;
 }
+
 /*---START toggleClass sub-CSS---*/
 main .secrown article p, main .active article p, main .dead article p, main .dpc article p, main .pc article p, main .inactive article p, main .unknown article p, main .target article p, main .crown article p, main .asset section p, main .agent article p {
   display: none;
@@ -356,6 +358,10 @@ main .hide {
 main article .hide {
   display:none;
 }
+main ul {
+  cursor: pointer;
+}
+
 /*----------- CONTACT --------------*/
 body .contact {
   padding: 0 2%;
