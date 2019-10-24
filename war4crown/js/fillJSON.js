@@ -24,7 +24,7 @@ function fillJSON(divClass){
       var myIMG = document.createElement('img');
       var myList1 = document.createElement('ul');
 
-      if (divClass == "unknown") {
+      if (localJObj[i].imgref == "") {
         myIMG.setAttribute('src', 'images/unknown.png');
         myIMG.setAttribute('alt', 'Unknown');
       } else {
@@ -66,11 +66,7 @@ function fillJSON(divClass){
 
       section.appendChild(myArticle);
 
-      if (divClass == "unknown") {
-
-      } else {
-        myArticle.setAttribute("class", localJObj[i].attitude);
-      }
+      myArticle.setAttribute("class", localJObj[i].attitude);
     }
   }
 }
