@@ -155,6 +155,10 @@ main .row {
 main .row section:nth-child(3){
   margin-left: 2%;
 }
+main .row figure figcaption {
+  padding: 1%;
+  text-align: center;
+}
 main .gallery {
   display: flex;
   flex-wrap: wrap;
