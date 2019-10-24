@@ -24,8 +24,8 @@ function fillJSON(divClass){
       var myIMG = document.createElement('img');
       var myList1 = document.createElement('ul');
 
-        myIMG.setAttribute('src', localJObj[i].imgref);
-        myIMG.setAttribute('alt', localJObj[i].name);
+      myIMG.setAttribute('src', localJObj[i].imgref);
+      myIMG.setAttribute('alt', localJObj[i].name);
 
       var listSkill = document.createElement('li');
       listSkill.textContent = 'Influenced by: ' + localJObj[i].skills;
