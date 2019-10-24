@@ -24,13 +24,8 @@ function fillJSON(divClass){
       var myIMG = document.createElement('img');
       var myList1 = document.createElement('ul');
 
-      if (localJObj[i].imgref == "") {
-        myIMG.setAttribute('src', 'images/unknown.png');
-        myIMG.setAttribute('alt', 'Unknown');
-      } else {
         myIMG.setAttribute('src', localJObj[i].imgref);
         myIMG.setAttribute('alt', localJObj[i].name);
-      }
 
       var listSkill = document.createElement('li');
       listSkill.textContent = 'Influenced by: ' + localJObj[i].skills;
