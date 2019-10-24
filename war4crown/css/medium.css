@@ -39,7 +39,6 @@ main .row section:nth-child(2){
 main .row section:nth-child(3){
   width: 48%;
   float: left;
-  margin-top: 52px;
 }
 main .gallery figure {
   flex-basis: 46%;

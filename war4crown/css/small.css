@@ -170,6 +170,7 @@ main .gallery figure {
 }
 main .gallery figure figcaption {
   padding: 1%;
+  text-align: center;
 }
 main .gallery figure:hover {
   transform: scale(1.05);
