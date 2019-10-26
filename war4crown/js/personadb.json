@@ -295,7 +295,7 @@
       "surname": "al-Ghazali",
       "attitude": "helpful",
       "appearance": "Still a young boy, Aayef has the deep tans of the Keleshites.",
-      "background": "Saved by the party and changed by his time with Soldier's Glory, Aayef has become an agent of Gloriana Morilla's [redacted] and serve's her, and by extension, the Princess Eutropia.",
+      "background": "Saved by the party and changed by his time with Soldier's Glory, Aayef has become an agent of Gloriana Morilla's [redacted] and serves her, and by extension, the Princess Eutropia.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -331,7 +331,7 @@
       "surname": "Jonrek",
       "attitude": "helpful",
       "appearance": "Fierce with long hair, between her aim, complexion, and slightly pointed ears, some rumor she has elven ancestry somewhere in her blood. She is often seen atop her elephant mount wearing Taldor Livery and carrying a large bow.",
-      "background": "A Lieutenant from among the missing soldiers, Gallindra Jonrek was thought of as loyal, hard-working, and good-hearted. Assigned an elephant mount, she is well trained and likely to be alive even if her unit is not. She may have information we need to answer the Mercantile Council's concerns.",
+      "background": "A Lieutenant from among the missing soldiers, Gallindra Jonrek was thought of as loyal, hard-working, and good-hearted. Assigned an elephant mount, she is well trained and likely to survive things that could finish off other soldiers. She was contacted in the Yanmass City Park and dilligently recruited as an agent.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -349,7 +349,7 @@
       "surname": "Piscum",
       "attitude": "helpful",
       "appearance": "Onora is plain, muscular, and heavily freckled. A half-elf, she looks far younger than her actual 55 years.",
-      "background": "A commoner both uncomfortable and unwelcome in the presence of high nobility, Onora fell into the job of tribune of Stachys after the death of the hereditary tribune, Allis Betony, 10 years ago and her husband, the acting tribune, 5 years later. She still manages most of the towns day-to-day from her pub, the Wolf's Whisker.",
+      "background": "A commoner both uncomfortable and unwelcome in the presence of high nobility, Onora fell into the job of Tribune of Stachys after the deaths of the hereditary tribune, Allis Betony, 10 years ago, followed by her husband, the acting tribune, 5 years later. She still manages most of the towns day-to-day from her pub, the Wolf's Whisker.",
       "biases": "Despises anyone who flaunts wealth and power, but warms up to anyone who clearly understands a practical skill or two such as craft, handle animal, profession, or survival",
       "strengths": "???",
       "weakness": "Onora has a deep love for homespun metaphors and colloquialisms",
@@ -367,7 +367,7 @@
       "surname": "Vatherial",
       "attitude": "friendly",
       "appearance": "Seven feet tall and easily over three hundred pounds, this massive, gregarious half-elf is twice over most other men. He sings unashamedly, he tells stories with a deep memory, he stirs deep, raw feelings from inside his audience, and he drinks as much ale as a horse drinks water.",
-      "background": "A master storyteller, Conson Vatherial usually performs out of the Whistling Wyvern, and is well known for helping adventurers and mercenaries find employment, and helping merchants and nobles find guards and workers.",
+      "background": "A master storyteller, Conson Vatherial usually performs out of the Whistling Wyvern and is well known for matching adventurers and mercenaries looking for employment with merchants and nobles looking for guards and explorers.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -438,8 +438,8 @@
       "name": " ",
       "surname": "Blunk",
       "attitude": "helpful",
-      "appearance": "The eldest of Alice's three domovoi friends, Blunk speaks for his group to those outside of the faen court. A smoker with a gruff beard and long toenails, Blunk is suspicious but generally helpful.",
-      "background": "Alice Betony's imaginary friends turned out to be three domovoi by the name of Blunk, Nodd, and Wink. Sharing and caring for the Betony estate, they continue to guard, clean, and repair the interior property and its other caretakers.\nBoon: Cost is a home baked food (like bread) as a gift, made by the recipient that day at a DC15 or higher (to be *good*). The recipient gains some of the domovoi's power over the world around them. The recipient can use mage hand, mending, and prestidigitation 5/day and telekinesis 1/day as supernatural abilities with their caster level equal to their HD. The telekinesis is slightly limited, however, in that it can only move up to 10lbs per level instead of 25, and the saving throw DC=11 + Cha. Lasts 5 days. Blunk (only) can be convinced to accompany PC's away from Stachys, leaving Nod and Wink behind.",
+      "appearance": "The eldest of Allis' three domovoi friends, Blunk speaks for his group to those outside of the faen court. A smoker with a gruff beard and long toenails, Blunk is suspicious but generally helpful.",
+      "background": "Allis Betony's imaginary friends turned out to be three domovoi by the name of Blunk, Nodd, and Wink. Sharing and caring for the Betony estate, they continue to guard, clean, and repair the interior property and its other caretakers.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -756,7 +756,7 @@
       "status": "dead",
       "title": " ",
       "name": "Imistos",
-      "surname": "Gulben",
+      "surname": "Gulbend",
       "attitude": "hostile",
       "appearance": "Moving deferentially, this servant and shoe-shiner does his best to avoid being underfoot.",
       "background": "One of the many servants in attendance at the Exaltation Gala.",
@@ -940,7 +940,7 @@
       "class": "harsh lieutenant",
       "death": "Strangled by Cthulu tentacles in an alley.",
       "order": "20",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/grammell-taychar.png"
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/grammel-taychar.png"
     },
     {
       "status": "dead",
@@ -1017,6 +1017,25 @@
       "death": "Subjected to the Whims of Fate when trying to decide whether the PC's or He was right concerning the preservation or destruction of the Twilight Child.",
       "order": "24",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/xan.png"
+    },
+    {
+      "status": "dead",
+      "title": "Lord",
+      "name": "Milon",
+      "surname": "Jeroth",
+      "attitude": "hostile",
+      "appearance": "Handsome, insightful, and charming, Milon Jeroth is deeply set in high society, while also being undeniably a predator, deceiver, and master of disguise.",
+      "background": "Coming from a long line of taldane noble elite from Zimar, Milon Jeroth benefits from an undiluted noble line which has produced singular heirs for the last couple hundred years, granting Milon the wealth, influence, education, and training of a favorite noble heir normally far above his station. He often [redacted]. He now works as spymaster and member of the cabinet of High Strategos Maxillar Pythareus.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "announce": "Lord",
+      "race": "Rakshasa",
+      "class": "ninja 6",
+      "death": "Slain while impersonating Ganaius to interogate Martella's Agents.",
+      "order": "25",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/milon-jeroth.png"
     }
   ],
   "dpc": [
@@ -1338,7 +1357,7 @@
       "skills": "???",
       "announce": "His Holiness",
       "race": "Elf",
-      "class": "ex-cleric 12",
+      "class": "ex-cleric 13",
       "order": "6",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/father-basri.png"
     },
@@ -1454,7 +1473,7 @@
       "status": "inactive",
       "title": "High Priest",
       "name": "Vaddrigan",
-      "surname": "Polgrin",
+      "surname": "Pol",
       "attitude": "hostile",
       "appearance": "A tall, severe Aasimar with a captivating stage presence, Vaddrigan Pol has not been seen outside the Encircling Bower and the ceremonies of the Cult of the Twilight Child. Dressed in high quality silks with blue, gold, an emerald embroidery and jewels, Vaddrigan speaks in a level, soothing tone.",
       "background": "The speaker and high priest for the new cult in Yanmass, Vaddrigan Pol is thought of as the church's leader despite the fact that he refuses the honor and bestows it upon the central figure of the cult, the Twilight Child Himself.",
@@ -1976,7 +1995,7 @@
       "race": "Human",
       "class": "aristocrat 1",
       "order": "15",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/sespina-crabbe.png"
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/sepsina-crabbe.png"
     },
     {
       "status": "legacy",
@@ -2656,24 +2675,6 @@
       "class": "advanced otyugh",
       "order": "11",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/unknown.png"
-    },
-    {
-      "status": "target",
-      "title": "Lord",
-      "name": "Milon",
-      "surname": "Jeroth",
-      "attitude": "hostile",
-      "appearance": "Handsome, insightful, and charming, Milon Jeroth is deeply set in high society, while also being undeniably a predator, deceiver, and master of disguise.",
-      "background": "Coming from a long line of taldane noble elite from Zimar, Milon Jeroth benefits from an undiluted noble line which has produced singular heirs for the last couple hundred years, granting Milon the wealth, influence, education, and training of a favorite noble heir normally far above his station. He often [redacted]. He now works as spymaster and member of the cabinet of High Strategos Maxillar Pythareus.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "announce": "Lord",
-      "race": "Rakshasa",
-      "class": "ninja 6",
-      "order": "11",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/milon-jeroth.png"
     },
     {
       "status": "target",
