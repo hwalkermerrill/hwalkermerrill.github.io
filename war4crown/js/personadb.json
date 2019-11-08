@@ -1767,8 +1767,9 @@
     },
     {
       "status": "inactive",
+      "title": " ",
       "name": "Cincia",
-      "surname": "Renviamo",
+      "surname": "Reviamo",
       "attitude": "friendly",
       "appearance": "Bookish and wimsical, Cincia Reviamo is in her late twenties and has dark black curly hair, dark eyes, and an olive complexion. She wears reading glasses and occasionally walks with a cane due to chronic back pain.",
       "background": "The curator of the General Arnisant Museum and Historical Residence in Ridenport, Cincia Renviamo is one of the formost experts on the late general and his Vernisant descendants as well as the Shinning Crusade. She's a dedicated professional who takes her job documenting Taldor's history seriously. The museum has seen a recent resurgence in activity and expansion since hidden relics of the Shinning Crusade were recently uncovered.",
@@ -1781,7 +1782,7 @@
       "class": "expert 2 Wizard 5",
       "death": "Alive",
       "order": "15",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cincia-renviamo.png"
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cincia-reviamo.png"
     },
     {
       "status": "inactive",
