@@ -378,5 +378,15 @@
   </footer>
 
 <!-- SCRIPT HERE -->
+  <script>$(window).on("load", function clickLoad() {
+    $('article').click(function() {
+      $(this).toggleClass( "click" );
+    })
+  });
+  </script>
+  <script>function toggleLocked() {
+  $('.locked').toggle();
+  };
+  </script>
 </body>
 </html>
