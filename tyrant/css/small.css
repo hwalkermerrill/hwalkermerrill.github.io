@@ -123,8 +123,8 @@ main .herodiv2 figure {
 }
 main .herodiv .actioncall, main .herodiv2 .actioncall {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: 2rem;
+  left: 2rem;
   background: radial-gradient(transparent, #1d3c3f);
   border: 1px solid #000;
   padding: 0.2rem;
