@@ -125,7 +125,7 @@ main .herodiv .actioncall, main .herodiv2 .actioncall {
   position: absolute;
   top: 2rem;
   left: 2rem;
-  background: radial-gradient(transparent, #e7e0cc);
+  background: #e7e0cc;
   border: 1px solid #000;
   padding: 0.2rem;
   box-shadow: 0 0 30px #fff;
