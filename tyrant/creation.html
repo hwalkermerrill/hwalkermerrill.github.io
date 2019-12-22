@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+<!-- META DATA -->
+<meta charset="utf-8">
+<meta name="description" content="Tyrant's Grasp">
+<meta name="author" content="Harrison Merrill">
+<meta name="slogan" content="Yokota AB Pathfinder Group">
+<meta name="theme-color" content="#00572f">
+
+<title>Tyrant's Grasp: Home</title>
+<link href="images/logofav.png" rel="icon">
+<link href="images/logo_apple120x.png" rel="apple-touch-icon">
+<link href="images/logo_apple152x.png" rel="apple-touch-icon" sizes="152x152">
+<link href="images/logo_apple167x.png" rel="apple-touch-icon" sizes="167x167">
+<link href="images/logo_apple180x.png" rel="apple-touch-icon" sizes="180x180">
+<link href="images/logo_icon192x.png" rel="icon" sizes="192x192">
+<link href="images/logo_icon128x.png" rel="icon" sizes="128x128">
+
+<!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH & stops the font from enlarging when a phone is turned sideways-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- This loads the "Amiri" font style on the user device while browsing this HTML-->
+<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+
+<!-- STYLE SHEETS -->
+<link href="css/normalize.css" rel="stylesheet">
+<!-- phone-default -->
+<link href="css/small.css" rel="stylesheet">
+<!-- enhance-tablet -->
+<link href="css/medium.css" rel="stylesheet">
+<!-- enhance-desktop -->
+<link href="css/large.css" rel="stylesheet">
+<!-- enhance-wide-desktop -->
+<link href="css/large-wide.css" rel="stylesheet">
+
+<!-- JSON PRELOAD-->
+<link href="js/personadb.json" rel="preload" as="fetch">
+
+<!-- SCRIPT HERE -->
+<script src="js/jquery.min.js"></script>
+<script src="js/hamburger.js"></script>
+<script src="js/banner.js"></script>
+</head>
+<body>
+<!-- BORDER ART-->
+  <div class="border">
+    <figure>
+      <a href="index.html">
+        <img src="images/border900x.png" alt="borderimg" sizes="100vw">
+      </a>
+    </figure>
+  </div>
+<!-- HEADER HERE -->
+  <header class="clearfix">
+    <figure class="logo">
+      <a href="index.html">
+        <img src="images/logo-full.png" alt="logo" width=339px height="75px">
+      </a>
+    </figure>
+    <div class="slogan">
+      <h1>Pathfinder</h1>
+      <h2>Tabletop Adventure Game</h2>
+    </div>
+    <div class="menu">
+      <button onclick="toggleMenu()">&#8801;</button>
+    </div>
+  </header>
+      
+<!-- NAVIGATION HERE -->
+  <nav class="clearfix">
+    <ul id="primaryNav" class="hide">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="creation.html">Character Creation</a></li>
+      <li><a href="npcs.html">Dossiers</a></li>
+      <li><a href="obituaries.html">Glorious Dead</a></li>
+      <li><a href="assets.html">Assets</a></li>
+      <li><a href="adventure.html">Intel</a></li>
+      <li><a href="map.html">Maps</a></li>
+    </ul>
+  </nav>
+
+<!-- CONTENT HERE -->
+  <main class="clearfix">
+    <h1>Roll for Initiative!</h1>
+    <h3>Yokota AB Pathfinder Group</h3>
+    <div class="herodiv">
+      <figure">
+        <img src="images/barzahk-passage.jpg" alt="The Dead Roads" sizes="100vw">
+      </figure>
+      <section class="actioncall">
+        <h3>FPCON: ALPHA</h3>
+        <!-- <p>Current Crown Rivals: 5</p>
+        <p>Agent Secured Allies: 4</p>
+        <p>Allied Agents: 17</p>
+        <p>Deceased Agents: 9</p>
+        <p>Meratt Loyalty: 28</p>
+        <p>Zimar Suspicion: 8</p>-->
+      </section>
+    </div>
+    <div class="bullets">
+      <section>
+        <h2>How this works</h2>
+        <h3>Life in Oppara isn’t difficult to handle, once you’ve learned the rules: if a senator tells you that what you want to do is illegal, talk to a different one; if the district tax you pay is too high, move to the next house over; if you require a diplomat to get the upper hand in negotiations, hire your rival’s out from under her; if you need an honorable noble, promote the nearest farmer; if you make a mistake, act like it never happened until people feel awkward and follow suit; if you don’t like your past, pay a historian to write a new one; if your office needs more funding, buy a weapon and declare yourself a military branch; and if you need to keep something hidden forever, claim it’s urgent and hand it to a government official.<br> — Baronet Solmon Menander, Taldan bureaucrat</h3>
+        <p><b>Most things can be clicked to show/hide details</b></p>
+        <p>This site is meant as a resource for my players and is maintained directly and manually by the GM. This site is for use with the Tyrant's Grasp adventure path.</p>
+        <br>
+        <ul style="list-style-type:circle"> <b>Follow the tabs in the navigation bar to find:</b>
+          <li>Home: Campaign and site details</li>
+          <li>Agents: The agents, companions, and cohorts available to take missions</li>
+          <li>Dossiers: Profiles on all known persons of interest along with their current known status</li>
+          <li>Glorious Dead: The biographies and circumstances surrounding the fallen agents and persons of interest</li>
+          <li>Assets: Information, relics, trophies, property, and boons at the agents disposal</li>
+          <li>Reports: Brief mission reports of agent activities since initial contact to their last known status</li>
+          <li>Maps: Current maps and geographical resources available for agent usage</li>
+        </ul> 
+      </section>
+      <!--<section>
+        <h2>Campaign Details</h2>
+        <ul style="list-style-type:circle"><b>Click to Show/Hide Campaign and Character Creation Details:</b>
+          <li style="display: none;">Alignment: No Restrictions, Nuetral Good recommended</li>
+          <li style="display: none;">Class: No restrictions, high-skill and charisma characters recommended, bloodline (except Imperious), druid, occult, oracle, shaman, summoner, and witch classes discouraged (superstitious townsfolk)</li>
+          <li style="display: none;">Languages: Official: Common (aka Taldane), Recommended: Azlanti, Celestial, Elven, Kelish, Kellid, Hallit, Skald, Osiriani, Polyglot</li>
+          <li style="display: none;">Origins: Any Inner Sea Region, Avistan, or Garund, Recommended: given the nature of this campaign, characters would do best choosing to be Taldan natives from middle- or upper-class families, though that is not required, Discouraged: Kelishites from the Paddisha Empire (especially Qadira)</li>
+          <li style="display: none;">Race: Restricted (in order from most to least common): Human, Dwarf, Halfling, Elf, Half-Elf, Half-Orc, Fetchling, Gillman, Aasimar, Tiefling, Ifrit, Oread, Suli, Slyph, Undine, Dhampir, Chanfeling, Skinwalker, Tengu, Vishkanya, Ratfolk, Catfolk, Kobold, Hobgoblin. Only one of the final four races can be played at a time. Human or race with pass-as-human trait recommended. Humans and part-human races level after only 8 hours of rest.</li>
+          <li style="display: none;">Religion: No restrictions, Patheon: Abadar, Cayden Cailean, Norgorber, and Shelyn, Tributary Worship: Aroden, Calistria, Diabolism, Green Faith, Iomedae, and Kurgess, Urgathoa, Taboo: Sarenrae</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Inner-Sea Currencies</h2>
+        <ul style="list-style-type:circle"><b>Click to Show/Hide Trade Currencies and Conversions:</b>
+          <li style="display: none;"><b>Standards:</b> The Inner Sea primarily uses standardized coin values based upon the value of the weight of metal, with one coin weighing 1/50th of a pound. This standard uses the Taldan Conversion of 10 copper to 1 silver, 10 silver to 1 gold, and 10 gold to 1 platinum piece. Due to this standardization, it is often easy to exchange currency between contries, though most communities prefer their native coin or Absalom coin, as they can be more sure it isn't counterfeit, shaved, or plated. This means nearly all trade cities and every Abadar Temple has a money changer or two, who usually takes a small fee for their services.</li>
+          <li style="display: none;"><b>Absalom:</b> Though the currency standard is of Taldan origin, it is primarily maintained by the Absalom Mint, which collects, melts, and re-mints the coins of other nations. Absalom coins are coated in an alchemical substance that shines bright green if the coin is shaved. Absalom uses Copper Penny's, Silver Weights, Gold Measures, and Platinum Sphinx's. They also made Electrum Crests during an ancient crises made of a mix of silver, gold, and copper. Electrum Crests are only accepted in absalom and are worth the same as a Silver Weight, though it's often worth more to collectors.</li>
+          <li style="display: none;"><b>Alkenstar:</b> Their official currency is an octagonal-shaped doubloon, each with a unique serial number, called "Luckies". Within Alkenstar, Luckies are worth 8 silver apiece, with cheaper objects either using Absalom currency or else traded for, but outside the Grand Duchy, luckies are only worth 7 silver apiece.</li>
+          <li style="display: none;"><b>Andoran:</b> Andoran uses copper caps, silver wolves, gold sails, and platinum falcons, following the standard of weight and value.</li>
+          <li style="display: none;"><b>Brevoy:</b> The people of Brevoy use copper bits, silver links, gold crowns and platinum dragons. With each coin stylized after the image of Taldan Crowns, this is meant to be a public statement about the value of the common people of Brevoy, though in response, most Taldans (and some others from the Inner sea) refer to all of them as Brevoy Bits, specifically copper quarter bits, silver half bits, gold bits, and platinum rounds.</li>
+          <li style="display: none;"><b>Cheliax:</b> Cheliax uses copper oars, silver ferries, gold helms, and platinum cabins. They also use silver tithes, which are platted with infernal iconography and cursed via contract to prevent counterfeit worth 2 gold each, and they also have an uncommon amount of Infernal Silver in circulation, worth the same as 1,000 silver, or 100 gold. Silver tithes were made as a single-coin substitute for the standard payments to the Church of Abadar, and Infernal Silver is the standard currency for dealing with Devils. Neither of these coins are widely accepted outside of the empire except in Hell itself.</li>
+          <li style="display: none;"><b>Katapesh and Osirion:</b> These nations use the copper grains, silver pennies, gold scarabs, and platinum genies, after the manner of the Padisha Empire of Kelesh, though they typically mint their own.</li>
+          <li style="display: none;"><b>Numeria</b> uses a currency called Silverdisks, with each disk made of silver and etched with the number of pieces it is meant to represent, often in denominations of 5's, 10's, 50's, 100's, 500's, 1,000's, and 10,000's. They also have irondisks to represent copper denominations. These coins are minted by the Black Sovereign, are supposedly cursed so that if they are broken, they will kill the one who broke it, and are the only legal currency in the country, with all other currencies required to be converted by the Black Sovereigns representatives. Silverdisks are often only worth the same as a silver piece outside of Numeria, if they're worth anything at all.</li>
+          <li style="display: none;"><b>Padisha Empire of Kelesh:</b> The Keleshites of the desert use copper grains, silver pennies, gold scarabs, and platinum genies after the manner of the Inner Sea to facilitate easier trade, though they often deal in other currencies as well, and many rely on the classic bartering system for specific goods, making exchanges entirely in cloth, jewels, horses, metals, and spices, without ever using a coin. Major traders occasionally use tokens to represent 100lbs of raw materials or spices such as marble, iron, glass, honey, or salt, or other things like 100 yards of canvas or 100 cows, marked with the traders family name and redeemable for that much material from them. These are used to ease negotiations, and are only accepted from reputable trade families and work out to be surprisingly circulable, though outsiders often find the value fluctuating or the quality of goods redeemed subpar compared to when their Keleshite friends use such currencies.</li>
+          <li style="display: none;"><b>Pitax</b> uses copper, silver, and gold shivs, with no platinum coinage equivalent.</li>
+          <li style="display: none;"><b>Taldor:</b> Following tradition, Taldor uses copper, silver, gold, and platinum pennies. They also have gold crowns made from gold with small embeded rubies and a mithral border which makes the sound of a light bell when struck against a hard surface. Only used by nobles as a symbol of status, Gold Crowns are worth the same as 100 gold pennies in Taldor, though its value outside the empire varies. Finally, Taldor also uses Ha'Pennies of each variety, with an iron ringged border worth half as much as the normal coins, though they aren't in common circulation, are only used as an overt insult when paying for services or goods (implying low quality), and are not accepted outside of Taldor.</li>
+          <li style="display: none;"><b>Varisia:</b> Minted in the North Point district of Korvosa, Varisians use the copper "pinch" (never pinches), "silver shields" (never abbreviated), "gold sails" (never abbreviated), and platinum "crowns". These follow the standard of weight and value.</li>
+          <li style="display: none;"><b>Dwarves:</b> Using a standard developed within the five-kings mountains, most dwarves use representational currency, meaning the money is worth more than the weight of the metal. Originally used by smiths for trade, these trapezoidal coins are carefully stamped, amrked, and numbered, so as to make forgeries extremely difficult (and attempts punishable by death and the banishment of the family, according to ancient dwarven tradition). Each coin weighs 1/10th of a pound, with 10 coins stacked together looking like a tiny ingot and being worth the value of a full standard ingot at 99% purity. The value of these coins fluctuate based on market value but are currently: an iron Drabs is 127cp, a copper Jot is 633cp, a silver Talent is 734.4sp, a gold Mark is 1,366.86gp, a platinum noble is 1,520.7pp, and a mithral royal (only used by the kings) is worth 30,414gp. While generally accepted among dwarves, and still extremely common among smith castes, most communities require a conversions to standard coinage before spending, and some areas where dwarves are rare or non-existent may only value them at their weight. </li>
+          <li style="display: none;"><b>Outsider Currencies:</b> Devils typically use infernal silver coins, protected by their plane, worth 100 gold pieces apiece. When angels need to spend money between each other, they often use Elysian Bronze Aureus worth 8 gold pieces or Celestial Gold Nomisma worth 8,000 gold pieces. Many evil outsiders (and night hags) trade in souls which are value-specific to the soul in questions, which can be broken into soul fragments often worth about 250 gold pieces each. Many elementals use the planar cities and Axis standard currency of quintessence, which is naturally weightless and often stored in nearly indestructable vials, with each vial displaying the amount of planar energy stored within. Typically, for each point of planar energy within a container of quintessence, a mage will pay between 8 and 12 gold pieces for it.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Campaign Feats</h2>
+        <ul style="list-style-type:circle"><b>Click to Show/Hide Feats Special to this Campaign. It is also recommended that players look at Intrigue feats during their character design.</b>
+          <li style="display: none;">Campaign-Specific Feats:
+            <ol type="a">
+              <li style="display: none;">Racial (Human) Feat Azlanti-Heritage:  distant descendent of the ancient Azlanti, your lineage is rich with the dust of empires spanning all of human history, and the apex of human potential runs through your veins. Prerequisites: Human, must be taken at 1st level. Benefit: You gain a +2 racial bonus to an additional ability score (this cannot be one already increased by your existing racial bonus). At 8th and 16th level, you may raise two ability scores by 1 instead of only one ability score. In addition, the time it takes to perform any mundane downtime task (including crafting, performing, retraining, and resting) is reduced by 20%, and the time required to complete any magical downtime task (including learning and preparing spells, and magical crafting) is reduced by 50%. This only reduces the time required, it does not increase the amount that can be done. A character with a magical bloodline (like sorcerers) must choose the Imperious Bloodline.</li>
+              <li style="display: none;">Variant Feat (Noble Scion): Noble Scion: You are a member of one of the significant noble families of Oppara, whether or not you remain in good standing with your family. In many cases, these families are Imperialists loyal to Maxillar Pythareus, and as such you either are a black sheep or your family has cut you off entirely. Prerequisites: Cha 13 or Child of Oppara, must be taken at 1st level. Benefit: You gain a +2 bonus on all Knowledge (nobility) checks, and Knowledge (nobility) is always a class skill for you. You also gain an additional benefit depending on which family you belong to.</li>
+              <li style="display: none;">Coalition Leader (Counts as Leadership): You have a knack for attracting others to your cause. Prerequisites: Character level 7th. Benefit: You gain a cohort as described in the Leadership feat. Determine your leadership score as described in the feat’s text but with the following exceptions: Instead of adding your	Charisma modifier to your character’s level to determine your	base leadership score, the Rank of any facet of your persona. Additionally, you can direct your cohort to send agents on an operation, instead of accompanying you. If you do so, you gain a +2 bonus on your Operation check, but your cohort is unavailable until the beginning of the next persona phase. Finally, you do not gain followers as listed in the Leadership feat. Instead, you can perform the recover agent operation once per persona phase; this does not count as an operation.</li>
+            </ol>
+          </li>
+          <li style="display: none;">Family Feats: These story feats are a signature to some of the major and minor noble families of Taldor. Completing these story feats have additional campaign benefits relating to the storyline, noble relations, side quests, and the final ending.
+            <ol type="a">
+              <li style="display: none;">House Corcina - Prosperity and Pride (story): Your family has raised cities and mastered trade, and you seek to do the same.
+                <ul style="list-style-type: none;">
+                  <li style="display: none;">Prerequisite: Member of House Corcina or the Sraftsperson, Iheritance, Well-Connected Friend, or Worldshaker traits.</li>
+                  <li style="display: none;">Benefit: When in a settlement the size of a large city or smaller, you receive a +2 bonus on Appraise checks and Diplomacy checks. If you have 10 or more ranks in one of these skills, the bonus on that skill increases to +4.</li>
+                  <li style="display: none;">Goal: Your actions must spur a settlement to grow to the next size category. This usually involves decisively defeating a challenging foe.</li>
+                  <li style="display: none;">Completion Benefit: You teach others how to get the most out of their equipment. Three times per day as a standard action, you can increase the armor bonus provided by a suit of nonmagical armor, the circumstance bonus provided by a tool or skill kit, or the shield bonus provided by a nonmagical shield by 1 for one hour. This bonus doesn't stack with other uses of this ability.</li>
+                </ul>
+              </li>
+              <li style="display: none;"> House Darahan - We are the Wall (story): You embody your family's legendary monster-hunters.
+                <ul style="list-style-type: none;">
+                  <li style="display: none;">Prerequisite: Member of House Darahan or the Champion of the People, Duty, or Raider traits.</li>
+                  <li style="display: none;">Benefit: Three times per day as a move action, you can declare a single dragon, magical beast, or monstrous humanoid within 50 feet and in line of sight to be your mark. You gain a +1 bonus on attack rolls and on Bluff, Knowledge, Perception, Sense Motive, and Survival checks against your mark. These bonuses last for 1 minute, until you designate a new mark, or until the mark is dead. After you have declared a creature as your mark, it can’t be your mark again for another 24 hours.</li>
+                  <li style="display: none;">Goal: Protect a settlement you have lived in for at least a year from an invading force consisting of an appropriate number of dragons, magical beasts, or monstrous humanoids.</li>
+                  <li style="display: none;">Completion Benefit: The bonus provided by your mark becomes +1 for every 4 character levels, to a maximum of +5 at level 20.</li>
+                </ul>
+              </li>
+              <li style="display: none;"> House Denzarni - Our Bounty, Our Glory (story): You can ignore privation and channel your emotions to prepare for a later bounty.
+                <ul style="list-style-type: none;">
+                  <li style="display: none;">Prerequisite: Member of House Denzarni or the Bloodthirsty, Omen, Tree Tender, or Unsuspecting Master traits.</li>
+                  <li style="display: none;">Benefit: You add 1 day to the time you can go without food or water before making Constitution checks, and you add +4 to Constitution checks to stave off the effects of starvation or thirst.</li>
+                  <li style="display: none;">Goal: You must succumb to your emotions and be victorious. Thwart an appropriate number of foes while you are subject to an effect with the emotion descriptor, such as <i>rage</i>.</li>
+                  <li style="display: none;">Completion Benefit: Once per day, you can use <i>heroe's feast</i> as a spell-like ability with a caster level equal to your character level, although your feast does not grant the effects of <i>neutralize poison</i> or <i>remove disease</i>.</li>
+                </ul>
+              </li>
+              <li style="display: none;"> House Fahlspar - Standing Tall (story): You can tap into your family's old ways to take on some of the traits of plants.
+                <ul style="list-style-type: none;">
+                  <li style="display: none;">Prerequisite: Member of House Fahlspar or the Hunter, Nature, or Tree Tender traits.</li>
+                  <li style="display: none;">Benefit: Once per day as an immediate action, you gain a +2 bonus on saving throws against mind-affecting effects for 1 minute.</li>
+                  <li style="display: none;">Goal: Swear to protect a natural site and defend it for at least 1 year, including defeating an appropriate number of invaders or despoilers.</li>
+                  <li style="display: none;">Completion Benefit: The above benefit can be used three times per day and also applies against paralysis, poison, polymorph, sleep, and stunning effects.</li>
+                </ul>
+              </li>
+              <li style="display: none;"> House Heskillar - Never Conquered, Forever Feared (story): You are dauntless in battle, and your lineage echoes with awe-inspiring power.
+                <ul style="list-style-type: none;">
+                  <li style="display: none;">Prerequisite: Member of House Heskillar or the Adopted by Dragons, Path of Righteous Rage, or Proud Heritage traits.</li>
+                  <li style="display: none;">Benefit: Your stern demeanor gives you a +2 bonus on Intimidate checks. If you have 10 or more ranks in Intimidate, this bonus increases to +4. You also gain a +2 bonus on saves against paralysis and sleep effects.</li>
+                  <li style="display: none;">Goal: You must individually slay an appropriate number of significant foes in succession, without retreating or withdrawing from a fight.</li>
+                  <li style="display: none;">Completion Benefit: You can display your imposing presence as a free action when you take an offensive action, such as an attack or a charge. Opponents within 30 feet of you must succeed at a Will save or become shaken for 3d6 rounds. The DC of this save is equal to 10 + 1/2 your character level + your Charisma modifier. This ability does not cause opponents that are already shaken to become frightened, and opponents with more Hit Dice than your character level are immune to the effect. This is a mind-affecting fear effect.</li>
+                </ul>
+              </li>
+              <li style="display: none;"> House Kastner - Forward From Beneath (story): You have vowed to infiltrate your wicked kin and redeem your family's reputation.
+                <ul style="list-style-type: none;">
+                  <li style="display: none;">Prerequisite: Member of House Kastner, good-aligned member of a family or organization whose secret evil has been publicly exposed, or the Dishonored Family or Betrayal traits.</li>
+                  <li style="display: none;">Benefit: Your experience with infiltrating your own family or organization gives you a +2 bonus on Disguise  checks. If you have 10 or more ranks in Disguise, this bonus increases to +4. If you are not evil, as a standard action you can choose to radiate a faint aura of evil for the purposes of spells such as detect evil. You can dismiss this ersatz aura as a standard action.</li>
+                  <li style="display: none;">Goal: Redeem your family or organization.</li>
+                  <li style="display: none;">Completion Benefit: You gain the benefit of undetectable alignment as a constant spell-like ability. You can suppress or resume this ability as a standard action.</li>
+                </ul>
+              </li>
+              <li style="display: none;"> House Merrosett - Victory Through Unity (story): You have practiced your family's genetic experimentations upon your own familiar.
+                <ul style="list-style-type: none;">
+                  <li style="display: none;">Prerequisite: You must have a familiar and you must be a member of House Merrosett or have the Initiated or Storied Lineage trait.</li>
+                  <li style="display: none;">Benefit: When you gain this feat, choose an animal aspect granted by the hunter's animal focus class ability and apply it to your familiar. Your hunter level for this ability is 1st, and you cannot change this ability once you have selected it. If your familiar dies, it loses its aspect and you may choose a new aspect if you take a new familiar. Your familiar's form is altered by superficial changes appropriate to its aspect.</li>
+                  <li style="display: none;">Goal: You must breed a new magical creature.</li>
+                  <li style="display: none;">Completion Benefit: You may choose to apply a second animal aspect to your familiar or apply an evolution from the 1-point evolutions available to a summoner's eidolon. The familiar must conform to any limitations of the evolution. Once selected, this decision cannot be changed, but it your familiar dies it loses these abilities and you may choose new abilities if you take a new familiar. If your familiar breeds with its original kind, it has the potential to pass on these extra abilities as permanent traits.</li>
+                </ul>
+              </li>
+              <li style="display: none;"> House Zespire - Lighting the Way (story): You seek to lead others through your pious example.
+                <ul style="list-style-type: none;">
+                  <li style="display: none;">Prerequisite: Member of House Zespire or the Devoted, Exemplar, Marked by the Gods, or Righteous Mentor trait.</li>
+                  <li style="display: none;">Benefit: Once per day as a standard action, you can give all allies within 30 feet who can hear you a +1 bonus on attack rolls and on saving throws against mindaffecting effects for 1 minute.</li>
+                  <li style="display: none;">Goal: Establish your religion in an existing settlement where it isn't present. You can do this by having the settlement fain the Holy Site or Pious quality for devotion to your diety, or by changing its goverment to a theocracy based on your religion.</li>
+                  <li style="display: none;">Completion Benefit: You can spontaneously convert any 2nd-level or higher divine spell into <i>enthrall</i> and can spontaneously convert any 3rd-level or higher spell into <i>suggestion</i>.</li>
+                </ul>
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Campaign Traits</h2>
+        <ul style="list-style-type:circle"><b>Click to Show/Hide Trait Options: Players must choose ONE of these traits upon character creation:</b>
+          <li style="display: none;">Athletic Champion: Your physique and skill brought you into the public eye, and a winning smile helps you stay there. Taldor honors its extraordinary athletes, celebrating them as cultural heroes. Whether you were a gladiator, a runner, a wrestler, or any other competitor, your most recent victory caused someone important to sit up and take notice. You may never have a political career in front of you, but for now your name is helping to bring a little extra money in, and maybe that’s good enough. Select two of the following skills: Climb, Diplomacy, Perception, and Swim. You gain a +1 trait bonus on checks with those skills, and they are always class skills for you. In addition, you are accustomed to maneuvering through crowds; you gain a +2 trait bonus on checks to navigate through a crowd or resist being moved against your will, including spells and bull rush, drag, and reposition combat maneuvers. </li>
+          <li style="display: none;">Child of Oppara: You belong to a noble family that matters in Taldor, though as the story begins you may or may not be on good terms with your relatives. Your upbringing among the city’s well-to-do gives you an upper hand when it comes to knowledge of high society, and you start the game with a modest inheritance. With Princess Eutropia’s efforts to provide for Taldor’s common citizens and overturn years of tradition, new lines are being quietly drawn in the sand, and you have found yourself embroiled in these intrigues whether you intended to be or not. With this trait, the assumption is that you belong to a minor noble family (and can make up your family name). In this case, your family keeps a small manor in Aroden’s View or Senate’s Hill. If you want to be a member of one of Oppara’s major noble families, you must take the Noble Scion feat at 1st level. You gain a +1 trait bonus on Appraise and Knowledge (nobility) checks, and one of these skills is always a class skill for you. The Noble Scion feat (see the sidebar) does not have a Charisma prerequisite for you. In addition, you start play with a noble’s outfit, a signet ring, and a single additional nonmagical item worth no more than 200 gp. </li>
+          <li style="display: none;">Disgraced Noble: Your noble family used to matter, until your father took a stand against Maxillar Pythareus, the commander of Taldor’s military. True or not, the accusations Pythareus leveled against your family in return destroyed your reputation and isolated you from the society you grew up in. Now the only thing that matters to you is clawing your way back up the social ladder, either for your own quality of life or to clear your family’s name. You’ve had to practice deception as you began working your way back into Taldan social circles; you gain a +2 trait bonus on Bluff checks to conceal your identity and a +2 bonus on Linguistics checks to spot or produce forgeries, and one of these skills is always a class skill for you. Once each day, you can choose a single humanoid you believe to have been involved in the conspiracy to destroy your family; you gain a +1 morale bonus on attack and damage rolls against that NPC for a number of rounds equal to your character level. At 10th level, this bonus increases to +2.</li>
+          <li style="display: none;">Rising Star: All too often, great minds must suffer for their art, but you’re one of the lucky ones. Your skills attracted the attention of a noble patron who pays for your food, housing, and tools. As your patron introduces you to other cultural elites, you’re slowly learning to navigate the treacherous waters of high society, but you still remember the lean times when each meal was a hard-won treasure. You gain a +1 trait bonus on Sense Motive and Survival checks, as well as checks using a single Craft or Perform skill of your choice; one of these skills is always a class skill for you. Once each day, you can invoke your patron’s reputation or name one of your own prominent works to gain a +2 circumstance bonus on a single Bluff, Diplomacy, or Intimidate check. You begin the game with a masterwork musical instrument or tool appropriate to the Craft or Perform skill you selected, a gift from your patron.</li>
+          <li style="display: none;">Senatorial Hopeful: While you belong to a noble family, hailing from the outlying prefectures means you lack the pull and wealth needed to rub shoulders with the stars of Oppara’s social scene. Your life has been quiet, isolated from the thrum of fashion and pop culture, but you see this as a source of insight and aim to help people by someday joining the senate. It’ll be a long journey, but you’ve already begun learning which hands to shake and how to listen carefully when others tell you what they want. You gain a +1 bonus on Diplomacy and Knowledge (local) checks, and both of these skills are always class skills for you. Once each week you can call on family connections to obtain a single piece of equipment or consumable magic item (such as a potion or scroll) worth up to your character level × 25 gp. Delivery of the goods you request takes 1d4 days. At 10th level, the potential value of a magical item increases to your character level × 50 gp, and your requests can also include spellcasting services and wands.</li>
+          <li style="display: none;">Taldan Patriot: You love your country, its history, and its people... even though they may not love you back. Whether you’re a bureaucrat, a minor noble, or a soldier, you want your community to be the best it can be and you channel that love into a position in service to the people of Taldor. You gain a +1 bonus on all Sense Motive and Knowledge (history) checks, and these skills are always class skills for you. In addition, once per day you can recall a specific fact about a Taldan noble’s personality—quirks such as a hobby or pet peeve— including information you would normally learn as a discovery check in social combat.</li>
+          <li style="display: none;">Young Reformer: Perhaps you were born at the bottom of Taldan society and you’re tired of seeing your friends and family toil endlessly with no hope of a better life, or maybe your privileged outlook was shattered by empathy or tragedy. Either way, you know the system is broken, and you’ve dedicated your life to fixing it. But tradition rules Taldor as much as any Grand Prince, and change requires more influence than you have… so far. You’ve got a few friends and allies, and plenty of determination, but while you work toward the power you need to change the nation, you’ll have to resort to more discrete ways of righting wrongs and curbing the abuses of the upper class. You gain a +1 trait bonus on Disable Device and Knowledge (local) checks, and one of these skills is always a class skill for you. Once per day, you can call upon your coconspirators to have “made arrangements” on your behalf, allowing you to attempt a Knowledge (local) check in place of a single Bluff, Disable Device, Intimidate, or Sleight of Hand check. The DC of this Knowledge (local) check is equal to the DC of the skill check it replaces. Whatever arrangements you make—for doors left unlocked, guards strong-armed out of your way, stolen keys left for you to find—must be reasonable to have anticipated and achieved beforehand; you could arrange to have a noble convinced you’re a very important diplomat traveling in disguise, for example, but if a fight breaks out you could not rely on your network of contacts to feint for you in combat. You don’t have to use this ability in advance; you can announce its use as you encounter a challenge, implying you foresaw this challenge and made arrangements prior to your arrival.</li>
+        </ul>
+      </section>
+    </div>
+    <div class="row">
+      <section>
+        <h2>Taldan Noble Houses</h2>
+      </section>
+      <section>
+        <ul style="list-style-type:circle"><b>Click to Show/Hide Taldan Major Noble Houses: Players must choose the Variant Noble Scion Feat to select one of these houses:</b>
+          <li>Basri: This family comes from the long line of ambassadors, diplomats, and travelers that make up the Basri, and maintains the strongest ties to the elven nation of Kyonin of any Taldan house </li>
+          <li>Clement: This family's Garundi and Mwangi ancestors served Taldor proudly during the Sixth Army of Exploration and is known for keen insights and biting observations</li>
+          <li>Corcina: This family came to prominence during the Second Army of Exploration, and maintains a legacy as explorers and sailors, Allies: Fahlspar, Enemies: Kastner, Family Story Feat: Prosperity and Pride</li>
+          <li>Karthis: This is a family of distinguished military veterans, charismatic demagogues, and xenophobic zealots</li>
+          <li>Kastner: This stalwart family is incredibly spiritual and is made of two halves - great healers and priests, and devil-worshiping diabolists, Allies: Darahan, Enemies: Corcina, Family Story Feat: Forward from Beneath</li>
+          <li>Lotheed: This family's ranks include the greatest wizards and arcane scholars in Taldor, and schooling in some of the most comprehensive arcane libraries in the Inner Sea</li>
+          <li>Merrosett: The cunning members of this large family is a longtime fixture in Oppara’s bureaucracy, specialized in tracking lineages and bloodlines as well as sidestepping red tape, Allies: Denzarni, Enemies: Zespire, Family Story Feat: Voctory Through Unity</li>
+          <li>Stavian: Closely tied to the throne, Stavian lives have been filled with material comfort and indulgence, colored by constant threats and direct influence</li>
+          <li>Talbot: This starkly conservative family are merchants and entrepreneurs first and aristocrats second, willing to forgo duty if they can instead pursue profit</li>
+          <li>Varima: This family immigrated to Taldor from Vudra centuries ago, and thanks to noble roots, extensive trade contacts, and an unparalleled skill in negotiation, soon developed into a steadfast fixture of Oppara’s social scene</li>
+          <li>Vernisant: This family is descended from the great general Arnisant, who commanded Taldan forces during the Shining Crusade... and they will never let anyone forget it!</li>
+          <li>Vinmark: Newcomers and outsiders, this Ulfen family was exalted to nobility 19 years ago, when Stavian III promoted their family patriarch to Baron of Oppara as a reward for service in the Ulfen Guard</li>
+          <li>Zespire: This family runs charities and lobbies heavily for social reform, leaving them with few friends among their Opparan peers but heartfelt support from the common folk and lesser nobility, Allies: House Heskillar, Enemies: House Merrosett, Family Story Feat: Lighting the Way</li>
+        </ul>
+        <ul style="list-style-type:circle"><b>Click to Show/Hide Taldan Minor Noble Houses: A player with any campaign trait may choose to play as a member of one of these noble houses:</b>
+          <li>Briarsmith: Descendents of the great General Porthmost, House Briarsmith has a long history of fighting on the frontier</li>
+          <li>Darahan: House Darahan enjoys a prestigious reputation as a distinguished line of knights and monster hunters, Allies: Kastner, Enemies: Heskillar, Family Story Feat: We Are the Wall</li>
+          <li>Delriddia: House Delriddia has a long Taldan Naval tradition, with ancestors serving on ships since the first Darkwood Frigates</li>
+          <li>Denzarni: House Denzarni traces its origin back to the union of Grand Prince Urios II’s daughter and the heir of a tribal leader who claimed Azlanti descent, Allies: Merrosett, Enemies: Fahlspar, Family Story Feat: Our Bounty, Our Glory</li>
+          <li>Ennoi: This family of "Andoren Sympathizers" has long fallen from their former lofty places</li>
+          <li>Fahlspar: House Fahlspar is one of the earliest established noble houses and was named after its founder, the leader of a small tribe of Kellid hunters and druids, Allies: Corcina, Enemies: Denzarni, Family Story Feat: Standing Tall</li>
+          <li>Heskillar: In a nation where dragon-slaying has a proud tradition - and where memories of the devastating Dragon Plague still linger - House Heskillar remains curiously insistent that one of its earliest ancestors was a great bronze dragon, Allies: Zespire, Enemies: Darahan, Family Story Feat: Never Conquered, Forever Feared</li>
+          <li>Lawsus: This family recently bought their way into minor nobility, with the current family head's father being born the son of a mere wealthy bussinessman</li>
+          <li>Merkander: Descended from a long line of pioneers and woodsmen, this family has several ranger-techniques passed on from one generation to the next</li>
+          <li>Nazezi: This family of craftsman and tradesman control the corner on the fine jewlry market in Taldor</li>
+          <li>Phaeben: This family is closely related to much of Absalom's nobility, and as such has many lucrative trade deals with the nearby economic giant</li>
+          <li>Starborne: This gnome family manages the Wispel settlements within the Verduran Forrest, supplying the majority of the worlds Darkwood</li>
+          <li>Solari: Recently taking control of a grand duchy, the Solari family is highly manipulative and cunning</li>
+          <li>Tiberan: A family of traders and pirate-hunters, House Tiberan controls the port-city of Cassomir and has the greatest trade reach, though they lack the familial numbers to wield major influence</li>
+          <li>Vort: Controlling the critical heartland county of Lionsmane, located next to Meratt and between both Cassomir and Oppara, the vort family is responsible for securing much of the canals and highways between the two giant Cities</li>
+          <li>Zellvyngian: This incredibly corrupt house of lesser nobles has risen to some minor prominence over the last dacade due to kickbacks from criminal land deals</li>
+        </ul> 
+      </section>
+      <section>
+        <img src="images/map-succession-loyalties4.jpg" alt="Succession Loyalties">
+      </section>-->
+    </div>
+  </main>
+
+<!-- FOOTER HERE -->   
+  <footer>
+    &copy; <script src="js/currentdate.js"></script> &bull; Harrison Merrill &bull; All rights reserved &bull; Open Games License v1.02 2000, Wizards of the Coast, Inc. &bull; Pathfinder Adventure Path #139-144 2019, Paizo Publishing, LLC &bull; <script>writeCurrentVersion()</script>
+  </footer>
+
+<!-- SCRIPT HERE -->
+</body>
+</html>
