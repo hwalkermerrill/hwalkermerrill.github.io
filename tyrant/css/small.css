@@ -21,7 +21,7 @@ header {
   padding: .5rem 2%;
   background-color: #1d3c3f;
   display: grid;
-  grid-template-columns: 339px auto 5rem;
+  grid-template-columns: 350px auto 5rem;
 }
 header .slogan {
   display: none;
