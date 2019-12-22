@@ -21,11 +21,11 @@ header {
   padding: .5rem 2%;
   background-color: #1d3c3f;
   display: grid;
-  grid-template-columns: 185px auto 5rem;
+  grid-template-columns: 339px auto 5rem;
 }
-/*header .slogan {
+header .slogan {
   display: none;
-}*/
+}
 header figure {
   margin: 0;
 }
