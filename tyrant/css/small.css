@@ -19,7 +19,7 @@ body {
 /*----------- HEADER --------------*/
 header {
   padding: .5rem 2%;
-  background-color: #00572f;
+  background-color: #1d3c3f;
   display: grid;
   grid-template-columns: 185px auto 5rem;
 }
@@ -41,20 +41,20 @@ header h1 {
   margin-top: 1rem;
   font-weight: bold;
   font-size: 40px;
-  color: #0e2043;
-  text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
+  color: #421215;
+  text-shadow: -5px 0px 5px #e7e0cc, 0px 5px 5px #e7e0cc, 5px 0px 5px #e7e0cc, 0px -5px 5px #e7e0cc;
 }
 header h2 {
   margin: 0;
   font-weight: normal;
   font-size: 30px;
-  color: #0e2043;
-  text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
+  color: #421215;
+  text-shadow: -5px 0px 5px #e7e0cc, 0px 5px 5px #e7e0cc, 5px 0px 5px #e7e0cc, 0px -5px 5px #e7e0cc;
 }
 
 /*----------- NAVIGATION --------------*/
 nav {
-  background-color: #00572f;
+  background-color: #1d3c3f;
 }
 nav ul {
   list-style-type: none;
@@ -63,22 +63,22 @@ nav ul {
 }
 nav ul li a {
   display: block;
-  color: #0e2043;
+  color: #421215;
   border-top: 1px solid rgba(0,0,0,0.3);
   padding: .5rem 0;
   text-decoration: none;
   font-size: 20px;
   text-align: center;
-  text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
+  text-shadow: -5px 0px 5px #e7e0cc, 0px 5px 5px #e7e0cc, 5px 0px 5px #e7e0cc, 0px -5px 5px #e7e0cc;
 }
 nav ul li a:hover {
-  background-color: #d48f2a;
-  color: #0e2043;
+  background-color: #e7e0cc;
+  color: #421215;
 }
 nav ul li.active a {
-  background-color: #0e2043;
-  color: #00572f;
-  text-shadow: -5px 0px 5px #0e2043, 0px 5px 5px #0e2043, 5px 0px 5px #0e2043, 0px -5px 5px #0e2043;
+  background-color: #421215;
+  color: #1d3c3f;
+  text-shadow: -5px 0px 5px #421215, 0px 5px 5px #421215, 5px 0px 5px #421215, 0px -5px 5px #421215;
 }
 nav ul.hide {
   display: none;
@@ -92,14 +92,14 @@ main {
 main h1 {
   font-weight: bold;
   font-size: 40px;
-  color: #0e2043;
+  color: #421215;
   text-shadow: 4px 4px 4px #aaa;
 }
 Main h2 {
   margin-bottom: 0;
   font-weight: normal;
   font-size: 30px;
-  color: #0e2043;
+  color: #421215;
   text-shadow: 4px 4px 4px #aaa;
 }
 main .herodiv, main .herodiv2 {
@@ -125,14 +125,14 @@ main .herodiv .actioncall, main .herodiv2 .actioncall {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background: radial-gradient(transparent, #00572f);
+  background: radial-gradient(transparent, #1d3c3f);
   border: 1px solid #000;
   padding: 0.2rem;
   box-shadow: 0 0 30px #fff;
 }
 main .herodiv .actioncall button, main .herodiv2 .actioncall button {
   border: none;
-  background-color: #0e2043;
+  background-color: #421215;
   color: black;
   border-radius: 1rem;
   padding: .75rem 1.5rem;
@@ -167,7 +167,7 @@ main .gallery figure {
   flex-basis: 96%;
   margin: 1rem 2%;
   border-style: ridge;
-  border-color: #0e2043;
+  border-color: #421215;
   border-width: 6px;
   padding: 1%;
   transition: all .2s ease-in-out;
@@ -213,19 +213,19 @@ form {
 }
 form fieldset {
   margin: 2rem 2%;
-  border: 1px solid #0e2043;
+  border: 1px solid #421215;
   border-radius: 10px;
   padding: .5rem 2%;
 }
 form legend {
-  color: #0e2043;
+  color: #421215;
   margin: 0 1rem;
   padding: 0 .5rem;
 }
 form label.top, form div, form label.slide {
   display: block;
   padding-top: 1rem;
-  color: #0e2043;
+  color: #421215;
   font-size: .8rem;
 }
 form label.top input, form label.top select {
@@ -258,7 +258,7 @@ form label.slide input {
 }
 form input.submitBtn {
   border: none;
-  background-color: #0e2043;
+  background-color: #421215;
   color: black;
   border-radius: 1rem;
   padding: .75rem 1.5rem;
@@ -288,7 +288,7 @@ main .prison article, main .secrown article, main .active article, main .dead ar
   margin: 1rem 2%;
   flex-basis: 96%;
   border-style: ridge;
-  border-color: #0e2043;
+  border-color: #421215;
   border-width: 6px;
   padding: 1%;
   transition: all .2s ease-in-out;
@@ -302,33 +302,33 @@ main .prison article:hover, main .secrown article:hover, main .active article:ho
   cursor: pointer;
 }
 main .helpful {
-  background-color: #0e2043;
-  color: #d48f2a;
-  border-color: #d48f2a;
+  background-color: #421215;
+  color: #e7e0cc;
+  border-color: #e7e0cc;
 }
 main .helpful h2, main .hostile h2 {
-  color: #00572f;
-  text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
+  color: #1d3c3f;
+  text-shadow: -5px 0px 5px #e7e0cc, 0px 5px 5px #e7e0cc, 5px 0px 5px #e7e0cc, 0px -5px 5px #e7e0cc;
 }
 main .hostile {
   background-color: rgba(0,0,0,1);
   color: white;
-  border-color: #d48f2a;
+  border-color: #e7e0cc;
 }
 main .locked {
   background-color: rgb(128, 128, 128);
   color: rgba(0,0,0,1);
-  border-color: #d48f2a;
+  border-color: #e7e0cc;
 }
 main .friendly {
   background-color: #90EE90;
   color: rgba(0,0,0,1);
-  border-color: #d48f2a;
+  border-color: #e7e0cc;
 }
 main .unfriendly {
   background-color: #F08080;
   color: rgba(0,0,0,1);
-  border-color: #d48f2a;
+  border-color: #e7e0cc;
 }
 
 /*---START toggleClass sub-CSS---*/
@@ -390,8 +390,8 @@ body .contact h2 {
 
 /*----------- FOOTER --------------*/
 footer {
-  background-color: #00572f;
-  color: #0e2043;
+  background-color: #1d3c3f;
+  color: #421215;
   padding: .5rem 2%;
   text-align: center;
   clear: both;
