@@ -207,11 +207,7 @@
 
 <!-- SCRIPT HERE -->
   <script src="js/banner.js"></script>
-  <script>$(window).on("load", function clickLoad() {
-      $('article').click(function() {
-        $(this).toggleClass( "click" );
-      })
-    });
-  </script>
+  <script src="js/clickload.js"></script>
+  <script>$(window).on("load", clickLoad('section'))</script>
 </body>
 </html>
