@@ -3026,25 +3026,6 @@
   "prison": [
     {
       "status": "prison",
-      "title": "Grand Prince",
-      "name": " ",
-      "surname": "Stavian III",
-      "attitude": "locked",
-      "appearance": "Dressed perfectly in regal attire, his clothes don't show even a hint of wear. He smiles often and slightly too widely.",
-      "background": "Grand Prince Stavian III is considered as ineffectual as the empire he rules. For all Stavian’s faults, he has managed to hold the empire together through intelligent political maneuvering and a keen understanding of human nature. ",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "announce": "His Imperial Majesty",
-      "race": "Human",
-      "class": "aristocrat 8, enchanter 4",
-      "death": "Fatally stabbed by a Lion's Blade during the Exaltation Massacre, his body was recovered by imperial magisters.",
-      "order": "8",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/stavian-3.png"
-    },
-    {
-      "status": "prison",
       "title": " ",
       "name": "Lucretzia",
       "surname": "Marthane",
@@ -3065,7 +3046,23 @@
   ],
   "secrown": [
     {
-      
+      "status": "prison",
+      "title": "Grand Prince",
+      "name": " ",
+      "surname": "Stavian III",
+      "attitude": "locked",
+      "appearance": "Dressed perfectly in regal attire, his clothes don't show even a hint of wear. He smiles often and slightly too widely.",
+      "background": "Grand Prince Stavian III is considered as ineffectual as the empire he rules. For all Stavian’s faults, he has managed to hold the empire together through intelligent political maneuvering and a keen understanding of human nature. ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "announce": "His Imperial Majesty",
+      "race": "Human",
+      "class": "aristocrat 8, enchanter 4",
+      "death": "Fatally stabbed by a Lion's Blade during the Exaltation Massacre, his body was recovered by imperial magisters.",
+      "order": "8",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/stavian-3.png"
     }
   ],
   "target": [
