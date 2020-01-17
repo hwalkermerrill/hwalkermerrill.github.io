@@ -38,8 +38,6 @@ main .row section:nth-child(3){
   width: 48%;
   float: left;
 }
-main .floatswitch section:nth-child(2n+1){float: left; width: 50%;}
-main .floatswitch section:nth-child(2n) {float: right; width: 50%;}
 main .floatswitch section:nth-child(2n+1) img {float: right; width: 48%;}
 main .floatswitch section:nth-child(2n) img {float: left; width: 48%;}
 main .gallery figure {flex-basis: 46%;}
