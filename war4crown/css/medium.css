@@ -20,18 +20,14 @@
 }
 
 /*----------- MAIN --------------*/
-table {
-  width: 100%;
-}
+table {  width: 100%;}
 table, tr, td {
   border: 1px solid #000;
   border-collapse: collapse;
   padding: 1rem;
   text-align: center;
 }
-table th {
-  background: #ffd700
-}
+table th {background: #ffd700}
 main .row section:nth-child(2){
   width: 50%;
   float: left;
@@ -40,9 +36,7 @@ main .row section:nth-child(3){
   width: 48%;
   float: left;
 }
-main .gallery figure {
-  flex-basis: 46%;
-}
+main .gallery figure {flex-basis: 46%;}
 /*main .relic ul.column2, main .journal ul.column2, main .gishvit ul.column2, main .journalplay ul.column2 {
   columns: 2;
   -webkit-columns: 2;
@@ -52,6 +46,16 @@ main ul img {
   width: 48%;
   float: left;
   padding: 2%;
+}
+main .journal section:nth-child(2n+1) img, main .relic section:nth-child(2n+1) img, main .gishvit section:nth-child(2n+1) img {
+  float: right;
+  width: 48%;
+  margin: 2%
+}
+main .journal section:nth-child(2n) img, main .relic section:nth-child(2n) img, main .gishvit section:nth-child(2n) img {
+  float: left;
+  width: 48%;
+  margin: 2%
 }
 
 /*----------- ARTICLE --------------*/
