@@ -38,10 +38,10 @@ main .row section:nth-child(3){
   width: 48%;
   float: left;
 }
-main section .right1 {float: left;}
-main section .left1 {float: right;}
-main section .right1 img {float: right;}
-main section .left1 img {float: left;}
+main section .right1 {float: left; width: 50%;}
+main section .left1 {float: right; width: 50%;}
+main section .right1 img {float: right; width: 48%;}
+main section .left1 img {float: left; width: 48%;}
 main .gallery figure {flex-basis: 46%;}
 /*main .relic ul.column2, main .journal ul.column2, main .gishvit ul.column2, main .journalplay ul.column2 {
   columns: 2;
