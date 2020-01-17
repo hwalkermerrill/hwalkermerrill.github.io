@@ -191,7 +191,7 @@ main img {
 /*main .pchide, main .dpchide, main .crownhide, main .activehide, main .inactivehide, main .deadhide, main .targethide, main .legacyhide {
   display: none;
 }*/
-main .relic ul li, main .journal ul li, main .gishvit ul li, main .journalplay ul li{
+main .relic ul li, main .journal ul li, main .gishvit ul li, main .journalplay ul li, main .floatswitch ul li{
   text-indent: 2rem;
 }
 
