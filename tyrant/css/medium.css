@@ -38,8 +38,6 @@ main .row section:nth-child(3){
   width: 48%;
   float: left;
 }
-main .floatswitch section:nth-child(2n+1) img {float: right; width: 48%; margin: 2%}
-main .floatswitch section:nth-child(2n) img {float: left; width: 48%; margin: 2%}
 main .gallery figure {flex-basis: 46%;}
 /*main .relic ul.column2, main .journal ul.column2, main .gishvit ul.column2, main .journalplay ul.column2 {
   columns: 2;
@@ -50,6 +48,16 @@ main ul img {
   width: 48%;
   float: left;
   padding: 2%;
+}
+main .floatswitch section:nth-child(2n+1) img {
+  float: right;
+  width: 48%;
+  padding: 2%
+}
+main .floatswitch section:nth-child(2n) img {
+  float: left;
+  width: 48%;
+  padding: 2%
 }
 
 /*----------- ARTICLE --------------*/
