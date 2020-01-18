@@ -50,12 +50,12 @@ main ul img {
 main .journal ul:nth-child(2n+1) img, main .relic ul:nth-child(2n+1) img, main .gishvit ul:nth-child(2n+1) img {
   float: right;
   width: 48%;
-  margin: 2%
+  padding: 2%
 }
 main .journal ul:nth-child(2n) img, main .relic ul:nth-child(2n) img, main .gishvit ul:nth-child(2n) img {
   float: left;
   width: 48%;
-  margin: 2%
+  padding: 2%
 }
 
 /*----------- ARTICLE --------------*/
