@@ -52,11 +52,6 @@ main .journal ul:nth-child(2n+1) img, main .relic ul:nth-child(2n+1) img, main .
   width: 48%;
   padding: 2%
 }
-main .journal ul:nth-child(2n) img, main .relic ul:nth-child(2n) img, main .gishvit ul:nth-child(2n) img {
-  float: left;
-  width: 48%;
-  padding: 2%
-}
 
 /*----------- ARTICLE --------------*/
 main .prison, main .secrown, main .active, main .dead, main .dpc, main .pc, main .inactive, main .legacy, main .target, main .crown, main .asset, main .agent, main .secrown, main .gallery {
