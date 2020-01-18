@@ -47,12 +47,12 @@ main ul img {
   float: left;
   padding: 2%;
 }
-main .journal section:nth-child(2n+1) img, main .relic section:nth-child(2n+1) img, main .gishvit section:nth-child(2n+1) img {
+main .journal ul:nth-child(2n+1) img, main .relic ul:nth-child(2n+1) img, main .gishvit ul:nth-child(2n+1) img {
   float: right;
   width: 48%;
   margin: 2%
 }
-main .journal section:nth-child(2n) img, main .relic section:nth-child(2n) img, main .gishvit section:nth-child(2n) img {
+main .journal ul:nth-child(2n) img, main .relic ul:nth-child(2n) img, main .gishvit ul:nth-child(2n) img {
   float: left;
   width: 48%;
   margin: 2%
