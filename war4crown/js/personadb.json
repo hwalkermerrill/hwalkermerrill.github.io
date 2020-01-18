@@ -2360,7 +2360,7 @@
       "classes": "Fighter 13",
       "camptrait": "Senatorial Hopeful",
       "noblerank": "Lesser",
-      "persona": "Legendary Debutante 1"
+      "persona": "Legend Debutante 1"
     },
     {
       "status": "pc",
@@ -2387,6 +2387,27 @@
     {
       "status": "pc",
       "title": "Baronet",
+      "name": "Hadiyah",
+      "surname": "Clement",
+      "attitude": "indifferent",
+      "appearance": "With the signature dark hair and elegant style of the Clement family, Hadiyah remains poised even in the midst of combat.",
+      "background": " Having deep familial roots tied to the Taldan Sith Army of Exploration, Hadiyah Clement toured as a member of the Taldan Horse for a time in order to arrange for deeper political ties on behalf of her family. Since finishing her tour of duty, she has remained loyal to the family and its matriarc, Lady Zariyah Clement.",
+      "biases": " She despises impropriety and those who lack self control, giving into poor-mans-shakes or mindlessly twirling their hair. She does love animals of all kinds, and has a special fondness for a particular spiced cheese from her home county.",
+      "strengths": "Hadiyah has a hard anger, and those who fail to intimidate her or are caught lying are often either burned or left out in the cold.",
+      "weakness": " She is easily put off her ease when she is made unable to express herself or her thoughts clearly.",
+      "achievements": " ",
+      "announce": "Lady",
+      "race": "Human",
+      "death": " ",
+      "order": "10",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/hadiyah-clement.png",
+      "classes": "Cavalier 12",
+      "camptrait": "Child of Oppara",
+      "noblerank": "Major"
+    },
+    {
+      "status": "pc",
+      "title": "Baronet",
       "name": "Robin *Double-Tap*",
       "surname": "Loxley",
       "attitude": "helpful",
@@ -2398,7 +2419,6 @@
       "achievements": "Claimed the Palace of Birdsong, Stopped the Nightmares of Yanmass, Ended the Caravan Raids, Rescued the Twilight Child, Trained at the Kithroadian Academy, Captured Abadar's Pillar",
       "announce": "Lord",
       "race": "Human",
-      "death": " ",
       "order": "10",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/robin-loxley.png",
       "classes": "Archer Fighter 13",
