@@ -2428,6 +2428,28 @@
       "camptrait": "Disgraced Noble",
       "noblerank": "Lesser",
       "persona": "Spy 8"
+    },
+    {
+      "status": "pc",
+      "title": " ",
+      "name": "Ickth",
+      "surname": "Heskillar",
+      "attitude": "indifferent",
+      "appearance": "???",
+      "background": "???",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "achievements": " ",
+      "announce": "Mister",
+      "race": "Human",
+      "death": " ",
+      "order": "13",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/unknown.png",
+      "classes": "Paladin of Iomedae 12",
+      "camptrait": "Athletic Champion",
+      "noblerank": "Lesser",
+      "persona": " "
     }
   ],
   "legacy": [
