@@ -2246,7 +2246,7 @@
       "classes": "Fighter 13",
       "camptrait": "Senatorial Hopeful",
       "noblerank": "Lesser",
-      "persona": "Legend Debutante 1"
+      "persona": "Legend Debutante 4"
     },
     {
       "status": "pc",
@@ -2268,7 +2268,7 @@
       "classes": "Witch 5, Stargazer 2, Evangelist of Desna 6",
       "camptrait": "Child of Oppara",
       "noblerank": "Major",
-      "persona": "Mastermind Debutante 5"
+      "persona": "Mastermind Teacher 3 Debutante 5"
     },
     {
       "status": "pc",
@@ -2289,7 +2289,8 @@
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/hadiyah-clement.png",
       "classes": "Cavalier 12",
       "camptrait": "Child of Oppara",
-      "noblerank": "Major"
+      "noblerank": "Major",
+      "persona": "Martyr 3"
     },
     {
       "status": "pc",
@@ -2310,7 +2311,7 @@
       "classes": "Archer Fighter 13",
       "camptrait": "Young Reformer",
       "noblerank": "None",
-      "persona": "Hero 8 Debutante 2"
+      "persona": "Legend Debutante 3"
     },
     {
       "status": "pc",
@@ -2332,7 +2333,7 @@
       "classes": "Bard 13",
       "camptrait": "Disgraced Noble",
       "noblerank": "Lesser",
-      "persona": "Spy 8"
+      "persona": "Spymaster"
     },
     {
       "status": "pc",
@@ -2351,10 +2352,10 @@
       "death": " ",
       "order": "13",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/unknown.png",
-      "classes": "Paladin of Iomedae 12",
+      "classes": "Paladin of Iomedae 13",
       "camptrait": "Athletic Champion",
       "noblerank": "Lesser",
-      "persona": " "
+      "persona": "Genius 4"
     }
   ],
   "legacy": [
