@@ -175,10 +175,10 @@ body {
   }
 
   /*---START toggleClass sub-CSS---*/
-  main .asset section p {
+  main .asset p {
     display: none;
   }
-  main .asset article ul {
+  main .asset ul {
     display: none;
   }
   main .asset .click p {
@@ -207,13 +207,6 @@ body {
     text-align: center;
     clear: both;
   }
-
-  /*----- Clearfix: Force an Element not to collapse -----*/
-  .clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-}
 }
 /* Tablet Screen Size - 45em is also 720px (if basefont is 16px) */
 @media only screen and (min-width: 45rem) {
@@ -226,70 +219,45 @@ body {
     header h1 {font-size: 2rem;}
     header h2 {font-size: 1.5rem;}
     header .slogan {display: block;}
+
   /*----------- NAVIGATION --------------*/
     nav ul.hide {display: block;}
     nav ul {margin-left: 2%;}
     nav ul li {float: left;}
     nav ul li a{
-    border: none;
-    border-right: 1px solid rgba(0,0,8,0.3);
-    padding: .8rem 1rem;
-  }
+      border: none;
+      border-right: 1px solid rgba(0,0,8,0.3);
+      padding: .8rem 1rem;
+    }
 
   /*----------- MAIN --------------*/
-  table {width: 100%;}
-  table, tr, td {
-    border: 1px solid #000;
-    border-collapse: collapse;
-    padding: 1rem;
-    text-align: center;
-  }
-  table th {
-    background: #ffd700
-  }
-  main .row section:nth-child(2){
-    width: 50%;
-    float: left;
-  }
-  main .row section:nth-child(3){
-    width: 48%;
-    float: left;
-  }
-  main .gallery figure {flex-basis: 46%;}
-  /*main .relic ul.column2, main .journal ul.column2, main .gishvit ul.column2, main .journalplay ul.column2 {
-    columns: 2;
-    -webkit-columns: 2;
-    -moz-columns: 2;
-  }*/
   main ul img {
     width: 48%;
     float: left;
     padding: 2%;
+    padding-top: 0;
   }
-  main .floatswitch section:nth-child(2n+1) img {
-    float: right;
-    width: 48%;
-    padding: 2%
-  }
-  main .floatswitch section:nth-child(2n) img {
-    float: left;
-    width: 48%;
-    padding: 2%
+  main .floatswitch {
+    section:nth-child(2n+1) img, ul:nth-child(2n+1) img {
+      float: right;
+      width: 48%;
+      padding: 2%;
+      padding-top: 0;
+    }
+    section:nth-child(2n) img, ul:nth-child(2n) img {
+      float: left;
+      width: 48%;
+      padding: 2%;
+      padding-top: 0;
+    }
   }
 
-  /*----------- ARTICLE --------------*/
-  main .prison, main .secrown, main .active, main .dead, main .dpc, main .pc, main .inactive, main .legacy, main .target, main .crown, main .asset, main .agent, main .secrown, main .gallery {
+  /*----------- Flexwrap Classes --------------*/
+  main .asset {
     justify-content: center;
   }
-  main .prison article, main .secrown article, main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .legacy article, main .target article, main .crown article, main .asset section, main .agent article, main .gallery article {
+  main .asset section {
     flex-basis: 46%;
-  }
-
-  /*----------- CONTACT --------------*/
-  body .contact {
-    width: 100%;
-    column-count: 2;
-    float: none;
   }
 
   /*----------- FOOTER --------------*/
@@ -299,11 +267,6 @@ body {
 /* Computer Screen Size - 64em is also 1028px (if basefont is 16px) */
 @media only screen and (min-width: 64rem) {
 
-  header, nav, main, section, footer, body .contact {
-    max-width: 90rem;
-    margin:auto;
-  }
-
   /*----------- BODY --------------*/
 
   /*----------- HEADER --------------*/
@@ -311,19 +274,14 @@ body {
   /*----------- NAVIGATION --------------*/
 
   /*----------- MAIN --------------*/
-  main .gallery figure {
-    flex-basis: 29%;
-  }
-  main .gallery figure:hover {box-shadow: 0 0 50px #333;}
 
-  /*----------- ARTICLE --------------*/
-  main.prison article, main .legacy article, main .secrown article, main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .legacy article, main .target article, main .crown article, main .asset section, main .agent article {
+  /*----------- Flexwrap Classes --------------*/
+  main .asset section {
     flex-basis: 29%;
   }
 
   /*----------- FOOTER --------------*/
 
-/*---------- CLOSE CODE ----------*/
 }
 
 /* Computer Widescreen Size - 90rem is also 1440px (if basefont is 16px) */
@@ -341,16 +299,21 @@ body {
   /*----------- NAVIGATION --------------*/
 
   /*----------- MAIN --------------*/
-  main .gallery figure {
-    flex-basis: 21%;
-  }
-  main .gallery figure:hover {box-shadow: 0 0 50px #333;}
 
-  /*----------- ARTICLE --------------*/
-  main .prison article, main .secrown article, main .active article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .legacy article, main .target article, main .crown article, main .asset section, main .agent article {
+  /*----------- Flexwrap Classes --------------*/
+  main .asset section {
     flex-basis: 21%;
   }
 
   /*----------- FOOTER --------------*/
     
 }
+
+/*----- Clearfix: Force an Element not to collapse -----*/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*---------- CLOSE CODE ----------*/
