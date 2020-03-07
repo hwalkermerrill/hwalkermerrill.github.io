@@ -2,7 +2,7 @@
   "active": [
     {
       "status": "active",
-      "announce": "His Imperial Highness",
+      "announce": "His Highness",
       "title": "Grand Duke",
       "name": "Broyse",
       "surname": "Rengiana",
@@ -18,7 +18,7 @@
     },
     {
       "status": "active",
-      "announce": "Her Imperial Highness",
+      "announce": "Her Highness",
       "title": "Grand Duchess",
       "name": "Zymalla",
       "surname": "Rengiana",
@@ -679,22 +679,6 @@
     {
       "status": "crown",
       "announce": "His Highness",
-      "title": "Prince",
-      "name": "Carius II *The Twilight Child*",
-      "surname": "Stavian",
-      "attitude": "friendly",
-      "appearance": "A young boy, about a dozen years old, with steady speech and happy eyes and expressions. Though young, he is highly educated, respectful, and infectiously cheery.",
-      "background": "The former center of the cult of the Twilight Child, Young Prince Carius apparently self-resurected, though he doesn't remember how.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "death": "Alive",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/carrius-2.png"
-    },
-    {
-      "status": "crown",
-      "announce": "His Imperial Highness",
       "title": "Grand Duke",
       "name": "Thestro",
       "surname": "Briarsmith",
@@ -710,7 +694,7 @@
     },
     {
       "status": "crown",
-      "announce": "Her Imperial Highness",
+      "announce": "Her Highness",
       "title": "Grand Duchess",
       "name": "Vivexis",
       "surname": "Darahan",
@@ -726,7 +710,7 @@
     },
     {
       "status": "crown",
-      "announce": "His Imperial Highness",
+      "announce": "His Highness",
       "title": "Grand Duke",
       "name": "Nestor",
       "surname": "Delriddia",
@@ -742,7 +726,7 @@
     },
     {
       "status": "crown",
-      "announce": "Her Imperial Highness",
+      "announce": "Her Highness",
       "title": "Grand Duchess",
       "name": "Mellea",
       "surname": "Denzarni",
@@ -758,7 +742,7 @@
     },
     {
       "status": "crown",
-      "announce": "Her Imperial Highness",
+      "announce": "Her Highness",
       "title": "Grand Duchess",
       "name": "Breateeza",
       "surname": "Fahlspar",
@@ -774,23 +758,7 @@
     },
     {
       "status": "crown",
-      "announce": "His Imperial Highness",
-      "title": "Grand Duke",
-      "name": "Borand",
-      "surname": "Heskillar",
-      "attitude": "indifferent",
-      "appearance": "Looking every bit the well-manicured Taldan noble, Borand has a tightly cropped beard and mustache and the signature amethyst eyes of his family line. Charming and strong, he is often seen wearing the finely crafted mithril and bronze armor made by his own family.",
-      "background": "Supposed descendants of a legendary bronze dragon which tutored an ancient grand prince as a child, Grand Duke Borand Heskillar's house manages a staggering array of metals and works along with many of Taldor's official forges including its mint. From gold to iron, Borand is a proven administrator and controls possibly the wealthiest noble house in the nation, even if their royal bloodline is rooted in myths. They also secure much of Taldor's relations with their dwarven neighbors, reinforced since Borand Heskillar's recent marriage to a dwarven noble - Lady Grella of Taggoret - which while it earns the support of dwarves and businessmen, strains the family's relations with Taldan traditionalists.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "death": "Alive",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/borand-heskillar.png"
-    },
-    {
-      "status": "crown",
-      "announce": "Her Imperial Highness",
+      "announce": "Her Highness",
       "title": "Grand Duchess",
       "name": "Destelita",
       "surname": "Solari",
@@ -806,7 +774,7 @@
     },
     {
       "status": "crown",
-      "announce": "Her Imperial Highness",
+      "announce": "Her Highness",
       "title": "Grand Duchess",
       "name": "Cisera",
       "surname": "Tiberan",
@@ -822,7 +790,7 @@
     },
     {
       "status": "crown",
-      "announce": "His Imperial Highness",
+      "announce": "His Highness",
       "title": "Grand Duke",
       "name": "Morrin",
       "surname": "Zellvyngian",
@@ -835,6 +803,22 @@
       "skills": "???",
       "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/morrin-zellvyngian.png"
+    },
+    {
+      "status": "crown",
+      "announce": "His Imperial Highness",
+      "title": "Prince",
+      "name": "Carius II *The Twilight Child*",
+      "surname": "Stavian",
+      "attitude": "friendly",
+      "appearance": "A young boy, about a dozen years old, with steady speech and happy eyes and expressions. Though young, he is highly educated, respectful, and infectiously cheery.",
+      "background": "The former center of the cult of the Twilight Child, Young Prince Carius apparently self-resurected, though he doesn't remember how.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/carrius-2.png"
     },
     {
       "status": "crown",
@@ -922,13 +906,13 @@
       "title": "Count",
       "name": "Krekari",
       "surname": "Nazezi",
-      "attitude": "indifferent",
+      "attitude": "friendly",
       "appearance": "Rather large and rotund, Krekari Nazezi is a deep patron of the arts and wears extravagant jewelry, much of which is often crafted exclusively for the an occasion. He is most often seen filling the role of a patron at concerts, plays, and tournaments, often having the honor of presenting trophies to victors and toasting to their successes.",
       "background": "With little more than the esoteric little town of Faldamont being worthwhile within his county, Count Krekari Nazezi's lands enjoy military patrols and imperial road repairs due to his town's central role in the jewelry trade. Filled with craftsman and artisans, Nazezi's people are afforded even more comforts and protections since the Exaltation Massacre, primarily through the guarantee that anyone attempting to subvert their claim by force or through war will find their opposition well funded.",
-      "biases": "???",
+      "biases": "He prefers people who recognize quality and likes to converse with people wearing more than 1000gp worth of non-magical jewelry, and detests those wearing shabier clothing than a courtiers outfit.",
       "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
+      "weakness": "He believes good-old-fashioned gifts are a sign of culture, and the freely-given-gift of of masterwork and magical items, preferably those made by hand and not previously gifted, is a good introduction to the count.",
+      "skills": "Diplomacy, Spellcraft, Pro: Merchant, ???",
       "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/krekari-nazezi.png"
     },
@@ -963,22 +947,6 @@
       "skills": "???",
       "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/diddima-ennoi.png"
-    },
-    {
-      "status": "crown",
-      "announce": "Lord",
-      "title": " ",
-      "name": " ",
-      "surname": "Phini",
-      "attitude": "indifferent",
-      "appearance": "Dressed in Kravenkus Clan armor, Phini wears the ceremonial armor of the Lord of the Worlds Edge whenever he leaves his mountain. Very formal, Phini refuses to speak with people below his station who do not have the courtesy of addressing him in dwarven.",
-      "background": "A powerful duke, Lord Phini represents the dwarven miners of Kravenkus within the Worlds Edge Mountains, which form the mineral backbone and primary eastern barrier of Taldor. While his claim lacks any royal blood, they have more than enough economic clout to cede if they believe it to be in their best interests.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "death": "Alive",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/phini.png"
     },
     {
       "status": "crown",
@@ -1064,7 +1032,7 @@
     },
     {
       "status": "dead",
-      "announce": "His Imperial Highness",
+      "announce": "His Highness",
       "title": "Grand Duke",
       "name": " ",
       "surname": "Avernathus",
@@ -1495,7 +1463,7 @@
     },
     {
       "status": "dead",
-      "announce": "Her Highness",
+      "announce": "Her Imperial Highness",
       "title": "Princess",
       "name": "Eutropia",
       "surname": "Stavian I",
@@ -1757,7 +1725,7 @@
   "inactive": [
     {
       "status": "inactive",
-      "announce": "His Highness",
+      "announce": "His Imperial Highness",
       "title": "Prince",
       "name": "Reshaid al-Marah Khattibi",
       "surname": "Beyamara Al-Katheer",
@@ -2004,7 +1972,7 @@
   "legacy": [
     {
       "status": "legacy",
-      "announce": "His Imperial Highness",
+      "announce": "His Highness",
       "title": "Grand Duke",
       "name": "Urjinus",
       "surname": "Vobellar",
@@ -2904,6 +2872,22 @@
   "secrown": [
     {
       "status": "secrown",
+      "announce": "His Highness",
+      "title": "Grand Duke",
+      "name": "Borand",
+      "surname": "Heskillar",
+      "attitude": "helpful",
+      "appearance": "Looking every bit the well-manicured Taldan noble, Borand has a tightly cropped beard and mustache and the signature amethyst eyes of his family line. Charming and strong, he is often seen wearing the finely crafted mithril and bronze armor made by his own family.",
+      "background": "Supposed descendants of a legendary bronze dragon which tutored an ancient grand prince as a child, Grand Duke Borand Heskillar's house manages a staggering array of metals and works along with many of Taldor's official forges including its mint. From gold to iron, Borand is a proven administrator and controls possibly the wealthiest noble house in the nation, even if their royal bloodline is rooted in myths. They also secure much of Taldor's relations with their dwarven neighbors, reinforced since Borand Heskillar's recent marriage to a dwarven noble - Lady Grella of Taggoret - which while it earns the support of dwarves and businessmen, strains the family's relations with Taldan traditionalists.",
+      "biases": "A traditionalist, he prefers learned scholars with spellbooks and does not care for people who rely on bloodlines, curses, or pacts for their magic.",
+      "strengths": "???",
+      "weakness": "He has a mild fascination with - and almost reverence for - occult rituals.",
+      "skills": "Bluff, Diplomacy, ???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/borand-heskillar.png"
+    },
+    {
+      "status": "secrown",
       "announce": "His Grace",
       "title": "Duke",
       "name": "Quintus Avellius",
@@ -2968,6 +2952,22 @@
     },
     {
       "status": "secrown",
+      "announce": "Lord",
+      "title": " ",
+      "name": " ",
+      "surname": "Phini",
+      "attitude": "helpful",
+      "appearance": "Dressed in Kravenkus Clan armor, Phini wears the ceremonial armor of the Lord of the Worlds Edge whenever he leaves his mountain. Very formal, Phini refuses to speak with people below his station who do not have the courtesy of addressing him in dwarven.",
+      "background": "A powerful duke, Lord Phini represents the dwarven miners of Kravenkus within the Worlds Edge Mountains, which form the mineral backbone and primary eastern barrier of Taldor. While his claim lacks any royal blood, they have more than enough economic clout to cede if they believe it to be in their best interests.",
+      "biases": "He favors dwarves over all other races, and is still filled with xenophobia against gnomes, trolls, orcs, giants, goblins, elves, and their kin.",
+      "strengths": "???",
+      "weakness": "He finds comfort in the traditions of the old days, and is more readily at ease while performing a dwarven tradition.",
+      "skills": "Diplomacy, K: History, or Pro: Armorer/Blacksmith/Miner/Weaponsmith",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/phini.png"
+    },
+    {
+      "status": "secrown",
       "announce": "Sir",
       "title": "Knight",
       "name": "Remilliard",
@@ -2985,7 +2985,7 @@
   ],
   "target": [
     {
-      
+
     }
   ]
 }
