@@ -85,7 +85,7 @@
   <main class="clearfix">
     <h1>Available Dossiers</h1>
     <h3><i>"Foreigners love to portray us as buffoons, but they forget who we are. They forget what we did. We are the nation that dominated a continent and forged the greatest empire in Golarion’s history. Our tongue is the common parlance. Our culture is the foundation other nations have built upon. <br>The blood of conquerors, explorers, and heroes runs through our veins. We’ve been forged by the greatness of our past, and while some might say we’re now just ghosts of that past, I know the truth: that greatness is within us still. <br>They might mock the pride we take in our heritage, but it’s easy to deride what you can never understand. No commoner can know us because we are so far from common. To be a Taldan noble means to be triumphant, and I see no fault in taking pride in that."</i><br> — From the letters of Duke Ambrose Xantrain VI</h3>
-    <p>Color Code: Blue = Helpful; Light Green = Friendly; White = Indifferent; Gray = Unable to Influence; Light Red = Unfriendly; Black = Hostile - Approach with Caution <button onclick="toggleLocked()">Show/Hide Grayed-Out NPC's</button></p>
+    <p>Color Code: Blue = Helpful; Light Green = Friendly; White = Indifferent; Gray = Unable to Influence; Light Red = Unfriendly; Black = Hostile - Approach with Caution <button onclick="toggleHide('.locked')">Show/Hide Grayed-Out NPC's</button> <button onclick="toggleHide('.helpful')">Show/Hide Helpful NPC's</button></p>
     <h2>Primogen Crown Claimants by Order of Prestige</h2>
     <div class="crown">
       <script>fillJSON('crown')</script>
@@ -126,8 +126,8 @@
       })
     });
   </script>
-  <script>function toggleLocked() {
-    $('.locked').toggle();
+  <script>function toggleHide(val) {
+    $(val).toggle();
   };
   </script>
 </body>
