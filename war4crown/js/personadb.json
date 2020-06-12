@@ -1717,22 +1717,22 @@
       "surname": "Hernandez-Vernisant",
       "attitude": "helpful",
       "appearance": "His beard and hair are trimmed and neat, and he looks much the same as the rest of his many siblings.",
-      "background": "Being 11th in line for his family wealth, he chose to strive to make a name for himself and become a senator.  With the backing of his - albeit lesser  - family name and a small stipend, he has otherwise struck out on his own path.  Largely, he spent his time working as a senatorial aid before he was contacted by Martella Lotheed.",
+      "background": "Being 11th in line for his family wealth, he chose to strive to make a name for himself and become a senator. With the backing of his - albeit lesser - family name and a small stipend, he has otherwise struck out on his own path. Largely, he spent his time working as a senatorial aid before he was contacted by Martella Lotheed.",
       "biases": "He prefers the fine things in life and being able to flaunt his position and power in support of the people, and likes those who give him such opportunities or shares those same goals. He hates repeating himself, however, and when he feels ignored, he will promptly turn cold.",
       "strengths": "Anything meant to embarrass or ridicule Rodrigo will stoke his Ire and discourage continued relations.",
       "weakness": "With a fear of being forgotten to time, opportunities to make a name for himself quickly gain his interest.",
-      "achievements": "Rescued Martella Lotheed, Slaying the Iron Lash of Meratt, Won the Dance of the Phalanx, Won the Holmgang, Caught the General, Claimed the Palace of Birdsong, Stopped the Nightmares of Yanmass, Ended the Caravan Raids, Rescued the Twilight Child, Trained at the Kithroadian Academy, Captured Abadar's Pillar,  Uncovered the Tomb of the First Emperor, Rescued Taldaris from his Captors, Slayed Norbergers Harold - The Stinging Beast, Received the Eternal Crown from Sayashto, Broke the Immaculate Circle",
+      "achievements": "Rescued Martella Lotheed, Slaying the Iron Lash of Meratt, Won the Dance of the Phalanx, Won the Holmgang, Caught the General, Claimed the Palace of Birdsong, Stopped the Nightmares of Yanmass, Ended the Caravan Raids, Rescued the Twilight Child, Trained at the Kithroadian Academy, Captured Abadar's Pillar, Uncovered the Tomb of the First Emperor, Rescued Taldaris from his Captors, Slayed Norbergers Harold - The Stinging Beast, Received the Eternal Crown from Sayashto, Broke the Immaculate Circle",
       "announce": "Honorable Lord",
       "race": "Human",
       "death": " ",
       "order": "9",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/rodrigo-hernandez.png",
-      "classes": "Fighter 15",
+      "classes": "Fighter 17",
       "camptrait": "Senatorial Hopeful",
-      "noblerank": "Lesser",
-      "persona": "Legend Elite"
-  },
-  {
+      "noblerank": "Major",
+      "persona": "Legend Elite Genius 3"
+    },
+    {
       "status": "pc",
       "title": "Chacoom",
       "name": "Ickth *Rex*",
@@ -1749,12 +1749,12 @@
       "death": " ",
       "order": "9",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/ickth-heskillar.png",
-      "classes": "Paladin of Iomedae 15",
+      "classes": "Paladin of Iomedae 17",
       "camptrait": "Athletic Champion",
       "noblerank": "Lesser",
-      "persona": "Hero 2 Genius 5 Debutante 6"
-  },
-  {
+      "persona": "Hero 2 Genius 5 Debutante 8"
+    },
+    {
       "status": "pc",
       "title": "Baroness",
       "name": "Maven *Mai* Selina Rosaline *Twinkle Toes*",
@@ -1771,12 +1771,12 @@
       "death": " ",
       "order": "9",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/mai-vernisant.png",
-      "classes": "Witch 5, Stargazer 3, Evangelist of Desna 7",
+      "classes": "Witch 5, Stargazer 3, Evangelist of Desna 9",
       "camptrait": "Child of Oppara",
       "noblerank": "Major",
-      "persona": "Mastermind Teacher 9 Debutante 5"
-  },
-  {
+      "persona": "Mastermind Sage Debutante 6"
+    },
+    {
       "status": "pc",
       "title": "Baronet",
       "name": "Robin *Double-Tap*",
@@ -1792,12 +1792,12 @@
       "race": "Human",
       "order": "10",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/robin-loxley.png",
-      "classes": "Archer Fighter 15",
+      "classes": "Archer Fighter 17",
       "camptrait": "Young Reformer",
       "noblerank": "None",
-      "persona": "Legend Martyr 5 Debutante 5"
-  },
-  {
+      "persona": "Legend Martyr 5 Debutante 7"
+    },
+    {
       "status": "pc",
       "title": "Baronet",
       "name": "Orm *Top Knot*",
@@ -1814,12 +1814,12 @@
       "death": " ",
       "order": "10",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/orm-vastra.png",
-      "classes": "Knife Master Rogue 5, Sensei Monk 1, Lion Blade 9",
+      "classes": "Knife Master Rogue 5, Sensei Monk 1, Lion Blade 10, Magus 1",
       "camptrait": "Disgraced Noble",
       "noblerank": "Lesser",
-      "persona": "Spymaster Teacher 2 Debutante 5"
-  },
-  {
+      "persona": "Spymaster Teacher 2 Debutante 7"
+    },
+    {
       "status": "pc",
       "title": "Baronet",
       "name": "Debrah *Little Debbie*",
@@ -1836,11 +1836,11 @@
       "death": " ",
       "order": "11",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/little-debbie.png",
-      "classes": "Bard 15",
+      "classes": "Bard 17",
       "camptrait": "Senatorial Hopeful",
       "noblerank": "None",
       "persona": "Martyr 2"
-  }
+    }
   ],
   "legacy": [
     {
