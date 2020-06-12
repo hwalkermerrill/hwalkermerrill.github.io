@@ -3083,6 +3083,9 @@
     },
     {
       "status": "target",
+      "announce": " ",
+      "title": " ",
+      "name": " ",
       "surname": "Professional Investigators",
       "attitude": "helpful",
       "appearance": "While paid informants play the great game for fun, Carrius's hired investigators are professionals with no agenda and a minimum of ego. They do their job, and clock out at the end of the day.",
@@ -3096,6 +3099,9 @@
     },
     {
       "status": "target",
+      "announce": " ",
+      "title": " ",
+      "name": " ",
       "surname": "First Imperial Arcanists' Guild",
       "attitude": "helpful",
       "appearance": "While many of the wards around the palace are neutral, the devious minds who envision and construct new ways to bind, punish, or kill tresspassers lean towards a ruthless combination of overconfidence and casual cruelty.",
@@ -3109,6 +3115,9 @@
     },
     {
       "status": "target",
+      "announce": " ",
+      "title": " ",
+      "name": " ",
       "surname": "Palace Servants",
       "attitude": "helpful",
       "appearance": "These servants take pride in their wok and like to think the empire rises and falls by virtue of the unseen hands who support great leaders. Most appreciate that a position in the palace is one of prestige and relative ease.",
@@ -3122,6 +3131,9 @@
     },
     {
       "status": "target",
+      "announce": " ",
+      "title": " ",
+      "name": " ",
       "surname": "Royal Guard",
       "attitude": "hostile",
       "appearance": "The royal guard are disciplined, honset, and extremely focused, with little time for socializing.",
@@ -3135,6 +3147,9 @@
     },
     {
       "status": "target",
+      "announce": " ",
+      "title": " ",
+      "name": " ",
       "surname": "Ulfen Guard",
       "attitude": "indifferent",
       "appearance": "Dedicated, stoic, and imposing on duty, the Ulfen Guard are jovial and earthly among their own.",
