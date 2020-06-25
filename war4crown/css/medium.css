@@ -52,6 +52,18 @@ main .journal ul:nth-child(2n+1) img, main .relic ul:nth-child(2n+1) img, main .
   width: 48%;
   padding: 2%
 }
+main .mission i p img{
+  display: block;
+  width: 24%;
+  float: left;
+  padding: 2%;
+}
+main .mission i p:nth-child(2n+1) img{
+  display: block;
+  width: 24%;
+  float: right;
+  padding: 2%;
+}
 
 /*----------- ARTICLE --------------*/
 main .prison, main .secrown, main .active, main .dead, main .dpc, main .pc, main .inactive, main .legacy, main .target, main .crown, main .asset, main .agent, main .secrown, main .gallery {

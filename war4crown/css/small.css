@@ -194,6 +194,9 @@ main img {
 main .relic ul li, main .journal ul li, main .gishvit ul li, main .journalplay ul li{
   text-indent: 2rem;
 }
+main .misison i p img{
+  display: none;
+}
 
 /*----------- Slideshow --------------*/
 #slideshow:after {
