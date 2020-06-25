@@ -54,13 +54,13 @@ main .journal ul:nth-child(2n+1) img, main .relic ul:nth-child(2n+1) img, main .
 }
 main .mission i p img{
   display: block;
-  width: 24%;
+  width: 48%;
   float: left;
   padding: 2%;
 }
 main .mission i p:nth-child(2n+1) img{
   display: block;
-  width: 24%;
+  width: 48%;
   float: right;
   padding: 2%;
 }
