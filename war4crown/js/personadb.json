@@ -790,20 +790,20 @@
   "crown": [
     {
       "status": "crown",
-      "announce": "His Majesty",
-      "title": "Prince",
-      "name": "Carius II *The Twilight Child*",
-      "surname": "Stavian",
-      "attitude": "friendly",
-      "appearance": "A young boy, about a dozen years old, with steady speech and happy eyes and expressions. Though young, he is highly educated, respectful, and infectiously cheery.",
-      "background": "The former center of the cult of the Twilight Child, Young Prince Carius apparently self-resurected, though he doesn't remember how.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
-      "skills": "???",
-      "death": " ",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/carrius-2.png"
-  }
+      "announce": "Her Majesty",
+      "title": "Princess",
+      "name": "Eutropia",
+      "surname": "Stavian I",
+      "attitude": "helpful",
+      "appearance": "Slim and athletic, Princess Eutropia bears the distinctive cheekbones and nose of her Stavian father and grandmother. Despite the ostentatious jewelry she wears, her gown and hair are more conservative than that of most other nobles'.",
+      "background": "The Princess Eutropia is trying to become heir apparent for the Primogen Crown and campaigns for increased rights along with the shaking off of the shackles of some of Taldor's traditions. While well educated, she is relatively naive and must grow a great deal to be worthy of the Primogen Crown, though she has been learning quickly since her father's death.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "Diplomacy, P: Oratory, ???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/eutropia-stavian.png"
+    }
   ],
   "dead": [
     {
@@ -815,14 +815,14 @@
       "attitude": "locked",
       "appearance": "Dressed in darkly-died priest attire, Thessel has a black fur, beady eyes, and a gray muzzle.",
       "background": "This ratfolk was found leading a group of fellow ratfolk believers of Aroden stealing some ancient Arodenite relics from the Basilica of the Last Man museum for their faithful community.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Beaten unconscious and promptly murdered by Ingoma beneath the Basilica of the Last Man",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/thessel-ratfolk.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Honorable Lord",
       "title": "Baronet",
@@ -831,14 +831,14 @@
       "attitude": "locked",
       "appearance": "With short-cropped red hair, he stands rigidly with a facial scar that turns his sour expression into a slight smirk.",
       "background": " A strong proponent strengthening Taldor’s military, Baronet Cicato took the senate seat once held by his mother. Forward looking, Duranis is seeking to better his nation by removing roadblocks to improvements—including the dated ideals of Old Taldan primogeniture.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Shot with bolts fired by an Andoren mercenary during the Exaltation Massacre.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/duranis-cicato.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Their Illustriousness",
       "title": "Marquess",
@@ -847,14 +847,14 @@
       "attitude": "friendly",
       "appearance": "Always in darker shades of clothing, Marquess Charlotte Deschamps wears exquisite dresses and silvered jewelry. Flowing black hair hangs loosely around her expressive face. She can be seen with a laugh or smile just at the edge of her lips. She can also be seen with her shadowy associate ever at her side, with several blades hidden about her person.",
       "background": "Charlotte Deschamps has raised herself from the commoners of Oppara, making her way (through adventure and other means) to the senate seat of House Cato, which she has recently vacated to assist Princess Eutropia in her endeavor for the throne.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "Bluff, Diplomacy",
       "death": "Stabbed by an Ulfen Guard while fleeing the Exaltation Massacre.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/charlotte-deschamps.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "His Imperial Highness",
       "title": "Grand Duke",
@@ -863,14 +863,14 @@
       "attitude": "locked",
       "appearance": "A balding man well in his sixties with a weathered face and wispy white hair falls roughly around his face in a hollow crown of hair.",
       "background": "A senator from a seat tied to Porthmos Gap, while disinterested in typical politics Avernathus is looking to pass along his knowledge to future generations.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Cut down by an Andoren mercenary during the Exaltation Massacre.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/avernathus.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "His Grace",
       "title": "Duke",
@@ -879,14 +879,14 @@
       "attitude": "friendly",
       "appearance": "With a round face and a few extra pounds, Leonard looks very different from the waifish ladies’ man he was 5 years ago. He takes great pride in tinkering with his wheelchair, revising its design and paying artisans to embellish it.",
       "background": "An attending duke of Grand Duchess Cisera Tiberan of Tandak prefecture, Leonard Centimus is an intellectual and tinkerer whose head for systems makes him a good administrator, if a little awkward with people.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "Bluff, Diplomacy",
       "death": "Trampled to death during the Exaltation Massacre.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/leonard-centimus.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Honorable Lord",
       "title": "Baronet",
@@ -895,14 +895,14 @@
       "attitude": "locked",
       "appearance": "Well dressed in a worn three piece suit, Solomon Meanders indulgence in pipe tobacco has left his breath and clothes stained with its smell. Over-the-hill, the frown lines creasing his face and forehead make him look far older than his still colored hair suggests.",
       "background": "An unquestionably corrupt bureaucrat, this bitter noble controls a well known back channel to move things through the Taldan legislature. Some whisper he's uncovered scandalous evidence regarding the princess, and has been sitting on it until just before the vote, where he has a presentation scheduled.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Slain by an Ulfen Guard during the Exaltation Massacre.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/solmon-menander.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Dame",
       "title": "Knight",
@@ -911,14 +911,14 @@
       "attitude": "friendly",
       "appearance": "Katrina's most striking feature is easily her singular red eye, rumored by many as a sign of a pact with infernal powers. With long, wispy black hair and a tendency to lock eyes for just a little too long, she seems to thrive on unnerving those around her.",
       "background": "A guest of Earl Calhadion Vernisant and the now-eldest daughter of a small family of Chelish Nobles, Karina rose to prominence after her half-sisters murder by Pathfinder agents several years ago. She makes no secret of her distaste for the society or other *murder hobos*.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Slain by Pathfinders during the Exaltation Massacre.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/karina-deckland.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Their Honorable Lordship",
       "title": "Earl",
@@ -927,14 +927,14 @@
       "attitude": "friendly",
       "appearance": "Earl Calhadion Vernisant keeps his hair slicked back from his face, looking as though he’s recently took off his helmet. Whether found in noble finery or finest armor, Vernisant prowls his social circles with an arrogance stemming from his battle-tested might.",
       "background": "The leader of Greater Ridonport, Vernisant feels it’s time for him to step into the power vacuum that Grand Prince Stavian III created when dismissing several officials. He’s trying to use his time at the Exaltation Gala to make his bid to become a close advisor to the grand prince as only a direct descendant of General Arnisant could.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "Handle Animal, Intimidate, or Pro: Soldier",
       "death": "Slain by Pathfinders during the Exaltation Massacre.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/calhadion-vernisant.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Mister",
       "title": " ",
@@ -943,14 +943,14 @@
       "attitude": "hostile",
       "appearance": "Moving deferentially, this servant and shoe-shiner does his best to avoid being underfoot.",
       "background": "One of the many servants in attendance at the Exaltation Gala.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Died shortly after being forced to ingest his own poison by Rodrigo Hernandez after attempting to murder the party while they slept in the panic room beneath the senate.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/imistos-gulbend.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Dame",
       "title": "Knight",
@@ -959,14 +959,14 @@
       "attitude": "locked",
       "appearance": "Dressed in tight fitting dresses, Dame Trant's muscles keep her from seeming provocative.",
       "background": "The daughter of an influential Senator, Malphane Trant is a daddy's girl at heart and supports him as best she can.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Committed suicide a few days after escaping the Exaltation Massacre after being haunted by the memory of the murder of her father.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/malphene-trant.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Miss",
       "title": " ",
@@ -975,14 +975,14 @@
       "attitude": "hostile",
       "appearance": "Dressed in woodland greens, Rena is described as an agile woman rarely seen without her knives.",
       "background": "The daughter of a local homesteader who lost his lands under the Lotheeds' taxes, Rena leads a group of outlaws hiding within and raiding from the Lionsmane Forest.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Beheaded after being captured alive by the Betony Heirs for the bounty.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/rena-winterall.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Miss",
       "title": " ",
@@ -991,14 +991,14 @@
       "attitude": "hostile",
       "appearance": "Dressed in muted green, Gurta wears a hood whenever she is near strangers and prefers to keep her distance from anyone she hasn't observed at length.",
       "background": "While the four hoods share equal power, Gurta Thresh is the one they all look to for guidance. A former apothecary in Triela, her secretive faith in Norgorber eventually came to light amid accusations of murder. An exile from Andoran, the Four Hoods, under Gurta's direction, live simply within the Taldan wilderness.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Stabbed to death by Bree Vort in beggarwood along with her friend, Kinnith.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/gurta-thresh.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Sir",
       "title": "Knight",
@@ -1007,14 +1007,13 @@
       "attitude": "unfriendly",
       "appearance": "Dressed immaculately, Sir Gul Gusairne keeps careful care of his clothing, though it shows signs of heavy use and his boots and coat tails are often coated in mud from the day.",
       "background": "The seneschal of the Palace of Birdsong, Sir Gul Gusairne is responsible for the security of the Palace, and by extension, the County of Meratt.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": "0",
+      "biases": "???",
+      "strengths": "???",
       "skills": "???",
       "death": "Electrocuted and executed by Bree Vort while she was resiting his arrest.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/gul-gusairne.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Lord",
       "title": " ",
@@ -1023,14 +1022,14 @@
       "attitude": "hostile",
       "appearance": "Young and proud, Titus' ornate dueling sword accents his green tunic proudly. The smell of his cologne is overpowering, but while it covers his breath, his glassy, drooping eyes and irregular speech make it obvious he's been drinking.",
       "background": "A distant cousin of Martella's by marriage, Titus is a spoiled bully with an intimidating reputation as an accomplished duelist. Oppara's given him everything he's wanted out of life, and he's not yet faced any real threats to his lifestyle.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Killed while defending his family lands and the Palace of Birdsong.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/titus-lotheed-casava.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Her Grace",
       "title": "Duchess",
@@ -1039,14 +1038,14 @@
       "attitude": "hostile",
       "appearance": "Old and gray, her face is crossed with smile wrinkles and her clothing looks just slightly large and worn, as if she's had them for a long time and has steadily lost weight. She walks gracefully and upright and looks rather pretty despite her advanced age.",
       "background": "A woman of wit, guile, and uncanny insight, the Duchess Veleto was a legendary infiltrator in her youth until she married and shifted roles to a manipulative grand dame of the Opparan social scene. Now of venerably old age, she mostly stays at the Palace of Birdsong under the care of her great nephew Bartelby.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Destroyed after her secret was discovered.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/veleto-lotheed.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "His Excellency",
       "title": "Count",
@@ -1056,13 +1055,13 @@
       "appearance": "Handsome but vaguely unsettling, Bartelby has the demeanor of a man comfortable in his superiority. His face is expressive of his ever-changing moods—warm one moment, cold and distant the next. ",
       "background": "The current steward of the Palace of Birdsong and the County of Meratt, Count Lotheed comes from a long line of talented arcanists.",
       "biases": "Bartelby despises fools, and has no time for anyone without an Intelligence score of at least 12 or ranks in at least three different Knowledge skills (–2). He admires fellow practitioners of the arcane arts (+2). ",
-      "strengths": " ",
-      "weakness": " ",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "Diplomacy, Bluff, K: Planes, K: Arcana, and Appraise",
       "death": "Defeated and killed while making his final stand in the Palace of Birdsong.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/bartelby-lotheed.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Lieutenant",
       "title": "Lieutenant",
@@ -1071,14 +1070,14 @@
       "attitude": "unfriendly",
       "appearance": "Stern an humorless, Lieutenant Grammel Taychar is a serious leader, a serious drinker, and not a talker.",
       "background": "An ex-soldier and current mercenary, Lieutenant Grammell Taychar leads the Kozan Bravos, a group of adventurous mercenaries under the employ of Earl Yander Merkondus to troubleshoot Yanmass's current situation.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Strangled by Cthulu tentacles in an alley.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/grammel-taychar.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Commander",
       "title": "Commander",
@@ -1087,14 +1086,14 @@
       "attitude": "hostile",
       "appearance": "Dark skinned and fierce, the commander of the missing unit of the Taldan Horse has bright green eyes and a sharp jawline. Raised in Avin Prefecture and upon the Whistling Plains, she is hardened by both the sun and experience.",
       "background": "The commander of the Taldan Horse regiment that disappeared, Jaliessa Staubel comes from a strong and patriotic family. Her brother and his wife, Jondus and Faithrie Staubel, disappeared with a search party looking for the soldiers roughly five days after their disappearance. With the entire family lost, it has been a big blow to moral and a discouraging story for the other bands of search parties that have all either returned with no evidence, or not at all.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Drained of life by a the witch Mai Vernesant shortly before her brother and sister-in-laws ignominius end.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/jaliessa-staubel.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Their Honorable Lordship",
       "title": "Earl",
@@ -1102,15 +1101,15 @@
       "surname": "Merkondus",
       "attitude": "hostile",
       "appearance": "Dressed in blues and silvers and wearing and wearing his signature snow-leopard cloak of resistance, Earl Yander Merkondus leans on an elegant cane while he walks and speaks flatteringly to those worth his time.",
-      "background": "A man of endless charm and twisted but brilliant intellect, Earl Yander Merkondus  is an aristocratic merchant and Imperialist supporter from southwest Taldor. He has recently appointed himself an emissary of Maxillar Pythareus and is a friend of Count Bartelby Lotheed.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "background": "A man of endless charm and twisted but brilliant intellect, Earl Yander Merkondus is an aristocratic merchant and Imperialist supporter from southwest Taldor. He has recently appointed himself an emissary of Maxillar Pythareus and is a friend of Count Bartelby Lotheed.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Slain by a the paladin Emily while fleeing his luxurious apartment in Yanmass.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/yander-merkondus.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "His Lordship",
       "title": "Senator",
@@ -1118,15 +1117,15 @@
       "surname": "Gengethlia",
       "attitude": "locked",
       "appearance": "Old by even dwarven standards, Senator Gengethlia attends the senate in his most formal and ancient of clothing - which happens to be his old wrestling attire. Grey and balding, with teeth have long since been lost to the stone, he smiles and scowls in equal measure.",
-      "background": "One of Taldor's more unusual senators, Gengethlia is an old former wrestler who was appointed to the Senate by Stavian I because of his popularity. He's made no secret that he's been recruiting a private militia for \"when the milk sours.\"",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "background": "One of Taldor's more unusual senators, Gengethlia is an old former wrestler who was appointed to the Senate by Stavian I because of his popularity. He's made no secret that he's been recruiting a private militia for ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Slowly overcome and beaten to death while safeguarding the Twilight Child.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/gengethlia.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Mister",
       "title": " ",
@@ -1135,14 +1134,14 @@
       "attitude": "unfriendly",
       "appearance": "A bald man with a fierce bird mask, this character has been seen skulking about town, often from the rooftops. He has not done anything illegal, but he has been unnerving some citizenry.",
       "background": "Unknown.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Subjected to the Whims of Fate when trying to decide whether the PC's or He was right concerning the preservation or destruction of the Twilight Child.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/xan.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Lord",
       "title": "Lord",
@@ -1151,14 +1150,14 @@
       "attitude": "hostile",
       "appearance": "Handsome, insightful, and charming, Milon Jeroth is deeply set in high society, while also being undeniably a predator, deceiver, and master of disguise.",
       "background": "Coming from a long line of taldane noble elite from Zimar, Milon Jeroth benefits from an undiluted noble line which has produced singular heirs for the last couple hundred years, granting Milon the wealth, influence, education, and training of a favorite noble heir normally far above his station. He often [redacted]. He now works as spymaster and member of the cabinet of High Strategos Maxillar Pythareus.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Slain while impersonating Ganaius to interogate Martella's Agents.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/milon-jeroth.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Master",
       "title": "Master",
@@ -1167,14 +1166,14 @@
       "attitude": "hostile",
       "appearance": "No known sketch or description exists. Update - Sketch found in Milon Jeroth's Portfolio.",
       "background": "The head of the secretive order of assassins, the Seven Forms of Sin, Qan Dismaal is an expert killer operating out of Zimar. Though they typically take out high-priority targets on both sides of the borders and long had a [redacted] agreement with [redacted] they are also well-known to be hired by both Maxillar Pythareus and Milon Jeroth.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Slain by Rodrigo *High-Five* Hernandez and Soldier's Glory in the Monastary of the Seven Forms of Sin.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/qan-dismaal.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "His Lordship",
       "title": "Baron",
@@ -1183,14 +1182,14 @@
       "attitude": "hostile",
       "appearance": "A grizzled veteran with a combination of careful grooming and scar accenting/ diminishing tattoos used to make his face seem more lion-like, Baron Astor Roderus flashily wears his military uniform at all times when in public, wearing the green and gold of Taldor proudly while wielding a heavy warhammer.",
       "background": "The Majordomo of High Strategos Maxillar Pythareus and member of his cabinet, Baron Astor Roderus is in charge of the city of Zimar and directly controls both the Zimar Sentinels and the Blue Guard, Zimar's militia. While he does not control the army stationed at the citadel, he is the right-hand-man of the commander of the entire Taldan Military, and as such, his instructions are presumed to be orders from Pythareus himself.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Slain by Raksha Assassin's at Rodrigo's behest.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/astor-roderus.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Sister",
       "title": "Sister",
@@ -1199,14 +1198,14 @@
       "attitude": "hostile",
       "appearance": "No known sketch or description exists. Update - Sketch found in Milon Jeroth's Portfolio.",
       "background": "Little is known about the young woman Milon Jeroth employs as a diviner, though her very existence and presence on Milon Jeroths list of known contacts makes her a presumed danger. Update - after seeing through their disguises and escaping the ensuing combat, Sister Estella and her coven retreated to safety and know of the death of their master, Milon Jeroth",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Cut down alongside her sisters while disguised as courtiers visiting Abadar's Pillar.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/estella.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Enumerator",
       "title": "Enumerator",
@@ -1215,14 +1214,14 @@
       "attitude": "hostile",
       "appearance": "With a pencil mustache and slick, pomade hair, Iovinus wears gaudy golden plate armor decorated in equal measure with symbols of Abadar, symbols of his religious fortress Abadar's Pillar, and symbols of the Vault and Chain.",
       "background": "Appointed High Priest and Enumerator by Maxillar Pythareus and member of his cabinet, while he is not a Grand Enumerator, his office at the House of Gold and chambers at the religious fort, Abadar's Pillar, make him the de-facto head of the Abadaran Faith in Taldor by virtue of his office. Rumors abound that he is vile and cruel, but he maintains law and order within Zimar and sets an example for the faith across the country. He also supports the Order of the Vault and Chain, whose templar leadership he appointed and orders directly, along with the veneragble Taxmasters which is run out of the House of Gold across all of Avistan.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Slain by Rodrigo and Soldier's Glory within seconds of opening the door while he was delivering service at his own temple.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/palo-iovinus.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "His Imperial Highness",
       "title": "High Strategos",
@@ -1231,14 +1230,14 @@
       "attitude": "hostile",
       "appearance": "Maxillar is a muscular man in his early forties. Years under the elements have weathered his skin, and he keeps his silver hair closely cropped. He wears a green-and blue-tabard emblazoned with Taldor’s official coat of arms, publicly declaring his loyalty to the nation more than anything else.",
       "background": "Nearly every Taldan recognizes commander-in-chief Maxillar Pythareus as Grand Prince Stavian III’s right hand and many support him as the Grand Prince's successor. He believes in political might and economic stability through military supremacy, advocating for new wars of conquest against wayward colonies like Andoran and Cheliax, or even Qadira.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "Intimidate, ???",
       "death": "Slain by Mai Vernisant after a lengthy verbal duel wherein he refused to surrender.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/maxillar-pythareus.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "His Lordship",
       "title": "Baron",
@@ -1248,13 +1247,13 @@
       "appearance": "Cropped, curly hair, plucked eyebrows, manicured beard and nails, Remaio looks every bit like a man born into Nobility.",
       "background": "A descendent of the Countess Remaio Alcasti, his family once ruled the county of Meratt before the titles were stripped away. Their direct lands are now the Telus Barony, and in Baron Telus' absence, Remaio seeks to reclaim his familial lands.",
       "biases": "Remaio can't stand the rigidness of lawful types (–2), and has a secret fascination with the night swan and her supporters (+2).",
-      "strengths": " ",
+      "strengths": "???",
       "weakness": "Strapped for cash, gifts of coin grant benefits to influence checks (+1 per 100gp, max +5) made that day.",
       "skills": "Diplomacy, Bluff, Stealth, Disable Device and K: Local",
       "death": "Stabbed by Viscount Theon Cenabri at the peace summit.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/remaio-alcasti.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Mister",
       "title": " ",
@@ -1263,14 +1262,14 @@
       "attitude": "locked",
       "appearance": "At just over a foot tall, this tiny doll speaks as though it owns the astral stars and all things under its sky.",
       "background": "An astronomer with supposedly no memory of his life before having his sould bound to that of a doll, Nabil is perhaps the best person in Sayashto to talk to conserning the strange constellation portion of the vision.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Turned over to the authorities for dismantling.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/nabil-doll.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": " ",
       "title": " ",
@@ -1279,30 +1278,14 @@
       "attitude": "hostile",
       "appearance": "Wyssilika is a halfling wearing standout black-red and- white attire. She wears similar makeup, embellishing her childish face to resemble a raccoon. Despite her color choice, Wyssilika is abound with enthusiasm and smiles, showing off a set of immaculate white teeth.",
       "background": "Wyssilika is a children's entertainer, the jovial halfling works to amuse noble children, whom she has discovered tend to overhear far more secrets than their parents realize.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "Bluff, Diplomacy",
       "death": "Slain in combat by Rodrigo Hernandez, wielding Soldiers Glory, while retaking the Dignified Repository safehouse. Was destroyed in her afterlife by the Paladin Ickth Heskillar as part of her pennance.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/wyssilika-failed.png"
-  },
-  {
-      "status": "dead",
-      "announce": "Her Majesty",
-      "title": "Princess",
-      "name": "Eutropia",
-      "surname": "Stavian I",
-      "attitude": "helpful",
-      "appearance": "Slim and athletic, Princess Eutropia bears the distinctive cheekbones and nose of her Stavian father and grandmother. Despite the ostentatious jewelry she wears, her gown and hair are more conservative than that of most other nobles'.",
-      "background": "The Princess Eutropia is trying to become heir apparent for the Primogen Crown and campaigns for increased rights along with the shaking off of the shackles of some of Taldor's traditions. While well educated, she is relatively naive and must grow a great deal to be worthy of the Primogen Crown, though she has been learning quickly since her father's death.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
-      "skills": "Diplomacy, P: Oratory, ???",
-      "death": " ",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/eutropia-stavian.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Her Imperial Highness",
       "title": "Grand Duchess",
@@ -1311,14 +1294,14 @@
       "attitude": "locked",
       "appearance": "Smelling faintly of strawberries, Mellea Denzarni prides herself as much in her blond hair, multi-colored eyes, and creamy skin as she is in her Azlanti bloodline. She has an easy laugh and a light voice, with a seemingly supernatural ability to draw smiles from those around her.",
       "background": "Grand Duchess Mellea Denzarni maintains opulent country estates and loves hosting weeklong galas and trysts, as well as teaching her house and those around them about the Denzarni's Azlanti heritage with the blood of ancient kings and gods running through their veins. Her prefecture of Kazuhn is the breadbasket of the Empire.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "Diplomacy, Bluff, P:Any, Survival, and Pro: Herbalist/ Farmer",
       "death": "Shattered by Robin of Loxley after being turned to stone.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/mellea-denzarni.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Captain",
       "title": "Captain",
@@ -1333,8 +1316,8 @@
       "skills": "???",
       "death": "Slain in a duel with the paladin Heskillar.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/blackwater-kelly.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Her Grace",
       "title": "Duchess",
@@ -1343,30 +1326,14 @@
       "attitude": "hostile",
       "appearance": "Straddling two races, Nenareen is a mix of old and modern fashions and old and modern maners.",
       "background": "The last surviving member of the hated Adella blodline, the Duchess of Blood perfected her blood serum to grant herself everlasting youth and curse her family all the day's of their lives.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Drained of all her blood while attempting to regenerate within her inner sanctum.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/nenareen-adella.png"
-  },
-  {
-      "status": "dead",
-      "announce": "Miss",
-      "title": " ",
-      "name": "Cassaranda *Baby Face*",
-      "surname": "Florint",
-      "attitude": "helpful",
-      "appearance": "A prodigy in the art of [redacted], Cassaranda Florint often [redacted] a young, baby faced woman in her early twenties despite [redacted] years old.",
-      "background": "A field agent for [redacted] since [redacted], she recently returned to [redacted] at [redacted] in the Kithrodian Academy since the [redacted] incident with [redacted] in Yanmass.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
-      "skills": "???",
-      "death": "*Vorpalled* upon her discovery.",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cassaranda-florint.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "His Excellency",
       "title": "Count",
@@ -1375,30 +1342,14 @@
       "attitude": "hostile",
       "appearance": "This lithe man has pointed ears, glowing green eyes, and a ram's horns along with a glowing green sword and a deep, steady voice.",
       "background": "A renown hunter and woodsman, Barenby saught the heart of a Wild Hunt Monarch as his path to immortality, he supposedly tracked one down and took their strength from them. While not a monarch himself - leaving his story with a few holes - he is a powerful hunter and immortal nonetheless.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
       "death": "Decapitated with a cold iron sword during the assault on the immaculate circle.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/barenby-ghoom.png"
-  },
-  {
-      "status": "dead",
-      "announce": "High Priest",
-      "title": "High Priest",
-      "name": "Vaddrigan",
-      "surname": "Pol",
-      "attitude": "hostile",
-      "appearance": "A tall, severe Aasimar with a captivating stage presence, Vaddrigan Pol has not been seen outside the Encircling Bower and the ceremonies of the Cult of the Twilight Child. Dressed in high quality silks with blue, gold, an emerald embroidery and jewels, Vaddrigan speaks in a level, soothing tone.",
-      "background": "The speaker and high priest for the new cult in Yanmass, Vaddrigan Pol is thought of as the church's leader despite the fact that he refuses the honor and bestows it upon the central figure of the cult, the Twilight Child Himself.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
-      "skills": "???",
-      "death": "Discorporated after failing to possess the paladin Heskillar.",
-      "imgref": "https://hwalkermerrill.github.io/war4crown/images/vaddrigan-pol.png"
-  },
-  {
+    },
+    {
       "status": "dead",
       "announce": "Lady",
       "title": " ",
@@ -1407,13 +1358,58 @@
       "attitude": "locked",
       "appearance": "Friendly and welcoming, she has gray hair and watchful eyes.",
       "background": "A distant cousin - several times removed - of Adella Voinum, Yarelle studied the arcane in Oppara only to discover she missed the country side. She now helps to lead the tiny hamlet of Cascina.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "Bluff, Diplomacy, Spellcraft, K: Arcana, Craft (any), ???",
       "death": "Slain twice to prevent her successive regeneration.",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/yarelle-towsine.png"
-  }
+    },
+    {
+      "status": "dead",
+      "announce": "High Priest",
+      "title": "High Priest",
+      "name": "Vaddrigan",
+      "surname": "Pol",
+      "attitude": "hostile",
+      "appearance": "A tall, severe Aasimar with a captivating stage presence, Vaddrigan Pol has not been seen outside the Encircling Bower and the ceremonies of the Cult of the Twilight Child. Dressed in high quality silks with blue, gold, an emerald embroidery and jewels, Vaddrigan speaks in a level, soothing tone.",
+      "background": "The speaker and high priest for the new cult in Yanmass, Vaddrigan Pol is thought of as the church's leader despite the fact that he refuses the honor and bestows it upon the central figure of the cult, the Twilight Child Himself.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Discorporated after failing to possess the paladin Heskillar.",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/vaddrigan-pol.png"
+    },
+    {
+      "status": "dead",
+      "announce": "Miss",
+      "title": " ",
+      "name": "Cassaranda *Baby Face*",
+      "surname": "Florint",
+      "attitude": "helpful",
+      "appearance": "A prodigy in the art of [redacted], Cassaranda Florint often [redacted] a young, baby faced woman in her early twenties despite [redacted] years old.",
+      "background": "A field agent for [redacted] since [redacted], she recently returned to [redacted] at [redacted] in the Kithrodian Academy since the [redacted] incident with [redacted] in Yanmass.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "*Vorpalled* upon her discovery.",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/cassaranda-florint.png\"\n",
+      "race": "Lieutenant",
+      "class": "Lieutenant",
+      "order": " ",
+      "cr": "Fanalyx",
+      "determination": "helpful",
+      "vdueltac": "Lieutenant Fanalyx is a unique, though not unheard of, sight in Axis, being an Axiomite detective on the police force rather than elsewhere in administration. She wears the rank of Lieutenant on an approved set of magical clothing, denoting her office as mortals would instead of wearing them attached to her skin.",
+      "secretbias": "Although utterly loyal to Axis and its principles, Fanalyx is a detective willing to explore unconventional solutions and work with untested strangers to keep her district safe.",
+      "secretstrength": "???",
+      "secretweak": "???",
+      "socialblock": "???",
+      "hostilebane": "???",
+      "friendboon": "Alive",
+      "helpboon": "https://hwalkermerrill.github.io/war4crown/images/fanalyx.png"
+    }
   ],
   "dpc": [
     {
@@ -2697,6 +2693,22 @@
   "secrown": [
     {
       "status": "secrown",
+      "announce": "His Majesty",
+      "title": "Prince",
+      "name": "Carius II *The Twilight Child*",
+      "surname": "Stavian",
+      "attitude": "friendly",
+      "appearance": "A young boy, about a dozen years old, with steady speech and happy eyes and expressions. Though young, he is highly educated, respectful, and infectiously cheery.",
+      "background": "The former center of the cult of the Twilight Child, Young Prince Carius apparently self-resurected, though he doesn't remember how.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/war4crown/images/carrius-2.png"
+    },
+    {
+      "status": "secrown",
       "announce": "Her Imperial Highness",
       "title": "Grand Duchess",
       "name": "Vivexis",
@@ -2708,10 +2720,10 @@
       "strengths": "She is very difficult to bluster and is quick to anger if she feels she's not being given the due respect of her station.",
       "weakness": "She secretly hopes for some loophole to be discovered that would get her out of her position of ruling even her grand duchy, and seems to be seeking the crown as a mix between her not wanting her country to fall and her hoping that the crown will give her the freedom to leave the politics of court more often. However, she is completely uninterested in propositions that puts her people in perceived peril. Those with such a loophole may be able to earn her aid without necessarily needing to earn her favor first.",
       "skills": "Diplomacy, K:History, K:Geography, P:Oratory, Survival, and Pro: Soldier",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/vivexis-darahan.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "His Imperial Highness",
       "title": "Grand Duke",
@@ -2724,10 +2736,10 @@
       "strengths": "Rivalry with cavalry translates to disliking people with 5+ ranks in ride.",
       "weakness": "Prior service in the Taldan Military",
       "skills": "Diplomacy, Bluff, K: Geography, K: History, and Pro: Sailor",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/nestor-delriddia.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "Her Imperial Highness",
       "title": "Grand Duchess",
@@ -2740,10 +2752,10 @@
       "strengths": "She is hit on so often by so many people, both men and women, that she has grown irritated with flatterers, flirts, and seducers of all kinds and genders.",
       "weakness": "Despite her aversion to the charismatic, she does have a fondness for old metaphors and colloquialisms.",
       "skills": "Diplomacy, ???",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/breateeza-fahlspar.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "His Imperial Highness",
       "title": "Grand Duke",
@@ -2753,13 +2765,13 @@
       "appearance": "Looking every bit the well-manicured Taldan noble, Borand has a tightly cropped beard and mustache and the signature amethyst eyes of his family line. Charming and strong, he is often seen wearing the finely crafted mithril and bronze armor made by his own family.",
       "background": "Supposed descendants of a legendary bronze dragon which tutored an ancient grand prince as a child, Grand Duke Borand Heskillar's house manages a staggering array of metals and works along with many of Taldor's official forges including its mint. From gold to iron, Borand is a proven administrator and controls possibly the wealthiest noble house in the nation, even if their royal bloodline is rooted in myths. They also secure much of Taldor's relations with their dwarven neighbors, reinforced since Borand Heskillar's recent marriage to a dwarven noble - Lady Grella of Taggoret - which while it earns the support of dwarves and businessmen, strains the family's relations with Taldan traditionalists.",
       "biases": "A traditionalist, he prefers learned scholars with spellbooks and does not care for people who rely on bloodlines, curses, or pacts for their magic.",
-      "strengths": " ",
+      "strengths": "???",
       "weakness": "He has a mild fascination with - and almost reverence for - occult rituals.",
       "skills": "Bluff, Diplomacy, ???",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/borand-heskillar.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "Her Imperial Highness",
       "title": "Grand Duchess",
@@ -2772,10 +2784,10 @@
       "strengths": "She rebuffs even the most eligible of suitors, both male and female, and is very resistant towards flirtation.",
       "weakness": "Her only apparent weakness is her vanity regarding her mansion, Darromoor, and its grounds.",
       "skills": "Intimidate, Sense Motive, K: Local, and K: Nobility",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/destelita-solari.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "Her Imperial Highness",
       "title": "Grand Duchess",
@@ -2788,10 +2800,10 @@
       "strengths": "She has a hard time talking with people who don't know any practical skills like a craft or profession.",
       "weakness": "She likes other sailors, and anyone wih at least one rank in that proffesion.",
       "skills": "Diplomacy, ???",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/cisera-tiberan.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "His Grace",
       "title": "Duke",
@@ -2800,14 +2812,14 @@
       "attitude": "helpful",
       "appearance": "Often seen wearing fine livery, Quintus Corcina rarely goes anywhere without a definite business interest, and is thereby never seen without being surrounded by an entourage of nobles, businessmen, lawyers, and servants. He always makes sure he handles money personally, he never drinks until after business is concluded, and he always hosts or otherwise pays for food at a dinner, preventing anyone from getting the upper hand on him in a business negotiation.",
       "background": "The ambitious members of House Corcina first made their mark on Taldan history during the time of the Second Army of Exploration, when the house' founders great success gained him both land and a bride of royal blood. Now under the shrewd leadership of Duke Quintus Corcina, the house continues to not only grow but thrive through its foreign trade networks. Corcina trade routes stretch the length of Avistan, but the duke seeks to extend them further still, including a bold expansion into Tian Xia.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "Diplomacy or Pro: Barrister",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/quintus-avellius-corcina.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "Her Grace",
       "title": "Duchess",
@@ -2820,10 +2832,10 @@
       "strengths": "She knows the law alarmingly well.",
       "weakness": "When multiple people express the same opinion, she's more likely to listen.",
       "skills": "Bluff, Diplomacy, K: History, K: Nobility, ???",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/helinara-lawsus.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "His Grace",
       "title": "Duke",
@@ -2836,10 +2848,10 @@
       "strengths": "Orlundo knows trade and knows when a deal is good or bad. Attempts to lie to or cheat him encourage increased scrutiny.",
       "weakness": "With both a love for trade and a deep understanding of Tandak's complicated canal systems, talks about improving Canals and restoring old trade routes quickly grab his attention.",
       "skills": "Diplomacy or Pro: Sailor",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/felinax-zespire.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "Their Illustriousness",
       "title": "Marquess",
@@ -2852,10 +2864,10 @@
       "strengths": "Having a firm grasp of the land, attempts to persuade her through lies about nature or its animals or attempts to bluster their own importance brings out Tanasha's skepticism.",
       "weakness": "While cheerful and exciting, Tanasha is feeling worn since the massacre. Welcoming any excuse for a colorful exchange or impromptu display of frivolity, she may be open to more bombastic characters that seek to get the Marquess to their side.",
       "skills": "Diplomacy, Bluff, K: Arcana, and Spellcraft",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/tanasha-starborne.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "Sir",
       "title": "Archdruid",
@@ -2866,12 +2878,12 @@
       "background": "A noble-blooded druid of the Wildwood Lodge and protected by treaty, its hard to know the seriousness of Valenar's claim. He could be using the claim to ensure the Lodge and forest remains neutral and protected, but his claim seems legitimate enough and the wars of the past have proven that the treaty must not be violated.",
       "biases": "He likes those with pets or a type of animal companion who is treated fairly, and he has a bias against humanoids (especially humans) who live without such companionship in their lives.",
       "strengths": "While he speaks many languages, he pretends he doesn't understand people unless they speak in druidic or sylvan, and refuses such conversations.",
-      "weakness": " ",
+      "weakness": "???",
       "skills": "Intimidate, Handle Animal, K:Nature, ???",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/valenar-green.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "Their Highbourn Lordship",
       "title": "Landgrave",
@@ -2881,29 +2893,29 @@
       "appearance": "Merkander doesn't speak much, preferring for his actions or his servants to speak for him. While he allows his beard and hair to grow freely, he is meticulously clean, a habit picked up from his extensive time in the wilderness.",
       "background": "Controlling a large and mostly unpopulated swath of land, Merkander's moderate defensive militias would not be strong enough to back up his claim for the crown if they weren't well known monster and ogre hunters. With his army made up mostly of trained rangers, the captains of which Merkander trains himself, coupled with his royal bloodline, Merkander's claims would be foolish to ignore.",
       "biases": "He doesn't care for people with any sort of noble blood, as he considers them over-entitled. He likes nobles with no noble family though.",
-      "strengths": " ",
+      "strengths": "???",
       "weakness": "He likes healers and herbalists, so people talking with him referencing one of those skills with more than 3 ranks easily find a way into his good graces.",
       "skills": "Intimidate, Climb, Handle Animal, ???",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/merkander.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "Their Honorable Lordship",
       "title": "Earl",
       "name": " ",
       "surname": "Tarq",
       "attitude": "unfriendly",
-      "appearance": "Gruff and brisk, Tarq is rarely seen un-inebriated. He's quite proud of his scars, especially the one on his cheek and forehead from \"The Black Crown\" Vrock demon.",
+      "appearance": "Gruff and brisk, Tarq is rarely seen un-inebriated. He's quite proud of his scars, especially the one on his cheek and forehead from ",
       "background": "This Kellid has a close alliance with several nearby centaur tribes and has taken control of much of Grand Duke Avernathus' territory, as he was formerly the Grand Duke's seneschal. He supposedly has claims to the throne via an ancient Kellid line, and has fiercely proclaimed that they are prepared to fight for the crown.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/tarq.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "His Excellency",
       "title": "Count",
@@ -2913,13 +2925,13 @@
       "appearance": "Looking much the same as his grandfather, Cypristian is elderly and wrinkled, and he makes a slight rasping sound when he breathes or speaks. He is very particular about people not touching him and he always puts on special gloves when he eats, burning the gloves afterwards.",
       "background": "According to the meticulous records of House Merrosett, the family’s nobility began when a prominent wizard named Egnatia Merrosett seduced the Grand Prince’s heir. Egnatia then established strict practices of inbreeding between the children of her twin sons to maintain their bloodline’s purity. The sallow-complexioned Merrosett's have distilled a remarkably pure and powerfully arcane bloodline. Despite their incestuous practices, Count Cypristian funds the most extensive research on genetic manipulation in all of Avistan with the funds from their gem mines, and they maintain a valid genetic - if horrific - claim to the throne.",
       "biases": "He likes those with a magical lineage and those with potential claims to the throne, and he doesn't care for the otherwise *unimportant rabble.*",
-      "strengths": " ",
+      "strengths": "???",
       "weakness": "Geneological records, unique historical treaties, magical genetic manipulation information.",
       "skills": "Diplomacy, K: Arcana, or K: History",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/cypristian-merrosett.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "His Excellency",
       "title": "Count",
@@ -2929,13 +2941,13 @@
       "appearance": "Rather large and rotund, Krekari Nazezi is a deep patron of the arts and wears extravagant jewelry, much of which is often crafted exclusively for the an occasion. He is most often seen filling the role of a patron at concerts, plays, and tournaments, often having the honor of presenting trophies to victors and toasting to their successes.",
       "background": "With little more than the esoteric little town of Faldamont being worthwhile within his county, Count Krekari Nazezi's lands enjoy military patrols and imperial road repairs due to his town's central role in the jewelry trade. Filled with craftsman and artisans, Nazezi's people are afforded even more comforts and protections since the Exaltation Massacre, primarily through the guarantee that anyone attempting to subvert their claim by force or through war will find their opposition well funded.",
       "biases": "He prefers people who recognize quality and likes to converse with people wearing more than 1000gp worth of non-magical jewelry, and detests those wearing shabier clothing than a courtiers outfit.",
-      "strengths": " ",
+      "strengths": "???",
       "weakness": "He believes good-old-fashioned gifts are a sign of culture, and the freely-given-gift of of masterwork and magical items, preferably those made by hand and not previously gifted, is a good introduction to the count.",
       "skills": "Diplomacy, Spellcraft, Pro: Merchant, ???",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/krekari-nazezi.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "His Excellency",
       "title": "Count",
@@ -2944,14 +2956,14 @@
       "attitude": "helpful",
       "appearance": "Having learned to always be ready for an ambush, Caliphalig Vort is rarely seen without his armor, weapons, and a couple bodyguards.",
       "background": "Baronet Caphridius Vort's cousin, Caliphalig controls the County of Lionsmane immediately bordering Meratt and lies between them and Cassomir. With swampy lands laden with canals he is bound to maintain, coupled with fey, ettercaps, and a stubborn dragon, yet also being within the critical heartland of Taldor and essential for shipping between its two largest cities, Oppara and Cassomir, Caliphalig employs an army and a series of militias to rival that of a Marquess and has the loyalty - earned or enforced - of his people.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "Diplomacy, Pro: Soldier, ???",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/caliphalig-vort.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "His Lordship",
       "title": "Baron",
@@ -2963,11 +2975,11 @@
       "biases": "Likes people with money (more than 10k) and doesn't like poor people (less than 5k)",
       "strengths": "He does not care for murderers or pirates, and anyone he is suspicious of action-wise finds him on his guard.",
       "weakness": "He prefers countrymen of Absalom, and those from there or that has visited there in the last 6 months find his favor easier to receive.",
-      "skills": "Diplomacy, K:Geography, Linguistics,  or Pro: Merchant",
-      "death": " ",
+      "skills": "Diplomacy, K:Geography, Linguistics, or Pro: Merchant",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/winton-bilos-phaeben.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "Her Ladyship",
       "title": "Baroness",
@@ -2976,14 +2988,14 @@
       "attitude": "unfriendly",
       "appearance": "People avoid and flock to her in equal measure and for the same reasons - her outspoken attitude, her unholy arcane attire, and her slightly-kalash appearance. Impatient and loud, she often enters or exits a room while shouting at people.",
       "background": "Campaigning from the eastern outpost of Stavian's Hold, Baroness Diddima Ennoi was moved there by Grand Prince Stavian III to remove her from the Opparan political scene. While apparently a promotion, the hold has little industry and depends entirely on Oppara, and the Snub did not go unnoticed.",
-      "biases": " ",
-      "strengths": " ",
-      "weakness": " ",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "???",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/diddima-ennoi.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "Lord",
       "title": " ",
@@ -2993,13 +3005,13 @@
       "appearance": "Dressed in Kravenkus Clan armor, Phini wears the ceremonial armor of the Lord of the Worlds Edge whenever he leaves his mountain. Very formal, Phini refuses to speak with people below his station who do not have the courtesy of addressing him in dwarven.",
       "background": "A powerful duke, Lord Phini represents the dwarven miners of Kravenkus within the Worlds Edge Mountains, which form the mineral backbone and primary eastern barrier of Taldor. While his claim lacks any royal blood, they have more than enough economic clout to cede if they believe it to be in their best interests.",
       "biases": "He favors dwarves over all other races, and is still filled with xenophobia against gnomes, trolls, orcs, giants, goblins, elves, and their kin.",
-      "strengths": " ",
+      "strengths": "???",
       "weakness": "He finds comfort in the traditions of the old days, and is more readily at ease while performing a dwarven tradition.",
       "skills": "Diplomacy, K: History, or Pro: Armorer/Blacksmith/Miner/Weaponsmith",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/phini.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "Sir",
       "title": "Knight",
@@ -3009,13 +3021,13 @@
       "appearance": "In the gold-and-crimson plate of Ragathiel, Remilliard stands self-assuredly, his golden hair tied back from his clean-shaven face. Alert blue eyes glance towards any he thinks as trouble and they spark in fury at the idea of peace with modern Cheliax.",
       "background": "Descendant of the Kastner family that remained in Taldor, Remilliard has taken his family’s senate seat and uses his position to fight for progressive change within Taldor.",
       "biases": "He does not talk with evil characters (-all) and does not approve of selfish, non-good lifestyles (-2). He appreciates all who are good of heart (+2).",
-      "strengths": " ",
-      "weakness": " ",
+      "strengths": "???",
+      "weakness": "???",
       "skills": "Diplomacy, ???",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/remilliard-kastner.png"
-  },
-  {
+    },
+    {
       "status": "secrown",
       "announce": "Master",
       "title": "Master",
@@ -3024,13 +3036,13 @@
       "attitude": "helpful",
       "appearance": "Dressed in formal masters robes, Master Kiu moves perfectly and precisely, rarely coloring his face with any emotion except supposedly when he is alone with close friends.",
       "background": "A Master of the Seven Forms, Zhen Kiu balances the needs of his people and their code against senseless bloodshed with the security threats of civil war in an already tumultuous region. Many believe he would be a wise and balanced leader, despite his lack of experience on Oppara's scene, though he has said he will advocate for independence and neutrality from the Taldan civil war until they must step in or step aside.",
-      "biases": " ",
-      "strengths": " ",
+      "biases": "???",
+      "strengths": "???",
       "weakness": "He has a weakness for haiku's and those who use them.",
       "skills": "Diplomacy, Intimidate, ???",
-      "death": " ",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/war4crown/images/zhen-kiu.png"
-  }
+    }
   ],
   "target": [
     {
