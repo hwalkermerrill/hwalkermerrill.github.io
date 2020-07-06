@@ -10,6 +10,7 @@ body {
   font-family: 'Amiri', Verdana, sans-serif;
   min-width: 320px;
   margin: 0;
+  color: #804D28;
 }
 
 /*----------- BORDER --------------*/
@@ -42,14 +43,14 @@ header h1 {
   margin-top: 1rem;
   font-weight: bold;
   font-size: 40px;
-  color: #804D28;
+  color: #000;
   text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
 }
 header h2 {
   margin: 0;
   font-weight: normal;
   font-size: 30px;
-  color: #804D28;
+  color: #000;
   text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
 }
 
@@ -64,7 +65,7 @@ nav ul {
 }
 nav ul li a {
   display: block;
-  color: #804D28;
+  color: #000;
   border-top: 1px solid rgba(0,0,0,0.3);
   padding: .5rem 0;
   text-decoration: none;
@@ -74,12 +75,12 @@ nav ul li a {
 }
 nav ul li a:hover {
   background-color: #d48f2a;
-  color: #804D28;
+  color: #000;
 }
 nav ul li.active a {
-  background-color: #804D28;
+  background-color: #000;
   color: #B62F40;
-  text-shadow: -5px 0px 5px #804D28, 0px 5px 5px #804D28, 5px 0px 5px #804D28, 0px -5px 5px #804D28;
+  text-shadow: -5px 0px 5px #000, 0px 5px 5px #000, 5px 0px 5px #000, 0px -5px 5px #000;
 }
 nav ul.hide {
   display: none;
@@ -93,14 +94,14 @@ main {
 main h1 {
   font-weight: bold;
   font-size: 40px;
-  color: #804D28;
+  color: #000;
   text-shadow: 4px 4px 4px #aaa;
 }
 Main h2 {
   margin-bottom: 0;
   font-weight: normal;
   font-size: 30px;
-  color: #804D28;
+  color: #000;
   text-shadow: 4px 4px 4px #aaa;
 }
 main .herodiv, main .herodiv2 {
@@ -133,7 +134,7 @@ main .herodiv .actioncall, main .herodiv2 .actioncall {
 }
 main .herodiv .actioncall button, main .herodiv2 .actioncall button {
   border: none;
-  background-color: #804D28;
+  background-color: #000;
   color: black;
   border-radius: 1rem;
   padding: .75rem 1.5rem;
@@ -168,7 +169,7 @@ main .gallery figure {
   flex-basis: 96%;
   margin: 1rem 2%;
   border-style: ridge;
-  border-color: #804D28;
+  border-color: #000;
   border-width: 6px;
   padding: 1%;
   transition: all .2s ease-in-out;
@@ -215,7 +216,7 @@ main .prison article, main .secrown article, main .active article, main .dead ar
   margin: 1rem 2%;
   flex-basis: 96%;
   border-style: ridge;
-  border-color: #804D28;
+  border-color: #000;
   border-width: 6px;
   padding: 1%;
   transition: all .2s ease-in-out;
@@ -229,7 +230,7 @@ main .prison article:hover, main .secrown article:hover, main .active article:ho
   cursor: pointer;
 }
 main .helpful {
-  background-color: #804D28;
+  background-color: #000;
   color: #d48f2a;
   border-color: #d48f2a;
 }
@@ -318,7 +319,7 @@ body .contact h2 {
 /*----------- FOOTER --------------*/
 footer {
   background-color: #B62F40;
-  color: #804D28;
+  color: #000;
   padding: .5rem 2%;
   text-align: center;
   clear: both;
