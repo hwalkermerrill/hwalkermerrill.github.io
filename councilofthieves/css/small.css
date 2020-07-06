@@ -20,7 +20,7 @@ body {
 /*----------- HEADER --------------*/
 header {
   padding: .5rem 2%;
-  background-color: #00572f;
+  background-color: #B62F40;
   display: grid;
   grid-template-columns: 185px auto;
 }
@@ -42,20 +42,20 @@ header h1 {
   margin-top: 1rem;
   font-weight: bold;
   font-size: 40px;
-  color: #0e2043;
+  color: #804D28;
   text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
 }
 header h2 {
   margin: 0;
   font-weight: normal;
   font-size: 30px;
-  color: #0e2043;
+  color: #804D28;
   text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
 }
 
 /*----------- NAVIGATION --------------*/
 nav {
-  background-color: #00572f;
+  background-color: #B62F40;
 }
 nav ul {
   list-style-type: none;
@@ -64,7 +64,7 @@ nav ul {
 }
 nav ul li a {
   display: block;
-  color: #0e2043;
+  color: #804D28;
   border-top: 1px solid rgba(0,0,0,0.3);
   padding: .5rem 0;
   text-decoration: none;
@@ -74,12 +74,12 @@ nav ul li a {
 }
 nav ul li a:hover {
   background-color: #d48f2a;
-  color: #0e2043;
+  color: #804D28;
 }
 nav ul li.active a {
-  background-color: #0e2043;
-  color: #00572f;
-  text-shadow: -5px 0px 5px #0e2043, 0px 5px 5px #0e2043, 5px 0px 5px #0e2043, 0px -5px 5px #0e2043;
+  background-color: #804D28;
+  color: #B62F40;
+  text-shadow: -5px 0px 5px #804D28, 0px 5px 5px #804D28, 5px 0px 5px #804D28, 0px -5px 5px #804D28;
 }
 nav ul.hide {
   display: none;
@@ -93,14 +93,14 @@ main {
 main h1 {
   font-weight: bold;
   font-size: 40px;
-  color: #0e2043;
+  color: #804D28;
   text-shadow: 4px 4px 4px #aaa;
 }
 Main h2 {
   margin-bottom: 0;
   font-weight: normal;
   font-size: 30px;
-  color: #0e2043;
+  color: #804D28;
   text-shadow: 4px 4px 4px #aaa;
 }
 main .herodiv, main .herodiv2 {
@@ -126,14 +126,14 @@ main .herodiv .actioncall, main .herodiv2 .actioncall {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background: radial-gradient(transparent, #00572f);
+  background: radial-gradient(transparent, #B62F40);
   border: 1px solid #000;
   padding: 0.2rem;
   box-shadow: 0 0 30px #fff;
 }
 main .herodiv .actioncall button, main .herodiv2 .actioncall button {
   border: none;
-  background-color: #0e2043;
+  background-color: #804D28;
   color: black;
   border-radius: 1rem;
   padding: .75rem 1.5rem;
@@ -168,7 +168,7 @@ main .gallery figure {
   flex-basis: 96%;
   margin: 1rem 2%;
   border-style: ridge;
-  border-color: #0e2043;
+  border-color: #804D28;
   border-width: 6px;
   padding: 1%;
   transition: all .2s ease-in-out;
@@ -206,80 +206,6 @@ main .relic ul li, main .journal ul li, main .gishvit ul li, main .journalplay u
   margin: 0 -100% 0 0;
 }
 
-/*----------- FORM --------------*/
-form {
-  display:flex;
-  flex-wrap: wrap;
-  flex-basis: 96%;
-}
-form fieldset {
-  margin: 2rem 2%;
-  border: 1px solid #0e2043;
-  border-radius: 10px;
-  padding: .5rem 2%;
-}
-form legend {
-  color: #0e2043;
-  margin: 0 1rem;
-  padding: 0 .5rem;
-}
-form label.top, form div, form label.slide {
-  display: block;
-  padding-top: 1rem;
-  color: #0e2043;
-  font-size: .8rem;
-}
-form label.top input, form label.top select {
-  -webkit-appearance: none;
-  display: block;
-  font-size: 1rem;
-  border: solid 1px #999;
-  border-radius: 4px;
-  padding: .75rem;
-  color: #555;
-  width: 100%;
-  max-width: 25rem;
-  background-color: rgba(0,0,0,0.1);
-}
-form label.sbs {
-  display: block;
-  padding: .75rem 0;
-  color: #555;
-}
-form label.slide input {
-  display: block;
-  font-size: 1rem;
-  border: solid 1px #999;
-  border-radius: 4px;
-  padding: .75rem;
-  color: #555;
-  width: 100%;
-  max-width: 25rem;
-  background-color: rgba(0,0,0,0.1);
-}
-form input.submitBtn {
-  border: none;
-  background-color: #0e2043;
-  color: black;
-  border-radius: 1rem;
-  padding: .75rem 1.5rem;
-  margin: 0 0 2rem 2%;
-  width: 96%;
-  max-width: 25rem;
-}
-form label.top input:required {
-  border-left: red solid 6px;
-}
-form label.top input:required:valid {
-  border-left: green solid 6px;
-}
-form label.top textarea {
-  margin: 2% 0;
-  width: 100%;
-  max-width: 56rem;
-  height: 8rem;
-}
-
 /*----------- ARTICLE (JSON READ) --------------*/
 main .prison, main .active, main .dead, main .dpc, main .pc, main .inactive, main .legacy, main .target, main .crown, main .asset, main .agent, main .secrown {
   display: flex;
@@ -289,7 +215,7 @@ main .prison article, main .secrown article, main .active article, main .dead ar
   margin: 1rem 2%;
   flex-basis: 96%;
   border-style: ridge;
-  border-color: #0e2043;
+  border-color: #804D28;
   border-width: 6px;
   padding: 1%;
   transition: all .2s ease-in-out;
@@ -303,12 +229,12 @@ main .prison article:hover, main .secrown article:hover, main .active article:ho
   cursor: pointer;
 }
 main .helpful {
-  background-color: #0e2043;
+  background-color: #804D28;
   color: #d48f2a;
   border-color: #d48f2a;
 }
 main .helpful h2, main .hostile h2 {
-  color: #00572f;
+  color: #B62F40;
   text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
 }
 main .hostile {
@@ -391,8 +317,8 @@ body .contact h2 {
 
 /*----------- FOOTER --------------*/
 footer {
-  background-color: #00572f;
-  color: #0e2043;
+  background-color: #B62F40;
+  color: #804D28;
   padding: .5rem 2%;
   text-align: center;
   clear: both;
