@@ -1,0 +1,302 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/*----------- BODY --------------*/
+body {
+  font-size: 16px;
+  font-family: 'Amiri', Verdana, sans-serif;
+  min-width: 320px;
+  margin: 0;
+  color: #804D28;
+}
+
+/*----------- BORDER --------------*/
+.border {
+  display: none;
+}
+
+/*----------- HEADER --------------*/
+header {
+  padding: .5rem 2%;
+  background-color: #600000;
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+header .slogan {
+  display: none;
+}
+header figure {
+  margin: 0;
+}
+header button {
+  margin: 1rem 2%;
+  background-color: transparent;
+  border: none;
+  font-size: 3rem;
+  color: #555;
+}
+header h1 {
+  margin: 0;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 40px;
+  color: #000;
+  text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
+}
+header h2 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 30px;
+  color: #000;
+  text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
+}
+
+/*----------- NAVIGATION --------------*/
+nav {
+  background-color: #600000;
+}
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+nav ul li a {
+  display: block;
+  color: #000;
+  border-top: 1px solid rgba(0,0,0,0.3);
+  padding: .5rem 0;
+  text-decoration: none;
+  font-size: 20px;
+  text-align: center;
+  text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
+}
+nav ul li a:hover {
+  background-color: #d48f2a;
+  color: #000;
+}
+nav ul li.active a {
+  background-color: #000;
+  color: #600000;
+  text-shadow: -5px 0px 5px #000, 0px 5px 5px #000, 5px 0px 5px #000, 0px -5px 5px #000;
+}
+nav ul.hide {
+  display: none;
+}
+
+/*----------- MAIN --------------*/
+main {
+  padding: 2%;
+  min-height: 10rem;
+}
+main h1 {
+  font-weight: bold;
+  font-size: 40px;
+  color: #000;
+  text-shadow: 4px 4px 4px #aaa;
+}
+Main h2 {
+  margin-bottom: 0;
+  font-weight: normal;
+  font-size: 30px;
+  color: #000;
+  text-shadow: 4px 4px 4px #aaa;
+}
+main .herodiv, main .herodiv2 {
+  width: 100%;
+  padding: .5rem 2%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+main .herodiv figure {
+  width: 100%;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+main .herodiv2 figure {
+  width: 30%;
+  padding: 0;
+  margin-left: 14rem;
+  margin-right: auto;
+}
+main .herodiv .actioncall, main .herodiv2 .actioncall {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: radial-gradient(transparent, #600000);
+  color: #000;
+  border: 1px solid #000;
+  padding: 0.2rem;
+  box-shadow: 0 0 30px #fff;
+}
+main .herodiv .actioncall button, main .herodiv2 .actioncall button {
+  border: none;
+  background-color: #000;
+  color: black;
+  border-radius: 1rem;
+  padding: .75rem 1.5rem;
+  width: 96%;
+  max-width: 20rem;
+}
+main .herodiv .actioncall h3, main .herodiv2 .actioncall h3 {
+  margin: 0.5rem;
+}
+main .herodiv .actioncall p, main .herodiv2 .actioncall p {
+  margin: 0.2rem;
+}
+main .row {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.2rem;
+}
+main .row section:nth-child(3){
+  margin-left: 2%;
+}
+main .row figure figcaption {
+  padding: 1%;
+  text-align: center;
+}
+main .gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+main .gallery figure {
+  flex-basis: 96%;
+  margin: 1rem 2%;
+  border-style: ridge;
+  border-color: #000;
+  border-width: 6px;
+  padding: 1%;
+  transition: all .2s ease-in-out;
+}
+main .gallery figure figcaption {
+  padding: 1%;
+  text-align: center;
+}
+main .gallery figure:hover {
+  transform: scale(1.05);
+}
+main .gallery figure img {
+  width: 100%;
+}
+main img {
+  width:100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+/*main .relic ul li, main .journal ul li, main .gishvit ul li, main .journalplay ul li{
+  text-indent: 2rem;
+}*/
+main ul {
+  cursor: pointer;
+}
+
+/*----------- Slideshow --------------*/
+#slideshow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#slideshow img {
+  float: left;
+  margin: 0 -100% 0 0;
+}
+
+/*----------- ARTICLE (JSON READ) --------------*/
+main .active, main .dead, main .agent {
+  display: flex;
+  flex-wrap: wrap;
+}
+main .active article, main .dead article, main .agent article {
+  margin: 1rem 2%;
+  flex-basis: 96%;
+  border-style: ridge;
+  border-color: #000;
+  border-width: 6px;
+  padding: 1%;
+  transition: all .2s ease-in-out;
+}
+main .active article img, main .dead article img, main .agent article img {
+  width: 100%;
+}
+main .active article:hover, main .dead article:hover, main .agent article:hover {
+  box-shadow: 0 0 12px #555;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+/*main .helpful {
+  background-color: #000;
+  color: #d48f2a;
+  border-color: #d48f2a;
+}
+main .helpful h2, main .hostile h2 {
+  color: #600000;
+  text-shadow: -5px 0px 5px #d48f2a, 0px 5px 5px #d48f2a, 5px 0px 5px #d48f2a, 0px -5px 5px #d48f2a;
+}
+main .hostile {
+  background-color: rgba(0,0,0,1);
+  color: white;
+  border-color: #d48f2a;
+}
+main .locked {
+  background-color: rgb(128, 128, 128);
+  color: rgba(0,0,0,1);
+  border-color: #d48f2a;
+}
+main .friendly {
+  background-color: #90EE90;
+  color: rgba(0,0,0,1);
+  border-color: #d48f2a;
+}
+main .unfriendly {
+  background-color: #F08080;
+  color: rgba(0,0,0,1);
+  border-color: #d48f2a;
+}*/
+
+/*---START toggleClass sub-CSS---*/
+main .active article p, main .dead article p, main .agent article p {
+  display: none;
+}
+main .active article ul, main .dead article ul, main .agent article ul {
+  display: none;
+}
+main .active .click p, main .dead .click p, main .agent .click p {
+  display: block;
+}
+main .active .click ul, main .dead .click ul, main .agent .click ul {
+  display: block;
+}
+/*---END toggleClass sub-CSS---*/
+
+/*----------- #GLASS --------------*/
+#glass {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+  display: none;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,.6);
+}
+
+/*----------- FOOTER --------------*/
+footer {
+  background-color: #600000;
+  color: #000;
+  padding: .5rem 2%;
+  text-align: center;
+  clear: both;
+}
+
+/*----- Clearfix: Force an Element not to collapse -----*/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
