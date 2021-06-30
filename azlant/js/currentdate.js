@@ -55,6 +55,6 @@ function maxDate(dd,m2,yyyy){
 }
 
 function writeCurrentVersion(){
-  var version = "v0.6." + yy + m2;
+  var version = "v0.7." + yy + m2;
   document.write(version);
 }
