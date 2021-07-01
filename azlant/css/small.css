@@ -156,7 +156,7 @@ main .row {
   margin-right: auto;
   padding: 0.2rem;
 }
-main .row section:nth-child(3){
+main .row section:nth-child(2){
   margin-left: 2%;
 }
 main .row figure figcaption {

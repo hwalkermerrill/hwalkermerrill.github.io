@@ -28,13 +28,15 @@ table, tr, td {
   text-align: center;
 }
 table th {background: #ffd700}
-main .row section:nth-child(2){
-  width: 50%;
-  float: left;
-}
-main .row section:nth-child(3){
+main .row section{
   width: 48%;
   float: left;
+  margin: 1%;
+}
+main .row section:nth-child(2n+0){
+  width: 48%;
+  float: right;
+  margin: 1%;
 }
 main .gallery figure {flex-basis: 46%;}
 /*main .relic ul.column2, main .journal ul.column2, main .gishvit ul.column2, main .journalplay ul.column2 {
