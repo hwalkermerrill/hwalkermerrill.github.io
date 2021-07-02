@@ -95,19 +95,19 @@
   <div class="row">
     <section>
       <h3>When do I need to make a Swim check while in the water?</h3>
-      <ul style="list-style-type:circle"> <b>I have <i>freedom of movement</i>!</b>
+      <ul style="list-style-type:circle"> <b>I have <i>freedom of movement / free swim</i>!</b>
         <li style="display: none;">Nope, I don't make swim checks.</li>
       </ul>  
       <ul style="list-style-type:circle"> <b>I have a swim speed!</b>
         <li style="display: none;">I'm stuck! (pinned by a rock, leg wrapped in seaweed, etc.) Swim DC set by obstacle (default 15-30).</li>
         <li style="display: none;">I'm being swept away! (Rapids, powerful current, etc.) Swim DC20 to resist, and I may take a 10.</li>
-        <li style="display: none;">I'm fighting rapid bouyancy! (Magic, Heavy Armor, Underwater Gyser, etc.) Swim DC20 to resist, and I may take a 10.</li>
+        <li style="display: none;">I'm fighting rapid buoyancy! (Magic, Heavy Armor, Underwater Gyser, etc.) Swim DC20 to resist, and I may take a 10.</li>
         <li style="display: none;">I've been knocked off balance! Swim DC equal to previously failed Swim check OR equal to Combat Maneuver that knocked you off balance (Trip, Bull Rush, etc.), and I may take a 10.</li>
         <li style="display: none;">I've been swimming for an hour! Swim DC20 or take 1d6 points of nonlethal damage and fatigue.</li>
       </ul>
       <ul style="list-style-type:circle"> <b>I don't have any of the above...</b>
         <li style="display: none;">I want to move. Swim DC 10-20 depending on conditions.</li>
-        <li style="display: none;">I don't want to move, but I want to resist my bouyancy. Same Swim DC as set by conditions, or DC20 if rapidly rising/ sinking.</li>
+        <li style="display: none;">I don't want to move, but I want to resist my buoyancy. Same Swim DC as set by conditions, or DC20 if rapidly rising/ sinking.</li>
         <li style="display: none;">I'm stuck or being swept away! (pinned by a rock, powerful current) Swim DC20</li>
         <li style="display: none;">I've been knocked off balance! Swim DC equal to previously failed Swim check OR equal to Combat Maneuver that knocked you off balance (Trip, Bull Rush, etc.).</li>
         <li style="display: none;">I've been swimming for an hour! Swim DC20 or take 1d6 points of nonlethal damage and fatigue.</li>
@@ -138,6 +138,63 @@
         <li style="display: none;">Step 1: Once you fail your Con check, you begin drowning and fall unconcious. If you were already unconcious, skip to the next step</li>
         <li style="display: none;">Step 2: On the start of your next turn (unless already unconcious), you begin dying and are brought to -1 hp regardless of how much health you had. If you were already at -1 or less, you take 1 point of damage (which may kill you normally, though that is unlikely).</li>
         <li style="display: none;">Step 3: On the start of your next turn, you drown and die.</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Tell me about Buoyancy...</h3>
+      <ul style="list-style-type:circle"><b>How does it work?</b>
+        <li style="display: none;">What is it? Buoyancy determines what happens when your in the water and don't make a swim check when you would normally need to attempt one. Buoyancy also determines if you can walk on the bottom and how easy/ hard it is to swim up or down.</li>
+        <li style="display: none;">Neutral Buoyancy - If you have neutral buoyancy, you stay where you are in the water and don't need to attempt a swim check except to move.</li>
+        <li style="display: none;">Rising/ Sinking - If you have rising or sinking buoyancy and you don't attempt (or fail) a swim check, you are moved in the direction of your buoyancy. This movement knocks you off-balance and provokes attacks of opportunity. You move 10 feet on the first round, 20 feet on the second round, and 30 feet every round after.</li>
+        <li style="display: none;">Swift Buoyancy - If you have swiftly rising or sinking buoyancy, you must attempt a DC20 swim check or you are moved in the direction of your buoyancy 30 feet. This movement knocks you off-balance and provokes attacks of opportunity. If swiftly rising and at the surface, you do not need to attempt checks to stay at the surface. If swiftly sinking and on a stable surface, you do not need to attempt checks to stay on the bottom and may walk or move normally as though in difficult terrain.</li>
+        <li style="display: none;">Changing Buoyancy - If your buoyancy changes while being moved by your buoyancy, your buoyancy speed changes at a rate of 10 feet per round. If your buoyancy changes to swiftly rising/sinking, your buoyancy speed changes immediately.</li>
+        <li style="display: none;">Moving Against Buoyancy - If moving against your buoyancy (and its not nuetral), you are treated as moving through difficult terrain and your speed is halved (like going upstairs). If moving with your buoyancy, you may choose to move your buoyancy speed before making your swim check to move normally, effectively adding your buoyancy to your total movement.</li>
+      </ul>
+      <ul style="list-style-type:circle"><b>What is my Natural Buoyancy?</b>
+        <li style="display: none;">Water Subtype - If you have the water subtype, your buoyancy is always neutral (even if affected by magic or items).</li>
+        <li style="display: none;">Aquatic Subtype - If you have the aquatic subtype, you may change your buoyancy to neutral as a free action at the start of your turn (unless your buoyancy is swiftly rising/ sinking). If your buoyancy is already neutral, you may change it to rising or sinking as a move action.</li>
+        <li style="display: none;">Air Subtype - If you have the air subtype, your buoyancy is swiftly rising if your in a light load, rising if your in a medium load, and sinking if your in a heavy load.</li>
+        <li style="display: none;">Air Breathers - If you are a creature that needs to breath (like humanoids), your buoyancy is sinking if in a light or medium load, and swiftly sinking if in a heavy load or wearing heavy armor.</li>
+        <li style="display: none;">Non Breathers - If you are a creature that does not need to breath (like constructs), your buoyancy is sinking if in a light load, and swiftly sinking if in a medium or heavy load or wearing medium or heavy armor.</li>
+      </ul>
+      <ul style="list-style-type:circle"><b>What can change my Buoyancy?</b>
+        <li style="display: none;">Water Subtype - nothing. The only way for a creture with the water subtype to not have neutral buoyancy is for it to change its subtype (such as via a polymorph effect)</li>
+        <li style="display: none;">Aquatic Subtype - IF you are not swiftly rising/ sinking, you can adjust your buoyancy to neutral at the start of your turn as a free action. If it was already neutral, you may change it to rising or sinking as a move action.</li>
+        <li style="display: none;">Magic - Certain spells and abilities (like <i>aquakinesis</i> or <i>extreme buoyancy</i>) can change a creatures buoyancy.</li>
+        <li style="display: none;">Equipment - Certain items can be sued to adjust your buoyancy, such as air tanks and lead anchors. The magnitude of their efefct depends on your Natural Buoyancy.</li>
+        <li style="display: none;">Load - Picking up or dropping items to change your load can adjust your buoyancy.</li>
+      </ul>
+    </section>
+    <section>
+      <h3>How far I move underwater?</h3>
+      <ul style="list-style-type:circle"><b>I have a swim speed!</b>
+        <li style="display: none;">You may move up to your swim speed as a move action without making a swim check (except for extreme circumstances)</li>
+        <li style="display: none;">You may choose to move one quarter a different speed if you like, but you gain none of the benefits of your swim speed on that movement (including your +8 bonus on swim checks).</li>
+      </ul>
+      <ul style="list-style-type:circle"><b>I have <i>freedom of movement / free swim</i>!</b>
+        <li style="display: none;">You automatically succeed on all swim checks and may choose to ignore buoyancy.</li>
+        <li style="display: none;">You still move one quarter your speed as a move action.</li>
+        <li style="display: none;">You may move your full fly speed as a move action (<i>freedom of movement</i> only, not <i>free swim</i>).</li>
+      </ul>
+      <ul style="list-style-type:circle"><b>I can ignore difficult terrain!</b>
+        <li style="display: none;">You may move one quarter your chosen speed with a successful swim check (DC 10-20) as a move action.</li>
+        <li style="display: none;">You may move against your buoyancy at one quarter your chosen speed with a sucessful swim check (DC 10-20) as a move action.</li>
+        <li style="display: none;">You may walk along the bottom at full speed as a move action if you have a swiftly sinking buoyancy.</li>
+      </ul>  
+      <ul style="list-style-type:circle"><b>I have fly, climb, burrow, fast movement, normal movement, etc.</b>
+        <li style="display: none;">You may move one quarter your chosen speed with a successful swim check (DC 10-20) as a move action.</li>
+      </ul>
+      <ul style="list-style-type:circle"><b>I have non-neutral buoyancy, but I'm not being dragged.</b>
+        <li style="display: none;">You must attempt a swim check each round as a free action at the start of your turn to maintain your depth, or as part of your move action to move.</li>
+        <li style="display: none;">If you fail your swim check, you move in the direction of your buoyancy. This knocks you off-balance and the movement provokes attacks of opportunity as normal.</li>
+        <li style="display: none;">You may attempt to move normally with one of your movement speeds, but moving against your buoyancy counts as difficult terrain.</li>
+        <li style="display: none;">You may allow yourself to be dragged by your buoyancy as a free action at the start of your turn. This knocks you off-balance and the movement provokes attacks of opportunity as normal.</li>
+      </ul>
+      <ul style="list-style-type:circle"><b>I am or I want to be dragged by my buoyancy.</b>
+        <li style="display: none;">You may allow yourself to be dragged by your buoyancy as a free action at the start of your turn. This knocks you off-balance and the movement provokes attacks of opportunity as normal.</li>
+        <li style="display: none;">You may attempt to not be dragged by your buoyancy as a move action at the start of your turn (Dc 10-20). A success means you stop moving through the water and are no longer off-balance. You may only attempt this action once each turn.</li>
+        <li style="display: none;">If swiftly rising and at the surface, you are no longer off balance and may act normally.</li>
+        <li style="display: none;">If swiftly sinking and on a stable surface, you are no longer off balance, may act normally, and may walk at half speed (as though on difficult terrain), burrow normally, or climb against the ground at full (climb) speed.</li>
       </ul>
     </section>
   </div>
