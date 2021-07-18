@@ -210,11 +210,11 @@ main ul {
 }
 
 /*----------- ARTICLE (JSON READ) --------------*/
-main .active, main .dead, main .agent {
+main .colonist, main .dead, main .leader {
   display: flex;
   flex-wrap: wrap;
 }
-main .active article, main .dead article, main .agent article {
+main .colonist article, main .dead article, main .leader article {
   margin: 1rem 2%;
   flex-basis: 96%;
   border-style: ridge;
@@ -223,10 +223,10 @@ main .active article, main .dead article, main .agent article {
   padding: 1%;
   transition: all .2s ease-in-out;
 }
-main .active article img, main .dead article img, main .agent article img {
+main .colonist article img, main .dead article img, main .leader article img {
   width: 100%;
 }
-main .active article:hover, main .dead article:hover, main .agent article:hover {
+main .colonist article:hover, main .dead article:hover, main .leader article:hover {
   box-shadow: 0 0 12px #555;
   transform: scale(1.05);
   cursor: pointer;
@@ -262,16 +262,16 @@ main .unfriendly {
 }*/
 
 /*---START toggleClass sub-CSS---*/
-main .active article p, main .dead article p, main .agent article p {
+main .colonist article p, main .dead article p, main .leader article p {
   display: none;
 }
-main .active article ul, main .dead article ul, main .agent article ul {
+main .colonist article ul, main .dead article ul, main .leader article ul {
   display: none;
 }
-main .active .click p, main .dead .click p, main .agent .click p {
+main .colonist .click p, main .dead .click p, main .leader .click p {
   display: block;
 }
-main .active .click ul, main .dead .click ul, main .agent .click ul {
+main .colonist .click ul, main .dead .click ul, main .leader .click ul {
   display: block;
 }
 /*---END toggleClass sub-CSS---*/
