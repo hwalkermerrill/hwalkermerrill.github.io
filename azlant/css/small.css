@@ -210,11 +210,11 @@ main ul {
 }
 
 /*----------- ARTICLE (JSON READ) --------------*/
-main .colonist, main .dead, main .leader {
+main .active, main .colonist, main .dead, main .leader {
   display: flex;
   flex-wrap: wrap;
 }
-main .colonist article, main .dead article, main .leader article {
+main .active article, main .colonist article, main .dead article, main .leader article {
   margin: 1rem 2%;
   flex-basis: 96%;
   border-style: ridge;
@@ -223,15 +223,15 @@ main .colonist article, main .dead article, main .leader article {
   padding: 1%;
   transition: all .2s ease-in-out;
 }
-main .colonist article img, main .dead article img, main .leader article img {
-  width: 100%;
-}
-main .colonist article:hover, main .dead article:hover, main .leader article:hover {
+main .active article:hover, main .colonist article:hover, main .dead article:hover, main .leader article:hover {
   box-shadow: 0 0 12px #555;
   transform: scale(1.05);
   cursor: pointer;
 }
-/*main .helpful {
+main .active img, main .colonist article img, main .dead article img, main .leader article img {
+  width: 100%;
+}
+main .helpful {
   background-color: #00572f;
   color: #d48f2a;
   border-color: #d48f2a;
@@ -259,19 +259,19 @@ main .unfriendly {
   background-color: #F08080;
   color: rgba(0,0,0,1);
   border-color: #d48f2a;
-}*/
+}
 
 /*---START toggleClass sub-CSS---*/
-main .colonist article p, main .dead article p, main .leader article p {
+main .active p, main .colonist article p, main .dead article p, main .leader article p {
   display: none;
 }
-main .colonist article ul, main .dead article ul, main .leader article ul {
+main .active ul, main .colonist article ul, main .dead article ul, main .leader article ul {
   display: none;
 }
-main .colonist .click p, main .dead .click p, main .leader .click p {
+main .active .click p, main .colonist .click p, main .dead .click p, main .leader .click p {
   display: block;
 }
-main .colonist .click ul, main .dead .click ul, main .leader .click ul {
+main .active .click ul, main .colonist .click ul, main .dead .click ul, main .leader .click ul {
   display: block;
 }
 /*---END toggleClass sub-CSS---*/
