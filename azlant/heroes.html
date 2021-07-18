@@ -38,6 +38,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/hamburger.js"></script>
 <script src="js/banner.js"></script>
+<script src="js/fillJSON.js"></script>
 </head>
 
 <body>
@@ -116,6 +117,19 @@
     </section>
     <section class="clearfix"></section>
   </div>
+  <p>Color Code: Blue = Helpful; Light Green = Friendly; White = Indifferent; Gray = Unable to Influence; Light Red = Unfriendly; Black = Hostile - Approach with Caution <button onclick="toggleHide('.locked')">Show/Hide Grayed-Out NPC's</button> <button onclick="toggleHide('.helpful')">Show/Hide Helpful NPC's</button></p>
+  <h2>Colony Leadership</h2>
+    <div class="active">
+      <script>fillJSON('leader')</script>
+    </div>
+  <h2>Expedition Team</h2>
+    <!--<div class="pc">
+      <script>fillPCDB('pc')</script>
+    </div>-->
+  <h2>Colonists</h2>
+    <div class="active">
+      <script>fillJSON('colonist')</script>
+    </div>
   <div class="e404">
     <figure>
       <img src="images/construction.gif" alt="construction">
@@ -139,6 +153,15 @@
 </footer>
 
 <!-- SCRIPT HERE -->      
-
+  <script>$(window).on("load", function clickLoad() {
+      $('article').click(function() {
+        $(this).toggleClass( "click" );
+      })
+    });
+  </script>
+  <script>function toggleHide(val) {
+      $(val).toggle();
+    };
+  </script>
 </body>
 </html>
