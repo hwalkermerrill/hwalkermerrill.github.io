@@ -38,6 +38,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/hamburger.js"></script>
 <script src="js/banner.js"></script>
+<script src="js/fillJSON.js"></script>
 </head>
 
 <body>
@@ -112,6 +113,20 @@
 </footer>
 
 <!-- SCRIPT HERE -->      
-
+  <script>$(window).on("load", function clickLoad() {
+    $('article').click(function() {
+      $(this).toggleClass( "click" );
+      })
+    });
+  </script>
+  <script>function toggleHide(val) {
+    $(val).toggle();
+    };
+  </script>
+  <script auto-refresh>
+  if(window.location.href.substr(-2) !== "?r") {
+    window.location = window.location.href + "?r";
+    }
+  </script>
 </body>
 </html>
