@@ -114,7 +114,7 @@ function fillPCDB(divClass){
 
       myH2.textContent = localJObj[i].announce;
       myH3.textContent = localJObj[i].title + ' ' + localJObj[i].name + ' ' + localJObj[i].surname;
-      myH4.textContent = localJObj[i].race + ' ' + localJObj[i].camptrait + ' ' + localJObj[i].classes + ' ' + localJObj[i].persona;
+      myH4.textContent = localJObj[i].race + ' ' + localJObj[i].camptrait + ' ' + localJObj[i].classes;
       myPara1.textContent = 'Appearance: ' + localJObj[i].appearance;
       myPara2.textContent = 'Background: ' + localJObj[i].background;
       myPara3.textContent = 'Cause of Death: ' + localJObj[i].death;
