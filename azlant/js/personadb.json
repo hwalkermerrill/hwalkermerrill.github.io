@@ -225,6 +225,88 @@
       "imgref": "https://hwalkermerrill.github.io/azlant/images/frel-tanboor.png"
     }
   ],
+  "leader": [
+    {
+      "status": "leader",
+      "announce": "Bureaucrat",
+      "title": " ",
+      "name": "Carethet",
+      "surname": "Maluis",
+      "attitude": "indifferent",
+      "appearance": "Portly and tidy, Carathet has a jovial disposition and an almost predatory smile. A focused conversationalist, he speaks as though everyone should hang on his every word, but he also listens as though the one speaking is the only one in the world.",
+      "background": "A lifetime civil servant, Carethet ran for Governor of Almas four times, with his most recent defeat being particularly embarassing to both him and his family. Desiring to put all of that firmly in his past and start anew, he signed on for the expedition hoping to put some permanent distance between Almas and himself.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/carethet-maluis.png"
+    },
+    {
+      "status": "leader",
+      "announce": "Chronicler",
+      "title": " ",
+      "name": "Perrell",
+      "surname": "Beys",
+      "attitude": "indifferent",
+      "appearance": "Perrell is a short, thin woman with red hair that she keeps cropped short. Her complexion is fair with a smattering of freckles. She carries herself as if she were an older woman, but she is actually only in her mid-thirties. When not wearing armor, she favors a simple white shirt under a slate-colored vest.",
+      "background": "Perrell is a scholar and historian. Like Lyra, she is an employee of the Bountiful Venture Company. Even if she weren’t, she would still have volunteered to join the colony out of academic interest. Her responsibility is to chronicle daily events in Talmandor’s Bounty and provide Ramona with scholarly advice on the nature of any ruins or ancient and valuable relics. She also sees it as her duty to provide her employers with high-quality maps of the island.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/perrell-beys.png"
+    },
+    {
+      "status": "leader",
+      "announce": "Lt. Governor",
+      "title": "Lt. Governor",
+      "name": "Ramona",
+      "surname": "Avandth",
+      "attitude": "indifferent",
+      "appearance": "Ramona has a natural tan complexion that deepens during the ocean voyage. She keeps her brown hair cut short and dresses appropriately for a subtropical climate. Ramona spends little effort on her appearance, but she has an attractive face that hides behind the cloud of concern she feels toward her fellow colonists. Her green eyes grow intense during a crisis but soften when matters are calm and under control.",
+      "background": "Ramona Avandth is the Bountiful Venture Company’s designated leader for the colony. Once the Peregrine arrives, she expects to deliver a sealed letter to Rayland Arkley and assume leadership of the entire colony, while Rayland is instructed to serve as her second-in-command. Ramona was chosen for her leadership skills, rather than her bardic abilities; nevertheless, she has a fine singing voice and an appreciation for artistic talents.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/ramona-avandth.png"
+    },
+    {
+      "status": "leader",
+      "announce": "Priest",
+      "title": "Father",
+      "name": "Eamon",
+      "surname": "Caranth",
+      "attitude": "friendly",
+      "appearance": "Eamon is a tall man with straw-colored hair and an infectious smile. His eyes are human but violet-colored, an indication of his elven heritage in addition to his pointed ears. When Eamon moves about the chapel or within the safe confines of the colony, he\nfavors a green robe or cassock, but he does not hesitate to change to armor when out in the wilderness. His extended life span, compared to Kurvis’s, has started to become apparent.",
+      "background": "Eamon and his friend and fellow cleric Kurvis are missionaries who volunteered to join the colony. Eamon feels particularly called to steer Talmandor’s Bounty away from merely a fiscal enterprise and toward becoming a community where families will flourish. He and Kurvis bicker like an old married couple, but despite appearances, they are the best of friends and nothing more.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/eamon-caranth.png"
+    },
+    {
+      "status": "leader",
+      "announce": "Priest",
+      "title": "Father",
+      "name": "Kurvis",
+      "surname": "Nurpico",
+      "attitude": "indifferent",
+      "appearance": "Kurvis is relatively short, with a slight stoop to his shoulders. He keeps his steel-gray hair cut short. His face is lined with a few wrinkles. When not in armor, he favors a black robe. Kurvis seldom smiles but doesn’t always scowl and can soften his expression when he wants. He and Eamon were born only a few years apart, but as a human, Kurvis is starting to show his age sooner than his friend.",
+      "background": "Kurvis is the counterpart to Eamon, who has been his best friend for many decades. Kurvis travels to Talmandor’s Bounty to bless and sanctify it as a proper foothold of civilization as only a servitor of Abadar can. He respects Eamon’s emphasis on community but maintains that for community to grow, it must be built on the bedrock of law.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/kurvis-nurpico.png"
+    }
+  ],
   "agent": [
     {
       "status": "agent",
