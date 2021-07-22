@@ -1557,7 +1557,7 @@
   "pc": [
     {
       "status": "pc",
-      "title": "Jeweler",
+      "title": " ",
       "name": "Pearl",
       "surname": "Silverstream",
       "attitude": "indifferent",
@@ -1567,7 +1567,7 @@
       "dislikes": "While she doesn't mind sand while its in the water, she hates sand on the surface.",
       "quirks": "Pearl is very passionate about making jewelry and spreading the gifts of Shelyn to those around her.",
       "achievements": "Nothing... yet.",
-      "announce": " ",
+      "announce": "Jeweler",
       "race": "Gillman",
       "death": " ",
       "order": "1",
@@ -1578,7 +1578,7 @@
     },
     {
       "status": "pc",
-      "title": "Painter",
+      "title": " ",
       "name": "Lucca",
       "surname": "Orton",
       "attitude": "indifferent",
@@ -1588,7 +1588,7 @@
       "dislikes": "Hes not a fan of dullards, poor plans or planners, and non-luxurious accommodations.",
       "quirks": "Lucca is very passionate about his cartography, writing, helping others - often excessively, - and his long time friend Pips.",
       "achievements": "Nothing... yet.",
-      "announce": " ",
+      "announce": "Painter",
       "race": "Halfling",
       "death": " ",
       "order": "1",
