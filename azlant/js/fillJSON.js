@@ -100,17 +100,21 @@ function fillPCDB(divClass){
       listAchieve.textContent = 'Known for: ' + localJObj[i].achievements;
       myList1.appendChild(listAchieve);
 
-      var listBias = document.createElement('li');
-      listBias.textContent = 'Known Biases: ' + localJObj[i].biases;
-      myList1.appendChild(listBias);
+      var listLikes = document.createElement('li');
+      listLikes.textContent = 'Likes: ' + localJObj[i].likes;
+      myList1.appendChild(listLikes);
 
-      var listStrength = document.createElement('li');
-      listStrength.textContent = 'Resistant towards: ' + localJObj[i].strengths;
-      myList1.appendChild(listStrength);
+      var listDislikes = document.createElement('li');
+      listDislikes.textContent = 'Dislikes: ' + localJObj[i].dislikes;
+      myList1.appendChild(listDislikes);
 
-      var listWeak = document.createElement('li');
-      listWeak.textContent = 'Sympathetic towards: ' + localJObj[i].weakness;
-      myList1.appendChild(listWeak);
+      var listQuirks = document.createElement('li');
+      listQuirks.textContent = 'Quirks: ' + localJObj[i].quirks;
+      myList1.appendChild(listQuirks);
+
+      var listBlood = document.createElement('li');
+      listBlood.textContent = 'Azlanti Blood Quantum: ' + localJObj[i].blood;
+      myList1.appendChild(listBlood);
 
       myH2.textContent = localJObj[i].announce;
       myH3.textContent = localJObj[i].title + ' ' + localJObj[i].name + ' ' + localJObj[i].surname;

@@ -276,6 +276,21 @@ main .active .click ul, main .colonist .click ul, main .pc .click ul, main .dpc 
 }
 /*---END toggleClass sub-CSS---*/
 
+/*---START toggleDisplay Alive/Dead---*/
+main .active p:nth-of-type(3), main .colonist p:nth-of-type(3), main .pc p:nth-of-type(3), main .leader p:nth-of-type(3), main .prison p:nth-of-type(3) {
+  display: none;
+}
+main .dead p:nth-of-type(4) {
+  display: none;
+}
+main .dead ul {
+  display: none;
+}
+main .dead li {
+  display: none;
+}
+/*---START toggleDisplay Alive/Dead---*/
+
 /*----------- #GLASS --------------*/
 #glass {
   position: absolute;
