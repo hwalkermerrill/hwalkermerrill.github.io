@@ -93,7 +93,7 @@
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
-      "death": "x",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/valania-goen.png"
     },
     {
@@ -102,7 +102,7 @@
       "title": "Corporal",
       "name": "Carver",
       "surname": "Hastings",
-      "attitude": "unfriendly",
+      "attitude": "indifferent",
       "appearance": "Carver is a man of average height with short, wavy brown hair. He grows no more than a few days’ stubble before shaving. He has blue eyes and a light tan complexion. He wears a normal steel breastplate, like the other soldiers. A little gruff, he remains professionally distant from everyone.",
       "background": "Carver Hastings is one of the colony’s soldiers. His goal is to survey and explore the nature of any Azlanti ruins on the island.",
       "biases": "???",
@@ -127,22 +127,6 @@
       "skills": "???",
       "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/antona-sedgewick.png"
-    },
-    {
-      "status": "colonist",
-      "announce": "Colonial Marine",
-      "title": "Lieutenant",
-      "name": "Grammel",
-      "surname": "Taychar",
-      "attitude": "indifferent",
-      "appearance": "Stern an humorless, Lieutenant Grammel Taychar is a serious leader, a serious drinker, and not a talker.",
-      "background": "A soldier and ex-mercenary, Lieutenant Grammell Taychar used to lead a group called the Kozan Bravos, a group of adventurous mercenaries frequently employed by the pathfinder society. With a mixed record filled with experience, he was a clear choice to accompany the few soldiers sent to escort the second wave.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "death": "x",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/grammel-taychar.png"
     },
     {
       "status": "colonist",
@@ -210,48 +194,6 @@
     },
     {
       "status": "colonist",
-      "announce": " ",
-      "title": " ",
-      "name": "Sandra",
-      "surname": "Ganis",
-      "attitude": "indifferent",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "death": "Alive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/sandra-ganis.png"
-    },
-    {
-      "status": "colonist",
-      "announce": " ",
-      "title": " ",
-      "name": "Saymor",
-      "surname": "Landis",
-      "attitude": "indifferent",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "death": "Alive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/saymor-landis.png"
-    },
-    {
-      "status": "colonist",
-      "announce": " ",
-      "title": " ",
-      "name": "Colson",
-      "surname": "Werton",
-      "attitude": "indifferent",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "death": "Alive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/colson-werton.png"
-    },
-    {
-      "status": "colonist",
       "announce": "Carpenter",
       "title": " ",
       "name": "Kereda",
@@ -263,7 +205,7 @@
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
-      "death": "x",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/kereda-harper.png"
     },
     {
@@ -279,8 +221,24 @@
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
-      "death": "x",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/andvara-jeclair.png"
+    },
+    {
+      "status": "colonist",
+      "announce": "Carpenter",
+      "title": " ",
+      "name": "Nicolaus",
+      "surname": "Jeclair",
+      "attitude": "indifferent",
+      "appearance": "Weathered with kind but penetrating eyes, Nicolaus has not aged as well as his wife. While he Is friendly and helpful, he is also prone to waxing ponderous.",
+      "background": "Nicolaus is a talented craftsman who has spent a long time building up and reinvesting the fortune his wife inherited. The years have not been kind, however, and while his wife had many reasons for going on the expedition, Nicolaus mostly chose to join to keep his family together and hopefully live a simpler, lower-stress life.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/nicolaus-jeclair.png"
     },
     {
       "status": "colonist",
@@ -314,20 +272,6 @@
     },
     {
       "status": "colonist",
-      "announce": "Carpenter",
-      "title": " ",
-      "name": "Nicolaus",
-      "surname": "Teredein",
-      "attitude": "indifferent",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "death": "Alive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/nicolaus-teredein.png"
-    },
-    {
-      "status": "colonist",
       "announce": "Colonial Marine",
       "title": "PFC",
       "name": "Dion",
@@ -339,7 +283,7 @@
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
-      "death": "x",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/dion-calahan.png"
     },
     {
@@ -359,7 +303,7 @@
     {
       "status": "colonist",
       "announce": "Colonial Marine",
-      "title": " ",
+      "title": "PFC",
       "name": "Sighra",
       "surname": "Harleau",
       "attitude": "indifferent",
@@ -390,15 +334,17 @@
       "status": "colonist",
       "announce": "Cook",
       "title": " ",
-      "name": "Geoff",
+      "name": "Geouf",
       "surname": "Tamor",
       "attitude": "indifferent",
+      "appearance": "A deceivingly young-looking vudrani, Geoff has a face completely mismatched to ger name. Friendly and kind, she has pale green eyes and a cluster of freckles on her tan skin.",
+      "background": "Geouf was unfortunately named - a joke between her parents meaning 'get out f***er' - which she chose to keep to remember her past. She ran away from home during a goblin raid and never looked back, eventually settling in Andoran. She learned how to cook while on the road, and her exceptional herblore and survival skills helped her ace the colony interviews.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
-      "death": "x",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/geoff-tamor.png"
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/geouf-tamor.png"
     },
     {
       "status": "colonist",
@@ -408,12 +354,12 @@
       "surname": "Lourdein",
       "attitude": "unfriendly",
       "appearance": "A formal and old half-orc, Lourdein is not aggressive or hostile in any way, but he makes it clear he wants to be alone. Dressed in homespun long johns, Irvin's face is wrinkled into a permanent scowl, with a few sharp teeth jutting out awkwardly.",
-      "background": "A goat, goose, and galluvix farmer from outlying lands west of Almas, Laourdein is a very much retired soldier who very much wants to be alone. After a brief stint owning a farm in a small village, he decided that life was far too busy for him, and applied for the expedition knowing his service record and farming experience would make him a shoe-in while giving him the opportunity to move a thousand miles away from society.",
+      "background": "A goat, goose, and galluvix farmer from the outlying lands west of Almas, Laourdein is a very much retired soldier who very much wants to be alone. After a brief stint owning a farm in a small village, he decided that life was far too busy for him, and applied for the expedition knowing his service record and farming experience would make him a shoe-in while giving him the opportunity to move a thousand miles away from society.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
-      "death": "x",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/irvin-lourdein.png"
     },
     {
@@ -424,7 +370,7 @@
       "surname": "Trundlebrook",
       "attitude": "indifferent",
       "appearance": "Generally timid and quiet, Faedwyr wears the same homespun clothes he's been wearing for the last ten years. He wears leather boots and a leather jirken, and his light brown hat and long light sleeves are weatherworn from protecting his leathery skin from the sun.",
-      "background": "Faedwyr is quiet, and that’s how he would describe himself. However, his common background and successful farming of over 100 countryside acres more than earned him a spot on the expedition. With a reputation for being able to grow anything, anywhere, faedwyr could and probbly should be proud, but he sees himself primarily as a simple, common man.",
+      "background": "Faedwyr's common background and successful development of several farms in poor countryside areas more than earned him a spot on the expedition. With a reputation for being able to grow anything, anywhere, faedwyr could and probably should be proud, but he sees himself primarily as a simple, common man.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -434,16 +380,48 @@
     },
     {
       "status": "colonist",
-      "announce": "Fisher?",
+      "announce": "Farmer",
       "title": " ",
-      "name": "Soran",
-      "surname": "Vigaldo",
+      "name": "Colson",
+      "surname": "Werton",
+      "attitude": "indifferent",
+      "appearance": "A tan man with ruddy brown hair and a thin beard, Colson's most striking feature is his bright green eyes. A hopeless romantic with an easy smile, he tells people he is of Azlanti descent and blessed by his ancestors to re-inherit Ancorato.",
+      "background": "A simple farmer, Colson was born as a regular farmer, but had abnormally striking features. Ever since his birth, he has possessed extraordinary good luck, including winning a lottery from the Bountiful Venture Company, which landed his seat on the expedition. He jokes that luck must be in his blood and skip a hundred generations or so, but there are a few people who truly believe him.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/colson-werton.png"
+    },
+    {
+      "status": "colonist",
+      "announce": "Fisher",
+      "title": " ",
+      "name": "Saymor",
+      "surname": "Landis",
       "attitude": "indifferent",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
-      "death": "x",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/saymor-landis.png"
+    },
+    {
+      "status": "colonist",
+      "announce": "Fisher",
+      "title": " ",
+      "name": "Soran",
+      "surname": "Vigaldo",
+      "attitude": "friendly",
+      "appearance": "Easygoing and well liked by most people, Soran sun-bleached blond hair and beard and blue eyes. He is usually seen sucking on a piece of straw and absentmindedly stareing off into the distance.",
+      "background": "Soran won his seat on the first wave of the expedition after winning a fishing contest, but turned the seat down. Since then, his luck soured, and he vied for a spot on the expedition, narrowly winning his seat due to his talent (or luck) in knowing where to fish and having the pacience to catch the really big ones.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/soran-vigaldo.png"
     },
     {
@@ -519,7 +497,7 @@
       "attitude": "indifferent",
       "appearance": "Tall and gangly, Palodina has dirty black hair and a large nose. He is covered in small scars from his life as a street-rat-turned-criminal-turned-prisoner. More than a little scruffy-looking, he manages to maintain impeccable dental hygiene.",
       "background": "A reformed criminal and talented rope-maker, Palodina is the third child of five and the only boy from his family. His parents were devoute Iomedaen priests who wished to raised all-paladin daughters to take up the Inheritor's Mantle in the Mendevian Crusades, and he lived his life exactly opposite to their wishes. Fresh out of jail, his record is clean enough, seeing as how he was never involved in violent crime, that he was able to make a spot on the second wave in an effort to start a new life.",
-      "biases": "#REF!",
+      "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
@@ -539,6 +517,22 @@
       "skills": "???",
       "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/cedwig-tanner.png"
+    },
+    {
+      "status": "colonist",
+      "announce": "Teacher",
+      "title": " ",
+      "name": "Sandra",
+      "surname": "Ganis",
+      "attitude": "indifferent",
+      "appearance": "Well mannered and well educated, Sandra has long, curly brown hair and a light inner-sea tan. She wears a pair of spectacles and is often seen with her books or else watching the clouds passing by.",
+      "background": "Sandra Ganis was chosen by the Bountiful Venture Company out of a sense of prudence - several children were sent on the first wave, and several are joining the second. All the colony's children will need an education, and many parents will need someone to watch their children during the day while they work. A talented educator, Sandra barely won her spot, and now daydreams of finding love on the frontier and being surrounded by adoring children.",
+      "biases": "#REF!",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/sandra-ganis.png"
     },
     {
       "status": "colonist",
@@ -563,6 +557,8 @@
       "name": "Jacques",
       "surname": "Hughon",
       "attitude": "indifferent",
+      "appearance": "Jacques dresses in muted greens and browns and appears uncomfortable with long conversations. He is, however, and exceptional listener and very perceptive both regarding what's going on and what people mean.",
+      "background": "A lifetime trapper from a logging town near the Verduran Forest, Jacques got lost in the woods for three years as a child and emerged changed by the experience. Some whisper he was touched by the fey, trained in their ways, before being released to live among men once again, but he has always been courteous, hard-working, and uncannily good at finding game.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -599,7 +595,7 @@
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
-      "death": "x",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/eskelda-teredein.png"
     },
     {
@@ -615,7 +611,7 @@
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
-      "death": "x",
+      "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/medrinnah-harleau.png"
     }
   ],
@@ -635,6 +631,22 @@
       "skills": "???",
       "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/ramona-avandth.png"
+    },
+    {
+      "status": "leader",
+      "announce": "Colonial Marine",
+      "title": "Lieutenant",
+      "name": "Grammel",
+      "surname": "Taychar",
+      "attitude": "indifferent",
+      "appearance": "Stern an humorless, Lieutenant Grammel Taychar is a serious leader, a serious drinker, and not a talker.",
+      "background": "A soldier and ex-mercenary, Lieutenant Grammell Taychar used to lead a group called the Kozan Bravos, a group of adventurous mercenaries frequently employed by the pathfinder society. With a mixed record filled with experience, he was a clear choice to accompany the few soldiers sent to escort the second wave.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/grammel-taychar.png"
     },
     {
       "status": "leader",
