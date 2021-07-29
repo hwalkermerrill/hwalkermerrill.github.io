@@ -3,7 +3,7 @@
     {
       "status": "colonist",
       "announce": "Alchemist",
-      "title": " ",
+      "title": " 'The Volcano Alchemist'",
       "name": "Alba",
       "surname": "Divenvaar",
       "attitude": "indifferent",
@@ -67,7 +67,7 @@
     {
       "status": "colonist",
       "announce": "Cartographer",
-      "title": " ",
+      "title": "Scout",
       "name": "Lyra",
       "surname": "Heatherly",
       "attitude": "indifferent",
@@ -131,7 +131,7 @@
     {
       "status": "colonist",
       "announce": "Fisher",
-      "title": "See-More-Sea'",
+      "title": " 'See-More-Sea'",
       "name": "Saymor",
       "surname": "Landis",
       "attitude": "indifferent",
@@ -195,7 +195,7 @@
     {
       "status": "colonist",
       "announce": "Midwife",
-      "title": " ",
+      "title": "Sama",
       "name": "Ylaina",
       "surname": "Xo",
       "attitude": "indifferent",
@@ -339,7 +339,7 @@
     {
       "status": "colonist",
       "announce": "Cook",
-      "title": " ",
+      "title": "Chef",
       "name": "Hondren",
       "surname": "Ghellen",
       "attitude": "indifferent",
@@ -355,7 +355,7 @@
     {
       "status": "colonist",
       "announce": "Cook",
-      "title": " ",
+      "title": "Madam",
       "name": "Geouf",
       "surname": "Tamor",
       "attitude": "indifferent",
@@ -472,7 +472,7 @@
       "surname": "Nalbocht",
       "attitude": "indifferent",
       "appearance": "High-spirited and enthusiastic, Tesstwyn prefers going everywhere in her custom leather armor. Adventurous and with an inherited love for story-telling, she happily explains to anyone who asks how the scar over her eye was from barely dodging an assassins arrow while fishing, the scars on her cheek from when she wrestled a wolf to the ground over an insult he gave about her father, and how she lost the two small fingers of her right hand to a fox in a crooked game of cards.",
-      "background": "At sixteen, Tesswyn is one of the youngest colonists the Bounty Venture Company selected, leaving her only barely considered a legal adult. Her father was a company employee who died on a seperate expedition less than a year ago, leaving her displaced and in the company's charge. Terrible with secrets and with an obssession for adventure, Tesswyn's stories are delightful but so fanciful its hard to tell if any of it isn't fiction.",
+      "background": "At sixteen, Tesswyn is only barely considered a legal adult, and only on a technicality. Her father was a company employee who died on a seperate expedition less than a year ago, leaving her displaced and in the company's charge. Terrible with secrets and with an obssession for adventure, Tesswyn's stories are delightful but so fanciful its hard to tell if any of it isn't fiction, which does help her hide others secrets in plain sight.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
@@ -547,7 +547,7 @@
     {
       "status": "colonist",
       "announce": "Teacher",
-      "title": " ",
+      "title": "Miss",
       "name": "Sandra",
       "surname": "Ganis",
       "attitude": "indifferent",
@@ -709,7 +709,7 @@
     {
       "status": "leader",
       "announce": "Bureaucrat",
-      "title": " ",
+      "title": "Mister",
       "name": "Carethet",
       "surname": "Maluis",
       "attitude": "indifferent",
@@ -725,7 +725,7 @@
     {
       "status": "leader",
       "announce": "Chronicler",
-      "title": " ",
+      "title": "Miss",
       "name": "Perrell",
       "surname": "Beys",
       "attitude": "indifferent",
