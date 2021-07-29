@@ -132,7 +132,7 @@ function showPCDB(jsonObj,divClass) {
 function fillCards(options, callback) {
   makeXHRRequest('js/personadb.json', function (res) {
     for (option of options) {
-      if (options.type == "npc") {showJSON(res, option.div);}
+      if (option.type == "npc") {showJSON(res, option.div);}
       else {showPCDB(res, option.div);}
     }
     callback()
