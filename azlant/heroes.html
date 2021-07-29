@@ -46,6 +46,7 @@
 <script src="js/hamburger.js"></script>
 <script src="js/banner.js"></script>
 <script src="js/fillJSON.js"></script>
+<script src="js/clickload.js"></script>
 </head>
 
 <body>
@@ -128,14 +129,17 @@
   <h2>Colony Leadership</h2>
     <div class="leader">
       <script>fillJSON('leader')</script>
+      <script>clickload('article')</script>
     </div>
   <h2>Expedition Team</h2>
     <div class="pc">
       <script>fillPCDB('pc')</script>
+      <script>clickload('article')</script>
     </div>
   <h2>Colonists in Good Standing</h2>
     <div class="colonist">
       <script>fillJSON('colonist')</script>
+      <script>clickload('article')</script>
     </div>
   <section class="clearfix"></section>
 </main>
@@ -147,8 +151,8 @@
 
 <!-- SCRIPT HERE -->      
   <script src="js/banner.js"></script>
-  <script src="js/clickload.js"></script>
-  <script>$(window).on("load", clickLoad('article'))</script>
+  <!--<script src="js/clickload.js"></script>
+  <script>$(window).on("load", clickLoad('article'))</script>-->
   <!--<script auto-refresh>
     if(window.location.href.substr(-2) !== "?r") {
        window.location = window.location.href + "?r";
