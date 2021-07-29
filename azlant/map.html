@@ -123,27 +123,14 @@
   </div>
   <section class="clearfix"></section>
 </main>
-       
+
 <!-- FOOTER HERE -->   
 <footer>
   &copy; <script src="js/currentdate.js"></script> &bull; Harrison Merrill &bull; All rights reserved &bull; Open Games License v1.02 2000, Wizards of the Coast, Inc. &bull; Pathfinder Adventure Path #121-126 2017, Paizo Publishing, LLC &bull; <script>writeCurrentVersion()</script>
 </footer>
 
-<!-- SCRIPT HERE -->      
-  <script>$(window).on("load", function clickLoad() {
-      $('article').click(function() {
-        $(this).toggleClass( "click" );
-      })
-    });
-  </script>
-  <script>function toggleHide(val) {
-      $(val).toggle();
-    };
-  </script>
-  <script auto-refresh>
-    if(window.location.href.substr(-2) !== "?r") {
-       window.location = window.location.href + "?r";
-    }
-  </script>
+<!-- SCRIPT HERE -->
+<script src="js/clickload.js"></script>
+<script>$(window).on("load", clickLoad('article'))</script>
 </body>
 </html>

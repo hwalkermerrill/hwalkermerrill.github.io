@@ -45,6 +45,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/hamburger.js"></script>
 <script src="js/banner.js"></script>
+<script src="js/clickload.js"></script>
 <script src="js/fillJSON.js"></script>
 </head>
 
@@ -102,14 +103,10 @@
     <br>&emsp; - Transcription of retrocognitive hypnotherapy treatment for Clide Worren, Darakole Sanitarium, Vyre, 4705 ar
   </h3>
   <h2>Expedition Members Killed in Action</h2>
-    <!--<div class="dpc">
-      <script>fillPCDB('dpc')</script>
-    </div>-->
+    <div class="dpc"></div>
     <p>None</p>
   <h2>Fallen Colonists - Memorial Wall</h2>
-    <!--<div class="dead">
-      <script>fillJSON('dead')</script>
-    </div>-->
+    <div class="dead"></div>
     <p>None</p>
   <section class="clearfix"></section>
 </main>
@@ -120,16 +117,14 @@
 </footer>
 
 <!-- SCRIPT HERE -->      
-  <script>$(window).on("load", function clickLoad() {
-    $('article').click(function() {
-      $(this).toggleClass( "click" );
-      })
-    });
-  </script>
-  <script auto-refresh>
-  if(window.location.href.substr(-2) !== "?r") {
-    window.location = window.location.href + "?r";
-    }
-  </script>
+<!-- <script>
+  let options = [
+    {type: "npc", div: "dead"},
+    {type: "pc", div: "dpc"},
+  ]
+  fillCards(options, function () {
+    clickLoad('article');
+  })
+</script> -->
 </body>
 </html>
