@@ -129,30 +129,25 @@
   <h2>Colony Leadership</h2>
     <div class="leader">
       <script>fillJSON('leader')</script>
-      <script>clickload('article')</script>
     </div>
   <h2>Expedition Team</h2>
     <div class="pc">
       <script>fillPCDB('pc')</script>
-      <script>clickload('article')</script>
     </div>
   <h2>Colonists in Good Standing</h2>
     <div class="colonist">
       <script>fillJSON('colonist')</script>
-      <script>clickload('article')</script>
     </div>
   <section class="clearfix"></section>
 </main>
     
-<!-- FOOTER HERE -->   
+<!-- FOOTER HERE -->
 <footer>
   &copy; <script src="js/currentdate.js"></script> &bull; Harrison Merrill &bull; All rights reserved &bull; Open Games License v1.02 2000, Wizards of the Coast, Inc. &bull; Pathfinder Adventure Path #121-126 2017, Paizo Publishing, LLC &bull; <script>writeCurrentVersion()</script>
 </footer>
 
-<!-- SCRIPT HERE -->      
-  <script src="js/banner.js"></script>
-  <!--<script src="js/clickload.js"></script>
-  <script>$(window).on("load", clickLoad('article'))</script>-->
+<!-- SCRIPT HERE -->
+  <script>$(window).on("load", clickLoad('article'))</script>
   <!--<script auto-refresh>
     if(window.location.href.substr(-2) !== "?r") {
        window.location = window.location.href + "?r";
