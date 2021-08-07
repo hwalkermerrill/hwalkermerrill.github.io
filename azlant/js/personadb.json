@@ -484,22 +484,6 @@
       "status": "colonist",
       "announce": "Laborer",
       "title": " ",
-      "name": "Tesswyn",
-      "surname": "Nalbocht",
-      "attitude": "indifferent",
-      "appearance": "High-spirited and enthusiastic, Tesstwyn prefers going everywhere in her custom leather armor. Adventurous and with an inherited love for story-telling, she happily explains to anyone who asks how the scar over her eye was from barely dodging an assassins arrow while fishing, the scars on her cheek from when she wrestled a wolf to the ground over an insult he gave about her father, and how she lost the two small fingers of her right hand to a fox in a crooked game of cards.",
-      "background": "At sixteen, Tesswyn is only barely considered a legal adult, and only on a technicality. Her father was a company employee who died on a seperate expedition less than a year ago, leaving her displaced and in the company's charge. Terrible with secrets and with an obssession for adventure, Tesswyn's stories are delightful but so fanciful its hard to tell if any of it isn't fiction, which does help her hide others secrets in plain sight.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "death": "Alive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/tesswyn-nalbocht.png"
-    },
-    {
-      "status": "colonist",
-      "announce": "Laborer",
-      "title": " ",
       "name": "Machi",
       "surname": "Valenth",
       "attitude": "unfriendly",
@@ -623,6 +607,22 @@
       "skills": "???",
       "death": "Alive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/medrinnah-harleau.png"
+    },
+    {
+      "status": "colonist",
+      "announce": "Youth",
+      "title": " ",
+      "name": "Tesswyn",
+      "surname": "Nalbocht",
+      "attitude": "indifferent",
+      "appearance": "High-spirited and enthusiastic, Tesstwyn prefers going everywhere in her custom leather armor. Adventurous and with an inherited love for story-telling, she happily explains to anyone who asks how the scar over her eye was from barely dodging an assassins arrow while fishing, the scars on her cheek from when she wrestled a wolf to the ground over an insult he gave about her father, and how she lost the two small fingers of her right hand to a fox in a crooked game of cards.",
+      "background": "At sixteen, Tesswyn is only barely considered a legal adult, and only on a technicality. Her father was a company employee who died on a seperate expedition less than a year ago, leaving her displaced and in the company's charge. Terrible with secrets and with an obssession for adventure, Tesswyn's stories are delightful but so fanciful its hard to tell if any of it isn't fiction, which does help her hide others secrets in plain sight.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/tesswyn-nalbocht.png"
     }
   ],
   "leader": [
