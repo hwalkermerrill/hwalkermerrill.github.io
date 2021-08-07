@@ -922,6 +922,27 @@
       "classes": "Druidid Herbalist 1",
       "camptrait": "Resourceful",
       "blood": "None"
+    },
+    {
+      "status": "pc",
+      "title": " ",
+      "name": "Pearl",
+      "surname": "Silverstream",
+      "attitude": "indifferent",
+      "appearance": "Named after her pearly white skin, Pearl has ocean blue hair that constantly falls in front of her lilac eyes. She is shy and reserved, but fiercely loyal to the friends she makes. She tends to twist her ring or braid twine when nervous. ",
+      "background": "Pearl grew up making jewelry with her mother out of shells, sea glass, and other gifts she finds from the ocean. She practiced fencing frowing up with her best friend, who proposed before leaving on a voyage to earn enough money to marry her. Not long after, Pearl received word he died at sea, though she still wears his engagement ring. With nothing tying her down, she excitedly signed on for adventure and and the treasures from the journey.",
+      "likes": "She loves the ocean and its treasures, such as pearls, shells, and jewels.",
+      "dislikes": "While she doesn't mind sand while its in the water, she hates sand on the surface.",
+      "quirks": "Pearl is very passionate about making jewelry and spreading the gifts of Shelyn to those around her.",
+      "achievements": "Nothing... yet.",
+      "announce": "Jeweler",
+      "race": "Gillman",
+      "death": " ",
+      "order": "1",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/pearl-silverstream.png",
+      "classes": "Inspired Blade Swashbuckler 1",
+      "camptrait": "Set Mind",
+      "blood": "Trace"
     }
   ],
   "prison": [
