@@ -11,9 +11,10 @@
       "background": "Alba Divenvaar is a perennial traveler ready to finally put down roots. As a young alchemist, Alba traveled throughout the southern Inner Sea region to learn trade secrets in Druma, the Mwangi jungles, and Osirion. Her lifelong dream is to behold the shores of Arcadia and discover the alchemical secrets of that land. Age has begun to get the best of her, so when she learned Andoran was establishing a new colony in the Arcadian Ocean, Alba applied for citizenship and won a spot among the second group of settlers. Her willingness to support the community with her alchemical knowledge was instrumental in her inclusion.",
       "biases": "???",
       "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
+      "weakness": "Alba enjoys infectious optimism, something she feels she needs more in her life.",
+      "skills": "Bluff, Intimidate, Heal, K: Arcana, K: Nature, or C: Alchemy",
       "death": "Alive",
+      "socialblock": "K: Local, K: Nobility, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/alba-divenvaar.png"
     },
     {
@@ -30,6 +31,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Bluff or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/harcourt-carrolby.png"
     },
     {
@@ -46,6 +48,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "C: Alchemy, Pro: Brewer, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/luetin-calewick.png"
     },
     {
@@ -55,13 +58,14 @@
       "name": "Helbret",
       "surname": "Koors",
       "attitude": "unfriendly",
-      "appearance": "Helbret has dark hair and mutton chops and dresses well enough for a barkeep. Restless, he listens to his customers but mostly keeps to himself, often polishing already gleaming mugs and countertops or else absentmindedly picking his teeth. Not the friednliest person, most people rely on alcohol to have a good time around Helbret, which he serves without question.",
+      "appearance": "Helbret has dark hair and mutton chops and dresses well enough for a barkeep. Restless, he listens to his customers but mostly keeps to himself, often polishing already gleaming mugs and countertops or else absentmindedly picking his teeth. Not the friendliest person, most people rely on alcohol to have a good time around Helbret, which he serves without question.",
       "background": "A proud brewer, Helbret made his living serving drinks in Almas. After scrounging up enough money to open his own tavern, his life seemed set, but his creative spirit and restless quiet kept him from being satisfied. Supposedly, he morgaged his bar and spent three years developing a new brew of beer, one apparently good enough to get a ticket on this expedition either through merit or through getting an investor just drunk enough. His bar mysteriously burned to the ground the day before the Peregrin left port, and while many suspect he's the one responsible, there wasn't enough evidence to keep him from leaving the country.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "K: History or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/helbret-koors.png"
     },
     {
@@ -71,13 +75,14 @@
       "name": "Valania",
       "surname": "Goen",
       "attitude": "indifferent",
-      "appearance": "Fierce and determined, Sergeant Goen wears the same kind of armor as the other marines, though her armor is both high quality and distinctive. Her cloak is fastened with a silver eagle.",
+      "appearance": "Fierce and determined, Sergeant Goen wears the same kind of armor as the other marines, though her armor is both high quality and distinctive. Her cloak is fastened with a silver falcon.",
       "background": "A renown fencer, Sergeant Goen has applied for and been rejected from the Eagle Knights three times. After her last failure, she took an extended leave of absence to join an adventuring group. Returning with both experience and wealth, recruiters from the Eagle Knights invited her to join their ranks, but she declined, donning a silver falcon instead and setting off on adventures of her own. Her current adventure is this expedition, and she is both excited and cautious about its inherant dangers.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "K: Any or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/valania-goen.png"
     },
     {
@@ -94,6 +99,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Pro: Sailor or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/carver-hastings.png"
     },
     {
@@ -103,13 +109,14 @@
       "name": "Saymor",
       "surname": "Landis",
       "attitude": "indifferent",
-      "appearance": "A middle-aged man with fair skin and rudy mutton chops, Saymor has a few scars and a distinctive neck and back tattoo. A jovial man who picked up the expensve habbit of smoking while sailing around the south-inner sea and the arcadian ocean, Saymor has a tight relationship with his pet finch, 'Finch.'",
+      "appearance": "A middle-aged man with fair skin and rudy mutton chops, Saymor has a few scars and a distinctive neck and back tattoo. A jovial man who picked up the expensive habbit of smoking while sailing around the south-inner sea and the arcadian ocean, Saymor has a tight relationship with his pet finch, 'Finch.'",
       "background": "Saymor used to go by the nickname 'See-More-Sea,' and was literally born aboard a frigate on patrol. He has spent less than two of his collective fourty-five years on land, and says he has more sea water in his veins than blood. While he was an excellent sailor, he has already earned a double pension, and after a dangerous battle with scurvy left him weak, he finally allowed his employers to make him settle down, on the condition that it was on a deserted island that also had an active port. After contacting the Bountiful Venture Company in frustration at his paradoxical demands, the expedition provided a way to force Saymor into retirement.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/saymor-landis.png"
     },
     {
@@ -126,6 +133,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "C: Leather or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/anya-sandstrider.png"
     },
     {
@@ -142,6 +150,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Stealth or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/antwyn-malros.png"
     },
     {
@@ -152,12 +161,13 @@
       "surname": "Weems",
       "attitude": "unfriendly",
       "appearance": "Kalcora has outrageously pink and purple hair streaked with white - a telltale sign of bleaching. Delighting in haggling and arguing, she wears her atheism proudly, often sparking arguments with her eagerness to contradict others. ",
-      "background": "An escaped slave from Cheliax, Kalcora chose her name while she layed low and built a new life for herself. She is devilishly good at aquiring things people want, though she often charges far more than their worth. She has no qualms about where her goods come from, and she seems to haggle more for a desire for entertainment than frugality.",
+      "background": "An escaped slave from Cheliax, Kalcora chose her name while she laid low and built a new life for herself. She is devilishly good at aquiring things people want, though she often charges far more than they're worth. She has no qualms about where her goods come from, and she seems to haggle more for a desire for entertainment than frugality.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Sense Motive, Sleight of Hand, or Stealth",
       "death": "Alive",
+      "socialblock": "Heal or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/kalcora-weems.png"
     },
     {
@@ -168,12 +178,13 @@
       "surname": "Xo",
       "attitude": "indifferent",
       "appearance": "Tiny Ylaina hails from the faraway land of Tian-Xia, and her heritage comes through strongly. With long black hair, soft silk clothing, creamy white skin, and a soft-spoken yet heavily accented voice, Ylaina strives to represent what her culture sees as the 'ideal woman.'",
-      "background": "The Bountiful Venture Company knew that none of the colonists sent on the first wave were pregnant (as far as they knew), so a midwife was non-essential. But given the first wave left six months before the second, and giving birth in the wilderness is incredibly dangerous, they knew they needed an excellent midwife for the second wave. Extremely talented and clever, Ylaina is the best Midwife in Almas who doubles as a cook, gardener, herbalist, healer, and cultural and language expert.",
+      "background": "The Bountiful Venture Company knew none of the colonists sent on the first wave were pregnant. With the second wave though, given the first wave left six months earlier, and giving birth in the wilderness is incredibly dangerous, they knew they needed to send an excellent midwife to the fledgling colony. Extremely talented and clever, Ylaina is the best Midwife in Almas who doubles as a cook, gardener, herbalist, healer, and cultural and language expert.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "K: Any or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/ylaina-xo.png"
     },
     {
@@ -190,6 +201,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Spellcraft or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/sandra-ganis.png"
     },
     {
@@ -206,6 +218,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Bluff or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/eskelda-teredein.png"
     },
     {
@@ -222,12 +235,13 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Appraise, K: Nobility, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/kereda-harper.png"
     },
     {
       "status": "colonist",
       "announce": "Carpenter",
-      "title": " ",
+      "title": "Misses",
       "name": "Andvara",
       "surname": "Jeclair",
       "attitude": "indifferent",
@@ -238,38 +252,41 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "K: Local or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/andvara-jeclair.png"
     },
     {
       "status": "colonist",
       "announce": "Carpenter",
-      "title": " ",
+      "title": "Mister",
       "name": "Nicolaus",
       "surname": "Jeclair",
-      "attitude": "indifferent",
-      "appearance": "Weathered with kind but penetrating eyes, Nicolaus has not aged as well as his wife. While he Is friendly and helpful, he is also prone to waxing ponderous.",
+      "attitude": "friendly",
+      "appearance": "Weathered with kind but penetrating eyes, Nicolaus has not aged as well as his wife. While he is friendly, he is also prone to waxing ponderous.",
       "background": "Nicolaus is a talented craftsman who has spent a long time building up and reinvesting the fortune his wife inherited. The years have not been kind, however, and while his wife had many reasons for going on the expedition, Nicolaus mostly chose to join to keep his family together and hopefully live a simpler, lower-stress life.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/nicolaus-jeclair.png"
     },
     {
       "status": "colonist",
       "announce": "Carpenter",
-      "title": " ",
+      "title": "Yee Haw'",
       "name": "Daib",
       "surname": "Joiner",
       "attitude": "indifferent",
       "appearance": "Short and muscular, Daib is moderately attractive as far as halflings go. While his face is weathered and his hair is unkempt, he has dense biceps and very hairy feet. When getting to work, he favors keeping his tools on his belt, which often weigh him down.",
-      "background": "Daib is a sheepish but free halfling, born under the free Andoran skies. He had an unremarkable life until he helped out at his cousins workshop in his mid-thirties and discovered he ha a knack for woodwork. While a late-bloomer relative to other colonists, he still made the cut for the second wave.",
+      "background": "Daib is a sheepish but free halfling, born under the free Andoran skies. He lived an unremarkable life until he helped out at his cousins workshop in his mid-thirties and discovered his particular knack for woodwork. While a late-bloomer relative to most other colonists, he still made the cut for the second wave.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "K: Religion or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/daib-joiner.png"
     },
     {
@@ -286,6 +303,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/gaege-murani.png"
     },
     {
@@ -302,6 +320,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/dion-calahan.png"
     },
     {
@@ -311,13 +330,14 @@
       "name": "Milon",
       "surname": "Cattenbury",
       "attitude": "indifferent",
-      "appearance": "Milon is young, fit, muscular, and arrogant, with a short haircut and beard with fierce buzz cuts and notches. At barely twenty years old, if that, his armor is at least twice as old as he is, but while it is worn, it is well maintained.",
-      "background": "A fresh graduate, Milon is the rookie assigned to escort the expedition, but that doesn't mean he isn't qualified. Having earned several awards, both before and during basic training, Milon thinks of himself as a rising star and dreams of uncovering lost Azlanti riches. He puts a great deal of work into his personal appearance and maintaining his fathers armor, who was slain by a tiger in the line of duty.",
+      "appearance": "Milon is young, fit, muscular, and arrogant, with a short haircut and beard with fierce buzz cuts and notches. At barely twenty years old, his armor is at least twice as old as he is, but while it is worn, it is well maintained.",
+      "background": "A fresh graduate, Milon is the rookie assigned to escort the expedition, but that doesn't mean he isn't qualified. Having earned several awards, both before and during basic training, Milon thinks of himself as a rising star and dreams of uncovering lost Azlanti riches. He puts a great deal of work into his personal appearance and maintaining his fathers armor, who was slain by a polar bear in the line of duty.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/milon-cattenbury.png"
     },
     {
@@ -334,6 +354,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/sighra-harleau.png"
     },
     {
@@ -350,6 +371,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/antona-sedgewick.png"
     },
     {
@@ -366,6 +388,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Heal, Survival, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/hondren-ghellen.png"
     },
     {
@@ -376,12 +399,13 @@
       "surname": "Tamor",
       "attitude": "indifferent",
       "appearance": "A deceivingly young-looking vudrani, Geoff has a face completely mismatched to ger name. Friendly and kind, she has pale green eyes and a cluster of freckles on her tan skin.",
-      "background": "Geouf was unfortunately named - a joke between her parents meaning 'get out f***er' - which she chose to keep to remember her past. She ran away from home during a goblin raid and never looked back, eventually settling in Andoran. She learned how to cook while on the road, and her exceptional herblore and survival skills helped her ace the colony interviews.",
+      "background": "Geouf was unfortunately named, a joke between her parents meaning 'get out f***er'. She ran away from home during a goblin raid and never looked back, eventually settling in Andoran, though she did decide to keep her name to remember where she came from. She learned how to cook while on the road, and her exceptional herblore and survival skills helped her ace the colony interviews.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Handle Animal or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/geouf-tamor.png"
     },
     {
@@ -398,6 +422,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "K: Nature or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/irvin-lourdein.png"
     },
     {
@@ -408,12 +433,13 @@
       "surname": "Trundlebrook",
       "attitude": "indifferent",
       "appearance": "Generally timid and quiet, Faedwyr wears the same homespun clothes he's been wearing for the last ten years. He wears leather boots and a leather jirken, and his light brown hat and long light sleeves are weatherworn from protecting his leathery skin from the sun.",
-      "background": "Faedwyr's common background and successful development of several farms in poor countryside areas more than earned him a spot on the expedition. With a reputation for being able to grow anything, anywhere, faedwyr could and probably should be proud, but he sees himself primarily as a simple, common man.",
+      "background": "Faedwyr's common background and successful development of several farms in poor countryside areas more than earned him a spot on the expedition. With a reputation for being able to grow anything, anywhere, Faedwyr could and probably should be proud, but he sees himself primarily as a simple, common man.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/faedwyr-trundlebrook.png"
     },
     {
@@ -424,12 +450,13 @@
       "surname": "Werton",
       "attitude": "indifferent",
       "appearance": "A tan man with ruddy brown hair and a thin beard, Colson's most striking feature is his bright green eyes. A hopeless romantic with an easy smile, he tells people he is of Azlanti descent and blessed by his ancestors to re-inherit Ancorato.",
-      "background": "A simple farmer, Colson was born as a regular farmer, but had abnormally striking features. Ever since his birth, he has possessed extraordinary good luck, including winning a lottery from the Bountiful Venture Company, which landed his seat on the expedition. He jokes that luck must be in his blood and skip a hundred generations or so, but there are a few people who truly believe him.",
+      "background": "Colson was born to simple and rather plain looking farmers, but had abnormally striking features. Ever since his birth, he possessed extraordinarily good luck, including winning a lottery from the Bountiful Venture Company, which landed his seat on the expedition. He jokes that luck must be in his blood and skip a hundred generations or so, but there are a few people who believe him.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/colson-werton.png"
     },
     {
@@ -439,13 +466,14 @@
       "name": "Soran",
       "surname": "Vigaldo",
       "attitude": "friendly",
-      "appearance": "Easygoing and well liked by most people, Soran sun-bleached blond hair and beard and blue eyes. He is usually seen sucking on a piece of straw and absentmindedly stareing off into the distance.",
-      "background": "Soran won his seat on the first wave of the expedition after winning a fishing contest, but turned the seat down. Since then, his luck soured, and he vied for a spot on the expedition, narrowly winning his seat due to his talent (or luck) in knowing where to fish and having the pacience to catch the really big ones.",
+      "appearance": "Easygoing and well-liked by most people, Soran's hair and beard is sun-bleached blond and he has soft blue eyes. He is usually seen sucking on a piece of straw and absentmindedly stareing off into the distance, usually with a fishing poll, as in the rare times he's seen without one he looks like something's missing.",
+      "background": "Soran won his seat on the first wave of the expedition after winning a fishing contest, but turned the seat down. Later, his luck soured, so he vied for a spot on the expedition, narrowly winning his seat due to his knack at knowing where to fish and having the patience to catch the really big ones.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Survival or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/soran-vigaldo.png"
     },
     {
@@ -462,6 +490,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Pro: Any or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/diana-tanner.png"
     },
     {
@@ -478,6 +507,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/sanch-celan.png"
     },
     {
@@ -487,13 +517,14 @@
       "name": "Machi",
       "surname": "Valenth",
       "attitude": "unfriendly",
-      "appearance": "Short, with brown hair dyed with red, blue, and purple streaks, Machi is one of the very few Tian colonists. Her arms are completely covered in tattoos, and she wears the clothing and armor of her culture. Aggressive and moody, she has obviously not gotten over eing left at the altar, and her formerly sweet and gentle side is being actively buried by her efforts to toughen up.",
+      "appearance": "Short, with brown hair dyed with red, blue, and purple streaks, Machi is one of the very few Tian colonists. Her arms are completely covered in tattoos, and she wears the clothing and armor of her culture. Aggressive and moody, she has obviously not gotten over being left at the altar, and her formerly sweet and gentle side is being actively buried by her efforts to toughen up.",
       "background": "Left at the altar a month before the expedition left Almas, Machi hopes to reinvent herself far, far away from everything and everyone she's ever known. While unskilled, she is very dedicated and known for her work ethic, and she hopes to pick up a new trade at the colony.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "K: Dungeoneering or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/machi-valenth.png"
     },
     {
@@ -508,8 +539,9 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Intimidate, Bluff, ???",
       "death": "Alive",
+      "socialblock": "Bluff or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/tipps-kreggan.png"
     },
     {
@@ -520,12 +552,13 @@
       "surname": "Orbonth",
       "attitude": "indifferent",
       "appearance": "Tall and gangly, Palodina has dirty black hair and a large nose. He is covered in small scars from his life as a street-rat-turned-criminal-turned-prisoner. More than a little scruffy-looking, he manages to maintain impeccable dental hygiene.",
-      "background": "A reformed criminal and talented rope-maker, Palodina is the third child of five and the only boy from his family. His parents were devoute Iomedaen priests who wished to raised all-paladin daughters to take up the Inheritor's Mantle in the Mendevian Crusades, and he lived his life exactly opposite to their wishes. Fresh out of jail, his record is clean enough, seeing as how he was never involved in violent crime, that he was able to make a spot on the second wave in an effort to start a new life.",
-      "biases": "#REF!",
+      "background": "A reformed criminal and talented rope-maker, Palodina is the third child of five and the only boy from his family. His parents were devoute Iomedaen priests who wanted to raise all-paladin daughters to take up the Inheritor's Mantle in the Mendevian Crusades, a challenging wish Palodina intentionally lived his life opposite to since he was born. Fresh out of jail, his record is clean enough, seeing as how he was never involved in violent crime, that he was able to make a spot on the second wave in an effort to start a new life.",
+      "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/palodina-orbonth.png"
     },
     {
@@ -542,6 +575,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/cedwig-tanner.png"
     },
     {
@@ -552,12 +586,13 @@
       "surname": "Sprads",
       "attitude": "friendly",
       "appearance": "Kulena has fair skin and straw colored hair that goes down to her waist when not kept in a working braid. She is pretty but plain, and while she is friendly, she is also very self-concious and very sensitive to criticism. Prone to crying when things go wrong, she is often found either alone or with a few friendly faces.",
-      "background": "A talented thatcher hired for her necessary roof-making skills for the expected construction boom in the colony, Kulena signed on with the hope of joining some of her friends that left on the first wave of colonists. A baker and a hobbyist, she often gives people small others small handmade gifts or treats.",
+      "background": "A talented thatcher hired for her necessary roof-making skills for the expected construction boom in the colony, Kulena signed on with the hope of joining some of her friends that left on the first wave of colonists. A baker and a hobbyist, she often gives others small handmade gifts or treats.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "K: Nature or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/kulena-sprads.png"
     },
     {
@@ -567,13 +602,14 @@
       "name": "Jacques",
       "surname": "Hughon",
       "attitude": "indifferent",
-      "appearance": "Jacques dresses in muted greens and browns and appears uncomfortable with long conversations. He is, however, and exceptional listener and very perceptive both regarding what's going on and what people mean.",
+      "appearance": "Jacques dresses in muted greens and browns and appears uncomfortable with long conversations. He is, however, an exceptional listener, and is very perceptive both regarding what's going on and what people really mean.",
       "background": "A lifetime trapper from a logging town near the Verduran Forest, Jacques got lost in the woods for three years as a child and emerged changed by the experience. Some whisper he was touched by the fey, trained in their ways, before being released to live among men once again, but he has always been courteous, hard-working, and uncannily good at finding game.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/jacques-hughon.png"
     },
     {
@@ -584,12 +620,13 @@
       "surname": "Tanboor",
       "attitude": "indifferent",
       "appearance": "While he only has one eye, Frel is filled with confidence and walks with swagger. Hairy with long brown hair and a short beard, he often wears pearl or gold earings in his left ear and his arms and shoulders are covered in tattoos of the names of friends, rivals, and past lovers.",
-      "background": "An experienced tracker and trapper, Frel has rarely stayed in one place for more than a few years. He habbitually spends all his money on women and alcohol, and while he thinks himself a ladies man, his cheating behavior has gotten him in trouble over and over again. Looking for somewhere new to live and someone new to chace, he signed on for the voyage with the knowledge he would live somewhere completely foreign while being in close quarters with potentially lovely, lonely women. Currently, he is known to be in a heated relationship with two other colonists.",
+      "background": "An experienced tracker and trapper, Frel has rarely stayed in one place for more than a few years. He habbitually spends all his money on women and alcohol, and while he thinks himself a ladies man, his cheating behavior has gotten him in trouble over and over again. Looking for somewhere new to live and someone new to chase, he signed on for the voyage with the knowledge he would live somewhere completely foreign while being in close quarters with potentially lovely, lonely women. Currently, he is known to be in a heated relationship with two other colonists.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Stealth or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/frel-tanboor.png"
     },
     {
@@ -599,13 +636,14 @@
       "name": "Medrinnah",
       "surname": "Harleau",
       "attitude": "unfriendly",
-      "appearance": "Medrinnah has a short haircut and freckles that draw attention to her usually-pouty face. Often complaining, arguing, orotherwise rebelling against her mother, Madrinnah makes no secret that she absolutely hates being dragged along on this expedition.",
-      "background": "One of the two teenagers in the second wave, Medrinnah, who already hates her mother, is not looking forward to being stuck on an island a thousan miles from any of her friends. Like the other children, she isn't counted with the adults in the number of colonists sent on the expedition, and she likewise has neither a stake, claim, or chance to earn any money from this venture unless she gets it herself.",
+      "appearance": "Medrinnah has a short haircut and freckles that draw attention to her usually-pouty face. Often complaining, arguing, or otherwise rebelling against her mother, Madrinnah makes no secret that she absolutely hates being dragged along on this expedition.",
+      "background": "One of the two teenagers in the second wave, Medrinnah, who already hates her mother, is not looking forward to being stuck on an island a thousand miles from any of her friends. Like the other children, she isn't counted with the adults in the number of colonists sent on the expedition, and she likewise has neither a stake, claim, or chance to earn any money from this venture unless she gets it herself.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "K: Nature or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/medrinnah-harleau.png"
     },
     {
@@ -615,13 +653,14 @@
       "name": "Tesswyn",
       "surname": "Nalbocht",
       "attitude": "indifferent",
-      "appearance": "High-spirited and enthusiastic, Tesstwyn prefers going everywhere in her custom leather armor. Adventurous and with an inherited love for story-telling, she happily explains to anyone who asks how the scar over her eye was from barely dodging an assassins arrow while fishing, the scars on her cheek from when she wrestled a wolf to the ground over an insult he gave about her father, and how she lost the two small fingers of her right hand to a fox in a crooked game of cards.",
+      "appearance": "High-spirited and enthusiastic, Tesswyn prefers going everywhere in her custom leather armor. Adventurous and with an inherited love for story-telling, she happily explains to anyone who asks how the scar over her eye was from barely dodging an assassins arrow while fishing, the scars on her cheek from when she wrestled a wolf to the ground over an insult he gave about her father, and how she lost the two small fingers of her right hand to a fox in a crooked game of cards.",
       "background": "At sixteen, Tesswyn is only barely considered a legal adult, and only on a technicality. Her father was a company employee who died on a seperate expedition less than a year ago, leaving her displaced and in the company's charge. Terrible with secrets and with an obssession for adventure, Tesswyn's stories are delightful but so fanciful its hard to tell if any of it isn't fiction, which does help her hide others secrets in plain sight.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/tesswyn-nalbocht.png"
     }
   ],
@@ -638,8 +677,9 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Diplomacy, K: Any, ???",
       "death": "Alive",
+      "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/ramona-avandth.png"
     },
     {
@@ -656,6 +696,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/grammel-taychar.png"
     },
     {
@@ -672,6 +713,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "K: Nobility, K: Religion, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/eamon-caranth.png"
     },
     {
@@ -688,6 +730,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "K: Nobility or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/kurvis-nurpico.png"
     },
     {
@@ -704,6 +747,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
+      "socialblock": "K: Arcana, K: Engineering, K: History, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/carethet-maluis.png"
     },
     {
@@ -718,12 +762,13 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Bluff, Diplomacy, ???",
       "death": "Alive",
+      "socialblock": "Perception or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/perrell-beys.png"
     },
     {
-      "status": "Leader",
+      "status": "leader",
       "announce": "Scout",
       "title": "Scout",
       "name": "Lyra",
@@ -734,8 +779,9 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Bluff, ???",
       "death": "Alive",
+      "socialblock": "K: Any or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/lyra-heatherly.png"
     }
   ],
@@ -887,7 +933,7 @@
       "name": "Lucca",
       "surname": "Orton",
       "attitude": "indifferent",
-      "appearance": "While his hair is already starting to grey, Lucca's salt-and-pepper heair and beard are kept tidy and are often regarded as attractive. Of average height for a halfling, Lucca is often seen lounging around on someone else's dime.",
+      "appearance": "While his hair is already starting to grey, Lucca's salt-and-pepper hair and beard are kept tidy and are often regarded as attractive. Of average height for a halfling, Lucca is often seen lounging around on someone else's dime.",
       "background": "A would be philosopher and attentive student of the world. Lucca is an incredible scholar and there isn't much that he doesn't already know or has forgotten. Worked with the Andoran military as a cartographer and has come following his long time friend Pips to this adventurous expedition. While the idea of 'roughing it' on a desert island is laughable, the chance to see uncovered relics of Azlanti culture is a powerful motivator...and Pips.",
       "likes": "He likes fine wine, a good book, and being doted upon.",
       "dislikes": "Hes not a fan of dullards, poor plans or planners, and non-luxurious accommodations.",
@@ -930,7 +976,7 @@
       "surname": "Silverstream",
       "attitude": "indifferent",
       "appearance": "Named after her pearly white skin, Pearl has ocean blue hair that constantly falls in front of her lilac eyes. She is shy and reserved, but fiercely loyal to the friends she makes. She tends to twist her ring or braid twine when nervous. ",
-      "background": "Pearl grew up making jewelry with her mother out of shells, sea glass, and other gifts she finds from the ocean. She practiced fencing frowing up with her best friend, who proposed before leaving on a voyage to earn enough money to marry her. Not long after, Pearl received word he died at sea, though she still wears his engagement ring. With nothing tying her down, she excitedly signed on for adventure and and the treasures from the journey.",
+      "background": "Pearl grew up making jewelry with her mother out of shells, sea glass, and other gifts she finds from the ocean. She practiced fencing with her childhood best friend, who proposed before leaving on a voyage to earn enough money to marry her. Not long after, Pearl received word he died at sea, though she still wears his engagement ring. With nothing tying her down, she excitedly signed on for adventure and the treasures from the journey.",
       "likes": "She loves the ocean and its treasures, such as pearls, shells, and jewels.",
       "dislikes": "While she doesn't mind sand while its in the water, she hates sand on the surface.",
       "quirks": "Pearl is very passionate about making jewelry and spreading the gifts of Shelyn to those around her.",
