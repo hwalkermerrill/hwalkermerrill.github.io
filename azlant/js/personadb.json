@@ -14,7 +14,7 @@
       "weakness": "Alba enjoys infectious optimism, something she feels she needs more in her life.",
       "skills": "Bluff, Intimidate, Heal, K: Arcana, K: Nature, or C: Alchemy",
       "death": "Alive",
-      "socialblock": "K: Local, K: Nobility, or Sense Motive",
+      "socialblock": "Heal, K: Arcana, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/alba-divenvaar.png"
     },
     {
@@ -31,7 +31,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Bluff or Sense Motive",
+      "socialblock": "K: Local, K: Nobility, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/harcourt-carrolby.png"
     },
     {
@@ -48,7 +48,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "C: Alchemy, Pro: Brewer, or Sense Motive",
+      "socialblock": "Bluff or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/luetin-calewick.png"
     },
     {
@@ -65,7 +65,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "K: History or Sense Motive",
+      "socialblock": "C: Alchemy, Pro: Brewer, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/helbret-koors.png"
     },
     {
@@ -82,7 +82,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "K: Any or Sense Motive",
+      "socialblock": "K: History or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/valania-goen.png"
     },
     {
@@ -99,7 +99,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Pro: Sailor or Sense Motive",
+      "socialblock": "K: Any or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/carver-hastings.png"
     },
     {
@@ -116,7 +116,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Intimidate or Sense Motive",
+      "socialblock": "Pro: Sailor or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/saymor-landis.png"
     },
     {
@@ -133,7 +133,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "C: Leather or Sense Motive",
+      "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/anya-sandstrider.png"
     },
     {
@@ -150,7 +150,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Stealth or Sense Motive",
+      "socialblock": "C: Leather or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/antwyn-malros.png"
     },
     {
@@ -167,7 +167,7 @@
       "weakness": "???",
       "skills": "Sense Motive, Sleight of Hand, or Stealth",
       "death": "Alive",
-      "socialblock": "Heal or Sense Motive",
+      "socialblock": "Stealth or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/kalcora-weems.png"
     },
     {
@@ -184,7 +184,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "K: Any or Sense Motive",
+      "socialblock": "Heal or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/ylaina-xo.png"
     },
     {
@@ -201,7 +201,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Spellcraft or Sense Motive",
+      "socialblock": "K: Any or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/sandra-ganis.png"
     },
     {
@@ -218,7 +218,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Bluff or Sense Motive",
+      "socialblock": "Spellcraft or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/eskelda-teredein.png"
     },
     {
@@ -235,7 +235,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Appraise, K: Nobility, or Sense Motive",
+      "socialblock": "Bluff or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/kereda-harper.png"
     },
     {
@@ -252,7 +252,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "K: Local or Sense Motive",
+      "socialblock": "Appraise, K: Nobility, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/andvara-jeclair.png"
     },
     {
@@ -269,7 +269,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Intimidate or Sense Motive",
+      "socialblock": "K: Local or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/nicolaus-jeclair.png"
     },
     {
@@ -286,7 +286,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "K: Religion or Sense Motive",
+      "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/daib-joiner.png"
     },
     {
@@ -303,7 +303,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Pro: Soldier or Sense Motive",
+      "socialblock": "K: Religion or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/gaege-murani.png"
     },
     {
@@ -371,7 +371,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Intimidate or Sense Motive",
+      "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/antona-sedgewick.png"
     },
     {
@@ -388,7 +388,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Heal, Survival, or Sense Motive",
+      "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/hondren-ghellen.png"
     },
     {
@@ -405,7 +405,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Handle Animal or Sense Motive",
+      "socialblock": "Heal, Survival, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/geouf-tamor.png"
     },
     {
@@ -422,7 +422,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "K: Nature or Sense Motive",
+      "socialblock": "Handle Animal or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/irvin-lourdein.png"
     },
     {
@@ -439,7 +439,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Diplomacy or Sense Motive",
+      "socialblock": "K: Nature or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/faedwyr-trundlebrook.png"
     },
     {
@@ -473,7 +473,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Survival or Sense Motive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/soran-vigaldo.png"
     },
     {
@@ -490,7 +490,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Pro: Any or Sense Motive",
+      "socialblock": "Survival or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/diana-tanner.png"
     },
     {
@@ -507,7 +507,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Intimidate or Sense Motive",
+      "socialblock": "Pro: Any or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/sanch-celan.png"
     },
     {
@@ -524,7 +524,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "K: Dungeoneering or Sense Motive",
+      "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/machi-valenth.png"
     },
     {
@@ -541,7 +541,7 @@
       "weakness": "???",
       "skills": "Intimidate, Bluff, ???",
       "death": "Alive",
-      "socialblock": "Bluff or Sense Motive",
+      "socialblock": "K: Dungeoneering or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/tipps-kreggan.png"
     },
     {
@@ -558,7 +558,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Diplomacy or Sense Motive",
+      "socialblock": "Bluff or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/palodina-orbonth.png"
     },
     {
@@ -592,7 +592,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "K: Nature or Sense Motive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/kulena-sprads.png"
     },
     {
@@ -609,7 +609,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Diplomacy or Sense Motive",
+      "socialblock": "K: Nature or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/jacques-hughon.png"
     },
     {
@@ -626,7 +626,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Stealth or Sense Motive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/frel-tanboor.png"
     },
     {
@@ -643,7 +643,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "K: Nature or Sense Motive",
+      "socialblock": "Stealth or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/medrinnah-harleau.png"
     },
     {
@@ -660,7 +660,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Diplomacy or Sense Motive",
+      "socialblock": "K: Nature or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/tesswyn-nalbocht.png"
     }
   ],
@@ -679,7 +679,7 @@
       "weakness": "???",
       "skills": "Diplomacy, K: Any, ???",
       "death": "Alive",
-      "socialblock": "Pro: Soldier or Sense Motive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/ramona-avandth.png"
     },
     {
@@ -696,7 +696,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "Diplomacy or Sense Motive",
+      "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/grammel-taychar.png"
     },
     {
@@ -713,7 +713,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "K: Nobility, K: Religion, or Sense Motive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/eamon-caranth.png"
     },
     {
@@ -730,7 +730,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "K: Nobility or Sense Motive",
+      "socialblock": "K: Nobility, K: Religion, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/kurvis-nurpico.png"
     },
     {
@@ -747,7 +747,7 @@
       "weakness": "???",
       "skills": "???",
       "death": "Alive",
-      "socialblock": "K: Arcana, K: Engineering, K: History, or Sense Motive",
+      "socialblock": "K: Nobility or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/carethet-maluis.png"
     },
     {
@@ -764,7 +764,7 @@
       "weakness": "???",
       "skills": "Bluff, Diplomacy, ???",
       "death": "Alive",
-      "socialblock": "Perception or Sense Motive",
+      "socialblock": "K: Arcana, K: Engineering, K: History, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/perrell-beys.png"
     },
     {
@@ -781,7 +781,7 @@
       "weakness": "???",
       "skills": "Bluff, ???",
       "death": "Alive",
-      "socialblock": "K: Any or Sense Motive",
+      "socialblock": "Perception or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/lyra-heatherly.png"
     }
   ],
