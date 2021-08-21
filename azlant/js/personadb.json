@@ -881,7 +881,7 @@
       "death": " ",
       "order": "1",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/glim-farbuckel.png",
-      "classes": "Blood-Hydrokineticist",
+      "classes": "Blood-Hydrokineticist 1",
       "camptrait": "Set Mind",
       "blood": "None"
     },
@@ -923,7 +923,7 @@
       "death": " ",
       "order": "1",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/morogak.png",
-      "classes": "Aquatic Bloodrager 1",
+      "classes": "Aquatic Bloodrager 2",
       "camptrait": "Healthy",
       "blood": "Trace"
     },
@@ -944,7 +944,7 @@
       "death": " ",
       "order": "1",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/lucca-orton.png",
-      "classes": "Archivist Bard 1",
+      "classes": "Archivist Bard 2",
       "camptrait": "Following in the Footsteps",
       "blood": "None"
     },
@@ -965,7 +965,7 @@
       "death": " ",
       "order": "1",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/scekros.jpg",
-      "classes": "Druidid Herbalist 1",
+      "classes": "Druidid Herbalist 2",
       "camptrait": "Resourceful",
       "blood": "None"
     },
@@ -986,7 +986,7 @@
       "death": " ",
       "order": "1",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/pearl-silverstream.png",
-      "classes": "Inspired Blade Swashbuckler 1",
+      "classes": "Inspired Blade Swashbuckler 2",
       "camptrait": "Set Mind",
       "blood": "Trace"
     }
