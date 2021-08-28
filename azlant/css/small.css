@@ -268,10 +268,10 @@ main .active p, main .colonist article p, main .pc article p, main .dpc article 
 main .active ul, main .colonist article ul, main .pc article ul, main .dpc article ul, main .dead article ul, main .leader article ul, main .security article ul {
   display: none;
 }
-main .active .click p, main .colonist .click p, main .pc .click p, main .dpc .click p, main .dead .click p, main .leader .click p, main .security article .click p {
+main .active .click p, main .colonist .click p, main .pc .click p, main .dpc .click p, main .dead .click p, main .leader .click p, main .security .click p {
   display: block;
 }
-main .active .click ul, main .colonist .click ul, main .pc .click ul, main .dpc .click ul, main .dead .click ul, main .leader .click ul, main .security article .click ul {
+main .active .click ul, main .colonist .click ul, main .pc .click ul, main .dpc .click ul, main .dead .click ul, main .leader .click ul, main .security .click ul {
   display: block;
 }
 /*---END toggleClass sub-CSS---*/
