@@ -68,10 +68,10 @@ main .mission i p:nth-child(2n+1) img{
 }
 
 /*----------- ARTICLE --------------*/
-main .active, main .prison, main .secrown, main .colonist, main .dead, main .dpc, main .pc, main .inactive, main .legacy, main .target, main .crown, main .asset, main .leader, main .secrown, main .gallery {
+main .active, main .prison, main .secrown, main .colonist, main .dead, main .dpc, main .pc, main .security, main .inactive, main .legacy, main .target, main .crown, main .asset, main .leader, main .secrown, main .gallery {
   justify-content: center;
 }
-main .active article, main .prison article, main .secrown article, main .colonist article, main .dead article, main .dpc article, main .pc article, main .inactive article, main .legacy article, main .target article, main .crown article, main .asset section, main .leader article, main .gallery article {
+main .active article, main .prison article, main .secrown article, main .colonist article, main .dead article, main .dpc article, main .pc article, main .security article, main .inactive article, main .legacy article, main .target article, main .crown article, main .asset section, main .leader article, main .gallery article {
   flex-basis: 46%;
 }
 
