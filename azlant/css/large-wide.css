@@ -38,7 +38,7 @@ main .gallery figure {
 main .gallery figure:hover {box-shadow: 0 0 50px #333;}
 
 /*----------- ARTICLE --------------*/
-main .active article, main .prison article, main .secrown article, main .colonist article, main .dead article, main .dpc article, main .pc article, main .security article, main .inactive article, main .legacy article, main .target article, main .leader article, main .asset section, main .agent article {
+main .active article, main .prison article, main .secrown article, main .colonist article, main .dead article, main .dpc article, main .pc article, main .security article, main .merchant article, main .inactive article, main .legacy article, main .target article, main .leader article, main .asset section, main .agent article {
   flex-basis: 21%;
 }
 
