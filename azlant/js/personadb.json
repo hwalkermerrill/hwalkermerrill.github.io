@@ -2,6 +2,23 @@
   "colonist": [
     {
       "status": "colonist",
+      "announce": "Farmer",
+      "title": " ",
+      "name": "Colson",
+      "surname": "Werton",
+      "attitude": "indifferent",
+      "appearance": "A tan man with ruddy brown hair and a thin beard, Colson's most striking feature is his bright green eyes. A hopeless romantic with an easy smile, he tells people he is of Azlanti descent and blessed by his ancestors to re-inherit Ancorato.",
+      "background": "Colson was born to simple and rather plain looking farmers, but had abnormally striking features. Ever since his birth, he possessed extraordinarily good luck, including winning a lottery from the Bountiful Venture Company, which landed his seat on the expedition. He jokes that luck must be in his blood and skip a hundred generations or so, but there are a few people who believe him.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "socialblock": "Diplomacy or Sense Motive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/colson-werton.png"
+    },
+    {
+      "status": "colonist",
       "announce": "Fisher",
       "title": " 'See-More-Sea'",
       "name": "Saymor",
@@ -67,6 +84,23 @@
       "death": "Alive",
       "socialblock": "K: Any or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/sandra-ganis.png"
+    },
+    {
+      "status": "colonist",
+      "announce": "Trapper",
+      "title": " ",
+      "name": "Jacques",
+      "surname": "Hughon",
+      "attitude": "indifferent",
+      "appearance": "Jacques dresses in muted greens and browns and appears uncomfortable with long conversations. He is, however, an exceptional listener, and is very perceptive both regarding what's going on and what people really mean.",
+      "background": "A lifetime trapper from a logging town near the Verduran Forest, Jacques got lost in the woods for three years as a child and emerged changed by the experience. Some whisper he was touched by the fey, trained in their ways, before being released to live among men once again, but he has always been courteous, hard-working, and uncannily good at finding game.",
+      "biases": "???",
+      "strengths": "???",
+      "weakness": "???",
+      "skills": "???",
+      "death": "Alive",
+      "socialblock": "K: Nature or Sense Motive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/jacques-hughon.png"
     },
     {
       "status": "colonist",
@@ -223,23 +257,6 @@
     },
     {
       "status": "colonist",
-      "announce": "Farmer",
-      "title": " ",
-      "name": "Colson",
-      "surname": "Werton",
-      "attitude": "indifferent",
-      "appearance": "A tan man with ruddy brown hair and a thin beard, Colson's most striking feature is his bright green eyes. A hopeless romantic with an easy smile, he tells people he is of Azlanti descent and blessed by his ancestors to re-inherit Ancorato.",
-      "background": "Colson was born to simple and rather plain looking farmers, but had abnormally striking features. Ever since his birth, he possessed extraordinarily good luck, including winning a lottery from the Bountiful Venture Company, which landed his seat on the expedition. He jokes that luck must be in his blood and skip a hundred generations or so, but there are a few people who believe him.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "death": "Alive",
-      "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/colson-werton.png"
-    },
-    {
-      "status": "colonist",
       "announce": "Fisher",
       "title": " ",
       "name": "Soran",
@@ -373,23 +390,6 @@
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/kulena-sprads.png"
-    },
-    {
-      "status": "colonist",
-      "announce": "Trapper",
-      "title": " ",
-      "name": "Jacques",
-      "surname": "Hughon",
-      "attitude": "indifferent",
-      "appearance": "Jacques dresses in muted greens and browns and appears uncomfortable with long conversations. He is, however, an exceptional listener, and is very perceptive both regarding what's going on and what people really mean.",
-      "background": "A lifetime trapper from a logging town near the Verduran Forest, Jacques got lost in the woods for three years as a child and emerged changed by the experience. Some whisper he was touched by the fey, trained in their ways, before being released to live among men once again, but he has always been courteous, hard-working, and uncannily good at finding game.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "???",
-      "death": "Alive",
-      "socialblock": "K: Nature or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/jacques-hughon.png"
     },
     {
       "status": "colonist",
