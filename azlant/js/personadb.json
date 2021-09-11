@@ -46,7 +46,7 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Intimidate, ???",
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/anya-sandstrider.png"
@@ -318,7 +318,7 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Intimidate, Pro: Any, ???",
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/machi-valenth.png"
@@ -490,7 +490,7 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Sense Motive, K: Any, or Linguistics",
       "death": "Alive",
       "socialblock": "K: Any or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/carver-hastings.png"
@@ -552,13 +552,13 @@
       "title": "Miss",
       "name": "Perrell",
       "surname": "Beys",
-      "attitude": "indifferent",
+      "attitude": "friendly",
       "appearance": "Perrell is a short, thin woman with red hair that she keeps cropped short. Her complexion is fair with a smattering of freckles. She carries herself as if she were an older woman, but she is actually only in her mid-thirties. When not wearing armor, she favors a simple white shirt under a slate-colored vest.",
       "background": "Perrell is a scholar and historian. Like Lyra, she is an employee of the Bountiful Venture Company. Even if she weren’t, she would still have volunteered to join the colony out of academic interest. Her responsibility is to chronicle daily events in Talmandor’s Bounty and provide Ramona with scholarly advice on the nature of any ruins or ancient and valuable relics. She also sees it as her duty to provide her employers with high-quality maps of the island.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "Bluff, Diplomacy, ???",
+      "skills": "Bluff, Diplomacy, K: Arcana, K: Engineering, or K: History",
       "death": "Alive",
       "socialblock": "K: Arcana, K: Engineering, K: History, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/perrell-beys.png"
