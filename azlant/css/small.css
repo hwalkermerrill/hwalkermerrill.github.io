@@ -262,6 +262,9 @@ main .unfriendly {
   color: rgba(0,0,0,1);
   border-color: #d48f2a;
 }
+main .indifferent {
+  background-color: #FFF5EE;
+}
 
 /*---START toggleClass sub-CSS---*/
 main .active p, main .colonist article p, main .pc article p, main .dpc article p, main .dead article p, main .leader article p, main .security article p, main .merchant article p {
