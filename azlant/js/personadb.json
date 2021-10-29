@@ -15,7 +15,7 @@
       "skills": "Diplomacy, ???",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/colson-werton.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-colson-werton.png"
     },
     {
       "status": "colonist",
@@ -32,7 +32,7 @@
       "skills": "Diplomacy, Bluff, or Pro: Sailor",
       "death": "Alive",
       "socialblock": "Pro: Sailor or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/saymor-landis.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-saymor-landis.png"
     },
     {
       "status": "colonist",
@@ -49,7 +49,7 @@
       "skills": "Intimidate, Stealth, Climb, K: Nature, or Survival",
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/anya-sandstrider.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-anya-sandstrider.png"
     },
     {
       "status": "colonist",
@@ -66,7 +66,7 @@
       "skills": "Diplomacy, K: Local, Heal, or C: Caligraphy",
       "death": "Alive",
       "socialblock": "Heal or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/ylaina-xo.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-ylaina-xo.png"
     },
     {
       "status": "colonist",
@@ -83,7 +83,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "K: Any or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/sandra-ganis.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-sandra-ganis.png"
     },
     {
       "status": "colonist",
@@ -100,7 +100,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "K: Nature or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/jacques-hughon.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-jacques-hughon.png"
     },
     {
       "status": "colonist",
@@ -117,7 +117,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Bluff or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/kereda-harper.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kereda-harper.png"
     },
     {
       "status": "colonist",
@@ -134,7 +134,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Appraise, K: Nobility, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/andvara-jeclair.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-andvara-jeclair.png"
     },
     {
       "status": "colonist",
@@ -151,7 +151,7 @@
       "skills": "K: Local, ???",
       "death": "Alive",
       "socialblock": "K: Local or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/nicolaus-jeclair.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-nicolaus-jeclair.png"
     },
     {
       "status": "colonist",
@@ -168,7 +168,7 @@
       "skills": "Intimidate or Strength",
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/daib-joiner.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-daib-joiner.png"
     },
     {
       "status": "colonist",
@@ -185,7 +185,7 @@
       "skills": "Diplomacy, K: Religion, or P: Sing",
       "death": "Alive",
       "socialblock": "K: Religion or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/gaege-murani.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-gaege-murani.png"
     },
     {
       "status": "colonist",
@@ -202,7 +202,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/hondren-ghellen.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-hondren-ghellen.png"
     },
     {
       "status": "colonist",
@@ -219,7 +219,7 @@
       "skills": "Diplomacy, Survival, Heal, ???",
       "death": "Alive",
       "socialblock": "Heal, Survival, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/geouf-tamor.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-geouf-tamor.png"
     },
     {
       "status": "colonist",
@@ -236,7 +236,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Handle Animal or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/irvin-lourdein.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-irvin-lourdein.png"
     },
     {
       "status": "colonist",
@@ -253,7 +253,7 @@
       "skills": "Diplomacy or Strength",
       "death": "Alive",
       "socialblock": "K: Nature or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/faedwyr-trundlebrook.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-faedwyr-trundlebrook.png"
     },
     {
       "status": "colonist",
@@ -270,7 +270,7 @@
       "skills": "Diplomacy, Survival, ???",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/soran-vigaldo.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-soran-vigaldo.png"
     },
     {
       "status": "colonist",
@@ -287,7 +287,7 @@
       "skills": "Diplomacy, Survival, ???",
       "death": "Alive",
       "socialblock": "Survival or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/diana-tanner.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-diana-tanner.png"
     },
     {
       "status": "colonist",
@@ -304,7 +304,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Pro: Any or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/sanch-celan.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-sanch-celan.png"
     },
     {
       "status": "colonist",
@@ -321,7 +321,7 @@
       "skills": "Intimidate, Pro: Any, or Fly",
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/machi-valenth.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-machi-valenth.png"
     },
     {
       "status": "colonist",
@@ -338,7 +338,7 @@
       "skills": "Intimidate, Bluff, K: Dungeoneering, or Appraise",
       "death": "Alive",
       "socialblock": "K: Dungeoneering or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/tipps-kreggan.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-tipps-kreggan.png"
     },
     {
       "status": "colonist",
@@ -355,7 +355,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Bluff or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/palodina-orbonth.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-palodina-orbonth.png"
     },
     {
       "status": "colonist",
@@ -372,7 +372,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/cedwig-tanner.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-cedwig-tanner.png"
     },
     {
       "status": "colonist",
@@ -389,7 +389,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/kulena-sprads.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kulena-sprads.png"
     },
     {
       "status": "colonist",
@@ -406,7 +406,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/frel-tanboor.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-frel-tanboor.png"
     },
     {
       "status": "colonist",
@@ -423,7 +423,7 @@
       "skills": "Diplomacy, Stealth, or Sleight of Hand",
       "death": "Alive",
       "socialblock": "Stealth or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/medrinnah-harleau.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-medrinnah-harleau.png"
     },
     {
       "status": "colonist",
@@ -440,7 +440,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "K: Nature or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/tesswyn-nalbocht.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-tesswyn-nalbocht.png"
     }
   ],
   "leader": [
@@ -459,7 +459,7 @@
       "skills": "Diplomacy, K: Any, or P: Sing",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/ramona-avandth.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-ramona-avandth.png"
     },
     {
       "status": "leader",
@@ -476,7 +476,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/grammel-taychar.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-grammel-taychar.png"
     },
     {
       "status": "leader",
@@ -493,7 +493,7 @@
       "skills": "Sense Motive, K: Any, or Linguistics",
       "death": "Alive",
       "socialblock": "K: Any or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/carver-hastings.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-carver-hastings.png"
     },
     {
       "status": "leader",
@@ -510,7 +510,7 @@
       "skills": "Diplomacy or Heal",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/eamon-caranth.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-eamon-caranth.png"
     },
     {
       "status": "leader",
@@ -527,7 +527,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "K: Nobility, K: Religion, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/kurvis-nurpico.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kurvis-nurpico.png"
     },
     {
       "status": "leader",
@@ -544,7 +544,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "K: Nobility or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/carethet-maluis.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-carethet-maluis.png"
     },
     {
       "status": "leader",
@@ -561,7 +561,7 @@
       "skills": "Bluff, Diplomacy, K: Arcana, K: Engineering, or K: History",
       "death": "Alive",
       "socialblock": "K: Arcana, K: Engineering, K: History, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/perrell-beys.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-perrell-beys.png"
     },
     {
       "status": "leader",
@@ -578,7 +578,7 @@
       "skills": "Bluff, Diplomacy, Perception, Surival, or Pro: Surveyor",
       "death": "Alive",
       "socialblock": "Perception or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/lyra-heatherly.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-lyra-heatherly.png"
     }
   ],
   "merchant": [
@@ -597,7 +597,7 @@
       "skills": "Bluff, Intimidate, Heal, K: Arcana, K: Nature, or C: Alchemy",
       "death": "Alive",
       "socialblock": "Heal, K: Arcana, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/alba-divenvaar.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-alba-divenvaar.png"
     },
     {
       "status": "merchant",
@@ -614,7 +614,7 @@
       "skills": "Diplomacy, K: Local, or K: Nobility",
       "death": "Alive",
       "socialblock": "K: Local, K: Nobility, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/harcourt-carrolby.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-harcourt-carrolby.png"
     },
     {
       "status": "merchant",
@@ -631,7 +631,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Bluff or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/luetin-calewick.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-luetin-calewick.png"
     },
     {
       "status": "merchant",
@@ -648,7 +648,7 @@
       "skills": "Sense Motive, C: Alchemy, Pro: Brewer, or Sleight of Hand",
       "death": "Alive",
       "socialblock": "C: Alchemy, Pro: Brewer, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/helbret-koors.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-helbret-koors.png"
     },
     {
       "status": "merchant",
@@ -665,7 +665,7 @@
       "skills": "Sense Motive, Sleight of Hand, or Stealth",
       "death": "Alive",
       "socialblock": "Stealth or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/kalcora-weems.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kalcora-weems.png"
     },
     {
       "status": "merchant",
@@ -682,7 +682,7 @@
       "skills": "Intimidate, ???",
       "death": "Alive",
       "socialblock": "C: Leather or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/antwyn-malros.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-antwyn-malros.png"
     },
     {
       "status": "merchant",
@@ -699,7 +699,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Spellcraft or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/eskelda-teredein.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-eskelda-teredein.png"
     }
   ],
   "security": [
@@ -718,7 +718,7 @@
       "skills": "Diplomacy, ???",
       "death": "Alive",
       "socialblock": "K: History or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/valania-goen.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-valania-goen.png"
     },
     {
       "status": "security",
@@ -735,7 +735,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/dion-calahan.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-dion-calahan.png"
     },
     {
       "status": "security",
@@ -752,7 +752,7 @@
       "skills": "Diplomacy, Intimidate, and Pro: Soldier",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/milon-cattenbury.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-milon-cattenbury.png"
     },
     {
       "status": "security",
@@ -769,7 +769,7 @@
       "skills": "Diplomacy, ???",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/sighra-harleau.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-sighra-harleau.png"
     },
     {
       "status": "security",
@@ -786,7 +786,7 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/antona-sedgewick.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-antona-sedgewick.png"
     }
   ],
   "dead": [
@@ -824,7 +824,7 @@
       "race": "Undine",
       "death": "Bled to death in a fight with the Ghost-Captain Rayve and his body transformed into a spirit-wolf.",
       "order": "1",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/scekros.jpg",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/pc-scekros.jpg",
       "classes": "Druidic Herbalist 4",
       "camptrait": "Resourceful",
       "blood": "None"
@@ -847,7 +847,7 @@
       "race": "Azlanti-Blooded Human",
       "death": " ",
       "order": "1",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/ver-bedrich.png",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/pc-ver-bedrich.png",
       "classes": "Sea Witch 4",
       "camptrait": "Azlanti Scholar",
       "blood": "Major"
@@ -889,7 +889,7 @@
       "race": "Dwarf",
       "death": " ",
       "order": "1",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/glim-farbuckel.png",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/pc-glim-farbuckel.png",
       "classes": "Blood-Hydrokineticist 2",
       "camptrait": "Set Mind",
       "blood": "None"
@@ -910,8 +910,8 @@
       "race": "Azlanti-Blooded Human",
       "death": " ",
       "order": "1",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/gridol.png",
-      "classes": "Hunter 3",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/pc-gridol.png",
+      "classes": "Hunter 4",
       "camptrait": " ",
       "blood": "Major"
     },
@@ -931,7 +931,7 @@
       "race": "Halfling",
       "death": " ",
       "order": "1",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/lucca-orton.png",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/pc-lucca-orton.png",
       "classes": "Archivist Bard 4",
       "camptrait": "Following in the Footsteps",
       "blood": "None"
@@ -952,7 +952,7 @@
       "race": "Gillman",
       "death": " ",
       "order": "1",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/pearl-silverstream.png",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/pc-pearl-silverstream.png",
       "classes": "Inspired Blade Swashbuckler 3 Sleuth Investigator 1",
       "camptrait": "Set Mind",
       "blood": "Trace"
