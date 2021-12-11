@@ -848,7 +848,7 @@
       "death": " ",
       "order": "1",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/pc-ver-bedrich.png",
-      "classes": "Sea Witch 4",
+      "classes": "Sea Witch 5",
       "camptrait": "Azlanti Scholar",
       "blood": "Major"
     },
@@ -869,7 +869,7 @@
       "death": " ",
       "order": "1",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/unknown.png",
-      "classes": "Angelfire Apostle Clerif of Shelyn 3",
+      "classes": "Angelfire Apostle Clerif of Shelyn 5",
       "camptrait": "Pathfinder Recruit",
       "blood": "Trace"
     },
@@ -911,7 +911,7 @@
       "death": " ",
       "order": "1",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/pc-gridol.png",
-      "classes": "Hunter 4",
+      "classes": "Hunter 5",
       "camptrait": " ",
       "blood": "Major"
     },
@@ -932,7 +932,7 @@
       "death": " ",
       "order": "1",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/pc-lucca-orton.png",
-      "classes": "Archivist Bard 4",
+      "classes": "Archivist Bard 5",
       "camptrait": "Following in the Footsteps",
       "blood": "None"
     },
@@ -953,7 +953,7 @@
       "death": " ",
       "order": "1",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/pc-pearl-silverstream.png",
-      "classes": "Inspired Blade Swashbuckler 3 Sleuth Investigator 1",
+      "classes": "Inspired Blade Swashbuckler 4 Sleuth Investigator 1",
       "camptrait": "Set Mind",
       "blood": "Trace"
     }
