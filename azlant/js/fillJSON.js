@@ -49,6 +49,10 @@ function showJSON(jsonObj,divClass) {
     listWeak.textContent = 'Sympathetic towards: ' + localJObj[i].weakness;
     myList1.appendChild(listWeak);
 
+    var listBoon = document.createElement('li');
+    listBoon.textContent = 'Active Boons: ' + localJObj[i].activeboon;
+    myList1.appendChild(listBoon);
+
     // Creates Paragraph Content and Order
     myH2.textContent = localJObj[i].announce;
     myH3.textContent = localJObj[i].title + ' ' + localJObj[i].name + ' ' + localJObj[i].surname;

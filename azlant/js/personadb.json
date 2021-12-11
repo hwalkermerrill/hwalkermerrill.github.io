@@ -15,7 +15,8 @@
       "skills": "Diplomacy, ???",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-colson-werton.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-colson-werton.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -32,7 +33,8 @@
       "skills": "Diplomacy, Bluff, or Pro: Sailor",
       "death": "Alive",
       "socialblock": "Pro: Sailor or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-saymor-landis.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-saymor-landis.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -49,7 +51,8 @@
       "skills": "Intimidate, Stealth, Climb, K: Nature, or Survival",
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-anya-sandstrider.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-anya-sandstrider.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -66,7 +69,8 @@
       "skills": "Diplomacy, K: Local, Heal, or C: Caligraphy",
       "death": "Alive",
       "socialblock": "Heal or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-ylaina-xo.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-ylaina-xo.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -83,7 +87,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "K: Any or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-sandra-ganis.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-sandra-ganis.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -100,7 +105,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "K: Nature or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-jacques-hughon.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-jacques-hughon.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -114,10 +120,11 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Bluff, Intimidate, ???",
       "death": "Alive",
       "socialblock": "Bluff or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kereda-harper.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kereda-harper.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -125,16 +132,17 @@
       "title": "Misses",
       "name": "Andvara",
       "surname": "Jeclair",
-      "attitude": "indifferent",
+      "attitude": "friendly",
       "appearance": "Andvara looks wealthy and fashionable, often wearing elegant clothes over practical ones. She will not let others see her without her makeup, which can sometimes run in the heat of the day.",
       "background": "One of the wealthier colonists, Andvara is a carpenter by trade who wishes to start a formal logging company on Ancorato to take advantage of the predicted contruction boom from settling Talmandor's Bounty and any future settlements. A wealthy heiress with a history of human rights activism, she was able to secure passage for both herself, her husband, and their two children.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Diplomacy, ???",
       "death": "Alive",
       "socialblock": "Appraise, K: Nobility, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-andvara-jeclair.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-andvara-jeclair.png",
+      "activeboon": "She teaches some of her business and fashion sense to the party, granting one bonus skill rank in appraise."
     },
     {
       "status": "colonist",
@@ -147,11 +155,12 @@
       "background": "Nicolaus is a talented craftsman who has spent a long time building up and reinvesting the fortune his wife inherited. The years have not been kind, however, and while his wife had many reasons for going on the expedition, Nicolaus mostly chose to join to keep his family together and hopefully live a simpler, lower-stress life.",
       "biases": "???",
       "strengths": "???",
-      "weakness": "???",
+      "weakness": "Nicolaus will not turn against his wife or do things he thinks she'll disaprove of.",
       "skills": "K: Local, ???",
       "death": "Alive",
       "socialblock": "K: Local or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-nicolaus-jeclair.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-nicolaus-jeclair.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -168,7 +177,8 @@
       "skills": "Intimidate or Strength",
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-daib-joiner.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-daib-joiner.png",
+      "activeboon": "Daib will secure the party's home in Talmandor's Bounty, so they cannot be ambushed there.\nDaib will also secure any one permanent location the expedition team chooses at a time, even out in the wilderness, and provide a secret back-door for escapes in the event they get trapped."
     },
     {
       "status": "colonist",
@@ -185,7 +195,8 @@
       "skills": "Diplomacy, K: Religion, or P: Sing",
       "death": "Alive",
       "socialblock": "K: Religion or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-gaege-murani.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-gaege-murani.png",
+      "activeboon": "Being around her and her children provides insight into working with 'little-ones,' granting a +2 competence bonus to discovery checks against children, youth, and small creatures.\nHer motherly affection is contagious, and she provides insight into working with 'little-ones,' granting a permanent +2 competence bonus to influence checks against children, youth, and small creatures."
     },
     {
       "status": "colonist",
@@ -202,7 +213,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-hondren-ghellen.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-hondren-ghellen.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -210,7 +222,7 @@
       "title": "Madam",
       "name": "Geouf",
       "surname": "Tamor",
-      "attitude": "indifferent",
+      "attitude": "friendly",
       "appearance": "A deceivingly young-looking vudrani, Geoff has a face completely mismatched to ger name. Friendly and kind, she has pale green eyes and a cluster of freckles on her tan skin.",
       "background": "Geouf was unfortunately named, a joke between her parents meaning 'get out f***er'. She ran away from home during a goblin raid and never looked back, eventually settling in Andoran, though she did decide to keep her name to remember where she came from. She learned how to cook while on the road, and her exceptional herblore and survival skills helped her ace the colony interviews.",
       "biases": "???",
@@ -219,7 +231,8 @@
       "skills": "Diplomacy, Survival, Heal, ???",
       "death": "Alive",
       "socialblock": "Heal, Survival, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-geouf-tamor.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-geouf-tamor.png",
+      "activeboon": "She shows the expedition team some basic herblore, helping them to identify useful herbs and reagents. When in the forrest, plains, or any of their favored terrains, they gain the benefit of the Eschew Materials feat and they can provide for 1 additional person when they successfully get along in the wild."
     },
     {
       "status": "colonist",
@@ -236,7 +249,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Handle Animal or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-irvin-lourdein.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-irvin-lourdein.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -253,7 +267,8 @@
       "skills": "Diplomacy or Strength",
       "death": "Alive",
       "socialblock": "K: Nature or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-faedwyr-trundlebrook.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-faedwyr-trundlebrook.png",
+      "activeboon": "Supports the PCs decision to stay, does not leave the island.\nHe always supports the PC's decisions, assuming they are in the best interest of the colony. During colony-wide events and social crisis' he is a member in, he grants each PC one additonal social action as he helps keep crowds patient and willing to listen."
     },
     {
       "status": "colonist",
@@ -261,16 +276,17 @@
       "title": " ",
       "name": "Soran",
       "surname": "Vigaldo",
-      "attitude": "friendly",
+      "attitude": "helpful",
       "appearance": "Easygoing and well-liked by most people, Soran's hair and beard is sun-bleached blond and he has soft blue eyes. He is usually seen sucking on a piece of straw and absentmindedly stareing off into the distance, usually with a fishing poll, as in the rare times he's seen without one he looks like something's missing.",
       "background": "Soran won his seat on the first wave of the expedition after winning a fishing contest, but turned the seat down. Later, his luck soured, so he vied for a spot on the expedition, narrowly winning his seat due to his knack at knowing where to fish and having the patience to catch the really big ones.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "Diplomacy, Survival, ???",
+      "skills": "Diplomacy, Survival, or Pro: Fisherman",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-soran-vigaldo.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-soran-vigaldo.png",
+      "activeboon": "Soran shows the party some of his fishing knowledge, granting a bonus skill rank in Pro: Fisherman"
     },
     {
       "status": "colonist",
@@ -287,7 +303,8 @@
       "skills": "Diplomacy, Survival, ???",
       "death": "Alive",
       "socialblock": "Survival or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-diana-tanner.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-diana-tanner.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -304,7 +321,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Pro: Any or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-sanch-celan.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-sanch-celan.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -321,7 +339,8 @@
       "skills": "Intimidate, Pro: Any, or Fly",
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-machi-valenth.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-machi-valenth.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -338,7 +357,8 @@
       "skills": "Intimidate, Bluff, K: Dungeoneering, or Appraise",
       "death": "Alive",
       "socialblock": "K: Dungeoneering or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-tipps-kreggan.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-tipps-kreggan.png",
+      "activeboon": "Tipps begins giving a random party member a rock or gem Tipps found that reminded Tipps of the party member, each week. Roll D%, 1-49 it’s a worthless rock, 50-89 its worth 1d10gp, 90-100 its worth d20*25gp.\nThe gems Tipps recovers becomes more valuable. Roll D%, 1-49 worth 1d10gp, 50-89its worth d20*25gp, 90-95 it’s a cracked ioun stone woth less than 1k, 96-98 it's a flawed or cracked ioun stone worth less than 2k, 99-100 it’s any ioun stone worth less than 5k."
     },
     {
       "status": "colonist",
@@ -355,7 +375,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Bluff or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-palodina-orbonth.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-palodina-orbonth.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -372,7 +393,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-cedwig-tanner.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-cedwig-tanner.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -389,7 +411,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kulena-sprads.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kulena-sprads.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -403,10 +426,11 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Diplomacy or Pro: Brewer",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-frel-tanboor.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-frel-tanboor.png",
+      "activeboon": "None"
     },
     {
       "status": "colonist",
@@ -423,7 +447,8 @@
       "skills": "Diplomacy, Stealth, or Sleight of Hand",
       "death": "Alive",
       "socialblock": "Stealth or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-medrinnah-harleau.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-medrinnah-harleau.png",
+      "activeboon": "Promises not to rob the party.\nOcassionally 'finds' things the PC's were looking for but couldn't find, usually evidence, clues, or items belonging to a character or merchant that is unfriendly to the party. If the item is valuable, she will sell it to the PC's instead of giving it to them, selling it for 50% of the items total value."
     },
     {
       "status": "colonist",
@@ -440,7 +465,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "K: Nature or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-tesswyn-nalbocht.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-tesswyn-nalbocht.png",
+      "activeboon": "None"
     }
   ],
   "leader": [
@@ -459,7 +485,8 @@
       "skills": "Diplomacy, K: Any, or P: Sing",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-ramona-avandth.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-ramona-avandth.png",
+      "activeboon": "None"
     },
     {
       "status": "leader",
@@ -476,7 +503,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-grammel-taychar.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-grammel-taychar.png",
+      "activeboon": "None"
     },
     {
       "status": "leader",
@@ -484,7 +512,7 @@
       "title": "Corporal",
       "name": "Carver",
       "surname": "Hastings",
-      "attitude": "friendly",
+      "attitude": "helpful",
       "appearance": "Carver is a man of average height with short, wavy brown hair. He grows no more than a few days’ stubble before shaving. He has blue eyes and a light tan complexion. He wears studded leather armor over worker’s clothing but uses his armor’s glamered special ability to cause it to appear as a normal steel breastplate, to blend in with the other soldiers. He keeps a wayfinder concealed under his shirt and armor. ",
       "background": "Carver Hastings is a Pathfinder born and educated in Carpenden. He is relatively unknown in most Pathfinder Society circles. Pathfinder Society leadership is well aware that the Talmandor’s Bounty colony may lie near Azlanti ruins originally explored by Durvin Gest, so Carver was instructed by Venture-Captain Brackett of Almas to insinuate himself into the ranks of the hopeful colonists. However, there is a growing concern among the venture-captains that the Aspis Consortium may be spying on Pathfinders as a shortcut in their own research. For that reason, Hastings has been instructed to hide his status as a Pathfinder, so he masquerades as one of the colony’s soldiers. His goal is to survey and explore—and eventually inform Brackett discreetly of the nature of any Azlanti ruins on the island.",
       "biases": "Carver is surprisingly understanding of all manner of individuals.",
@@ -493,7 +521,8 @@
       "skills": "Sense Motive, K: Any, or Linguistics",
       "death": "Alive",
       "socialblock": "K: Any or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-carver-hastings.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-carver-hastings.png",
+      "activeboon": "He reveals his secret of being a Pathfinder on an undercover assignment, and knowing there was a member of the Aspis Consortium on the first wave (Eliza Haniver).\nCarver supplies the team with a Wayfinder, if they do not already have one. These Wayfinders cannot be sold and have no special qualities beyond a standard wayfinder. He also gives all pathfinder recruits an ioun stone of their choice worth 150gp*lvl*book number or less."
     },
     {
       "status": "leader",
@@ -510,7 +539,8 @@
       "skills": "Diplomacy or Heal",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-eamon-caranth.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-eamon-caranth.png",
+      "activeboon": "Starts setting the PC's up on dates, once per week he grants one PC of his choice a dual social round with a +2 with one NPC of his choice (should be a good match). Father Eamon Caranth's words of inspiration from Old Deadeye further invigorate characters with the Healthy campaigntrait, usually granting one or more benefits each time they succeed on a Fortitude saving throw against an effect: if the effect would have dealt damage, they gain 1 hp; if it would have caused fatigue, they instead gain a second wind, granting the benefits of haste for one round; if succeeding causes them to take a reduced negative effect, they instead ignore it; if the effect must be saved against each round, they gain a +2 bonus on subsequent saves against this instance of the effect (does not stack with itself)."
     },
     {
       "status": "leader",
@@ -527,7 +557,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "K: Nobility, K: Religion, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kurvis-nurpico.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kurvis-nurpico.png",
+      "activeboon": "None"
     },
     {
       "status": "leader",
@@ -544,7 +575,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "K: Nobility or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-carethet-maluis.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-carethet-maluis.png",
+      "activeboon": "None"
     },
     {
       "status": "leader",
@@ -561,7 +593,8 @@
       "skills": "Bluff, Diplomacy, K: Arcana, K: Engineering, or K: History",
       "death": "Alive",
       "socialblock": "K: Arcana, K: Engineering, K: History, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-perrell-beys.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-perrell-beys.png",
+      "activeboon": "Miss Perrell is an excellent language tutor and offers her services for free. She reduces the downtime required to learn a new language by half. Azlanti Scholars do not need to pay downtime fees to learn new languages.\nMiss Perrell's insights and tutelage grants every member of the expedition a bonus skill rank in either K: History, K: Geography, or Linguistics (Azlanti). Azlanti Scholars also receive Skill Focus as a bonus feat in the skill they chose with their campaign trait."
     },
     {
       "status": "leader",
@@ -578,7 +611,8 @@
       "skills": "Bluff, Diplomacy, Perception, Surival, or Pro: Surveyor",
       "death": "Alive",
       "socialblock": "Perception or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-lyra-heatherly.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-lyra-heatherly.png",
+      "activeboon": "Lyra's shows people how to get along better in the wild and how better to track their prey. Everyone gains 1 bonus skill rank in Survival (or gains a bonus rank at next level if it is currently maxed out).\nLyra puts higher priority on the Expedition Team's needs and puts more effort in finding locations of interest for them. Each week, there is a 50% chance she locates an area of interest the Expedition Team hasn't found yet, if one exists. Characters with the Expert Explorer campaign trait gain Explorer and Weapon Focus (machete) - or a feat with Weapon Focus (machete) as a prerequisite which they otherwise qualify for - as bonus feats."
     }
   ],
   "merchant": [
@@ -597,7 +631,8 @@
       "skills": "Bluff, Intimidate, Heal, K: Arcana, K: Nature, or C: Alchemy",
       "death": "Alive",
       "socialblock": "Heal, K: Arcana, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-alba-divenvaar.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-alba-divenvaar.png",
+      "activeboon": "Offer's a 50% return on value for reagents towards potions and alchemical items of their choice, and full value for arcane spells and formulae she can learn. She also takes on commisions and becomes willing to buy Herbal Components harvested with the Herbal Components feat.\nIs willing to sell the party's potions in her shop for them for a 50% cut of the profits, allowing the party to sell potions for 75% value."
     },
     {
       "status": "merchant",
@@ -614,7 +649,8 @@
       "skills": "Diplomacy, K: Local, or K: Nobility",
       "death": "Alive",
       "socialblock": "K: Local, K: Nobility, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-harcourt-carrolby.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-harcourt-carrolby.png",
+      "activeboon": "None"
     },
     {
       "status": "merchant",
@@ -631,7 +667,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Bluff or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-luetin-calewick.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-luetin-calewick.png",
+      "activeboon": "Luetin refuses to Serve the PC's at Talmandor's Smithy"
     },
     {
       "status": "merchant",
@@ -648,7 +685,8 @@
       "skills": "Sense Motive, C: Alchemy, Pro: Brewer, or Sleight of Hand",
       "death": "Alive",
       "socialblock": "C: Alchemy, Pro: Brewer, or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-helbret-koors.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-helbret-koors.png",
+      "activeboon": "None"
     },
     {
       "status": "merchant",
@@ -665,7 +703,8 @@
       "skills": "Sense Motive, Sleight of Hand, or Stealth",
       "death": "Alive",
       "socialblock": "Stealth or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kalcora-weems.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kalcora-weems.png",
+      "activeboon": "None"
     },
     {
       "status": "merchant",
@@ -682,7 +721,8 @@
       "skills": "Intimidate, ???",
       "death": "Alive",
       "socialblock": "C: Leather or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-antwyn-malros.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-antwyn-malros.png",
+      "activeboon": "None"
     },
     {
       "status": "merchant",
@@ -699,7 +739,8 @@
       "skills": "Sense Motive, Heal, ???",
       "death": "Alive",
       "socialblock": "Spellcraft or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-eskelda-teredein.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-eskelda-teredein.png",
+      "activeboon": "None"
     }
   ],
   "security": [
@@ -718,7 +759,8 @@
       "skills": "Diplomacy, ???",
       "death": "Alive",
       "socialblock": "K: History or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-valania-goen.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-valania-goen.png",
+      "activeboon": "None"
     },
     {
       "status": "security",
@@ -735,7 +777,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-dion-calahan.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-dion-calahan.png",
+      "activeboon": "None"
     },
     {
       "status": "security",
@@ -748,11 +791,11 @@
       "background": "A fresh graduate, Milon is the rookie assigned to escort the expedition, but that doesn't mean he isn't qualified. Having earned several awards, both before and during basic training, Milon thinks of himself as a rising star and dreams of uncovering lost Azlanti riches. He puts a great deal of work into his personal appearance and maintaining his fathers armor, who was slain by a polar bear in the line of duty.",
       "biases": "???",
       "strengths": "???",
-      "weakness": "???",
       "skills": "Diplomacy, Intimidate, and Pro: Soldier",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-milon-cattenbury.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-milon-cattenbury.png",
+      "activeboon": "Milon begins trying to emulate the PC's, becoming a better soldier and adventurer. He retrains all his class levels - from commoner 1 warrior 1 - to fighter."
     },
     {
       "status": "security",
@@ -769,7 +812,8 @@
       "skills": "Diplomacy, ???",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-sighra-harleau.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-sighra-harleau.png",
+      "activeboon": "Sighra asks the expedition team to be good role-models for her daughter, and to step in where they can to show her a better way. This reveals all ways to influence Medrinnah Harleau."
     },
     {
       "status": "security",
@@ -786,7 +830,8 @@
       "skills": "???",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-antona-sedgewick.png"
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-antona-sedgewick.png",
+      "activeboon": "None"
     }
   ],
   "dead": [
