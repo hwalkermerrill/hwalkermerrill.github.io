@@ -12,7 +12,7 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "Diplomacy, ???",
+      "skills": "Diplomacy, C: Any, P: Any, or Dexterity",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-colson-werton.png",
@@ -42,7 +42,7 @@
       "title": " ",
       "name": "Anya",
       "surname": "Sandstrider",
-      "attitude": "indifferent",
+      "attitude": "friendly",
       "appearance": "Anya has a deeper tan complexion than many of her fellow colonists. She keeps her head shaved bald and has dark chestnut eyes. She has several tattoos of runic and animal totems representing the moon and owls.",
       "background": "Anya is truly a fish out of water among the colonists. She is a Shoanti hunter and a former member of the Lyrune Quah (the Moon Clan), exiled from the Cinderlands after she broke tradition and interfered with an honor duel that would have taken the life of her younger brother. She has roamed the Inner Sea region since, seeking a new place to make her home. When a trader read her an advertisement for colonists, she applied. Anya was initially rejected due to her lack of citizenship, but she undertook a series of challenges designed to gauge her skill as a hunter and naturalist and impressed the investors.",
       "biases": "???",
@@ -52,7 +52,7 @@
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-anya-sandstrider.png",
-      "activeboon": "None"
+      "activeboon": "Sandstrider shows the expedition team a thing or two about tracking. Everyone gains one bonus skill rank in either K: Nature or Survival (their choice), and can track untrained."
     },
     {
       "status": "colonist",
@@ -120,7 +120,7 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "Bluff, Intimidate, ???",
+      "skills": "Bluff, Intimidate, Disable Device, ???",
       "death": "Alive",
       "socialblock": "Bluff or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kereda-harper.png",
@@ -135,10 +135,10 @@
       "attitude": "friendly",
       "appearance": "Andvara looks wealthy and fashionable, often wearing elegant clothes over practical ones. She will not let others see her without her makeup, which can sometimes run in the heat of the day.",
       "background": "One of the wealthier colonists, Andvara is a carpenter by trade who wishes to start a formal logging company on Ancorato to take advantage of the predicted contruction boom from settling Talmandor's Bounty and any future settlements. A wealthy heiress with a history of human rights activism, she was able to secure passage for both herself, her husband, and their two children.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "Diplomacy, ???",
+      "biases": "Andvara is very fashion concious and is much more receptive to people who wear extra jewelry (non-magical) than people who only wear clothing (if that).",
+      "strengths": "Andvara is especially receptive to people wearing courtiers or nobles outfits with the correct amount of jewelry.",
+      "weakness": "Andvara is particularly disaproving of torn, damaged, burned, or tattered clothing and the people who voluntarily wear them.",
+      "skills": "Diplomacy, K: Nobility, or Appraise",
       "death": "Alive",
       "socialblock": "Appraise, K: Nobility, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-andvara-jeclair.png",
@@ -150,7 +150,7 @@
       "title": "Mister",
       "name": "Nicolaus",
       "surname": "Jeclair",
-      "attitude": "friendly",
+      "attitude": "helpful",
       "appearance": "Weathered with kind but penetrating eyes, Nicolaus has not aged as well as his wife. While he is friendly, he is also prone to waxing ponderous.",
       "background": "Nicolaus is a talented craftsman who has spent a long time building up and reinvesting the fortune his wife inherited. The years have not been kind, however, and while his wife had many reasons for going on the expedition, Nicolaus mostly chose to join to keep his family together and hopefully live a simpler, lower-stress life.",
       "biases": "???",
@@ -160,7 +160,7 @@
       "death": "Alive",
       "socialblock": "K: Local or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-nicolaus-jeclair.png",
-      "activeboon": "None"
+      "activeboon": "Nicolaus' deference to his wife points him to tell the party how to talk to her, revealing all of her influence skills, biases, resistances, and vulnerabilities."
     },
     {
       "status": "colonist",
@@ -178,7 +178,7 @@
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-daib-joiner.png",
-      "activeboon": "Daib will secure the party's home in Talmandor's Bounty, so they cannot be ambushed there.\nDaib will also secure any one permanent location the expedition team chooses at a time, even out in the wilderness, and provide a secret back-door for escapes in the event they get trapped."
+      "activeboon": "Daib will secure the party's home in Talmandor's Bounty, so they cannot be ambushed there.\r\n\r\nDaib will also secure any one permanent location the expedition team chooses at a time, even out in the wilderness, and provide a secret back-door for escapes in the event they get trapped."
     },
     {
       "status": "colonist",
@@ -196,7 +196,7 @@
       "death": "Alive",
       "socialblock": "K: Religion or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-gaege-murani.png",
-      "activeboon": "Being around her and her children provides insight into working with 'little-ones,' granting a +2 competence bonus to discovery checks against children, youth, and small creatures.\nHer motherly affection is contagious, and she provides insight into working with 'little-ones,' granting a permanent +2 competence bonus to influence checks against children, youth, and small creatures."
+      "activeboon": "Being around her and her children provides insight into working with 'little-ones,' granting a +2 competence bonus to discovery checks against children, youth, and small creatures.\r\n\r\nHer motherly affection is contagious, and she provides insight into working with 'little-ones,' granting a permanent +2 competence bonus to influence checks against children, youth, and small creatures."
     },
     {
       "status": "colonist",
@@ -246,7 +246,7 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Diplomacy, K: Nature, ???",
       "death": "Alive",
       "socialblock": "Handle Animal or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-irvin-lourdein.png",
@@ -268,7 +268,7 @@
       "death": "Alive",
       "socialblock": "K: Nature or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-faedwyr-trundlebrook.png",
-      "activeboon": "Supports the PCs decision to stay, does not leave the island.\nHe always supports the PC's decisions, assuming they are in the best interest of the colony. During colony-wide events and social crisis' he is a member in, he grants each PC one additonal social action as he helps keep crowds patient and willing to listen."
+      "activeboon": "Supports the PCs decision to stay, does not leave the island.\r\n\r\nHe always supports the PC's decisions, assuming they are in the best interest of the colony. During colony-wide events and social crisis' he is a member in, he grants each PC one additonal social action as he helps keep crowds patient and willing to listen."
     },
     {
       "status": "colonist",
@@ -358,7 +358,7 @@
       "death": "Alive",
       "socialblock": "K: Dungeoneering or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-tipps-kreggan.png",
-      "activeboon": "Tipps begins giving a random party member a rock or gem Tipps found that reminded Tipps of the party member, each week. Roll D%, 1-49 it’s a worthless rock, 50-89 its worth 1d10gp, 90-100 its worth d20*25gp.\nThe gems Tipps recovers becomes more valuable. Roll D%, 1-49 worth 1d10gp, 50-89its worth d20*25gp, 90-95 it’s a cracked ioun stone woth less than 1k, 96-98 it's a flawed or cracked ioun stone worth less than 2k, 99-100 it’s any ioun stone worth less than 5k."
+      "activeboon": "Tipps begins giving a random party member a rock or gem Tipps found that reminded Tipps of the party member, each week. Roll D%, 1-49 it’s a worthless rock, 50-89 its worth 1d10gp, 90-100 its worth d20*25gp.\r\n\r\nThe gems Tipps recovers becomes more valuable. Roll D%, 1-49 worth 1d10gp, 50-89its worth d20*25gp, 90-95 it’s a cracked ioun stone woth less than 1k, 96-98 it's a flawed or cracked ioun stone worth less than 2k, 99-100 it’s any ioun stone worth less than 5k."
     },
     {
       "status": "colonist",
@@ -448,7 +448,7 @@
       "death": "Alive",
       "socialblock": "Stealth or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-medrinnah-harleau.png",
-      "activeboon": "Promises not to rob the party.\nOcassionally 'finds' things the PC's were looking for but couldn't find, usually evidence, clues, or items belonging to a character or merchant that is unfriendly to the party. If the item is valuable, she will sell it to the PC's instead of giving it to them, selling it for 50% of the items total value."
+      "activeboon": "Promises not to rob the party.\r\n\r\nOcassionally 'finds' things the PC's were looking for but couldn't find, usually evidence, clues, or items belonging to a character or merchant that is unfriendly to the party. If the item is valuable, she will sell it to the PC's instead of giving it to them, selling it for 50% of the items total value."
     },
     {
       "status": "colonist",
@@ -472,11 +472,11 @@
   "leader": [
     {
       "status": "leader",
-      "announce": "Lt. Governor",
-      "title": "Lt. Governor",
+      "announce": "Governor",
+      "title": "Governor",
       "name": "Ramona",
       "surname": "Avandth",
-      "attitude": "indifferent",
+      "attitude": "friendly",
       "appearance": "Ramona has a natural tan complexion that deepens during the ocean voyage. She keeps her brown hair cut short and dresses appropriately for a subtropical climate. Ramona spends little effort on her appearance, but she has an attractive face that hides behind the cloud of concern she feels toward her fellow colonists. Her green eyes grow intense during a crisis but soften when matters are calm and under control.",
       "background": "Ramona Avandth is the Bountiful Venture Company’s designated leader for the colony. Once the Peregrine arrives, she expects to deliver a sealed letter to Rayland Arkley and assume leadership of the entire colony, while Rayland is instructed to serve as her second-in-command. Ramona was chosen for her leadership skills, rather than her bardic abilities; nevertheless, she has a fine singing voice and an appreciation for artistic talents.",
       "biases": "???",
@@ -486,7 +486,7 @@
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-ramona-avandth.png",
-      "activeboon": "None"
+      "activeboon": "Ramona expands the expedition teams access to daily colonist reports, granting a +2 insight bonus on discovery checks with other colonists."
     },
     {
       "status": "leader",
@@ -522,7 +522,7 @@
       "death": "Alive",
       "socialblock": "K: Any or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-carver-hastings.png",
-      "activeboon": "He reveals his secret of being a Pathfinder on an undercover assignment, and knowing there was a member of the Aspis Consortium on the first wave (Eliza Haniver).\nCarver supplies the team with a Wayfinder, if they do not already have one. These Wayfinders cannot be sold and have no special qualities beyond a standard wayfinder. He also gives all pathfinder recruits an ioun stone of their choice worth 150gp*lvl*book number or less."
+      "activeboon": "He reveals his secret of being a Pathfinder on an undercover assignment, and knowing there was a member of the Aspis Consortium on the first wave (Eliza Haniver).\r\n\r\nCarver supplies the team with a Wayfinder, if they do not already have one. These Wayfinders cannot be sold and have no special qualities beyond a standard wayfinder. He also gives all pathfinder recruits an ioun stone of their choice worth 150gp*lvl*book number or less."
     },
     {
       "status": "leader",
@@ -531,7 +531,7 @@
       "name": "Eamon",
       "surname": "Caranth",
       "attitude": "helpful",
-      "appearance": "Eamon is a tall man with straw-colored hair and an infectious smile. His eyes are human but violet-colored, an indication of his elven heritage in addition to his pointed ears. When Eamon moves about the chapel or within the safe confines of the colony, he\nfavors a green robe or cassock, but he does not hesitate to change to armor when out in the wilderness. His extended life span, compared to Kurvis’s, has started to become apparent.",
+      "appearance": "Eamon is a tall man with straw-colored hair and an infectious smile. His eyes are human but violet-colored, an indication of his elven heritage in addition to his pointed ears. When Eamon moves about the chapel or within the safe confines of the colony, he \r\nfavors a green robe or cassock, but he does not hesitate to change to armor when out in the wilderness. His extended life span, compared to Kurvis’s, has started to become apparent.",
       "background": "Eamon and his friend and fellow cleric Kurvis are missionaries who volunteered to join the colony. Eamon feels particularly called to steer Talmandor’s Bounty away from merely a fiscal enterprise and toward becoming a community where families will flourish. He and Kurvis bicker like an old married couple, but despite appearances, they are the best of friends and nothing more.",
       "biases": "Eamon is more inclined to work with people with a community related craft or profession, such as craft bows or profession farmer. Conversely, he usually feels as though very smart people don't need his help (+3 or higher modifier to any mental stat).",
       "strengths": "???",
@@ -594,7 +594,7 @@
       "death": "Alive",
       "socialblock": "K: Arcana, K: Engineering, K: History, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-perrell-beys.png",
-      "activeboon": "Miss Perrell is an excellent language tutor and offers her services for free. She reduces the downtime required to learn a new language by half. Azlanti Scholars do not need to pay downtime fees to learn new languages.\nMiss Perrell's insights and tutelage grants every member of the expedition a bonus skill rank in either K: History, K: Geography, or Linguistics (Azlanti). Azlanti Scholars also receive Skill Focus as a bonus feat in the skill they chose with their campaign trait."
+      "activeboon": "Miss Perrell is an excellent language tutor and offers her services for free. She reduces the downtime required to learn a new language by half. Azlanti Scholars do not need to pay downtime fees to learn new languages.\r\n\r\nMiss Perrell's insights and tutelage grants every member of the expedition a bonus skill rank in either K: History, K: Geography, or Linguistics (Azlanti). Azlanti Scholars also receive Skill Focus as a bonus feat in the skill they chose with their campaign trait."
     },
     {
       "status": "leader",
@@ -612,7 +612,7 @@
       "death": "Alive",
       "socialblock": "Perception or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-lyra-heatherly.png",
-      "activeboon": "Lyra's shows people how to get along better in the wild and how better to track their prey. Everyone gains 1 bonus skill rank in Survival (or gains a bonus rank at next level if it is currently maxed out).\nLyra puts higher priority on the Expedition Team's needs and puts more effort in finding locations of interest for them. Each week, there is a 50% chance she locates an area of interest the Expedition Team hasn't found yet, if one exists. Characters with the Expert Explorer campaign trait gain Explorer and Weapon Focus (machete) - or a feat with Weapon Focus (machete) as a prerequisite which they otherwise qualify for - as bonus feats."
+      "activeboon": "Lyra's shows people how to get along better in the wild and how better to track their prey. Everyone gains 1 bonus skill rank in Survival (or gains a bonus rank at next level if it is currently maxed out).\r\n\r\nLyra puts higher priority on the Expedition Team's needs and puts more effort in finding locations of interest for them. Each week, there is a 50% chance she locates an area of interest the Expedition Team hasn't found yet, if one exists. Characters with the Expert Explorer campaign trait gain Explorer and Weapon Focus (machete) - or a feat with Weapon Focus (machete) as a prerequisite which they otherwise qualify for - as bonus feats."
     }
   ],
   "merchant": [
@@ -632,7 +632,7 @@
       "death": "Alive",
       "socialblock": "Heal, K: Arcana, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-alba-divenvaar.png",
-      "activeboon": "Offer's a 50% return on value for reagents towards potions and alchemical items of their choice, and full value for arcane spells and formulae she can learn. She also takes on commisions and becomes willing to buy Herbal Components harvested with the Herbal Components feat.\nIs willing to sell the party's potions in her shop for them for a 50% cut of the profits, allowing the party to sell potions for 75% value."
+      "activeboon": "Offer's a 50% return on value for reagents towards potions and alchemical items of their choice, and full value for arcane spells and formulae she can learn. She also takes on commisions and becomes willing to buy Herbal Components harvested with the Herbal Components feat.\r\n\r\nIs willing to sell the party's potions in her shop for them for a 50% cut of the profits, allowing the party to sell potions for 75% value."
     },
     {
       "status": "merchant",
@@ -640,12 +640,12 @@
       "title": "Lord",
       "name": "Harcourt",
       "surname": "Carrolby",
-      "attitude": "unfriendly",
+      "attitude": "indifferent",
       "appearance": "Harcourt has raven-black hair and a pale complexion due to Chelish noble ancestry several generations back. He is in his late twenties, handsome, and in good physical condition.",
       "background": "Harcourt is the youngest adult son of the Carrolby family, wealthy horse breeders in Andoran and former nobles from before the People's Revolt. Harcourt receives a stipend from the family business, but two older brothers who stand to inherit when their mother passes away impede his involvement in the venture. Harcourt sought a means of advancement that avoided family infighting and negotiated a deal with his aging mother. He would join the new colony, establish himself, hire workers to build stables, and import horses to the island at later date, thus expanding the family business to Ancorato and beyond. ",
       "biases": "???",
       "strengths": "???",
-      "weakness": "???",
+      "weakness": "Likes people of breeding, and anyone of noble birth or with a measurable amount of Azlant Blood easily earn his attention.",
       "skills": "Diplomacy, K: Local, or K: Nobility",
       "death": "Alive",
       "socialblock": "K: Local, K: Nobility, or Sense Motive",
@@ -668,7 +668,7 @@
       "death": "Alive",
       "socialblock": "Bluff or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-luetin-calewick.png",
-      "activeboon": "Luetin refuses to Serve the PC's at Talmandor's Smithy"
+      "activeboon": "Refuses to Serve the PC's at Talmandor's Smithy"
     },
     {
       "status": "merchant",
@@ -697,9 +697,9 @@
       "attitude": "unfriendly",
       "appearance": "Kalcora has outrageously pink and purple hair streaked with white - a telltale sign of bleaching. Delighting in haggling and arguing, she wears her atheism proudly, often sparking arguments with her eagerness to contradict others. ",
       "background": "An escaped slave from Cheliax, Kalcora chose her name while she laid low and built a new life for herself. She is devilishly good at aquiring things people want, though she often charges far more than they're worth. She has no qualms about where her goods come from, and she seems to haggle more for a desire for entertainment than frugality.",
-      "biases": "???",
+      "biases": "Kalcora has a tendency to get along better with other short races and is extra argumentative with people taller than her (3'3\").",
       "strengths": "???",
-      "weakness": "???",
+      "weakness": "Kalcora is obssessed with hairstyling and find a kindred spirit with characters who frequently change, style, and dye their hair.",
       "skills": "Sense Motive, Sleight of Hand, or Stealth",
       "death": "Alive",
       "socialblock": "Stealth or Sense Motive",
@@ -791,6 +791,7 @@
       "background": "A fresh graduate, Milon is the rookie assigned to escort the expedition, but that doesn't mean he isn't qualified. Having earned several awards, both before and during basic training, Milon thinks of himself as a rising star and dreams of uncovering lost Azlanti riches. He puts a great deal of work into his personal appearance and maintaining his fathers armor, who was slain by a polar bear in the line of duty.",
       "biases": "???",
       "strengths": "???",
+      "weakness": 0,
       "skills": "Diplomacy, Intimidate, and Pro: Soldier",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
@@ -809,7 +810,7 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "Diplomacy, ???",
+      "skills": "Diplomacy, Intimidate, ???",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-sighra-harleau.png",
