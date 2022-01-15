@@ -114,7 +114,7 @@
       "title": " ",
       "name": "Kereda",
       "surname": "Harper",
-      "attitude": "indifferent",
+      "attitude": "friendly",
       "appearance": "Kereda has short black hair and a dark brown complexion that matches his eyes. He brought two sets of clothing with him, one for working, and one for resting, stating simply that he didn’t have or need any more. Defiantly proud, he has a hard time making friends with the other colonists, but he lets his dedicated work speak for itself.",
       "background": "A talented carpenter apprenticed in Almas, Kereda should have had all the opportunities he needed to become wealthy and successful… but they never materialized. Ostracized by some of his coworkers over his work ethic and flat refusal to join them in either drinking or horseplay forced him to turn to the sea for new employment.",
       "biases": "???",
@@ -124,7 +124,7 @@
       "death": "Alive",
       "socialblock": "Bluff or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kereda-harper.png",
-      "activeboon": "None"
+      "activeboon": "Kereda reluctantly shows the party how to improve their workmanship, granting a bonus skill rank in a craft or profession of their choice."
     },
     {
       "status": "colonist",
@@ -132,7 +132,7 @@
       "title": "Misses",
       "name": "Andvara",
       "surname": "Jeclair",
-      "attitude": "friendly",
+      "attitude": "helpful",
       "appearance": "Andvara looks wealthy and fashionable, often wearing elegant clothes over practical ones. She will not let others see her without her makeup, which can sometimes run in the heat of the day.",
       "background": "One of the wealthier colonists, Andvara is a carpenter by trade who wishes to start a formal logging company on Ancorato to take advantage of the predicted contruction boom from settling Talmandor's Bounty and any future settlements. A wealthy heiress with a history of human rights activism, she was able to secure passage for both herself, her husband, and their two children.",
       "biases": "Andvara is very fashion concious and is much more receptive to people who wear extra jewelry (non-magical) than people who only wear clothing (if that).",
@@ -142,7 +142,7 @@
       "death": "Alive",
       "socialblock": "Appraise, K: Nobility, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-andvara-jeclair.png",
-      "activeboon": "She teaches some of her business and fashion sense to the party, granting one bonus skill rank in appraise."
+      "activeboon": "She teaches some of her business and fashion sense to the party, granting one bonus skill rank in appraise.\r\n\r\nAndvara decides to hook the party up with her friend and taylor, Eskelda Teredein. This reveals all of Eskelda's influence skills and changes her attitude from secret to allied."
     },
     {
       "status": "colonist",
@@ -500,7 +500,7 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Diplomacy, ???",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-grammel-taychar.png",
@@ -643,7 +643,7 @@
       "attitude": "indifferent",
       "appearance": "Harcourt has raven-black hair and a pale complexion due to Chelish noble ancestry several generations back. He is in his late twenties, handsome, and in good physical condition.",
       "background": "Harcourt is the youngest adult son of the Carrolby family, wealthy horse breeders in Andoran and former nobles from before the People's Revolt. Harcourt receives a stipend from the family business, but two older brothers who stand to inherit when their mother passes away impede his involvement in the venture. Harcourt sought a means of advancement that avoided family infighting and negotiated a deal with his aging mother. He would join the new colony, establish himself, hire workers to build stables, and import horses to the island at later date, thus expanding the family business to Ancorato and beyond. ",
-      "biases": "???",
+      "biases": "Harcourt prefers people of nuetral alignments, especially compared to people of extreme alignments.",
       "strengths": "???",
       "weakness": "Likes people of breeding, and anyone of noble birth or with a measurable amount of Azlant Blood easily earn his attention.",
       "skills": "Diplomacy, K: Local, or K: Nobility",
@@ -733,10 +733,10 @@
       "attitude": "indifferent",
       "appearance": "Eskelda is perfectly ordinary in personal appearance, from her blue eyes, to her long straight brown hair, to her height and weight. Oddly, however, she dresses after the Kelish desert style, relying on layers of light, thin clothing and lots of scarves ordinarily meant for warm weather. She has a pet raven, named Mirwe, that speaks with her in fluent Vudrani.",
       "background": "A talented weaver, Eskelda made all of her own clothing and can routinely make cloth of varying types with nearly any material and in nearly every varying style across the inner sea. Since setting sail, her mannerisms with her pet raven and her miraculous performance with cloth have made some colonists murmur that she may be hiding dark powers.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": "???",
-      "skills": "Sense Motive, Heal, ???",
+      "biases": "Eskelda puts a lot of stock in fashion an gets along better with people wearing at least 100gp worth of clothes and non-magical jewelry, and doesn't get along as well with people who only own one change of clothes.",
+      "strengths": "She is very careful of how she talks with religious zealots, especially inquisitors (-8).",
+      "weakness": "She is much more open to people with familiars.",
+      "skills": "Sense Motive, Heal, C: Cloth, Spellcraft, and K: Arcana",
       "death": "Alive",
       "socialblock": "Spellcraft or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-eskelda-teredein.png",
@@ -750,7 +750,7 @@
       "title": "Sergeant",
       "name": "Valania",
       "surname": "Goen",
-      "attitude": "indifferent",
+      "attitude": "friendly",
       "appearance": "Fierce and determined, Sergeant Goen wears the same kind of armor as the other marines, though her armor is both high quality and distinctive. Her cloak is fastened with a silver falcon.",
       "background": "A renown fencer, Sergeant Goen has applied for and been rejected from the Eagle Knights three times. After her last failure, she took an extended leave of absence to join an adventuring group. Returning with both experience and wealth, recruiters from the Eagle Knights invited her to join their ranks, but she declined, donning a silver falcon instead and setting off on adventures of her own. Her current adventure is this expedition, and she is both excited and cautious about its inherant dangers.",
       "biases": "???",
@@ -760,7 +760,7 @@
       "death": "Alive",
       "socialblock": "K: History or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-valania-goen.png",
-      "activeboon": "None"
+      "activeboon": "Sergeant Goen helps discipline the expedition team's minds for what adventuring may have in store for them. Everyone gains a +1 morale bonus against fear effects."
     },
     {
       "status": "security",
@@ -779,24 +779,6 @@
       "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-dion-calahan.png",
       "activeboon": "None"
-    },
-    {
-      "status": "security",
-      "announce": "Colonial Marine",
-      "title": "Private",
-      "name": "Milon",
-      "surname": "Cattenbury",
-      "attitude": "friendly",
-      "appearance": "Milon is young, fit, muscular, and arrogant, with a short haircut and beard with fierce buzz cuts and notches. At barely twenty years old, his armor is at least twice as old as he is, but while it is worn, it is well maintained.",
-      "background": "A fresh graduate, Milon is the rookie assigned to escort the expedition, but that doesn't mean he isn't qualified. Having earned several awards, both before and during basic training, Milon thinks of himself as a rising star and dreams of uncovering lost Azlanti riches. He puts a great deal of work into his personal appearance and maintaining his fathers armor, who was slain by a polar bear in the line of duty.",
-      "biases": "???",
-      "strengths": "???",
-      "weakness": 0,
-      "skills": "Diplomacy, Intimidate, and Pro: Soldier",
-      "death": "Alive",
-      "socialblock": "Pro: Soldier or Sense Motive",
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-milon-cattenbury.png",
-      "activeboon": "Milon begins trying to emulate the PC's, becoming a better soldier and adventurer. He retrains all his class levels - from commoner 1 warrior 1 - to fighter."
     },
     {
       "status": "security",
@@ -833,6 +815,22 @@
       "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-antona-sedgewick.png",
       "activeboon": "None"
+    },
+    {
+      "title": "Private",
+      "name": "Milon",
+      "surname": "Cattenbury",
+      "attitude": "friendly",
+      "appearance": "Milon is young, fit, muscular, and arrogant, with a short haircut and beard with fierce buzz cuts and notches. At barely twenty years old, his armor is at least twice as old as he is, but while it is worn, it is well maintained.",
+      "background": "A fresh graduate, Milon is the rookie assigned to escort the expedition, but that doesn't mean he isn't qualified. Having earned several awards, both before and during basic training, Milon thinks of himself as a rising star and dreams of uncovering lost Azlanti riches. He puts a great deal of work into his personal appearance and maintaining his fathers armor, who was slain by a polar bear in the line of duty.",
+      "biases": "Milon's fresh-faced and youthful inexperience has kept him from forming any outright biases or preferences.",
+      "strengths": "Milon's fresh-faced and youthful inexperience has kept him from forming any outright biases or preferences.",
+      "weakness": "Milon's fresh-faced and youthful inexperience has kept him from forming any outright biases or preferences.",
+      "skills": "Diplomacy, Intimidate, and Pro: Soldier",
+      "death": "Alive",
+      "socialblock": "Pro: Soldier or Sense Motive",
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-milon-cattenbury.png",
+      "activeboon": "Milon begins trying to emulate the PC's, becoming a better soldier and adventurer. He retrains all his class levels - from commoner 1 warrior 1 - to fighter."
     }
   ],
   "dead": [
