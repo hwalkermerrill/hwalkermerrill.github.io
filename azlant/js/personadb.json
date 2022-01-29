@@ -11,7 +11,7 @@
       "background": "Colson was born to simple and rather plain looking farmers, but had abnormally striking features. Ever since his birth, he possessed extraordinarily good luck, including winning a lottery from the Bountiful Venture Company, which landed his seat on the expedition. He jokes that luck must be in his blood and skip a hundred generations or so, but there are a few people who believe him.",
       "biases": "???",
       "strengths": "???",
-      "weakness": "???",
+      "weakness": "Any time someone rolls a 19-20 to influence Colson, that roll is extra lucky and works extra well.",
       "skills": "Diplomacy, C: Any, P: Any, or Dexterity",
       "death": "Alive",
       "socialblock": "Diplomacy or Sense Motive",
@@ -84,7 +84,7 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Diplomacy, Linguistics, or K: Any",
       "death": "Alive",
       "socialblock": "K: Any or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-sandra-ganis.png",
@@ -210,7 +210,7 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Intimidate, Pro: Cook, Appraise, or Survival",
       "death": "Alive",
       "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-hondren-ghellen.png",
@@ -222,7 +222,7 @@
       "title": "Madam",
       "name": "Geouf",
       "surname": "Tamor",
-      "attitude": "friendly",
+      "attitude": "helpful",
       "appearance": "A deceivingly young-looking vudrani, Geoff has a face completely mismatched to ger name. Friendly and kind, she has pale green eyes and a cluster of freckles on her tan skin.",
       "background": "Geouf was unfortunately named, a joke between her parents meaning 'get out f***er'. She ran away from home during a goblin raid and never looked back, eventually settling in Andoran, though she did decide to keep her name to remember where she came from. She learned how to cook while on the road, and her exceptional herblore and survival skills helped her ace the colony interviews.",
       "biases": "???",
@@ -232,7 +232,7 @@
       "death": "Alive",
       "socialblock": "Heal, Survival, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-geouf-tamor.png",
-      "activeboon": "She shows the expedition team some basic herblore, helping them to identify useful herbs and reagents. When in the forrest, plains, or any of their favored terrains, they gain the benefit of the Eschew Materials feat and they can provide for 1 additional person when they successfully get along in the wild."
+      "activeboon": "She shows the expedition team some basic herblore, helping them to identify useful herbs and reagents. When in the forrest, plains, or any of their favored terrains, they gain the benefit of the Eschew Materials feat and they can provide for 1 additional person when they successfully get along in the wild.\r\n\r\nShe shows the expedition team some advcanced herblore, helping them to identify useful herbs and reagents. As long as they are gaining the benefits of the Eschew Materials feat, they also gain the benefits of the Herbal Components feat."
     },
     {
       "status": "colonist",
@@ -240,17 +240,17 @@
       "title": " ",
       "name": "Irvin",
       "surname": "Lourdein",
-      "attitude": "unfriendly",
+      "attitude": "helpful",
       "appearance": "A formal and old half-orc, Lourdein is not aggressive or hostile in any way, but he makes it clear he wants to be alone. Dressed in homespun long johns, Irvin's face is wrinkled into a permanent scowl, with a few sharp teeth jutting out awkwardly.",
       "background": "A goat, goose, and galluvix farmer from the outlying lands west of Almas, Laourdein is a very much retired soldier who very much wants to be alone. After a brief stint owning a farm in a small village, he decided that life was far too busy for him, and applied for the expedition knowing his service record and farming experience would make him a shoe-in while giving him the opportunity to move a thousand miles away from society.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "Diplomacy, K: Nature, ???",
+      "skills": "Diplomacy, K: Nature, Handle Animal, ???",
       "death": "Alive",
       "socialblock": "Handle Animal or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-irvin-lourdein.png",
-      "activeboon": "None"
+      "activeboon": "He feels oblidged to give the party a token gift, and gifts them his fattest Galluvix named 'Pudge'. This galluvix may become a bonded familiar without requiring the Improved Familiar feat.\r\n\r\nHe decides to trust in the expedition team and decides to give them his weapon and armor from his days as a soldier, gifting the a +2 agile breatplate and a +1 Furious Greataxe."
     },
     {
       "status": "colonist",
@@ -294,7 +294,7 @@
       "title": " ",
       "name": "Diana",
       "surname": "Tanner",
-      "attitude": "friendly",
+      "attitude": "helpful",
       "appearance": "Diana is cheerful and bright with chest-length blond hair she keeps in country braids. She often hums while she works and always has a snack with her, usually intended for one of her children but most often eaten by her husband.",
       "background": "Diana is a mother of three in her early thirties, and she escaped slavery with her husband, Cedwig. After hearing that people were trying to track them down, they sought compassionate assistance from the government in Almas, and were placed aboard the Peregrin for their safety. She is excited for the opportunity to have a home and garden of her own.",
       "biases": "???",
@@ -304,7 +304,7 @@
       "death": "Alive",
       "socialblock": "Survival or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-diana-tanner.png",
-      "activeboon": "None"
+      "activeboon": "An experienced hide-and-seaker, Diana provides a +1 insight bonus on stealth checks."
     },
     {
       "status": "colonist",
@@ -372,7 +372,7 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Bluff, K: Local, Sleight of Hand, Stealth, ???",
       "death": "Alive",
       "socialblock": "Bluff or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-palodina-orbonth.png",
@@ -554,7 +554,7 @@
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Diplomacy, K: History, K: Nobility, ???",
       "death": "Alive",
       "socialblock": "K: Nobility, K: Religion, or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kurvis-nurpico.png",
@@ -658,17 +658,17 @@
       "title": " ",
       "name": "Luetin",
       "surname": "Calewick",
-      "attitude": "hostile",
+      "attitude": "indifferent",
       "appearance": "Luetin is balding, with dark hair at the sides and back of his head. He sports a bushy mustache that he thinks accentuates his manly attractiveness. Luetin has a stocky frame, but far more of it is muscle than fat. When he anticipates combat, he dons a form-fitting chain shirt of his own manufacture, but he wears a heavy apron while toiling at the forge.",
       "background": "Luetin Calewick joined the colony with the understanding that he would be an assistant blacksmith for Talmandor’s Bounty. While not the most prestigious of roles, it was much needed, as there were only one smith and an apprentice of hers in the first wave of colonists. The three of them were intended to provide materials for 150 people in the middle of a construction boom.",
-      "biases": "???",
-      "strengths": "???",
+      "biases": "He likes people with confidence and clear speech (CHA 15+) and doesn't care for people who mumble or speak poorly (CHA 11-)",
+      "strengths": "He is very proud of his monopolistic role as the sole smith in Talmandor's Bounty, and really dislikes characters that steal his thunder with weapon or armor crafting skills or feats.",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Bluff, Diplomacy, C: Armor/Blacksmithing/Weapons, Disable Device, K: Local, or K: Engineering",
       "death": "Alive",
       "socialblock": "Bluff or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-luetin-calewick.png",
-      "activeboon": "Refuses to Serve the PC's at Talmandor's Smithy"
+      "activeboon": "None"
     },
     {
       "status": "merchant",
@@ -694,7 +694,7 @@
       "title": " ",
       "name": "Kalcora",
       "surname": "Weems",
-      "attitude": "unfriendly",
+      "attitude": "friendly",
       "appearance": "Kalcora has outrageously pink and purple hair streaked with white - a telltale sign of bleaching. Delighting in haggling and arguing, she wears her atheism proudly, often sparking arguments with her eagerness to contradict others. ",
       "background": "An escaped slave from Cheliax, Kalcora chose her name while she laid low and built a new life for herself. She is devilishly good at aquiring things people want, though she often charges far more than they're worth. She has no qualms about where her goods come from, and she seems to haggle more for a desire for entertainment than frugality.",
       "biases": "Kalcora has a tendency to get along better with other short races and is extra argumentative with people taller than her (3'3\").",
@@ -704,7 +704,7 @@
       "death": "Alive",
       "socialblock": "Stealth or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kalcora-weems.png",
-      "activeboon": "None"
+      "activeboon": "Increases Base Value of Talmandor's Bounty by 200gp, increases Purchase Limit by 1kgp"
     },
     {
       "status": "merchant",
@@ -730,7 +730,7 @@
       "title": " ",
       "name": "Eskelda",
       "surname": "Teredein",
-      "attitude": "indifferent",
+      "attitude": "friendly",
       "appearance": "Eskelda is perfectly ordinary in personal appearance, from her blue eyes, to her long straight brown hair, to her height and weight. Oddly, however, she dresses after the Kelish desert style, relying on layers of light, thin clothing and lots of scarves ordinarily meant for warm weather. She has a pet raven, named Mirwe, that speaks with her in fluent Vudrani.",
       "background": "A talented weaver, Eskelda made all of her own clothing and can routinely make cloth of varying types with nearly any material and in nearly every varying style across the inner sea. Since setting sail, her mannerisms with her pet raven and her miraculous performance with cloth have made some colonists murmur that she may be hiding dark powers.",
       "biases": "Eskelda puts a lot of stock in fashion an gets along better with people wearing at least 100gp worth of clothes and non-magical jewelry, and doesn't get along as well with people who only own one change of clothes.",
@@ -740,7 +740,7 @@
       "death": "Alive",
       "socialblock": "Spellcraft or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-eskelda-teredein.png",
-      "activeboon": "None"
+      "activeboon": "Eskelda offers her stiching and mending services freely to the expedition team. She can swiftly repair any damaged or ruined clothing or cloth-based magic items. Everyone in the expedition team gains a courtier's outfit (without jewelry), courtesan's outfit, cold weather outfit, or hot weather outfit for free."
     }
   ],
   "security": [
@@ -804,23 +804,23 @@
       "title": "PFC",
       "name": "Antona",
       "surname": "Sedgewick",
-      "attitude": "unfriendly",
+      "attitude": "friendly",
       "appearance": "Antona likes to wear scarves, shawls, and hats over her armor, whenever possible, and shaves her head every month or so to minimize maintanance and heat. Aggressive and loud, she holds a handful of friends with similar interests, and doesn't care about people that can't look past her looks or volume.",
       "background": "Proud and boisterious, she doesn't keep any part of her life secret, especially her feelings that men are sex-obsesed pigs and women are sex-powered goddesses. More than handy in a fight, she makes up for her relatively minimal training with sheer passion.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
-      "skills": "???",
+      "skills": "Diplomacy, Intimidate, or Pro: Soldier",
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-antona-sedgewick.png",
-      "activeboon": "None"
+      "activeboon": "PFC Sedgewick begins flirting aggresively with female party members."
     },
     {
       "title": "Private",
       "name": "Milon",
       "surname": "Cattenbury",
-      "attitude": "friendly",
+      "attitude": "helpful",
       "appearance": "Milon is young, fit, muscular, and arrogant, with a short haircut and beard with fierce buzz cuts and notches. At barely twenty years old, his armor is at least twice as old as he is, but while it is worn, it is well maintained.",
       "background": "A fresh graduate, Milon is the rookie assigned to escort the expedition, but that doesn't mean he isn't qualified. Having earned several awards, both before and during basic training, Milon thinks of himself as a rising star and dreams of uncovering lost Azlanti riches. He puts a great deal of work into his personal appearance and maintaining his fathers armor, who was slain by a polar bear in the line of duty.",
       "biases": "Milon's fresh-faced and youthful inexperience has kept him from forming any outright biases or preferences.",
@@ -830,7 +830,7 @@
       "death": "Alive",
       "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-milon-cattenbury.png",
-      "activeboon": "Milon begins trying to emulate the PC's, becoming a better soldier and adventurer. He retrains all his class levels - from commoner 1 warrior 1 - to fighter."
+      "activeboon": "Milon begins trying to emulate the PC's, becoming a better soldier and adventurer. He retrains all his class levels - from commoner 1 warrior 1 - to fighter.\r\n\r\nMilon show's the adventuring group some of the skills he learned from his father. Everyone gains Furious Focus as a bonus feat."
     }
   ],
   "dead": [
