@@ -210,11 +210,11 @@ main ul {
 }
 
 /*----------- ARTICLE (JSON READ) --------------*/
-main .active, main .colonist, main .pc, main .rpc, main .dpc, main .dead, main .leader, main .security, main .merchant {
+main .active, main .colonist, main .pc, main .rpc, main .dpc, main .dead, main .leader, main .security, main .merchant, main .missing {
   display: flex;
   flex-wrap: wrap;
 }
-main .active article, main .colonist article, main .pc article, main .rpc article, main .dpc article, main .dead article, main .leader article, main .security article, main .merchant article {
+main .active article, main .colonist article, main .pc article, main .rpc article, main .dpc article, main .dead article, main .leader article, main .security article, main .merchant article, main .missing article {
   margin: 1rem 2%;
   flex-basis: 96%;
   border-style: ridge;
@@ -223,12 +223,12 @@ main .active article, main .colonist article, main .pc article, main .rpc articl
   padding: 1%;
   transition: all .2s ease-in-out;
 }
-main .active article:hover, main .colonist article:hover, main .pc article:hover, main .rpc article:hover, main .dpc article:hover, main .dead article:hover, main .leader article:hover, main .security article:hover, main .merchant article:hover {
+main .active article:hover, main .colonist article:hover, main .pc article:hover, main .rpc article:hover, main .dpc article:hover, main .dead article:hover, main .leader article:hover, main .security article:hover, main .merchant article:hover, main .missing article:hover {
   box-shadow: 0 0 12px #555;
   transform: scale(1.05);
   cursor: pointer;
 }
-main .active img, main .colonist article img, main .pc article img, main .rpc article img, main .dpc article img, main .dead article img, main .leader article img, main .security article img, main .merchant article img {
+main .active img, main .colonist article img, main .pc article img, main .rpc article img, main .dpc article img, main .dead article img, main .leader article img, main .security article img, main .merchant article img, main .missing article img {
   width: 100%;
 }
 main .helpful {
@@ -267,22 +267,22 @@ main .indifferent {
 }
 
 /*---START toggleClass sub-CSS---*/
-main .active p, main .colonist article p, main .pc article p, main .rpc article p, main .dpc article p, main .dead article p, main .leader article p, main .security article p, main .merchant article p {
+main .active p, main .colonist article p, main .pc article p, main .rpc article p, main .dpc article p, main .dead article p, main .leader article p, main .security article p, main .merchant article p, main .missing article p {
   display: none;
 }
-main .active ul, main .colonist article ul, main .pc article ul, main .rpc article ul, main .dpc article ul, main .dead article ul, main .leader article ul, main .security article ul, main .merchant article ul {
+main .active ul, main .colonist article ul, main .pc article ul, main .rpc article ul, main .dpc article ul, main .dead article ul, main .leader article ul, main .security article ul, main .merchant article ul, main .missing article ul {
   display: none;
 }
-main .active .click p, main .colonist .click p, main .pc .click p, main .rpc .click p, main .dpc .click p, main .dead .click p, main .leader .click p, main .security .click p, main .merchant .click p {
+main .active .click p, main .colonist .click p, main .pc .click p, main .rpc .click p, main .dpc .click p, main .dead .click p, main .leader .click p, main .security .click p, main .merchant .click p, main .missing article .click p {
   display: block;
 }
-main .active .click ul, main .colonist .click ul, main .pc .click ul, main .rpc .click ul, main .dpc .click ul, main .dead .click ul, main .leader .click ul, main .security .click ul, main .merchant .click ul {
+main .active .click ul, main .colonist .click ul, main .pc .click ul, main .rpc .click ul, main .dpc .click ul, main .dead .click ul, main .leader .click ul, main .security .click ul, main .merchant .click ul, main .missing article .click ul {
   display: block;
 }
 /*---END toggleClass sub-CSS---*/
 
 /*---START toggleDisplay Alive/Dead---*/
-main .colonist p:nth-of-type(3), main .pc p:nth-of-type(3), main .rpc p:nth-of-type(3), main .leader p:nth-of-type(3), main .prison p:nth-of-type(3), main .security p:nth-of-type(3), main .merchant p:nth-of-type(3) {
+main .colonist p:nth-of-type(3), main .pc p:nth-of-type(3), main .rpc p:nth-of-type(3), main .leader p:nth-of-type(3), main .prison p:nth-of-type(3), main .security p:nth-of-type(3), main .merchant p:nth-of-type(3), main .missing p:nth-of-type(3) {
   display: none;
 }
 main .dead p:nth-of-type(4) {
