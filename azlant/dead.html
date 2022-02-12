@@ -106,9 +106,14 @@
   </h3>
   <h2>Expedition Members Killed in Action</h2>
     <div class="dpc"></div>
+  <section class="clearfix"></section>
   <h2>Fallen Colonists - Memorial Wall</h2>
-    <!-- <div class="dead"></div> -->
-    <p>All Wave 1 Colonists Declared Dead.</p>
+    <div class="dead"></div>
+  <section class="clearfix"></section>
+  <h2>Missing Colonists</h2>
+    <div class="rpc"></div>
+  <section class="clearfix"></section>
+    <div class="missing"></div>
   <section class="clearfix"></section>
 </main>
        
@@ -120,8 +125,10 @@
 <!-- SCRIPT HERE -->      
   <script>
     let options = [
-      // {type: "npc", div: "dead"},
+      {type: "npc", div: "dead"},
+      {type: "npc", div: "missing"},
       {type: "pc", div: "dpc"},
+      {type: "pc", div: "rpc"},
     ]
     fillCards(options, function () {
       clickLoad('article');
