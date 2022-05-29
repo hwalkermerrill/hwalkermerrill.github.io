@@ -43,6 +43,7 @@
 <script src="js/hamburger.js"></script>
 <script src="js/banner.js"></script>
 <script src="js/fillJSON.js"></script>
+<script src="js/clickload.js"></script>
 </head>
 
 <body>
@@ -99,226 +100,66 @@
     <i>“My travels have taken me to amazing and dangerous places all over the world and beyond, but nothing prepared me for the sights that I’d see beneath the surface of Golarion’s oceans. I’ve been to the frozen ends of the world, the darkest depths of the Darklands, the ugly sore known as the Worldwound, and even other planes of existence, but nothing has been so alien or dangerous. I first visited a settlement of aquatic elves off the coast of Cheliax and then set out for deeper waters. I’ve seen magically worked coral that provided safe settlement for hundreds of beings. I snuck around the cave openings bored into the side of a massive underwater trench, making sure not to arouse the notice of the devilfish that lived within. I even learned a secret way down the Braid, the massive inverted waterspout that leads to the Sightless Sea, though I don’t plan on venturing there anytime soon.”</i>
     <br>&emsp; - Marliss Nalathane, Pathfinder.
   </h3>
-  <!-- <h2>Talmandor's Bounty</h2>
-  <p>Talmandor's Bounty is thriving but highly isolated trade port in ruined Azlant, on the Island of Ancorato.</p>
-  <ul style="list-style-type: circle;"><b>Buildings:</b>
-    <li>Dock into Talmandor Bay - Level 2, flat-bottomed ships and boats.</li>
-    <li>Church of Talmandor</li>
-    <li>Provisions Building - 3/4 full</li>
-    <li>Smithy - Masterwork</li>
-    <li>Tool House - Non-masterwork</li>
-    <li>Town Hall</li>
-  </ul>
-  <ul style="list-style-type: circle;"><b>Defenses:</b>
-    <li>Palisade</li>
-  </ul>
-  <ul style="list-style-type: circle;"><b>Housing:</b>
-    <li>Large Homes - 12 (6 fully secured)</li>
-    <li>Regular Homes - 28</li>
-    <li>Barracks - 2 (rough, 48 person capacity)</li>
-    <li>Tents, Pavilion - 6 (rough, 48 person capacity)</li>
-  </ul>
-  <ul style="list-style-type: circle;"><b>Resources:</b>
-    <li>Farm Fields - 5</li>
-    <li>Mine, Gemstone - 1</li>
-    <li>Well, Clean WAter - 1</li>
-  </ul>
-  <ul style="list-style-type: circle;"><b>Social Services:</b>
-    <li>Daib Joiner - Secured the expedition team's home, preventing ambushes and thefts. He can also secure one permanent area in the field at a time.</li>
-    <li>Perrell Beys - Offers her tutoring services to the party, allowing them to aquire bonus languages in half the time (and price) during downtime (usually 10 days instead of 20). Azlanti Scholar's do not need to pay the cost of this downtime.</li>
-    <li>Kalcora Weems - Access to her black market increases the variety and potential value of good in Talmandor's Bounty.</li>
-    <li>Antona Sedgewick - Flirts aggressively with female PC's while in town.</li>
-  </ul> -->
-  <h2>Colony Stores</h2>
-  <p>Base Value = 575; Purchase Limit = 2,500</p>
-    <div class="active">
-      <article class="indifferent">
-        <h2>Carrolby's Courtly Ranch</h2>
-        <h3>Harcourt Carrolby</h3>
-        <img src="images/npc-harcourt-carrolby.png" alt="Harcourt Carrolby">
-        <p>Buys and sells regular and exotic animals, gear, and vehicles, as well as magical rods and staves.</p>
-        <!-- <p>Boons: CLOSED TO EXPEDITION TEAM</p> -->
-        <p>Special Stock: <i> +1 (Huge) Animal Barding (Chain Shirt)</i></p>
-      </article>
-      <!-- <article class="friendly">
-        <h2>Halway Here Tradin' Post</h2>
-        <h3>Kalcora Weems</h3>
-        <img src="images/npc-kalcora-weems.png" alt="Kalcora Weems">
-        <p>Buys and sells most adventuring gear, books, furniture, locks, tools, and religious items, as well as scrolls and wands.</p>
-        <p>Boons: Kalcora has already begun a small black market, and with her access to it, provides a boost to the Base Value and Purchase Limit of Talmandors Bounty.</p>
-        <p>Upgraded Trade Stock: Kalcora can easily provide masterwork items of the type she normally sells, and can often find a darkwood or living-steel version.</p>
-        <p>Special Stock: <i>(d) Scroll of Cure Light Wounds</i></p>
-      </article> -->
-      <article class="friendly">
-        <h2>Hide and Brace</h2>
-        <h3>Antwyn Malros</h3>
-        <img src="images/npc-antwyn-malros.png" alt="Antwyn Malros">
-        <p>Buys and sells armor.</p>
-        <!-- <p>Boons: CLOSED TO EXPEDITION TEAM</p> -->
-        <p>Special Stock: <i>+1 Spell-Storing Breatplate</i></p>
-      </article>
-      <article class="indifferent">
-        <h2>Marooned Melancholy</h2>
-        <h3>Helbret Koors</h3>
-        <img src="images/npc-helbret-koors.png" alt="Helbret Koors">
-        <p>Sells his craft beers - <i>Koors</i> and <i>Koors Light</i> - as well as food, drink and some occasional random magical items.</p>
-        <!-- <p>Boons: CLOSED TO EXPEDITION TEAM</p> -->
-        <p>Special Stock: <i>Azlanti +1 Spring-Spear*; Azlanti Ring of the Dolphin*</i></p>
-      </article>
-      <article class="helpful">
-        <h2>Talmandor's Bounty Chapel</h2>
-        <h3>Father's Eamon and Kurvis</h3>
-        <img src="images/npc-eamon-caranth.png" alt="Eamon Caranth">
-        <p>Provides limited religious and spellcasting services. Father Eamon typically offers healing (first come-first serve) as well as counseling, dating, matchmaking, and marriage services freely. Father Kurvis typically charges for his services (healing, legal, and spellcasting).</p>
-        <p>Father Eamon sets members of the expedition team up on dates each week, granting one pc a dual social round with a +2 bonnus with the colonist he's paired them with.</p>
-        <p>Special Stock: Holy Water and spellcasting components - diamond dust, silver dust, etc.</p>
-      </article>
-      <article class="indifferent">
-        <h2>Talmandor's Smithy</h2>
-        <h3>Luetin Calewick</h3>
-        <img src="images/npc-luetin-calewick.png" alt="Luetin Calewick">
-        <p>Buys and sells weapons and shields.</p>
-        <!-- <p>Boons: CLOSED TO EXPEDITION TEAM</p> -->
-        <p>Special Stock: <i>+1 Halfling Sling-Staff; +1 Light Firtification Heavy Darkwood Shield</i></p>
-      </article>
-      <article class="friendly">
-        <h2>Thread Rare</h2>
-        <h3>Eskelda Teredein</h3>
-        <img src="images/npc-eskelda-teredein.png" alt="Eskelda Teredein">
-        <p>Buys and sells clothing, containers, rings, and most wonderous magical items.</p>
-        <p>Boons: Eskelda provides her stiching and mending services freely, and can swiftly repair any damaged or ruined clothing or cloth-based magic item.</p>
-        <p>Special Stock: <i>Cloak of the Manta Ray; Pauldrons of the Watchful Lion</i></p>
-      </article>
-      <article class="helpful">
-        <h2>Volcanic Glass</h2>
-        <h3>Alba Divenvaar</h3>
-        <img src="images/npc-alba-divenvaar.png" alt="Alba Divenvaar">
-        <p>Buys and sells potions, alchemical items, reagents, and magical crafting supplies. Commisions are limited by her known formulae.</p>
-        <p>Boons: She is willing to buy reagents at 50% value, potions at 75% value (split profit), and will pay full price for arcane spells and formulae she can learn (adds to her spellbook). She can also take commissions.</p>
-        <p>Special Stock: <i>Potion of Magic Fang (CL1)</i></p>
-        <p>Boons: Is willing to sell the expedition teams potions in her store, allowing them to sell them for 75%.</p>
-      </article>
-    </div>
   <h2>Neighbors, Locals, Traders, Tribes</h2>
-    <div class="active">
-      <article class="helpful">
-        <h2>Bonetown at the Black Cove</h2>
-        <h3>Gervus Barhandin - <i>Skeleton Lights</i></h3>
-        <img src="images/local-gervus-barhandin.png" alt="Gervus Barhandin">
-        <p>This tightly-knit community of Gillman had been stuck in a cycle of cullings every couple of generations, a secret held by the elders in the community. Their atempts to avert the most recent cycle led to some of them hiding in caves and turning to canabalism while others attempted to stop the cycle from happening before becoming corrupted by it. After slaying a weakened and recently awoken aboleth that was attempting to escape its imprisonment, the community is suddenly free, and knows it is related to the many skum that inhabits Azlanti waters.</p>
-        <!-- <p>Special: Bonetown has been evacuated, leaving the whalebone village a ransacked-skeleton of its former self.</p> -->
-        <p>Boons: Unlocks the Azlanti Heritage Feat for Gillman.</p>
-        <p>POC: Several Gillman frequents the Marooned Melancholy while making frequent trades with Talmandor's Bounty.</p>
-        <p>Trade Stock: (BV: 1k; Limit: 5k) No Restrictions, higher odds of selling Azlanti items and underwater items.</p>
-        <p>Special Stock: <i>Azlanti Headband of the Dead Ferryman*; Cackling Hag's Blouse; Azlanti Greatsword*; Admixture Vial; Potion of Enlarge Person; Arcane Scroll of Magic Circle against Chaos (CL5); +1 Shortbow; Arcane Scroll of Versatile Weapon; Azlanti Trans-Substantive Spectacles*; Azlanti Ring of Invisibility*; INTELLIGENT Azlanti Headband of Intuition*; Small Azlanti Ice Whip</i></p>
-      </article>
-      <article class="friendly">
-        <h2>Ghosthater Goblin Tribe</h2>
-        <h3>Gimble the Hoarder - <i>Waka Waka Eh Eh</i></h3>
-        <img src="images/local-ghosthater-goblin.png" alt="Ghosthater Goblins">
-        <p>The Ghosthater Goblin Tribe is the dominant goblin tribe on the island of Ancorato, so named because their tribal coming-of-age ritual requires the monkey goblin adolescents to charge through and kill the ghost at the pink circle without showing fear. While the tribe considered moving into the abandoned Talmandor's Bounty colony, they have instead established a peaceful trade relationship, and are located only an hours hike away.</p>
-        <p>Special: The Ghosthater Tribe is small but mighty. Each time the leader of one of their rival gangs are defeated, they grow in size, strength, and wealth. Their rivals are the Shellcrakers (defeated), Blood Shells, Dead Keepers, Moon Screamers, and Spider Biters.</p>
-        <p>Boons: Unlock Monkey Goblin as playable race; Unlock Gimble the Hoarder as a merchant; Upgraded Size: 2</p>
-        <p>POC: Stops in at the <i>Halway Here Tradin' Post</i> each week to make exchanges with the colony (via Kalcora Weems) and update Kalcora on their stock.</p>
-        <p>Trade Stock: (BV: 200; Limit 1k) His entire trade stock is goblin made, non-masterwork and small-sized (where applicable). Goblin made activated magical items are worth 90% the normal price and have a 5% chance of not functioning.</p>
-        <p>Special Stock: <i>Vest of the Vengeful Tracker</i></p>
-      </article>
-      <article class="hostile">
-        <h2>Helekhterie</h2>
-        <h3>The Sea Hag and her Croanies</h3>
-        <img src="images/local-helekhterie.png" alt="Helekhterie">
-        <p>A powerful sea hag, Helekhterie, has conscripted several denizens of the sea to kidnap humanoids for her experiments in the ancient labratory at Nal-Shakar. Powerful and deranged, she has many followers on land and sea.</p>
-        <p>Koloshkora and their hunting party have been being hunted by sahuagin following the sea hag Helekhterie, who have taken over Esharni Reef to use as their base of operations, pushing out the sea dragon that once dwelled there.</p>
-        <p>Gervus Barhandin evacuated their town after people were being taken by skum, taking shelter in the caves. Though the cycle seems to have involved an aboleth on the mysterious island of Nal-Kashel, some whisper that they originally served the sea hag Helekhterie, and they thought hidding was their only option.</p>
-        <p>Skurnagh the Scrag has warned the party about Helekhterie, given them directions to her lair at Nal-Shakar - located at the center of the island in a caldera - revealed the location of the flooded secret entrance, and given them his Necklace of Air Adaptation, which will allow them to safely bipass the danger the hag placed to guard the secret entrance. While his kin, Folkir and Skekkora, still follow the hag, Skurnagh does not plead for their lives.</p>
-        <p>Vriskirsa was chased out of Esharni Reef by the Elder Maw and its Sahuagin Caretakers whom were serving the sea had Helekhterie. They were enslaving any huymanoids they could find and trading them with the sea hag, who needed more bodies for her experiments.</p>
-      </article>
-      <article class="helpful">
-        <h2>Okoloro Tribe of Locathah</h2>
-        <h3>Koloshkora - <i>Nomadic Marketplace</i></h3>
-        <img src="images/local-koloshkora.png" alt="Koloshkora, Okoloro Tribe">
-        <p>The Okoloro, a locathah tribe native to the waters surrounding Ancorato, occasionally settle on the western shores of the island to hunt in the shallows and satisfy their curiosity for the surface world with brief expeditions inland to forage for tubers, which they consider a delicacy. This temporary settlement is a migratory hunting camp, and the locathahs here live most of the time in a small community not far from Ancorato, with frequent forays to Talasantri, the largest undersea settlement in the region. The locathahs are generally a friendly and affable people, quick to make alliances and forge social bonds with land-dwelling creatures. The locathahs appear slow and ungainly on land, but those seen swimming in the shallows around the coast move with a startling speed and grace.</p>
-        <!-- <p>Special: While friendly to surfacers, they are currently unable to trade, due to being frequently preyed upon by a group of sahuagin hunters at a shole near the island.</p> -->
-        <p>Boons: Unlock Locathah as a playable race; Unlock Koloshkora as a merchant</p>
-        <p>Trade Stock: (BV: 2k; Limit: 5k) Due to their many trade agreements, they have access to some items at higher values than normal, giving them a decent chance at having items worth up to 5kgp and a tiny chance of having items worth up to 15kgp. Trade Stock takes 8 hours for them to retrieve, while items costing more than 2kgp take 24 hours, and items costing more than 5kgp taking 2d4 days. Items they trade are typically water-fast, such as scrolls being made of whaleskin instead of paper. They only pay 25% for items that enhance underwater movement or magic items that do not function underwater or when wet, but will occasionally pay 100% value for interesting items unique to the surface, particularly if they enable surface exploration.</p>
-        <p>Special Stock: <i>(d) Scroll of Darkness (CL1); Deathwatch Eyes; (d) Scroll of Spike Growth (CL5); Bracers of Archery (lesser); Darkwood Towershield; (d) Scroll of Shield of Faith (CL1); Cloak of Elvenkind; Mithral Heavy Shield; Verdant Vine; Feather Step SLippers; Potion of Mage Armor (CL1); Vampiric Gloves; Silent Metamagic Rod (lesser); Spidersilk Cacoon Cloak*</i></p>
-      </article>
-      <article class="helpful">
-        <h2>Sheskadrann Village of the Akkiti Skah</h2>
-        <h3>Oorka of the Akkiti-Skah - <i>Reshkatara</i></h3>
-        <img src="images/local-skalorah.png" alt="Skalorah, Akkiti-Skah Chief">
-        <p>THIS SPACE LEFT BLANK DUE TO TIME</p>
-        <p>Boons: Unlock Stix as a playable race with minor modifications - They do not have the hatred or suspicious racial traits, and do not have a -2 Charisma bonus. They instead have a +2 Charisma bonus, a -2 Wisdom penalty, and have a +2 racial bonus to a perform skill of their choice. Most of the Akkiti-Skah have the dayguard alternate-racial trait.</p>
-        <p>Trade Stock: Will pay full value for certain artwork and artistic items (as opposed to 50%), but will only pay 25% for items enhancing flight. Does not buy or sell weapons, armor, or shields. Mostly sells art and scrolls, with some rings, wands, and wonderous items.</p>
-        <p>Special Stock: <i>Arcane Scroll of Reduce Person (CL1); Arcane Scroll of Shadow Anchor (CL1); Arcane Scroll of Magic Missile (CL1); Arcane Scroll of Alter Self (CL3); Arcane Scroll of Ghoul Touch (CL3); Arcane Scroll of Mage Armor (CL1); Ring of Arcane Signets; Strix Feather Cloak of Divination*; Arcane Scroll of Waterbreathing (CL5); Arcane Scroll of Tongues (CL5); Arcane Scroll of Haste (CL5); Stric Cloak of Resistance +3</i></p>
-      </article>
-      <!--ADD Vriskirsa the Naga and the Giant Magic Crab Traders-->
-    </div>
-  <!-- <h2>Maps of Arcadia, Ancorato, and Surrounding Islands and Settlements</h2>
-  <h3>Click on a Map for Fullscreen</h3>
-  <div class="gallery">
-    <figure>
-      <a href="images/map-azlant-sketch-extra.jpg">
-        <img src="images/map-azlant-sketch-extra.jpg" alt="Azlant Sketch">
-      </a>
-      <figcaption>Map of Ancorato Area</figcaption>
-    </figure>
-    <figure>
-      <a href="images/map-world-ocean.jpg">
-        <img src="images/map-world-ocean.jpg" alt="World Oceans">
-      </a>
-      <figcaption>Map of World Oceans</figcaption>
-    </figure>
-    <figure>
-      <a href="images/map-talmandors-bounty.jpg">
-        <img src="images/map-talmandors-bounty.jpg" alt="Talmandor's Bounty">
-      </a>
-      <figcaption>Map of Talmandor's Bounty</figcaption>
-    </figure>
-    <figure>
-      <a href="images/map-bonetown-black-cove.jpg">
-        <img src="images/map-bonetown-black-cove.jpg" alt="Bonetown at the Black Cove">
-      </a>
-      <figcaption>Map of Bonetown at the Black Cove</figcaption>
-    </figure>
-    </figure>
-    <figure>
-      <a href="images/map-nal-kashel-campus.jpg">
-        <img src="images/map-nal-kashel-campus.jpg" alt="Nal-Kashel Campus">
-      </a>
-      <figcaption>Map of Nal-Kashel Campus</figcaption>
-    </figure>
+  <div class="active">
+    <article class="helpful">
+      <h2>Bonetown at the Black Cove</h2>
+      <h3>Gervus Barhandin - <i>Skeleton Lights</i></h3>
+      <img src="images/local-gervus-barhandin.png" alt="Gervus Barhandin">
+      <p>This tightly-knit community of Gillman had been stuck in a cycle of cullings every couple of generations, a secret held by the elders in the community. Their atempts to avert the most recent cycle led to some of them hiding in caves and turning to canabalism while others attempted to stop the cycle from happening before becoming corrupted by it. After slaying a weakened and recently awoken aboleth that was attempting to escape its imprisonment, the community is suddenly free, and knows it is related to the many skum that inhabits Azlanti waters.</p>
+      <!-- <p>Special: Bonetown has been evacuated, leaving the whalebone village a ransacked-skeleton of its former self.</p> -->
+      <p>Boons: Unlocks the Azlanti Heritage Feat for Gillman.</p>
+      <p>POC: Several Gillman frequents the Marooned Melancholy while making frequent trades with Talmandor's Bounty.</p>
+      <p>Trade Stock: (BV: 1k; Limit: 5k) No Restrictions, higher odds of selling Azlanti items and underwater items.</p>
+      <p>Special Stock: <i>Azlanti Headband of the Dead Ferryman*; Cackling Hag's Blouse; Azlanti Greatsword*; Admixture Vial; Potion of Enlarge Person; Arcane Scroll of Magic Circle against Chaos (CL5); +1 Shortbow; Arcane Scroll of Versatile Weapon; Azlanti Trans-Substantive Spectacles*; Azlanti Ring of Invisibility*; INTELLIGENT Azlanti Headband of Intuition*; Small Azlanti Ice Whip</i></p>
+    </article>
+    <article class="friendly">
+      <h2>Ghosthater Goblin Tribe</h2>
+      <h3>Gimble the Hoarder - <i>Waka Waka Eh Eh</i></h3>
+      <img src="images/local-ghosthater-goblin.png" alt="Ghosthater Goblins">
+      <p>The Ghosthater Goblin Tribe is the dominant goblin tribe on the island of Ancorato, so named because their tribal coming-of-age ritual requires the monkey goblin adolescents to charge through and kill the ghost at the pink circle without showing fear. While the tribe considered moving into the abandoned Talmandor's Bounty colony, they have instead established a peaceful trade relationship, and are located only an hours hike away.</p>
+      <p>Special: The Ghosthater Tribe is small but mighty. Each time the leader of one of their rival gangs are defeated, they grow in size, strength, and wealth. Their rivals are the Shellcrakers (defeated), Blood Shells, Dead Keepers, Moon Screamers, and Spider Biters.</p>
+      <p>Boons: Unlock Monkey Goblin as playable race; Unlock Gimble the Hoarder as a merchant; Upgraded Size: 2</p>
+      <p>POC: Stops in at the <i>Halway Here Tradin' Post</i> each week to make exchanges with the colony (via Kalcora Weems) and update Kalcora on their stock.</p>
+      <p>Trade Stock: (BV: 200; Limit 1k) His entire trade stock is goblin made, non-masterwork and small-sized (where applicable). Goblin made activated magical items are worth 90% the normal price and have a 5% chance of not functioning.</p>
+      <p>Special Stock: <i>Vest of the Vengeful Tracker</i></p>
+    </article>
+    <article class="hostile">
+      <h2>Helekhterie</h2>
+      <h3>The Sea Hag and her Croanies</h3>
+      <img src="images/local-helekhterie.png" alt="Helekhterie">
+      <p>A powerful sea hag, Helekhterie, has conscripted several denizens of the sea to kidnap humanoids for her experiments in the ancient labratory at Nal-Shakar. Powerful and deranged, she has many followers on land and sea.</p>
+      <p>Koloshkora and their hunting party have been being hunted by sahuagin following the sea hag Helekhterie, who have taken over Esharni Reef to use as their base of operations, pushing out the sea dragon that once dwelled there.</p>
+      <p>Gervus Barhandin evacuated their town after people were being taken by skum, taking shelter in the caves. Though the cycle seems to have involved an aboleth on the mysterious island of Nal-Kashel, some whisper that they originally served the sea hag Helekhterie, and they thought hidding was their only option.</p>
+      <p>Skurnagh the Scrag has warned the party about Helekhterie, given them directions to her lair at Nal-Shakar - located at the center of the island in a caldera - revealed the location of the flooded secret entrance, and given them his Necklace of Air Adaptation, which will allow them to safely bipass the danger the hag placed to guard the secret entrance. While his kin, Folkir and Skekkora, still follow the hag, Skurnagh does not plead for their lives.</p>
+      <p>Vriskirsa was chased out of Esharni Reef by the Elder Maw and its Sahuagin Caretakers whom were serving the sea had Helekhterie. They were enslaving any huymanoids they could find and trading them with the sea hag, who needed more bodies for her experiments.</p>
+    </article>
+    <article class="helpful">
+      <h2>Okoloro Tribe of Locathah</h2>
+      <h3>Koloshkora - <i>Nomadic Marketplace</i></h3>
+      <img src="images/local-koloshkora.png" alt="Koloshkora, Okoloro Tribe">
+      <p>The Okoloro, a locathah tribe native to the waters surrounding Ancorato, occasionally settle on the western shores of the island to hunt in the shallows and satisfy their curiosity for the surface world with brief expeditions inland to forage for tubers, which they consider a delicacy. This temporary settlement is a migratory hunting camp, and the locathahs here live most of the time in a small community not far from Ancorato, with frequent forays to Talasantri, the largest undersea settlement in the region. The locathahs are generally a friendly and affable people, quick to make alliances and forge social bonds with land-dwelling creatures. The locathahs appear slow and ungainly on land, but those seen swimming in the shallows around the coast move with a startling speed and grace.</p>
+      <!-- <p>Special: While friendly to surfacers, they are currently unable to trade, due to being frequently preyed upon by a group of sahuagin hunters at a shole near the island.</p> -->
+      <p>Boons: Unlock Locathah as a playable race; Unlock Koloshkora as a merchant</p>
+      <p>Trade Stock: (BV: 2k; Limit: 5k) Due to their many trade agreements, they have access to some items at higher values than normal, giving them a decent chance at having items worth up to 5kgp and a tiny chance of having items worth up to 15kgp. Trade Stock takes 8 hours for them to retrieve, while items costing more than 2kgp take 24 hours, and items costing more than 5kgp taking 2d4 days. Items they trade are typically water-fast, such as scrolls being made of whaleskin instead of paper. They only pay 25% for items that enhance underwater movement or magic items that do not function underwater or when wet, but will occasionally pay 100% value for interesting items unique to the surface, particularly if they enable surface exploration.</p>
+      <p>Special Stock: <i>(d) Scroll of Darkness (CL1); Deathwatch Eyes; (d) Scroll of Spike Growth (CL5); Bracers of Archery (lesser); Darkwood Towershield; (d) Scroll of Shield of Faith (CL1); Cloak of Elvenkind; Mithral Heavy Shield; Verdant Vine; Feather Step SLippers; Potion of Mage Armor (CL1); Vampiric Gloves; Silent Metamagic Rod (lesser); Spidersilk Cacoon Cloak*</i></p>
+    </article>
+    <article class="helpful">
+      <h2>Sheskadrann Village of the Akkiti Skah</h2>
+      <h3>Oorka of the Akkiti-Skah - <i>Reshkatara</i></h3>
+      <img src="images/local-skalorah.png" alt="Skalorah, Akkiti-Skah Chief">
+      <p>THIS SPACE LEFT BLANK DUE TO TIME</p>
+      <p>Boons: Unlock Stix as a playable race with minor modifications - They do not have the hatred or suspicious racial traits, and do not have a -2 Charisma bonus. They instead have a +2 Charisma bonus, a -2 Wisdom penalty, and have a +2 racial bonus to a perform skill of their choice. Most of the Akkiti-Skah have the dayguard alternate-racial trait.</p>
+      <p>Trade Stock: Will pay full value for certain artwork and artistic items (as opposed to 50%), but will only pay 25% for items enhancing flight. Does not buy or sell weapons, armor, or shields. Mostly sells art and scrolls, with some rings, wands, and wonderous items.</p>
+      <p>Special Stock: <i>Arcane Scroll of Reduce Person (CL1); Arcane Scroll of Shadow Anchor (CL1); Arcane Scroll of Magic Missile (CL1); Arcane Scroll of Alter Self (CL3); Arcane Scroll of Ghoul Touch (CL3); Arcane Scroll of Mage Armor (CL1); Ring of Arcane Signets; Strix Feather Cloak of Divination*; Arcane Scroll of Waterbreathing (CL5); Arcane Scroll of Tongues (CL5); Arcane Scroll of Haste (CL5); Stric Cloak of Resistance +3</i></p>
+    </article>
+    <!--ADD Vriskirsa the Naga and the Giant Magic Crab Traders-->
+    <!-- ADD Hullhold and the Monastary of the Unbroken Wave -->
   </div>
   <section class="clearfix"></section>
-  <h2>Maps of Claimed/Cleared Structures and Points of Interest.</h2>
-  <h3>Click on a Map for Fullscreen</h3>
-  <div class="gallery">
-    <figure>
-      <a href="images/map-spindlelock-solutions.jpg">
-        <img src="images/map-spindlelock-solutions.jpg" alt="Spindlelock Solutions">
-      </a>
-      <figcaption>Map of Spindlelock Solutions</figcaption>
-    </figure>
-    <figure>
-      <a href="images/map-ruins-joskadlr.jpg">
-        <img src="images/map-ruins-joskadlr.jpg" alt="Ruins of 'Joskadlr' (The Black Rock)">
-      </a>
-      <figcaption>Map of the Ruins of 'Joskadlr' (The Black Rock)</figcaption>
-    </figure>
-    <figure>
-      <a href="images/map-ankyhathyra.jpg">
-        <img src="images/map-ankyhathyra.jpg" alt="Ankyhathyra">
-      </a>
-      <figcaption>Map of Ankyhathyra Underground Facility</figcaption>
-    </figure>
-    <figure>
-      <a href="images/map-nal-kashel-observatory.jpg">
-        <img src="images/map-nal-kashel-observatory.jpg" alt="Nal-Kashel Observatory">
-      </a>
-      <figcaption>Map of Nal-Kashel Observatory and Orrery</figcaption>
-    </figure>
-  </div>
-  <section class="clearfix"></section> -->
+    <h2>People of Talasantri</h2>
+    <div class="crew"></div>
+  <section class="clearfix"></section>
 </main>
 
 <!-- FOOTER HERE -->   
@@ -327,7 +168,17 @@
 </footer>
 
 <!-- SCRIPT HERE -->
-<script src="js/clickload.js"></script>
-<script>$(window).on("load", clickLoad('article'))</script>
+<script>
+  let options = [
+    {type: "npc", div: "crew"},
+  ]
+  fillCards(options, function () {
+    clickLoad('article');
+  })
+</script>
+<script>function toggleHide(val) {
+  $(val).toggle();
+};
+</script>
 </body>
 </html>
