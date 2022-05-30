@@ -1183,6 +1183,27 @@
       "classes": "Fighter 3",
       "camptrait": "Eagle Knight Recruit",
       "blood": "Trace"
+    },
+    {
+      "status": "dpc",
+      "title": " ",
+      "name": " ",
+      "surname": "Gridol",
+      "attitude": "helpful",
+      "appearance": "With cropped curly hair and a beard turning salt-and-pepper a decade early, Gridol is usually seen wearing his armor and in the company of a rare white-wolf, or at least he was until his wolf died. His new wolf is a common gray.",
+      "background": " An aspiring hunter who found he had a knack for training and befriending most animals. This training soon turned to a passion, and can always be found nearby his animal companions. While he enjoys the life of adventure, he would like to settle down one day and get a home near the beach. He joined the expidition after the untimely death of his first wife, hoping to escape the sudden tragedy.",
+      "likes": "He loves the sounds of the waves crashing on the beach almost as much as he loves animals of all kinds. Currently enjoying a budding romance with Lyra Heatherly.",
+      "dislikes": "He hates the noise of crowds and big cities and has a special hatred towards those inclined towards animal cruelty. Not a fan of Anya Sandstrider.",
+      "quirks": "He is very wary of harming any animals, and will rarely do so, even if attacked and otherwise unable to de-escalate the situation.",
+      "achievements": "Ended the Curse of Bonetown; Slayed Onthooth the Aboleth Psychic; Rescued the Kidnapped Colonists",
+      "announce": "Clockworker",
+      "race": "Azlanti-Blooded Human",
+      "death": "Plane-shifted to the astral plane. He will return.. One day… Someday…",
+      "order": 4,
+      "imgref": "https://hwalkermerrill.github.io/azlant/images/pc-gridol.png",
+      "classes": "Hunter 9 Wild Child Brawler 1",
+      "camptrait": "Skillful",
+      "blood": "Major"
     }
   ],
   "pc": [
@@ -1206,27 +1227,6 @@
       "classes": "Archivist Bard 10",
       "camptrait": "Following in the Footsteps",
       "blood": "None"
-    },
-    {
-      "status": "pc",
-      "title": " ",
-      "name": " ",
-      "surname": "Gridol",
-      "attitude": "helpful",
-      "appearance": "With cropped curly hair and a beard turning salt-and-pepper a decade early, Gridol is usually seen wearing his armor and in the company of a rare white-wolf, or at least he was until his wolf died. His new wolf is a common gray.",
-      "background": " An aspiring hunter who found he had a knack for training and befriending most animals. This training soon turned to a passion, and can always be found nearby his animal companions. While he enjoys the life of adventure, he would like to settle down one day and get a home near the beach. He joined the expidition after the untimely death of his first wife, hoping to escape the sudden tragedy.",
-      "likes": "He loves the sounds of the waves crashing on the beach almost as much as he loves animals of all kinds. Currently enjoying a budding romance with Lyra Heatherly.",
-      "dislikes": "He hates the noise of crowds and big cities and has a special hatred towards those inclined towards animal cruelty. Not a fan of Anya Sandstrider.",
-      "quirks": "He is very wary of harming any animals, and will rarely do so, even if attacked and otherwise unable to de-escalate the situation.",
-      "achievements": "Ended the Curse of Bonetown; Slayed Onthooth the Aboleth Psychic; Rescued the Kidnapped Colonists",
-      "announce": "Clockworker",
-      "race": "Azlanti-Blooded Human",
-      "death": " ",
-      "order": 2,
-      "imgref": "https://hwalkermerrill.github.io/azlant/images/pc-gridol.png",
-      "classes": "Hunter 9 Wild Child Brawler 1",
-      "camptrait": "Skillful",
-      "blood": "Major"
     },
     {
       "status": "pc",
