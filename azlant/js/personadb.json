@@ -1370,7 +1370,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: History or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-rillkimatai.png",
       "activeboon": "None"
     },
@@ -1388,7 +1388,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Disable Device or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-jurix.png",
       "activeboon": "None"
     },
@@ -1406,7 +1406,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: Religion or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-seraban.png",
       "activeboon": "None"
     },
@@ -1424,7 +1424,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Pro: Soldier or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-talstran.png",
       "activeboon": "None"
     },
@@ -1442,7 +1442,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: Arcana or K: History or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-vhenarryn.png",
       "activeboon": "None"
     },
@@ -1460,7 +1460,7 @@
       "weakness": "???",
       "skills": "Diplomacy, ???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: Nobility or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-anemora.png",
       "activeboon": "Anemora's favor grants a few benefits: she can arrange a meeting with Rillkimatai if the surfacers have enough other influences on their side, she improves the attitude of her circle of influencers - mostly merchants - to at least indifferent, she formally invites the surfacers to lodge in her home with her family (taking their meals with the family, or not, as they wish), and she can - one time - arrange for a private sale of any single item of the surfacers choosing worth 25kgp or less."
     },
@@ -1496,14 +1496,14 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Survival or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-drecissa.png",
       "activeboon": "Drecissa introduces the party to her mother, Lady Anemora\r\n\r\n"
     },
     {
       "status": "talasantri",
       "announce": "Influencer",
-      "title": "Artist",
+      "title": "Lady",
       "name": " ",
       "surname": "Kormallis",
       "attitude": "indifferent",
@@ -1514,7 +1514,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "C: Painting/Sculpture or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kormallis.png",
       "activeboon": "None"
     },
@@ -1532,7 +1532,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "P: Oratory or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-merysyd.png",
       "activeboon": "None"
     },
@@ -1550,7 +1550,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: Geography or Survival or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-osarte.png",
       "activeboon": "None"
     },
@@ -1568,7 +1568,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: Nobility or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-rudalthas.png",
       "activeboon": "None"
     },
@@ -1586,7 +1586,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: History or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-tolajo.png",
       "activeboon": "None"
     },
@@ -1604,7 +1604,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Spellcraft or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-derrona.png",
       "activeboon": "None"
     },
@@ -1622,7 +1622,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Bluff or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-cerulean.png",
       "activeboon": "None"
     },
@@ -1640,7 +1640,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: Nobility or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-toruun.png",
       "activeboon": "None"
     },
@@ -1658,7 +1658,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "C: Alchemy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-margela-duskcurrent.png",
       "activeboon": "None"
     },
@@ -1676,7 +1676,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: History or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-echono.png",
       "activeboon": "None"
     },
@@ -1694,7 +1694,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Disable Device or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-loryl.png",
       "activeboon": "None"
     },
@@ -1712,7 +1712,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: Local or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-quelyon.png",
       "activeboon": "None"
     },
@@ -1730,7 +1730,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "P: Any or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-talponi.png",
       "activeboon": "None"
     },
@@ -1748,7 +1748,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "C: Glass or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-urmygh.png",
       "activeboon": "None"
     },
@@ -1766,7 +1766,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: Local or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-vatoya.png",
       "activeboon": "None"
     },
@@ -1784,7 +1784,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "C: Painting/Sculpture or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-vesshyo.png",
       "activeboon": "None"
     },
@@ -1802,7 +1802,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Stealth or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-cassiux.png",
       "activeboon": "None"
     },
@@ -1820,7 +1820,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Stealth or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-lamdarel.png",
       "activeboon": "None"
     },
@@ -1838,7 +1838,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: Planes or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-adaro.png",
       "activeboon": "None"
     },
@@ -1856,7 +1856,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "K: Planes or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-adaro.png",
       "activeboon": "None"
     },
@@ -1874,7 +1874,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-bodderoh.png",
       "activeboon": "None"
     },
@@ -1892,7 +1892,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Sleight of Hand or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-opuo.png",
       "activeboon": "None"
     },
@@ -1910,7 +1910,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Stealth or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-cenath.png",
       "activeboon": "None"
     },
@@ -1928,7 +1928,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Sleight of Hand or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kelia.png",
       "activeboon": "None"
     },
@@ -1946,7 +1946,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Perception or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-minastalla.png",
       "activeboon": "None"
     },
@@ -1964,7 +1964,7 @@
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-debebedi.png",
       "activeboon": "None"
     },
@@ -1976,13 +1976,13 @@
       "surname": "Oona",
       "attitude": "unfriendly",
       "appearance": "Oona is a woman with a long red plait of hair with pale, freckled skin and a lower body of that of an octopus with emerald-green tentacles. Polite with a uniquely lilting voice that carries her words easily through the water, she is highly observant of her surroundings, making easy but direct eye contact with passerbys, even including surfacers.",
-      "background": "!A Cecaelia agent of the Queen of the Undertow",
+      "background": "A somewhat shifty character, Oona comports herself as a messenger, watching for specific people and relaying to them instructions from the Undertow.",
       "biases": "???",
       "strengths": "???",
       "weakness": "???",
       "skills": "???",
       "death": " ",
-      "socialblock": " or Sense Motive",
+      "socialblock": "Sleight of Hand or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-oona.png",
       "activeboon": "None"
     }
