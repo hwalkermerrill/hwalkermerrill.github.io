@@ -1362,7 +1362,7 @@
       "title": "Revered Seer",
       "name": " ",
       "surname": "Rillkimatai",
-      "attitude": "unfriendly",
+      "attitude": "indifferent",
       "appearance": "Old and frail, the Revered Seer Rillkimatai lives inside city hall, and he takes his reponsibilities so seriously he has become bound to the space, never traveling more than a few hundred feet from the building. The elderly elf is often found floating behind his stone desk, studying inscribed tablets while his hair floats around his head like a nimbus. His tall wooden staff is encrusted with a spiral of tiny golden seashells with a faintly glowing blue gem at the tip, which he often leaves resting against the wall behind him.",
       "background": "The leader of Talasantri for over a hundred years, Rillkimatai has oracular visions that warn him of danger before it strikes. Though his body grows frail, and he feels his end drawing near, his mind is still sharp, and he's determined to use his visions to protect and support the city until he takes his dying breath.",
       "biases": "???",
@@ -1416,7 +1416,7 @@
       "title": "Guard Commander",
       "name": " ",
       "surname": "Talstran",
-      "attitude": "unfriendly",
+      "attitude": "indifferent",
       "appearance": "A strong aquatic elf, Commander Talstran wears a set of worn but strong looking armor along with fine but simple jewelry. Strict but fair, he ensures that laws are followed, people are safe, and the criminals keep their activity limited to the Undertow. Generally formal, he is often seen staking out places or people associated with the Queen of the Undertow, gathering information for what he sees as the innevitable day when Revered Seer Rillkimatai authorizes a raid of the wretched place.",
       "background": "The commander of Talasantri's City Guard, Talstran holds a position of power in the city, both as its defender and as the person who authorizes the comings and goings of all of Talasantri's denizens and visiting foreigners. Commander Talstran makes no secret that he opposes the Queen of the Undertow, but he has not been able to muster enough manning or intelligence to convince Revered Seer Rillkimatai to allow him to raid her domain and bring her to justice.",
       "biases": "???",
@@ -1470,7 +1470,7 @@
       "title": "Guard",
       "name": " ",
       "surname": "Argnos",
-      "attitude": "unfriendly",
+      "attitude": "indifferent",
       "appearance": "A young aquatic elf, Argnos wears a brand new armor, a spotless tunic, and carries an elaborately decorated trident. He takes his job very seriously, though he is obviously very green. While he acts tough, especially on Drecissa, his demeanor suggests he's overcompensating for his nervousness and he often demures and fidgets with his blue-and-pink seashell bracelet when being stared down.",
       "background": "The oldest of Lady Kormallis' two sons, Argnos is doted upon heavily by his mother, who leveraged a great deal of her wealth and power to get him the best education and training available in the city. Many believe Lady Kormallis used her influence to get Argnos a post with the city guard, a position that would ultimately help further raise her own profile.",
       "biases": "???",
@@ -1524,7 +1524,7 @@
       "title": "Lady",
       "name": " ",
       "surname": "Kormallis",
-      "attitude": "indifferent",
+      "attitude": "friendly",
       "appearance": "An elven woman with golden hair, Lady Kormallis wears a gown made of multiple billowing shades of pink, purple, and yellow, belted together with a girdle of dark blue seashells. She speaks with a musical voice, often using flowery words, rhyming schemes, and an eclectic pidgeon of elven and common words mixed into her usual aquan.",
       "background": "Widely regarded as a creative, free-spirited artist, Lady Kormallis' home, art, and company include an ecclectic mix from diverse races, often presenting herself as a combination expert and ambassador of diverse cultures. Eggalitarian in her designs, she surrounds herself in exotic pieces from all over the ocean, with a special place held in her collection for interesting things from the surface world, and she eagerly asks questions of far-flung travelers whenever she gets the chance.",
       "biases": "???",
@@ -1534,7 +1534,7 @@
       "death": " ",
       "socialblock": "C: Painting/Sculpture or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-kormallis.png",
-      "activeboon": "None"
+      "activeboon": "Kormallis' favor grants several benefits: she introduces the surfacers to some of her friends - mostly artists - raising their attitude to at-least indifferent, she is happy to share her knowledge (and gossip) about anyone in town - granting a random piece of gossip once per day, and she can negotiate for an extra 20% off the value of one Original Derrona for the surfacers."
     },
     {
       "status": "talasantri",
@@ -1614,7 +1614,7 @@
       "title": "Thespian",
       "name": " ",
       "surname": "Rudalthas",
-      "attitude": "unfriendly",
+      "attitude": "indifferent",
       "appearance": "! A handsome triton actor, Rudalthas (INSERT PHSYICAL DESCRIPTION). While Rudalthas captures hearts all over Talasantri, his mercurial personality makes him increasingly difficult to work with.",
       "background": "! Headline actor, performs at stargrass hall.",
       "biases": "Being used to being beloved, he likes people who find him sexually attractive, and doesn't like people who don’t.",
@@ -1632,7 +1632,7 @@
       "title": "Her Illustriousness",
       "name": " ",
       "surname": "Derrona",
-      "attitude": "unfriendly",
+      "attitude": "indifferent",
       "appearance": 0,
       "background": "While most merchants have their shops in the Whalefall District, Derrona opened her jewelry shop, Treasures of the Sea, in Seamount. Her high-quality custom magical jewelry comes with a commensurate price tag, but wealthy residents of the district are happy to pay for the beautiful, unique pieces Derrona sells, and wearing an 'Original Derrona' is a status symbol among the city's elite. A skilled adventurer in her own right, Derrona prefers to gather her materials from salvage, often paying others to retrieve precious gems and metals fro shipwrecks and monster lairs.",
       "biases": "???",
@@ -1704,7 +1704,7 @@
       "title": "Curator",
       "name": " ",
       "surname": "Talponi",
-      "attitude": "unfriendly",
+      "attitude": "indifferent",
       "appearance": 0,
       "background": "! The Gallery Owner of the Lionfish Gallery in the Whalebone District",
       "biases": "???",
@@ -1722,7 +1722,7 @@
       "title": "Diva",
       "name": " ",
       "surname": "Vatoya",
-      "attitude": "unfriendly",
+      "attitude": "friendly",
       "appearance": 0,
       "background": "!Director of the Stargrass Hall.",
       "biases": "This particular Diva likes other characters whom have perform skills, but not characters without a charisma bonus.",
@@ -1732,7 +1732,7 @@
       "death": " ",
       "socialblock": "K: Local or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-vatoya.png",
-      "activeboon": "None"
+      "activeboon": "Earns their influence for required influence checks (+2)."
     },
     {
       "status": "talasantri",
@@ -1740,7 +1740,7 @@
       "title": "Muralist",
       "name": " ",
       "surname": "Urmygh",
-      "attitude": "unfriendly",
+      "attitude": "indifferent",
       "appearance": 0,
       "background": "A popular artist whose work hangs in both City Hall and Cerulean Cove, Urmygh also owns his own private gallery of his works, named Many to One. Urmygh breaks coral, gemstones, and seashells into shards and builds elaborate mmosaics from the pieces. Though at first glance his mosaics appear as peaceful seascapes, the longer one looks at the pieces, the more unsettling details become visible.",
       "biases": "???",
@@ -1776,7 +1776,7 @@
       "title": "Sculptor",
       "name": " ",
       "surname": "Vesshyo",
-      "attitude": "indifferent",
+      "attitude": "friendly",
       "appearance": 0,
       "background": "The owner of the workshop and gallery, Boneworks, Vesshyo works exclusively in bone. She specializes in graceful jointed pieces that drift and spin in currents, much like winds chimes above the sea. Vesshyo occasionally carves larger works from the bones of giant sea creatures, and has been known to commision hunters to retrieve the bodies of whichever specimen her muse dictates.",
       "biases": "???",
@@ -1786,7 +1786,7 @@
       "death": " ",
       "socialblock": "C: Painting/Sculpture or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-vesshyo.png",
-      "activeboon": "None"
+      "activeboon": "She commisions the PC's to hunt and recover for her a Narwhal. She offers 1,000gp for a specimen, and offering double if the body has no permanent or structural damage (typically caused by bludgeoning and similar damage types)."
     },
     {
       "status": "talasantri",
@@ -1812,7 +1812,7 @@
       "title": "Slopkeep",
       "name": " ",
       "surname": "Bodderoh",
-      "attitude": "friendly",
+      "attitude": "helpful",
       "appearance": 0,
       "background": "The proprietor of Bodd's Odd's, his pawnshop is little more than a slopshop catering to the poorest of Talasantri. While his goods are rarely more than junk, he treats everyone - even surfacers - equally, and rather well at that, though that may be because he seems to think so little of himself. A lifeline for the Talasantri's desperate, Bodderoh's shop is always very busy, even if few every buy anything.",
       "biases": "???",
@@ -1822,7 +1822,7 @@
       "death": " ",
       "socialblock": "Intimidate or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-bodderoh.png",
-      "activeboon": "None"
+      "activeboon": "Bodderoh trusts the surfacers are discreet enough to allow them to take his shop's secret passage down to the Undertow."
     },
     {
       "status": "talasantri",
@@ -1902,7 +1902,7 @@
       "title": "Adventurer",
       "name": " ",
       "surname": "Debebedi",
-      "attitude": "friendly",
+      "attitude": "helpful",
       "appearance": 0,
       "background": "!indebted adventurer",
       "biases": "???",
@@ -1912,7 +1912,7 @@
       "death": " ",
       "socialblock": "Diplomacy or Sense Motive",
       "imgref": "https://hwalkermerrill.github.io/azlant/images/npc-debebedi.png",
-      "activeboon": "Gratefully thanks and rewards the surfacers."
+      "activeboon": "Gratefully thanks and rewards the surfacers.\r\n\r\nUnlocks Locathah as a playable race and accompany's the surfacers back to Talmandor's Bounty OR joins Koloshkora's tribe as a contact."
     },
     {
       "status": "talasantri",
