@@ -65,6 +65,13 @@
   <main class="clearfix">
     <h1>Where Are We?!?</h1>
     <h3><i>&nbsp;"Easy enough to reach the Boneyard—all mortals eventually tread that path of death. Even the living may willingly venture there, at great need. The dead and their eternal judges hold valuable secrets, and many are the heroes and adventurers who have benefited from a journey to the House of Dust. The Histories record that Heristodes traveled there to learn the identity of his father’s murderer, and Saint Eveline petitioned the Lady of Graves herself for a weapon to combat the Wraith of Gladsfell. As many have learned, to their peril, the return voyage is more difficult. Safeguards established to prevent the wandering of the dead can easily ensnare the unwary. Best to employ an experienced guide, or equip oneself with potent magical protections, as mortal strength alone is insufficient to return the traveler safely to the world of the living."</i><br>— Ambert Lestler, Imperial Historian</h3>
+    <div class="herodiv">
+      <figure>
+        <a>
+          <img class="light-zoom" src="/tyrant/images/map-lastwall1.jpg" alt="Lastwall Main Map" sizes="100vw">
+        </a>
+      </figure>
+    </div>
     <!--<h2>Where We Are Now: ???</h2>
     <div class="floatswitch">
       <section>
@@ -114,5 +121,13 @@
 <!-- SCRIPT HERE -->
   <script src="/tyrant/js/clickload.js"></script>
   <script>$(window).on("load", clickLoad('section'))</script>
+  <script>
+    $(window).on("load", function () {
+      $('img.light-zoom').lightzoom({
+        zoomPower   : 3,    //Default
+        glassSize   : 270,  //Default
+      });
+    });
+  </script>
 </body>
 </html>
