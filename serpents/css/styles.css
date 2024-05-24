@@ -24,7 +24,7 @@ body {
   /*----------- HEADER --------------*/
   header {
     padding: 0.5rem 2%;
-    background-color: #7f3200;
+    background-color: #c2580f;
     display: grid;
     grid-template-columns: 350px auto;
   }
@@ -59,7 +59,7 @@ body {
 
   /*----------- NAVIGATION --------------*/
   nav {
-    background-color: #7f3200;
+    background-color: #c2580f;
   }
   nav ul {
     list-style-type: none;
@@ -85,7 +85,7 @@ body {
   }
   nav ul li .active a {
     background-color: #005633;
-    color: #7f3200;
+    color: #c2580f;
     text-shadow: -5px 0px 5px #005633, 0px 5px 5px #005633, 5px 0px 5px #005633, 0px -5px 5px #005633;
   }
 
@@ -221,7 +221,7 @@ body {
 
   /*----------- FOOTER --------------*/
   footer {
-    background-color: #7f3200;
+    background-color: #c2580f;
     color: #005633;
     padding: 0.5rem 2%;
     text-align: center;
