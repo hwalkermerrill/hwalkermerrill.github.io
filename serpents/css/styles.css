@@ -24,7 +24,7 @@ body {
   /*----------- HEADER --------------*/
   header {
     padding: 0.5rem 2%;
-    background-color: #1d3c3f;
+    background-color: #005633;
     display: grid;
     grid-template-columns: 350px auto;
   }
@@ -46,20 +46,20 @@ body {
     margin-top: 1rem;
     font-weight: bold;
     font-size: 40px;
-    color: #421215;
-    text-shadow: -5px 0px 5px #e7e0cc, 0px 5px 5px #e7e0cc, 5px 0px 5px #e7e0cc, 0px -5px 5px #e7e0cc;
+    color: #e17e25;
+    text-shadow: -5px 0px 5px #fdefcd, 0px 5px 5px #fdefcd, 5px 0px 5px #fdefcd, 0px -5px 5px #fdefcd;
   }
   header h2 {
     margin: 0;
     font-weight: normal;
     font-size: 30px;
-    color: #421215;
-    text-shadow: -5px 0px 5px #e7e0cc, 0px 5px 5px #e7e0cc, 5px 0px 5px #e7e0cc, 0px -5px 5px #e7e0cc;
+    color: #e17e25;
+    text-shadow: -5px 0px 5px #fdefcd, 0px 5px 5px #fdefcd, 5px 0px 5px #fdefcd, 0px -5px 5px #fdefcd;
   }
 
   /*----------- NAVIGATION --------------*/
   nav {
-    background-color: #1d3c3f;
+    background-color: #005633;
   }
   nav ul {
     list-style-type: none;
@@ -71,22 +71,22 @@ body {
   }
   nav ul li a {
     display: block;
-    color: #421215;
+    color: #e17e25;
     border-top: 1px solid rgba(0, 0, 0, 0.3);
     padding: 0.5rem 0;
     text-decoration: none;
     font-size: 20px;
     text-align: center;
-    text-shadow: -5px 0px 5px #e7e0cc, 0px 5px 5px #e7e0cc, 5px 0px 5px #e7e0cc, 0px -5px 5px #e7e0cc;
+    text-shadow: -5px 0px 5px #fdefcd, 0px 5px 5px #fdefcd, 5px 0px 5px #fdefcd, 0px -5px 5px #fdefcd;
   }
   nav ul li a:hover {
-    background-color: #e7e0cc;
-    color: #421215;
+    background-color: #fdefcd;
+    color: #e17e25;
   }
   nav ul li .active a {
-    background-color: #421215;
-    color: #1d3c3f;
-    text-shadow: -5px 0px 5px #421215, 0px 5px 5px #421215, 5px 0px 5px #421215, 0px -5px 5px #421215;
+    background-color: #e17e25;
+    color: #005633;
+    text-shadow: -5px 0px 5px #e17e25, 0px 5px 5px #e17e25, 5px 0px 5px #e17e25, 0px -5px 5px #e17e25;
   }
 
   /*----------- MAIN --------------*/
@@ -100,14 +100,14 @@ body {
   main h1 {
     font-weight: bold;
     font-size: 40px;
-    color: #421215;
+    color: #e17e25;
     text-shadow: 4px 4px 4px #aaa;
   }
   main h2 {
     margin-bottom: 0;
     font-weight: normal;
     font-size: 30px;
-    color: #421215;
+    color: #e17e25;
     text-shadow: 4px 4px 4px #aaa;
   }
   main img {
@@ -135,10 +135,10 @@ body {
     position: absolute;
     top: 2rem;
     left: 2rem;
-    background: #e7e0cc;
+    background: #fdefcd;
     border: 1px solid #000;
     padding: 0.2rem;
-    box-shadow: 0 0 30px #421215;
+    box-shadow: 0 0 30px #e17e25;
   }
   main .herodiv .actioncall h3 {
     margin: 0.5rem;
@@ -148,7 +148,7 @@ body {
   }
   main .herodiv .actioncall button {
     border: none;
-    background-color: #421215;
+    background-color: #e17e25;
     color: black;
     border-radius: 1rem;
     padding: 0.75rem 1.5rem;
@@ -177,7 +177,7 @@ body {
     margin: 1rem 2%;
     flex-basis: 96%;
     border-style: ridge;
-    border-color: #421215;
+    border-color: #e17e25;
     border-width: 6px;
     padding: 1%;
     transition: all 0.2s ease-in-out;
@@ -221,8 +221,8 @@ body {
 
   /*----------- FOOTER --------------*/
   footer {
-    background-color: #1d3c3f;
-    color: #421215;
+    background-color: #005633;
+    color: #e17e25;
     padding: 0.5rem 2%;
     text-align: center;
     clear: both;
