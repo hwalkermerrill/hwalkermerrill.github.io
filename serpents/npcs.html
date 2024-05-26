@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+<!-- META DATA -->
+<meta charset="utf-8">
+<meta name="description" content="Serpents Skull">
+<meta name="author" content="Harrison Merrill">
+<meta name="slogan" content="Kadena AB Pathfinder Group">
+<meta name="theme-color" content="#00572f">
+<meta property="og:url" content="https://hwalkermerrill.github.io/serpents">
+<meta property="og:title" content="Serpent's Skull">
+<meta property="og:description" content="Kadena AB Pathfinder Group">
+
+<title>Serpent's Skull: NPCs</title>
+<link href="images/logofav.png" rel="icon">
+<link href="images/logo_apple120x.png" rel="apple-touch-icon">
+<link href="images/logo_apple152x.png" rel="apple-touch-icon" sizes="152x152">
+<link href="images/logo_apple167x.png" rel="apple-touch-icon" sizes="167x167">
+<link href="images/logo_apple180x.png" rel="apple-touch-icon" sizes="180x180">
+<link href="images/logo_icon192x.png" rel="icon" sizes="192x192">
+<link href="images/logo_icon128x.png" rel="icon" sizes="128x128">
+
+<!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH & stops the font from enlarging when a phone is turned sideways-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- This loads the "Amiri" font style on the user device while browsing this HTML-->
+<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+
+<!-- STYLE SHEETS -->
+<link href="/serpents/css/normalize.css" rel="stylesheet">
+<link href="/serpents/css/styles.css" rel="stylesheet">
+
+<!-- SCRIPT HERE -->
+<script src="js/jquery.min.js"></script>
+<script src="js/hamburger.js"></script>
+<script src="js/banner.js"></script>
+<script src="js/fillJSON.js"></script>
+<script src="js/clickload.js"></script>
+</head>
+
+<body>
+<!-- HEADER HERE -->
+  <header class="clearfix">
+    <figure class="logo">
+      <a href="index.html">
+        <img src="images/logo-full.png" alt="logo" height="100px">
+      </a>
+    </figure>
+    <div class="slogan">
+      <h1>Pathfinder</h1>
+      <h2>Tabletop Adventure Game</h2>
+    </div>
+    <div class="menu">
+      <button onclick="toggleMenu()">&#8801;</button>
+    </div>
+  </header>
+          
+<!-- NAVIGATION HERE -->
+  <nav class="clearfix">
+    <ul id="primaryNav" class="hide">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="creation.html">Character Creation</a></li>
+      <li><a href="resources.html">Discoveries</a></li>
+      <li><a href="heroes.html">Explorers</a></li>
+      <li><a href="npcs.html">Profiles</a></li>
+      <li><a href="map.html">Surveys</a></li>
+      <li><a href="journal.html">Travel Log</a></li>
+    </ul>
+  </nav>
+
+<!-- CONTENT HERE -->
+  <main class="clearfix">
+    <h1>Ancorato and the Shattered Continent</h1>
+    <div class="herodiv">
+      <figure>
+        <img src="images/hero-talmandors-bounty.jpg" alt="Talmandor's Bounty" sizes="100vw">
+      </figure>
+      <section class="actioncall">
+        <h3>Talmandor's Bounty Charter</h3>
+        <p>Colony Size: Small Town</p>
+        <p>Governor: Ramona Advanth</p>
+        <p>Marshall: Lt. Grammel Taychar</p>
+        <p>Councilor: Carver Hastings</p>
+        <p>High Priests: Fathers Caranth & Nurpico</p>
+        <p>Treasurer: Carathet Maluis</p>
+        <p>Secretary: Perell Beys</p>
+        <p>Scout: Lyra Heatherly</p>
+      </section>
+    </div>
+    <h3>
+      <i>"I'm afraid I must cut my expedition into this harsh, broken land short. Hundreds of islands remain from the once-great continent of Azlant, and hints of that magnificent empire still lie out in the open in some places. I’ve gathered what I can carry, but I’m afraid I had to leave many things behind. Eight of my porters fell ill and died a week after making landfall, the captain of the ship I chartered lost patience and left me stranded here, and I ran out of the rations I brought nine days ago. I must find my own way back home. If my understanding of Azlanti is accurate, I believe that I can use this shimmering metallic arch (which is in surprisingly excellent condition) and teleport up to three thousand miles away. I just need to find the right way to activate it. I have to make it back to Absalom in one piece; many people are going to want to read these chronicles."</i>
+      <br>&emsp; - Excerpt from the Pathfinder Chronicles, Volume 1, Durvin Gest at Ancorato.
+    </h3>
+    <h2>Talmandor's Bounty</h2>
+    <p>Talmandor's Bounty is thriving but highly isolated trade port in ruined Azlant, on the Island of Ancorato.</p>
+    <ul style="list-style-type: circle;"><b>Colony Attributes</b>
+      <li>Type: NG Autocratic Small Town</li>
+      <li>Special Qualities: Insular, Strategic Location, Tourist Atraction - Adventure Location</li>
+      <li>Drawbacks: Hunted</li>
+      <li>Danger: +20</li>
+      <li>Attributes: Corruption = 0; Crime = -1; Law = +2; Lore = 0; Society = -3</li>
+    </ul>
+    <ul style="list-style-type: circle;"><b>Survivability:</b>
+      <li>Defensive Value: 2</li>
+      <li>Defensive Modifiers: Palisade, Army of Marines</li>
+      <li>Survival Traits: Communal, Self-Sufficient</li>
+      <li>Stockpile: 2 Months</li>
+    </ul>
+    <ul style="list-style-type: circle;"><b>Economy:</b>
+      <li>Base Value: 1,825</li>
+      <li>Purchase Limit: 9,750</li>
+      <li>Spellcasting: 4th</li>
+      <li>Shops: 8</li>
+      <li>Avalable Resources: All Common (cloth, food, metal, stone, water, wood), Darkwood, Living-Steel, Gemstones</li>
+    </ul>
+    <ul style="list-style-type: circle;"><b>Social Services:</b>
+      <li>Daib Joiner - Secured the expedition team's home, preventing ambushes and thefts. He can also secure one permanent area in the field at a time.</li>
+      <li>Perrell Beys - Offers her tutoring services to the party, allowing them to aquire bonus languages in half the time (and price) during downtime (usually 10 days instead of 20). Azlanti Scholar's do not need to pay the cost of this downtime.</li>
+      <li>Antona Sedgewick - Flirts aggressively with female PC's while in town.</li>
+    </ul>
+    <h2>Colony Stores</h2>
+    <div class="active">
+      <article>
+        <h2>Carrolby's Courtly Ranch</h2>
+        <h3>Harcourt Carrolby</h3>
+        <img src="images/shop-ranch.jpg" alt="Carrolby's Courtly Ranch">
+        <p>Buys and sells regular and exotic animals, gear, and vehicles, as well as magical rods and staves.</p>
+        <!-- <p>Boons: CLOSED TO EXPEDITION TEAM</p> -->
+        <p>Special Stock: <i> +1 (Huge) Animal Barding (Chain Shirt)</i></p>
+      </article>
+      <article>
+        <h2>Halway Here Tradin' Post</h2>
+        <h3>Community-Manned</h3>
+        <img src="images/shop-trading-post.jpg" alt="Halway Here Tradin' Post">
+        <p>Buys and sells most adventuring gear, books, furniture, locks, tools, and religious items, as well as scrolls and wands.</p>
+        <p>Boon: With the death of Kalcora Weems, the trading post isn't managed as effectively, being run by a few members of the community. They pay only 25% value for items, never carry special stock, and only has half the likelyhood of carrying a particular item.</p>
+        <!-- <p>Boons: Kalcora has already begun a small black market, and with her access to it, provides a boost to the Base Value and Purchase Limit of Talmandors Bounty.</p> -->
+        <!-- <p>Upgraded Trade Stock: Kalcora can easily provide masterwork items of the type she normally sells, and can often find a darkwood or living-steel version.</p> -->
+        <!-- <p>Special Stock: <i>(d) Scroll of Cure Light Wounds</i></p> -->
+      </article>
+      <article>
+        <h2>Hide and Brace</h2>
+        <h3>Antwyn Malros</h3>
+        <img src="images/shop-armor.jpg" alt="Hide and Brace">
+        <p>Buys and sells armor.</p>
+        <!-- <p>Boons: CLOSED TO EXPEDITION TEAM</p> -->
+        <p>Special Stock: <i>+1 Spell-Storing Breatplate</i></p>
+      </article>
+      <article>
+        <h2>Marooned Melancholy</h2>
+        <h3>Helbret Koors</h3>
+        <img src="images/shop-tavern.jpg" alt="Marooned Melancholy">
+        <p>Sells his craft beers - <i>Koors</i> and <i>Koors Light</i> - as well as food, drink and some occasional random magical items.</p>
+        <!-- <p>Boons: CLOSED TO EXPEDITION TEAM</p> -->
+        <p>Special Stock: <i>Azlanti +1 Spring-Spear*; Azlanti Ring of the Dolphin*</i></p>
+      </article>
+      <article>
+        <h2>Talmandor's Bounty Chapel</h2>
+        <h3>Father's Eamon and Kurvis</h3>
+        <img src="images/shop-church.jpg" alt="Talmandor's Bounty Chapel">
+        <p>Provides limited religious and spellcasting services. Father Eamon typically offers healing (first come-first serve) as well as counseling, dating, matchmaking, and marriage services freely. Father Kurvis typically charges for his services (healing, legal, and spellcasting).</p>
+        <p>Father Eamon sets members of the expedition team up on dates each week, granting one pc a dual social round with a +2 bonnus with the colonist he's paired them with.</p>
+        <p>Special Stock: Holy Water and spellcasting components - diamond dust, silver dust, etc.</p>
+      </article>
+      <article>
+        <h2>Talmandor's Smithy</h2>
+        <h3>Luetin Calewick</h3>
+        <img src="images/shop-smithy.jpg" alt="Talmandor's Smithy">
+        <p>Buys and sells weapons and shields.</p>
+        <!-- <p>Boons: CLOSED TO EXPEDITION TEAM</p> -->
+        <p>Special Stock: <i>+1 Halfling Sling-Staff; +1 Light Fortification Heavy Darkwood Shield</i></p>
+      </article>
+      <article>
+        <h2>Thread Rare</h2>
+        <h3>Eskelda Teredein</h3>
+        <img src="images/shop-tailor.jpg" alt="Thread Rare">
+        <p>Buys and sells clothing, containers, rings, and most wonderous magical items.</p>
+        <p>Boons: Eskelda provides her stiching and mending services freely, and can swiftly repair any damaged or ruined clothing or cloth-based magic item.</p>
+        <p>Special Stock: <i>Cloak of the Manta Ray; Pauldrons of the Watchful Lion</i></p>
+      </article>
+      <article>
+        <h2>Volcanic Glass</h2>
+        <h3>Alba Divenvaar</h3>
+        <img src="images/shop-apothecary.jpg" alt="Volcanic Glass">
+        <p>Buys and sells potions, alchemical items, reagents, and magical crafting supplies. Commisions are limited by her known formulae.</p>
+        <p>Boons: She is willing to buy reagents at 50% value, potions at 75% value (split profit), and will pay full price for arcane spells and formulae she can learn (adds to her spellbook). She can also take commissions.</p>
+        <p>Special Stock: <i>Potion of Magic Fang (CL1)</i></p>
+        <p>Boons: Is willing to sell the expedition teams potions in her store, allowing them to sell them for 75%.</p>
+      </article>
+    </div>
+    <h2>Important Colonists</h2>
+      <p>Color Code: Blue = Helpful; Light Green = Friendly; White = Indifferent; <!--Gray = Unable to Influence; -->Light Red = Unfriendly; Black = Hostile - Approach with Caution <!--<button onclick="toggleHide('.locked')">Show/Hide Grayed-Out NPC's</button>--> <button onclick="toggleHide('.helpful')">Show/Hide Helpful NPC's</button></p>
+      <h2>Colony Leadership</h2>
+        <div class="leader"></div>
+      <h2>Security Forces</h2>
+        <div class="security"></div>
+      <h2>Colony Shopkeeps</h2>
+        <div class="merchant"></div>
+      <h2>Colonists in Good Standing</h2>
+        <div class="colonist"></div>
+      <section class="clearfix"></section>
+  </main>
+
+<!-- FOOTER HERE -->   
+  <footer>
+    &copy; <script src="js/currentdate.js"></script> &bull; Harrison Merrill &bull; All rights reserved &bull; Open Games License v1.02 2000, Wizards of the Coast, Inc. &bull; Pathfinder Adventure Path #121-126 2017, Paizo Publishing, LLC &bull; <script>writeCurrentVersion()</script>
+  </footer>
+
+<!-- SCRIPT HERE -->
+  <script>
+    let options = [
+      {type: "npc", div: "leader"},
+      {type: "npc", div: "security"},
+      {type: "npc", div: "merchant"},
+      {type: "npc", div: "colonist"},
+    ]
+    fillCards(options, function () {
+      clickLoad('article');
+    })
+  </script>
+  <script>function toggleHide(val) {
+    $(val).toggle();
+  };
+  </script>
+</body>
+</html>
