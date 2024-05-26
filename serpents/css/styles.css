@@ -28,7 +28,7 @@ body {
     padding-bottom: 0;
     background-color: #c2580f;
     display: grid;
-    grid-template-columns: 350px auto;
+    grid-template-columns: 200px auto;
   }
   header .slogan {
     display: none;
