@@ -25,6 +25,8 @@ body {
   /*----------- HEADER --------------*/
   header {
     padding: .5rem 2%;
+    padding-left: 0;
+    padding-bottom: 0;
     background-color: $color-main;
     display: grid;
     grid-template-columns: 350px auto;
