@@ -25,6 +25,7 @@ header {
   background-color: #5A7A9B;
   display: grid;
   grid-template-columns: 200px auto;
+  gap: 2%;
 }
 header .slogan {
   display: none;

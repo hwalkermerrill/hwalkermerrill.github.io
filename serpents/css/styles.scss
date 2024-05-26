@@ -30,7 +30,8 @@ body {
     padding-bottom: 0;
     background-color: $color-main;
     display: grid;
-    grid-template-columns: auto 2% auto;
+    grid-template-columns: auto auto;
+    gap: 2%;
     .slogan {display: none;}
     figure {
       margin: 0;
