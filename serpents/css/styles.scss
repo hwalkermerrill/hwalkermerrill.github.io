@@ -34,7 +34,9 @@ body {
     .slogan {display: none;}
     figure {
       margin: 0;
-      max-height: 90px;
+    }
+    img {
+      max-height: 85px;
     }
     button {
       margin: 1rem 2%;
@@ -221,8 +223,7 @@ body {
 
   /*----------- HEADER --------------*/
     header button {display: none;}
-    figure {max-height: 120px;}
-    header img {width: auto;}
+    header img {max-height: 115px;}
     header h1 {font-size: 2rem;}
     header h2 {font-size: 1.5rem;}
     header .slogan {display: block;}

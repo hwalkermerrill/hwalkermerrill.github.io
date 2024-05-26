@@ -36,7 +36,9 @@ body {
   }
   header figure {
     margin: 0;
-    max-height: 90px;
+  }
+  header img {
+    max-height:85px;
   }
   header button {
     margin: 1rem 2%;
@@ -245,7 +247,7 @@ body {
   }
 
   header img {
-    width: auto;
+    max-height: 115px;
   }
 
   header h1 {
