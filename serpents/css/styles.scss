@@ -26,12 +26,16 @@ body {
   header {
     padding: .5rem 2%;
     padding-left: 0;
+    padding-right: 5rem;
     padding-bottom: 0;
     background-color: $color-main;
     display: grid;
-    grid-template-columns: 200px auto;
+    grid-template-columns: auto 2% auto;
     .slogan {display: none;}
-    figure {margin: 0;}
+    figure {
+      margin: 0;
+      max-height: 90px;
+    }
     button {
       margin: 1rem 2%;
       background-color: transparent;
@@ -41,7 +45,7 @@ body {
     }
     h1 {
       margin: 0;
-      margin-top: 1rem;
+      // margin-top: 1rem;
       font-weight: bold;
       font-size: 40px;
       color: $color-secondary;
@@ -217,6 +221,7 @@ body {
 
   /*----------- HEADER --------------*/
     header button {display: none;}
+    figure {max-height: 120px;}
     header img {width: auto;}
     header h1 {font-size: 2rem;}
     header h2 {font-size: 1.5rem;}
