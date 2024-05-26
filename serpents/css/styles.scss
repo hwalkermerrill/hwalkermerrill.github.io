@@ -30,14 +30,16 @@ body {
     padding-bottom: 0;
     background-color: $color-main;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: max-content auto;
     gap: 2%;
+    align-items: center;
     .slogan {display: none;}
     figure {
       margin: 0;
     }
     img {
-      max-height: 85px;
+      max-width: 80vw;
+      max-height: 115px;
     }
     button {
       margin: 1rem 2%;
@@ -224,7 +226,7 @@ body {
 
   /*----------- HEADER --------------*/
     header button {display: none;}
-    header img {max-height: 115px;}
+    // header img {max-height: 115px;}
     header h1 {font-size: 2rem;}
     header h2 {font-size: 1.5rem;}
     header .slogan {display: block;}
