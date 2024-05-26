@@ -60,9 +60,6 @@ body {
       list-style-type: none;
       padding: 0;
       margin: 0;
-      .hide {
-        display: none;
-      }
       li a {
         display: block;
         color: $color-secondary;
@@ -77,11 +74,14 @@ body {
           color: $color-secondary;
         } 
       }
-      li .active a {
+      li.active a {
         background-color: $color-secondary;
         color: $color-main;
         text-shadow: $text-accent;
       }
+    }
+    ul.hide {
+      display: none;
     }
   }
   /*----------- MAIN --------------*/
