@@ -316,9 +316,9 @@ body {
     margin: 1%;
   }
   main .row section:nth-child(2n+0){
-    /* width: 48%; */
+    width: 48%;
     float: right;
-    /* margin: 1%; */
+    margin: 1%;
   }
   /*----------- Flexwrap Classes --------------*/
   main .asset {
