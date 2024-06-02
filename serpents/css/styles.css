@@ -164,6 +164,20 @@ body {
     width: 96%;
     max-width: 20rem;
   }
+  main .row {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.2rem;
+  }
+  main .row section:nth-child(2){
+    margin-left: 2%;
+  }
+  main .row figure figcaption {
+    padding: 1%;
+    text-align: center;
+  }
 
   /*----------- Slideshow --------------*/
   #slideshow:after {
@@ -296,7 +310,16 @@ body {
     padding: 2%;
     padding-top: 0;
   }
-
+  main .row section{
+    width: 48%;
+    float: left;
+    margin: 1%;
+  }
+  main .row section:nth-child(2n+0){
+    /* width: 48%; */
+    float: right;
+    /* margin: 1%; */
+  }
   /*----------- Flexwrap Classes --------------*/
   main .asset {
     justify-content: center;
