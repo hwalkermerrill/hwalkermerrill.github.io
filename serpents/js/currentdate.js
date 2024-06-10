@@ -58,3 +58,23 @@ function writeCurrentVersion(){
   var version = "v1.0." + yy + m2;
   document.write(version);
 }
+
+// #returnTopBtn:
+let topbutton = document.getElementById("returnTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {showTopBtn()};
+
+function showTopBtn() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    topbutton.style.display = "block";
+  } else {
+    topbutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}

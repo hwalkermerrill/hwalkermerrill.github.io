@@ -224,6 +224,28 @@ body {
     background-color: rgba(0,0,0,.6);
   }
 
+  /*------- #returnTopBtn -----------*/
+  #returnTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    left: 50%; 
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: $color-main; /* Set a background color */
+    color: $color-secondary; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+      &:hover {
+        background-color: $color-accent;
+        box-shadow: 0 0 12px #555;
+        transform: scale(1.05);
+      }
+    }
+
   /*----------- FOOTER --------------*/
   footer {
     background-color: $color-main;
