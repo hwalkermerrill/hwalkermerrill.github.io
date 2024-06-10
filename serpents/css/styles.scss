@@ -228,15 +228,18 @@ body {
   #returnTopBtn {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    left: 50%; 
+    bottom: 30px; /* Place the button at the bottom of the page */
+    left: 50%;
+    margin-left: -60px; /* Center the button */
     z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
+    border-style: ridge;
+    border-color: $color-secondary;
+    border-width: 6px;
     outline: none; /* Remove outline */
     background-color: $color-main; /* Set a background color */
     color: $color-secondary; /* Text color */
     cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
+    padding: 5px; /* Some padding */
     border-radius: 10px; /* Rounded corners */
     font-size: 18px; /* Increase font size */
       &:hover {
