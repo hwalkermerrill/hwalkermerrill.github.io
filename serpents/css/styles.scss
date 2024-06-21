@@ -199,6 +199,28 @@ body {
     }
   }
 
+  /*----------- Attitude Colors --------------*/
+  main .helpful {
+    background-color: #5A7A9B;
+  }
+  main .friendly {
+    background-color: $color-secondary;
+    h2 {
+      color: $color-main;
+    }
+  }
+  main .unfriendly {
+    background-color: $color-main;
+    border-color: $color-secondary;
+  }
+  main .hostile {
+    background-color: #000;
+    color: #fff;
+  }
+  main .locked {
+    background-color: rgb(128, 128, 128);
+  }
+
   /*---START toggleClass sub-CSS---*/
   main .asset p {
     display: none;

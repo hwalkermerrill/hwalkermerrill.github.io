@@ -214,6 +214,28 @@ body {
     cursor: pointer;
   }
 
+  /*----------- Attitude Colors --------------*/
+  main .helpful {
+    background-color: #5A7A9B;
+  }
+  main .friendly {
+    background-color: #005633;
+  }
+  main .friendly h2 {
+    color: #c2580f;
+  }
+  main .unfriendly {
+    background-color: #c2580f;
+    border-color: #005633;
+  }
+  main .hostile {
+    background-color: #000;
+    color: #fff;
+  }
+  main .locked {
+    background-color: rgb(128, 128, 128);
+  }
+
   /*---START toggleClass sub-CSS---*/
   main .asset p {
     display: none;
