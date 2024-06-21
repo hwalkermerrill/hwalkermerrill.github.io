@@ -205,13 +205,13 @@ body {
   }
   main .friendly {
     background-color: $color-secondary;
+    border-color: $color-main;
     h2 {
       color: $color-main;
     }
   }
   main .unfriendly {
     background-color: $color-main;
-    border-color: $color-secondary;
   }
   main .hostile {
     background-color: #000;

@@ -220,13 +220,13 @@ body {
   }
   main .friendly {
     background-color: #005633;
+    border-color: #c2580f;
   }
   main .friendly h2 {
     color: #c2580f;
   }
   main .unfriendly {
     background-color: #c2580f;
-    border-color: #005633;
   }
   main .hostile {
     background-color: #000;
