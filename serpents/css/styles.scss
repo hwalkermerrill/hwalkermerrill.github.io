@@ -198,6 +198,29 @@ body {
       }
     }
   }
+  main .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    figure {
+      margin: 1rem 2%;
+      flex-basis: 96%;
+      border-style: ridge;
+      border-color: $color-secondary;
+      border-width: 6px;
+      padding: 1%;
+      transition: all .2s ease-in-out;
+      figcaption {
+        padding: 1%;
+        text-align: center;
+      }
+      img {width: 100%;}
+      &:hover {
+        box-shadow: 0 0 12px #555;
+        transform: scale(1.05);
+        cursor: pointer;
+      }
+    }
+  }
 
   /*----------- Attitude Colors --------------*/
   main .helpful {
@@ -343,6 +366,12 @@ body {
   main .asset section {
     flex-basis: 46%;
   }
+  main .gallery {
+    justify-content: center;
+  }
+  main .gallery figure {
+    flex-basis: 46%;
+  }
 
   /*----------- FOOTER --------------*/
     
@@ -361,6 +390,9 @@ body {
 
   /*----------- Flexwrap Classes --------------*/
   main .asset section {
+    flex-basis: 29%;
+  }
+  main .gallery figure {
     flex-basis: 29%;
   }
 
@@ -386,6 +418,9 @@ body {
 
   /*----------- Flexwrap Classes --------------*/
   main .asset section {
+    flex-basis: 21%;
+  }
+  main .gallery figure {
     flex-basis: 21%;
   }
 
