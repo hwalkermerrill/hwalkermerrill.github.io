@@ -12,6 +12,7 @@ $color-shadow: #aaa;
 $text-accent: -5px 0px 5px $color-accent, 0px 5px 5px $color-accent, 5px 0px 5px $color-accent, 0px -5px 5px $color-accent;
 $text-contrast-highlight: -5px 0px 5px $color-shadow, 0px 5px 5px $color-shadow, 5px 0px 5px $color-shadow, 0px -5px 5px $color-shadow;
 $text-drop-shadow: 4px 4px 4px $color-shadow;
+$text-dark-outline: 1px 1px 0px black;
 
 /*----------- BODY --------------*/
 body {
@@ -107,6 +108,7 @@ body {
       font-size: 40px;
       color: $color-secondary;
       text-shadow: $text-drop-shadow;
+      text-shadow: $text-dark-outline;
     }
     h2 {
       margin-bottom: 0;
@@ -114,6 +116,7 @@ body {
       font-size: 30px;
       color: $color-secondary;
       text-shadow: $text-drop-shadow;
+      text-shadow: $text-dark-outline;
     }
     img {
       width:100%;
