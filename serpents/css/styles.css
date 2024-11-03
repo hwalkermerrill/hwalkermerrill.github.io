@@ -117,7 +117,7 @@ body {
     font-weight: normal;
     font-size: 30px;
     color: #005633;
-    text-shadow: -5px 0px 5px #aaa, 0px 5px 5px #aaa, 5px 0px 5px #aaa, 0px -5px 5px #aaa;
+    text-shadow: 4px 4px 4px #aaa;
   }
   main img {
     width: 100%;
