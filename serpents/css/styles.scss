@@ -108,7 +108,6 @@ body {
       font-size: 40px;
       color: $color-secondary;
       text-shadow: $text-drop-shadow;
-      text-shadow: $text-dark-outline;
     }
     h2 {
       margin-bottom: 0;
@@ -116,6 +115,8 @@ body {
       font-size: 30px;
       color: $color-secondary;
       text-shadow: $text-drop-shadow;
+    }
+    h3 {
       text-shadow: $text-dark-outline;
     }
     img {

@@ -111,7 +111,6 @@ body {
     font-size: 40px;
     color: #005633;
     text-shadow: 4px 4px 4px #aaa;
-    text-shadow: 1px 1px 0px black;
   }
   main h2 {
     margin-bottom: 0;
@@ -119,6 +118,8 @@ body {
     font-size: 30px;
     color: #005633;
     text-shadow: 4px 4px 4px #aaa;
+  }
+  main h3 {
     text-shadow: 1px 1px 0px black;
   }
   main img {
