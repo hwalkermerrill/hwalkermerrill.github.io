@@ -8,8 +8,10 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 $color-main: #c2580f;
 $color-secondary: #005633;
 $color-accent: #fdefcd;
-$text-highlight: -5px 0px 5px $color-accent, 0px 5px 5px $color-accent, 5px 0px 5px $color-accent, 0px -5px 5px $color-accent;
-$text-accent: -5px 0px 5px $color-secondary, 0px 5px 5px $color-secondary, 5px 0px 5px $color-secondary, 0px -5px 5px $color-secondary;
+$color-shadow: #aaa;
+$text-accent: -5px 0px 5px $color-accent, 0px 5px 5px $color-accent, 5px 0px 5px $color-accent, 0px -5px 5px $color-accent;
+$text-contrast-highlight: -5px 0px 5px $color-shadow, 0px 5px 5px $color-shadow, 5px 0px 5px $color-shadow, 0px -5px 5px $color-shadow;
+$text-drop-shadow: 4px 4px 4px $color-shadow;
 
 /*----------- BODY --------------*/
 body {
@@ -54,14 +56,14 @@ body {
       font-weight: bold;
       font-size: 40px;
       color: $color-secondary;
-      text-shadow: $text-highlight;
+      text-shadow: $text-accent;
     }
     h2 {
       margin: 0;
       font-weight: normal;
       font-size: 30px;
       color: $color-secondary;
-      text-shadow: $text-highlight;
+      text-shadow: $text-accent;
     }
   }
   /*----------- NAVIGATION --------------*/
@@ -79,7 +81,7 @@ body {
         text-decoration: none;
         font-size: 20px;
         text-align: center;
-        text-shadow: $text-highlight;
+        text-shadow: $text-accent;
         &:hover {
           background-color: $color-accent;
           color: $color-secondary;
@@ -104,14 +106,14 @@ body {
       font-weight: bold;
       font-size: 40px;
       color: $color-secondary;
-      text-shadow: 4px 4px 4px #aaa;
+      text-shadow: $text-drop-shadow;
     }
     h2 {
       margin-bottom: 0;
       font-weight: normal;
       font-size: 30px;
       color: $color-secondary;
-      text-shadow: 4px 4px 4px #aaa;
+      text-shadow: $text-contrast-highlight;
     }
     img {
       width:100%;

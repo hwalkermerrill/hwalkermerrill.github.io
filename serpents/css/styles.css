@@ -95,7 +95,7 @@ body {
   nav ul li.active a {
     background-color: #005633;
     color: #c2580f;
-    text-shadow: -5px 0px 5px #005633, 0px 5px 5px #005633, 5px 0px 5px #005633, 0px -5px 5px #005633;
+    text-shadow: -5px 0px 5px #fdefcd, 0px 5px 5px #fdefcd, 5px 0px 5px #fdefcd, 0px -5px 5px #fdefcd;
   }
 
   /*----------- MAIN --------------*/
@@ -117,7 +117,7 @@ body {
     font-weight: normal;
     font-size: 30px;
     color: #005633;
-    text-shadow: 4px 4px 4px #aaa;
+    text-shadow: -5px 0px 5px #aaa, 0px 5px 5px #aaa, 5px 0px 5px #aaa, 0px -5px 5px #aaa;
   }
   main img {
     width: 100%;
