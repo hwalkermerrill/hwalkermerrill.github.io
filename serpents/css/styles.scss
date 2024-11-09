@@ -235,9 +235,7 @@ body {
   main .friendly {
     background-color: $color-secondary;
     border-color: $color-main;
-    h2 {
-      color: $color-main;
-    }
+    color: #fff;
   }
   main .unfriendly {
     background-color: $color-main;

@@ -250,8 +250,8 @@ body {
     background-color: #005633;
     border-color: #c2580f;
   }
-  main .friendly h2 {
-    color: #c2580f;
+  main .friendly {
+    color: #fff;
   }
   main .unfriendly {
     background-color: #c2580f;
