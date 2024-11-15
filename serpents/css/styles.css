@@ -246,7 +246,7 @@ body {
     cursor: pointer;
   }
 
-  /*----------- Dual Image --------------*/
+  /*----------- Multi Image --------------*/
   /* This allows you to set two images for a single object, with the first image always visable, and the second image fading out on hover. */
   figure.multiImage {
     display: grid;
