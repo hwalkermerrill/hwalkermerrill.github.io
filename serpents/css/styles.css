@@ -208,6 +208,10 @@ body {
     padding: 1%;
     transition: all 0.2s ease-in-out;
   }
+  main .asset section figure {
+    margin: 0;
+    padding: 0;
+  }
   main .asset section img {
     width: 100%;
   }

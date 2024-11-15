@@ -196,6 +196,10 @@ body {
       border-width: 6px;
       padding: 1%;
       transition: all .2s ease-in-out;
+      figure {
+        margin: 0;
+        padding: 0;
+      }
       img {width: 100%;}
       &:hover {
         box-shadow: 0 0 12px #555;
@@ -236,10 +240,10 @@ body {
       width: 100%;
       transition: opacity 0.3s ease-out;
       figure.multiImage img.top{
-      opacity: 0;
+        opacity: 0;
+      }
     }
-    }
-    :hover img.top{
+    &:hover img.top{
       opacity: 1;
     }
   }
