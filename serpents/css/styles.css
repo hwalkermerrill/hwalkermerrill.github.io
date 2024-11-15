@@ -253,11 +253,17 @@ body {
     width: 100%;
     transition: opacity 0.3s ease-out;
   }
-  figure.multiImage img.top{
+  figure.multiImage img.appearOnHover{
     opacity: 0;
   }
-  figure.multiImage:hover img.top{
+  figure.multiImage:hover img.appearOnHover{
     opacity: 1;
+  }
+  figure.multiImage img.faderOnHover{
+    opacity: 1;
+  }
+  figure.multiImage:hover img.fadeOnHover{
+    opacity: 0;
   }
 
   /*----------- Attitude Colors --------------*/

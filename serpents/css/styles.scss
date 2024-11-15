@@ -235,16 +235,16 @@ body {
   /*----------- Dual Image --------------*/
   /* This allows you to set two images for a single object, with the first image always visable, and the second image fading out on hover. */
   figure.multiImage{
-     img {
+    img {
       position: absolute;
       width: 100%;
       transition: opacity 0.3s ease-out;
-      figure.multiImage img.top{
-        opacity: 0;
-      }
+      .fadeOnHover{opacity: 0;}
+      .appearOnHover{opacity: 1;}
     }
-    &:hover img.top{
-      opacity: 1;
+    &:hover {
+      img.fadeOnHover{opacity: 1;}
+      img.appearOnHover{opacity: 0;}
     }
   }
 
