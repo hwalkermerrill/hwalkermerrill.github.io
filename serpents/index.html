@@ -17,6 +17,9 @@
 <link href="/serpents/images/logo_icon192x.png" rel="icon" sizes="192x192">
 <link href="/serpents/images/logo_icon128x.png" rel="icon" sizes="128x128">
 
+<!-- This tells MS Edge users to use Edge instead of IE -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 <!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH & stops the font from enlarging when a phone is turned sideways-->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -69,9 +72,9 @@
     <h1><i>&nbsp;“It’s a dangerous business, Frodo, going out your door. You step onto the road, and if you don’t keep your feet, there’s no knowing where you might be swept off to.”</i></h1>
     <h3>Kadena AB Pathfinder Group</h3>
     <div class="herodiv">
-      <figure">
-        <!-- <img src="/serpents/images/hero-shipwrecked.jpg" alt="Shipwrecked!" sizes="100vw"> -->
-        <img src="/serpents/images/hero-mwangi-campaigns.jpg" alt="Race to Ruin!" sizes="100vw">
+      <figure>
+        <!-- <img src="/serpents/images/hero-shipwrecked.jpg" alt="Shipwrecked!"> -->
+        <img src="/serpents/images/hero-mwangi-campaigns.jpg" alt="Race to Ruin!">
       </figure>
       <section class="actioncall">
         <p>Days at Port: 33</p>
@@ -108,7 +111,9 @@
       <!-- RETURN TO TOP BUTTON -->
       <section>
         <h2>Campaign Details</h2>
-        <ul style="list-style-type:circle"><b>Click to Show/Hide Campaign and Character Details:</b>
+        <ul style="list-style-type:circle">
+          <li style="list-style-type: none;"><b>Click to Show Campaign and Character Details:</b></li>
+          <li style="list-style-type: none; display: none;"><b>Click to Hide Campaign and Character Details:</b></li>
           <li style="display: none;"><b>Citizenship:</b> While Sargava and the Mwangi Expanse are primarily home to Chelish Colonials and Mwangi natives, adventurers of all nations have reason to journey to the region, be they natives to the land returning home from travels abroad or foreigners venturing into uncharted territory for the first time. However, most adventurers in the region at this time would be expected to be colonial Sargavan or Mwangi natives, hail from either Cheliax, Mediogalti, Varisia, or the Shackles, or else at least be from the inner sea region.</li>
           <li style="display: none;"><b>Currency:</b> As a former colonial territory of Cheliax, settlements in Sargava predominantly use Chelish currency - copper oars, silver ferries, gold helms, and platinum cabins, though they refer to all coins by these names and use them relatively interchangeably regardless of mint origin. Despite their usage in Cheliax proper, Sargava eschews the use of silver tithes, rejecting their infernal origins. The native Mwangi tribes have largely adopted the usage of Sargavan currency over the last 600 years of colonial occupation, though they do cling to exchanging several types of trade goods in lieu of currency, particularly dried cocoa beans, when exchanging with fellow Mwangi peoples.</li>
           <li style="display: none;"><b>Languages:</b> Sargava uses the Taldan Common tongue as its official language, and all official business in Eleder is conducted in Common, though the local Polyglot is spoken by far more people, especially outside of the cities, while Dwarven, Elven, Gnome are common among those populations. Other useful languages for this campaign include: Abyssal, Aklo, Ancient Azlanti, Aquan, Boggard, Draconic, Giant, Infernal, Kech, Orvian, Undercommon, Sylvan, Terran, and Vegepygmy. A few secret languages (such as druidic) and magical communication - particularly <i>speak with animals</i> - will both feature prominently, but cannot be achieved by all characters. The regional dialects of Calda, Ekujae, Kibwani, Lirgeni, Mzuno, Ocotan, and Xamba, as well as both Kelish and Varisian will be encountered throughout the campaign, but its speakers will often also speak Common or Polyglot. Other languages may feature incidentally, but may not be the ideal choice when choosing a new one to learn.</li>
@@ -117,9 +122,11 @@
       </section>
       <section>
         <h2>Knowledge Breakdown</h2>
-        <ul style="list-style-type:circle"><b>Click to Show/Hide Knowledge Uses:</b>
+        <ul style="list-style-type:circle">
+          <li style="list-style-type: none;"><b>Click to Detail Knowledge Uses:</b></li>
+          <li style="list-style-type: none; display: none;"><b>Click to Obscure Knowledge Uses:</b></li>
           <li style="display: none;"><b>All: Monster Identification</b> - Most Knowledge's allow for identifying monsters. The DC's for these are DC10+CR for common creatures (typically CR9-), DC15+CR for uncommon creatures (typically CR10+), and DC20+CR for unique creatures (unique or CR20+). For every 5 points you exceed the DC, you may <a href="attachments/what-can-i-ask.pdf">ask a question about the creature.</a></li>
-          <br>
+          <li style="list-style-type: none; display: none;"><br></li>
           <li style="display: none;"><b>Arcana:</b> Identifies dragons and magical beasts. Also identifies ongoing magical effects and transmuted/conjured materials (DC20+Spell Lvl). Can also decipher arcane mysteries, magical traditions, and magical auras. Also used in phrenology and magical rituals.</li>
           <li style="display: none;"><b>Dungeoneering:</b> Identifies aberrations and oozes. Also identifies underground hazard's and how to bypass them (DC15+CR). Can also identify stones, metals, and minerals, identify makeup of caverns and underground tunnels, determine slope and depth underground. Also used in understanding and navigating the darklands</li>
           <li style="display: none;"><b>Engineering:</b> Identifies constructs. Also identifies dangerous construction and a structures style, age, or weakness (DC10-20). Can also be used in construction, demolition, and renovation. Also used in inventions and innovations.</li>
@@ -134,7 +141,9 @@
       </section>
       <section>
         <h2>The 10 Commandments of Tomb Raiding</h2>
-        <ul style="list-style-type: circle;"><b>Click to Show/Hide information about Tomb Raiding:</b>
+        <ol reversed>
+          <li style="list-style-type: none;"><b>Click to Reveal the Tomb Raiding Commandments:</b></li>
+          <li style="list-style-type: none; display: none;"><b>Click to Apostatize the Tomb Raiding Commandments:</b></li>
           <li style="display: none;"><b>Scout Ahead:</b> <i>(Recommended Skill - Linguistics)</i> Before opening doors or rounding corners, gather as much information as you can. Deciphering ancient writings or maps can provide a massive advantage. Using magic to create maps, scry, or see through walls is incredible, but even listening at a door, using a mirror to look around a corner, peering through a crack in the wall, or (dangerously) sneaking ahead to take a peek, can all gather useful information about who to fight, what to prepare, when to move, or where to stand. </li>
           <li style="display: none;"><b>Use Diplomacy:</b> <i>(Recommended Skill - Diplomacy)</i> There are more ways to deal with a monster than dangerous combat. Diplomacy can turn a dangerous encounter into an unexpected ally, and even unreasonable monsters might be persuaded (or tricked) with food, gold, magic items, or spells. Encounters bypassed are encounters overcome, and resources saved now are resources for later.</li>
           <li style="display: none;"><b>Understand the Environment:</b> <i>(Recommended Skill - Knowledge)</i> Many dungeons have their own hazards, curses, terrain, or even political dynamics. Understanding who to negotiate with, what creatures lurk below, when to delve, where to find the treasure, how to avoid falling, or why you shouldn't touch the water can all be lifesaving.</li>
@@ -145,13 +154,15 @@
           <li style="display: none;"><b>Set Traps:</b> <i>(Recommended Skill - Craft)</i> Never forget to set traps of your own as you try to create a safe place. Ball bearings, strings, nets, oil, and more provide all the basics for building a safe place to fall back on, and clever crafter's and powerful conjurers can do far more to prepare a place for combat. Just as its easy to be led into a trap, only the most intelligent of monsters will even suspect a trap, meaning traps are a reliable way to gain an advantage.</li>
           <li style="display: none;"><b>Stay Stealthy:</b> <i>(Recommended Skill - Stealth)</i> Staying stealthy can lead to gaining information, bypassing danger, and surprising an enemy in combat. Do not explore more than one room at once, and do not break line of sight for too long - if ever - but even pushing forward safely one-by-one can make a huge difference.</li>
           <li style="display: none;"><b>Never Split the Party:</b> <i>(Recommended Skill - Survival)</i> It is dangerous to go alone. Don't leave line-of-sight or communication for long - if ever - and don't scout physically ahead without a plan of when they will come looking for you. Only rest in safe places, avoiding places out in the open or cornered with only a single way out, and keep someone on watch - preferably multiple someone's - at all times.</li>
-        </ul>
+        </ol>
       </section>
       <section>
       <h2>Tribes of the Frontier</h2>
-        <ul style="list-style-type: circle;"><b>Click to Show/Hide information about the native tribes:</b>
+        <ul style="list-style-type: circle;">
+          <li style="list-style-type: none;"><b>Click to Sort the Native Tribes:</b></li>
+          <li style="list-style-type: none; display: none;"><b>Click to Jumble the Native Tribes:</b></li>
           <li style="display: none;"><b>Forward:</b> While colonists find it difficult to distinguish between the various tribes and ethno-linguistic groups in Mwangi, the local tribespeople recognize distinctions every bit as definitive as those between Ulfen and Taldan - and most all of them bristle at being lumped together colloquially as simply "natives." Those that interact with them frequently realize there are six major heritages within the blanket Mwangi ethnicity, each containing a handful of dominant tribes:</li>
-          <br>
+          <li style="list-style-type: none; display: none;"><br></li>
           <li style="display: none;"><b>Bekyar - the Raiders:</b> Bekyar tend to be tall, and their hairstyles often involve long and elaborate braids, sometimes incorporating silk headwraps. The majority of the Beckyar peoples hunt for game and raid other communities for food, resources, and - most importantly - people.</li>
             <ul style="list-style-type: lower-greek;">
               <li style="display: none;"><i>Bandu -</i> These slavers infest the Bandu Hills, which are in turn named after this tribe, turning an already dangerous and hostile area into one fraught with enough peril that few brave the territory, despite the promised riches. Much of their civil dealings with outsiders is limited to human trafficking - either buying a slave or a captives freedom. Since the colonization of Sargava, they have come to view the light-skinned foreigners as emissaries of the "northern gods," and as such they particularly prize these captives as sacrifices to their nature spirit deities.</li>
@@ -181,8 +192,8 @@
     </div>
     <div class="clearfix"></div>
     <div class="floatswitch">
-      <h2>Where We Are Now: Eleder</h2>
-      <section>
+      <section class="clearfix">
+        <h2>Where We Are Now: Eleder</h2>
         <a href="/serpents/images/hero-eleder.jpg"><img src="/serpents/images/hero-eleder.jpg" alt="Eleder"></a>
         <p>Appearance: Eleder is dominated by extensive stone docks, where ships from most nations on the Arcadian Ocean lie moored. The city is an unusual blend of architecture, as the gothic stonework of the colonists’ native Cheliax has adapted to the native building styles in favor of less stuffy, open designs that better combat the heat. Although Eleder itself is surrounded by a sturdy stone wall, the individual homes of many colonials also feature low stone walls and iron gates—a decorative concession to their roots that does nothing to make their homes less comfortable. These buildings are joined by more practical wood and canvas structures, and outside the city walls, countless mud-daub huts — the homes of the native workers — stretch far out into the banana, cocoa, and pineapple plantations.</p>
         <p>History: The original founders of Sargava selected a small, natural harbor as the site of their future colony, gradually expanding from a stockaded encampment to a walled city with a fully equipped shipyard. It was named Eleder after the daughter of one of the original colonists, whose gentle diplomacy and efforts to learn Polyglot enabled the colonists to live in cooperation with the locals. Though the city today is named for Eleder’s efforts, the first several decades were fraught with violent misunderstandings between Chelaxians and natives. Large numbers of Chelish troops were brought in to help bring the native tribes under control, and they gradually convinced the tribes to assist the colonists in bringing “order” and industry to their “savage” land. When Sargava broke from Cheliax with the help of the Shackles, the citizens of Eleder opened up their repair yards as docks to ships of any nation, provided they paid a hefty fee for the privilege. Eleder is now considered one of the finest shipyards in Garund, and certainly the finest on the western coast. With the appointment of Utilinus to the position of Grand Custodian, Eleder has even made a few strides toward attracting other foreign businesses — mainly merchants from Nidal, Varisia, and Rahadoum. But though he has gained popularity with the colonials, the Grand Custodian is not well liked by the Hurricane King, who heavily taxes the merchant fleets his pirates guide past the Eye of Abendego.</p>
@@ -192,18 +203,16 @@
       <!-- <section class="lost">
         <p>Currently lost and stranded, everyone is just trying to stay alive.</p>
       </section> -->
-      <section class="clearfix"></section>
-      <h2>Destination: Kalabuto</h2>
-      <section>
+      <section class="clearfix">
+        <h2>Destination: Kalabuto</h2>
         <a href="/serpents/images/hero-kalabuto.jpg"><img src="/serpents/images/hero-kalabuto.jpg" alt="Kalabuto"></a>
         <p>From a distance, Kalabuto seems to be nothing more than a low hill surrounded by fields of pineapples, with a few scattered buildings under a pall of smoke. This is because the city ruins are almost entirely covered with centuries of jungle growth. Closer up, visitors quickly notice the thousands of native Mwangi coming and going from the city in the hustle and bustle of commerce and daily life. For many, it’s not until they approach quite close to the city gates that they realize the hill is actually a collection of crumbling stone buildings covered in tangled vines and other greenery.</p>
         <p>As it stands, the city appears to be overgrown by the jungle, with a large collection of shanties and warehouses along the riverbank. Kalabuto is a center of trade with the Mwangi interior, serving as a trade hub between foreign colonials, foreigners, and indigenous tribespeople. Over the years, overland caravans have declined in favor of more efficient river barges. To accommodate the increase in vessels, the city erected a snaking boardwalk connected to an elaborate tangle of docks. Warehouses make up the bulk of the structures along the water’s edge. Further inland, the ruins of the original ancient city begin, climbing up the hill to the more lavish private colonial residences.</p>
         <p>While native Kalabuta-Vidric inhabit the majority of the city’s ruins, a small minority of Sargavan colonials rule the city and have claimed the highest buildings with the best views for themselves. Racial tension is thus rife in Kalabuto. But the city also serves as Sargava’s first line of defense against the city-state of Mzali. In this role Kalabuto has suffered greatly, and has been sacked by the Mzali forces on several occasions. </p>
         <p>Not just the most populous city in Sargava, Kalabuto sits on the edge of the expansive jungle; the last bastion of civilization before the wilderness. In contrast to Eleder, explorers and adventurers find that Kalabuto awaits them with open arms. . Those who do not find work as soldiers in the Kalabuto militia usually find plenty of opportunities with expeditions setting out to explore the Bandu Hills, Mzali, and the Screaming Jungle; the colonials look forward to sending new adventurers on the dangerous missions the local Mwangi refuse to undertake, while the natives readily hire themselves out to adventurers, who often treat and pay them better than the colonials.</p>
       </section>
-      <section class="clearfix"></section>
-      <h2>Sargava at a Glance</h2>
-      <section>
+      <section class="clearfix">
+        <h2>Sargava at a Glance</h2>
         <a href="/serpents/images/map-sargava.jpg"><img src="/serpents/images/map-sargava.jpg" alt="Sargave Territory Map"></a>
         <p>Beset by devil-binding pilgrims and inescapable debts to pirate lords, as well as generations of resentment from the nation’s subjugated indigenous peoples, the colony of Sargava remains a bastion of northern culture and civilization in the heart of the southern wilds. Once part of a vast and mighty empire long since fallen to dust, as evidenced by the crumbling ruins still lurking beneath the veneer of lush farmland and verdant jungle, Sargava’s rich landscape is home to fierce Mwangi natives and even fiercer predators of the deep jungle, as well as a dwindling population of northern colonials who seek to uphold their ideals of culture and breeding at all cost, straining against the tides of resentment that may soon sweep them into the sea and return the land to its original owners.</p>
         <p>Founded over 500 years ago by Prince Haliad I as part of Cheliax’s expansionist Everwar, Sargava stood as the jewel of the empire for centuries. But when Aroden died, the empire was thrown into chaos, and Sargava’s ruler backed the wrong house in the Chelish Civil War. House Thrune took control of Cheliax and sent a flotilla of warships to retake the colony that had supported their enemy in the bloody conflict. Grand Custodian Grallus anticipated the onslaught, however, and made a fateful alliance with the Free Captains of the Shackles. Swooping out of Desperation Bay to pounce on the unsuspecting Chelish Navy, the pirates’ superior fleet swiftly ended the threat to their southern neighbor, and extracted a mighty price from Sargava for their efforts. To this day, vast portions of Sargava’s wealth flow into the Free Captains’ coffers for past assistance and assurance of continued naval protection.</p>
