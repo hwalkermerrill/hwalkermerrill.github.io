@@ -1,3 +1,4 @@
+// This creates a dropdown hamburger menu
 function toggleMenu() {
   document.getElementById("primaryNav").classList.toggle("hide");
 }
@@ -5,6 +6,8 @@ function toggleMenu() {
   className = className 
   document.getElementsByClassName("locked").classList.toggle("hide");
 }*/
+
+// This causes ul and ol elements (li) to toggle on and off when clicked
 $(window).on("load", function(){
   $("ul").click(function(){
        $("li", this).toggle();
