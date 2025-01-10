@@ -25,4 +25,6 @@ low_target = max_heart_rate * 0.65
 high_target = max_heart_rate * 0.85
 
 # Tells the user what their target heart rate is so they get the most from their workout and don't hurt themselves.
-print(f"When you exercise to strengthen your heart, you should keep your heart rate between {low_target} and {high_target} beats per minute.")
+print(
+    f"When you exercise to strengthen your heart, you should keep your heart rate between {low_target} and {high_target} beats per minute."
+)
