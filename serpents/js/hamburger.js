@@ -8,13 +8,13 @@ function toggleMenu() {
 }*/
 
 // This causes ul and ol elements (li) to toggle on and off when clicked
-$(window).on("load", function(){
-  $("ul").click(function(){
-       $("li", this).toggle();
+$(window).on("load", function () {
+  $("ul").click(function () {
+    $("li", this).toggle();
   });
 });
-$(window).on("load", function(){
-  $("ol").click(function(){
-       $("li", this).toggle();
+$(window).on("load", function () {
+  $("ol").click(function () {
+    $("li", this).toggle();
   });
 });
