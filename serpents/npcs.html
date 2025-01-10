@@ -43,7 +43,7 @@
 </head>
 
 <body>
-<!-- HEADER HERE -->
+  <!-- HEADER HERE -->
   <header class="clearfix">
     <figure class="logo">
       <a href="index.html">
@@ -58,8 +58,8 @@
       <button onclick="toggleMenu()">&#8801;</button>
     </div>
   </header>
-          
-<!-- NAVIGATION HERE -->
+
+  <!-- NAVIGATION HERE -->
   <nav class="clearfix">
     <ul id="primaryNav" class="hide">
       <li><a href="index.html">Home</a></li>
@@ -73,20 +73,27 @@
     </ul>
   </nav>
 
-<!-- CONTENT HERE -->
+  <!-- CONTENT HERE -->
   <main class="clearfix">
     <h1>Contact and Faction Profiles</h1>
     <div class="row">
       <section>
         <figure>
           <img src="images/hero-snake-pit.jpg" alt="Snake Pit">
-          <figcaption><h3><i>Snakes! Why'd it have to be Snakes!?!</i></h3></figcaption>
+          <figcaption>
+            <h3><i>Snakes! Why'd it have to be Snakes!?!</i></h3>
+          </figcaption>
         </figure>
       </section>
       <section>
         <h3>
-          <i>&nbsp;"Each month, my father walked thirty miles to the salt mines. HE stayed there for the entire month, working from dawn ;till nightfall, and sometimes longer. For one of two days, he's return, his feet dry and cracked and his palms rough as granite. When his brother came with the news of his death I cried, not because I lost him, but because I never knew him. So ask me again if these shackles hurt, and I shall tell you the same - you cannot hurt a Freeman."</i>
-          <br>&emsp; - Olamuni Freeman, Soldier of the Freeman's Brotherhood, as stated to a Sargavan officer upon his capture.
+          <i>&nbsp;"Each month, my father walked thirty miles to the salt mines. HE stayed there for the entire month,
+            working from dawn ;till nightfall, and sometimes longer. For one of two days, he's return, his feet dry and
+            cracked and his palms rough as granite. When his brother came with the news of his death I cried, not
+            because I lost him, but because I never knew him. So ask me again if these shackles hurt, and I shall tell
+            you the same - you cannot hurt a Freeman."</i>
+          <br>&emsp; - Olamuni Freeman, Soldier of the Freeman's Brotherhood, as stated to a Sargavan officer upon his
+          capture.
         </h3>
       </section>
     </div>
@@ -95,151 +102,271 @@
     <!-- RETURN TO TOP BUTTON -->
     <div class="clearfix"></div>
     <h2>Factions</h2>
-      <p>Color Code: Blue = Helpful; Green = Friendly; White = Indifferent; <!--Gray = Unable to Influence; -->Orange = Unfriendly; Black = Hostile - Approach with Caution <!--<button onclick="toggleHide('.locked')">Show/Hide Grayed-Out NPC's</button>--> <button onclick="toggleHide('.helpful')">Show/Hide Helpful NPC's</button> </p>
+    <p>Color Code: Blue = Helpful; Green = Friendly; White = Indifferent; <!--Gray = Unable to Influence; -->Orange =
+      Unfriendly; Black = Hostile - Approach with Caution
+      <!--<button onclick="toggleHide('.locked')">Show/Hide Grayed-Out NPC's</button>--> <button
+        onclick="toggleHide('.helpful')">Show/Hide Helpful NPC's</button>
+    </p>
     <h2>Major Factions</h2>
-      <div class="asset">
-        <section class="friendly">
-          <h3>Gold Crown Shipping and Mining Company (G.C.S.)</h3>
-          <h4>Expedition Leader: Baron Ortho Vibius <!--Krieve--></h4>
-          <img src="/serpents/images/logo-gold-crown-shipping.jpg" alt="Gold Crown Logo">
-          <p>Background: Although primarily known for hauling cargo between Port Freedom and Eleder, the G.C.S. originally made its profits from mining operations in the Bandu Hills. They ship everything valuable, from pineapples to gold, on their swift, well-armed barges and armored wagon trains, sometimes at a moment's notice. They've also proven willing to outfit and conduct expeditions into the dangerous interior of the Mwangi Expanse, and though many of these are forced to turn back with heavy losses, the dangerous missions bring in real money and never have a shortage of volunteers. While their veterans are expensive, they are the go-to contracts for Sargava in mapping out ruins and enemy territories, and their reports always prove to be 100% accurate.</p>
-          <p>Objective: The wealthy noble, Ortho Vibius, regularly contracts expeditions by the GCS into the Mwangi interior, and is personally accompanying this expedition. While he intends to mine out gold and artifacts from the city to recover the cost of the expedition, his primary goal is to find the lost Sixth Army of Exploration, who supposedly found Saventh-Yhi before being annihilated. If the artifacts of those ancient explorers could be recovered, if the reach of their expedition could be proven, and if the remains of Grand Prince Cyricas and his legendary Worldbreaker could be recovered, it would be a priceless find, and it would be of immense value to the noble families of those explorers.</p>
-          <p>Primary Rival: Vessels belonging to the G.C.S. are frequently prayed upon by the Rivermen's Guild, and the two have developed a survival instinct of attacking the other on sight.</p>
-          <p>Route Resources: The G.C.S. has knowledge of and access to secret, underground tunnels, roads, and shortcuts. Roll 1d6 instead of 1d4 on shortcuts.</p>
-          <p>Secrets: ?? <!--Ortho Vibius is a Lion Blades affiliate, and Lion Blades have infiltrated the G.C.S.--></p>
-          <p>Signing Bonus: Gold is the best signing bonus, and each signatory gains an immediate payment of 500gp.</p>
-          <p>Boon: Utilizes forward scouts to discover areas more easily, providing an additional +5 bonus on perception checks to discover new areas.</p>
-          <!-- <ul>Base Camp
+    <div class="asset">
+      <section class="friendly">
+        <h3>Gold Crown Shipping and Mining Company (G.C.S.)</h3>
+        <h4>Expedition Leader: Baron Ortho Vibius <!--Krieve--></h4>
+        <img src="/serpents/images/logo-gold-crown-shipping.jpg" alt="Gold Crown Logo">
+        <p>Background: Although primarily known for hauling cargo between Port Freedom and Eleder, the G.C.S. originally
+          made its profits from mining operations in the Bandu Hills. They ship everything valuable, from pineapples to
+          gold, on their swift, well-armed barges and armored wagon trains, sometimes at a moment's notice. They've also
+          proven willing to outfit and conduct expeditions into the dangerous interior of the Mwangi Expanse, and though
+          many of these are forced to turn back with heavy losses, the dangerous missions bring in real money and never
+          have a shortage of volunteers. While their veterans are expensive, they are the go-to contracts for Sargava in
+          mapping out ruins and enemy territories, and their reports always prove to be 100% accurate.</p>
+        <p>Objective: The wealthy noble, Ortho Vibius, regularly contracts expeditions by the GCS into the Mwangi
+          interior, and is personally accompanying this expedition. While he intends to mine out gold and artifacts from
+          the city to recover the cost of the expedition, his primary goal is to find the lost Sixth Army of
+          Exploration, who supposedly found Saventh-Yhi before being annihilated. If the artifacts of those ancient
+          explorers could be recovered, if the reach of their expedition could be proven, and if the remains of Grand
+          Prince Cyricas and his legendary Worldbreaker could be recovered, it would be a priceless find, and it would
+          be of immense value to the noble families of those explorers.</p>
+        <p>Primary Rival: Vessels belonging to the G.C.S. are frequently prayed upon by the Rivermen's Guild, and the
+          two have developed a survival instinct of attacking the other on sight.</p>
+        <p>Route Resources: The G.C.S. has knowledge of and access to secret, underground tunnels, roads, and shortcuts.
+          Roll 1d6 instead of 1d4 on shortcuts.</p>
+        <p>Secrets: ?? <!--Ortho Vibius is a Lion Blades affiliate, and Lion Blades have infiltrated the G.C.S.--></p>
+        <p>Signing Bonus: Gold is the best signing bonus, and each signatory gains an immediate payment of 500gp.</p>
+        <p>Boon: Utilizes forward scouts to discover areas more easily, providing an additional +5 bonus on perception
+          checks to discover new areas.</p>
+        <!-- <ul>Base Camp
             <li>Defense: </li>
             <li>Exploration: </li>
             <li>Supply: </li>
             <li>Destruction: </li>
             <li>Discovery: </li>
           </ul> -->
-        </section>
-        <section class="hostile">
-          <h3>Ivory Cross</h3>
-          <h4>Expedition Leader: Mister Dargan Etters <!--Commander Quilis Fortuna--></h4>
-          <img src="/serpents/images/logo-ivory-cross.jpg" alt="Ivory Cross Logo">
-          <p>Background: Sargava’s most organized guild, the Ivory Cross, began operations in Eleder only 30 years ago, but it has quickly established itself as a force to be reckoned with. Consisting of nearly a hundred mercenary soldiers and officers, all sporting the badge of their order, the Ivory Cross has a very visible presence in Eleder. While they regular escort expeditions into the Bandu Hills, they are not a treasure-hunting organization, instead they seek to maintain security and order. It is no secret that they desire an exclusive contract to serve as Sargava's standing army, or that the Grand Custodian is seriously considering the offer, though he fears that it would simply exchange one set of "protectors" for another. Especially with rumors from the interior suggesting the Ivory Cross uses violence and coercion to ensure cooperation, putting colonial ranches and Mwangi tribesmen to torch that refuse to grant favorable terms. </p>
-          <p>Objective: The Ivory Cross has been hired by Dargan Etters as a business venture, viewing the legendary city of Saventh-Yhi as a way to make money, nothing more and nothing less. He intends to maximize profits, carefully selling everything worth carrying to select clientele - mostly wealthy private collectors - while limiting the sale rate to keep prices high and preserve the artifacts future value. He compensates his employees according to their results.</p>
-          <p>Primary Rival: The Pathfinder Society and the Ivory Cross are often at odds with one another, undertaking similar, competing jobs while holding radically different values. This is yet another job where the two are competing, and its likely to be another bloody collision.</p>
-          <p>Route Resources: The Ivory Cross treats land trade routes as highways.</p>
-          <p>Secrets: ?? <!--The Ivory Cross is a front for the Aspis Consortium--></p>
-          <p>Signing Bonus: A selection of scrolls, potions, and wands worth 500gp per person.</p>
-          <p>Boon: The Ivory Cross grants +5 bonus on diplomacy checks to secure alliances or trade routes.</p>
-          <!-- <ul>Base Camp
+      </section>
+      <section class="hostile">
+        <h3>Ivory Cross</h3>
+        <h4>Expedition Leader: Mister Dargan Etters <!--Commander Quilis Fortuna--></h4>
+        <img src="/serpents/images/logo-ivory-cross.jpg" alt="Ivory Cross Logo">
+        <p>Background: Sargava’s most organized guild, the Ivory Cross, began operations in Eleder only 30 years ago,
+          but it has quickly established itself as a force to be reckoned with. Consisting of nearly a hundred mercenary
+          soldiers and officers, all sporting the badge of their order, the Ivory Cross has a very visible presence in
+          Eleder. While they regular escort expeditions into the Bandu Hills, they are not a treasure-hunting
+          organization, instead they seek to maintain security and order. It is no secret that they desire an exclusive
+          contract to serve as Sargava's standing army, or that the Grand Custodian is seriously considering the offer,
+          though he fears that it would simply exchange one set of "protectors" for another. Especially with rumors from
+          the interior suggesting the Ivory Cross uses violence and coercion to ensure cooperation, putting colonial
+          ranches and Mwangi tribesmen to torch that refuse to grant favorable terms. </p>
+        <p>Objective: The Ivory Cross has been hired by Dargan Etters as a business venture, viewing the legendary city
+          of Saventh-Yhi as a way to make money, nothing more and nothing less. He intends to maximize profits,
+          carefully selling everything worth carrying to select clientele - mostly wealthy private collectors - while
+          limiting the sale rate to keep prices high and preserve the artifacts future value. He compensates his
+          employees according to their results.</p>
+        <p>Primary Rival: The Pathfinder Society and the Ivory Cross are often at odds with one another, undertaking
+          similar, competing jobs while holding radically different values. This is yet another job where the two are
+          competing, and its likely to be another bloody collision.</p>
+        <p>Route Resources: The Ivory Cross treats land trade routes as highways.</p>
+        <p>Secrets: ?? <!--The Ivory Cross is a front for the Aspis Consortium--></p>
+        <p>Signing Bonus: A selection of scrolls, potions, and wands worth 500gp per person.</p>
+        <p>Boon: The Ivory Cross grants +5 bonus on diplomacy checks to secure alliances or trade routes.</p>
+        <!-- <ul>Base Camp
             <li>Defense: </li>
             <li>Exploration: </li>
             <li>Supply: </li>
             <li>Destruction: </li>
             <li>Discovery: </li>
           </ul> -->
-        </section>
-        <section class="neutral">
-          <h3>Pathfinder Society</h3>
-          <h4>Expedition Leader: Pathfinder Amivor Glaur <!--Venture-Captain Finze Bellaugh>--></h4>
-          <img src="/serpents/images/logo-pathfinder-society-sargava.jpg" alt="Pathfinder Logo">
-          <p>Background: A loose-knit group of explorers, archeologists, and adventurers, the Pathfinder Society searches the globe for lost knowledge and ancient treasures. Many of the greatest explorers of the modern age were members of this prestigious society, telling often unbelievable tales of discovery and ruin. While an honest desire to unlock history';s secrets motivates some Pathfinders, the promise of material fortune and fame propels others, who seek a sort of immortality in the publications of the Society, while still other Pathfinders take up the trade out of the simple thrill for perilous adventure.</p>
-          <p>Objective: The Pathfinder Society seeks Saventh-Yhi for the same reason they explore any other ancient ruin — for the lost knowledge it contains, not to mention the historical artifacts and rumored wealth that can be recovered from the fabled city. In addition, with the recent loss of their lodge in the city of Kalabuto, the Decemvirate is eager to expand their inf luence in the region, and Saventh-Yhi might just make a good site for a new Pathfinder Lodge.</p>
-          <p>Primary Rival: The Pathfinder Society and the Ivory Cross are often at odds with one another, undertaking similar, competing jobs while holding radically different values. This is yet another job where the two are competing, and its likely to be another bloody collision.</p>
-          <p>Route Resources: The Pathfinder Society can cross through settlements and ruins at 2x speed.</p>
-          <p>Secrets: ??</p>
-          <p>Signing Bonus: Field commissions to Pathfinders, granting Society membership complete with <i>Wayfinders</i> embedded with an ioun stone of their choice worth up to 400gp. This also paves the way for access to future PRCs.</p>
-          <p>Boon: The Pathfinder Society is quite adept at exploration, gaining a +4 to exploration checks.</p>
-          <!-- <ul>Base Camp
+      </section>
+      <section class="neutral">
+        <h3>Pathfinder Society</h3>
+        <h4>Expedition Leader: Pathfinder Amivor Glaur <!--Venture-Captain Finze Bellaugh>--></h4>
+        <img src="/serpents/images/logo-pathfinder-society-sargava.jpg" alt="Pathfinder Logo">
+        <p>Background: A loose-knit group of explorers, archeologists, and adventurers, the Pathfinder Society searches
+          the globe for lost knowledge and ancient treasures. Many of the greatest explorers of the modern age were
+          members of this prestigious society, telling often unbelievable tales of discovery and ruin. While an honest
+          desire to unlock history';s secrets motivates some Pathfinders, the promise of material fortune and fame
+          propels others, who seek a sort of immortality in the publications of the Society, while still other
+          Pathfinders take up the trade out of the simple thrill for perilous adventure.</p>
+        <p>Objective: The Pathfinder Society seeks Saventh-Yhi for the same reason they explore any other ancient ruin —
+          for the lost knowledge it contains, not to mention the historical artifacts and rumored wealth that can be
+          recovered from the fabled city. In addition, with the recent loss of their lodge in the city of Kalabuto, the
+          Decemvirate is eager to expand their inf luence in the region, and Saventh-Yhi might just make a good site for
+          a new Pathfinder Lodge.</p>
+        <p>Primary Rival: The Pathfinder Society and the Ivory Cross are often at odds with one another, undertaking
+          similar, competing jobs while holding radically different values. This is yet another job where the two are
+          competing, and its likely to be another bloody collision.</p>
+        <p>Route Resources: The Pathfinder Society can cross through settlements and ruins at 2x speed.</p>
+        <p>Secrets: ??</p>
+        <p>Signing Bonus: Field commissions to Pathfinders, granting Society membership complete with <i>Wayfinders</i>
+          embedded with an ioun stone of their choice worth up to 400gp. This also paves the way for access to future
+          PRCs.</p>
+        <p>Boon: The Pathfinder Society is quite adept at exploration, gaining a +4 to exploration checks.</p>
+        <!-- <ul>Base Camp
             <li>Defense: </li>
             <li>Exploration: </li>
             <li>Supply: </li>
             <li>Destruction: </li>
             <li>Discovery: </li>
           </ul> -->
-        </section>
-        <section class="unfriendly">
-          <h3>Red Mantis</h3>
-          <h4>Expedition Leader: Mistress Chivane <!--Blood Mistress Jakalyn--></h4>
-          <img src="/serpents/images/logo-red-mantis.jpg" alt="Red Mantis Logo">
-          <p>Background: The Red Mantis are the most tenacious and efficient assassins the world has ever known. They usually kill their victims with a sacred sawtoothed sabre, so victims often drown in their own blood before their hearts cease beating. No palace, fortress, safe house, or cavern is secure enough to keep out the Red Mantis. And no matter how wealthy or powerful they were, victims of the Red Mantis stay dead - no matter what. As reliable as they are, even the most desperate plotters think twice before calling on the Red Mantis. One never knows what price they will ask - it varies widely based on the client and target - but it is always nonnegotiable. While they take on almost any job, they do have one unbreakable rule: they do not commit regicide against a rightfully sitting monarch.</p>
-          <p>Objective: The Red Mantis are not necessarily interested in the city of Saventh-Yhi itself, but what is rumored to lie inside it. Ancient texts hint at the existence of a temple to Achaekek the Mantis God within the legendary city, and the Red Mantis are eager to find this location, which is sacred to their cult. Within the lost temple, they hope to find powerful relics of the Mantis God unseen on Golarion since the days of Azlant, including the head of an assassinated god. They intent to kill anyone who trespasses on this holy site, keeping the location of Saventh-Yhi a closely-guarded secret.</p>
-          <p>Primary Rival: The Sargavan Custodial Government has no patience for Red Mantis Assassins, and while they wish to reach the Saventh-Yhi first, they know they can at least tax the others' findings; but Red Mantis is beholden to no one else, and only nations can compete with their power.</p>
-          <p>Route Resources: Particularly good at sabotage and assassination, the Red Mantis can sabotage two groups at a time when performing sabotage missions, and can always sabotage whomever is in the lead. Their sabotage opportunities can never backfire.</p>
-          <p>Secrets: ??</p>
-          <p>Signing Bonus: The Red Mantis provide each signatory with 500gp worth of poisons, antitoxins, and healer's kits, as well as association with the Red Mantis, potentially opening up future PRCs.</p>
-          <p>Boon: They gain a free condition (sow terror) to conquer each district within Saventh-Yhi</p>
-          <!-- <ul>Base Camp
+      </section>
+      <section class="unfriendly">
+        <h3>Red Mantis</h3>
+        <h4>Expedition Leader: Mistress Chivane <!--Blood Mistress Jakalyn--></h4>
+        <img src="/serpents/images/logo-red-mantis.jpg" alt="Red Mantis Logo">
+        <p>Background: The Red Mantis are the most tenacious and efficient assassins the world has ever known. They
+          usually kill their victims with a sacred sawtoothed sabre, so victims often drown in their own blood before
+          their hearts cease beating. No palace, fortress, safe house, or cavern is secure enough to keep out the Red
+          Mantis. And no matter how wealthy or powerful they were, victims of the Red Mantis stay dead - no matter what.
+          As reliable as they are, even the most desperate plotters think twice before calling on the Red Mantis. One
+          never knows what price they will ask - it varies widely based on the client and target - but it is always
+          nonnegotiable. While they take on almost any job, they do have one unbreakable rule: they do not commit
+          regicide against a rightfully sitting monarch.</p>
+        <p>Objective: The Red Mantis are not necessarily interested in the city of Saventh-Yhi itself, but what is
+          rumored to lie inside it. Ancient texts hint at the existence of a temple to Achaekek the Mantis God within
+          the legendary city, and the Red Mantis are eager to find this location, which is sacred to their cult. Within
+          the lost temple, they hope to find powerful relics of the Mantis God unseen on Golarion since the days of
+          Azlant, including the head of an assassinated god. They intent to kill anyone who trespasses on this holy
+          site, keeping the location of Saventh-Yhi a closely-guarded secret.</p>
+        <p>Primary Rival: The Sargavan Custodial Government has no patience for Red Mantis Assassins, and while they
+          wish to reach the Saventh-Yhi first, they know they can at least tax the others' findings; but Red Mantis is
+          beholden to no one else, and only nations can compete with their power.</p>
+        <p>Route Resources: Particularly good at sabotage and assassination, the Red Mantis can sabotage two groups at a
+          time when performing sabotage missions, and can always sabotage whomever is in the lead. Their sabotage
+          opportunities can never backfire.</p>
+        <p>Secrets: ??</p>
+        <p>Signing Bonus: The Red Mantis provide each signatory with 500gp worth of poisons, antitoxins, and healer's
+          kits, as well as association with the Red Mantis, potentially opening up future PRCs.</p>
+        <p>Boon: They gain a free condition (sow terror) to conquer each district within Saventh-Yhi</p>
+        <!-- <ul>Base Camp
             <li>Defense: </li>
             <li>Exploration: </li>
             <li>Supply: </li>
             <li>Destruction: </li>
             <li>Discovery: </li>
           </ul> -->
-        </section>
-        <section class="hostile">
-          <h3>Rivermen's Guild</h3>
-          <h4>Expedition Leader: Captain Kassata Lewynn <!--Maximilia--></h4>
-          <img src="/serpents/images/logo-rivermens-guild.jpg" alt="Rivermens Logo">
-          <p>Background: A coalition of barge sailors working along the Korir river, open to anyone who makes their living on the waterways, only those who actually own or operate a barge is allowed to hold one of the five voting seats in the Rivermen's Guild. While obviously not an entirely fair system, the people of Port Freedom know better than to speak openly of it, as it's an open secret that the Rivermen's Guild is just a collection of thugs, robbers, and thieves. Ruthless businessmen known to steal, sink, and hijack the cargo of non-guild members (chiefly those belonging to G.C.S.), many of their number are simply relatively-honest businessmen and workers, paying for membership to avoid being a target, and speaking only good of the organization who takes a dim view of careless talk. Several Grand Custodians have attempted to disband the Rivermen's Guild and arrest its leaders, but none have managed it, with guards generally refusing to arrest guild members for feat of their families safety.</p>
-          <p>Objective: Captain Kassata Lewynn of the <i>Last Hurrah</i>, and member of the Free Captains Alliance, has struck a deal with the Rivermen's Guild for use of their barges and knowledge of the waterways to reach Saventh-Yhi. While the exact details of the arrangement are private, what has emerged is a small fleet of river barges crewed by pirates and led by experienced navigators. Captain Lewynn hopes to recover enough treasure from the city to buy the allegiance of several pirate lords so she can make herself the Hurricane King, folding the Rivermen into the Free Captains in the process.</p>
-          <p>Primary Rival: Vessels belonging to the G.C.S. are frequently prayed upon by the Rivermen's Guild, and the two have developed a survival instinct of attacking the other on sight.</p>
-          <p>Route Resources: Highly experienced at getting underway quickly, the Rivermen's Guild moves twice as far as other groups along rivers and waterways on the same day they embark.</p>
-          <p>Secrets: ??</p>
-          <p>Signing Bonus: Captain Lewynn offers signatories either a small crew of able-bodied buccaneers, or up to 500gp worth of guns, powder, and shot.</p>
-          <p>Boon: The Rivermen's Guild is well stocked, gaining a +4 to supply and supply checks.</p>
-          <!-- <ul>Base Camp
+      </section>
+      <section class="hostile">
+        <h3>Rivermen's Guild</h3>
+        <h4>Expedition Leader: Captain Kassata Lewynn <!--Maximilia--></h4>
+        <img src="/serpents/images/logo-rivermens-guild.jpg" alt="Rivermens Logo">
+        <p>Background: A coalition of barge sailors working along the Korir river, open to anyone who makes their living
+          on the waterways, only those who actually own or operate a barge is allowed to hold one of the five voting
+          seats in the Rivermen's Guild. While obviously not an entirely fair system, the people of Port Freedom know
+          better than to speak openly of it, as it's an open secret that the Rivermen's Guild is just a collection of
+          thugs, robbers, and thieves. Ruthless businessmen known to steal, sink, and hijack the cargo of non-guild
+          members (chiefly those belonging to G.C.S.), many of their number are simply relatively-honest businessmen and
+          workers, paying for membership to avoid being a target, and speaking only good of the organization who takes a
+          dim view of careless talk. Several Grand Custodians have attempted to disband the Rivermen's Guild and arrest
+          its leaders, but none have managed it, with guards generally refusing to arrest guild members for feat of
+          their families safety.</p>
+        <p>Objective: Captain Kassata Lewynn of the <i>Last Hurrah</i>, and member of the Free Captains Alliance, has
+          struck a deal with the Rivermen's Guild for use of their barges and knowledge of the waterways to reach
+          Saventh-Yhi. While the exact details of the arrangement are private, what has emerged is a small fleet of
+          river barges crewed by pirates and led by experienced navigators. Captain Lewynn hopes to recover enough
+          treasure from the city to buy the allegiance of several pirate lords so she can make herself the Hurricane
+          King, folding the Rivermen into the Free Captains in the process.</p>
+        <p>Primary Rival: Vessels belonging to the G.C.S. are frequently prayed upon by the Rivermen's Guild, and the
+          two have developed a survival instinct of attacking the other on sight.</p>
+        <p>Route Resources: Highly experienced at getting underway quickly, the Rivermen's Guild moves twice as far as
+          other groups along rivers and waterways on the same day they embark.</p>
+        <p>Secrets: ??</p>
+        <p>Signing Bonus: Captain Lewynn offers signatories either a small crew of able-bodied buccaneers, or up to
+          500gp worth of guns, powder, and shot.</p>
+        <p>Boon: The Rivermen's Guild is well stocked, gaining a +4 to supply and supply checks.</p>
+        <!-- <ul>Base Camp
             <li>Defense: </li>
             <li>Exploration: </li>
             <li>Supply: </li>
             <li>Destruction: </li>
             <li>Discovery: </li>
           </ul> -->
-        </section>
-        <section class="unfriendly">
-          <h3>Sargavan Custodial Government</h3>
-          <h4>Expedition Leader: General Rotilius Havelar <!--Grand Custodian Utilinus--></h4>
-          <img src="/serpents/images/logo-sargava-custodial-government.jpg" alt="Sargaven Government Logo">
-          <p>Background: Beset by devil-binding pilgrims and inescapable debts to pirate lords, as well as generations of resentment from the nation’s subjugated indigenous peoples, the colony of Sargava remains a bastion of northern culture and civilization in the heart of the southern wilds. Financially weakened by the Free Captains’ high demands and cut off from many of their former trade partners to the north, Sargava faces an even larger threat from within. The native Mwangi people, inspired by the teachings of a mysterious, undead child-god in the nearby city-state of Mzali, move ever closer to open rebellion to free themselves from colonial rule. While Cheliax no longer has an official stake in Sargava’s government, the colonial Sargavan minority maintains control of the vastly larger native population. But the natives know that they have the resources of the entire Mwangi Expanse at their backs, and that Grand Custodian Utilinus’s government is in a poor position to quell a rebellion.</p>
-          <p>Objective: The Sargavan government wants to stake a claim on Saventh-Yhi for two reasons. First, if they can establish an outpost there, it increases their presence and influence in the region, while at the same time denying the same benefits to rivals. Second, the city’s legendary wealth and the opportunity to open new trade routes would go a long way toward refilling Sargava’s depleted treasury, perhaps granting the former colony a greater independence from (or at least less reliance on) the Free Captains of the Shackles. This could be just the opportunity Sargava needs to throw off their shackles, or conversely, it could be its last chance to avoid complete collapse under the weight of its obligations.</p>
-          <p>Primary Rival: The Sargavan Custodial Government has no patience for Red Mantis Assassins, and while they wish to reach the Saventh-Yhi first, they know they can at least tax the others' findings; but Red Mantis is beholden to no one else, and only nations can compete with their power.</p>
-          <p>Route Resources: The Sargavan Custodial Government can force certain people to provide shelter and lodging while turning others away, opening up more safe places to rest and re-supply on the way to Saventh-Yhi.</p>
-          <p>Secrets: ?? <!--Out of money, the Sargavan Custodial Government cannot afford any more payments to the Hurricane King--></p>
-          <p>Signing Bonus: They promise a noble title and a tract of land for each person, if they successfully manage to claim Saventh-Yhi first. They also offer each npc a personal guard or servant.</p>
-          <p>Boon: The sargavan military troops provide encampments with +4 defense.</p>
-          <!-- <ul>Base Camp
+      </section>
+      <section class="unfriendly">
+        <h3>Sargavan Custodial Government</h3>
+        <h4>Expedition Leader: General Rotilius Havelar <!--Grand Custodian Utilinus--></h4>
+        <img src="/serpents/images/logo-sargava-custodial-government.jpg" alt="Sargaven Government Logo">
+        <p>Background: Beset by devil-binding pilgrims and inescapable debts to pirate lords, as well as generations of
+          resentment from the nation’s subjugated indigenous peoples, the colony of Sargava remains a bastion of
+          northern culture and civilization in the heart of the southern wilds. Financially weakened by the Free
+          Captains’ high demands and cut off from many of their former trade partners to the north, Sargava faces an
+          even larger threat from within. The native Mwangi people, inspired by the teachings of a mysterious, undead
+          child-god in the nearby city-state of Mzali, move ever closer to open rebellion to free themselves from
+          colonial rule. While Cheliax no longer has an official stake in Sargava’s government, the colonial Sargavan
+          minority maintains control of the vastly larger native population. But the natives know that they have the
+          resources of the entire Mwangi Expanse at their backs, and that Grand Custodian Utilinus’s government is in a
+          poor position to quell a rebellion.</p>
+        <p>Objective: The Sargavan government wants to stake a claim on Saventh-Yhi for two reasons. First, if they can
+          establish an outpost there, it increases their presence and influence in the region, while at the same time
+          denying the same benefits to rivals. Second, the city’s legendary wealth and the opportunity to open new trade
+          routes would go a long way toward refilling Sargava’s depleted treasury, perhaps granting the former colony a
+          greater independence from (or at least less reliance on) the Free Captains of the Shackles. This could be just
+          the opportunity Sargava needs to throw off their shackles, or conversely, it could be its last chance to avoid
+          complete collapse under the weight of its obligations.</p>
+        <p>Primary Rival: The Sargavan Custodial Government has no patience for Red Mantis Assassins, and while they
+          wish to reach the Saventh-Yhi first, they know they can at least tax the others' findings; but Red Mantis is
+          beholden to no one else, and only nations can compete with their power.</p>
+        <p>Route Resources: The Sargavan Custodial Government can force certain people to provide shelter and lodging
+          while turning others away, opening up more safe places to rest and re-supply on the way to Saventh-Yhi.</p>
+        <p>Secrets: ??
+          <!--Out of money, the Sargavan Custodial Government cannot afford any more payments to the Hurricane King-->
+        </p>
+        <p>Signing Bonus: They promise a noble title and a tract of land for each person, if they successfully manage to
+          claim Saventh-Yhi first. They also offer each npc a personal guard or servant.</p>
+        <p>Boon: The sargavan military troops provide encampments with +4 defense.</p>
+        <!-- <ul>Base Camp
             <li>Defense: </li>
             <li>Exploration: </li>
             <li>Supply: </li>
             <li>Destruction: </li>
             <li>Discovery: </li>
           </ul> -->
-        </section>
-      </div>
+      </section>
+    </div>
     <div class="clearfix"></div>
     <h2>Minor Factions</h2>
-      <div class="asset">
-        <section class="unfriendly">
-          <h3>Freemen's Brotherhood</h3>
-          <h4>Leader: None</h4>
-          <img src="/serpents/images/logo-freemens-brotherhood.jpg" alt="logo Freemen">
-          <p>A loose association of mwangi natives led by ex-slaves, the Freemen's Brotherhood is a radical abolitionist group. Their primary goal is to instill terror in the hears of foreigners, merchants, and any others they believe stand behind the slave trade. Some adherants go so far as to view all colonials as "Imperialist Thieves" responsible fo rall their ills, and will not rest until every foreigner is killed or expelled from their land.</p>
-          <p>Prone to violence and easy to incite, the lack of formal structure and quick anger towards law enforcement makes this group difficult to control, as vandalism from a member can quickly turn to violence, especially if the Sargavan Guard attempts to arrest anyone involved. Reactions from the Mwangi Natives to policy decisions have frequently led to riots, and the lack of any one leader makes them imposible to negotiate with.</p>
-        </section>
-        <!-- <section class="hostile">
+    <div class="asset">
+      <section class="unfriendly">
+        <h3>Freemen's Brotherhood</h3>
+        <h4>Leader: None</h4>
+        <img src="/serpents/images/logo-freemens-brotherhood.jpg" alt="logo Freemen">
+        <p>A loose association of mwangi natives led by ex-slaves, the Freemen's Brotherhood is a radical abolitionist
+          group. Their primary goal is to instill terror in the hears of foreigners, merchants, and any others they
+          believe stand behind the slave trade. Some adherants go so far as to view all colonials as "Imperialist
+          Thieves" responsible fo rall their ills, and will not rest until every foreigner is killed or expelled from
+          their land.</p>
+        <p>Prone to violence and easy to incite, the lack of formal structure and quick anger towards law enforcement
+          makes this group difficult to control, as vandalism from a member can quickly turn to violence, especially if
+          the Sargavan Guard attempts to arrest anyone involved. Reactions from the Mwangi Natives to policy decisions
+          have frequently led to riots, and the lack of any one leader makes them imposible to negotiate with.</p>
+      </section>
+      <!-- <section class="hostile">
           <h3>Coils of Ydersius</h3>
           <img src="/serpents/images/*" alt="logo">
         </section> -->
-        <section class="unfriendly">
-          <h3>Order of the Coil</h3>
-          <h4>Leader: Lictor Vitova Racnhe</h4>
-          <img src="/serpents/images/logo-order-of-the-coil.jpg" alt="Logo Order of the Coil">
-          <p>Partially at the request of Chelish settlers in Sargava, the Order of the Pyre sought to establish a Garundi headquarters near the nation’s capital, Eleder. In 4694 AR, nearly 200 Hellknights landed in Sargava and set to work constructing the fortress of New Krane and oppressing the faiths of the land’s tribal peoples. Within a year, though, the native residents retaliated, and more than half of the Hellknights were slaughtered. With the commanding paralictor slain, the majority of the surviving Hellknights retreated, abandoning Sargava entirely. Those who stayed behind took inspiration from the deadly vipers of the region and styled themselves as the Order of the Coil.</p>
-          <p>Now among the vilest of Hellknights, the Order of the Coil claims to be following the charge that originally brought the Order of the Pyre to Sargava. Destructive in the extreme, though, the order seeks to wipe out all evidence of Sargava’s native cultures. Under the command of the now-self-proclaimed Lictor Racnhe, the order’s roughly 60 mostly lawful evil members employ fire and poison to destroy Mwangi settlements and historical sites. </p>
-          <p>Aside from targeting the native peoples of western Garund, the Order of the Coil also strikes against archaeologists, explorers, and traders who would spread word of the indigenous cultures and their wonders to the outside world.</p>
-        </section>
-        <!-- <section>
+      <section class="unfriendly">
+        <h3>Order of the Coil</h3>
+        <h4>Leader: Lictor Vitova Racnhe</h4>
+        <img src="/serpents/images/logo-order-of-the-coil.jpg" alt="Logo Order of the Coil">
+        <p>Partially at the request of Chelish settlers in Sargava, the Order of the Pyre sought to establish a Garundi
+          headquarters near the nation’s capital, Eleder. In 4694 AR, nearly 200 Hellknights landed in Sargava and set
+          to work constructing the fortress of New Krane and oppressing the faiths of the land’s tribal peoples. Within
+          a year, though, the native residents retaliated, and more than half of the Hellknights were slaughtered. With
+          the commanding paralictor slain, the majority of the surviving Hellknights retreated, abandoning Sargava
+          entirely. Those who stayed behind took inspiration from the deadly vipers of the region and styled themselves
+          as the Order of the Coil.</p>
+        <p>Now among the vilest of Hellknights, the Order of the Coil claims to be following the charge that originally
+          brought the Order of the Pyre to Sargava. Destructive in the extreme, though, the order seeks to wipe out all
+          evidence of Sargava’s native cultures. Under the command of the now-self-proclaimed Lictor Racnhe, the order’s
+          roughly 60 mostly lawful evil members employ fire and poison to destroy Mwangi settlements and historical
+          sites. </p>
+        <p>Aside from targeting the native peoples of western Garund, the Order of the Coil also strikes against
+          archaeologists, explorers, and traders who would spread word of the indigenous cultures and their wonders to
+          the outside world.</p>
+      </section>
+      <!-- <section>
           <h3>Brotherhoos of Cheerful Service</h3>
           <h4>Leader: ???</h4>
         </section> -->
-        <!-- <section class="hostile">
+      <!-- <section class="hostile">
           <h3>Bekyar Raiders</h3>
           <h4>Leader: None</h4>
         </section>
@@ -263,14 +390,18 @@
           <h3>Vidric Natives</h3>
           <h4>Leader: None</h4>
         </section> -->
-      </div>
+    </div>
     <div class="clearfix"></div>
     <h2>Important NPCs</h2>
-      <p>Color Code: Blue = Helpful; Green = Friendly; White = Indifferent; <!--Gray = Unable to Influence; -->Orange = Unfriendly; Black = Hostile - Approach with Caution <!--<button onclick="toggleHide('.locked')">Show/Hide Grayed-Out NPC's</button>--> <button onclick="toggleHide('.helpful')">Show/Hide Helpful NPC's</button> </p>
+    <p>Color Code: Blue = Helpful; Green = Friendly; White = Indifferent; <!--Gray = Unable to Influence; -->Orange =
+      Unfriendly; Black = Hostile - Approach with Caution
+      <!--<button onclick="toggleHide('.locked')">Show/Hide Grayed-Out NPC's</button>--> <button
+        onclick="toggleHide('.helpful')">Show/Hide Helpful NPC's</button>
+    </p>
     <!-- <h2>Shipmates of the <i>Jenivere</i></h2> -->
     <h2>Faction Leaders</h2>
-      <div class="asset">
-        <!-- <section class="indifferent">
+    <div class="asset">
+      <!-- <section class="indifferent">
           <h2>Venture-Captain</h2>
           <h3>Finze Bellaugh</h3>
           <h4>Pathfinder Society</h4>
@@ -278,156 +409,271 @@
           <p>Appearance: Venture-Captain Bellaugh has a wide, wealthy frame and dark skin, keeping his beard neat and his head shaved. He dresses after Vidric traditions, opting to wear fine cloth and smoke tobacco to denote his high station.</p>
           <p>Background: An Ijo Bonuwat, Venture-Captain Bellaugh runs the pathfinder society chapter in Sargava out of the pathfinder lodge in Eleder's Dockside district. Since the closure of the lodge in Kalabuto and the split with the Aspis Consortium in Blood Cove, the lodge in Eleder has become the societies only foothold in the Mwangi Frontier, a reality that makes Venture-Captain Bellaugh both wealthy and influential.</p>
         </section> -->
-        <section class="unfriendly">
-          <h2>Pathfinder</h2>
-          <h3>Amivor Glaur</h3>
-          <h4>Pathfinder Society</h4>
-          <img src="/serpents/images/icon-amivor-glaur.jpg" alt="Amivor Glaur">
-          <p>Appearance: A wild-haired redhead with a neatly trimmed beard and mustache, Amivor keep himslef consicuously clean. Eschewing a shirt for an open vest with plenty of pockets, Amivor is covered in easily accessed tools, and every piece of his clothing has utility.</p>
-          <p>Background: A veteran of several expeditions into the Mwangi interior, Amivor is skilled at organizing and leading such missions, as well as appraising and exploring historical sites. He has been somewhat hardened and made more wild by all his time in the jungle, and has come to generally prefer being in the field to the noise of civilization.</p>
-          <!-- <p>Boon: The Tempest's boon will be revealed at a later time.</p> -->
-        </section>
-        <section class="unfriendly">
-          <h2>Mistress</h2>
-          <h3>Chivane</h3>
-          <h4>Red Mantis</h4>
-          <img src="/serpents/images/icon-chivane.jpg" alt="Mistress Chivane">
-          <p>Appearance: Startlingly pretty, Chivane takes the rare approach of removing her mask of the red mantis, allowing her to be recognized. This is likely due to the reality of leading an expedition of several assassins, rather than mearly being on a job, but this decision enables the expedition leader to be recognized on sight at a distance.</p>
-          <p>Background: [REDACTED]</p>
-          <!-- <p>Boon: The Tempest's boon will be revealed at a later time.</p> -->
-        </section>
-        <section class="unfriendly">
-          <h2>Mister</h2>
-          <h3>Dargan Etters</h3>
-          <h4>Ivory Cross</h4>
-          <img src="/serpents/images/icon-dargan-etters.jpg" alt="Dargan Etters">
-          <p>Appearance: Well adapted to the hot climate of the expanse, Mr. Etters wears lose fitting and unrestricting clothing decorated in gold. He rarely ventures anywhere without his bodyguards, but his demenor makes it clear that in any conversation, he is always the most important, powerful, and dangerous man in the room.</p>
-          <p>Background: A charismatic businessman, Mr. Etters is solely interested in his own wealth and prestige. Based out of Blood Cove, he rose to upper echelons of a society built on subterfuge and skullduggery. Arrogant and utterly ruthless, he has a reputation for maximizing profits at the expense of lives; having no qualms about killing people in his way, either to lessen competition or to get what he wants.</p>
-          <!-- <p>Boon: The Tempest's boon will be revealed at a later time.</p> -->
-        </section>
-        <section class="unfriendly">
-          <h2>Captain</h2>
-          <h3>Kassata Lewynn</h3>
-          <h4>Rivermen's Guild</h4>
-          <img src="/serpents/images/icon-kassata-lewynn.jpg" alt="Captain Lewynn">
-          <p>Appearance: Strikingly pretty with long, curly red hair and delicate tattoos in both prominent and delicate places, Captain Kassata wields her looks like any other weapon. Jovial, prone to heavy drinking and wild partying, Kassata lives a one-life-one-shot mantra, never letting an opportunity for fun or adventure pass idly by.</p>
-          <p>Background: Captain of the <i>Last Hurrah</i>, Kassata Lewynn is an ambitious Free Captain of the Shackles. She craves authority and the admiration of her fellow captains, something she somewhat-rightfully believes can only be bought, and she will pursue fortune and glory with every drop of her blood.</p>
-          <!-- <p>Boon: The Tempest's boon will be revealed at a later time.</p> -->
-        </section>
-        <section class="friendly">
-          <h2>Earl</h2>
-          <h3>Ortho Vibius</h3>
-          <h4>G.C.S.</h4>
-          <img src="/serpents/images/icon-ortho-vibius.png" alt="Earl Vibius">
-          <p>Appearance: Middle aged and mildly foppish, His Honorable Lordship Vibius is a confirmed old batchelor possessing both wealth and station. At all times, he is dressed impeccably and acts with decorum, though he imperiously eyes the jungle with a combination of fright and disgust. His nobility has afforded him a fantastic education, yet he retains an insatiable curiosity for the unknown, often asking pointed questions after concluding with pleasantries.</p>
-          <p>Background: The largest benefactor to the G.C.S., Earl Vibius typically pays them enough money to operate for a year in exchange for brief explorations of the Stasis Fields in th Bandu Hills, though he doesn't seem to do anything with the reports that return to him. Not a field man, he is funding the expedition entirely out of his own pocket, purely for the pursuit of knowledge, of course.</p>
-          <!-- <p>Boon: The Tempest's boon will be revealed at a later time.</p> -->
-        </section>
-        <section class="unfriendly">
-          <h2>General</h2>
-          <h3>Rotilius Havelar</h3>
-          <h4>Sargavan Custodial Government</h4>
-          <img src="/serpents/images/npc-rotilius-havelar.jpg" alt="General Havelar">
-          <p>Appearance: An older man with a lifetime of military service, General Havelar keeps his grey hair and beared cropped short and neatly trimmed. His face is wrinkled and lined from decades of scowling, with a prominant scar across the left side of his face from a nearly-fatal encounter with an elephants tusk.</p>
-          <p>Background: Appointed to lead the expedition to Saventh-Yhi by Grand Custodian Utilinus, Rotilius Havelar is a general of the Sargavan Guard. A loyal supported of the Grand Custodian, General Havelar is a stereotypical self-important colonial officer, with traditionalist views of the Mwangi natives. He is a military man through and through, a veteran of several battles, highly educated, a skilled warrior and canny strategist, and a man who can be counted on to follow orders. Despite his qualities, however, he lacks any true leadership ability.</p>
-          <!-- <p>Boon: The Tempest's boon will be revealed at a later time.</p> -->
-        </section>
-      </div>
+      <section class="unfriendly">
+        <h2>Pathfinder</h2>
+        <h3>Amivor Glaur</h3>
+        <h4>Pathfinder Society</h4>
+        <img src="/serpents/images/icon-amivor-glaur.jpg" alt="Amivor Glaur">
+        <p>Appearance: A wild-haired redhead with a neatly trimmed beard and mustache, Amivor keep himslef consicuously
+          clean. Eschewing a shirt for an open vest with plenty of pockets, Amivor is covered in easily accessed tools,
+          and every piece of his clothing has utility.</p>
+        <p>Background: A veteran of several expeditions into the Mwangi interior, Amivor is skilled at organizing and
+          leading such missions, as well as appraising and exploring historical sites. He has been somewhat hardened and
+          made more wild by all his time in the jungle, and has come to generally prefer being in the field to the noise
+          of civilization.</p>
+        <!-- <p>Boon: The Tempest's boon will be revealed at a later time.</p> -->
+      </section>
+      <section class="unfriendly">
+        <h2>Mistress</h2>
+        <h3>Chivane</h3>
+        <h4>Red Mantis</h4>
+        <img src="/serpents/images/icon-chivane.jpg" alt="Mistress Chivane">
+        <p>Appearance: Startlingly pretty, Chivane takes the rare approach of removing her mask of the red mantis,
+          allowing her to be recognized. This is likely due to the reality of leading an expedition of several
+          assassins, rather than mearly being on a job, but this decision enables the expedition leader to be recognized
+          on sight at a distance.</p>
+        <p>Background: [REDACTED]</p>
+        <!-- <p>Boon: The Tempest's boon will be revealed at a later time.</p> -->
+      </section>
+      <section class="unfriendly">
+        <h2>Mister</h2>
+        <h3>Dargan Etters</h3>
+        <h4>Ivory Cross</h4>
+        <img src="/serpents/images/icon-dargan-etters.jpg" alt="Dargan Etters">
+        <p>Appearance: Well adapted to the hot climate of the expanse, Mr. Etters wears lose fitting and unrestricting
+          clothing decorated in gold. He rarely ventures anywhere without his bodyguards, but his demenor makes it clear
+          that in any conversation, he is always the most important, powerful, and dangerous man in the room.</p>
+        <p>Background: A charismatic businessman, Mr. Etters is solely interested in his own wealth and prestige. Based
+          out of Blood Cove, he rose to upper echelons of a society built on subterfuge and skullduggery. Arrogant and
+          utterly ruthless, he has a reputation for maximizing profits at the expense of lives; having no qualms about
+          killing people in his way, either to lessen competition or to get what he wants.</p>
+        <!-- <p>Boon: The Tempest's boon will be revealed at a later time.</p> -->
+      </section>
+      <section class="unfriendly">
+        <h2>Captain</h2>
+        <h3>Kassata Lewynn</h3>
+        <h4>Rivermen's Guild</h4>
+        <img src="/serpents/images/icon-kassata-lewynn.jpg" alt="Captain Lewynn">
+        <p>Appearance: Strikingly pretty with long, curly red hair and delicate tattoos in both prominent and delicate
+          places, Captain Kassata wields her looks like any other weapon. Jovial, prone to heavy drinking and wild
+          partying, Kassata lives a one-life-one-shot mantra, never letting an opportunity for fun or adventure pass
+          idly by.</p>
+        <p>Background: Captain of the <i>Last Hurrah</i>, Kassata Lewynn is an ambitious Free Captain of the Shackles.
+          She craves authority and the admiration of her fellow captains, something she somewhat-rightfully believes can
+          only be bought, and she will pursue fortune and glory with every drop of her blood.</p>
+        <!-- <p>Boon: The Tempest's boon will be revealed at a later time.</p> -->
+      </section>
+      <section class="friendly">
+        <h2>Earl</h2>
+        <h3>Ortho Vibius</h3>
+        <h4>G.C.S.</h4>
+        <img src="/serpents/images/icon-ortho-vibius.png" alt="Earl Vibius">
+        <p>Appearance: Middle aged and mildly foppish, His Honorable Lordship Vibius is a confirmed old batchelor
+          possessing both wealth and station. At all times, he is dressed impeccably and acts with decorum, though he
+          imperiously eyes the jungle with a combination of fright and disgust. His nobility has afforded him a
+          fantastic education, yet he retains an insatiable curiosity for the unknown, often asking pointed questions
+          after concluding with pleasantries.</p>
+        <p>Background: The largest benefactor to the G.C.S., Earl Vibius typically pays them enough money to operate for
+          a year in exchange for brief explorations of the Stasis Fields in th Bandu Hills, though he doesn't seem to do
+          anything with the reports that return to him. Not a field man, he is funding the expedition entirely out of
+          his own pocket, purely for the pursuit of knowledge, of course.</p>
+        <!-- <p>Boon: The Tempest's boon will be revealed at a later time.</p> -->
+      </section>
+      <section class="unfriendly">
+        <h2>General</h2>
+        <h3>Rotilius Havelar</h3>
+        <h4>Sargavan Custodial Government</h4>
+        <img src="/serpents/images/npc-rotilius-havelar.jpg" alt="General Havelar">
+        <p>Appearance: An older man with a lifetime of military service, General Havelar keeps his grey hair and beared
+          cropped short and neatly trimmed. His face is wrinkled and lined from decades of scowling, with a prominant
+          scar across the left side of his face from a nearly-fatal encounter with an elephants tusk.</p>
+        <p>Background: Appointed to lead the expedition to Saventh-Yhi by Grand Custodian Utilinus, Rotilius Havelar is
+          a general of the Sargavan Guard. A loyal supported of the Grand Custodian, General Havelar is a stereotypical
+          self-important colonial officer, with traditionalist views of the Mwangi natives. He is a military man through
+          and through, a veteran of several battles, highly educated, a skilled warrior and canny strategist, and a man
+          who can be counted on to follow orders. Despite his qualities, however, he lacks any true leadership ability.
+        </p>
+        <!-- <p>Boon: The Tempest's boon will be revealed at a later time.</p> -->
+      </section>
+    </div>
     <div class="clearfix"></div>
     <h2>Other Important NPC's</h2>
-      <div class="asset">
-        <section class="indifferent">
-          <h3>Aerys Mavato</h3>
-          <!-- <h4>Boarded at Port Peril</h4> -->
-          <h4>Rivermen's Guild</h4>
-          <img src="/serpents/images/npc-aerys-mavato.jpg" alt="Aerys Mavato">
-          <p>Appearance: Aerys is a trim, athletic woman with short dark hair, tanned skin, and fierce blue eyes. She dresses in tightly fitted leather armor and favors dark clothing and tricorn hats.</p>
-          <p>Background: Aerys Mavato boarded the <i>Jenivere</i> at Port Peril, and immediately got in a fight with one of the ship’s crewmen when he made an ill-advised suggestion that he and Aerys could share bunks. Aerys soundly humiliated the crewman in the resulting scrap (much to the barely hidden delight of the <i>Jenivere</i>’s first mate), preventing further trouble during the rest of the voyage but sending the brooding half-elf into a self imposed isolation in her forward cabin where she spent much of her time half-drunk or passed out, filling the gaps between bouts of work on her secret passion — poetry. Aerys has been crafting an epic poem she calls the Abendego Cantos for many years, and worries that she’ll not be able to finish it before she gets herself killed.</p>
-          <!-- <p>Quest: Aerys confesses that she wants to kick her drinking habit and asks for help doing so. While magical methods for recovery appear out of reach for the time being, she's heard that viper nettle berries can help to hasten recovery and ease withdrawl symptoms, and she asks that the survivors scour to find a supply of this rare tropical plant.</p> -->
-          <!-- <p>Boon: She allows the PCs to read her unfinished epic - the <i>Abendego Cantos</i>. Anyone who reads it gains a +1 bonus on Will saving throws against compulsion effects.</p> -->
-        </section>
-        <section class="helpful">
-          <h3>Athyra Crinhouse</h3>
-          <h4>G.C.S.</h4>
-          <img src="/serpents/images/npc-athyra.jpg" alt="Athyra of the Forest">
-          <p>Appearance: Athyra stands nearly 6 feet tall with a perfectly muscled figure and stunning features, her hair woven into clumped tangles. Dressed in wild scraps of animal hide, she carries a glaive-like spear she crafted from the toothed jaw of some fearsome jungle beast.</p>
-          <p>Background: The sole survivor (and heir) of the disaster at the Fzumi Salt Mines, Athyra was reised by velociraptors in the <i>Screaming Jungle</i>, and is always seen alongside her bestfriend and clutch-mate, Jaji.</p>
-          <!-- <p>Quest: Find out what happened in the Fzumi Salt Mines, and recover a portrait of her family.</p> -->
-          <p>Boon: Athyra can rally velociraptors to her, allowing them to be selected as animal companions. Additionally, she teaches everyone her naked-courage technique. Naked courage grants a +1 dodge bonus and a +1 morale bonus on saving throws versus fear effects to anyone not wearing armor.</p>
-        </section>
-        <section class="friendly">
-          <h3>Gelik Aberwhinge</h3>
-          <!-- <h4>Boarded at Magnimar</h4> -->
-          <h4>Pathfinder Society</h4>
-          <img src="/serpents/images/npc-gelik-aberwhinge.jpg" alt="Gelik Aberwhinge">
-          <p>Appearance: Gelik is a spry, energetic gnome with blond hair and a neat goatee. He dresses like a noble at all times <!--(“If you can’t take the time to dress properly, no one will take what you have to say seriously — and they’d be right not to!”)-->. With liberal use of <i>prestidigitation</i>, his fine clothes always seem freshly cleaned. Only the ink stains on his fingers break the illusion of a proper gnome nobleman <!--(“If you don’t have ink stains on your fingers, no one will take your writing seriously — and they’d be right not to!”)-->.</p>
-          <p>Background: Gelik boarded the <i>Jenivere</i> at Magnimar in something of a rush — when a local merchant discovered that Gelik had sold him a fake Thassilonian relic (a practice that has resulted in his poor standing in the Pathfinder Society), things quickly got out of hand and the Magnimar city guard became involved. After losing his pursuers in a market, Gelik found himself at the docks and, knowing that his welcome in Magnimar was over, secured passage on the first ship out of town he could — the <i>Jenivere</i>.</p>
-          <!-- <p>Quest: Gellik knows of an old story about a Pathfinder Society ship called the <i>Nightvoice</i> that went missing in these waters, and the most popular theory is that the ship ran aground on <i>Smuggler's Shiv</i> or else sank near the island. Admitting that he's currently on the outs with the organization, he hopes that finding out what happened to the <i>Nightvoice</i> could go a long way towards clearing his record with the society.</p> -->
-          <!-- <p>Boon: Gelik shares several secrets of comedy. Everyone gains a +1 Caster Level bonus when casting spells with the charm or language-dependent descriptors.</p> -->
-        </section>
-        <section class="helpful">
-          <h3>Ishirou</h3>
-          <!-- <h4>Boarded at Bloodcove</h4> -->
-          <h4>Ivory Cross</h4>
-          <img src="/serpents/images/npc-ishirou.jpg" alt="Ishirou">
-          <p>Appearance: Ishirou is a rugged Tian man who appears much older than he is, with graying hair worn in a ponytail and a perpetual scruffy beard. His clothing and armor are well kept and clean, but obviously of low quality. Only his sword, a beautiful katana <!--given to him by a member of the Aspis Consortium to ensure his loyalty (and to increase the perceived debt he owes the group)-->, has any real value. Ishirou is rightfully protective of it, as it is his only material link to his cultural heritage.</p>
-          <p>Ishirou grew up on his father’s ship, but grew to resent what he felt was a stolen childhood — he saw how those who stayed in one location set down roots, grew rich, and established empires. In a foolish attempt to force his family to settle down, young Ishirou stole down to the waterfront and lit his father’s ship on fire, only to watch in horror and shame as his father heroically leapt aboard the ship and tried to save it. His father died in the fire, and Ishirou’s secret drove him to stow away on an Aspis Consortium ship bound for Bloodcove. Ten years have passed since then, and Ishirou has worked as a sailor, thug, messenger, soldier, and guard for the Aspis Consortium the entire time. He boarded the Jenivere at Bloodcove, having finally paid off his debt to the Consortium, and is eager to seek a new life in Sargava.</p>
-          <!-- <p>Quest: Ishirou admits that he collects treasure maps, and while most are of places he'd never dream of visiting or have proven to be of dubious origin, one of them shows the location of an old pirate's stash here on <i>Smuggler's Shiv</i>. Alas, the notes on the map indicate that recovering the treasure wil take several people. Since they're already here on the Shiv though, what's the harm in looking for a bit of loot?</p> -->
-          <!-- <p>Boon: Ishirou shares some of his swordfighting styles and tricks, granting everyone a +1 bonus to CMB and CMD against disarm combat maneuvers.</p> -->
-        </section>
-        <section class="friendly">
-          <!-- <h2>Prisoner</h2> -->
-          <h3>Jask Derindi</h3>
-          <!-- <h4>Boarded at Corentyn</h4> -->
-          <h4>Sargavan Custodial Government</h4>
-          <img src="/serpents/images/npc-jask-derindi.jpg" alt="Jask Derindi">
-          <p>Appearance: Jask is a middle-aged, plain-looking Garundi man with hair starting to gray and watery eyes.<!-- When the PCs first meet him on the beach, all he has are ragged clothes and manacles that bind his wrists behind his back.--></p>
-          <p>Background: A prisoner loaded at Corentyn, this man is bound and sequestered in the brig. Jask was once employed by the Sargavan government, but when he uncovered evidence of corruption involving illicit deals with the Free Captains of the Shackles, Jask confronted his superior, only to be betrayed and framed for the same crimes. Faced with imprisonment, Jask fled all the way to Corentyn, where he lived a modest life as a scribe for a decade. He’d thought his enemies in Sargava had forgotten him, but then a Sargavan agent caught up with him and put him in irons. The agent handed Jask over to the captain of the Jenivere with instructions to return Jask to Sargava for trial, but the captain disappeared during the shipwreck, leaving Jask alive but bound.</p>
-          <!-- <p>Quest:  One of the incriminating papers he found so long ago indicated that one of his superior’s contacts in the Shackles was a man named Avret Kinkarian. Kinkarian’s ship, the Brine Demon, reputedly wrecked here on Smuggler’s Shiv. He knows it’s a long shot, but Jask would love to track the ship down and explore the wreck on the off chance there could be more evidence somewhere aboard to prove his innocence. </p> -->
-          <!-- <p>Boon: Jask shares a number of mantras and focusing chants. Everyone gains Meditation Master as a bonus feat.</p> -->
-        </section>
-        <section class="neutral">
-          <h2>Lady</h2>
-          <h3>Mindra Micini</h3>
-          <img src="/serpents/images/npc-mindra-micini.jpg" alt="Mindra Micini">
-          <p>Appearance: Unnasuming and fair, Mindra wears long knit clothes and wears large bucket hats to keep the sun off her skin, never removing her thick layers even when working under the hot son. Despite this, she has never been seen sweating or complaining about the heat, and those who assume she is frail have never seen her wrestle a bull into its pen.</p>
-          <p>Background: A Vidric native, Mindra was born and raised in freehold after the traditions of her noble family. A champion of Mwangi rights, her large ranch is the halfway-point between the capital city of Eleder on the west coast, and the great city of Kalabuto on the edge of the eastern frontier. More than just a hard worker and leader, she is a cunning politician who defends the heartlands of the nation with her own well-armed sheppherd and ranch-hands.</p>
-          <!-- <p>Quest: ???</p> -->
-          <!-- <p>Boon: ???</p> -->
-        </section>
-        <section class="friendly">
-          <h3>Nkechi "The Tempest"</h3>
-          <figure class="multiImage">
-            <img src="/serpents/images/npc-nkechi.jpg" alt="Nkechi the Tempest" class="fadeOnHover">
-            <img src="/serpents/images/totem-giant-crab.jpg" alt="Nkechi the Tempest" class="appearOnHover">
-          </figure>
-          <p>Appearance: The tempest eschews wearing shirts, and his single pair of trousers is heavily worn and patched, looking ragged from its constant exposure to the elements. In likewise fashion, his hair, beard, and eyebrows are permanenetly storm-strewn and loosing color at the ends, while he is clearly blind out of his left eye. Despite this, he bears a fine holy symbol of his patron in traditional construction, and he always wears a pair of sturdy shoes.</p>
-          <p>Background: An aged shaman of Shimye-Magalla, the man born named Nketchi is called "The Tempest" by the Vidric natives of Eleder. Knowledgable and wise, he is also tempermental and, like his patron, prone to fits of rage and seeming madness. Over the years, hundreds have come to him seeking guidance, and his counsel has earned him both perishioners and angry enemies. Having now survived seevral attempts on his life, he has developed a healthy sense of paranoid vigilance.</p>
-          <p>Boon: The Tempest's boon will be revealed at a later time, when you're dreaming.</p>
-        </section>
-        <section class="helpful">
-          <!-- <h2>Crow Tooth</h2> -->
-          <h3><!--"Poor"--> Pezock "Crow Tooth"</h3>
-          <!-- <h4>Boarded at Mediogalti</h4> -->
-          <h4>G.C.S.</h4>
-          <img src="/serpents/images/npc-pezock.jpg" alt="Pezock">
-          <p>Appearance: This mad black tengu has seen too many days marooned on <i>Smuggler's Shiv</i>, and the combination of heat and isolation has taken its toll. He wears ragged pants and strips of white cloth bandaged around parts of his head, forearms, and tarses' in an effort to keep cool while covering small bites, cuts, and caught hooks.</p>
-          <p>Background: Pezock is the only survivor of the wreckage of the <i>Crow's Tooth</i>, which wrecked on the shores of <i>Smuggler's Shiv</i> sometime past. He was a passenger aboard the all-tengu vessel, and close personal friends of Captain Eraka Zoventai, a bright red cardinal-like tengu who gave Pezock his saw-toothed saber. All of the other survivors were killed by the shiv's cannibals.</p>
-          <!-- <p>Quest: Pezock misses his dear friend, Captain Eraka Zoventai, and he wishes he had something more to remember her by than his singe saw-toothed saber. Idea! What if he had two saw-toothed sabers?!? If they can board the wreckage of the <i>Crow's Tooth</i> and recover the captain's other saber, and return it to poor Pezock, he'd be ever so greatful.</p> -->
-          <!-- <p>Boon: In his addled state, poor Pezock can only offer everything he has - the survivors may set up camp in and around his little home.</p> -->
-          <p>Boon: Cured of his madness (for the moment), Pezock is able to share some of his combat tactics. He grants everyone Exotic Weapon Proficiency (Sawtooth Saber), and anyone dealing sneak attack damage with a sawtooth saber may gain the benefit of the Bleeding Attack rogue talent.</p>
-        </section>
-        <section class="friendly">
-          <h3>Sasha Nevah</h3>
-          <!-- <h4>Boarded at Ilizmargoti</h4> -->
-          <h4>Red Mantis</h4>
-          <img src="/serpents/images/npc-sasha-nevah.jpg" alt="Sasha Nevah">
-          <p>Appearance: Sasha has tousled red hair and mischievous green eyes, and is missing the pinky finger of her left hand. She bears a tattoo between her shoulder blades<!-- — the symbol of the Red Mantis, a “gift” from her mother before Sasha’s personality made it apparent she could never belong-->. Slender and athletic, Sasha never stands still or stays quiet for long.</p>
-          <p>Background: Sasha Nevah is a daughter of the Red Mantis, yet while she shows great promise — she’s a natural fighter, takes pride in her grace, and delights in violence— she’ll never make it as an assassin because of her insatiable curiosity, her love of animals, and rebellious streak. Had her mother not been a highly regarded member of the Red Mantis, Sasha would have doubtless met with a tragic accident years ago. Sasha has little interest in joining the Mantis, as she rankles at even the thought of following orders. Impulsive and reckless, she’s caused plenty of awkward problems for her mother — and while being sent to Sargava to assist with Mantis interests in Eleder is not technically exile, her mother has certainly made it clear that if she returns to Ilizmagorti, she’ll never leave it again. Sasha understood what her mother meant (especially after she severed one of Sasha’s fingers to drive home the warning), but rather than dwell on the fact that her mother threatened her life, she sees this as a great opportunity for adventure.</p>
-          <!-- <p>Quest: Sasha finds much of the local wildlife adorable, particularly the poisonous ones. If some can be found for her, she promises to look after them, take the best care of them, and keep them under control and out of the other's bed's. She would dearly love to have a baby black mamba, dimorphodon, and shiv dragon as a pet.</p> -->
-          <!-- <p>Boon: Anyone who studies under Sasha gains a permanent +1 bonus on Initiative checks.</p> -->
-        </section>
-      </div>
+    <div class="asset">
+      <section class="indifferent">
+        <h3>Aerys Mavato</h3>
+        <!-- <h4>Boarded at Port Peril</h4> -->
+        <h4>Rivermen's Guild</h4>
+        <img src="/serpents/images/npc-aerys-mavato.jpg" alt="Aerys Mavato">
+        <p>Appearance: Aerys is a trim, athletic woman with short dark hair, tanned skin, and fierce blue eyes. She
+          dresses in tightly fitted leather armor and favors dark clothing and tricorn hats.</p>
+        <p>Background: Aerys Mavato boarded the <i>Jenivere</i> at Port Peril, and immediately got in a fight with one
+          of the ship’s crewmen when he made an ill-advised suggestion that he and Aerys could share bunks. Aerys
+          soundly humiliated the crewman in the resulting scrap (much to the barely hidden delight of the
+          <i>Jenivere</i>’s first mate), preventing further trouble during the rest of the voyage but sending the
+          brooding half-elf into a self imposed isolation in her forward cabin where she spent much of her time
+          half-drunk or passed out, filling the gaps between bouts of work on her secret passion — poetry. Aerys has
+          been crafting an epic poem she calls the Abendego Cantos for many years, and worries that she’ll not be able
+          to finish it before she gets herself killed.
+        </p>
+        <!-- <p>Quest: Aerys confesses that she wants to kick her drinking habit and asks for help doing so. While magical methods for recovery appear out of reach for the time being, she's heard that viper nettle berries can help to hasten recovery and ease withdrawl symptoms, and she asks that the survivors scour to find a supply of this rare tropical plant.</p> -->
+        <!-- <p>Boon: She allows the PCs to read her unfinished epic - the <i>Abendego Cantos</i>. Anyone who reads it gains a +1 bonus on Will saving throws against compulsion effects.</p> -->
+      </section>
+      <section class="helpful">
+        <h3>Athyra Crinhouse</h3>
+        <h4>G.C.S.</h4>
+        <img src="/serpents/images/npc-athyra.jpg" alt="Athyra of the Forest">
+        <p>Appearance: Athyra stands nearly 6 feet tall with a perfectly muscled figure and stunning features, her hair
+          woven into clumped tangles. Dressed in wild scraps of animal hide, she carries a glaive-like spear she crafted
+          from the toothed jaw of some fearsome jungle beast.</p>
+        <p>Background: The sole survivor (and heir) of the disaster at the Fzumi Salt Mines, Athyra was reised by
+          velociraptors in the <i>Screaming Jungle</i>, and is always seen alongside her bestfriend and clutch-mate,
+          Jaji.</p>
+        <!-- <p>Quest: Find out what happened in the Fzumi Salt Mines, and recover a portrait of her family.</p> -->
+        <p>Boon: Athyra can rally velociraptors to her, allowing them to be selected as animal companions. Additionally,
+          she teaches everyone her naked-courage technique. Naked courage grants a +1 dodge bonus and a +1 morale bonus
+          on saving throws versus fear effects to anyone not wearing armor.</p>
+      </section>
+      <section class="friendly">
+        <h3>Gelik Aberwhinge</h3>
+        <!-- <h4>Boarded at Magnimar</h4> -->
+        <h4>Pathfinder Society</h4>
+        <img src="/serpents/images/npc-gelik-aberwhinge.jpg" alt="Gelik Aberwhinge">
+        <p>Appearance: Gelik is a spry, energetic gnome with blond hair and a neat goatee. He dresses like a noble at
+          all times
+          <!--(“If you can’t take the time to dress properly, no one will take what you have to say seriously — and they’d be right not to!”)-->.
+          With liberal use of <i>prestidigitation</i>, his fine clothes always seem freshly cleaned. Only the ink stains
+          on his fingers break the illusion of a proper gnome nobleman
+          <!--(“If you don’t have ink stains on your fingers, no one will take your writing seriously — and they’d be right not to!”)-->.
+        </p>
+        <p>Background: Gelik boarded the <i>Jenivere</i> at Magnimar in something of a rush — when a local merchant
+          discovered that Gelik had sold him a fake Thassilonian relic (a practice that has resulted in his poor
+          standing in the Pathfinder Society), things quickly got out of hand and the Magnimar city guard became
+          involved. After losing his pursuers in a market, Gelik found himself at the docks and, knowing that his
+          welcome in Magnimar was over, secured passage on the first ship out of town he could — the <i>Jenivere</i>.
+        </p>
+        <!-- <p>Quest: Gellik knows of an old story about a Pathfinder Society ship called the <i>Nightvoice</i> that went missing in these waters, and the most popular theory is that the ship ran aground on <i>Smuggler's Shiv</i> or else sank near the island. Admitting that he's currently on the outs with the organization, he hopes that finding out what happened to the <i>Nightvoice</i> could go a long way towards clearing his record with the society.</p> -->
+        <!-- <p>Boon: Gelik shares several secrets of comedy. Everyone gains a +1 Caster Level bonus when casting spells with the charm or language-dependent descriptors.</p> -->
+      </section>
+      <section class="helpful">
+        <h3>Ishirou</h3>
+        <!-- <h4>Boarded at Bloodcove</h4> -->
+        <h4>Ivory Cross</h4>
+        <img src="/serpents/images/npc-ishirou.jpg" alt="Ishirou">
+        <p>Appearance: Ishirou is a rugged Tian man who appears much older than he is, with graying hair worn in a
+          ponytail and a perpetual scruffy beard. His clothing and armor are well kept and clean, but obviously of low
+          quality. Only his sword, a beautiful katana
+          <!--given to him by a member of the Aspis Consortium to ensure his loyalty (and to increase the perceived debt he owes the group)-->,
+          has any real value. Ishirou is rightfully protective of it, as it is his only material link to his cultural
+          heritage.
+        </p>
+        <p>Ishirou grew up on his father’s ship, but grew to resent what he felt was a stolen childhood — he saw how
+          those who stayed in one location set down roots, grew rich, and established empires. In a foolish attempt to
+          force his family to settle down, young Ishirou stole down to the waterfront and lit his father’s ship on fire,
+          only to watch in horror and shame as his father heroically leapt aboard the ship and tried to save it. His
+          father died in the fire, and Ishirou’s secret drove him to stow away on an Aspis Consortium ship bound for
+          Bloodcove. Ten years have passed since then, and Ishirou has worked as a sailor, thug, messenger, soldier, and
+          guard for the Aspis Consortium the entire time. He boarded the Jenivere at Bloodcove, having finally paid off
+          his debt to the Consortium, and is eager to seek a new life in Sargava.</p>
+        <!-- <p>Quest: Ishirou admits that he collects treasure maps, and while most are of places he'd never dream of visiting or have proven to be of dubious origin, one of them shows the location of an old pirate's stash here on <i>Smuggler's Shiv</i>. Alas, the notes on the map indicate that recovering the treasure wil take several people. Since they're already here on the Shiv though, what's the harm in looking for a bit of loot?</p> -->
+        <!-- <p>Boon: Ishirou shares some of his swordfighting styles and tricks, granting everyone a +1 bonus to CMB and CMD against disarm combat maneuvers.</p> -->
+      </section>
+      <section class="friendly">
+        <!-- <h2>Prisoner</h2> -->
+        <h3>Jask Derindi</h3>
+        <!-- <h4>Boarded at Corentyn</h4> -->
+        <h4>Sargavan Custodial Government</h4>
+        <img src="/serpents/images/npc-jask-derindi.jpg" alt="Jask Derindi">
+        <p>Appearance: Jask is a middle-aged, plain-looking Garundi man with hair starting to gray and watery
+          eyes.<!-- When the PCs first meet him on the beach, all he has are ragged clothes and manacles that bind his wrists behind his back.-->
+        </p>
+        <p>Background: A prisoner loaded at Corentyn, this man is bound and sequestered in the brig. Jask was once
+          employed by the Sargavan government, but when he uncovered evidence of corruption involving illicit deals with
+          the Free Captains of the Shackles, Jask confronted his superior, only to be betrayed and framed for the same
+          crimes. Faced with imprisonment, Jask fled all the way to Corentyn, where he lived a modest life as a scribe
+          for a decade. He’d thought his enemies in Sargava had forgotten him, but then a Sargavan agent caught up with
+          him and put him in irons. The agent handed Jask over to the captain of the Jenivere with instructions to
+          return Jask to Sargava for trial, but the captain disappeared during the shipwreck, leaving Jask alive but
+          bound.</p>
+        <!-- <p>Quest:  One of the incriminating papers he found so long ago indicated that one of his superior’s contacts in the Shackles was a man named Avret Kinkarian. Kinkarian’s ship, the Brine Demon, reputedly wrecked here on Smuggler’s Shiv. He knows it’s a long shot, but Jask would love to track the ship down and explore the wreck on the off chance there could be more evidence somewhere aboard to prove his innocence. </p> -->
+        <!-- <p>Boon: Jask shares a number of mantras and focusing chants. Everyone gains Meditation Master as a bonus feat.</p> -->
+      </section>
+      <section class="neutral">
+        <h2>Lady</h2>
+        <h3>Mindra Micini</h3>
+        <img src="/serpents/images/npc-mindra-micini.jpg" alt="Mindra Micini">
+        <p>Appearance: Unnasuming and fair, Mindra wears long knit clothes and wears large bucket hats to keep the sun
+          off her skin, never removing her thick layers even when working under the hot son. Despite this, she has never
+          been seen sweating or complaining about the heat, and those who assume she is frail have never seen her
+          wrestle a bull into its pen.</p>
+        <p>Background: A Vidric native, Mindra was born and raised in freehold after the traditions of her noble family.
+          A champion of Mwangi rights, her large ranch is the halfway-point between the capital city of Eleder on the
+          west coast, and the great city of Kalabuto on the edge of the eastern frontier. More than just a hard worker
+          and leader, she is a cunning politician who defends the heartlands of the nation with her own well-armed
+          sheppherd and ranch-hands.</p>
+        <!-- <p>Quest: ???</p> -->
+        <!-- <p>Boon: ???</p> -->
+      </section>
+      <section class="friendly">
+        <h3>Nkechi "The Tempest"</h3>
+        <figure class="multiImage">
+          <img src="/serpents/images/npc-nkechi.jpg" alt="Nkechi the Tempest" class="fadeOnHover">
+          <img src="/serpents/images/totem-giant-crab.jpg" alt="Nkechi the Tempest" class="appearOnHover">
+        </figure>
+        <p>Appearance: The tempest eschews wearing shirts, and his single pair of trousers is heavily worn and patched,
+          looking ragged from its constant exposure to the elements. In likewise fashion, his hair, beard, and eyebrows
+          are permanenetly storm-strewn and loosing color at the ends, while he is clearly blind out of his left eye.
+          Despite this, he bears a fine holy symbol of his patron in traditional construction, and he always wears a
+          pair of sturdy shoes.</p>
+        <p>Background: An aged shaman of Shimye-Magalla, the man born named Nketchi is called "The Tempest" by the
+          Vidric natives of Eleder. Knowledgable and wise, he is also tempermental and, like his patron, prone to fits
+          of rage and seeming madness. Over the years, hundreds have come to him seeking guidance, and his counsel has
+          earned him both perishioners and angry enemies. Having now survived seevral attempts on his life, he has
+          developed a healthy sense of paranoid vigilance.</p>
+        <p>Boon: The Tempest's boon will be revealed at a later time, when you're dreaming.</p>
+      </section>
+      <section class="helpful">
+        <!-- <h2>Crow Tooth</h2> -->
+        <h3><!--"Poor"--> Pezock "Crow Tooth"</h3>
+        <!-- <h4>Boarded at Mediogalti</h4> -->
+        <h4>G.C.S.</h4>
+        <img src="/serpents/images/npc-pezock.jpg" alt="Pezock">
+        <p>Appearance: This mad black tengu has seen too many days marooned on <i>Smuggler's Shiv</i>, and the
+          combination of heat and isolation has taken its toll. He wears ragged pants and strips of white cloth bandaged
+          around parts of his head, forearms, and tarses' in an effort to keep cool while covering small bites, cuts,
+          and caught hooks.</p>
+        <p>Background: Pezock is the only survivor of the wreckage of the <i>Crow's Tooth</i>, which wrecked on the
+          shores of <i>Smuggler's Shiv</i> sometime past. He was a passenger aboard the all-tengu vessel, and close
+          personal friends of Captain Eraka Zoventai, a bright red cardinal-like tengu who gave Pezock his saw-toothed
+          saber. All of the other survivors were killed by the shiv's cannibals.</p>
+        <!-- <p>Quest: Pezock misses his dear friend, Captain Eraka Zoventai, and he wishes he had something more to remember her by than his singe saw-toothed saber. Idea! What if he had two saw-toothed sabers?!? If they can board the wreckage of the <i>Crow's Tooth</i> and recover the captain's other saber, and return it to poor Pezock, he'd be ever so greatful.</p> -->
+        <!-- <p>Boon: In his addled state, poor Pezock can only offer everything he has - the survivors may set up camp in and around his little home.</p> -->
+        <p>Boon: Cured of his madness (for the moment), Pezock is able to share some of his combat tactics. He grants
+          everyone Exotic Weapon Proficiency (Sawtooth Saber), and anyone dealing sneak attack damage with a sawtooth
+          saber may gain the benefit of the Bleeding Attack rogue talent.</p>
+      </section>
+      <section class="friendly">
+        <h3>Sasha Nevah</h3>
+        <!-- <h4>Boarded at Ilizmargoti</h4> -->
+        <h4>Red Mantis</h4>
+        <img src="/serpents/images/npc-sasha-nevah.jpg" alt="Sasha Nevah">
+        <p>Appearance: Sasha has tousled red hair and mischievous green eyes, and is missing the pinky finger of her
+          left hand. She bears a tattoo between her shoulder
+          blades<!-- — the symbol of the Red Mantis, a “gift” from her mother before Sasha’s personality made it apparent she could never belong-->.
+          Slender and athletic, Sasha never stands still or stays quiet for long.</p>
+        <p>Background: Sasha Nevah is a daughter of the Red Mantis, yet while she shows great promise — she’s a natural
+          fighter, takes pride in her grace, and delights in violence— she’ll never make it as an assassin because of
+          her insatiable curiosity, her love of animals, and rebellious streak. Had her mother not been a highly
+          regarded member of the Red Mantis, Sasha would have doubtless met with a tragic accident years ago. Sasha has
+          little interest in joining the Mantis, as she rankles at even the thought of following orders. Impulsive and
+          reckless, she’s caused plenty of awkward problems for her mother — and while being sent to Sargava to assist
+          with Mantis interests in Eleder is not technically exile, her mother has certainly made it clear that if she
+          returns to Ilizmagorti, she’ll never leave it again. Sasha understood what her mother meant (especially after
+          she severed one of Sasha’s fingers to drive home the warning), but rather than dwell on the fact that her
+          mother threatened her life, she sees this as a great opportunity for adventure.</p>
+        <!-- <p>Quest: Sasha finds much of the local wildlife adorable, particularly the poisonous ones. If some can be found for her, she promises to look after them, take the best care of them, and keep them under control and out of the other's bed's. She would dearly love to have a baby black mamba, dimorphodon, and shiv dragon as a pet.</p> -->
+        <!-- <p>Boon: Anyone who studies under Sasha gains a permanent +1 bonus on Initiative checks.</p> -->
+      </section>
+    </div>
     <div class="clearfix"></div>
     <!-- <h2>People of the Shiv</h2>
       <div class="asset">
@@ -440,49 +686,69 @@
         <h2>The Spirit of the Hill</h2>
         <h3>Aycenia</h3>
         <img src="/serpents/images/npc-aycenia.jpg" alt="Aycenia">
-        <p>Appearance: The dryad of the single, 60 ft. banyan tree standing on the highest point of <i>Smuggler's Shiv</i>, Aycenia has light-bark skin, rain water eyes, and palm-frond hair. Her voice sounds like the rustling of the leaves of her banyan tree, and while she speaks eagerly, her language is as someone who rarely has a companion for conversation.</p>
-        <p>Background: She is a tree. Her life is the life of the tree that has been on this same hill for over a century. She's young for a tree, though still older than most of the trees on this island. The activities and intents of the cannibals are of no interest to her - she is a tree.</p>
+        <p>Appearance: The dryad of the single, 60 ft. banyan tree standing on the highest point of <i>Smuggler's
+            Shiv</i>, Aycenia has light-bark skin, rain water eyes, and palm-frond hair. Her voice sounds like the
+          rustling of the leaves of her banyan tree, and while she speaks eagerly, her language is as someone who rarely
+          has a companion for conversation.</p>
+        <p>Background: She is a tree. Her life is the life of the tree that has been on this same hill for over a
+          century. She's young for a tree, though still older than most of the trees on this island. The activities and
+          intents of the cannibals are of no interest to her - she is a tree.</p>
         <!-- <p>Quest: She does not know all things, but she does know that part of her realm is suffering a hideous blight. She can sense the foul intrusion of the fungus on the Silent Island to the north , but is relatively powerless to do anything about it, for she fears what the fungal blight might do to her even if she were brave enough to abandon her tree to handle the situation herself. </p> -->
-        <p>Boon: Aycenia not only promises to allow the PCs to rest on her hill as often as they wish, but she also pledges to use her magic to aid them in whatever method they desire. She also knows much about this island and its inhabitants, and can answer most specific questions, though her alien mind is unlikely to spontaneously think of information the survivors might find useful.</p>
+        <p>Boon: Aycenia not only promises to allow the PCs to rest on her hill as often as they wish, but she also
+          pledges to use her magic to aid them in whatever method they desire. She also knows much about this island and
+          its inhabitants, and can answer most specific questions, though her alien mind is unlikely to spontaneously
+          think of information the survivors might find useful.</p>
       </section>
     </div>
     <div class="clearfix"></div>
     <h2>Notable Dead</h2>
-      <p>Alas, not all NPC's survived this adventure, and for better (or worse) they are remembered here.</p>
-      <div class="asset">
-        <section class="neutral">
-          <h3>Ieana</h3>
-          <h4>Boarded at Manimar</h4>
-          <img src="/serpents/images/npc-ieana.jpg" alt="Ieana">
-          <p>Appearance: Mysterious and scantily clad, Ieana allows scarves to both hide and highlight her features, while the charms and bracelets move asyncronously with her movements, giving her an odd combination of graceful and awkward motions, like she doesn't quite fit in her slender frame.</p>
-          <p>Background: A bookish Varisian scholar who tends to keep to herself, Ieana is traveling to Sargava to explore the ancient ruins there. Rumors aboard the ship alternately suggest that she’s the <i>Jenivere</i>’s owner, a Chelish agent, or Captain Kovack’s secret lover. Ieana keeps mostly to herself, and grows more intent on her studies with each mile the ship travels closer to Eleder.</p>
-          <p>Death: Was killed and replaced before she got aboard the <i>Jenivere</i>.</p>
-        </section>
-        <section>
-          <h2>First Mate</h2>
-          <h3>Alton Devers</h3>
-          <img src="/serpents/images/npc-alton-devers.jpg" alt="Alton Devers">
-          <p>Appearance: A youthful but weathered man, First Mate Devers has an easygoing attitude coupled with an impeccable sense of honor and duty which he strives to impart to the crew.</p>
-          <p>Background: The <i>Jenivere</i>’s first mate is friendly with both passengers and crew, but he sometimes seems to chafe under the strong discipline of Captain Kovack.</p>
-          <p>Death: Succumbed to his mysterious injuries and eurypterid poison.</p>
-        </section>
-        <section>
-          <h2>Ship's Cook</h2>
-          <h3>Rambar Terillo</h3>
-          <img src="/serpents/images/npc-rambar-terillo.png" alt="Rambar Terillo">
-          <p>Rail thin and incredibly jumpy, Ship's Cook Terillo is most memorable for his shrill screams at the sight of all kinds of bugs. Meticulously clean, he keeps his blond hair cropped short and his beard and thin mustache precisely trimmed.</p>
-          <p>Background: A taciturn man from Senghor, Ship’s Cook Terillo has served in that capacity aboard several ships, though apparently not on account of his culinary skills, which seem to be limited to watery soups.</p>
-          <p>Killed by a snake bite aboard the <i>Jenivere</i>.</p>
-        </section>
-        <section>
-          <h2>Captain</h2>
-          <h3>Alizandru Kovack</h3>
-          <img src="/serpents/images/npc-alizandru-kovack.jpg" alt="Captain Kovack">
-          <p>Appearance: Smartly but practically dressed, Captain Kovack has a precisely trimmed bears and mustache, a crisp tricorn hat he wears when above deck, and a particularly-piercing gaze.</p>
-          <p>Background: A Chelish man whose family has made the Magnimar to Eleder run for generations, Captain Kovack is pleasant enough with his passengers, but a strict disciplinarian when dealing with his crew. </p>
-          <p>Death: Turned into an undead monster by the Mother, and slain by the explorers.</p>
-        </section>
-      </div>
+    <p>Alas, not all NPC's survived this adventure, and for better (or worse) they are remembered here.</p>
+    <div class="asset">
+      <section class="neutral">
+        <h3>Ieana</h3>
+        <h4>Boarded at Manimar</h4>
+        <img src="/serpents/images/npc-ieana.jpg" alt="Ieana">
+        <p>Appearance: Mysterious and scantily clad, Ieana allows scarves to both hide and highlight her features, while
+          the charms and bracelets move asyncronously with her movements, giving her an odd combination of graceful and
+          awkward motions, like she doesn't quite fit in her slender frame.</p>
+        <p>Background: A bookish Varisian scholar who tends to keep to herself, Ieana is traveling to Sargava to explore
+          the ancient ruins there. Rumors aboard the ship alternately suggest that she’s the <i>Jenivere</i>’s owner, a
+          Chelish agent, or Captain Kovack’s secret lover. Ieana keeps mostly to herself, and grows more intent on her
+          studies with each mile the ship travels closer to Eleder.</p>
+        <p>Death: Was killed and replaced before she got aboard the <i>Jenivere</i>.</p>
+      </section>
+      <section>
+        <h2>First Mate</h2>
+        <h3>Alton Devers</h3>
+        <img src="/serpents/images/npc-alton-devers.jpg" alt="Alton Devers">
+        <p>Appearance: A youthful but weathered man, First Mate Devers has an easygoing attitude coupled with an
+          impeccable sense of honor and duty which he strives to impart to the crew.</p>
+        <p>Background: The <i>Jenivere</i>’s first mate is friendly with both passengers and crew, but he sometimes
+          seems to chafe under the strong discipline of Captain Kovack.</p>
+        <p>Death: Succumbed to his mysterious injuries and eurypterid poison.</p>
+      </section>
+      <section>
+        <h2>Ship's Cook</h2>
+        <h3>Rambar Terillo</h3>
+        <img src="/serpents/images/npc-rambar-terillo.png" alt="Rambar Terillo">
+        <p>Rail thin and incredibly jumpy, Ship's Cook Terillo is most memorable for his shrill screams at the sight of
+          all kinds of bugs. Meticulously clean, he keeps his blond hair cropped short and his beard and thin mustache
+          precisely trimmed.</p>
+        <p>Background: A taciturn man from Senghor, Ship’s Cook Terillo has served in that capacity aboard several
+          ships, though apparently not on account of his culinary skills, which seem to be limited to watery soups.</p>
+        <p>Killed by a snake bite aboard the <i>Jenivere</i>.</p>
+      </section>
+      <section>
+        <h2>Captain</h2>
+        <h3>Alizandru Kovack</h3>
+        <img src="/serpents/images/npc-alizandru-kovack.jpg" alt="Captain Kovack">
+        <p>Appearance: Smartly but practically dressed, Captain Kovack has a precisely trimmed bears and mustache, a
+          crisp tricorn hat he wears when above deck, and a particularly-piercing gaze.</p>
+        <p>Background: A Chelish man whose family has made the Magnimar to Eleder run for generations, Captain Kovack is
+          pleasant enough with his passengers, but a strict disciplinarian when dealing with his crew. </p>
+        <p>Death: Turned into an undead monster by the Mother, and slain by the explorers.</p>
+      </section>
+    </div>
     <div class="clearfix"></div>
     <!-- <h2>Colony Leadership</h2>
       <div class="leader"></div>
@@ -498,12 +764,16 @@
     <section class="clearfix"></section> -->
   </main>
 
-<!-- FOOTER HERE -->   
+  <!-- FOOTER HERE -->
   <footer>
-    &copy; <script src="/serpents/js/currentdate.js"></script> &bull; Harrison Merrill &bull; All rights reserved &bull; Open Games License v1.02 2000, Wizards of the Coast, Inc. &bull; Pathfinder Adventure Path #121-126 2017, Paizo Publishing, LLC &bull; <script>writeCurrentVersion()</script>
+    &copy;
+    <script src="/serpents/js/currentdate.js"></script> &bull; Harrison Merrill &bull; All rights reserved &bull; Open
+    Games License v1.02 2000, Wizards of the Coast, Inc. &bull; Pathfinder Adventure Path #121-126 2017, Paizo
+    Publishing, LLC &bull;
+    <script>writeCurrentVersion()</script>
   </footer>
 
-<!-- SCRIPT HERE -->
+  <!-- SCRIPT HERE -->
   <!-- <script>
     let options = [
       {type: "npc", div: "leader"},
@@ -516,10 +786,11 @@
     })
   </script> -->
   <script>function toggleHide(val) {
-    $(val).toggle();
-  };
+      $(val).toggle();
+    };
   </script>
   <script>$(window).on("load", clickLoad('section'))</script>
 
 </body>
+
 </html>
