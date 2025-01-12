@@ -1,0 +1,44 @@
+body {
+	font-family: "Times New Roman"; /* This specifies that all content will be displayed in Times New Roman instead of a different browser default font. */
+	font-size: 20px; /* This increases the default font size to 20px. */
+	line-height: 1.5; /* This increases the line height to make the page look nicer. */
+	margin: auto; /* This centers the content of the entire page. */
+}
+/* This div exists to create a boarder around the content.*/
+div.boarder {
+	display: flex;
+	flex-wrap: wrap; /* This allows the div to wrap around the content. */
+	justify-content: center; /* This centers the content. */
+	align-items: center;
+	max-width: 600px; /* This sets the maximum width to 600px. */
+	margin: 2em; /* This creates space between the content and the boarder. */
+	/* Since we want more padding on the sides than on the top and bottom, the top and bottom are set universally first, then the left and right are set specifically. */
+	padding: 2em;
+	padding-left: 5em;
+	padding-right: 5em;
+	border: 1px solid grey;
+}
+/* This styles the header separately from the rest of the content. */
+header {
+	text-transform: uppercase; /* This makes the text uppercase. */
+	text-align: center; /* This centers the header without changing the body's content from left-justified */
+	letter-spacing: 0.2em; /* This adds more space between the letters in the header */
+	margin-bottom: 2em; /* This adds some extra space between the header and the content. */
+	border-bottom: 1px solid grey; /* This adds a decorative underline beneath the header. */
+}
+h1 {
+	font-weight: 500; /* This makes the text a little thinner than default for a header. */
+}
+/* This specifier is used to style the h2 element separately from the rest of the header. */
+h2 {
+	font-weight: 500; /* This makes the text a little thinner than default for a header. */
+	font-size: smaller; /* This makes the h2 font size smaller than default. */
+	color: #006eb6; /* This changes text color to match the target. */
+	margin: 0; /* This removes spacing between h2 and the decorative underline*/
+}
+li {
+	margin-top: 1em; /* This adds space between list items. */
+}
+footer img {
+	width: 150px; /* This sets the width of the image to 150px, regardless of the content size */
+}
