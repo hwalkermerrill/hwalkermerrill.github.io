@@ -20,6 +20,7 @@ div.boarder {
 }
 /* This styles the header separately from the rest of the content. */
 header {
+	width: 100%; /* This forces the decorative underscore match the width of the page*/
 	text-transform: uppercase; /* This makes the text uppercase. */
 	text-align: center; /* This centers the header without changing the body's content from left-justified */
 	letter-spacing: 0.2em; /* This adds more space between the letters in the header */
