@@ -1,0 +1,12 @@
+entry v.2025.0116.0800.59, 185, 50, 14, 24.09
+Error input word used '<built-in method lower of str object at 0x00000173048516E0>'
+entry @time 2025.0116.0803.24, 185, 50, 14, 24.09
+Error input word used: <built-in method lower of str object at 0x000001DAB67516B0>
+Error input word used: <built-in method lower of str object at 0x000001DAB651E4F0>
+entry @time 2025.0116.0805.47, 185, 50, 14, 24.09
+Error input word used: '<built-in method lower of str object at 0x000001E0CFB816E0>'
+entry @time 2025.0116.0809.18, 185, 50, 14, 24.09
+Error input word used: 'ihygby'
+entry @time 2025.0116.0810.18, 205, 60, 15, 39.92
+entry @time 2025.0116.0810.45, 200, 55, 16, 35.69
+Error input word used: 'nup'
