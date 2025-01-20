@@ -1,5 +1,4 @@
 // This functions toggles the theme between light and dark mode
-
 // This section defines variables to make the function easier to read.
 let themeSelector = document.getElementById("theme");
 let logo = document.getElementById("logo");
