@@ -1,17 +1,18 @@
+/* This sets all content to TNR font instead of their browser default, at 20px, extra (nicer looking) height, and centered. */
 body {
-	font-family: "Times New Roman"; /* This specifies that all content will be displayed in Times New Roman instead of a different browser default font. */
-	font-size: 20px; /* This increases the default font size to 20px. */
-	line-height: 1.5; /* This increases the line height to make the page look nicer. */
-	margin: auto; /* This centers the content of the entire page. */
+	font-family: "Times New Roman";
+	font-size: 20px;
+	line-height: 1.5;
+	margin: auto;
 }
 /* This div exists to create a boarder around the content.*/
 div.boarder {
 	display: flex;
 	flex-wrap: wrap; /* This allows the div to wrap around the content. */
-	justify-content: center; /* This centers the content. */
+	justify-content: center; /* This centers the wrapped content. */
 	align-items: center;
-	max-width: 600px; /* This sets the maximum width to 600px. */
-	margin: 2em; /* This creates space between the content and the boarder. */
+	max-width: 600px;
+	margin: 2em; /* This creates space between the content and the boarder, otherwise it gets ugly. */
 	/* Since we want more padding on the sides than on the top and bottom, the top and bottom are set universally first, then the left and right are set specifically. */
 	padding: 2em;
 	padding-left: 5em;
@@ -20,11 +21,11 @@ div.boarder {
 }
 /* This styles the header separately from the rest of the content. */
 header {
-	width: 100%; /* This forces the decorative underscore match the width of the page*/
+	width: 100%; /* This keeps the decorative underscore from being too short*/
 	text-transform: uppercase; /* This makes the text uppercase. */
-	text-align: center; /* This centers the header without changing the body's content from left-justified */
-	letter-spacing: 0.2em; /* This adds more space between the letters in the header */
-	margin-bottom: 2em; /* This adds some extra space between the header and the content. */
+	text-align: center;
+	letter-spacing: 0.2em;
+	margin-bottom: 2em;
 	border-bottom: 1px solid grey; /* This adds a decorative underline beneath the header. */
 }
 h1 {
@@ -42,4 +43,12 @@ li {
 }
 footer img {
 	width: 150px; /* This sets the width of the image to 150px, regardless of the content size */
+}
+/* This styles the page differently in the event the user is viewing it in dark mode. */
+.dark {
+	background-color: #333;
+	color: #fff;
+}
+.dark h2 {
+	color: #4f9acf; /* Changes target color to approved accent, contrast ratio: 4.12 */
 }
