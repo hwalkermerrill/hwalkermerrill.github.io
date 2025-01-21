@@ -39,7 +39,6 @@
   <script src="/serpents/js/hamburger.js"></script>
   <script src="/serpents/js/banner.js"></script>
   <script src="/serpents/js/fillJSON.js"></script>
-  <script src="/serpents/js/clickload.js"></script>
 </head>
 
 <body>
@@ -795,6 +794,8 @@
   </footer>
 
   <!-- SCRIPT HERE -->
+  <script src="/serpents/js/clickload.js"></script>
+  <script>$(window).on("load", clickLoad('section'))</script>
   <!-- <script>
     let options = [
       {type: "npc", div: "leader"},
@@ -810,7 +811,6 @@
       $(val).toggle();
     };
   </script>
-  <script>$(window).on("load", clickLoad('section'))</script>
 
 </body>
 
