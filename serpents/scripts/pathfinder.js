@@ -54,7 +54,6 @@ function toggleVisible(className) {
 // This next block creates a button that returns the user to the top of the page.
 // [START #returnTopBtn BLOCK]
 let topButton = document.getElementById("returnTopBtn");
-window.onscroll = function () { showTopBtn() };
 
 // When the user scrolls down 20px from the top of the document, show the button
 function showTopBtn() {
@@ -64,6 +63,7 @@ function showTopBtn() {
         topButton.style.display = "none";
     }
 }
+window.onscroll = function () { showTopBtn() };
 
 // When the user clicks on the button, scroll to the top of the document.
 function topFunction() {
