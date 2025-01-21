@@ -55,9 +55,9 @@ function toggleVisible(className) {
 // [START #returnTopBtn BLOCK]
 let topButton = document.getElementById("returnTopBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
+// When the user scrolls down 720px from the top of the document, show the button
 function showTopBtn() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    if (document.body.scrollTop > 720 || document.documentElement.scrollTop > 720) {
         topButton.style.display = "block";
     } else {
         topButton.style.display = "none";
