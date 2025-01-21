@@ -53,10 +53,10 @@ function toggleVisible(className) {
 
 // This next block creates a button that returns the user to the top of the page.
 // [START #returnTopBtn BLOCK]
-let topButton = document.getElementById("returnTopBtn");
 
 // When the user scrolls down 720px from the top of the document, show the button
 function showTopBtn() {
+    const topButton = document.getElementById("returnTopBtn");
     if (document.body.scrollTop > 720 || document.documentElement.scrollTop > 720) {
         topButton.style.display = "block";
     } else {
