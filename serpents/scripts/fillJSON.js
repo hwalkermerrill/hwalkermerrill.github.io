@@ -1,45 +1,63 @@
-function fillJSON(divClass){
-  var sl = 'main .' + divClass;
-  var section = document.querySelector(sl);
-  var requestURL = 'js/personadb.json';
-  var request = new XMLHttpRequest();
+// This script turns JSON info into PC/NPC cards.
+
+// To use this script, first put something like this in the html file:
+/*<h2>Colony Leadership</h2>
+<div class="leader"></div>
+<section class="clearfix"></section>*/
+
+// Then call this script with something like this:
+/*let options = [
+  {type: "npc", div: "leader"},
+  {type: "npc", div: "security"},
+  {type: "npc", div: "merchant"},
+  {type: "npc", div: "colonist"},
+]
+fillCards(options, function () {
+  clickLoad('article');
+})*/
+
+function fillJSON(divClass) {
+  let sl = 'main .' + divClass;
+  let section = document.querySelector(sl);
+  let requestURL = 'js/personadb.json';
+  let request = new XMLHttpRequest();
   request.open('GET', requestURL);
   request.responseType = 'json';
   request.send();
-  request.onload = function() {
-    var localJObj = request.response;
-    showJSON(localJObj,divClass);
+  request.onload = function () {
+    let localJObj = request.response;
+    showJSON(localJObj, divClass);
   }
-  function showJSON(jsonObj,divClass) {
-    var localJObj = jsonObj[divClass];
+  function showJSON(jsonObj, divClass) {
+    let localJObj = jsonObj[divClass];
 
-    for (var i = 0; i < localJObj.length; i++) {
-      var myArticle = document.createElement('article');
-      var myH2 = document.createElement('h2');
-      var myH3 = document.createElement('h3');
-      var myPara1 = document.createElement('p');
-      var myPara2 = document.createElement('p');
-      var myPara3 = document.createElement('p');
-      var myPara4 = document.createElement('p');
-      var myIMG = document.createElement('img');
-      var myList1 = document.createElement('ul');
+    for (let i = 0; i < localJObj.length; i++) {
+      let myArticle = document.createElement('article');
+      let myH2 = document.createElement('h2');
+      let myH3 = document.createElement('h3');
+      let myPara1 = document.createElement('p');
+      let myPara2 = document.createElement('p');
+      let myPara3 = document.createElement('p');
+      let myPara4 = document.createElement('p');
+      let myIMG = document.createElement('img');
+      let myList1 = document.createElement('ul');
 
       myIMG.setAttribute('src', localJObj[i].imgref);
       myIMG.setAttribute('alt', localJObj[i].name);
 
-      var listSkill = document.createElement('li');
+      let listSkill = document.createElement('li');
       listSkill.textContent = 'Influenced by: ' + localJObj[i].skills;
       myList1.appendChild(listSkill);
 
-      var listBias = document.createElement('li');
+      let listBias = document.createElement('li');
       listBias.textContent = 'Known Biases: ' + localJObj[i].biases;
       myList1.appendChild(listBias);
 
-      var listStrength = document.createElement('li');
+      let listStrength = document.createElement('li');
       listStrength.textContent = 'Resistant towards: ' + localJObj[i].strengths;
       myList1.appendChild(listStrength);
 
-      var listWeak = document.createElement('li');
+      let listWeak = document.createElement('li');
       listWeak.textContent = 'Sympathetic towards: ' + localJObj[i].weakness;
       myList1.appendChild(listWeak);
 
@@ -66,49 +84,49 @@ function fillJSON(divClass){
   }
 }
 
-function fillPCDB(divClass){
-  var sl = 'main .' + divClass;
-  var section = document.querySelector(sl);
-  var requestURL = 'js/personadb.json';
-  var request = new XMLHttpRequest();
+function fillPCDB(divClass) {
+  let sl = 'main .' + divClass;
+  let section = document.querySelector(sl);
+  let requestURL = 'js/personadb.json';
+  let request = new XMLHttpRequest();
   request.open('GET', requestURL);
   request.responseType = 'json';
   request.send();
-  request.onload = function() {
-    var localJObj = request.response;
-    showPCDB(localJObj,divClass);
+  request.onload = function () {
+    let localJObj = request.response;
+    showPCDB(localJObj, divClass);
   }
-  function showPCDB(jsonObj,divClass) {
-    var localJObj = jsonObj[divClass];
+  function showPCDB(jsonObj, divClass) {
+    let localJObj = jsonObj[divClass];
 
-    for (var i = 0; i < localJObj.length; i++) {
-      var myArticle = document.createElement('article');
-      var myH2 = document.createElement('h2');
-      var myH3 = document.createElement('h3');
-      var myH4 = document.createElement('h4');
-      var myPara1 = document.createElement('p');
-      var myPara2 = document.createElement('p');
-      var myPara3 = document.createElement('p');
-      var myPara4 = document.createElement('p');
-      var myIMG = document.createElement('img');
-      var myList1 = document.createElement('ul');
+    for (let i = 0; i < localJObj.length; i++) {
+      let myArticle = document.createElement('article');
+      let myH2 = document.createElement('h2');
+      let myH3 = document.createElement('h3');
+      let myH4 = document.createElement('h4');
+      let myPara1 = document.createElement('p');
+      let myPara2 = document.createElement('p');
+      let myPara3 = document.createElement('p');
+      let myPara4 = document.createElement('p');
+      let myIMG = document.createElement('img');
+      let myList1 = document.createElement('ul');
 
       myIMG.setAttribute('src', localJObj[i].imgref);
       myIMG.setAttribute('alt', localJObj[i].name);
 
-      var listAchieve = document.createElement('li');
+      let listAchieve = document.createElement('li');
       listAchieve.textContent = 'Known for: ' + localJObj[i].achievements;
       myList1.appendChild(listAchieve);
 
-      var listBias = document.createElement('li');
+      let listBias = document.createElement('li');
       listBias.textContent = 'Known Biases: ' + localJObj[i].biases;
       myList1.appendChild(listBias);
 
-      var listStrength = document.createElement('li');
+      let listStrength = document.createElement('li');
       listStrength.textContent = 'Resistant towards: ' + localJObj[i].strengths;
       myList1.appendChild(listStrength);
 
-      var listWeak = document.createElement('li');
+      let listWeak = document.createElement('li');
       listWeak.textContent = 'Sympathetic towards: ' + localJObj[i].weakness;
       myList1.appendChild(listWeak);
 

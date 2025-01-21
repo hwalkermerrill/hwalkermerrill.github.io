@@ -9,8 +9,7 @@
   <meta name="slogan" content="Kadena AB Pathfinder Group">
   <meta name="keywords" content="Pathfinder, Pathfinder 1E, Serpents Skull, Harrison Merrill">
   <meta name="theme-color" content="#005633">
-  <!--Sets an automatic refresh rate of 1x/5min-->
-  <meta http-equiv="refresh" content="300">
+  <!-- <meta http-equiv="refresh" content="300"> -->
 
   <title>Serpents Skull: Jungle Law</title>
   <link href="/serpents/images/logofav.png" rel="icon">
@@ -35,9 +34,8 @@
   <link href="/serpents/css/styles.css" rel="stylesheet">
 
   <!-- SCRIPT HERE -->
-  <script src="/serpents/js/jquery.min.js"></script>
-  <script src="/serpents/js/hamburger.js"></script>
-  <script src="/serpents/js/banner.js"></script>
+  <script src="/serpents/scripts/jquery.min.js"></script>
+  <script src="/serpents/scripts/pathfinder.js"></script>
 </head>
 
 <body>
@@ -117,17 +115,17 @@
       </ul>
     </div>
     <h2>House Rules</h2>
-    <div class="row">
+    <div>
       <section>
         <h3>Rules for Playing at the Table - Required to Read at Least Once</h3>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Banned - Violations Will Get You Kicked Out</b></li>
           <li style="list-style-type: none; display: none;"><b>Banned - Violations Will Get You Kicked Out:</b></li>
           <li style="display: none;"><i>Alcohol</i> - No alcohol in or around the house. No showing up drunk.</li>
           <li style="display: none;"><i>Smoking</i> - No smoking or vaping in or around the house. If you smoke before
             the game, you must change clothes and shower.</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>IRL Table Rules</b></li>
           <li style="list-style-type: none; display: none;"><b>IRL Table Rules:</b></li>
           <li style="display: none;"><i>Late</i> - If you know your running late, please bring food for the table or
@@ -141,7 +139,7 @@
           <li style="display: none;"><i>Taking Breaks</i> - Try to take breaks every hour or so (stretch, pee, grab
             snacks, etc.)</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>In-Game Table Rules</b></li>
           <li style="list-style-type: none; display: none;"><b>In-Game Table Rules:</b></li>
           <li style="display: none;"><i>Any Last Words?</i> - Players (and optionally NPCs) get a chance to say any
@@ -189,9 +187,13 @@
             comes in at Average Party Level (APL) - 1.</li>
         </ul>
       </section>
+    </div>
+    <div class="clearfix"></div>
+    <h2>Additional Systems Reference</h2>
+    <div class="row">
       <section>
         <h3>Implemented Variant Rule Systems</h3>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Combat Maneuvers Rework</b></li>
           <li style="list-style-type: none; display: none;"><b>Combat Maneuvers Rework:</b></li>
           <li style="display: none;"><i>What is This?</i> - Combat Maneuvers have been tweaked and their rules have been
@@ -247,7 +249,7 @@
             </ul>
           </li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Elephant in the Room (EitR)</b></li>
           <li style="list-style-type: none; display: none;"><b>Elephant in the Room (EitR):</b></li>
           <li style="display: none;"><i><a href="https://meliogeny.net/square-world/">Hero Lab Instal Link</a></i></li>
@@ -279,7 +281,7 @@
           <li style="display: none;"><i>Feat Adjustments and Changes</i> - Approved with annotations (see master feat
             changes section).</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Firearms Redux</b></li>
           <li style="list-style-type: none; display: none;"><b>Firearms Redux:</b></li>
           <li style="display: none;"><i>Availability</i> - This campaign allows the purchase of primitive firearms.
@@ -305,7 +307,7 @@
             as though they were a firearm. All piercing siege weapons also gain the Penetration ability of firearms. All
             siege weapon with a x3 or x4 critical also gain the Fatal Dice ability of firearms.</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Hero Points</b></li>
           <li style="list-style-type: none; display: none;"><b>Hero Points:</b></li>
           <li style="display: none;"><i>Gaining Hero Points</i> - Every character starts with one, and gains one each
@@ -348,7 +350,7 @@
             </ul>
           </li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Mental Checks</b></li>
           <li style="list-style-type: none; display: none;"><b>Mental Checks:</b></li>
           <li style="display: none;"><i>How they Work</i> - All mental checks are straight d20 rolls where the objective
@@ -363,7 +365,7 @@
             role-play. This can include anything from general conversation at a party, to relaying information to an
             NPC, to giving a good come-back in a timely manner.</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Morale Checks</b></li>
           <li style="list-style-type: none; display: none;"><b>Morale Checks</b></li>
           <li style="display: none;"><i>What is it?</i> - Morale checks determine when a creature loses their nerve in a
@@ -382,7 +384,7 @@
             worse) their morale breaks and they attempt to surrender or flee if they believe they can safely do so. If
             they cannot surrender or flee, they fight to the death.</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Mounted Combat Rulings</b></li>
           <li style="list-style-type: none; display: none;"><b>Mounted Combat Rulings:</b></li>
           <li style="display: none;"><i>Adverse Movement</i> - Any effect that moves a mount without automatically
@@ -409,7 +411,7 @@
             additional 2d6 points of damage. Without a rider to guide it, mounts avoid combat and obey their tricks.
           </li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Perception Redux</b></li>
           <li style="list-style-type: none; display: none;"><b>Perception Redux:</b></li>
           <li style="display: none;"><i>Competing Skills</i> - Perception can be used to identify the correct skill to
@@ -451,7 +453,7 @@
             you were distracted by an activity when initiative is rolled, you use the skill check relative to the
             activity you were doing as your initiative and act one round delayed.</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Social Maneuvers Redux</b></li>
           <li style="list-style-type: none; display: none;"><b>Social Maneuvers Redux:</b></li>
           <li style="display: none;"><i>Note: This is not, and does not replace or supplement, verbal duels.</i></li>
@@ -538,7 +540,7 @@
             </ul>
           </li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Unchained Systems</b></li>
           <li style="list-style-type: none; display: none;"><b>Unchained Systems:</b></li>
           <li style="display: none;"><i>Background Skills</i> - Approved, along with Artistry and Lore. Players may
@@ -569,7 +571,7 @@
           <li style="display: none;"><i>Wounds</i> - Use 50% wound threshold system, add "Wounded" to status and
             deathwatch spells, and keep adjustments to disabled replacing staggered condition.</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Other Systems</b></li>
           <li style="list-style-type: none; display: none;"><b>Other Systems:</b></li>
           <li style="display: none;"><i>Critical Saving Throws (2e)</i> - When making a saving throw, rolling a natural
@@ -605,12 +607,18 @@
           <li style="display: none;"><i>Six-Second Rule (CRB)</i> - Except for the first player to act, if it takes you
             longer than 6 seconds to decide what you want to do in combat, you automatically delay until you are ready
             to act.</li>
+          <li style="display: none;"><i>Ultimate "X"</i> - All of the ultimate systems are approved in a general scope,
+            while specific ultimate campaign systems are used in a campaign-specific context, as most of those systems
+            are only useable in specific styles of campaigns or edge-case scenarios.</li>
+          <li style="display: none;"><i>Underwater Combat Overhaul (AA)</i> Underwater Combat was overhauled in aquatic
+            adventures, clarifying drowning (and making water not an instant-kill threat), resolving movement questions,
+            addressing weapon issues, and adding depth to underwater adventures and exploration.</li>
         </ul>
       </section>
       <section>
         <h3>Feat Changes Master List (Errata, Ruling, Implemented Variants). Unless otherwise marked, the source of
           these changes is the Elephant in the Room ruleset (EitR).</h3>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Feats Added</b></li>
           <li style="list-style-type: none; display: none;"><b>Feats Added:</b></li>
           <li style="list-style-type: none; display: none;">These are new feats, listed with their requirements (mergers
@@ -631,7 +639,7 @@
             it meets all other prerequisites. If taken with Cleave Through, you may take a 5-foot step after each
             successful strike up to your maximum movement.</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Feats Altered</b></li>
           <li style="list-style-type: none; display: none;"><b>Feats Altered:</b></li>
           <li style="list-style-type: none; display: none;">These are changes to an existing feat's original text.</li>
@@ -688,7 +696,7 @@
             proficient with. <b>Hero Lab Change:</b> This does not change higher-chain feats (like weapon
             specialization).</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Feats Depreciated</b></li>
           <li style="list-style-type: none; display: none;"><b>Feats Depreciated:</b></li>
           <li style="list-style-type: none; display: none;">These feats removed and are no longer compatible with
@@ -700,7 +708,7 @@
             Versatility, Merciful Takedown, Piranha Strike, Power Attack, Powerful Stride, Ranged Study, Rhino Charge,
             Sacred Geometry, Shifter's Rush, Spontaneous Metafocus, Stand Still, Weapon Finesse.</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Feats Merged</b></li>
           <li style="list-style-type: none; display: none;"><b>Feats Merged:</b></li>
           <li style="list-style-type: none; display: none;">These feats have been merged into one feat. When both feats
@@ -728,7 +736,7 @@
       </section>
       <section>
         <h3>Other Changes Master List (Errata, Rulings, Implemented Variants)</h3>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Ability Changes</b></li>
           <li style="list-style-type: none; display: none;"><b>Ability Changes:</b></li>
           <li style="display: none;"><i>Alchemy</i> - (unify) The infusion discovery is free an automatic for all items
@@ -759,7 +767,7 @@
             <br>&emsp; - (RAI) Only creatures with a matching totem ability may use that totem rage power.
           </li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Class Changes</b></li>
           <li style="list-style-type: none; display: none;"><b>Class Changes:</b></li>
           <li style="display: none;"><i>Barbarian</i> - Unchained version is the new default (reasons for not playing
@@ -911,7 +919,7 @@
             determining the uses per day of that ability or when new abilities are gained (such as new performances).
           </li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Magic Changes</b></li>
           <li style="list-style-type: none; display: none;"><b>Magic Changes:</b></li>
           <li style="display: none;"><i>Boost Casting</i> - Caters may attempt to boost-cast their spells, applying
@@ -969,7 +977,7 @@
             counterspell, casting in wild zones, or failed boost casting may result in wild magic. See Wild Magic for
             more information.</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Race Changes</b></li>
           <li style="list-style-type: none; display: none;"><b>Race Changes:</b></li>
           <li style="display: none;"><i>Caligni</i> - (Errata) Gain Stealthy trait (+2 racial bonus to Stealth checks).
@@ -990,7 +998,7 @@
           <li style="display: none;"><i>Orc</i> - Ferocity counts as the Diehard feat for the purposes of qualifying for
             other feats.</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b>Terminology Changes - Usable Interchangeably with Legacy Terms</b></li>
           <li style="list-style-type: none; display: none;"><b>Terminology Changes - Usable Interchangeably with Legacy
               Terms:</b></li>
@@ -1011,7 +1019,7 @@
   <div class="row">
     <section>
       <h3>Camping 101</h3>
-      <ul style="list-style-type: circle;"><b></b>
+      <ul  class="toggleLiVis"style="list-style-type: circle;"><b></b>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
@@ -1019,7 +1027,7 @@
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
       </ul>
-      <ul style="list-style-type: circle;"><b></b>
+      <ul  class="toggleLiVis"style="list-style-type: circle;"><b></b>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
@@ -1027,7 +1035,7 @@
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
       </ul>
-      <ul style="list-style-type: circle;"><b></b>
+      <ul  class="toggleLiVis"style="list-style-type: circle;"><b></b>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
@@ -1038,7 +1046,7 @@
     </section>
     <section>
       <h3>Camp Site Attributes</h3>
-      <ul style="list-style-type: circle;"><b></b>
+      <ul  class="toggleLiVis"style="list-style-type: circle;"><b></b>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
@@ -1046,7 +1054,7 @@
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
       </ul>
-      <ul style="list-style-type: circle;"><b></b>
+      <ul  class="toggleLiVis"style="list-style-type: circle;"><b></b>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
@@ -1054,7 +1062,7 @@
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
       </ul>
-      <ul style="list-style-type: circle;"><b></b>
+      <ul  class="toggleLiVis"style="list-style-type: circle;"><b></b>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
@@ -1062,7 +1070,7 @@
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
       </ul>
-      <ul style="list-style-type: circle;"><b></b>
+      <ul  class="toggleLiVis"style="list-style-type: circle;"><b></b>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
@@ -1073,7 +1081,7 @@
     </section>
     <section>
       <h3>Camp Terrain</h3>
-      <ul style="list-style-type: circle;"><b></b>
+      <ul  class="toggleLiVis"style="list-style-type: circle;"><b></b>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
@@ -1081,7 +1089,7 @@
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
       </ul>
-      <ul style="list-style-type: circle;"><b></b>
+      <ul  class="toggleLiVis"style="list-style-type: circle;"><b></b>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
@@ -1089,7 +1097,7 @@
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
       </ul>
-      <ul style="list-style-type: circle;"><b></b>
+      <ul  class="toggleLiVis"style="list-style-type: circle;"><b></b>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
         <li style="display: none;"><i></i></li>
@@ -1146,12 +1154,12 @@
     <div class="row">
       <section>
         <h3>When do I need to make a Swim check while in the water?</h3>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>I have <i>freedom of movement / free swim</i>!</b></li>
           <li style="list-style-type: none; display: none;"><b>I have <i>freedom of movement / free swim</i>!</b></li>
           <li style="display: none;"><i>I don't want to make swim checks!</i> Congratulations, you don't.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>I have a swim speed!</b></li>
           <li style="list-style-type: none; display: none;"><b>I have a swim speed!</b></li>
           <li style="display: none;"><i>I'm stuck! (pinned by a rock, leg wrapped in seaweed, etc.)</i> The Swim DC is
@@ -1166,7 +1174,7 @@
           <li style="display: none;"><i>I've been swimming for an hour!</i> Attempt a DC20 Swim Check or you take 1d6
             points of nonlethal damage and fatigue.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>I don't have any of the above...</b></li>
           <li style="list-style-type: none; display: none;"><b>I don't have any of the above...</b></li>
           <li style="display: none;"><i>I want to move.</i> The Swim DC is 10-20 depending on conditions.</li>
@@ -1183,12 +1191,12 @@
       </section>
       <section>
         <h3>How does holding my breath work?</h3>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>How long can I hold it normally?</b></li>
           <li style="list-style-type: none; display: none;"><b>How long can I hold it normally?</b></li>
           <li style="display: none;">1 round per 2x CON score.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>What reduces how long I can hold it?</b></li>
           <li style="list-style-type: none; display: none;"><b>What reduces how long I can hold it?</b></li>
           <li style="display: none;">Standard Actions - Every standard action reduces your remaining breath by 1 round.
@@ -1212,7 +1220,7 @@
           <li style="display: none;">Knocked Unconscious - Being knocked unconscious removes all remaining rounds of
             air.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>What happens when I run out of air?</b></li>
           <li style="list-style-type: none; display: none;"><b>What happens when I run out of air?</b></li>
           <li style="display: none;">Check - If you cannot breath at the start of your turn, you must make a Con check
@@ -1223,7 +1231,7 @@
           <li style="display: none;">Failure - If you fail your Con check before getting more air, you begin drowning.
           </li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>I started drowning. What does that mean?</b></li>
           <li style="list-style-type: none; display: none;"><b>I started drowning. What does that mean?</b></li>
           <li style="display: none;">Step 1: Once you fail your Con check, you begin drowning and fall unconscious. If
@@ -1233,7 +1241,7 @@
             take 1 point of damage (this damage counts as failing to stabilize).</li>
           <li style="display: none;">Step 3: On the start of your next turn, you drown and die.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>I was revived underwater, how many rounds of air do I have left?</b>
           </li>
           <li style="list-style-type: none; display: none;"><b>I was revived underwater, how many rounds of air do I
@@ -1251,7 +1259,7 @@
       </section>
       <section>
         <h3>Tell me about Buoyancy and Currents!</h3>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>How does Buoyancy work?</b></li>
           <li style="list-style-type: none; display: none;"><b>How does Buoyancy work?</b></li>
           <li style="display: none;">Why does it matter? Buoyancy determines how much you float or sink in the water
@@ -1281,7 +1289,7 @@
             (provoking normally) before attempting your swim check to move, effectively adding your buoyancy to your
             total movement.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>What is my Natural Buoyancy?</b></li>
           <li style="list-style-type: none; display: none;"><b>What is my Natural Buoyancy?</b></li>
           <li style="display: none;">Water Subtype - If you have the water subtype, your buoyancy is always neutral
@@ -1298,7 +1306,7 @@
             constructs), your buoyancy is sinking if in a light load, and swiftly sinking if in a medium or heavy load
             or wearing medium or heavy armor.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>What can change my Buoyancy?</b></li>
           <li style="list-style-type: none; display: none;"><b>What can change my Buoyancy?</b></li>
           <li style="display: none;">Water Subtype - nothing. The only way for a creature with the water subtype to not
@@ -1313,7 +1321,7 @@
           <li style="display: none;">Load - Picking up or dropping items to change your load can adjust your buoyancy.
           </li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>How is this different from currents?</b></li>
           <li style="list-style-type: none; display: none;"><b>How is this different from currents?</b></li>
           <li style="display: none;">Why does it matter? Like Buoyancy, a current can move you in the water. However, a
@@ -1335,7 +1343,7 @@
       </section>
       <section>
         <h3>How far can I move underwater?</h3>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>I have a swim speed!</b></li>
           <li style="list-style-type: none; display: none;"><b>I have a swim speed!</b></li>
           <li style="display: none;">You may move up to your swim speed as a move action without making a swim check
@@ -1343,7 +1351,7 @@
           <li style="display: none;">You may choose to move one quarter a different speed if you like, but you gain none
             of the benefits of your swim speed on that movement (including your +8 bonus on swim checks).</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>I have <i>freedom of movement / free swim</i>!</b></li>
           <li style="list-style-type: none; display: none;"><b>I have <i>freedom of movement / free swim</i>!</b></li>
           <li style="display: none;">You automatically succeed on all swim checks and may choose to ignore buoyancy.
@@ -1352,7 +1360,7 @@
           <li style="display: none;">You may move your full fly speed as a move action (<i>freedom of movement</i> only,
             not <i>free swim</i>).</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>I can ignore difficult terrain!</b></li>
           <li style="list-style-type: none; display: none;"><b>I can ignore difficult terrain!</b></li>
           <li style="display: none;">You may move one quarter your chosen speed with a successful swim check (DC 10-20)
@@ -1362,7 +1370,7 @@
           <li style="display: none;">You may walk along the bottom at full speed as a move action if you have a swiftly
             sinking buoyancy.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>I have fly, burrow, fast movement, normal movement, etc...</b></li>
           <li style="list-style-type: none; display: none;"><b>I have fly, burrow, fast movement, normal movement,
               etc:</b></li>
@@ -1372,7 +1380,7 @@
             along the seafloor or another stable surface, as though moving in difficult terrain. This usually requires a
             swiftly sinking buoyancy.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>I have non-neutral buoyancy, but I'm not being dragged...</b></li>
           <li style="list-style-type: none; display: none;"><b>I have non-neutral buoyancy, but I'm not being
               dragged:</b></li>
@@ -1385,7 +1393,7 @@
           <li style="display: none;">You may allow yourself to be dragged by your buoyancy as a free action at the start
             of your turn. This knocks you off-balance and the movement provokes attacks of opportunity as normal.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>I am - or I want to be - dragged by my buoyancy or the current...</b>
           </li>
           <li style="list-style-type: none; display: none;"><b>I am - or I want to be - dragged by my buoyancy or the
@@ -1405,7 +1413,7 @@
       </section>
       <section>
         <h3>How do water environments affect...</h3>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>...fighting at the surface?</b></li>
           <li style="list-style-type: none; display: none;"><b>...fighting at the surface?</b></li>
           <li style="display: none;">Surface Tension - Surface tension is real in pathfinder, which dictates how
@@ -1427,7 +1435,7 @@
           <li style="display: none;">Piercing Weapons - Attacks that deal piercing damage can ignore the cover benefit
             provided by surface tension, but they take a -2 penalty on attack rolls to do so.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>...concealment and detection?</b></li>
           <li style="list-style-type: none; display: none;"><b>...concealment and detection?</b></li>
           <li style="display: none;">Maximum Visibility - In clear water, maximum visibility is typically 4d8x10 feet
@@ -1454,7 +1462,7 @@
             to track in such situations by 1 for every 10 minutes in an area without a current, and by 1 for every
             minute in an area with a current.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>...temperature?</b></li>
           <li style="list-style-type: none; display: none;"><b>...temperature?</b></li>
           <li style="display: none;">Why does it matter? Immersion in water causes hypothermia more easily, and have a
@@ -1470,7 +1478,7 @@
             (as opposed to -50* in air), which is usually enough protection. Sea creatures are generally adapted to the
             water temperature of their habitat.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>...dealing with pressure?</b></li>
           <li style="list-style-type: none; display: none;"><b>...dealing with pressure?</b></li>
           <li style="display: none;">Air, Aquatic, and Water Subtype - Creatures with the air subtype can adapt to
@@ -1502,7 +1510,7 @@
             <i>pressure adaptation</i> can prevent or overcome pressure damage.
           </li>
         </ul>
-        <ul style="list-style-type:circle;">
+        <ul class="toggleLiVis" style="list-style-type:circle;">
           <li style="list-style-type: none;"><b>...equipment?</b></li>
           <li style="list-style-type: none; display: none;"><b>...equipment?</b></li>
           <li style="display: none;">Environment - Salt water is incredibly harsh, and few materials can remain
@@ -1535,7 +1543,7 @@
             more-than-decorative purpose. In depths of 200+ feet, water pressure helps to hold these items together, and
             they lose the fragile quality (if they had it).</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>What are Oceanic Zones?</b></li>
           <li style="list-style-type: none; display: none;"><b>What are Oceanic Zones?</b></li>
           <li style="display: none;">General Info - Oceanic Zones describe the typical conditions of a specific depth,
@@ -1572,7 +1580,7 @@
       </section>
       <section>
         <h3>Okay, let's talk about combat!</h3>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>How does water normally affect different weapons?</b></li>
           <li style="list-style-type: none; display: none;"><b>How does water normally affect different weapons?</b>
           </li>
@@ -1594,7 +1602,7 @@
             with the grab special ability deal full damage underwater, even if the damage is bludgeoning or piercing.
           </li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>How do you cast magic underwater?</b></li>
           <li style="list-style-type: none; display: none;"><b>How do you cast magic underwater?</b></li>
           <li style="display: none;">Holding Breath - Any time a creature is holding its breath (such as being
@@ -1612,7 +1620,7 @@
             its spell descriptors. Check the "How does water affect different types of spells and abilities?" section
             for more information.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>What does it mean to be off-balance?</b></li>
           <li style="list-style-type: none; display: none;"><b>What does it mean to be off-balance?</b></li>
           <li style="display: none;">What is it? Off-balance is a special state (not technically a condition) that
@@ -1625,7 +1633,7 @@
             on a creature who would normally be knocked prone, such as via a trip, bull-rush, or overrun combat
             maneuver.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>How can I overcome all these penalties?</b></li>
           <li style="list-style-type: none; display: none;"><b>How can I overcome all these penalties?</b></li>
           <li style="display: none;">Spells - A great many spells overcome the penalties of being underwater, with
@@ -1644,7 +1652,7 @@
       </section>
       <section>
         <h3>How does water affect different types of spells and abilities?</h3>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>Magical Acid</b></li>
           <li style="list-style-type: none; display: none;"><b>Magical Acid:</b></li>
           <li style="display: none;">Conjuration (creation) - These spells conjure acid to deal damage and are diluted
@@ -1653,7 +1661,7 @@
             <i>fireball</i> affected by Elemental Spell metamagic).
           </li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>Magical Clouds and Weather</b></li>
           <li style="list-style-type: none; display: none;"><b>Magical Clouds and Weather:</b></li>
           <li style="display: none;">Bubble Spells - Bubble effects (such as <i>air bubble</i> and <i>invisibility
@@ -1675,7 +1683,7 @@
             feet. Illusory effects, however, always function.
           </li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>Magical Cold</b></li>
           <li style="list-style-type: none; display: none;"><b>Magical Cold:</b></li>
           <li style="display: none;">Conjuration - Spells that conjure ice work normally underwater.</li>
@@ -1683,7 +1691,7 @@
               conjure cold directly instead deal half cold, half piercing damage as the cold creates jagged ice shards
               underwater.</i></li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>Magical Electricity</b></li>
           <li style="list-style-type: none; display: none;"><b>Magical Electricity:</b></li>
           <li style="display: none;">Ranged Touch Electricity - Spells that create electricity and deal damage at range
@@ -1695,7 +1703,7 @@
           <li style="display: none;">Touch, Area of Effect, and Partial-Electricity spells - The electricity portion of
             these spells function normally.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>Magical Fire</b></li>
           <li style="list-style-type: none; display: none;"><b>Magical Fire:</b></li>
           <li style="display: none;">Non-magical Fire - Normal fire (including alchemist fire) does not function
@@ -1708,7 +1716,7 @@
           <li style="display: none;">Steam Spells - Spells or abilities that already create steam (such as a
             kineticist's steam blast) function normally underwater.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>Magical Invisibility</b></li>
           <li style="list-style-type: none; display: none;"><b>Magical Invisibility:</b></li>
           <li style="display: none;">Regular Invisibility - Invisible creatures still displace water, and only gain
@@ -1716,7 +1724,7 @@
           <li style="display: none;">Invisibility Bubble - This specific spell hides water displacement, and works
             normally underwater, though it only provides concealment out or water or in a rain storm.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>Magical Sonic Effects</b></li>
           <li style="list-style-type: none; display: none;"><b>Magical Sonic Effects:</b></li>
           <li style="display: none;">Option 1 - A caster of a sonic spell may choose for it to function normally.</li>
@@ -1726,7 +1734,7 @@
       </section>
       <section>
         <h3>I have an edge-case question about a specific thing...</h3>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>Using Potions Underwater</b></li>
           <li style="list-style-type: none; display: none;"><b>Using Potions Underwater:</b></li>
           <li style="display: none;">Potions and extracts cannot normally be used underwater due to surface tension -
@@ -1736,7 +1744,7 @@
             extracts underwater. Also, any spell that creates a safe and breathable environment (like <i>life
               bubble</i>) allows you to drink potions underwater.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b>Extradimensional Spaces</b></li>
           <li style="list-style-type: none; display: none;"><b>Extradimensional Spaces:</b></li>
           <li style="display: none;">Newly conjured extradimensional spaces use the surrounding environment for their
@@ -1759,7 +1767,7 @@
             (like spellbooks) in a waterproof bag inside extradimensional containers if underwater adventuring is
             expected.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b><i>Freedom of Movement</i></b></li>
           <li style="list-style-type: none; display: none;"><b><i>Freedom of Movement</i>:</b></li>
           <li style="display: none;">Benefits and Limitations - This spell negates most of the penalties of being
@@ -1777,7 +1785,7 @@
             speed to pretend there are things they can climb against, just as it does not allow creatures to pretend
             there are things to walk on.</li>
         </ul>
-        <ul style="list-style-type:circle">
+        <ul class="toggleLiVis" style="list-style-type:circle">
           <li style="list-style-type: none;"><b><i>Breath of Life</i></b></li>
           <li style="list-style-type: none; display: none;"><b><i>Breath of Life</i>:</b></li>
           <li style="display: none;"><i>Breath of Life</i> may be used to rescue a drowning or drowned character, even
@@ -1791,7 +1799,7 @@
             still cannot breathe, they must immediately make a Con check at their previous DC + 1. If they fail, they
             resume drowning normally at Step 1.</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b><i>Off-Balance Special Circumstance</i></b></li>
           <li style="list-style-type: none; display: none;"><b><i>Off-Balance Special Circumstance</i>:</b></li>
           <li style="display: none;">Causes - Failing a swim check, getting "knocked prone" while underwater or
@@ -1804,7 +1812,7 @@
             if underwater, a ride check if mounted, a fly check is in the air, or an acrobatics check (DC10, creatures
             with a land speed can take a 10) if on land.</li>
         </ul>
-        <ul style="list-style-type: circle;">
+        <ul class="toggleLiVis" style="list-style-type: circle;">
           <li style="list-style-type: none;"><b><i>Swimming in Unusual Terrain</i></b></li>
           <li style="list-style-type: none; display: none;"><b><i>Swimming in Unusual Terrain</i>:</b></li>
           <li style="display: none;">Water-like Terrain - This terrain include things that aren't water but are mostly
@@ -1834,13 +1842,14 @@
   <!-- FOOTER HERE -->
   <footer>
     &copy;
-    <script src="/serpents/js/currentdate.js"></script> &bull; Harrison Merrill &bull; All rights reserved &bull; Open
-    Games License v1.02 2000, Wizards of the Coast, Inc. &bull; Pathfinder Adventure Path #37-42 2011, Paizo Publishing,
-    LLC &bull;
+    <script>writeLongDate()</script> &bull; Harrison Merrill &bull; All rights reserved &bull;
     <script>writeCurrentVersion()</script>
+    <br> Open Games License v1.02 2000, Wizards of the Coast, Inc. &bull; Pathfinder Adventure Path #37-42 2011, Paizo
+    Publishing, LLC
   </footer>
 
   <!-- SCRIPT HERE -->
+  <script>$(document).ready(toggleLiVis(".toggleLiVis"))</script>
 
 </body>
 

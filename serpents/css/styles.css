@@ -110,6 +110,9 @@ body {
 	main ul {
 		cursor: pointer;
 	}
+	main ol {
+		cursor: pointer;
+	}
 	main h1 {
 		font-weight: bold;
 		font-size: 40px;
