@@ -252,17 +252,13 @@ body {
 		grid-row: 1 / -1;
 		transition: opacity 0.3s ease-out;
 	}
-	figure.multiImage img.appearOnHover {
-		opacity: 0;
-	}
-	figure.multiImage:hover img.appearOnHover {
-		opacity: 1;
-	}
-	figure.multiImage img.faderOnHover {
-		opacity: 1;
-	}
+	figure.multiImage img.appearOnHover,
 	figure.multiImage:hover img.fadeOnHover {
 		opacity: 0;
+	}
+	figure.multiImage:hover img.appearOnHover,
+	figure.multiImage img.faderOnHover {
+		opacity: 1;
 	}
 
 	/*----------- Attitude Colors --------------*/
