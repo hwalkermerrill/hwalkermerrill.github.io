@@ -294,18 +294,12 @@ body {
 	}
 
 	/*---START toggleClass sub-CSS---*/
-	main .asset p {
-		display: none;
-	}
-
+	main .asset p,
 	main .asset ul {
 		display: none;
 	}
 
-	main .asset .click p {
-		display: block;
-	}
-
+	main .asset .click p,
 	main .asset .click ul {
 		display: block;
 	}
@@ -416,7 +410,7 @@ body {
 	main .floatswitch section img.tooTall,
 	main .floatswitch ul img.tooTall {
 		/* This is a class for images that are too tall for the screen */
-		width: 28%;
+		width: 29%;
 	}
 	main .row section:nth-child(2n),
 	main .floatswitch section:nth-child(2n) img,
@@ -443,9 +437,7 @@ body {
 	/*----------- NAVIGATION --------------*/
 	/*----------- MAIN --------------*/
 	/*----------- Flexwrap Classes --------------*/
-	main .asset section {
-		flex-basis: 29%;
-	}
+	main .asset section,
 	main .gallery figure {
 		flex-basis: 29%;
 	}
@@ -469,9 +461,7 @@ body {
 	/*----------- NAVIGATION --------------*/
 	/*----------- MAIN --------------*/
 	/*----------- Flexwrap Classes --------------*/
-	main .asset section {
-		flex-basis: 21%;
-	}
+	main .asset section,
 	main .gallery figure {
 		flex-basis: 21%;
 	}
