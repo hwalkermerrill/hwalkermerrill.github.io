@@ -274,19 +274,29 @@ body {
 	main .friendly {
 		background-color: #005633;
 		border-color: #dc8837;
+		color: #fdefcd;
 	}
-	main .friendly {
-		color: #fff;
+	main .friendly h2 {
+		color: #fdefcd;
+		text-shadow: -5px 0px 5px #dc8837, 0px 5px 5px #dc8837, 5px 0px 5px #dc8837,
+			0px -5px 5px #dc8837;
 	}
 	main .unfriendly {
 		background-color: #dc8837;
 	}
 	main .hostile {
 		background-color: #000;
-		color: #fff;
+		color: #fdefcd;
 	}
 	main .locked {
 		background-color: rgb(128, 128, 128);
+	}
+	main .helpful h2,
+	main .unfriendly h2,
+	main .hostile h2 {
+		color: #fdefcd;
+		text-shadow: -5px 0px 5px #005633, 0px 5px 5px #005633, 5px 0px 5px #005633,
+			0px -5px 5px #005633;
 	}
 
 	/*---START toggleClass sub-CSS---*/
