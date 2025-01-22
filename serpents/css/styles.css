@@ -415,6 +415,9 @@ body {
 		padding: 2%;
 		padding-top: 0;
 	}
+	main .row section {
+		margin-left: 2%;
+	}
 	main ul img.tooTall,
 	main .row section img.tooTall,
 	main .floatswitch section img.tooTall,
