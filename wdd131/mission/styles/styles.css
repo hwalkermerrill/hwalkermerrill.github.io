@@ -26,7 +26,7 @@ header {
 	text-align: center;
 	letter-spacing: 0.2em;
 	margin-bottom: 2em;
-	border-bottom: 1px solid grey; /* This adds a decorative underline beneath the header. */
+	border-bottom: 1px solid lightgrey; /* This adds a decorative underline beneath the header. */
 }
 h1 {
 	font-weight: 500; /* This makes the text a little thinner than default for a header. */
