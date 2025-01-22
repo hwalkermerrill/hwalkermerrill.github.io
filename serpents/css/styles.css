@@ -402,37 +402,32 @@ body {
 	}
 
 	/*----------- MAIN --------------*/
-	main ul img {
+	main img.tooTall {
+		/* This is a class for images that are too tall for the screen */
 		width: 48%;
+	}
+	main ul img,
+	main .row section,
+	main .floatswitch section img,
+	main .floatswitch ul img {
 		float: left;
-		padding: 2%;
-		padding-top: 0;
-	}
-
-	main .floatswitch section:nth-child(2n + 1) img,
-	main .floatswitch ul:nth-child(2n + 1) img {
-		float: right;
 		width: 48%;
 		padding: 2%;
 		padding-top: 0;
 	}
+	main ul img.tooTall,
+	main .row section img.tooTall,
+	main .floatswitch section img.tooTall,
+	main .floatswitch ul img.tooTall {
+		/* This is a class for images that are too tall for the screen */
+		width: 28%;
+	}
+	main .row section:nth-child(2n),
 	main .floatswitch section:nth-child(2n) img,
 	main .floatswitch ul:nth-child(2n) img {
-		float: left;
-		width: 48%;
-		padding: 2%;
-		padding-top: 0;
-	}
-	main .row section {
-		width: 48%;
-		float: left;
-		margin: 1%;
-	}
-	main .row section:nth-child(2n + 0) {
-		width: 48%;
 		float: right;
-		margin: 1%;
 	}
+
 	/*----------- Flexwrap Classes --------------*/
 	main .asset {
 		justify-content: center;
