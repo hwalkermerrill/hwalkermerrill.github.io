@@ -115,9 +115,7 @@ body {
 		padding: 2%;
 		min-height: 10rem;
 	}
-	main ul {
-		cursor: pointer;
-	}
+	main ul,
 	main ol {
 		cursor: pointer;
 	}
