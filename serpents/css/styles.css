@@ -18,6 +18,14 @@ body {
 	min-width: 15rem;
 	margin: 0;
 }
+/*----------- Background Img --------------*/
+body {
+	background-image: url("/serpents/images/background-cover.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
 
 /* Mobile Screen Size - 15em is also 240px (if basefont is 16px) */
 @media only screen and (min-width: 15rem) {
@@ -27,7 +35,7 @@ body {
 		padding-left: 0;
 		padding-right: 5rem;
 		padding-bottom: 0;
-		background-color: #c2580f;
+		background-color: #dc8837;
 		display: grid;
 		grid-template-columns: max-content auto;
 		gap: 2%;
@@ -70,7 +78,7 @@ body {
 
 	/*----------- NAVIGATION --------------*/
 	nav {
-		background-color: #c2580f;
+		background-color: #dc8837;
 	}
 	nav ul {
 		list-style-type: none;
@@ -97,7 +105,7 @@ body {
 	}
 	nav ul li.active a {
 		background-color: #005633;
-		color: #c2580f;
+		color: black;
 		text-shadow: -5px 0px 5px #fdefcd, 0px 5px 5px #fdefcd, 5px 0px 5px #fdefcd,
 			0px -5px 5px #fdefcd;
 	}
@@ -202,16 +210,20 @@ body {
 	}
 
 	/*----------- Flexwrap Classes --------------*/
-	main .asset {
+	main .asset,
+	main .gallery {
 		display: flex;
 		flex-wrap: wrap;
 	}
-	main .asset section {
+	main .asset section,
+	main .gallery figure {
 		margin: 1rem 2%;
 		flex-basis: 96%;
-		border-style: ridge;
-		border-color: #005633;
-		border-width: 6px;
+		border: 12px solid transparent;
+		border-image: url("/serpents/images/border-frame.png") 30 round;
+		/* border-style: ridge; */
+		/* border-color: #005633; */
+		/* border-width: 6px; */
 		padding: 1%;
 		transition: all 0.2s ease-in-out;
 	}
@@ -219,34 +231,11 @@ body {
 		margin: 0;
 		padding: 0;
 	}
-	main .asset section img {
-		width: 100%;
-	}
-	main .asset section:hover {
-		box-shadow: 0 0 12px #555;
-		transform: scale(1.05);
-		cursor: pointer;
-	}
-	main .gallery {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	main .gallery figure {
-		flex-basis: 96%;
-		margin: 1rem 2%;
-		border-style: ridge;
-		border-color: #005633;
-		border-width: 6px;
-		padding: 1%;
-		transition: all 0.2s ease-in-out;
-	}
-	main .gallery figure figcaption {
-		padding: 1%;
-		text-align: center;
-	}
+	main .asset section img,
 	main .gallery figure img {
 		width: 100%;
 	}
+	main .asset section:hover,
 	main .gallery figure:hover {
 		box-shadow: 0 0 12px #555;
 		transform: scale(1.05);
@@ -284,13 +273,13 @@ body {
 	}
 	main .friendly {
 		background-color: #005633;
-		border-color: #c2580f;
+		border-color: #dc8837;
 	}
 	main .friendly {
 		color: #fff;
 	}
 	main .unfriendly {
-		background-color: #c2580f;
+		background-color: #dc8837;
 	}
 	main .hostile {
 		background-color: #000;
@@ -333,14 +322,14 @@ body {
 	#returnTopBtn {
 		display: none; /* Hidden by default */
 		position: fixed; /* Fixed/sticky position */
-		bottom: 30px; /* Place the button at the bottom of the page */
+		bottom: 3em; /* Place the button at the bottom of the page */
 		left: 50%;
 		margin-left: -57px; /* Center the button */
 		z-index: 99; /* Make sure it does not overlap */
 		border-style: ridge;
 		border-color: #005633;
 		border-width: 6px;
-		background-color: #c2580f; /* Set a background color */
+		background-color: #dc8837; /* Set a background color */
 		color: #005633; /* Text color */
 		cursor: pointer; /* Add a mouse pointer on hover */
 		padding: 5px; /* Some padding */
@@ -355,7 +344,7 @@ body {
 
 	/*----------- FOOTER --------------*/
 	footer {
-		background-color: #c2580f;
+		/* background-color: #dc8837; */
 		color: #005633;
 		padding: 0.5rem 2%;
 		text-align: center;
@@ -432,16 +421,12 @@ body {
 	}
 
 	/*----------- Flexwrap Classes --------------*/
+	main .gallery,
 	main .asset {
 		justify-content: center;
 	}
+	main .gallery figure,
 	main .asset section {
-		flex-basis: 46%;
-	}
-	main .gallery {
-		justify-content: center;
-	}
-	main .gallery figure {
 		flex-basis: 46%;
 	}
 
