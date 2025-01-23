@@ -30,74 +30,80 @@
 # Calculates age, BMI, and BMR.
 # Prints age, weight in kg, height in cm, BMI, and BMR.
 
+
 # Asks user to enter information
 # First part inputs and validates users biological gender
-while True:
-    gender = input("Enter your Biological Gender (male/female): ")
-    if gender.lower() in (
-        "male",
-        "female",
-        "girl",
-        "boy",
-        "man",
-        "women",
-        "m",
-        "f",
-        "g",
-        "b",
-        "dude",
-        "chick",
-    ):
-        break
-    print("I don't understand. Please enter Male or Female (m/f): ")
-if gender.lower() in ("male, b, man, m, boy, dude"):
-    gender_male = True
-else:
-    gender_male = False
+def main_fitness():
+    while True:
+        gender = input("Enter your Biological Gender (male/female): ")
+        if gender.lower() in (
+            "male",
+            "female",
+            "girl",
+            "boy",
+            "man",
+            "women",
+            "m",
+            "f",
+            "g",
+            "b",
+            "dude",
+            "chick",
+        ):
+            break
+        print("I don't understand. Please enter Male or Female (m/f): ")
+    if gender.lower() in ("male, b, man, m, boy, dude"):
+        gender_male = True
+    else:
+        gender_male = False
 
-# Second part inputs and validates user's birthdate
-from datetime import datetime
+    # Second part inputs and validates user's birthdate
+    from datetime import datetime
 
-today = datetime.today()
-while True:
-    birthdate = input("Enter your Birthdate (YYYY-MM-DD): ")
-    birthdate = datetime.strptime(birthdate, "%Y-%m-%d")
-    age = (
-        today.year
-        - birthdate.year
-        - ((today.month, today.day) < (birthdate.month, birthdate.day))
-    )
-    if age > 0:
-        break
-    print(
-        "I don't understand. Are you a time traveler? Please enter a past birthdate: "
-    )
+    today = datetime.today()
+    while True:
+        birthdate = input("Enter your Birthdate (YYYY-MM-DD): ")
+        birthdate = datetime.strptime(birthdate, "%Y-%m-%d")
+        age = (
+            today.year
+            - birthdate.year
+            - ((today.month, today.day) < (birthdate.month, birthdate.day))
+        )
+        if age > 0:
+            break
+        print(
+            "I don't understand. Are you a time traveler? Please enter a past birthdate: "
+        )
 
-# Third part asks user to enter their height and weight
-weight_lb = int(input("Enter your Weight in U.S. Pounds: "))
-height_in = int(input("Enter your Height in U.S. Inches: "))
+    # Third part asks user to enter their height and weight
+    weight_lb = int(input("Enter your Weight in U.S. Pounds: "))
+    height_in = int(input("Enter your Height in U.S. Inches: "))
 
-# Converts weight and height from imperial to metric
-weight_kg = weight_lb * 0.45359237
-height_cm = height_in * 2.54
+    # Converts weight and height from imperial to metric
+    weight_kg = weight_lb * 0.45359237
+    height_cm = height_in * 2.54
 
-# Calculates BMI
-bmi = (10000 * weight_kg) / (height_cm**2)
+    # Calculates BMI
+    bmi = (10000 * weight_kg) / (height_cm**2)
 
-# Calculates BMR
-if gender_male == True:
-    bmr = 88.362 + 13.397 * weight_kg + 4.799 * height_cm - 5.677 * age
-else:
-    bmr = 447.593 + 9.247 * weight_kg + 3.098 * height_cm - 4.330 * age
+    # Calculates BMR
+    if gender_male == True:
+        bmr = 88.362 + 13.397 * weight_kg + 4.799 * height_cm - 5.677 * age
+    else:
+        bmr = 447.593 + 9.247 * weight_kg + 3.098 * height_cm - 4.330 * age
 
-# Prints results
-if gender_male == True:
-    print(f"Sir, your BMI is: {bmi:.2f} and your BMR is: {bmr:.2f}")
-    print(
-        f"This was calculated using your age ({age}), weight ({weight_kg:.1f}kg), and height ({height_cm:.1f}cm)"
-    )
-else:
-    print(f"SMa'am, your BMI is: {bmi:.2f} and your BMR is: {bmr:.2f}")
-    print(
-        f"This was calculated using your age ({age}), weight ({weight_kg:.1f}kg), and height ({height_cm:.1f}cm)"
-    )
+    # Prints results
+    if gender_male == True:
+        print(f"Sir, your BMI is: {bmi:.2f} and your BMR is: {bmr:.2f}")
+        print(
+            f"This was calculated using your age ({age}), weight ({weight_kg:.1f}kg), and height ({height_cm:.1f}cm)"
+        )
+    else:
+        print(f"SMa'am, your BMI is: {bmi:.2f} and your BMR is: {bmr:.2f}")
+        print(
+            f"This was calculated using your age ({age}), weight ({weight_kg:.1f}kg), and height ({height_cm:.1f}cm)"
+        )
+
+
+# This calls the main fitness function
+main_fitness()
