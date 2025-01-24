@@ -90,7 +90,6 @@ img {
 	border-color: white;
 	border-width: 6px;
 	background-color: white;
-	padding: 1%;
 	transition: all 0.2s ease-in-out;
 }
 .gallery figure:hover {
