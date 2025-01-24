@@ -1,5 +1,14 @@
-/* ----- Imported Data ----- */
+/* ----- Root Data ----- */
 @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+:root {
+	--primary-color: #52489c;
+	--secondary-color: #59c3c3;
+	--accent-color: #f45b69;
+	--text-dark: #333;
+	--text-light: #ebebeb;
+	--primary-font: Arial, Helvetica, sans-serif;
+	--secondary-font: Mooli, san-serif;
+}
 
 /* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
 html {
@@ -16,25 +25,44 @@ html {
 
 /*----------- BODY --------------*/
 body {
-	font-size: 16px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+	font-family: var(--primary-font);
 	min-width: 15rem;
 	margin: 0;
 }
 
 /* ------ Header / Footer ----- */
-header,
-footer {
-	background-color: #52489c;
+header {
+	padding: 0.5rem 2%;
+	padding-left: 0;
+	padding-right: 5rem;
+	padding-bottom: 0;
 	color: white;
+	background-color: #52489c;
+	display: grid;
+	grid-template-columns: max-content auto;
+	gap: 2%;
+	align-items: center;
+}
+footer {
+	color: white;
+	background-color: #52489c;
 }
 
 /* --------- Headings ------------ */
-h1 {
-	font-size: 40px;
-	font-family: "Mooli";
-}
+h1,
 h2 {
-	font-size: 30px;
-	font-family: "Mooli";
+	font-family: var(--secondary-font);
+}
+
+/* ----- Anchors ----- */
+a:link,
+a:visited {
+	color: var(--accent-color);
+}
+
+/* ----- Images ----- */
+img {
+	max-width: 100%;
+	object-fit: cover;
 }
