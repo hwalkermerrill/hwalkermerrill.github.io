@@ -30,13 +30,16 @@
 
 <body>
     <!-- HEADER -->
-    <header>
+    <header class="clearfix">
         <h1>Cool Pics</h1>
+        <div class="menu">
+            <button onclick="toggleMenu()">Menu</button>
+        </div>
     </header>
 
     <!-- NAVIGATION -->
-    <nav>
-        <ul>
+    <nav class="clearfix">
+        <ul id="primaryNav" class="hide">
             <li><a href="index.html">Home</a></li>
             <li><a href="*">People</a></li>
             <li><a href="*">Places</a></li>
@@ -46,9 +49,9 @@
     </nav>
 
     <!-- CONTENT -->
-    <main>
+    <main class="clearfix">
+        <h2>Current Work</h2>
         <section class="gallery">
-            <h2>Current Work</h2>
             <figure id="pic1">
                 <img src="images/norris-sm.jpeg" srcset="images/norris-sm.jpeg 350w, images/norris-full.jpeg 2000w"
                     sizes="(max-width: 700px) 350px, 2000px" alt="cool pics of norris geyser">
