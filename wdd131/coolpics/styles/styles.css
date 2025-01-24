@@ -1,0 +1,40 @@
+/* ----- Imported Data ----- */
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*----------- BODY --------------*/
+body {
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+	min-width: 15rem;
+	margin: 0;
+}
+
+/* ------ Header / Footer ----- */
+header,
+footer {
+	background-color: #52489c;
+	color: white;
+}
+
+/* --------- Headings ------------ */
+h1 {
+	font-size: 40px;
+	font-family: "Mooli";
+}
+h2 {
+	font-size: 30px;
+	font-family: "Mooli";
+}

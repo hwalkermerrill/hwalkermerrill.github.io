@@ -4,12 +4,12 @@
 <head>
     <!-- META DATA -->
     <meta charset="UTF-8">
-    <meta name="description" content="WDD 131 Coolpics">
+    <meta name="description" content="WDD 131 Cool Pics">
     <meta name="author" content="Harrison Merrill">
     <meta name="slogan" content="We're in 131st Place">
     <!-- <meta name="theme-color" content="#005633"> -->
 
-    <title>Harrison Merrill: WDD131 Coolpics</title>
+    <title>Harrison Merrill: WDD131 Cool Pics</title>
 
     <!-- This tells MS users to use Edge instead of IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,10 +21,11 @@
     <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
 
     <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/styles.css">
 
     <!-- SCRIPT-->
-    <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
 </head>
 
 <body>
@@ -46,12 +47,49 @@
 
     <!-- CONTENT -->
     <main>
-        <h2>Current Work</h2>
-        <p>This is my home page for WDD131.</p>
+        <section class="gallery">
+            <h2>Current Work</h2>
+            <figure id="pic1">
+                <img src="images/norris-sm.jpeg" srcset="images/norris-sm.jpeg 350w, images/norris-full.jpeg 2000w"
+                    sizes="(max-width: 700px) 350px, 2000px" alt="cool pics of norris geyser">
+            </figure>
+            <figure id="pic2">
+                <img src="images/norris-sm.jpeg" srcset="images/norris-sm.jpeg 350w, images/norris-full.jpeg 2000w"
+                    sizes="(max-width: 700px) 350px, 2000px" alt="cool pics of norris geyser">
+            </figure>
+            <figure id="pic3">
+                <img src="images/norris-sm.jpeg" srcset="images/norris-sm.jpeg 350w, images/norris-full.jpeg 2000w"
+                    sizes="(max-width: 700px) 350px, 2000px" alt="cool pics of norris geyser">
+            </figure>
+            <figure id="pic4">
+                <img src="images/norris-sm.jpeg" srcset="images/norris-sm.jpeg 350w, images/norris-full.jpeg 2000w"
+                    sizes="(max-width: 700px) 350px, 2000px" alt="cool pics of norris geyser">
+            </figure>
+            <figure id="pic5">
+                <img src="images/norris-sm.jpeg" srcset="images/norris-sm.jpeg 350w, images/norris-full.jpeg 2000w"
+                    sizes="(max-width: 700px) 350px, 2000px" alt="cool pics of norris geyser">
+            </figure>
+            <figure id="pic6">
+                <img src="images/norris-sm.jpeg" srcset="images/norris-sm.jpeg 350w, images/norris-full.jpeg 2000w"
+                    sizes="(max-width: 700px) 350px, 2000px" alt="cool pics of norris geyser">
+            </figure>
+            <figure id="pic7">
+                <img src="images/norris-sm.jpeg" srcset="images/norris-sm.jpeg 350w, images/norris-full.jpeg 2000w"
+                    sizes="(max-width: 700px) 350px, 2000px" alt="cool pics of norris geyser">
+            </figure>
+            <figure id="pic8">
+                <img src="images/norris-sm.jpeg" srcset="images/norris-sm.jpeg 350w, images/norris-full.jpeg 2000w"
+                    sizes="(max-width: 700px) 350px, 2000px" alt="cool pics of norris geyser">
+            </figure>
+            <figure id="pic9">
+                <img src="images/norris-sm.jpeg" srcset="images/norris-sm.jpeg 350w, images/norris-full.jpeg 2000w"
+                    sizes="(max-width: 700px) 350px, 2000px" alt="cool pics of norris geyser">
+            </figure>
+        </section>
     </main>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="clearfix">
         <p>&copy; 2024 - Harrison Merrill</p>
     </footer>
 

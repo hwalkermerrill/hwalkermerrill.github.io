@@ -241,7 +241,7 @@ body {
 	}
 
 	/*----------- Multi Image --------------*/
-	/* This allows you to set two images for a single object, with the first image always visable, and the second image fading out on hover. */
+	/* This allows you to set two images for a single object, with the first image always visible, and the second image fading out on hover. */
 	figure.multiImage {
 		display: grid;
 		grid-template-columns: 1fr;
