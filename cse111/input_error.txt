@@ -10,3 +10,5 @@ Error input word used: 'ihygby'
 entry @time 2025.0116.0810.18, 205, 60, 15, 39.92
 entry @time 2025.0116.0810.45, 200, 55, 16, 35.69
 Error input word used: 'nup'
+Error input word used: 'google'
+Error input word used: 'uyg'
