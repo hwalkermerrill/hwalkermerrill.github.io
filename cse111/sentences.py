@@ -52,7 +52,7 @@ import random
 
 
 # This function actually builds the sentence, using other defined functions
-def main_sentence_builder():
+def main():
     # This has the user select a quantity, and validates their response against a default.
     quantity = int(input("Please enter a number: "))
     if quantity <= 0:
@@ -254,6 +254,41 @@ def get_verb(quantity, tense):
     return verb_choice
 
 
+# Add get_preposition array:
+def get_preposition():
+    preposition_words = [
+        "at",
+        "on",
+        "in",
+        "before",
+        "around",
+        "after",
+        "to",
+        "from",
+        "out of",
+        "across",
+        "by",
+        "like",
+        "with",
+        "through",
+        "outside",
+        "underneath",
+    ]
+    # Randomly chooses and returns a preposition.
+    preposition_choice = random.choice(preposition_words)
+    return preposition_choice
+
+
+# Build a prepositional phrase from a preposition, determiner, and noun.
+def get_prepositional_phrase(quantity):
+    preposition = get_preposition()
+    determiner = get_determiner(quantity)
+    noun = get_noun(quantity)
+
+    # Now, it outputs a randomized prepositional phrase to add to the sentence.
+    print(f"{preposition} {determiner} {noun}")
+
+
 # Imported partial code for make_sentence
 def make_sentence(quantity, tense):
     # This calls the defined functions to build a semblance of a sentence.
@@ -266,4 +301,4 @@ def make_sentence(quantity, tense):
 
 
 # This call the defined main program.
-main_sentence_builder()
+main()
