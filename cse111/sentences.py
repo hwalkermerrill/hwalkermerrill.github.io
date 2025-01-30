@@ -339,6 +339,18 @@ def get_preposition():
         "through",
         "outside",
         "underneath",
+        "about",  # Realize at this point that some words were given in the assignment
+        "above",
+        "across",
+        "along",
+        "behind",
+        "beyond",
+        "despite",
+        "except",
+        "for",
+        "near",
+        "past",
+        "without",
     ]
     # Randomly chooses and returns a preposition.
     preposition_choice = random.choice(preposition_words)
