@@ -357,15 +357,65 @@ def get_preposition():
     return preposition_choice
 
 
+# Bank of adjectives to choose from.
+def get_adjective():
+    adjective_words = [
+        "adorable",
+        "deplorable",
+        "big",
+        "sunburnt",
+        "crazy",
+        "dirty",
+        "exotic",
+        "famous",
+        "gentle",
+        "happy",
+        "irrelevant",
+        "junior",
+        "well-known",
+        "loud",
+        "mischievous",
+        "neat",
+        "offensive",
+        "priceless",
+        "quirky",
+        "quiet",
+        "royal",
+        "silent",
+        "tiny",
+        "unusual",
+        "vicious",
+        "wholesome",
+        "yummy",
+        "zealous",
+    ]
+    # randomly chooses and returns an adjective.
+    adjective_choice = random.choice(adjective_words)
+    return adjective_choice
+
+
+# Randomly decides if something extra should be added
+def random_inclusion():
+    answer = [True, False]
+    random_answer = random.choice(answer)
+    return random_answer
+
+
 # Build a prepositional phrase from a preposition, determiner, and noun.
 def get_prepositional_phrase(quantity):
     preposition = get_preposition()
     determiner = get_determiner(quantity)
     noun = get_noun(quantity)
+    adjective_answer = random_inclusion()
 
     # Now, it outputs a randomized prepositional phrase to add to the sentence.
-    prepositional_phrase = f"{preposition} {determiner} {noun}"
-    return prepositional_phrase
+    if adjective_answer == False:
+        prepositional_phrase = f"{preposition} {determiner} {noun}"
+        return prepositional_phrase
+    else:
+        adjective = get_adjective()
+        prepositional_phrase = f"{preposition} {determiner} {adjective} {noun}"
+        return prepositional_phrase
 
 
 # Imported partial code for make_sentence
@@ -375,10 +425,18 @@ def make_sentence(quantity, tense):
     noun = get_noun(quantity)
     verb = get_verb(quantity, tense)
     prepositional_phrase = get_prepositional_phrase(quantity)
+    adjective_answer = random_inclusion()
 
     # Now, it outputs a randomized string, with some grammar built in:
-    result_sentence = f"{determiner.capitalize()} {noun} {verb} {prepositional_phrase}."
-    print(result_sentence)
+    if adjective_answer == False:
+        result_sentence = (
+            f"{determiner.capitalize()} {noun} {verb} {prepositional_phrase}."
+        )
+        print(result_sentence)
+    else:
+        adjective = get_adjective()
+        result_sentence = f"{determiner.capitalize()} {adjective} {noun} {verb} {prepositional_phrase}."
+        print(result_sentence)
 
 
 # This call the defined main program.
