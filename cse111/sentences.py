@@ -51,198 +51,8 @@
 import random
 
 
-# This defines our main function, within which all our arguments and variables are wrapped.
+# This function actually builds the sentence, using other defined functions
 def main_sentence_builder():
-
-    # This function chooses the determiner based on the quantity.
-    def get_determiner(quantity):
-        # This array stores options for the function to return
-        if quantity == 1:
-            determiner_words = [
-                "a",
-                "one",
-                "the",
-                "a single",
-                "the only",
-                "a solo",
-                "alone, the",
-            ]
-        else:
-            determiner_words = [
-                "some",
-                "many",
-                "the",
-                "lots of",
-                "several",
-                "a few",
-                "a great many",
-                "together, the",
-            ]
-
-        # Randomly choose and returns a determiner.
-        determiner_choice = random.choice(determiner_words)
-        return determiner_choice
-
-    # This function chooses the noun based on the quantity.
-    def get_noun(quantity):
-        # This array stores options for the function to return
-        if quantity == 1:
-            noun_words = [
-                "bird",
-                "boy",
-                "car",
-                "cat",
-                "child",
-                "dog",
-                "girl",
-                "man",
-                "rabbit",
-                "woman",
-                "snake",
-                "goose",
-                "cup of tea",
-                "native",
-                "tourist",
-                "sibling",
-                "book",
-                "megabit",
-                "airman",
-                "song",
-            ]
-        else:
-            noun_words = [
-                "birds",
-                "boys",
-                "cars",
-                "cats",
-                "children",
-                "dogs",
-                "girls",
-                "men",
-                "rabbits",
-                "women",
-                "snakes",
-                "geese",
-                "tea sets",
-                "native people",
-                "tourists",
-                "siblings",
-                "libraries",
-                "terabytes",
-                "e4 mafia",
-                "muses",
-            ]
-
-        # Randomly choose and returns a determiner.
-        noun_choice = random.choice(noun_words)
-        return noun_choice
-
-    # Imported partial code for get_verb
-    def get_verb(quantity, tense):
-        # This returns a past verb if the tense is past, a future verb if the tense is yet to come,
-        # or a singular/plural present verb if the tense is present
-        if tense.lower() == "past":
-            verb_words = [
-                "drank",
-                "ate",
-                "grew",
-                "laughed",
-                "thought",
-                "ran",
-                "slept",
-                "talked",
-                "walked",
-                "wrote",
-                "flew",
-                "pondered",
-                "leapt",
-                "cleaned",
-                "organized",
-                "became intelligent",
-                "was strong",
-                "broke it",
-                "broke down",
-            ]
-        elif tense.lower() == "future":
-            verb_words = [
-                "will drink",
-                "will eat",
-                "will grow",
-                "will laugh",
-                "will think",
-                "will run",
-                "will sleep",
-                "will talk",
-                "will walk",
-                "will write",
-                "will fly",
-                "will shortly ponder",
-                "will leap",
-                "will clean",
-                "will organize",
-                "will gain intelligence",
-                "is getting stronger",
-                "will break it",
-                "will break down",
-            ]
-        elif quantity == 1:  # This array is present tense
-            verb_words = [
-                "drinks",
-                "eats",
-                "grows",
-                "laughs",
-                "thinks",
-                "runs",
-                "sleeps",
-                "talks",
-                "walks",
-                "writes",
-                "flies",
-                "ponders",
-                "leaps",
-                "cleans",
-                "organizes",
-                "is intelligent",
-                "is strong",
-                "is breaking it",
-                "is breaking down",
-            ]
-        else:
-            verb_words = [  # This array is also present tense
-                "drink",
-                "eat",
-                "grow",
-                "laugh",
-                "think",
-                "run",
-                "sleep",
-                "talk",
-                "walk",
-                "write",
-                "fly",
-                "ponder",
-                "leap",
-                "organize",
-                "are intelligent",
-                "are strong",
-                "are breaking it",
-                "are breaking down",
-            ]
-
-        # Randomly choose and returns a determiner.
-        verb_choice = random.choice(verb_words)
-        return verb_choice
-
-    # Imported partial code for make_sentence
-    def make_sentence(quantity, tense):
-        # This calls the defined functions to build a semblance of a sentence.
-        determiner = get_determiner(quantity)
-        noun = get_noun(quantity)
-        verb = get_verb(quantity, tense)
-
-        # Now, it outputs a randomized string, with some grammar built in:
-        print(f"{determiner.capitalize()} {noun} {verb}.")
-
     # This has the user select a quantity, and validates their response against a default.
     quantity = int(input("Please enter a number: "))
     if quantity <= 0:
@@ -260,6 +70,199 @@ def main_sentence_builder():
         tense = "present"
 
     make_sentence(quantity, tense)
+
+
+# This function chooses the determiner based on the quantity.
+def get_determiner(quantity):
+    # This array stores options for the function to return
+    if quantity == 1:
+        determiner_words = [
+            "a",
+            "one",
+            "the",
+            "a single",
+            "the only",
+            "a solo",
+            "alone, the",
+        ]
+    else:
+        determiner_words = [
+            "some",
+            "many",
+            "the",
+            "lots of",
+            "several",
+            "a few",
+            "a great many",
+            "together, the",
+        ]
+
+    # Randomly choose and returns a determiner.
+    determiner_choice = random.choice(determiner_words)
+    return determiner_choice
+
+
+# This function chooses the noun based on the quantity.
+def get_noun(quantity):
+    # This array stores options for the function to return
+    if quantity == 1:
+        noun_words = [
+            "bird",
+            "boy",
+            "car",
+            "cat",
+            "child",
+            "dog",
+            "girl",
+            "man",
+            "rabbit",
+            "woman",
+            "snake",
+            "goose",
+            "cup of tea",
+            "native",
+            "tourist",
+            "sibling",
+            "book",
+            "megabit",
+            "airman",
+            "song",
+        ]
+    else:
+        noun_words = [
+            "birds",
+            "boys",
+            "cars",
+            "cats",
+            "children",
+            "dogs",
+            "girls",
+            "men",
+            "rabbits",
+            "women",
+            "snakes",
+            "geese",
+            "tea sets",
+            "native people",
+            "tourists",
+            "siblings",
+            "libraries",
+            "terabytes",
+            "e4 mafia",
+            "muses",
+        ]
+
+    # Randomly choose and returns a determiner.
+    noun_choice = random.choice(noun_words)
+    return noun_choice
+
+
+# Imported partial code for get_verb
+def get_verb(quantity, tense):
+    # This returns a past verb if the tense is past, a future verb if the tense is yet to come,
+    # or a singular/plural present verb if the tense is present
+    if tense.lower() == "past":
+        verb_words = [
+            "drank",
+            "ate",
+            "grew",
+            "laughed",
+            "thought",
+            "ran",
+            "slept",
+            "talked",
+            "walked",
+            "wrote",
+            "flew",
+            "pondered",
+            "leapt",
+            "cleaned",
+            "organized",
+            "became intelligent",
+            "was strong",
+            "broke it",
+            "broke down",
+        ]
+    elif tense.lower() == "future":
+        verb_words = [
+            "will drink",
+            "will eat",
+            "will grow",
+            "will laugh",
+            "will think",
+            "will run",
+            "will sleep",
+            "will talk",
+            "will walk",
+            "will write",
+            "will fly",
+            "will shortly ponder",
+            "will leap",
+            "will clean",
+            "will organize",
+            "will gain intelligence",
+            "is getting stronger",
+            "will break it",
+            "will break down",
+        ]
+    elif quantity == 1:  # This array is present tense
+        verb_words = [
+            "drinks",
+            "eats",
+            "grows",
+            "laughs",
+            "thinks",
+            "runs",
+            "sleeps",
+            "talks",
+            "walks",
+            "writes",
+            "flies",
+            "ponders",
+            "leaps",
+            "cleans",
+            "organizes",
+            "is intelligent",
+            "is strong",
+            "is breaking it",
+            "is breaking down",
+        ]
+    else:
+        verb_words = [  # This array is also present tense
+            "drink",
+            "eat",
+            "grow",
+            "laugh",
+            "think",
+            "run",
+            "sleep",
+            "talk",
+            "walk",
+            "write",
+            "fly",
+            "ponder",
+            "leap",
+            "organize",
+            "are intelligent",
+            "are strong",
+            "are breaking it",
+            "are breaking down",
+        ]
+
+    # Randomly choose and returns a determiner.
+    verb_choice = random.choice(verb_words)
+    return verb_choice
+
+
+# Imported partial code for make_sentence
+def make_sentence(quantity, tense):
+    # This calls the defined functions to build a semblance of a sentence.
+    determiner = get_determiner(quantity)
+    noun = get_noun(quantity)
+    verb = get_verb(quantity, tense)
+
+    # Now, it outputs a randomized string, with some grammar built in:
+    print(f"{determiner.capitalize()} {noun} {verb}.")
 
 
 # This call the defined main program.
