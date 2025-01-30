@@ -53,6 +53,62 @@ import random
 
 # This function actually builds the sentence, using other defined functions
 def main():
+    while True:
+        # First, it asks the user if they want to see an example, or input their own values
+        print(
+            "Welcome to CSE11 sentence_builder. Would you like to build your own sentence or see some examples?"
+        )
+        user_choice()
+        # Then, it asks the user if it would like to run the program again, or quit out
+        again = run_again()
+        # If they want to run the program again, this will continue the loop.
+        if again.lower() in ("yes", "y", "yup", "yeah", "sure"):
+            continue
+        # If they do not want to run the program again, this will break the loop.
+        else:
+            # This is the exit message for the loop.
+            print("Thank you. Goodbye!")
+            break
+
+
+def run_again():
+    # This will ask the user if they want to run the program again, and validates if they put in a weird answer.
+    while True:
+        again = input("Would you like to run this program again? (yes/no): ")
+        if again.lower() in ("yes", "no", "y", "n", "yup", "yeah", "sure", "nope"):
+            return again.lower()
+        else:
+            print("I don't understand. Please enter 'yes' or 'no'.")
+            # This saves the error word the user wrote, so we can detect patterns for future versions.
+            with open("input_error.txt", "at") as input_error_file:
+                input_error_file.write(f"Error input word used: '{again}'\n")
+
+
+def user_choice():
+    user_response = input(
+        "Enter 'Yes' or 'Y' to build your own, or type anything else to see a sample: "
+    )
+    if user_response.lower in (
+        "yes",
+        "y",
+    ):
+        user_sentence_builder()
+    else:
+        test_sentence_builder()
+
+
+# If the user wants an example, this spits out a few phrases automatically.
+def test_sentence_builder():
+    make_sentence(quantity=1, tense="past")
+    make_sentence(quantity=1, tense="present")
+    make_sentence(quantity=1, tense="future")
+    make_sentence(quantity=2, tense="past")
+    make_sentence(quantity=2, tense="present")
+    make_sentence(quantity=2, tense="future")
+
+
+# This function has the user select their own values for the quantity and tense of the sentence
+def user_sentence_builder():
     # This has the user select a quantity, and validates their response against a default.
     quantity = int(input("Please enter a number: "))
     if quantity <= 0:
@@ -84,6 +140,11 @@ def get_determiner(quantity):
             "the only",
             "a solo",
             "alone, the",
+            "my",
+            "your",
+            "this",
+            "that",
+            "no",
         ]
     else:
         determiner_words = [
@@ -95,6 +156,11 @@ def get_determiner(quantity):
             "a few",
             "a great many",
             "together, the",
+            "my",
+            "our",
+            "these",
+            "those",
+            "no",
         ]
 
     # Randomly choose and returns a determiner.
@@ -286,7 +352,8 @@ def get_prepositional_phrase(quantity):
     noun = get_noun(quantity)
 
     # Now, it outputs a randomized prepositional phrase to add to the sentence.
-    print(f"{preposition} {determiner} {noun}")
+    prepositional_phrase = f"{preposition} {determiner} {noun}"
+    return prepositional_phrase
 
 
 # Imported partial code for make_sentence
@@ -295,9 +362,11 @@ def make_sentence(quantity, tense):
     determiner = get_determiner(quantity)
     noun = get_noun(quantity)
     verb = get_verb(quantity, tense)
+    prepositional_phrase = get_prepositional_phrase(quantity)
 
     # Now, it outputs a randomized string, with some grammar built in:
-    print(f"{determiner.capitalize()} {noun} {verb}.")
+    result_sentence = f"{determiner.capitalize()} {noun} {verb} {prepositional_phrase}."
+    print(result_sentence)
 
 
 # This call the defined main program.
