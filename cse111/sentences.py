@@ -56,7 +56,7 @@ def main():
     while True:
         # First, it asks the user if they want to see an example, or input their own values
         print(
-            "Welcome to CSE11 sentence_builder. Would you like to build your own sentence or see some examples?"
+            "Welcome to CSE111 sentence_builder. Would you like to build your own sentence or see some examples?"
         )
         user_choice()
         # Then, it asks the user if it would like to run the program again, or quit out
