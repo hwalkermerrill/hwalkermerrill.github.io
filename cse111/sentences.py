@@ -88,10 +88,7 @@ def user_choice():
     user_response = input(
         "Enter 'Yes' or 'Y' to build your own, or type anything else to see a sample: "
     )
-    if user_response.lower in (
-        "yes",
-        "y",
-    ):
+    if user_response.lower in ("yes", "y"):
         user_sentence_builder()
     else:
         test_sentence_builder()
