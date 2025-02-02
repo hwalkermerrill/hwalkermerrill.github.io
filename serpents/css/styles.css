@@ -278,6 +278,9 @@ body {
 		min-width: 0;
 		grid-row: 2;
 	}
+	.pointer {
+		cursor: pointer;
+	}
 
 	/*----------- Multi Image --------------*/
 	/* This allows you to set two images for a single object, with the first image always visible,
