@@ -127,3 +127,34 @@ $(function () {
             .appendTo('#slideshow');
     }, 4000);
 });
+
+// The below two functions all operate the .viewer modular image viewer class.
+// Call this function with an onclick="viewHandler(event)"
+
+function viewHandler(event) {
+    // 1. Create a variable to hold the element that was clicked on from event.target
+    let clickedElement = event.target;
+    // 2. If statement allows the function to work on figures with embedded imgs
+    if (clickedElement.tagName.toLowerCase() === 'img') {
+        // 3. Get the attribute's from the img element
+        let src = clickedElement.getAttribute('src');
+        let alt = clickedElement.getAttribute('alt');
+        // let srcParts = ogSrc.split('-');
+        // let newSrc = srcParts[0] + '-full.jpeg';
+
+        // 4. Insert the viewerTemplate into the top of the body element
+        document.body.insertAdjacentHTML(
+            'afterbegin', `<div class="viewer" id="active-viewer">
+            <button class="close-viewer" onclick="closeViewer()">X</button>
+            <img src="${src}" alt="${alt}">
+            </div>`
+        );
+    }
+}
+// This function is necessary to be able to close the viewer element
+function closeViewer() {
+    let viewer = document.getElementById('active-viewer');
+    if (viewer) {
+        viewer.remove();
+    }
+}

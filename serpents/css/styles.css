@@ -249,6 +249,36 @@ body {
 		cursor: pointer;
 	}
 
+	/* ----- Modal IMG Viewer ----- */
+	.viewer {
+		z-index: 10;
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		display: grid;
+		background: rgba(0, 0, 0, 0.75);
+		color: var(--secondary-color);
+		justify-content: center;
+		align-items: center;
+	}
+	.viewer button {
+		background: rgba(0, 0, 0, 0);
+		border-color: rgba(0, 0, 0, 0);
+		color: var(--secondary-color);
+		cursor: pointer;
+		grid-row: 1;
+		text-align: right;
+	}
+	.viewer img {
+		max-height: 100%;
+		min-height: 0;
+		max-width: 100%;
+		min-width: 0;
+		grid-row: 2;
+	}
+
 	/*----------- Multi Image --------------*/
 	/* This allows you to set two images for a single object, with the first image always visible,
 	and the second image fading out on hover. */
@@ -439,6 +469,13 @@ body {
 	main .gallery figure,
 	main .asset section {
 		flex-basis: 46%;
+	}
+
+	/* ----- Modular IMG Viewer ----- */
+	.viewer {
+		margin: 2%;
+		padding: 2%;
+		border-radius: 10px; /*Rounded corners*/
 	}
 
 	/*----------- FOOTER --------------*/
