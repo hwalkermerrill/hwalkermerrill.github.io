@@ -281,6 +281,9 @@ body {
 	.pointer {
 		cursor: pointer;
 	}
+	.crosshair {
+		cursor: crosshair;
+	}
 
 	/*----------- Multi Image --------------*/
 	/* This allows you to set two images for a single object, with the first image always visible,
