@@ -258,6 +258,7 @@ body {
 		bottom: 0;
 		right: 0;
 		display: grid;
+		grid-template-rows: 20px auto;
 		background: rgba(0, 0, 0, 0.75);
 		color: var(--secondary-color);
 		justify-content: center;
