@@ -262,6 +262,9 @@ body {
 		color: var(--secondary-color);
 		justify-content: center;
 		align-items: center;
+		margin: 2%;
+		padding: 2%;
+		border-radius: 10px; /*Rounded corners*/
 	}
 	.viewer button {
 		background: rgba(0, 0, 0, 0);
@@ -475,13 +478,6 @@ body {
 	main .gallery figure,
 	main .asset section {
 		flex-basis: 46%;
-	}
-
-	/* ----- Modular IMG Viewer ----- */
-	.viewer {
-		margin: 2%;
-		padding: 2%;
-		border-radius: 10px; /*Rounded corners*/
 	}
 
 	/*----------- FOOTER --------------*/
