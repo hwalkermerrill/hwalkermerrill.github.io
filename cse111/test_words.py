@@ -28,6 +28,29 @@ def test_prefix():
     assert prefix("Disable", "dIstasteful") == "dis"
 
 
+def test_suffix():
+    """Verify the suffix function works correctly.
+    Parameters: none
+    Return: nothing
+    """
+    # Call the prefix function and verify that it returns a string.
+    suf = suffix("tired", "fatigued")
+    assert isinstance(suf, str), "prefix function must return a string"
+
+    # Call the prefix function ten times and use an assert
+    # statement to verify that the string returned by the
+    # prefix function is correct each time.
+    assert suffix("", "") == ""
+    assert suffix("", "correct") == ""
+    assert suffix("clear", "") == ""
+    assert suffix("angelic", "awesome") == ""
+    assert suffix("found", "profound") == "found"
+    assert suffix("ditch", "itch") == "itch"
+    assert suffix("happy", "funny") == "y"
+    assert suffix("tired", "fatigued") == "ed"
+    assert suffix("swimming", "FLYING") == "ing"
+
+
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
 pytest.main(["-v", "--tb=line", "-rN", __file__])
