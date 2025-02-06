@@ -207,6 +207,9 @@ body {
 		padding: 1%;
 		text-align: center;
 	}
+	main .files ul li {
+		margin: 10px;
+	}
 
 	/*----------- Slideshow --------------*/
 	#slideshow:after {
