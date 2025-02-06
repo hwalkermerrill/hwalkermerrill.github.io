@@ -26,6 +26,11 @@ body {
 	min-width: 15rem;
 	margin: 0;
 }
+body strong {
+	font-weight: bold;
+	font-size: large;
+	font-style: oblique;
+}
 /*----------- Background Img --------------*/
 body {
 	background-image: url("/serpents/images/background-cover.jpg");
@@ -448,6 +453,7 @@ body {
 	}
 	main ul img,
 	main .row section,
+	main .row aside,
 	main .floatswitch section img,
 	main .floatswitch ul img {
 		float: left;
@@ -466,6 +472,7 @@ body {
 		width: 29%;
 	}
 	main .row section:nth-child(2n),
+	main .row aside:nth-child(2n),
 	main .floatswitch section:nth-child(2n) img,
 	main .floatswitch ul:nth-child(2n) img {
 		float: right;
