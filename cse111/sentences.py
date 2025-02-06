@@ -436,5 +436,9 @@ def make_sentence(quantity, tense):
         print(result_sentence)
 
 
-# This call the defined main program.
-main()
+# If this file is executed like this:
+# > python program.py
+# then call the main function. However, if this file is simply
+# imported (e.g. into a test file), then skip the call to main.
+if __name__ == "__main__":
+    main()
