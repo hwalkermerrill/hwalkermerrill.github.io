@@ -66,8 +66,9 @@ nav ul li a {
 }
 
 /* --------- Headings ------------ */
-h1,
+/* h1, */
 h2 {
+	color: var(--red-color);
 	font-family: var(--secondary-font);
 }
 
@@ -143,6 +144,7 @@ img {
 		grid-template-columns: 1fr 1fr 1fr 5fr;
 		font-size: large;
 		padding: 4px;
+		margin-bottom: 2rem;
 	}
 
 	nav ul.hide {
@@ -155,6 +157,8 @@ img {
 		padding: 0.8rem 1rem;
 	}
 
+	/* ----- Styling for blog.js content ----- */
+
 	main {
 		display: grid;
 		grid-template-columns: 1fr 2fr 1fr;
@@ -162,8 +166,8 @@ img {
 
 	.review {
 		grid-column: 1 / span 2; /*--- Span across two columns ---*/
-		display: grid;
-		grid-template-columns: 1fr 2fr; /*--- Separates article info from main ---*/
+		display: flex;
+		flex-direction: column;
 		gap: 20px;
 	}
 
@@ -181,7 +185,6 @@ img {
 	}
 
 	.article-info {
-		grid-column: 1;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -194,10 +197,14 @@ img {
 	}
 
 	.article-content {
-		grid-column: 2;
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+		border-left: 2px solid var(--gold-color);
+	}
+
+	.filter {
+		border: 2px solid var(--gold-color);
 	}
 
 	/* .gallery {
