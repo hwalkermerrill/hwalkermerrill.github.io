@@ -89,6 +89,18 @@ body {
 			5px 0px 5px var(--text-light), 0px -5px 5px var(--text-light);
 	}
 
+	/* ----- Accessibility skip-to-main-content----- */
+	.skip-to-content a {
+		position: absolute;
+		top: -40px;
+		background-color: var(--secondary-color);
+		color: var(--text-light);
+	}
+
+	.skip-to-content a:focus {
+		top: 0;
+	}
+
 	/*----------- NAVIGATION --------------*/
 	nav {
 		background-color: var(--secondary-color);
