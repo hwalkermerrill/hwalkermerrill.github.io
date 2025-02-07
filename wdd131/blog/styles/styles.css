@@ -1,13 +1,13 @@
 /* ----- Root Data ----- */
 @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
 :root {
-	--primary-color: #52489c;
-	--secondary-color: #59c3c3;
-	--accent-color: #f45b69;
+	--dark-color: #473144;
+	--red-color: #af1b3f;
+	--gold-color: #efc69b;
 	--text-dark: #333;
 	--text-light: #ebebeb;
-	--primary-font: Arial, Helvetica, sans-serif;
-	--secondary-font: Mooli, san-serif;
+	--primary-font: Helvetica, Arial, sans-serif;
+	--secondary-font: "Lora", Impact, serif;
 }
 
 /* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
@@ -36,13 +36,14 @@ body {
 /* ------ Header / Footer ----- */
 header {
 	padding: 0.5rem 2%;
-	color: white;
-	background-color: #52489c;
+	color: var(--dark-color);
 	display: grid;
 }
+header button {
+	background-color: var(--gold-color);
+}
 footer {
-	color: white;
-	background-color: #52489c;
+	color: var(--dark-color);
 }
 
 /* ----- Navigation ----- */
@@ -56,8 +57,8 @@ nav ul.hide {
 }
 nav ul li a {
 	display: grid;
-	background-color: var(--primary-color);
-	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	background-color: var(--gold-color);
+	border-top: 1px solid rgba(0, 0, 0, 1);
 	padding: 0.5rem 0;
 	text-decoration: none;
 	font-size: 20px;
@@ -73,7 +74,7 @@ h2 {
 /* ----- Anchors ----- */
 a:link,
 a:visited {
-	color: var(--accent-color);
+	color: var(--dark-color);
 }
 
 /* ----- Images ----- */
@@ -81,7 +82,7 @@ img {
 	max-width: 100%;
 	object-fit: cover;
 }
-.gallery {
+/* .gallery {
 	display: grid;
 	grid-template-columns: 1fr;
 }
@@ -96,10 +97,10 @@ img {
 	box-shadow: 0 0 12px #555;
 	transform: scale(1.05);
 	cursor: pointer;
-}
+} */
 
 /* ----- Modal IMG Viewer ----- */
-.viewer {
+/* .viewer {
 	z-index: 10;
 	position: fixed;
 	top: 0;
@@ -126,7 +127,7 @@ img {
 	max-width: 100%;
 	min-width: 0;
 	grid-row: 2;
-}
+} */
 
 /* Tablet Screen Size - 45em is also 720px (if basefont is 16px) */
 @media only screen and (min-width: 45rem) {
@@ -136,7 +137,12 @@ img {
 
 	nav ul {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		direction: rtl;
+		border-top: 4px solid var(--gold-color);
+		border-bottom: 4px solid var(--gold-color);
+		grid-template-columns: 1fr 1fr 1fr 5fr;
+		font-size: large;
+		padding: 4px;
 	}
 
 	nav ul.hide {
@@ -145,22 +151,69 @@ img {
 
 	nav ul li a {
 		border: none;
+		background-color: var(--text-light);
 		padding: 0.8rem 1rem;
 	}
-	.gallery {
+
+	main {
+		display: grid;
+		grid-template-columns: 1fr 2fr 1fr;
+	}
+
+	.review {
+		grid-column: 1 / span 2; /*--- Span across two columns ---*/
+		display: grid;
+		grid-template-columns: 1fr 2fr; /*--- Separates article info from main ---*/
+		gap: 20px;
+	}
+
+	.review,
+	.filter {
+		padding: 20px;
+		box-sizing: border-box;
+	}
+
+	.article {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 20px;
+		align-items: start;
+	}
+
+	.article-info {
+		grid-column: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: start;
+		gap: 10px;
+	}
+
+	.article-info p {
+		margin: 0;
+	}
+
+	.article-content {
+		grid-column: 2;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	/* .gallery {
 		grid-template-columns: 1fr 1fr;
 	}
 	.viewer {
 		margin: 2%;
 		padding: 2%;
-		border-radius: 10px; /*Rounded corners*/
-	}
+		border-radius: 10px; /*Rounded corners/
+	} */
 }
 /* Computer Screen Size - 64em is also 1028px (if basefont is 16px) */
 @media only screen and (min-width: 64rem) {
-	.gallery {
+	/* .gallery {
 		grid-template-columns: 1fr 1fr 1fr;
-	}
+	} */
 }
 
 /* Computer Widescreen Size - 90rem is also 1440px (if basefont is 16px) */

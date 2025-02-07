@@ -17,8 +17,11 @@
   <!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH & stops the font from enlarging when a phone is turned sideways-->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <!-- This loads the "Amiri" font style on the user device while browsing this HTML-->
-  <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+  <!-- This loads the "Lora" font style on the user device while browsing this HTML-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet">
 
   <!-- STYLESHEETS -->
   <link rel="stylesheet" href="styles/normalize.css">
@@ -26,12 +29,13 @@
 
   <!-- SCRIPT-->
   <script src="scripts/script.js"></script>
+  <script src="scripts/blog.js" defer></script>
 </head>
 
 <body>
   <!-- HEADER -->
   <header class="clearfix">
-    <h1><a href="index.html">Kids Read For Fun</a></h1>
+    <h1>Kids Read For Fun</h1>
     <div class="menu">
       <button onclick="toggleMenu()">Menu</button>
     </div>
@@ -40,15 +44,20 @@
   <!-- NAVIGATION -->
   <nav class="clearfix">
     <ul id="primaryNav" class="hide">
-      <li><a href="*">About</a></li>
-      <li><a href="*">Archive</a></li>
       <li><a href="*">Search</a></li>
+      <li><a href="*">Archive</a></li>
+      <li><a href="*">About</a></li>
     </ul>
   </nav>
 
   <!-- CONTENT -->
   <main class="clearfix">
-    <!-- <h2>Current Work</h2> -->
+    <div class="review"> <!--Wrapper for Reviews-->
+
+    </div>
+    <div class="filter">
+      <p>Filters will go here</p>
+    </div>
   </main>
 
   <!-- FOOTER -->
