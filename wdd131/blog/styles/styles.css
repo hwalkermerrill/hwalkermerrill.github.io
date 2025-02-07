@@ -1,0 +1,177 @@
+/* ----- Root Data ----- */
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+:root {
+	--primary-color: #52489c;
+	--secondary-color: #59c3c3;
+	--accent-color: #f45b69;
+	--text-dark: #333;
+	--text-light: #ebebeb;
+	--primary-font: Arial, Helvetica, sans-serif;
+	--secondary-font: Mooli, san-serif;
+}
+
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*----------- BODY --------------*/
+body {
+	font-size: 1.2em;
+	font-family: var(--primary-font);
+	min-width: 15rem;
+	margin: 0;
+	text-align: center;
+	background-color: var(--text-light);
+}
+
+/* ------ Header / Footer ----- */
+header {
+	padding: 0.5rem 2%;
+	color: white;
+	background-color: #52489c;
+	display: grid;
+}
+footer {
+	color: white;
+	background-color: #52489c;
+}
+
+/* ----- Navigation ----- */
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+nav ul.hide {
+	display: none;
+}
+nav ul li a {
+	display: grid;
+	background-color: var(--primary-color);
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	padding: 0.5rem 0;
+	text-decoration: none;
+	font-size: 20px;
+	/* text-align: center; */
+}
+
+/* --------- Headings ------------ */
+h1,
+h2 {
+	font-family: var(--secondary-font);
+}
+
+/* ----- Anchors ----- */
+a:link,
+a:visited {
+	color: var(--accent-color);
+}
+
+/* ----- Images ----- */
+img {
+	max-width: 100%;
+	object-fit: cover;
+}
+.gallery {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+.gallery figure {
+	border-style: ridge;
+	border-color: white;
+	border-width: 6px;
+	background-color: white;
+	transition: all 0.2s ease-in-out;
+}
+.gallery figure:hover {
+	box-shadow: 0 0 12px #555;
+	transform: scale(1.05);
+	cursor: pointer;
+}
+
+/* ----- Modal IMG Viewer ----- */
+.viewer {
+	z-index: 10;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: grid;
+	background: rgba(0, 0, 0, 0.75);
+	color: var(--accent-color);
+	justify-content: center;
+	align-items: center;
+}
+.viewer button {
+	background: rgba(0, 0, 0, 0);
+	border-color: rgba(0, 0, 0, 0);
+	color: var(--accent-color);
+	cursor: pointer;
+	grid-row: 1;
+	text-align: right;
+}
+.viewer img {
+	max-height: 100%;
+	min-height: 0;
+	max-width: 100%;
+	min-width: 0;
+	grid-row: 2;
+}
+
+/* Tablet Screen Size - 45em is also 720px (if basefont is 16px) */
+@media only screen and (min-width: 45rem) {
+	header button {
+		display: none;
+	}
+
+	nav ul {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	}
+
+	nav ul.hide {
+		display: grid;
+	}
+
+	nav ul li a {
+		border: none;
+		padding: 0.8rem 1rem;
+	}
+	.gallery {
+		grid-template-columns: 1fr 1fr;
+	}
+	.viewer {
+		margin: 2%;
+		padding: 2%;
+		border-radius: 10px; /*Rounded corners*/
+	}
+}
+/* Computer Screen Size - 64em is also 1028px (if basefont is 16px) */
+@media only screen and (min-width: 64rem) {
+	.gallery {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+/* Computer Widescreen Size - 90rem is also 1440px (if basefont is 16px) */
+@media only screen and (min-width: 90rem) {
+	header,
+	nav,
+	main,
+	section,
+	footer,
+	body .contact {
+		max-width: 90rem;
+		margin: auto;
+	}
+}
