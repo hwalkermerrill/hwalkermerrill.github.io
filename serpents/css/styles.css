@@ -1,9 +1,13 @@
 /* ----- Root Data ----- */
 :root {
-	--primary-color: #005633;
+	--primary-color: #12674a;
+	/* --primary-color: #005633; */
 	--secondary-color: #dc8837;
 	--text-light: #fdefcd;
 	--npc-helpful: #5a7a9b;
+	--primary-font: "Amiri", Verdana, sans-serif;
+	--secondary-font: "Trade Winds", serif;
+	/* --secondary-font: "Cabin Sketch", serif; */
 }
 
 /* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
@@ -22,14 +26,42 @@ html {
 /*----------- BODY --------------*/
 body {
 	font-size: 16px;
-	font-family: "Amiri", Verdana, sans-serif;
+	font-family: var(--primary-font);
 	min-width: 15rem;
 	margin: 0;
 }
-body strong {
+ul,
+ol {
+	cursor: pointer;
+}
+h1,
+h2,
+h3,
+figcaption {
+	color: var(--primary-color);
+	text-shadow: 4px 4px 4px #aaa;
+	font-family: var(--secondary-font);
+}
+h1 {
+	margin-top: 0;
+	margin-bottom: 8px;
+	font-weight: bold;
+	font-size: 40px;
+}
+h2 {
+	margin-bottom: 8px;
+	font-weight: normal;
+	font-size: 30px;
+}
+strong {
 	font-weight: bold;
 	font-size: large;
 	font-style: oblique;
+}
+img {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
 }
 /*----------- Background Img --------------*/
 body {
@@ -71,20 +103,9 @@ body {
 		font-size: 3rem;
 		color: #555;
 	}
-	header h1 {
-		margin: 0;
-		/* margin-top: 1rem; */
-		font-weight: bold;
-		font-size: 40px;
-		color: var(--primary-color);
-		text-shadow: -5px 0px 5px var(--text-light), 0px 5px 5px var(--text-light),
-			5px 0px 5px var(--text-light), 0px -5px 5px var(--text-light);
-	}
+	header h1,
 	header h2 {
 		margin: 0;
-		font-weight: normal;
-		font-size: 30px;
-		color: var(--primary-color);
 		text-shadow: -5px 0px 5px var(--text-light), 0px 5px 5px var(--text-light),
 			5px 0px 5px var(--text-light), 0px -5px 5px var(--text-light);
 	}
@@ -140,48 +161,23 @@ body {
 		padding: 2%;
 		min-height: 10rem;
 	}
-	main ul,
-	main ol {
-		cursor: pointer;
-	}
-	main h1 {
-		font-weight: bold;
-		font-size: 40px;
-		color: var(--primary-color);
-		text-shadow: 4px 4px 4px #aaa;
-	}
-	main h2 {
-		margin-bottom: 0;
-		font-weight: normal;
-		font-size: 30px;
-		color: var(--primary-color);
-		text-shadow: 4px 4px 4px #aaa;
-	}
-	/* main h3 {
-    text-shadow: 1px 1px 0px black;
-  } */
-	main img {
-		width: 100%;
-		margin-right: auto;
-		margin-left: auto;
-	}
-	main .floatswitch ul li {
+	.floatswitch ul li {
 		text-indent: 2rem;
 	}
-	main .herodiv {
+	.herodiv {
 		width: 100%;
 		padding: 0.5rem 2%;
 		margin-left: auto;
 		margin-right: auto;
 		position: relative;
 	}
-	main .herodiv figure {
+	.herodiv figure {
 		width: 100%;
 		padding: 0;
 		margin-left: auto;
 		margin-right: auto;
 	}
-	main .herodiv .actioncall {
+	.herodiv .actioncall {
 		position: absolute;
 		top: 2rem;
 		left: 2rem;
@@ -190,13 +186,13 @@ body {
 		padding: 0.2rem;
 		box-shadow: 0 0 30px var(--primary-color);
 	}
-	main .herodiv .actioncall h3 {
+	.herodiv .actioncall h3 {
 		margin: 0.5rem;
 	}
-	main .herodiv .actioncall p {
+	.herodiv .actioncall p {
 		margin: 0.2rem;
 	}
-	main .herodiv .actioncall button {
+	.herodiv .actioncall button {
 		border: none;
 		background-color: var(--primary-color);
 		color: black;
@@ -205,21 +201,21 @@ body {
 		width: 96%;
 		max-width: 20rem;
 	}
-	main .row {
+	.row {
 		display: block;
 		width: 100%;
 		margin-left: auto;
 		margin-right: auto;
 		padding: 0.2rem;
 	}
-	main .row section:nth-child(2) {
+	.row section:nth-child(2) {
 		margin-left: 2%;
 	}
-	main .row figure figcaption {
+	.row figure figcaption {
 		padding: 1%;
 		text-align: center;
 	}
-	main .files ul li {
+	.files ul li {
 		margin: 10px;
 	}
 
@@ -340,7 +336,7 @@ body {
 		border-color: var(--secondary-color);
 		color: var(--text-light);
 	}
-	main .friendly h2 {
+	main .friendly h3 {
 		color: var(--text-light);
 		text-shadow: -5px 0px 5px var(--secondary-color),
 			0px 5px 5px var(--secondary-color), 5px 0px 5px var(--secondary-color),
@@ -356,9 +352,9 @@ body {
 	main .locked {
 		background-color: rgb(128, 128, 128);
 	}
-	main .helpful h2,
-	main .unfriendly h2,
-	main .hostile h2 {
+	main .helpful h3,
+	main .unfriendly h3,
+	main .hostile h3 {
 		color: var(--text-light);
 		text-shadow: -5px 0px 5px var(--primary-color),
 			0px 5px 5px var(--primary-color), 5px 0px 5px var(--primary-color),
@@ -462,34 +458,34 @@ body {
 	}
 
 	/*----------- MAIN --------------*/
-	main img.tooTall {
+	img.tooTall {
 		/* This is a class for images that are too tall for the screen */
 		width: 48%;
 	}
-	main ul img,
-	main .row section,
-	main .row aside,
-	main .floatswitch section img,
-	main .floatswitch ul img {
+	ul img,
+	.row section,
+	.row aside,
+	.floatswitch section img,
+	.floatswitch ul img {
 		float: left;
 		width: 48%;
 		padding: 2%;
 		padding-top: 0;
 	}
-	main .row section {
+	.row section {
 		margin-left: 2%;
 	}
-	main ul img.tooTall,
-	main .row section img.tooTall,
-	main .floatswitch section img.tooTall,
-	main .floatswitch ul img.tooTall {
+	ul img.tooTall,
+	.row section img.tooTall,
+	.floatswitch section img.tooTall,
+	.floatswitch ul img.tooTall {
 		/* This is a class for images that are too tall for the screen */
 		width: 29%;
 	}
-	main .row section:nth-child(2n),
-	main .row aside:nth-child(2n),
-	main .floatswitch section:nth-child(2n) img,
-	main .floatswitch ul:nth-child(2n) img {
+	.row section:nth-child(2n),
+	.row aside:nth-child(2n),
+	.floatswitch section:nth-child(2n) img,
+	.floatswitch ul:nth-child(2n) img {
 		float: right;
 	}
 
