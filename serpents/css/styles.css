@@ -482,6 +482,7 @@ body {
 		/* This is a class for images that are too tall for the screen */
 		width: 29%;
 	}
+	ul img,
 	.row section:nth-child(2n),
 	.row aside:nth-child(2n),
 	.floatswitch section:nth-child(2n) img,

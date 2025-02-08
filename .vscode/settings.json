@@ -57,6 +57,7 @@
         "counterspelled",
         "Crinhouse",
         "Cyricas",
+        "Dahak",
         "Daress",
         "Dargan",
         "Daugustana",
@@ -155,6 +156,7 @@
         "Mindchemist",
         "Mindra",
         "Mooli",
+        "Mualijae",
         "Mulaa",
         "Mwangi",
         "Mzali",
@@ -210,6 +212,7 @@
         "Sinclaire",
         "Skinwalker",
         "skymetals",
+        "Sovyrian",
         "Spellslinger",
         "Spiresteel",
         "Strix",
@@ -269,6 +272,8 @@
     "cSpell.ignoreWords": [
         "Chiva",
         "Jagi",
+        "Nkobe",
+        "Tanin",
         "Toussaint"
     ]
 }
