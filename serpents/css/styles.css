@@ -1,12 +1,24 @@
 /* ----- Root Data ----- */
 :root {
 	--primary-color: #12674a;
-	/* --primary-color: #005633; */
 	--secondary-color: #dc8837;
 	--text-light: #fdefcd;
 	--npc-helpful: #5a7a9b;
+	--spirit-aura: #c1ffff;
 	--primary-font: "Amiri", Verdana, sans-serif;
 	--secondary-font: "Trade Winds", serif;
+	--text-shadow-basic: 4px 4px 4px #aaa;
+	--text-shadow-spirit: 1px 1px 0px var(--spirit-aura);
+	--text-shadow-spirit-black: 1px 1px 0px black;
+	--text-shadow-light: -5px 0px 5px var(--text-light),
+		0px 5px 5px var(--text-light), 5px 0px 5px var(--text-light),
+		0px -5px 5px var(--text-light);
+	--text-shadow-primary: -5px 0px 5px var(--primary-color),
+		0px 5px 5px var(--primary-color), 5px 0px 5px var(--primary-color),
+		0px -5px 5px var(--primary-color);
+	--text-shadow-secondary: -5px 0px 5px var(--secondary-color),
+		0px 5px 5px var(--secondary-color), 5px 0px 5px var(--secondary-color),
+		0px -5px 5px var(--secondary-color);
 	/* --secondary-font: "Cabin Sketch", serif; */
 }
 
@@ -44,7 +56,7 @@ h2,
 h3,
 figcaption {
 	color: var(--primary-color);
-	text-shadow: 4px 4px 4px #aaa;
+	text-shadow: var(--text-shadow-basic);
 	font-family: var(--secondary-font);
 }
 h1 {
@@ -62,6 +74,12 @@ strong {
 	font-weight: bold;
 	font-size: large;
 	font-style: oblique;
+}
+strong.spirit {
+	text-shadow: var(--text-shadow-spirit);
+}
+strong.spiritBlack {
+	text-shadow: var(--text-shadow-spirit-black);
 }
 img {
 	width: 100%;
@@ -103,8 +121,7 @@ img {
 	header h1,
 	header h2 {
 		margin: 0;
-		text-shadow: -5px 0px 5px var(--text-light), 0px 5px 5px var(--text-light),
-			5px 0px 5px var(--text-light), 0px -5px 5px var(--text-light);
+		text-shadow: var(--text-shadow-light);
 	}
 
 	/* ----- Accessibility skip-to-main-content ----- */
@@ -139,8 +156,7 @@ img {
 		text-decoration: none;
 		font-size: 20px;
 		text-align: center;
-		text-shadow: -5px 0px 5px var(--text-light), 0px 5px 5px var(--text-light),
-			5px 0px 5px var(--text-light), 0px -5px 5px var(--text-light);
+		text-shadow: var(--text-shadow-light);
 	}
 	nav ul li a:hover {
 		background-color: var(--text-light);
@@ -149,8 +165,7 @@ img {
 	nav ul li.active a {
 		background-color: var(--primary-color);
 		color: black;
-		text-shadow: -5px 0px 5px var(--text-light), 0px 5px 5px var(--text-light),
-			5px 0px 5px var(--text-light), 0px -5px 5px var(--text-light);
+		text-shadow: var(--text-shadow-light);
 	}
 
 	/*---------- MAIN ----------*/
@@ -366,9 +381,7 @@ img {
 	}
 	main .friendly h3 {
 		color: var(--text-light);
-		text-shadow: -5px 0px 5px var(--secondary-color),
-			0px 5px 5px var(--secondary-color), 5px 0px 5px var(--secondary-color),
-			0px -5px 5px var(--secondary-color);
+		text-shadow: var(--text-shadow-secondary);
 	}
 	main .unfriendly {
 		background-color: var(--secondary-color);
@@ -378,15 +391,13 @@ img {
 		color: var(--text-light);
 	}
 	main .locked {
-		background-color: rgb(128, 128, 128);
+		background-color: #aaa;
 	}
 	main .helpful h3,
 	main .unfriendly h3,
 	main .hostile h3 {
 		color: var(--text-light);
-		text-shadow: -5px 0px 5px var(--primary-color),
-			0px 5px 5px var(--primary-color), 5px 0px 5px var(--primary-color),
-			0px -5px 5px var(--primary-color);
+		text-shadow: var(--text-shadow-primary);
 	}
 
 	/*----- toggleClass sub-CSS -----*/
