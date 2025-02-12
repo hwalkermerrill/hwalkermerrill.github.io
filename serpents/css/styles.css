@@ -10,24 +10,31 @@
 	/* --secondary-font: "Cabin Sketch", serif; */
 }
 
-/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+/* Prevent adjustments of font size after orientation changes on mobile (iOS) and tablet (win) */
 html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 }
 
-/*----------- apply a natural box layout model to all elements --------------*/
+/*----- Apply a natural box layout model to all elements -----*/
 * {
 	box-sizing: border-box;
 }
 
-/*----------- BODY --------------*/
+/*---------- BODY ----------*/
 body {
 	font-size: 16px;
 	font-family: var(--primary-font);
 	min-width: 15rem;
 	margin: 0;
+	/*----- Background Img -----*/
+	background-image: url("/serpents/images/background-cover.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
 }
+/* This makes ul/li's appear clickable */
 ul,
 ol {
 	cursor: pointer;
@@ -61,18 +68,10 @@ img {
 	margin-right: auto;
 	margin-left: auto;
 }
-/*----------- Background Img --------------*/
-body {
-	background-image: url("/serpents/images/background-cover.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-}
 
 /* Mobile Screen Size - 15em is also 240px (if basefont is 16px) */
 @media only screen and (min-width: 15rem) {
-	/*----------- HEADER --------------*/
+	/*---------- HEADER ----------*/
 	header {
 		padding: 0.5rem 2%;
 		padding-left: 0;
@@ -108,7 +107,7 @@ body {
 			5px 0px 5px var(--text-light), 0px -5px 5px var(--text-light);
 	}
 
-	/* ----- Accessibility skip-to-main-content----- */
+	/* ----- Accessibility skip-to-main-content ----- */
 	.skip-to-content a {
 		position: absolute;
 		top: -40px;
@@ -120,7 +119,7 @@ body {
 		top: 0;
 	}
 
-	/*----------- NAVIGATION --------------*/
+	/*---------- NAVIGATION ----------*/
 	nav {
 		background-color: var(--secondary-color);
 	}
@@ -154,7 +153,7 @@ body {
 			5px 0px 5px var(--text-light), 0px -5px 5px var(--text-light);
 	}
 
-	/*----------- MAIN --------------*/
+	/*---------- MAIN ----------*/
 	main {
 		padding: 2%;
 		min-height: 10rem;
@@ -217,7 +216,7 @@ body {
 		margin: 10px;
 	}
 
-	/*----------- Slideshow --------------*/
+	/*----- Slideshow -----*/
 	#slideshow:after {
 		content: "";
 		display: table;
@@ -229,7 +228,7 @@ body {
 		margin: 0 -100% 0 0;
 	}
 
-	/*----------- Flexwrap Classes --------------*/
+	/*----- Flexwrap Classes -----*/
 	/* This manages floating img boxes, which can be clicked to view further data */
 	main .asset,
 	main .gallery {
@@ -311,9 +310,9 @@ body {
 		cursor: crosshair;
 	}
 
-	/*----------- Multi Image --------------*/
-	/* This allows you to set two images for a single object, with the first image always visible,
-	and the second image fading out on hover. */
+	/*----- Multi Image -----*/
+	/* This allows you to set two images for a single object,
+	The first image fades into second image on hover */
 	figure.multiImage {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -356,7 +355,7 @@ body {
 		padding-top: 150%; /* 3/2 aspect ratio (3/2 * 100%) */
 	}
 
-	/*----------- Attitude Colors --------------*/
+	/*----- Attitude Colors -----*/
 	main .helpful {
 		background-color: var(--npc-helpful);
 	}
@@ -390,7 +389,7 @@ body {
 			0px -5px 5px var(--primary-color);
 	}
 
-	/*---START toggleClass sub-CSS---*/
+	/*----- toggleClass sub-CSS -----*/
 	main .asset p,
 	main .asset ul {
 		display: none;
@@ -401,8 +400,7 @@ body {
 		display: block;
 	}
 
-	/*---END toggleClass sub-CSS---*/
-	/*----------- #GLASS --------------*/
+	/*----- #GLASS -----*/
 	#glass {
 		position: absolute;
 		border-radius: 50%;
@@ -413,22 +411,22 @@ body {
 		background-color: rgba(0, 0, 0, 0.6);
 	}
 
-	/*------- #returnTopBtn -----------*/
+	/*----- #returnTopBtn -----*/
 	#returnTopBtn {
 		display: none; /* Hidden by default */
-		position: fixed; /* Fixed/sticky position */
+		position: fixed;
 		bottom: 3em; /* Place the button at the bottom of the page */
 		left: 50%;
-		margin-left: -57px; /* Center the button */
-		z-index: 99; /* Make sure it does not overlap */
+		margin-left: -57px;
+		z-index: 99; /* Button appears on top */
 		border-style: ridge;
 		border-color: var(--primary-color);
 		border-width: 6px;
 		background-color: var(--secondary-color);
 		color: var(--primary-color);
 		cursor: pointer; /* Add a mouse pointer on hover */
-		padding: 5px; /* Some padding */
-		border-radius: 10px; /* Rounded corners */
+		padding: 5px;
+		border-radius: 10px;
 		font-size: 18px; /* Increase font size */
 	}
 	#returnTopBtn:hover {
@@ -437,7 +435,7 @@ body {
 		transform: scale(1.05);
 	}
 
-	/*----------- FOOTER --------------*/
+	/*---------- FOOTER ----------*/
 	footer {
 		/* background-color: var(--secondary-color); */
 		color: var(--primary-color);
@@ -446,11 +444,11 @@ body {
 		clear: both;
 	}
 }
-/* ------- Responsive @media Screen Sizes ------- */
+/* ---------- Responsive @media Screen Sizes ---------- */
 /* Tablet Screen Size - 45em is also 720px (if basefont is 16px) */
 @media only screen and (min-width: 45rem) {
-	/*----------- BODY --------------*/
-	/*----------- HEADER --------------*/
+	/*---------- BODY ----------*/
+	/*---------- HEADER ----------*/
 	header button {
 		display: none;
 	}
@@ -467,7 +465,7 @@ body {
 		display: block;
 	}
 
-	/*----------- NAVIGATION --------------*/
+	/*---------- NAVIGATION ----------*/
 	nav ul.hide {
 		display: block;
 	}
@@ -486,7 +484,7 @@ body {
 		padding: 0.8rem 1rem;
 	}
 
-	/*----------- MAIN --------------*/
+	/*---------- MAIN ----------*/
 	img.tooTall {
 		/* This is a class for images that are too tall for the screen */
 		width: 48%;
@@ -519,7 +517,7 @@ body {
 		float: right;
 	}
 
-	/*----------- Flexwrap Classes --------------*/
+	/*---------- Flexwrap Classes ----------*/
 	main .gallery,
 	main .asset {
 		justify-content: center;
@@ -529,22 +527,22 @@ body {
 		flex-basis: 46%;
 	}
 
-	/*----------- FOOTER --------------*/
+	/*---------- FOOTER ----------*/
 }
 
 /* Computer Screen Size - 64em is also 1028px (if basefont is 16px) */
 @media only screen and (min-width: 64rem) {
-	/*----------- BODY --------------*/
-	/*----------- HEADER --------------*/
-	/*----------- NAVIGATION --------------*/
-	/*----------- MAIN --------------*/
-	/*----------- Flexwrap Classes --------------*/
+	/*---------- BODY ----------*/
+	/*---------- HEADER ----------*/
+	/*---------- NAVIGATION ----------*/
+	/*---------- MAIN ----------*/
+	/*---------- Flexwrap Classes ----------*/
 	main .asset section,
 	main .gallery figure {
 		flex-basis: 29%;
 	}
 
-	/*----------- FOOTER --------------*/
+	/*---------- FOOTER ----------*/
 }
 
 /* Computer Widescreen Size - 90rem is also 1440px (if basefont is 16px) */
@@ -558,18 +556,10 @@ body {
 		max-width: 90rem;
 		margin: auto;
 	}
-
-	/*----------- BODY --------------*/
-	/*----------- HEADER --------------*/
-	/*----------- NAVIGATION --------------*/
-	/*----------- MAIN --------------*/
-	/*----------- Flexwrap Classes --------------*/
 	main .asset section,
 	main .gallery figure {
 		flex-basis: 21%;
 	}
-
-	/*----------- FOOTER --------------*/
 }
 
 /*----- Clearfix: Force an Element not to collapse -----*/
