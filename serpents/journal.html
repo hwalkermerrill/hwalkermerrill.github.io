@@ -78,7 +78,11 @@
 		<div class="row" onclick="viewHandler(event)">
 			<aside>
 				<figure>
-					<img class="pointer" src="/serpents/images/hero-mwangi-campaigns.jpg" alt="Race to Ruin!">
+					<picture>
+						<source srcset="/serpents/images/hero-mwangi-campaigns.webp" type="image/webp">
+						<img class="pointer" src="/serpents/images/unknown.png"
+							alt="Attacked by Headhunters while on a Jungle Cruise">
+					</picture>
 					<figcaption>
 						<strong>We're headed into headhunter territory, which is a terrible place to be... headed.</strong>
 					</figcaption>
@@ -99,12 +103,15 @@
 		<button onclick="topFunction()" id="returnTopBtn" title="Go to top">Return to Top</button>
 		<!-- RETURN TO TOP BUTTON -->
 		<div class="clearfix"></div>
-		<div class="floatswitch">
+		<div class="floatswitch" onclick="viewHandler(event)">
 			<section>
 				<h2>Leader Details: Earl Ortho Vibius</h2>
 			</section> <!--This section otherwise blank for spacing-->
 			<section>
-				<img src="/serpents/images/icon-ortho-vibius.png" alt="Earl Vibius">
+				<picture>
+					<source srcset="/serpents/images/icon-ortho-vibius.webp" type="image/webp">
+					<img class="pointer" src="/serpents/images/unknown.png" alt="Faction Leader Iconic Profile">
+				</picture>
 				<h3>Appearance</h3>
 				<p>Middle aged and mildly foppish, His Honorable Lordship Vibius is a confirmed bachelor of both
 					wealth and station. At all times, he is dressed impeccably and acts with decorum, though he imperiously eyes
@@ -172,33 +179,42 @@
 		<!-- <div class="floatswitch">
       <h2>Relic Histories and Heroic Biographies</h2>
     </div> -->
-		<div class="floatswitch">
+		<!-- Edit: Add discovered documents/ rubbings -->
+		<!-- <div class="floatswitch">
 			<h2>Recovered Documents</h2>
 			<p>You haven't found anything yet. But don't worry, you'll make that perception check -eventually-</p>
-		</div>
+		</div> -->
 		<h2>Session Logs</h2>
 		<div class="floatswitch">
 			<h3>Book 1 - Souls for Smuggler's Shive</h3>
 			<!-- Edit: Add journal entries! -->
-			<!-- <ul class="toggleLiVis" style="list-style-type: none;"><b>Session ?? - *</b>
-          <li style="display: none;"><img src="/serpents/images/*" alt="*" loading="lazy"></li>
-          <li style="display: none;"></li>
-          <li style="display: none;"></li>
-          <li style="display: none;"></li>
-          <li style="display: none;"></li>
-          <li style="display: none;"></li>
-          <li style="display: none;"></li>
-          <li style="display: none;"></li>
-          <li style="list-style-type: none; display: none;"><b>Click to close this chapter...</b></li>
-          <li class="clearfix" style="list-style-type: none; display: none;"></li>
-        </ul> -->
+			<!-- <ul class="toggleLiVis" style="list-style-type: none;">
+				<li style="list-style-type: none;"><b>Click to Read Chapter * - </b></li>
+				<li style="list-style-type: none; display: none"><b><i>Chapter 8 - </i></b></li>
+				<li style="display: none;">
+					<picture>
+						<source srcset="/serpents/images/*.webp" type="image/webp">
+						<img class="pointer" src="/serpents/images/unknown.png" alt="Placeholder" loading="lazy">
+					</picture>
+				</li>
+				<li style="display: none;"></li>
+				<li style="display: none;"></li>
+				<li style="display: none;"></li>
+				<li style="display: none;"></li>
+				<li style="display: none;"></li>
+				<li style="display: none;"></li>
+				<li style="list-style-type: none; display: none;"><b>Click to close this chapter...</b></li>
+				<li class="clearfix" style="list-style-type: none; display: none;"></li>
+			</ul> -->
 			<ul class="toggleLiVis" style="list-style-type: none;">
 				<li style="list-style-type: none;"><b>Click to Read Chapter 08 - The Red Mountain</b></li>
 				<li style="list-style-type: none; display: none"><b><i>Chapter 08 - The Red Mountain</i></b></li>
-				<li style="display: none;"><img src="/serpents/images/monster-red-mountain-devil.jpg" alt="Red Mountain Devil"
-						loading="lazy">
-				</li>
-				<li style="display: none;">With the blessings of the spirit of the hill, the survivors of the <i>Jenivere</i>
+				<li style="display: none;">
+					<picture>
+						<source srcset="/serpents/images/monster-red-mountain-devil.webp" type="image/webp">
+						<img class="pointer" src="/serpents/images/unknown.png" alt="Red Mountain Devil" loading="lazy">
+					</picture>
+					With the blessings of the spirit of the hill, the survivors of the <i>Jenivere</i>
 					attempted to ambush a cannibal checkpoint. While a few of them were able to maintain a stealthy approach, a
 					few of them was spotted before the attack could begin, and a number of cannibals emerged from their defenses
 					to attack while others threw javelins from atop their crude towers. While they engaged the violent
@@ -206,7 +222,8 @@
 					juju magics, making the survivors’ attacks miss while she cackled at their failures. Though one of the
 					cannibals may have also been affected by her juju, as when he went to throw his javelin at the survivors, he
 					tripped and fell horrifically to the ground and impaled his head on his own javelin, leaving behind another
-					decorative skull on a pike.</li>
+					decorative skull on a pike.
+				</li>
 				<li style="display: none;">While most of the survivors quickly broke from stealth and engaged fiercely, Loric
 					was able to sneak around the cannibal's defenses and flank the scarred witch, injuring her fiercely before
 					suffering from a powerful hex, an opening Avarice was able to exploit to finally kill her. As the other
@@ -260,12 +277,16 @@
 			<ul class="toggleLiVis" style="list-style-type: none;">
 				<li style="list-style-type: none;"><b>Click to Read Chapter 07 - The Silent Gray Island</b></li>
 				<li style="list-style-type: none; display: none"><b><i>Chapter 07 - The Silent Gray Island</i></b></li>
-				<li style="display: none;"><img src="/serpents/images/monster-vegepygmy-boss.jpg" alt="Vegepygmy"
-						loading="lazy"></li>
-				<li style="display: none;">Setting out straight away for the gray island, they moved everyone to the temporary
+				<li style="display: none;">
+					<picture>
+						<source srcset="/serpents/images/monster-vegepygmy-boss.webp" type="image/webp">
+						<img class="pointer" src="/serpents/images/unknown.png" alt="Vegepygmy" loading="lazy">
+					</picture>
+					Setting out straight away for the gray island, they moved everyone to the temporary
 					shelter they built atop the tidal locked mesa and peered out at the fungus-covered island. Fearing infection
 					and disease, they took the precaution of each eating a handful of viper nettle berries, a decision that
-					undoubtedly saved their lives.</li>
+					undoubtedly saved their lives.
+				</li>
 				<li style="display: none;">Avarice was the first to become infected, becoming a carrier of the gray fungus and
 					they quickly began to grow out of his ears and along his throat. As they ventured into the island, they
 					encountered silent and deadly vegepygmies with sharp spears that tried to infect the party with the island’s
@@ -307,17 +328,20 @@
 			<ul class="toggleLiVis" style="list-style-type: none;">
 				<li style="list-style-type: none;"><b>Click to Read Chapter 06 - The Money Pit</b></li>
 				<li style="list-style-type: none; display: none"><b><i>Chapter 06 - The Money Pit</i></b></li>
-				<li style="display: none;"><img src="/serpents/images/monster-red-mountain-devil.jpg" alt="Red Mountain Devil"
-						loading="lazy">
-				</li>
-				<li style="display: none;">Resting up after their various excursions, Ishirou revealed that he had the odd
+				<li style="display: none;">
+					<picture>
+						<source srcset="/serpents/images/monster-red-mountain-devil.webp" type="image/webp">
+						<img class="pointer" src="/serpents/images/unknown.png" alt="Red Mountain Devil" loading="lazy">
+					</picture>
+					Resting up after their various excursions, Ishirou revealed that he had the odd
 					habit of collecting treasure maps – regardless of their apparent authenticity – one of which supposedly
 					pointed to a treasure here on <i>Smuggler’s Shiv.</i> The map pointed to the strangely barren hill they
 					visited before, so the group set out with tools for digging. After excavating a 10-foot hole in the barren
 					earth, they uncovered the body of a man who had been stabbed in the back, lying atop a strange wooden
 					platform. Deciding not to dig straight through it, they excavated the edges until they had uncovered the
 					entire 10-foot diameter platform, as well as a place to stand alongside it. Breaking through the wood, they
-					uncovered a buried cenote, with a small piece of land surrounded by water at the bottom. </li>
+					uncovered a buried cenote, with a small piece of land surrounded by water at the bottom.
+				</li>
 				<li style="display: none;">They descended into the cenote (with varying amounts of caution) and fought some
 					lacedons that had been sealed inside the chamber. Diving beneath the water, Ivy found a passage beneath the
 					small parcel of land, which held a large watertight chest just above the waterline. They took it back to
@@ -341,13 +365,17 @@
 			<ul class="toggleLiVis" style="list-style-type: none;">
 				<li style="list-style-type: none;"><b>Click to Read Chapter 05 - Poor Pezock</b></li>
 				<li style="list-style-type: none; display: none"><b><i>Chapter 05 - Poor Pezock</i></b></li>
-				<li style="display: none;"><img src="/serpents/images/place-pezocks-crab.jpg" alt="Poor Pezock" loading="lazy">
-				</li>
-				<li style="display: none;">The survivors began their day with a visit to the shore, having spotted several
+				<li style="display: none;">
+					<picture>
+						<source srcset="/serpents/images/place-pezocks-crab.webp" type="image/webp">
+						<img class="pointer" src="/serpents/images/unknown.png" alt="Castaway Crab Home" loading="lazy">
+					</picture>
+					The survivors began their day with a visit to the shore, having spotted several
 					bodies floating in the water – the drowned sailors of ships caught in the typhoon. Finding no survivors,
 					they searched the dead, recovering some heavy armor and a trident, both of whom seemed hauntingly inscribed
 					with the words “Down and Drowned and Never Found.” They also had their first encounter with the island’s
-					dangerous shocker lizards, an encounter that nearly took the lives of several of them.</li>
+					dangerous shocker lizards, an encounter that nearly took the lives of several of them.
+				</li>
 				<li style="display: none;">Debating the dangers ahead, they pressed on toward the mysterious cabin on the hill
 					and explored it carefully. The cabin had signs of being frequently visited, and the exterior was decorated
 					with human skulls, but the inside had obviously not been touched in a long time. Searching the home, they
@@ -385,10 +413,12 @@
 			<ul class="toggleLiVis" style="list-style-type: none;">
 				<li style="list-style-type: none;"><b>Click to Read Chapter 04 - Typhoon</b></li>
 				<li style="list-style-type: none; display: none"><b><i>Chapter 04 - Typhoon</i></b></li>
-				<li style="display: none;"><img src="/serpents/images/monster-captain-kinkarion.png" alt="Captain Kinkarian"
-						loading="lazy">
-				</li>
-				<li style="display: none;">Moving their campsite meant they could explore more of the island. They started by
+				<li style="display: none;">
+					<picture>
+						<source srcset="/serpents/images/monster-captain-kinkarion.webp" type="image/webp">
+						<img class="pointer" src="/serpents/images/unknown.png" alt="Ghost Captain Kinkarian" loading="lazy">
+					</picture>
+					Moving their campsite meant they could explore more of the island. They started by
 					exploring the shipwrecked <i>Brine Deamon</i>; the ship was over 150 feet long, flew a tattered pirate’s
 					flag, and had a figurehead matching its name. Climbing aboard, they forced their way into the captain's
 					cabin and found the captain’s skeleton, slumped in his chair at his desk, clutching something in its hand.
@@ -429,9 +459,12 @@
 			<ul class="toggleLiVis" style="list-style-type: none;">
 				<li style="list-style-type: none;"><b>Click to Read Chapter 03 - Getting to Know Each Other</b></li>
 				<li style="list-style-type: none; display: none"><b><i>Chapter 03 - Getting to Know Each Other</i></b></li>
-				<li style="display: none;"><img src="/serpents/images/loot-exansanguinated-goat.jpg" alt="Goat on Fire"
-						loading="lazy"></li>
-				<li style="display: none;">The survivors of the <i>Jenivere</i> spent the next several days slowly exploring
+				<li style="display: none;">
+					<picture>
+						<source srcset="/serpents/images/loot-exsanguinated-goat.webp" type="image/webp">
+						<img class="pointer" src="/serpents/images/unknown.png" alt="Goat in the Fire Pit" loading="lazy">
+					</picture>
+					The survivors of the <i>Jenivere</i> spent the next several days slowly exploring
 					and securing the area around their campsite. They explored wrecks that had smashed along the island's outer
 					coast, found and eliminated nests of hostile creatures, and spent time getting to know their companions.
 					While their nights were sometimes fitful (indeed, Gelik experienced frequent night terrors), they began to
@@ -439,7 +472,8 @@
 					camp and within the surrounding jungle. As their companions opened up one after another, they discovered new
 					ways they could try to help each other: Aerys wanted help dealing with her withdrawals and alcoholism, Gelik
 					wanted to find the wreckage of the <i>Nightvoice</i>, Jask wanted to try to clear his name, and Sasha wanted
-					some baby poisonous creatures to raise.</li>
+					some baby poisonous creatures to raise.
+				</li>
 				<li style="display: none;">After they had been on the island for a week, their routine was disturbed by the
 					exsanguinated body of a goat falling from the sky into their campfire, dropped by a giant, winged
 					chupacabra. Many of the survivors panicked and quickly put out the spreading fire, realizing the dangers
@@ -459,16 +493,20 @@
 			<ul class="toggleLiVis" style="list-style-type: none;">
 				<li style="list-style-type: none;"><b>Click to Read Chapter 02 - The Wreck of the <i>Jenivere</i></b></li>
 				<li style="list-style-type: none; display: none"><b><i>Chapter 02 - The Wreck of the Jenivere</i></b></li>
-				<li style="display: none;"><img src="/serpents/images/monster-dimorphodon.jpg" alt="Dimorphodon" loading="lazy">
-				</li>
-				<li style="display: none;">The survivors had reached the wreckage of the <i>Jenivere</i>, precariously wedged
+				<li style="display: none;">
+					<picture>
+						<source srcset="/serpents/images/monster-dimorphodon.webp" type="image/webp">
+						<img class="pointer" src="/serpents/images/unknown.png" alt="Flying Dimorphodon" loading="lazy">
+					</picture>
+					The survivors had reached the wreckage of the <i>Jenivere</i>, precariously wedged
 					on the rocks in the low tide. They noted how the water line was below their knees, but likely wouldn’t
 					remain so low once the tide came in. They used a rope and a grappling hook to easily scale the large rock
 					the ship was wrecked on and rappel safely down onto the top deck, where the full scale of the disaster
 					became apparent – the entire lower deck of the ship and its hull were shorn off, as was the prow, leaving
 					only the rear and upper half of the <i>Jenivere</i> intact. They also found the remains of the ship’s only
 					longboat, tied up to the side of the ship and smashed to bits, evidence that someone used it to return to
-					the wreckage before the tide went out.</li>
+					the wreckage before the tide went out.
+				</li>
 				<li style="display: none;">Searching the wreckage, they started in the captain’s cabin. A large hole in the
 					side of the ship allowed most of its contents to spill out to sea, but a large desk was wedged in the hole,
 					keeping it and a footlocker from stumbling out. They recovered the footlocker, some supplies, sea charts,
@@ -501,27 +539,22 @@
 					crew. With soup spoons in their hands, the captain ordered them to bail the ship out with their spoons.
 				</li>
 				<li style="display: none;">The next day, leaving a few of the survivors behind at the camp, a scouting party
-					set
-					out to explore the beach to the west, planning to walk the coastline before walking back to the camp. They
+					set out to explore the beach to the west, planning to walk the coastline before walking back to the camp. They
 					found the wreck of another ship, the <i>Tattooed Lady</i>, which had enough supplies aboard to build another
 					campsite – a grim sign regarding the fate of the crew – but nothing else of value. They attempted to mark
-					its
-					location before continuing their journey, where they spotted an odd grey island covered in fungal stalks
+					its location before continuing their journey, where they spotted an odd grey island covered in fungal stalks
 					across the cove. As they worked their way around the point, they were attacked by several groups of
 					dimorphodon’s as they cleared out their nests, with each member of the group taking injuries and several
 					struggling with the effects of the dimorphodon’s poison. Returning with eggs for food, they made their way
 					back to camp, only for several monkeys to steal and smash some of their recovered food stores. Astra had
-					spent
-					the day working with Jask and communicating slowly. As he opened up, he disclosed that he was from Sargava,
-					and he had reported some corruption he uncovered regarding some civil servants and the Free Pirates of the
-					Shackles. To his horror, his supervisor accused him of the crimes he had exposed, and he fled to Cheliax
-					where
-					he’d been in hiding for a few years before he was caught by a Sargavan official and extradited for trial. He
-					wondered aloud if the wreckage of a ship known as <i>The Brine Demon</i> could be found here on
-					<i>Smuggler’s
-						Shiv</i>, as it reportedly wrecked on this island. It would be a long shot, but the captain of that ship,
-					Avret Kinkarian, was one of the Free Pirates his supervisor associated with, and if he kept any records
-					aboard, it might be sufficient to prove his innocence.
+					spent the day working with Jask and communicating slowly. As he opened up, he disclosed that he was from
+					Sargava, and he had reported some corruption he uncovered regarding some civil servants and the Free Pirates
+					of the Shackles. To his horror, his supervisor accused him of the crimes he had exposed, and he fled to
+					Cheliax where he’d been in hiding for a few years before he was caught by a Sargavan official and extradited
+					for trial. He wondered aloud if the wreckage of a ship known as <i>The Brine Demon</i> could be found here on
+					<i>Smuggler’s Shiv</i>, as it reportedly wrecked on this island. It would be a long shot, but the captain of
+					that ship, Avret Kinkarian, was one of the Free Pirates his supervisor associated with, and if he kept any
+					records aboard, it might be sufficient to prove his innocence.
 				</li>
 				<li style="list-style-type: none; display: none;"><b>Click to close this chapter...</b></li>
 				<li class="clearfix" style="list-style-type: none; display: none;"></li>
@@ -529,9 +562,12 @@
 			<ul class="toggleLiVis" style="list-style-type: none;">
 				<li style="list-style-type: none;"><b>Click to Read Chapter 01 - Washed Ashore</b></li>
 				<li style="list-style-type: none; display: none"><b><i>Chapter 01 - Washed Ashore</i></b></li>
-				<li style="display: none;"><img src="/serpents/images/hero-souls-for-smugglers-shiv.jpg"
-						alt="Attacked on the Beach" loading="lazy"></li>
-				<li style="display: none;">After over 100 days at sea, the <i>Jenivere</i> had taken on more than a few
+				<li style="display: none;">
+					<picture>
+						<source srcset="/serpents/images/hero-souls-for-smugglers-shiv.webp" type="image/webp">
+						<img class="pointer" src="/serpents/images/unknown.png" alt="Castaways on Smuggler's Shiv" loading="lazy">
+					</picture>
+					After over 100 days at sea, the <i>Jenivere</i> had taken on more than a few
 					passengers to Eleder, the capital city of Sargava within the fabled Mwangi Expanse. The <i>Jenivere</i> is a
 					large Wyvern-class merchant ship, a blue-water vessel making the same voyage it has made dozens of times
 					before. The trip was exotic, sailing around the endless hurricane of the Eye of Abendego and through the

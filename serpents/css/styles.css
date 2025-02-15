@@ -285,6 +285,7 @@ img {
 	/*----- Multi Image -----*/
 	/* This allows you to set two images for a single object,
 	The first image fades into second image on hover */
+	figure.multiImage picture,
 	figure.multiImage {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -294,6 +295,7 @@ img {
 		justify-content: center;
 		align-items: center;
 	}
+	figure.multiImage picture,
 	figure.multiImage img {
 		grid-column: 1 / -1;
 		grid-row: 1 / -1;
@@ -311,7 +313,7 @@ img {
 		opacity: 1;
 	}
 
-	/* This figure.two-three class forces the img inside to be at 2:3 aspect ratio */
+	/* This .two-three class forces the img inside to be at 2:3 aspect ratio */
 	figure.two-three {
 		display: flex;
 		justify-content: center;

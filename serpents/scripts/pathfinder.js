@@ -148,8 +148,23 @@ function viewHandler(event) {
 	// 2. If statement allows the function to work on figures with embedded imgs
 	if (clickedElement.tagName.toLowerCase() === 'img') {
 		// 3. Get the attribute's from the img element
-		let src = clickedElement.getAttribute('src');
-		let alt = clickedElement.getAttribute('alt');
+		let src, alt;
+		// Check if the clickedElement is an image within a picture element
+		if (clickedElement.parentElement.tagName.toLowerCase() === 'picture') {
+			let pictureElement = clickedElement.parentElement;
+			let sourceElement = pictureElement.querySelector('source');
+
+			// If the source element exists and has a srcset attribute, use it
+			if (sourceElement && sourceElement.hasAttribute('srcset')) {
+				src = sourceElement.getAttribute('srcset');
+			} else {
+				src = clickedElement.getAttribute('src');
+			}
+			// Otherwise, use clickedElement's src attribute 
+		} else {
+			src = clickedElement.getAttribute('src');
+		}
+		alt = clickedElement.getAttribute('alt');
 
 		// 4. USe the below to alter the path of the src, if needed
 		// let srcParts = ogSrc.split('-');
