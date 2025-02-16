@@ -90,8 +90,8 @@
 				<picture>
 					<!-- <source srcset="/serpents/images/map-smugglers-shiv.webp" type="image/webp"> -->
 					<!-- <source srcset="/serpents/images/map-sargava.webp" type="image/webp"> -->
-					<source srcset="/serpents/images/map-mwangi-unmarked.webp" type="image/webp">
-					<img class="crosshair" src="/serpents/images/unknown.png" alt="Area Map with Current Location">
+					<source srcset="/serpents/images/map-mwangi-redacted.webp" type="image/webp">
+					<img class="light-zoom" src="/serpents/images/unknown.png" alt="Area Map with Current Location">
 				</picture>
 				<figcaption><strong>Map of Colonial Sargava</strong></figcaption>
 			</figure>
@@ -106,7 +106,7 @@
 			<!-- Edit: Add trail to map? -->
 			<figure>
 				<picture>
-					<source srcset="/serpents/images/map-mwangi-unmarked.webp" type="image/webp">
+					<source srcset="/serpents/images/map-mwangi-redacted.webp" type="image/webp">
 					<img src="/serpents/images/unknown.png" alt="Map Data">
 				</picture>
 				<!-- <img src="/serpents/images/map-mwangi-unmarked.jpg" alt="Mwangi Expanse"> -->
@@ -114,7 +114,7 @@
 			</figure>
 			<figure>
 				<picture>
-					<source srcset="/serpents/images/map-smugglers-shiv.webp" type="image/webp">
+					<source srcset="/serpents/images/map-smugglers-shiv-big.webp" type="image/webp">
 					<img src="/serpents/images/unknown.png" alt="Map Data">
 				</picture>
 				<figcaption>Map of Smuggler's Shiv</figcaption>
@@ -133,7 +133,13 @@
 				</picture>
 				<figcaption>Map of Eleder</figcaption>
 			</figure>
-			<!-- Edit: add maps of Kalabuto and Expedition -->
+			<!-- <figure>
+				<picture>
+					<source srcset="/serpents/images/map-kalabuto.webp" type="image/webp">
+					<img src="/serpents/images/unknown.png" alt="Map Data">
+				</picture>
+				<figcaption>Map of Kalabuto</figcaption>
+			</figure> -->
 		</div>
 		<div class="clearfix"></div>
 		<div class="floatswitch" onclick="viewHandler(event)">
@@ -164,7 +170,7 @@
 			<section class="clearfix">
 				<h2>Destination: Ruins of Tazion</h2>
 				<picture>
-					<source srcset="/serpents/images/map-ruins-tazion.webp" type="image/webp">
+					<source srcset="/serpents/images/hero-tazion.webp" type="image/webp">
 					<img class="pointer" src="/serpents/images/unknown.png" alt="Ruins of Tazion" loading="lazy">
 				</picture>
 				<p> The ruins of Tazion stand as a remnant of a forgotten age, an outpost of ancient Azlant lost in the southern
@@ -380,14 +386,20 @@
 
 	<!-- SCRIPT HERE -->
 	<script>$(window).on("load", clickLoad('section'))</script>
-	<!-- <script>
+	<script>
 		$(window).on("load", function () {
 			$('img.light-zoom').lightzoom({
-				zoomPower: 3,    //Default
-				glassSize: 270,  //Default
+				zoomPower: 3,    //Default = 3
+				glassSize: 270,  //Default = 270
 			});
+
+			console.log('Lightzoom initialized'); // Added for debugging
 		});
-	</script> -->
+
+		$(document).ready(function () {
+			console.log('Document is ready'); // Added for debugging
+		});
+	</script>
 
 </body>
 

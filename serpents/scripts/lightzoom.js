@@ -1,68 +1,96 @@
 /*
- Author: Jafar Akhondali
- Release year: 2016
- Title:	Light-Zoom JQuery plugin that use pure css to zoom on images, this enables you to zoom without loading bigger image and zoom even on gif images !
+ Author: Original - Jafar Akhondali; Edited By - Harrison Merrill
+ Release year: 2016; Modernized 2025
+ Title:	Light-Zoom JQuery plugin that use pure css to zoom on images, this enables
+ you to zoom without loading bigger image and zoom even on gif images!
  https://github.com/JafarAkhondali/lightzoom
  */
-$.fn.lightzoom = function(options) {
+(function ($) {
+	const debounce = (func, delay) => {
+		let timeout;
+		return (...args) => {
+			clearTimeout(timeout);
+			timeout = setTimeout(() => func(...args), delay);
+		};
+	};
 
-    var settings = $.extend({
-        zoomPower   : 3,
-        glassSize   : 175,
-    }, options);
+	$.fn.lightzoom = function (options) {
+		console.log('Initializing lightzoom'); // Added for debugging
 
-    var halfSize= settings.glassSize /2;
-    var quarterSize = settings.glassSize/4;
+		const settings = $.extend({
+			zoomPower: 3,
+			glassSize: 175,
+		}, options);
 
-    var zoomPower = settings.zoomPower;
+		const halfSize = settings.glassSize / 2;
+		const quarterSize = settings.glassSize / 4;
+		const zoomPower = settings.zoomPower;
 
-    $("body").append('<div id="glass"></div>');
-    $('html > head').append($('<style> #glass{width: '+settings.glassSize+'px; height: '+settings.glassSize+'px;}</style>'));
+		$('body').append('<div id="glass"><div id="crosshair"></div></div>');
 
+		let faker;
+		const obj = this;
 
-    var faker;
-    var obj=this;
+		const glass = document.getElementById('glass');
+		let animationFrameId;
 
-    $("#glass").mousemove(function(event) {
-        var obj=this.targ;
-        event.target=obj;
-        faker(event,obj);
-    });
+		const debouncedFaker = debounce((event, obj) => faker(event, obj), 10);
 
-    this.mousemove(function(event) {
-        faker(event,this);
-    });
-    faker=function(event,obj) {
-        //console.log(obj);
-        document.getElementById('glass').targ=obj;
-        var mx = event.pageX;
-        var my = event.pageY;
-        var bounding = obj.getBoundingClientRect();
-        var w = bounding.width;
-        var h = bounding.height;
-        var objOffset  = $(obj).offset();         
-        var ol = objOffset.left;
-        var ot = objOffset.top;
-        if(mx > ol &&  mx < ol + w  && ot < my  &&  ot+h > my ) {
-            offsetXfixer = ((mx-ol - w/2)/(w/2))*quarterSize;
-            offsetYfixer = ((my-ot - h/2)/(h/2))*quarterSize;
-            var cx = (((mx - ol + offsetXfixer ) / w)) * 100;
-            var cy = (((my - ot + offsetYfixer ) / h)) * 100;
-            my -= halfSize;
-            mx -= halfSize;
-            $("#glass").css({
-                "top": (my),
-                "left": (mx),
-                "background-image" : " url('" + obj.src + "')",
-                "background-size" : (w * zoomPower) + "px " + (h * zoomPower) + "px",
-                "background-position": cx + "% " + cy + "%",
-                "display" : "inline-block"
-            });
-            $("body").css("cursor","none");
-        }else {
-            $("#glass").css("display", "none");
-            $("body").css("cursor","default");
-        }
-    };
-    return this;
-};
+		glass.addEventListener('mousemove', event => {
+			console.log('Mouse moved over glass element', event); // Added for debugging
+			const targetObj = glass.targ;
+			event.target = targetObj;
+			debouncedFaker(event, targetObj);
+		});
+
+		obj.on('mousemove', event => {
+			console.log('Mouse moved over img element', event); // Added for debugging
+			debouncedFaker(event, obj[0]);
+		});
+
+		faker = (event, obj) => {
+			console.log('Faker function called', event, obj); // Added for debugging
+			glass.targ = obj;
+			const mx = event.pageX;
+			const my = event.pageY;
+			const bounding = obj.getBoundingClientRect();
+			const w = bounding.width;
+			const h = bounding.height;
+			const { left: ol, top: ot } = $(obj).offset();
+
+			let src = obj.src;
+			if (obj.parentElement.tagName.toLowerCase() === 'picture') {
+				const sourceElement = obj.parentElement.querySelector('source');
+				if (sourceElement && sourceElement.hasAttribute('srcset')) {
+					src = sourceElement.getAttribute('srcset');
+				}
+			}
+
+			if (mx > ol && mx < ol + w && ot < my && ot + h > my) {
+				const offsetXfixer = ((mx - ol - w / 2) / (w / 2)) * quarterSize;
+				const offsetYfixer = ((my - ot - h / 2) / (h / 2)) * quarterSize;
+				const cx = (((mx - ol + offsetXfixer) / w)) * 100;
+				const cy = (((my - ot + offsetYfixer) / h)) * 100;
+				const newMy = my - halfSize;
+				const newMx = mx - halfSize;
+
+				// Use requestAnimationFrame for smoother updates
+				cancelAnimationFrame(animationFrameId);
+				animationFrameId = requestAnimationFrame(() => {
+					glass.style.top = `${newMy}px`;
+					glass.style.left = `${newMx}px`;
+					glass.style.backgroundImage = `url('${src}')`;
+					glass.style.backgroundSize = `${w * zoomPower}px ${h * zoomPower}px`;
+					glass.style.backgroundPosition = `${cx}% ${cy}%`;
+					glass.style.display = 'inline-block';
+					document.body.style.cursor = 'none';
+				});
+			} else {
+				glass.style.display = 'none';
+				document.body.style.cursor = 'default';
+			}
+		};
+
+		return this;
+	};
+})(jQuery);

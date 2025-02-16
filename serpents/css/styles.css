@@ -418,15 +418,30 @@ img {
 		display: block;
 	}
 
-	/*----- #GLASS -----*/
+	/*----- Light-zoom classes -----*/
 	#glass {
 		position: absolute;
 		border-radius: 50%;
-		box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85),
+		box-shadow: 0 0 0 7px rgba(118, 118, 117, 0.35),
 			0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
 		display: none;
 		background-repeat: no-repeat;
 		background-color: rgba(0, 0, 0, 0.6);
+		overflow: hidden;
+		width: 270px; /* Ensure the width and height are set */
+		height: 270px; /* Ensure the width and height are set */
+	}
+
+	#crosshair {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: url("/serpents/images/logo-target.png") center center no-repeat;
+		background-repeat: no-repeat;
+		background-position: center;
+		opacity: 0.5;
+		pointer-events: none;
+		z-index: 10; /* Ensure the crosshair stays on top */
 	}
 
 	/*----- #returnTopBtn -----*/
