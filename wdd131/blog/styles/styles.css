@@ -82,6 +82,7 @@ nav ul li a {
 /* h1, */
 h2 {
 	color: var(--red-color);
+	margin-top: 0;
 	font-family: var(--secondary-font);
 }
 
@@ -203,6 +204,7 @@ img {
 		align-items: flex-end;
 		justify-content: start;
 		gap: 10px;
+		margin-top: 0.5em;
 	}
 
 	.article-info p {
