@@ -107,7 +107,7 @@ const sessionLogs = [
 	{
 		id: 8,
 		book: "book1",
-		title: "Chapter 08 - Red Mountain Looms",
+		title: "Chapter 08 - The Red Mountain Looms",
 		img: "/serpents/images/monster-red-mountain-devil.webp",
 		alt: "The Devil of Red Mountain",
 		isTall: false,
