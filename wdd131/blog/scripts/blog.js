@@ -33,10 +33,10 @@ articles.forEach(article => {
 
 	articleElement.innerHTML = `
 	<div class="article-info">
-			<p><strong>Date:</strong> ${article.date}</p>
-			<p><strong>Ages:</strong> ${article.ages}</p>
-			<p><strong>Genre:</strong> ${article.genre}</p>
-			<p><strong>Rating:</strong> ${article.stars}</p>
+			<p>${article.date}</p>
+			<p>${article.ages}</p>
+			<p>${article.genre}</p>
+			<p>${article.stars}</p>
 	</div>
 	<div class="article-content">
 			<h2>${article.title}</h2>
