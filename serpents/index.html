@@ -598,18 +598,14 @@
 			{ location: "Venturing to Tazion", days: 17 } // unknown
 		];
 
-		// Function to calculate total days
-		function calculateTotalDays(log) {
-			return log.reduce((acc, entry) => acc + entry.days, 0);
-		}
-
 		// Function to generate travel log HTML
 		function generateTravelLogHTML(log) {
 			let html = `<h3>Travel-Log</h3>`;
 			log.forEach(entry => {
 				html += `<p>Days ${entry.location}: ${entry.days}</p>`;
 			});
-			const totalDays = calculateTotalDays(log);
+			// const totalDays = calculateTotalDays(log);
+			const totalDays = log.reduce((acc, entry) => acc + entry.days, 0);
 			html += `<p>Total Journey: ${totalDays}</p>`;
 			return html;
 		}
