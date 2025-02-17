@@ -85,14 +85,6 @@
 			</picture>
 			<section class="actioncall">
 				<h3>Travel-Log</h3>
-				<p>Days at Port: 33</p>
-				<p>Days at Sea: 71</p><!--Day Count = 104 (71+33)-->
-				<p>Days on <i>Smuggler’s Shiv</i>: 30</p><!--Day Count = 134 (30+104) | Target = 30 | Days ~ Target = +0-->
-				<p>Days in <i>Eleder:</i> 15</p><!-- Day Count = 149= (15+134) | Target = 15 | Days ~ Target = +0-->
-				<p>Days traveling to <i>Kalabuto</i>: 18</p><!-- Day Count = 167= (17+149) | Target = 15 | Days ~ Target = +1-->
-				<p>Days searching for a Moonstone: 15</p><!-- Day Count = 182= (15+167) | Target = 15 | Days ~ Target = +0-->
-				<p>Days traveling to <i>Tazion</i>: 17</p>
-				<p>Total Journey: 199</p>
 			</section>
 		</div>
 		<div class="bullets">
@@ -593,6 +585,38 @@
 
 	<!-- SCRIPT HERE -->
 	<script>$(document).ready(toggleLiVis(".toggleLiVis"))</script>
+
+	<script>
+		// Generate Action Call Travel data
+		const travelLog = [
+			{ location: "in Port with the Jenivere", days: 33 }, // default
+			{ location: "at Sea aboard the Jenivere", days: 71 }, // default
+			{ location: "Castaway on Smuggler’s Shiv", days: 30 }, // +0
+			{ location: "Establishing an Expedition in Eleder", days: 15 }, // +0 
+			{ location: "Racing to Kalabuto", days: 18 }, // +1
+			{ location: "Searching for a Moonstone", days: 15 }, // +0
+			{ location: "Venturing to Tazion", days: 17 } // unknown
+		];
+
+		// Function to calculate total days
+		function calculateTotalDays(log) {
+			return log.reduce((acc, entry) => acc + entry.days, 0);
+		}
+
+		// Function to generate travel log HTML
+		function generateTravelLogHTML(log) {
+			let html = `<h3>Travel-Log</h3>`;
+			log.forEach(entry => {
+				html += `<p>Days ${entry.location}: ${entry.days}</p>`;
+			});
+			const totalDays = calculateTotalDays(log);
+			html += `<p>Total Journey: ${totalDays}</p>`;
+			return html;
+		}
+
+		// Render the travel log HTML
+		document.querySelector('.actioncall').innerHTML = generateTravelLogHTML(travelLog);
+	</script>
 
 </body>
 
