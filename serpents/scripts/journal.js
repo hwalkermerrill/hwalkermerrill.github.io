@@ -140,7 +140,6 @@ const sessionLogs = [
 
 // This .js writes the articles to the page, with div's determined by bookID
 const displayNone = "display: none;";
-const listNone = "list-style-type: none;";
 const bookID = [
 	{
 		book: "book1",
@@ -161,7 +160,7 @@ bookID.forEach(book => {
 		// This constructs the paragraphs for each session
 		let paragraphsHTML = '';
 		session.paragraphs.forEach(paragraph => {
-			paragraphsHTML += `<li style="${listNone} ${displayNone}">${paragraph}</li>`;
+			paragraphsHTML += `<li style="${displayNone}">${paragraph}</li>`;
 		});
 
 		// This determines if the image is too tall and needs additional .css
@@ -169,10 +168,10 @@ bookID.forEach(book => {
 
 		//This portion is written to the page:
 		sessionElement.innerHTML = `
-    <li style="${listNone}">
+    <li>
       <b>Click to Read ${session.title}</b>
     </li>
-    <li style="${listNone} ${displayNone}">
+    <li style="${displayNone}">
       <b><i>${session.title}</i></b>
     </li>
     <li style="${displayNone}">
@@ -182,10 +181,10 @@ bookID.forEach(book => {
       </picture>
     </li>
     ${paragraphsHTML}
-    <li style="${listNone} ${displayNone}">
+    <li style="${displayNone}">
       <b><i>Click to close this chapter...</i></b>
     </li>
-    <li class="clearfix" style="${listNone} ${displayNone}"></li>
+    <li class="clearfix" style="${displayNone}"></li>
     `;
 
 		bookContainer.appendChild(sessionElement);
