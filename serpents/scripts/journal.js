@@ -151,13 +151,57 @@ const sessionLogs = [
 			"*",
 		]
 	},
+	{
+		id: 12,
+		book: "book2",
+		title: "Chapter 12 - Picking Sides and Parting Ways",
+		img: "/serpents/images/hero-eleder.webp",
+		alt: "The City of Eleder",
+		isTall: false,
+		paragraphs: [
+			"*",
+		]
+	},
+	{
+		id: 13,
+		book: "book2",
+		title: "Chapter 13 - A Riot of Surfs and Slaves",
+		img: "/serpents/images/npc-umagro.webp",
+		alt: "Freeman Brotherhood Radical - Umargo",
+		isTall: true,
+		paragraphs: [
+			"*",
+		]
+	},
+	{
+		id: 14,
+		book: "book2",
+		title: "Chapter 14 - A Storm-Wrought Spirit Journey",
+		img: "/serpents/images/monster-kelpie.webp",
+		alt: "A Protective Kelpie",
+		isTall: true,
+		paragraphs: [
+			"*",
+		]
+	},
+	{
+		id: 15,
+		book: "book2",
+		title: "Chapter 15 - Starting the Race in Last Place",
+		img: "/serpents/images/hero-cheliax-v-pirates.webp",
+		alt: "Red Mantis and Rivermen Sabotaging Each-Others' Ships",
+		isTall: false,
+		paragraphs: [
+			"*",
+		]
+	},
 ]
 
 // This Data is for copying in a new session log:
 /*
 	{
 		id: #,
-		book: "book1",
+		book: "book2",
 		title: "Chapter # - ",
 		img: "/serpents/images/*.webp",
 		alt: "*",
@@ -170,34 +214,28 @@ const sessionLogs = [
 
 // This .js writes the articles to the page, with div's determined by bookID
 const displayNone = "display: none;";
-const bookID = [
-	{
-		book: "book1",
-	}
-];
 
 // Sort sessionLogs by id in descending order
 sessionLogs.sort((a, b) => b.id - a.id);
 
-bookID.forEach(book => {
-	const bookContainer = document.querySelector(`#${book.book}`);
+sessionLogs.forEach(session => {
+	const bookContainer = document.querySelector(`#${session.book}`);
 
-	sessionLogs.forEach(session => {
-		const sessionElement = document.createElement('ul');
-		sessionElement.classList.add('toggleLiVis');
-		sessionElement.style.listStyleType = 'none';
+	const sessionElement = document.createElement('ul');
+	sessionElement.classList.add('toggleLiVis');
+	sessionElement.style.listStyleType = 'none';
 
-		// This constructs the paragraphs for each session
-		let paragraphsHTML = '';
-		session.paragraphs.forEach(paragraph => {
-			paragraphsHTML += `<li style="${displayNone}">${paragraph}</li>`;
-		});
+	// This constructs the paragraphs for each session
+	let paragraphsHTML = '';
+	session.paragraphs.forEach(paragraph => {
+		paragraphsHTML += `<li style="${displayNone}">${paragraph}</li>`;
+	});
 
-		// This determines if the image is too tall and needs additional .css
-		const imgClass = session.isTall ? "tooTall" : "wide";
+	// This determines if the image is too tall and needs additional .css
+	const imgClass = session.isTall ? "tooTall" : "wide";
 
-		//This portion is written to the page:
-		sessionElement.innerHTML = `
+	//This portion is written to the page:
+	sessionElement.innerHTML = `
     <li>
       <b>Click to Read ${session.title}</b>
     </li>
@@ -217,9 +255,8 @@ bookID.forEach(book => {
     <li class="clearfix" style="${displayNone}"></li>
     `;
 
-		bookContainer.appendChild(sessionElement);
-	});
-
-	// Call toggleLiVis after appending the elements
-	toggleLiVis(".toggleLiVis");
+	bookContainer.appendChild(sessionElement);
 });
+
+// Call toggleLiVis after appending the elements
+toggleLiVis(".toggleLiVis");
