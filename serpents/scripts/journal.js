@@ -77,12 +77,12 @@ const sessionLogs = [
 		id: 6,
 		book: "book1",
 		title: "Chapter 06 - The Money Pit",
-		img: "/serpents/images/npc-aycenia.webp",
-		alt: "The Banyan Tree Spirit of the Hill",
+		img: "/serpents/images/monster-festrog.webp",
+		alt: "Undead Amphibian Lacedon",
 		isTall: true,
 		paragraphs: [
 			"Resting up after their various excursions, Ishirou revealed that he had the odd habit of collecting treasure maps – regardless of their apparent authenticity – one of which supposedly pointed to a treasure here on <i>Smuggler’s Shiv.</i> The map pointed to the strangely barren hill they visited before, so the group set out with tools for digging. After excavating a 10-foot hole in the barren earth, they uncovered the body of a man who had been stabbed in the back, lying atop a strange wooden platform. Deciding not to dig straight through it, they excavated the edges until they had uncovered the entire 10-foot diameter platform, as well as a place to stand alongside it. Breaking through the wood, they uncovered a buried cenote, with a small piece of land surrounded by water at the bottom.",
-			"They descended into the cenote (with varying amounts of caution) and fought some lacedons that had been sealed inside the chamber. Diving beneath the water, Ivy found a passage beneath the small parcel of land, which held a large watertight chest just above the waterline. They took it back to camp and broke the lock off to reveal an amazing haul of treasure – magical potions, arms and armor, various scrolls including one to revive the dead, and a pirate’s hoard of clothes, coins, gems, and jewels. Deciding to give Ishirou the gems as his cut, he showed his gratitude by sharing some of the fighting techniques he learned during his lifetime as a mercenary.",
+			"They descended into the cenote (with varying amounts of caution) and fought some lacedons that had been sealed inside the chamber. Though they were initially separated, Ivy's song of the otter helped save the day as they swam circles around the amphibious undead. After finishing them off, Ivy dove beneath the water and found a hidden passage beneath the small parcel of land, which held a large watertight chest just above the waterline. They took it back to camp and broke the lock off to reveal an amazing haul of treasure – magical potions, arms and armor, various scrolls including one to revive the dead, and a pirate’s hoard of clothes, coins, gems, and jewels. Deciding to give Ishirou the gems as his cut, he showed his gratitude by sharing some of the fighting techniques he learned during his lifetime as a mercenary.",
 			"The survivors then explored the western interior of the island, looking for high points where they could get a better view of their surroundings. They built a temporary shelter atop the tidal-locked mesa in view of the gray island – a preparation for their future expedition – finally exterminated the shocker lizards (except for a baby they chose to keep and named ‘lil Zappy), and finally made their way to the loaming hill with the banyan tree. On their approach, they were met by a tropical dryad, the Spirit of the Hill, who offered them food and beseeched them to rid <i>Smuggler’s Shiv</i> of the creeping blight spreading out from the silent gray island, promising them rewards if they could manage.",
 			"From atop the banyan hill, they could see the lighthouse they sought, surrounded by the cannibal campsite, and decided they needed the banyan dryad’s help, preparing themselves for the undoubtedly difficult journey to the grey island they first spotted so long ago.",
 		]
@@ -119,6 +119,36 @@ const sessionLogs = [
 			"Venturing to the standing stones, they discovered a small stone pyramid at the center of the stones, and each stone had a strange rune carved into its face facing the pyramid (one of which was covered in dried blood). With a combination of skill and some incredible luck, Ivy was able to blindly activate a strange device, though she did not know what steps she took to do so. This caused the water level in the area to drop a further 30 feet and opened a set of large stone doors that had previously been underwater and hidden by thick seaweed. As they tried to make their way down, they again encountered the red mountain devil, the giant winged chupacabra, who charged them to protect his nest, but Dakota caught it in the neck with her grappling hook and ripped it out of the sky, killing it quickly. They also killed the baby chupacabra after it knocked Avarice dangerously off a rope bridge into the water below. Exploring its nest, they filled their pockets with coins and magic items from the chupacabra’s treasure hoard.",
 			"Working their way down to the formerly underwater seabed, Loric was able to charm his way past an agitated bull shark that was temporarily trapped in a shallow pool. They then explored a shipwreck that had been underwater, making friends with a water mephit and finding some magical rope for Dakota, though a fight with a spiny sea urchin left both Avarice and Loric weakened from its poison. They pushed on to enter through the strange doors but were unable to decipher the markings on the walls. Its origins and meaning were unclear, though the drawings seemed to depict vampires preying upon ancient humans. Entering the mysterious structure, they were ambushed by skeletal archers with strange snake skulls, before falling into a sacrificial pit occupied by strange, malevolent dolls made from the bones of the sacrificed.",
 			"Though they hadn’t made much progress into the structure yet, the survivors were badly injured and low on both magic and strength, so they retreated back to camp for now, unsure if they would ever have the luck they would need to trigger the device again and open the strange doors to the hidden structure. They did, however, find evidence that this place had been visited recently, if not often, and the only other people on the island were the cannibals. Perhaps, it was reasoned, the conflict with the cannibals was no longer something they could postpone.",
+		]
+	}, {
+		id: 9,
+		book: "book1",
+		title: "Chapter 09 - Charming Cannibals",
+		img: "/serpents/images/monster-witch-malikadna.webp",
+		alt: "The Cannibal-Witch Malikadna",
+		isTall: true,
+		paragraphs: [
+			"*",
+		]
+	}, {
+		id: 10,
+		book: "book1",
+		title: "Chapter 10 - The Mother's T/Womb",
+		img: "/serpents/images/monster-mother-nylithati.webp",
+		alt: "The Ghoul-Mother of the Thrunefang Cannibals",
+		isTall: true,
+		paragraphs: [
+			"*",
+		]
+	}, {
+		id: 11,
+		book: "book1",
+		title: "Chapter 11 - Shiv'ers and Snakes",
+		img: "/serpents/images/hero-temple-zura.webp",
+		alt: "Pendulum and Pit Traps of the Temple of Zura",
+		isTall: false,
+		paragraphs: [
+			"*",
 		]
 	},
 ]
