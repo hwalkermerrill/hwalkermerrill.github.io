@@ -212,30 +212,31 @@ const sessionLogs = [
 	},
 */
 
-// This .js writes the articles to the page, with div's determined by bookID
-const displayNone = "display: none;";
+function populateJournal() {
+	// This .js writes the articles to the page, with div's determined by bookID
+	const displayNone = "display: none;";
 
-// Sort sessionLogs by id in descending order
-sessionLogs.sort((a, b) => b.id - a.id);
+	// Sort sessionLogs by id in descending order
+	sessionLogs.sort((a, b) => b.id - a.id);
 
-sessionLogs.forEach(session => {
-	const bookContainer = document.querySelector(`#${session.book}`);
+	sessionLogs.forEach(session => {
+		const bookContainer = document.querySelector(`#${session.book}`);
 
-	const sessionElement = document.createElement('ul');
-	sessionElement.classList.add('toggleLiVis');
-	sessionElement.style.listStyleType = 'none';
+		const sessionElement = document.createElement('ul');
+		sessionElement.classList.add('toggleLiVis');
+		sessionElement.style.listStyleType = 'none';
 
-	// This constructs the paragraphs for each session
-	let paragraphsHTML = '';
-	session.paragraphs.forEach(paragraph => {
-		paragraphsHTML += `<li style="${displayNone}">${paragraph}</li>`;
-	});
+		// This constructs the paragraphs for each session
+		let paragraphsHTML = '';
+		session.paragraphs.forEach(paragraph => {
+			paragraphsHTML += `<li style="${displayNone}">${paragraph}</li>`;
+		});
 
-	// This determines if the image is too tall and needs additional .css
-	const imgClass = session.isTall ? "tooTall" : "wide";
+		// This determines if the image is too tall and needs additional .css
+		const imgClass = session.isTall ? "tooTall" : "wide";
 
-	//This portion is written to the page:
-	sessionElement.innerHTML = `
+		//This portion is written to the page:
+		sessionElement.innerHTML = `
     <li>
       <b>Click to Read ${session.title}</b>
     </li>
@@ -255,8 +256,6 @@ sessionLogs.forEach(session => {
     <li class="clearfix" style="${displayNone}"></li>
     `;
 
-	bookContainer.appendChild(sessionElement);
-});
-
-// Call toggleLiVis after appending the elements
-toggleLiVis(".toggleLiVis");
+		bookContainer.appendChild(sessionElement);
+	});
+};
