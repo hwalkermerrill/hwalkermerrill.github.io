@@ -25,7 +25,11 @@
 # Use pytest to run the test functions and find and fix the mistakes, if any, that are in program functions.
 
 # Import required modules
-from names import make_full_name, extract_family_name, extract_given_name
+from names import (
+    make_full_name,
+    extract_family_name,
+    extract_given_name,
+)
 import pytest
 
 
