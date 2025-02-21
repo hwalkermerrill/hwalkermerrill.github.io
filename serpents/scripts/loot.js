@@ -158,10 +158,51 @@ const loot = [
     img: false,
     src: "/serpents/images/placeholder.webp",
     description: [
+      "A low stone altar, its sides carved like coiling snakes and its top carved to resemble a yawning viper’s maw, sits in the center of this room. The walls of the chamber are carved with images of anthropomorphic serpents using strange, pointed megaliths of stone to work great feats of magic—transforming an army of humans into zombies, calling down flaming bolts of lightning from the stars, or parting the waters of the sea to dash human ships upon the exposed rocks of the seabed below. This final image seems to have been recently cleaned of dust, and several lines of text have been made more legible via the application of inks and perhaps blood.",
+      "<br> The translation of the legible lines of text are reproduced as follows:<br><br>",
       "<b>To Command the Very Tides to Rise Up and Eschew What Lies Below:</b>",
       "Empower the Four Sentinel Runes with the Blood of a Thinking Creature Tempered by the Kiss of a Serpent’s Tongue.",
       "Anoint the Tide Stone with Waters Brought from the Sea in a Vessel of Purest Metal.",
       "Invoke the Lord’s Sacred Name to Wrap His Coils around the Sea Itself that He Might Lay Bare What Lies Below and Cast Down Your Enemies on the Waves above.",
+    ]
+  },
+  {
+    id: 16,
+    type: "note1",
+    name: "Venture-Captain Havner Ames' Log of the <i>Nightvoice</i>",
+    img: false,
+    src: "/serpents/images/placeholder.webp",
+    description: [
+      "Ravaged by mold and the strange fungus, only pieces of this log survive, but the entries were detailed enough to piece together the ship's tragic history. The <i>Nightvoice</i> was a Pathfinder Society exploration vessel that  was on its way back from an expedition around the horn of Garund, when a strange leathery pod they discovered in a seaside cavern burst open. Only Captain Havner Ames managed to resist the resultant infection, and as he watched his crew succumb, he knew he couldn't allow the strange bulb to reach the coast. It was all the captain could do to alter the ships course so that it would wreck on <ik>Smuggler's Shiv</i> instead of along the populous sargavan coastline. Delirious with fever, the captain's final log states he decided to 'carry the blasphemous pod up to the top of a rock spire on the east of the island,' with an attempt to find a cave where he could hide it away from humanity forever.",
+    ]
+  },
+  {
+    id: 17,
+    type: "note1",
+    name: "Rubbing of the Azlanti Runes in the Temple of Zura",
+    img: false,
+    src: "/serpents/images/placeholder.webp",
+    description: [
+      "Studying these runes is frustrating and difficult to translate because of the missing portions of wall that have cracked, coupled with the ancient inscriber’s fondness for awkward metaphor; however, four key bits of information can be gleaned from these carvings:",
+      "This chamber was once a scriptorium where books and scrolls sacred to the worship of Zura were transcribed and illuminated.",
+      "This temple was built over an even more ancient temple — one that was dedicated to a deity referred to only as the “Beheaded One,” an entity that was apparently an enemy to the ancient Zura cultists.",
+      "Several prayers seem to indicate that the ancients made use of undead slaves created from both “humans culled from the unbelievers and slaves of the Beheaded One.”",
+      "As much hatred as the Zura cultists had for the “slaves  of the Beheaded One,” they also seemed to despise their own kind—especially those they called the “misbegotten of Saventh-Yhi.”",
+    ]
+  },
+  {
+    id: 18,
+    type: "note1",
+    name: "Yarzoth's Notes on Saventh-Yhi",
+    img: false,
+    src: "/serpents/images/placeholder.webp",
+    description: [
+      "These notes are written in Aklo but are otherwise quite complete, being a careful translation of the murals above the altar in the temple of Zura:<br><br>",
+      "The three large alcoves in this room once served as meditation chambers—the cultists would enter one, pull a curtain for privacy, and recite the complex prayers and parables carved on the walls here. These carvings, all written in Azlanti, tell the history of this particular Zura cult in three stages. ",
+      "The southern alcove tells of the cult’s genesis in the city of Saventh-Yhi in the jungle, but is frustratingly vague when it comes to exact details on the legendary city apart from confirming that it was built by Azlanti — this section ends with the cult’s exile from Saventh-Yhi and how they made a dangerous overland journey that ended on the shores of a remote island far from their homeland.",
+      "The northwestern alcove takes up the story at this point, detailing the cult’s exploration of this island (identifiable as Smuggler’s Shiv), their discovery and defeat of a large group of serpentfolk who had gone into hiding after the defeat of their kind many years before at Saventh-Yhi, and the creation of this temple. ",
+      "The northeastern alcove plots the cult’s future plans, focusing on how they had hoped to earn the gift of vampirism from Zura by undertaking extensive and vile rituals, and once this gift was theirs, how they planned on making the journey back to Saventh-Yhi to 'awaken the city with Zura’s blessing.' <br><br>",
+      "In her notes, Yarzoth seems particularly intrigued by the possibility that Saventh-Yhi might be the exact spot where, so long ago, her god Ydersius was beheaded.",
     ]
   },
 ]
