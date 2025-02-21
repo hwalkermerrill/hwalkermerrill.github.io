@@ -201,8 +201,48 @@ const loot = [
       "The three large alcoves in this room once served as meditation chambers—the cultists would enter one, pull a curtain for privacy, and recite the complex prayers and parables carved on the walls here. These carvings, all written in Azlanti, tell the history of this particular Zura cult in three stages. ",
       "The southern alcove tells of the cult’s genesis in the city of Saventh-Yhi in the jungle, but is frustratingly vague when it comes to exact details on the legendary city apart from confirming that it was built by Azlanti — this section ends with the cult’s exile from Saventh-Yhi and how they made a dangerous overland journey that ended on the shores of a remote island far from their homeland.",
       "The northwestern alcove takes up the story at this point, detailing the cult’s exploration of this island (identifiable as Smuggler’s Shiv), their discovery and defeat of a large group of serpentfolk who had gone into hiding after the defeat of their kind many years before at Saventh-Yhi, and the creation of this temple. ",
-      "The northeastern alcove plots the cult’s future plans, focusing on how they had hoped to earn the gift of vampirism from Zura by undertaking extensive and vile rituals, and once this gift was theirs, how they planned on making the journey back to Saventh-Yhi to 'awaken the city with Zura’s blessing.' <br><br>",
+      "The northeastern alcove plots the cult’s future plans, focusing on how they had hoped to earn the gift of vampirism from Zura by undertaking extensive and vile rituals, and once this gift was theirs, how they planned on making the journey back to Saventh-Yhi to 'awaken the city with Zura’s blessing.' The route back to the ancient city is similarly cryptic, and the portions that do make sense reference antiquated geography; however, it seems they ultimately intended to use something called the 'Light of Tazion' to return to the city through its protective wards.<br><br>",
       "In her notes, Yarzoth seems particularly intrigued by the possibility that Saventh-Yhi might be the exact spot where, so long ago, her god Ydersius was beheaded.",
+    ]
+  },
+  {
+    id: 19,
+    type: "dream1",
+    name: "Nightmare #1",
+    img: false,
+    src: "/serpents/images/placeholder.webp",
+    description: [
+      "You’re back aboard the <i>Jenivere</i>, bent over the railing being seasick. After your latest bout of retching, you slump back and see the rest of the passengers and crew are on deck as well, all of them sick save for the captain and the quiet Varisian scholar Ieana. She whispers in the captain’s ear, then gives him a kiss on the cheek. At that point the captain holds up a wooden soup spoon, and you realize that you’re holding one as well. Everyone has a spoon. The ship is sinking, and the only way to stop it is to bail out the hold with your spoon! You work feverishly, but the waters keep rushing in. Just before you wake, you can see monstrous things with pincers in the water trying to claw their way into the ship...",
+    ]
+  },
+  {
+    id: 20,
+    type: "dream1",
+    name: "Nightmare #2",
+    img: false,
+    src: "/serpents/images/placeholder.webp",
+    description: [
+      "You’re sitting down in the galley aboard the <i>Jenivere</i>, getting ready for your meal. The ship’s cook has given you a steaming bowl of soup, but you drop your spoon. You see that the deck below is covered with seawater up to your ankles, and your dropped spoon has sunk into the water and washed out to sea through a hole. You’re forced to lift your delicious bowl of soup to your lips and drink. But something big goes into your mouth as you do so, and you feel a sharp bite on your tongue. You drop the bowl, only to reveal a serpent had hidden in your soup that now dangles from your tongue as it chews furiously. You start awake, biting your own tongue in an attempt to bite through the snake’s body.",
+    ]
+  },
+  {
+    id: 21,
+    type: "dream1",
+    name: "Nightmare #3",
+    img: false,
+    src: "/serpents/images/placeholder.webp",
+    description: [
+      "You’re in a rowboat on the open ocean at night. Sitting across you, rowing the boat, is First Mate Alton. He’s obviously dead, with the wounds and stings his body displays on the wreck of the <i>Jenivere</i>, but still he rows. Eventually, the boat reaches an island covered with snakes. Alton waits as you exit the boat, standing ankle-deep in snakes, and then he turns and rows back out to sea, you assume off to look for more survivors to ferry to shore. But Alton never returns, and you wake up just as the snakes start to bite...",
+    ]
+  },
+  {
+    id: 22,
+    type: "dream1",
+    name: "Wings in the Dark",
+    img: false,
+    src: "/serpents/images/placeholder.webp",
+    description: [
+      "You're laying on the floor looking up at the stars. In the sky above you, you note the constellations, counting each one that you know. All at once, a collection of stars form an obvious grouping; as you trace the stars with your eyes, lines form between the stars into the shape of a serpentine skull. Its mouth is open, as though speaking, but you cannot understand its whispers. You listen closer, trying to interpret the darkness it spews. Out of the corner of your eyes, you notice something large with blood-red eyes watching from the jungle's edge, but you cannot move, cannot scream, all that comes out is a rasping hiss...",
     ]
   },
 ]
