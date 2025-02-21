@@ -110,7 +110,7 @@ const sessionLogs = [
 		title: "Chapter 08 - The Red Mountain Looms",
 		img: "/serpents/images/monster-red-mountain-devil.webp",
 		alt: "The Devil of Red Mountain",
-		isTall: false,
+		isTall: true,
 		paragraphs: [
 			"With the blessings of the spirit of the hill, the survivors of the <i>Jenivere</i> attempted to ambush a cannibal checkpoint. While a few of them were able to maintain a stealthy approach, a few of them was spotted before the attack could begin, and a number of cannibals emerged from their defenses to attack while others threw javelins from atop their crude towers. While they engaged the violent cannibals, a ritualistically scarred woman wearing only a bra made from human skulls began cursing them with juju magics, making the survivors’ attacks miss while she cackled at their failures. Though one of the cannibals may have also been affected by her juju, as when he went to throw his javelin at the survivors, he tripped and fell horrifically to the ground and impaled his head on his own javelin, leaving behind another decorative skull on a pike.",
 			"While most of the survivors quickly broke from stealth and engaged fiercely, Loric was able to sneak around the cannibal's defenses and flank the scarred witch, injuring her fiercely before suffering from a powerful hex, an opening Avarice was able to exploit to finally kill her. As the other cannibals were cut down while trading blows, the last tower defender, seeing the inevitability of his fate, lit his own tower on fire, eventually immolating himself. The smoke from the tower was quickly visible from afar, and the sound of war drums in the distance forced the survivors to retreat before they could be caught, deciding to head towards the red mountain rather than attack the now alert cannibal camp.",
@@ -120,7 +120,8 @@ const sessionLogs = [
 			"Working their way down to the formerly underwater seabed, Loric was able to charm his way past an agitated bull shark that was temporarily trapped in a shallow pool. They then explored a shipwreck that had been underwater, making friends with a water mephit and finding some magical rope for Dakota, though a fight with a spiny sea urchin left both Avarice and Loric weakened from its poison. They pushed on to enter through the strange doors but were unable to decipher the markings on the walls. Its origins and meaning were unclear, though the drawings seemed to depict vampires preying upon ancient humans. Entering the mysterious structure, they were ambushed by skeletal archers with strange snake skulls, before falling into a sacrificial pit occupied by strange, malevolent dolls made from the bones of the sacrificed.",
 			"Though they hadn’t made much progress into the structure yet, the survivors were badly injured and low on both magic and strength, so they retreated back to camp for now, unsure if they would ever have the luck they would need to trigger the device again and open the strange doors to the hidden structure. They did, however, find evidence that this place had been visited recently, if not often, and the only other people on the island were the cannibals. Perhaps, it was reasoned, the conflict with the cannibals was no longer something they could postpone.",
 		]
-	}, {
+	},
+	{
 		id: 9,
 		book: "book1",
 		title: "Chapter 09 - Charming Cannibals",
@@ -128,71 +129,172 @@ const sessionLogs = [
 		alt: "The Cannibal-Witch Malikadna",
 		isTall: true,
 		paragraphs: [
-			"*",
+			"Placeholder: Infiltrated cannibal camp, killed all the canibals;",
 		]
-	}, {
+	},
+	{
 		id: 10,
 		book: "book1",
-		title: "Chapter 10 - The Mother's T/Womb",
-		img: "/serpents/images/monster-mother-nylithati.webp",
-		alt: "The Ghoul-Mother of the Thrunefang Cannibals",
-		isTall: true,
-		paragraphs: [
-			"*",
-		]
-	}, {
-		id: 11,
-		book: "book1",
-		title: "Chapter 11 - Shiv'ers and Snakes",
+		title: "Chapter 10 - Shiv'ers and Snakes",
 		img: "/serpents/images/hero-temple-zura.webp",
 		alt: "Pendulum and Pit Traps of the Temple of Zura",
 		isTall: false,
 		paragraphs: [
-			"*",
+			"Placeholder: Ventured into the underworld (caves of the mother), fought festrogs and lacedons, the mother, garzoth the magnificent, fell into traps, made rubbings, fought yarzoth at the temple of blood, released evil spirits from the shiv, lit the lighthouse and got rescued",
+		]
+	},
+	{
+		id: 11,
+		book: "book2",
+		title: "Chapter 11 - Picking Sides and Parting Ways",
+		img: "/serpents/images/hero-eleder.webp",
+		alt: "The City of Eleder",
+		isTall: false,
+		paragraphs: [
+			"Placeholder: Got rescued, went shopping, met the factions, picked a side, astra retired, alhemja dna ezekiel were hired on.",
 		]
 	},
 	{
 		id: 12,
 		book: "book2",
-		title: "Chapter 12 - Picking Sides and Parting Ways",
-		img: "/serpents/images/hero-eleder.webp",
-		alt: "The City of Eleder",
-		isTall: false,
+		title: "Chapter 12 - A Riot of Surfs and Slaves",
+		img: "/serpents/images/npc-umagro.webp",
+		alt: "Freeman Brotherhood Radical - Umargo",
+		isTall: true,
 		paragraphs: [
-			"*",
+			"Placeholder: Encountered the freemen, alhemja acidentally helped them set fire to the GCS warehouses, the freemen captured pezock, the heroes rescue pezock and kill umargo, their expedition is set back 10 days, their worker's spiritual leader dies, sent on a quest to try to recruit nketchi.",
 		]
 	},
 	{
 		id: 13,
 		book: "book2",
-		title: "Chapter 13 - A Riot of Surfs and Slaves",
-		img: "/serpents/images/npc-umagro.webp",
-		alt: "Freeman Brotherhood Radical - Umargo",
+		title: "Chapter 13 - A Storm-Wrought Spirit Journey",
+		img: "/serpents/images/monster-kelpie.webp",
+		alt: "A Protective Kelpie",
 		isTall: true,
 		paragraphs: [
-			"*",
+			"Placeholder: encountered the hellknights of the coil (talk past them), besought nketchi, went on nketchi's quests: the trial of the wind and the trial of the water (aided by birds and bas'o), went on a dream journey with nketchi (encountered giant snake)",
 		]
 	},
 	{
 		id: 14,
 		book: "book2",
-		title: "Chapter 14 - A Storm-Wrought Spirit Journey",
-		img: "/serpents/images/monster-kelpie.webp",
-		alt: "A Protective Kelpie",
-		isTall: true,
+		title: "Chapter 14 - Starting the Race in Last Place",
+		img: "/serpents/images/hero-cheliax-v-pirates.webp",
+		alt: "Red Mantis and Rivermen Sabotaging Each-Others' Ships",
+		isTall: false,
 		paragraphs: [
-			"*",
+			"Placeholder: Began traveling, learned how to journey, fought (and died to) hyenadons - alhemja and ezekiel were lost, also bypassed some dinosaurs and encountered a wildling",
 		]
 	},
 	{
 		id: 15,
 		book: "book2",
-		title: "Chapter 15 - Starting the Race in Last Place",
-		img: "/serpents/images/hero-cheliax-v-pirates.webp",
-		alt: "Red Mantis and Rivermen Sabotaging Each-Others' Ships",
+		title: "Chapter 15 - Fzumi Salt Mines",
+		img: "/serpents/images/monster-blue-warrior.webp",
+		alt: "The Blue Warrior",
+		isTall: true,
+		paragraphs: [
+			"Placeholder: Met and recruited Athyra (the wildling) and her companion, entered the condemned fzumi salt mines, discovred the tragedy that occured there, destroyed the blue warrior spirit and laid the miners to rest, discovered the identity of athyra and explained her past to her, used the mines as a shortcut.",
+		]
+	},
+	{
+		id: 16,
+		book: "book2",
+		title: "Chapter 16 - A Ranch's Night-mare",
+		img: "/serpents/images/monster-chemosit.webp",
+		alt: "Chemosit Night Terror",
+		isTall: true,
+		paragraphs: [
+			"Placeholder: Roadside cockfight terror, reached the freehold ranch, recuited their leader (lady mindra macini), decided to help the village with their chemosit problem, fought off the dream bears in dreamland with the dakota bear, set off towards kalabuto, encountered the first delta lion (which was disrespected), got thrashed by a subsequent delta lion (which was respected) and its lionesses.",
+		]
+	},
+	{
+		id: 17,
+		book: "book2",
+		title: "Chapter 17 - Trouble on the Road",
+		img: "/serpents/images/hero-ankheg-attack.webp",
+		alt: "*",
 		isTall: false,
 		paragraphs: [
-			"*",
+			"Placeholder: found the pathfinders and the ivory cross stuck and battling eachother because of a roadside ambush (ankeg), poached some rhinos (took a horn) in a sleet storm, found a haunted tree (M'zali), reached kalabuto, met up with 'Skipper Cheiton'",
+		]
+	},
+	{
+		id: 18,
+		book: "book2",
+		title: "Chapter 18 - On Sharrowsmith's Trail",
+		img: "/serpents/images/npc-gcs-miner.webp",
+		alt: "A G.C.S. Miner",
+		isTall: true,
+		paragraphs: [
+			"Placeholder: sailed up past traiding post to bandu fort, met fort commander, paid off soldiers to inform on the ivory cross that were present, followed the ivory cross via giant eagles, killed the mercenaries and saved GSC miners, ventured further into the valley",
+		]
+	},
+	{
+		id: 19,
+		book: "book2",
+		title: "Chapter 19 - A Song that Grippli's the Heart",
+		img: "/serpents/images/hero-mwangi-t-rex.webp",
+		alt: "Fleeing an Angry T-Rex",
+		isTall: false,
+		paragraphs: [
+			"Placeholder: Met up with a village of gripplis, explained they were following Sharrowsmith, received quest to recover an egg from a scaled one (carnivore) for them to raise as their own, ventured into jungle, fought off minor drake and swarms of ants, killed lizardfolk hunters, stole T-Rex Eggs, escaped from T-rex in chase wih one egg left, return to ivory cross trying to burn grippli village, kill the ivory cross' abusive ranger leader, receive reward - song: Lead Kindly Light",
+		]
+	},
+	{
+		id: 20,
+		book: "book2",
+		title: "Chapter 20 - The Ruins of Ashkurnhall",
+		img: "/serpents/images/monster-kobold-cultists.webp",
+		alt: "Kobold Cultist",
+		isTall: true,
+		paragraphs: [
+			"Placeholder: Climbed mountain, crossed bridge with traps, reached summit, fought and killed kobolds there, rescued an ivory cross mercenary, found sharrowsmith (cursed), bypassed trap, avarice and ivy scout ahead in the dark (invisibly) and fail an acrobatics check, falling off the side of the mountain",
+		]
+	},
+	{
+		id: 21,
+		book: "book2",
+		title: "Chapter 21 - A Golden Guardian and a Bronze Moon",
+		img: "/serpents/images/monster-golden-guardian.webp",
+		alt: "A Golden Guardian",
+		isTall: true,
+		paragraphs: [
+			"Placeholder: Ivy saves themselves with feather fall and returns to the group, they clear out the remainder of the ruins (kill a basilisk), reach the kobolds, begin fighting a golden gargoyle, sing the song, pass the trial of the moon to recover the shield of acavna, talk down the kobold leader, kite the ivory cross mercenaries in to be killed by the golden guardian (including their leader), return to kalabuto with the shield",
+		]
+	},
+	{
+		id: 22,
+		book: "book2",
+		title: "Chapter 22 - A Jungle Cruise",
+		img: "/serpents/images/*.webp",
+		alt: "*",
+		isTall: false,
+		paragraphs: [
+			"Placeholder: starting rowing with the skipper and chatting up npcs, fought some bull hippos, a dark-souls octopus, and dived for treasure guarded by a baby nessie",
+		]
+	},
+	{
+		id: 23,
+		book: "book2",
+		title: "Chapter 23 - Welcome to the Jungle",
+		img: "/serpents/images/*.webp",
+		alt: "*",
+		isTall: false,
+		paragraphs: [
+			"Placeholder: Continued upriver fighting crocodiles, leaches, and M'zali while getting npcs to friendly. Reached the rapids head base camp and ditched the boats, learned the meaning of the strange convergent cocoon cloak, and fought and killed some jungle pigs. Fled from a t-rex in the night.",
+		]
+	},
+	{
+		id: 24,
+		book: "book2",
+		title: "Chapter 24 - Being Head-hunted",
+		img: "/serpents/images/hero-headhunter-ambush.webp",
+		alt: "Ambushed (not really) by Headhunters",
+		isTall: false,
+		paragraphs: [
+			"Placeholder: found some headhunters (whose ambush failed), rescued some shrunken (cursed) heads, started traveling with the pathfinder again (they caught up), encountered a magical mwangi tree-ent, found bodies floating in the river belonging to the sargavan custodial government/",
 		]
 	},
 ]
