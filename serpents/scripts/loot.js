@@ -13,16 +13,16 @@ const loot = [
       "Only those who sleep wrapped in its silky strands can truly know what is experienced there, or what might emerge from the cocoon come dawn; the cocoon opens and transforms back into a cloak once the wearer wakes.",
     ]
   },
-  {
-    id: 2,
-    type: "dream1",
-    name: "Placeholder",
-    img: false,
-    src: "/serpents/images/placeholder.webp",
-    description: [
-      "Placeholder here",
-    ]
-  },
+  // {
+  //   id: 2,
+  //   type: "dream1",
+  //   name: "Placeholder",
+  //   img: false,
+  //   src: "/serpents/images/placeholder.webp",
+  //   description: [
+  //     "Placeholder here",
+  //   ]
+  // },
   {
     id: 3,
     type: "dream2",
@@ -208,7 +208,7 @@ const loot = [
   {
     id: 19,
     type: "dream1",
-    name: "Nightmare #1",
+    name: "First Nightmare",
     img: false,
     src: "/serpents/images/placeholder.webp",
     description: [
@@ -218,7 +218,7 @@ const loot = [
   {
     id: 20,
     type: "dream1",
-    name: "Nightmare #2",
+    name: "Second Nightmare",
     img: false,
     src: "/serpents/images/placeholder.webp",
     description: [
@@ -228,7 +228,7 @@ const loot = [
   {
     id: 21,
     type: "dream1",
-    name: "Nightmare #3",
+    name: "Third Nightmare",
     img: false,
     src: "/serpents/images/placeholder.webp",
     description: [
