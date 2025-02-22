@@ -268,9 +268,9 @@ const sessionLogs = [
 		id: 22,
 		book: "book2",
 		title: "Chapter 22 - A Jungle Cruise",
-		img: "/serpents/images/*.webp",
-		alt: "*",
-		isTall: false,
+		img: "/serpents/images/monster-needle-tooth-piranhas.webp",
+		alt: "Needle-toothed Piranhas",
+		isTall: true,
 		paragraphs: [
 			"Placeholder: starting rowing with the skipper and chatting up npcs, fought some bull hippos, a dark-souls octopus, and dived for treasure guarded by a baby nessie",
 		]
@@ -279,8 +279,8 @@ const sessionLogs = [
 		id: 23,
 		book: "book2",
 		title: "Chapter 23 - Welcome to the Jungle",
-		img: "/serpents/images/*.webp",
-		alt: "*",
+		img: "/serpents/images/hero-mwangi-campaigns.webp",
+		alt: "Fleeing Hostile Natives on a River Boat",
 		isTall: false,
 		paragraphs: [
 			"Placeholder: Continued upriver fighting crocodiles, leaches, and M'zali while getting npcs to friendly. Reached the rapids head base camp and ditched the boats, learned the meaning of the strange convergent cocoon cloak, and fought and killed some jungle pigs. Fled from a t-rex in the night.",
@@ -305,7 +305,7 @@ const sessionLogs = [
 		id: #,
 		book: "book2",
 		title: "Chapter # - ",
-		img: "/serpents/images/*.webp",
+		img: "/serpents/images/placeholder.webp",
 		alt: "*",
 		isTall: false,
 		paragraphs: [
