@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- META DATA -->
+  <meta charset="UTF-8">
+  <meta name="description" content="WDD 131 Credit Card">
+  <meta name="author" content="Harrison Merrill">
+  <meta name="slogan" content="We're in 131st Place">
+  <!-- <meta name="theme-color" content="#005633"> -->
+
+  <title>Harrison Merrill: WDD131 Credit Card</title>
+  <link href="/wdd131/creditcard/images/logofav.png" rel="icon">
+  <link href="/wdd131/creditcard/images/logo_apple120x.png" rel="apple-touch-icon">
+  <link href="/wdd131/creditcard/images/logo_apple152x.png" rel="apple-touch-icon" sizes="152x152">
+  <link href="/wdd131/creditcard/images/logo_apple167x.png" rel="apple-touch-icon" sizes="167x167">
+  <link href="/wdd131/creditcard/images/logo_apple180x.png" rel="apple-touch-icon" sizes="180x180">
+  <link href="/wdd131/creditcard/images/logo_icon192x.png" rel="icon" sizes="192x192">
+  <link href="/wdd131/creditcard/images/logo_icon128x.png" rel="icon" sizes="128x128">
+
+  <!-- This tells MS users to use Edge instead of IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH & stops the font from enlarging when a phone is turned sideways-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- This loads the "Lora" font style on the user device while browsing this HTML-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet">
+
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/styles.css">
+
+  <!-- SCRIPT-->
+  <script src="scripts/script.js"></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="clearfix">
+    <!-- <h1>Credit Card Payment Form</h1> -->
+    <!-- <div class="menu">
+      <button onclick="toggleMenu()">Menu</button>
+    </div> -->
+    <div class="skip-to-content"><a href="#maincontent">skip to main content</a></div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <!-- <nav class="clearfix">
+    <ul id="primaryNav" class="hide">
+      <li><a href="*">Search</a></li>
+      <li><a href="*">Archive</a></li>
+      <li><a href="*">About</a></li>
+    </ul>
+  </nav> -->
+
+  <!-- CONTENT -->
+  <main class="clearfix" id="maincontent">
+    <form>
+      <div id="cardLayers">
+        <div id="cardFront">
+          <div id="payAmount">
+            <p> Total: $199 </p>
+            <img class="card-image"
+              src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgZGF0YS1uYW1lPSJMYXllciAxIiBpZD0iTGF5ZXJfMSIgdmlld0JveD0iMCAwIDYwIDYwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZGVmcz48c3R5bGU+LmNscy0xLC5jbHMtMTAsLmNscy0xMSwuY2xzLTIsLmNscy02LC5jbHMtN3tmaWxsOm5vbmU7fS5jbHMtMXtjbGlwLXJ1bGU6ZXZlbm9kZDt9LmNscy0yLC5jbHMtNXtmaWxsLXJ1bGU6ZXZlbm9kZDt9LmNscy0ze2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aCk7fS5jbHMtNHtjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgtMik7fS5jbHMtNXtmaWxsOiNmZTg2NTc7fS5jbHMtMTAsLmNscy0xMSwuY2xzLTZ7c3Ryb2tlOiNmZTg2NTc7fS5jbHMtMTAsLmNscy02e3N0cm9rZS1saW5lY2FwOnJvdW5kO30uY2xzLTEwLC5jbHMtMTEsLmNscy02LC5jbHMtN3tzdHJva2UtbGluZWpvaW46cm91bmQ7fS5jbHMtNntzdHJva2Utd2lkdGg6NHB4O30uY2xzLTd7c3Ryb2tlOiNlMDZjM2U7fS5jbHMtMTEsLmNscy03e3N0cm9rZS1saW5lY2FwOnNxdWFyZTt9LmNscy0xMCwuY2xzLTExLC5jbHMtN3tzdHJva2Utd2lkdGg6MnB4O30uY2xzLTh7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTQpO30uY2xzLTl7ZmlsbDojZmZkYzgyO308L3N0eWxlPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoIj48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xLDQ2VjE4YTUsNSwwLDAsMSw1LTVINTRhNSw1LDAsMCwxLDUsNVY0NmE1LDUsMCwwLDEtNSw1SDZBNSw1LDAsMCwxLDEsNDZabTIsMGEzLDMsMCwwLDAsMywzSDU0YTMsMywwLDAsMCwzLTNWMThhMywzLDAsMCwwLTMtM0g2YTMsMywwLDAsMC0zLDNWNDZaTS0xOSw3MUg3OVYtN0gtMTlWNzFaIi8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC0yIj48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yLDQ2YTQsNCwwLDAsMCw0LDRINTRhNCw0LDAsMCwwLDQtNFYxOGE0LDQsMCwwLDAtNC00SDZhNCw0LDAsMCwwLTQsNFY0NloiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTQiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTksMjlhMiwyLDAsMCwwLDIsMkgyMmEyLDIsMCwwLDAsMi0yVjIzYTIsMiwwLDAsMC0yLTJIMTFhMiwyLDAsMCwwLTIsMnY2WiIvPjwvY2xpcFBhdGg+PC9kZWZzPjx0aXRsZS8+PGcgY2xhc3M9ImNscy0zIj48ZyBjbGFzcz0iY2xzLTQiPjxwYXRoIGNsYXNzPSJjbHMtNSIgZD0iTTIsNDZhNCw0LDAsMCwwLDQsNEg1NGE0LDQsMCwwLDAsNC00VjE4YTQsNCwwLDAsMC00LTRINmE0LDQsMCwwLDAtNCw0VjQ2WiIvPjwvZz48L2c+PGcgY2xhc3M9ImNscy00Ij48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik0yLDQ2YTQsNCwwLDAsMCw0LDRINTRhNCw0LDAsMCwwLDQtNFYxOGE0LDQsMCwwLDAtNC00SDZhNCw0LDAsMCwwLTQsNFY0NloiLz48L2c+PGxpbmUgY2xhc3M9ImNscy03IiB4MT0iOSIgeDI9IjI4IiB5MT0iMzkiIHkyPSIzOSIvPjxsaW5lIGNsYXNzPSJjbHMtNyIgeDE9IjMyIiB4Mj0iNTEiIHkxPSIzOSIgeTI9IjM5Ii8+PGcgY2xhc3M9ImNscy04Ij48cmVjdCBjbGFzcz0iY2xzLTkiIGhlaWdodD0iMjAiIHdpZHRoPSIyNSIgeD0iNCIgeT0iMTYiLz48L2c+PHBhdGggY2xhc3M9ImNscy0xMCIgZD0iTTksMjlhMiwyLDAsMCwwLDIsMkgyMmEyLDIsMCwwLDAsMi0yVjIzYTIsMiwwLDAsMC0yLTJIMTFhMiwyLDAsMCwwLTIsMnY2WiIvPjxsaW5lIGNsYXNzPSJjbHMtMTEiIHgxPSIxOCIgeDI9IjE4IiB5MT0iMzEiIHkyPSIyMSIvPjxsaW5lIGNsYXNzPSJjbHMtMTEiIHgxPSI5IiB4Mj0iMTciIHkxPSIyNyIgeTI9IjI3Ii8+PGxpbmUgY2xhc3M9ImNscy0xMSIgeDE9IjE4IiB4Mj0iMjQiIHkxPSIyNSIgeTI9IjI1Ii8+PC9zdmc+"
+              height="55" alt="credit card img">
+          </div>
+          <div id="creditCardNumberContainer">
+            <label for="creditCardNumber"> Card Number</label>
+            <input type="text" id="creditCardNumber" name="creditCardNumber" pattern="[0-9]{16}"
+              placeholder="1234 5678 9101 1121" required>
+          </div>
+          <div id="cardDetails">
+            <div id="cardHolder">
+              <label for="cardName">Card Holder</label>
+              <input type="text" id="cardName" name="cardName" placeholder="e.g. John Doe" required>
+            </div>
+            <div id="expiry">
+              <label>Expiration</label>
+              <div class="expiryInput">
+                <input type="text" id="card-month" placeholder="MM" pattern="[0-9]{2}" size="2">
+                <input type="text" id="card-year" placeholder="YY" pattern="[0-9]{2}" size="2">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="cardBack">
+          <div id="magStrip"></div>
+          <div id="security">
+            <label for="card-cvc">CVC/CVV</label>
+            <input type="text" id="card-cvc" placeholder="xxx" pattern="[0-9]{3-4}" size="4">
+          </div>
+        </div>
+        <button type="submit" id="payButton">Submit</button>
+      </div>
+    </form>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="clearfix">
+    <p>&copy; 2025 - Harrison Merrill - Not a Real Site :)</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+
+</body>
+
+<!--HOMEWORK COMMENTS-->
+<!-- https://hwalkermerrill.github.io/wdd131/coolpics/index.html -->
+<!-- https://github.com/hwalkermerrill/hwalkermerrill.github.io/tree/master/wdd131 -->
+
+</html>
