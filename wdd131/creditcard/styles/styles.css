@@ -40,7 +40,7 @@ body {
 	min-width: 15rem;
 	margin: 0;
 	/*----- Background Img -----*/
-	background-image: url("/serpents/images/background-cover.jpg");
+	/* background-image: url("/serpents/images/background-cover.jpg"); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -92,7 +92,7 @@ img {
 	/*---------- HEADER ----------*/
 	header {
 		padding: 0.5rem 5rem 0 0;
-		background-color: var(--secondary-color);
+		/* background-color: var(--secondary-color); */
 		display: grid;
 		grid-template-columns: max-content auto;
 		gap: 2%;
