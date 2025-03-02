@@ -113,17 +113,17 @@ const loot = [
       "The bearer of this shrunken monkey head can use it to cast dispel evil. While the spell is in effect, the bearer can make a melee touch attack with the head to banish an evil creature from another plane back to its home plane, or dispel one evil spell or one enchantment spell cast by an evil creature. This use discharges and ends the spell. When the spell ends, the fetish becomes a normal, non-magical monkey head.",
     ]
   },
-  // {
-  //   id: 12,
-  //   type: "magic",
-  //   name: "War Mask of Terror",
-  //   img: true,
-  //   src: "/serpents/images/loot-war-mask-terror.webp",
-  //   description: [
-  //     "Shamans and warriors of many of the indigenous tribes of western Garund add to their fierceness and mystique by wearing wooden masks that bear terrifying visages of demonic spirits. A war mask is considered sacred and personal, and is often handed down to the next generation when a wearer dies. Individual masks are often notorious, and many tribesfolk can readily identify masks of other tribes with a DC 15 Knowledge (local) check.",
-  //     "A war mask of terror provides its wearer with a +2 competence bonus on Intimidate checks and a +1 deflection bonus to Armor Class. In addition, the wearer may cast scare once per day.",
-  //   ]
-  // },
+  {
+    id: 12,
+    type: "magic",
+    name: "War Mask of Terror",
+    img: true,
+    src: "/serpents/images/loot-war-mask-terror.webp",
+    description: [
+      "Shamans and warriors of many of the indigenous tribes of western Garund add to their fierceness and mystique by wearing wooden masks that bear terrifying visages of demonic spirits. A war mask is considered sacred and personal, and is often handed down to the next generation when a wearer dies. Individual masks are often notorious, and many tribesfolk can readily identify masks of other tribes with a DC 15 Knowledge (local) check.",
+      "A war mask of terror provides its wearer with a +2 competence bonus on Intimidate checks and a +1 deflection bonus to Armor Class. In addition, the wearer may cast scare once per day.",
+    ]
+  },
   {
     id: 13,
     type: "note1",
