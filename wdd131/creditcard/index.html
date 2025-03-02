@@ -81,8 +81,8 @@
             <div id="expiry">
               <label>Expiration</label>
               <div class="expiryInput">
-                <input type="text" id="card-month" placeholder="MM" pattern="[0-9]{2}" size="2">
-                <input type="text" id="card-year" placeholder="YY" pattern="[0-9]{2}" size="2">
+                <input type="text" id="card-month" placeholder="MM" pattern="[0-9]{2}" size="2" required>
+                <input type="text" id="card-year" placeholder="YY" pattern="[0-9]{2}" size="2" required>
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@
           <div id="magStrip"></div>
           <div id="security">
             <label for="card-cvc">CVC/CVV</label>
-            <input type="text" id="card-cvc" placeholder="xxx" pattern="[0-9]{3-4}" size="4">
+            <input type="text" id="card-cvc" placeholder="xxx" pattern="[0-9]{3-4}" size="4" required>
           </div>
         </div>
         <button type="submit" id="payButton">Submit</button>
