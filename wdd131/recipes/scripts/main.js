@@ -12,14 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
 function populateRecipes(recipes) {
   // Sort recipes alphabetically by name:
   const sortedRecipes = recipes.sort((a, b) => a.name.localeCompare(b.name));
-
-  // Get the container element in your HTML where recipe cards will be placed.
-  // Make sure you have an element with id="recipesContainer" in your markup.
   const container = document.getElementById('recipe');
 
   // Iterate over each recipe entry
   sortedRecipes.forEach(recipe => {
-    // Create a card to hold the recipe
     const card = document.createElement('div');
     card.classList.add('recipe-card');
 
@@ -34,23 +30,38 @@ function populateRecipes(recipes) {
             ${recipe.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
           </p>
           <h2>${recipe.name}</h2>
-          <p class="recipe-rating">Rating: ${recipe.rating}</p>
+          <p class="recipe-rating">
+            Rating: ${generateRatingHTML(recipe.rating)}
+          </p>
           <p class="recipe-description">${recipe.description}</p>
         </div>
       </div>
       <!-- Initially hidden details that will be toggled on click -->
       <div class="recipe-details" style="display: none;">
-        ${recipe.author ? `<p>Author: ${recipe.author}</p>` : ''}
-        ${recipe.cookTime ? `<p>Cook Time: ${recipe.cookTime}</p>` : ''}
-        ${recipe.prepTime ? `<p>Prep Time: ${recipe.prepTime}</p>` : ''}
-        ${recipe.recipeYield ? `<p>Yield: ${recipe.recipeYield}</p>` : ''}
-        ${recipe.datePublished ? `<p>Published on: ${recipe.datePublished}</p>` : ''}
-        ${recipe.recipeIngredient && recipe.recipeIngredient.length > 0
+        <!-- Top Line: Times and Yield -->
+        <div class="details-top">
+          ${recipe.prepTime ? `<span class="prep-time">Prep Time: ${recipe.prepTime},</span>` : ''}
+          ${recipe.cookTime ? `<span class="cook-time">Cook Time: ${recipe.cookTime}</span>` : ''}
+          ${recipe.recipeYield ? `<span class="yield"> (Yield: ${recipe.recipeYield})</span>` : ''}
+        </div>
+
+        <!-- Middle Section: Ingredients and Instructions -->
+        <div class="ingredients-section">
+          ${recipe.recipeIngredient && recipe.recipeIngredient.length > 0
         ? `<p>Ingredients:</p><ul>${recipe.recipeIngredient.map(item => `<li>${item}</li>`).join('')}</ul>`
         : ''}
-        ${recipe.recipeInstructions && recipe.recipeInstructions.length > 0
+          ${recipe.recipeInstructions && recipe.recipeInstructions.length > 0
         ? `<p>Instructions:</p><ol>${recipe.recipeInstructions.map(step => `<li>${step}</li>`).join('')}</ol>`
         : ''}
+        </div>
+
+        <!-- Bottom Line: Based On, Author, Published Date & URL -->
+        <div class="details-bottom">
+          ${recipe.isBasedOn ? `<span class="isBasedOn">Based on: ${recipe.isBasedOn},</span>` : ''}
+          ${recipe.author ? `<span class="author">Author: ${recipe.author},</span>` : ''}
+          ${recipe.datePublished ? `<span class="datePublished">Published on: ${recipe.datePublished}</span>` : ''}
+          ${recipe.url ? `<span class="url"><a href="${recipe.url}" target="_blank">View Recipe</a></span>` : ''}
+        </div>
       </div>
     `;
 
@@ -64,4 +75,31 @@ function populateRecipes(recipes) {
     // Append the recipe card to the container
     container.appendChild(card);
   });
+}
+
+function generateRatingHTML(rating) {
+  // These constants handle .5 star ratings
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = (rating - fullStars) >= 0.5 ? 1 : 0;
+  const emptyStars = 5 - fullStars - hasHalfStar;
+
+  let starsHTML = '';
+
+  // Loop for filled stars (using icon-star)
+  for (let i = 0; i < fullStars; i++) {
+    starsHTML += `<span aria-hidden="true" class="icon-star">⭐</span>`;
+  }
+
+  // Loop checks if a half star needs to b e awarded
+  if (hasHalfStar) {
+    starsHTML += `<span aria-hidden="true" class="icon-star-half">⯨</span>`;
+  }
+
+  // Loop for empty stars (using icon-star-empty)
+  for (let i = rating; i < emptyStars; i++) {
+    starsHTML += `<span aria-hidden="true" class="icon-star-empty">☆</span>`;
+  }
+
+  // Wrap the stars in the outer span with aria-label for accessibility
+  return `<span class="rating" role="img" aria-label="Rating: ${rating} out of 5 stars">${starsHTML}</span>`;
 }

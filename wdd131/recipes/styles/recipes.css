@@ -309,6 +309,7 @@ a:visited {
 	}
 	.recipe-main {
 		display: flex;
+		flex-direction: column;
 	}
 	.recipe-info,
 	.recipe-details {
