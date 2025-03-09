@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- META DATA -->
+  <meta charset="UTF-8">
+  <meta name="description" content="WDD 131 Recipe Book">
+  <meta name="author" content="Harrison Merrill">
+  <meta name="slogan" content="We're in 131st Place">
+  <!-- <meta name="theme-color" content="#005633"> -->
+
+  <title>Harrison Merrill: WDD131 Blog</title>
+
+  <!-- This tells MS users to use Edge instead of IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH & stops the font from enlarging when a phone is turned sideways-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- This loads the "Amatic SC" and "Trade Winds" font styles on the user device while browsing this HTML-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&&family=Trade+Winds&display=swap"
+    rel="stylesheet">
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/recipes.css">
+
+  <!-- SCRIPT-->
+  <script src="scripts/jquery.min.js"></script>
+  <!-- <script type="module" src="scripts/recipes.mjs"></script> -->
+  <script type="module" src="scripts/main.js"></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="clearfix">
+    <figure class="logo">
+      <a href="index.html">
+        <img src="images/recipe-book.png" alt="logo">
+      </a>
+    </figure>
+    <div class="slogan">
+      <h1>RecipeBook</h1>
+    </div>
+    <!-- <div class="menu">
+      <button onclick="toggleMenu()">&#8801;</button>
+    </div> -->
+    <div class="skip-to-content"><a href="#maincontent">skip to main content</a></div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <!-- <nav class="clearfix">
+    <ul id="primaryNav" class="hide">
+      <li><a href="*">Search</a></li>
+      <li><a href="*">Archive</a></li>
+      <li><a href="*">About</a></li>
+    </ul>
+  </nav> -->
+
+  <!-- CONTENT -->
+  <main class="clearfix" id="maincontent">
+    <form> <!--Wrapper for search form-->
+      <div id="searchWrapper">
+        <div id="searchBar">
+          <label for="search">Find a recipe</label>
+          <input type="text" id="search" name="search" placeholder="Find a recipe">
+        </div>
+        <div id="searchButton">
+          <button type="submit">
+            <img src="images/search.svg" alt="Search">
+          </button>
+        </div>
+      </div>
+    </form>
+    <div id="recipe"> <!--Recipe's go here from recipes.mjs-->
+
+    </div>
+    <span class="rating" role="img" aria-label="Rating: 4 out of 5 stars">
+      <span aria-hidden="true" class="icon-star">⭐</span>
+      <span aria-hidden="true" class="icon-star">⭐</span>
+      <span aria-hidden="true" class="icon-star">⭐</span>
+      <span aria-hidden="true" class="icon-star-empty">⭐</span>
+      <span aria-hidden="true" class="icon-star-empty">☆</span>
+    </span>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="clearfix">
+    <div class="social">
+      <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates  -->
+      <a href="#"><img src="images/instagram_icon.svg" alt="instagram icon"></a>
+      <a href="#"><img src="images/youtube_icon.svg" alt="youtube icon"></a>
+      <a href="#"><img src="images/pinterest_icon.svg" alt="pinterest icon"></a>
+    </div>
+    <p><a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons">Recipe icons created by Freepik -
+        Flaticon</a></p>
+    <p>&copy; 2025 - Harrison Merrill - Not a Real Site :)</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+
+</body>
+
+<!--HOMEWORK COMMENTS-->
+<!-- https://hwalkermerrill.github.io/wdd131/coolpics/index.html -->
+<!-- https://github.com/hwalkermerrill/hwalkermerrill.github.io/tree/master/wdd131 -->
+
+</html>

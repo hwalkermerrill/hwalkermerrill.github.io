@@ -1,0 +1,727 @@
+/* ----- Root Data ----- */
+:root {
+	--primary-color: #1b98e0;
+	--secondary-color: #59c3c3;
+	--text-dark: #333;
+	--text-light: #ebebeb;
+	--primary-font: Arial, Helvetica, sans-serif;
+	--secondary-font: "Amatic SC", "Trade Winds", serif;
+	--text-shadow-basic: 4px 4px 4px #aaa;
+	--text-shadow-spirit: 1px 1px 0px var(--spirit-aura);
+	--text-shadow-black: 1px 1px 0px black;
+	--text-shadow-light: -5px 0px 5px var(--text-light),
+		0px 5px 5px var(--text-light), 5px 0px 5px var(--text-light),
+		0px -5px 5px var(--text-light);
+	--text-shadow-primary: -5px 0px 5px var(--primary-color),
+		0px 5px 5px var(--primary-color), 5px 0px 5px var(--primary-color),
+		0px -5px 5px var(--primary-color);
+	--text-shadow-secondary: -5px 0px 5px var(--secondary-color),
+		0px 5px 5px var(--secondary-color), 5px 0px 5px var(--secondary-color),
+		0px -5px 5px var(--secondary-color);
+}
+
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* {
+	box-sizing: border-box;
+}
+
+/*----------- BODY --------------*/
+body {
+	font-size: 1.2em;
+	font-family: var(--primary-font);
+	min-width: 15rem;
+	margin: 0;
+	/*----- Background Img -----*/
+	/* background-image: url("/serpents/images/background-cover.jpg"); */
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+/* This makes ul/li's appear clickable */
+ul,
+ol {
+	cursor: pointer;
+}
+h2,
+h3,
+figcaption {
+	color: var(--primary-color);
+	text-shadow: var(--text-shadow-basic);
+	font-family: var(--secondary-font);
+}
+h1 {
+	margin-top: 0;
+	margin-bottom: 8px;
+	font-weight: bold;
+	font-size: 65px;
+	font-family: var(--secondary-font);
+}
+h2 {
+	margin-bottom: 8px;
+	font-weight: normal;
+	font-size: 30px;
+}
+strong {
+	font-weight: bold;
+	font-size: 1.25em;
+	font-style: oblique;
+}
+strong.spirit {
+	text-shadow: var(--text-shadow-spirit);
+}
+strong.spiritBlack {
+	text-shadow: var(--text-shadow-black);
+}
+img {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* ----- Anchors ----- */
+a {
+	text-decoration: none;
+}
+a:link,
+a:visited {
+	color: var(--secondary-color);
+}
+
+/* Mobile Screen Size - 15em is also 240px (if basefont is 16px) */
+@media only screen and (min-width: 15rem) {
+	/*---------- HEADER ----------*/
+	header {
+		padding: 0.5rem 5rem 0 0;
+		/* background-color: var(--secondary-color); */
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+	}
+	/* header .slogan {
+		display: none;
+	} */
+	header figure {
+		margin: 0;
+	}
+	header img {
+		max-height: 100px;
+	}
+	header button {
+		margin: 1rem 2%;
+		background-color: transparent;
+		border: none;
+		font-size: 3rem;
+		color: #555;
+	}
+	header h1,
+	header h2 {
+		margin: 0;
+		text-shadow: var(--text-shadow-light);
+	}
+
+	/* ----- Accessibility skip-to-main-content ----- */
+	.skip-to-content a {
+		position: absolute;
+		top: -40px;
+		background-color: var(--secondary-color);
+		color: var(--text-light);
+	}
+
+	.skip-to-content a:focus {
+		top: 0;
+	}
+
+	/*---------- NAVIGATION ----------*/
+	nav {
+		background-color: var(--secondary-color);
+	}
+	nav ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+	nav ul.hide {
+		display: none;
+	}
+	nav ul li a {
+		display: block;
+		color: var(--primary-color);
+		border-top: 1px solid rgba(0, 0, 0, 0.3);
+		padding: 0.5rem 0;
+		text-decoration: none;
+		font-size: 20px;
+		text-align: center;
+		text-shadow: var(--text-shadow-light);
+	}
+	nav ul li a:hover {
+		background-color: var(--text-light);
+		color: var(--primary-color);
+	}
+	nav ul li.active a {
+		background-color: var(--primary-color);
+		color: black;
+		text-shadow: var(--text-shadow-light);
+	}
+
+	/*---------- MAIN ----------*/
+	main {
+		padding: 2%;
+		min-height: 10rem;
+	}
+	.floatswitch ul li {
+		text-indent: 2rem;
+	}
+	.herodiv {
+		width: 100%;
+		padding: 0.5rem 2%;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+	}
+	.herodiv figure {
+		width: 100%;
+		padding: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.herodiv .actioncall {
+		position: absolute;
+		top: 2rem;
+		left: 2rem;
+		background: var(--text-light);
+		border: 1px solid #000;
+		padding: 0.2rem;
+		box-shadow: 0 0 30px var(--primary-color);
+	}
+	.herodiv .actioncall h3 {
+		margin: 0.5rem;
+	}
+	.herodiv .actioncall p {
+		margin: 0.2rem;
+	}
+	.herodiv .actioncall button {
+		border: none;
+		background-color: var(--primary-color);
+		color: black;
+		border-radius: 1rem;
+		padding: 0.75rem 1.5rem;
+		width: 96%;
+		max-width: 20rem;
+	}
+	.row {
+		display: block;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0.2rem;
+	}
+	.row section:nth-child(2) {
+		margin-left: 2%;
+	}
+	.row figure figcaption {
+		padding: 1%;
+		text-align: center;
+	}
+	.files ul li {
+		margin: 10px;
+	}
+
+	/*----- Slideshow -----*/
+	#slideshow:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	#slideshow img {
+		float: left;
+		margin: 0 -100% 0 0;
+	}
+
+	/*----- Flexwrap Classes -----*/
+	/* This manages floating img boxes, which can be clicked to view further data */
+	main .asset,
+	main .gallery {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	main .asset section,
+	main .gallery figure {
+		margin: 1rem 2%;
+		flex-basis: 96%;
+		border: 12px solid transparent;
+		border-image: url("/serpents/images/border-frame.png") 30 round;
+		/* border-style: ridge; */
+		/* border-color: #005633; */
+		/* border-width: 6px; */
+		padding: 1%;
+		transition: all 0.2s ease-in-out;
+	}
+	main .asset section img,
+	main .gallery figure img {
+		max-height: 100%;
+		max-width: 100%;
+		object-fit: contain;
+	}
+	main .asset section:hover,
+	main .gallery figure:hover {
+		box-shadow: 0 0 12px #555;
+		transform: scale(1.05);
+		cursor: pointer;
+	}
+	main .asset section figure {
+		margin: 0;
+		padding: 0;
+	}
+	main .gallery figure {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	/* Recipe Subsection */
+	#recipe {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		justify-content: center;
+		padding: 1rem;
+	}
+	.recipe-card {
+		border: 1px solid #aaa;
+		border-radius: 8px;
+		overflow: hidden;
+		background-color: white;
+		cursor: pointer;
+		transition: box-shadow 0.2s ease;
+		width: 100%;
+	}
+	.recipe-card:hover {
+		box-shadow: var(--text-shadow-secondary);
+		transform: scale(1.05);
+	}
+	.recipe-main {
+		display: flex;
+	}
+	.recipe-info,
+	.recipe-details {
+		padding: 1rem;
+	}
+	.recipe-description {
+		display: none;
+	}
+	.recipe-tags .tag {
+		display: inline-block;
+		box-sizing: border-box;
+		border: 1px solid #aaa;
+		border-radius: 5px;
+		padding: 2px 5px;
+		margin-right: 2px;
+	}
+
+	/*----- Multi Image -----*/
+	/* This allows you to set two images for a single object,
+	The first image fades into second image on hover */
+	figure.multiImage picture,
+	figure.multiImage {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		overflow: hidden;
+		position: relative;
+		justify-content: center;
+		align-items: center;
+	}
+	figure.multiImage picture,
+	figure.multiImage img {
+		grid-column: 1 / -1;
+		grid-row: 1 / -1;
+		transition: opacity 0.3s ease-out;
+		max-height: 100%;
+		max-width: 100%;
+		object-fit: cover;
+	}
+	figure.multiImage img.appearOnHover,
+	figure.multiImage:hover img.fadeOnHover {
+		opacity: 0;
+	}
+	figure.multiImage:hover img.appearOnHover,
+	figure.multiImage img.faderOnHover {
+		opacity: 1;
+	}
+
+	/* This .two-three class forces the img inside to be at 2:3 aspect ratio */
+	figure.two-three {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+	}
+	/* The ::before pseudo element forces the img to maintain a 2:3 aspect ratio */
+	figure.two-three::before {
+		content: "";
+		display: block;
+		padding-top: 150%; /* 3/2 aspect ratio (3/2 * 100%) */
+	}
+	figure.two-three img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* Ensure image scales correctly */
+	}
+
+	/* ----- Modal IMG Viewer ----- */
+	.viewer {
+		z-index: 10;
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		display: grid;
+		grid-template-rows: 20px auto;
+		background: rgba(0, 0, 0, 0.75);
+		color: var(--secondary-color);
+		justify-content: center;
+		align-items: center;
+		margin: 2%;
+		padding: 2%;
+		border-radius: 10px; /*Rounded corners*/
+	}
+	.viewer button {
+		background: rgba(0, 0, 0, 0);
+		border-color: rgba(0, 0, 0, 0);
+		color: var(--secondary-color);
+		cursor: pointer;
+		grid-row: 1;
+		text-align: right;
+	}
+	.viewer img {
+		max-height: 100%;
+		min-height: 0;
+		max-width: 100%;
+		min-width: 0;
+		grid-row: 2;
+	}
+	.pointer {
+		cursor: pointer;
+	}
+	.crosshair {
+		cursor: crosshair;
+	}
+
+	/*----- Attitude Colors -----*/
+	main .helpful {
+		background-color: var(--npc-helpful);
+	}
+	main .friendly {
+		background-color: var(--primary-color);
+		border-color: var(--secondary-color);
+		color: var(--text-light);
+	}
+	main .friendly h3 {
+		color: var(--text-light);
+		text-shadow: var(--text-shadow-secondary);
+	}
+	main .unfriendly {
+		background-color: var(--secondary-color);
+	}
+	main .hostile {
+		background-color: #000;
+		color: var(--text-light);
+	}
+	main .locked {
+		background-color: #aaa;
+	}
+	main .helpful h3,
+	main .unfriendly h3,
+	main .hostile h3 {
+		color: var(--text-light);
+		text-shadow: var(--text-shadow-primary);
+	}
+
+	/*----- toggleClass sub-CSS -----*/
+	main .asset p,
+	main .asset ul {
+		display: none;
+	}
+
+	main .asset .click p,
+	main .asset .click ul {
+		display: block;
+	}
+
+	/*----- Light-zoom classes -----*/
+	#glass {
+		position: absolute;
+		border-radius: 50%;
+		box-shadow: 0 0 0 7px rgba(118, 118, 117, 0.35),
+			0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+		display: none;
+		background-repeat: no-repeat;
+		background-color: rgba(0, 0, 0, 0.6);
+		overflow: hidden;
+		width: 270px; /* Ensure the width and height are set */
+		height: 270px; /* Ensure the width and height are set */
+	}
+
+	#crosshair {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: url("/serpents/images/logo-target.png") center center no-repeat;
+		background-repeat: no-repeat;
+		background-position: center;
+		opacity: 0.5;
+		pointer-events: none;
+		z-index: 10; /* Ensure the crosshair stays on top */
+	}
+
+	/*----- #returnTopBtn -----*/
+	#returnTopBtn {
+		display: none; /* Hidden by default */
+		position: fixed;
+		bottom: 3em; /* Place the button at the bottom of the page */
+		left: 50%;
+		margin-left: -57px;
+		z-index: 99; /* Button appears on top */
+		border-style: ridge;
+		border-color: var(--primary-color);
+		border-width: 6px;
+		background-color: var(--secondary-color);
+		color: var(--primary-color);
+		text-shadow: var(--text-shadow-black);
+		cursor: pointer; /* Add a mouse pointer on hover */
+		padding: 5px;
+		border-radius: 10px;
+		font-size: 18px; /* Increase font size */
+		/* background: url("/images/button.webp") no-repeat; */
+	}
+	#returnTopBtn:hover {
+		background-color: var(--text-light);
+		box-shadow: var(--text-shadow-light);
+		transform: scale(1.05);
+	}
+
+	/* ----- #searchWrapper ----- */
+	#searchWrapper {
+		display: flex;
+		align-items: center;
+		border: 1px solid #ccc;
+		border-radius: 10px; /* Rounded corners */
+		overflow: hidden; /* Keep typed content inside searchbar */
+		width: 100%;
+	}
+	/* This makes sure the search bar participates in the flex layout. Otherwise it formats strangely. */
+	#searchBar {
+		flex: 1 1 auto;
+	}
+	#searchBar input {
+		height: 50px;
+		flex-grow: 1;
+		border: none; /*hide default border so wrapper border is contiguous*/
+		padding: 0 10px; /* move the input away from the border edge */
+		min-width: 0;
+	}
+	#searchButton {
+		border-left: 1px solid #ccc; /* Small divider between button and input*/
+		background-color: transparent;
+		padding: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: auto;
+		cursor: pointer;
+	}
+	#searchButton button {
+		border: none; /* Eliminate weird double border/ color*/
+		background-color: transparent;
+	}
+	#searchButton img {
+		width: 40px;
+	}
+	#searchButton:hover {
+		background-color: var(--secondary-color);
+	}
+	#searchBar label {
+		display: none;
+	}
+	input:focus {
+		outline: none; /* prevents typed content from looking weird*/
+	}
+
+	/*---------- FOOTER ----------*/
+	footer {
+		/* background-color: var(--secondary-color); */
+		color: var(--primary-color);
+		padding: 0.5rem 2%;
+		font-size: 0.6em;
+		text-align: center;
+		clear: both;
+	}
+	/* ----- Social Media Tags ----- */
+	.social {
+		min-width: 20px;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+	.social a {
+		flex: 1;
+		/* background-color: var(--secondary-color); */
+		margin: 1%;
+		padding: 0%;
+		box-sizing: border-box;
+		max-width: 80px;
+	}
+	.social a img:hover {
+		box-shadow: 0 0 12px #555;
+		transform: scale(1.05);
+		cursor: pointer;
+		border-radius: 10px; /*Rounded corners*/
+		background-color: var(--secondary-color);
+	}
+}
+/* ---------- Responsive @media Screen Sizes ---------- */
+/* Tablet Screen Size - 45em is also 720px (if basefont is 16px) */
+@media only screen and (min-width: 45rem) {
+	/*---------- HEADER ----------*/
+	header button {
+		display: none;
+	}
+
+	/* header h1 {
+		font-size: 2rem;
+	} */
+
+	header h2 {
+		font-size: 1.5rem;
+	}
+
+	header .slogan {
+		display: block;
+	}
+
+	/*---------- NAVIGATION ----------*/
+	nav ul.hide {
+		display: block;
+	}
+
+	nav ul {
+		margin-left: 4px;
+	}
+
+	nav ul li {
+		float: left;
+	}
+
+	nav ul li a {
+		border: none;
+		border-right: 1px solid rgba(0, 0, 8, 0.3);
+		padding: 0.8rem;
+	}
+
+	/*---------- MAIN ----------*/
+	img.tooTall {
+		/* This is a class for images that are too tall for the screen */
+		width: 48%;
+	}
+	ul img,
+	.row section,
+	.row aside,
+	.floatswitch section img,
+	.floatswitch ul img {
+		float: left;
+		width: 48%;
+		padding: 2% 2% 0 2%; /*Sets padding to 2% everywhere except top*/
+	}
+	ul img,
+	.row section:nth-child(2n),
+	.row aside:nth-child(2n),
+	.floatswitch section:nth-child(2n) img,
+	.floatswitch ul:nth-child(2n) img {
+		float: right;
+	}
+	.row section {
+		margin-left: 2%;
+	}
+	ul img.tooTall,
+	.row section img.tooTall,
+	.floatswitch section img.tooTall,
+	.floatswitch ul img.tooTall {
+		/* This is a class for images that are too tall for the screen */
+		width: 29%;
+	}
+	footer {
+		text-align: left;
+	}
+
+	/*---------- Flexwrap Classes ----------*/
+	main .gallery,
+	main .asset {
+		justify-content: center;
+	}
+	main .gallery figure,
+	main .asset section {
+		flex-basis: 46%;
+	}
+	.social {
+		justify-content: flex-end;
+	}
+	/* recipes subsection */
+	.recipe-main {
+		flex-direction: row;
+	}
+	.recipe-image {
+		flex: 0 0 40%;
+	}
+	.recipe-info {
+		flex: 1;
+	}
+	.recipe-description {
+		display: block;
+	}
+}
+
+/* Computer Screen Size - 64em is also 1024px (if basefont is 16px) */
+@media only screen and (min-width: 64rem) {
+	/*---------- Flexwrap Classes ----------*/
+	main .asset section,
+	main .gallery figure {
+		flex-basis: 29%;
+	}
+}
+
+/* Computer Widescreen Size - 90rem is also 1440px (if basefont is 16px) */
+@media only screen and (min-width: 90rem) {
+	body {
+		max-width: 90rem;
+		margin: auto;
+	}
+	main .asset section,
+	main .gallery figure {
+		flex-basis: 21%;
+	}
+}
+
+/*----- Clearfix: Force an Element not to collapse -----*/
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/*---------- CLOSE CODE ----------*/
+/* Written by Harrison Merrill */
