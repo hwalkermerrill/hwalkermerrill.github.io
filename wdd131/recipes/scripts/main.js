@@ -1,12 +1,23 @@
+// Global Variables
+const recipeBook = [];
+
 // Import recipes asynchronously with dynamic import
 document.addEventListener('DOMContentLoaded', () => {
   (async () => {
     // Import the default export from recipes.mjs
     const recipes = (await import('./recipes.mjs')).default;
     // console.log(recipes);
-    // populateRecipes(recipes); THIS CALLS ALL RECIPES
+    recipeBook.push(...recipes);
+    // populateRecipes(recipes); THIS CALLS ALL RECIPES INSTEAD OF ONE RANDOMLY
+    // This calls one random recipe instead of all recipes
     initialRandomRecipe(recipes);
   })();
+  const searchForm = document.querySelector("form");
+  searchForm.addEventListener('submit', event => {
+    event.preventDefault(); // Prevent the page from reloading
+    const query = document.getElementById('search').value.toLowerCase();
+    filterRecipes(query);
+  });
 });
 
 function randNum(number) {
@@ -108,7 +119,7 @@ function generateRatingHTML(rating) {
   }
 
   // Loop for empty stars (using icon-star-empty)
-  for (let i = rating; i < emptyStars; i++) {
+  for (let i = 0; i < emptyStars; i++) {
     starsHTML += `<span aria-hidden="true" class="icon-star-empty">☆</span>`;
   }
 
@@ -120,4 +131,15 @@ function initialRandomRecipe(recipes) {
   const randomIndex = randNum(recipes.length);
   const randomRecipe = recipes[randomIndex];
   populateRecipes([randomRecipe]);
+}
+
+function filterRecipes(query) {
+  if (recipeBook.length === 0) return;
+  const filteredRecipes = recipeBook.filter(recipe => {
+    return recipe.name.toLowerCase().includes(query) ||
+      recipe.description.toLowerCase().includes(query) ||
+      recipe.tags.join(' ').toLowerCase().includes(query) ||
+      (recipe.recipeIngredient && recipe.recipeIngredient.join(' ').toLowerCase().includes(query));
+  });
+  populateRecipes(filteredRecipes);
 }
