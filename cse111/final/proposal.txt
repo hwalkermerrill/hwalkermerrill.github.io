@@ -1,0 +1,72 @@
+CSE 111 Proposal for a Student Chosen Program
+
+    (This is a proposal. All proposals are written with our best
+    knowledge at the beginning of a project. As we progress from the
+    beginning to the end of a project, we gain more knowledge, and we
+    change some of our proposed ideas. This is part of completing any
+    project and is fine.  However, we still must write a proposal so
+    that our teachers or supervisors know what we intend to do. Please
+    answer each of the following questions to the best of your
+    knowledge.)
+
+1. What is the title of your program?
+    critical-hit.py
+
+2. What real-world problem will your program address or help to solve?
+    My program will be used for my hobby - I run a tabletop game with a group of friends
+    every saturday. As part of the game experience, there are additional effects that
+    occur on a critical hit. We have, in the past, used various methods (online rollers,
+    crit cards, etc.) to add flavor to critical hits, but the different systems each have
+    their own positives and negatives, they are all incompatible with each other, and they
+    do not quite fit the requirements for our table. Inspired by these existing subsystems,
+    I want to create a customized critical roller tailored to our game table. The critical
+    effects, should be varied, generally become more powerful as the attacker more
+    overcomes the defenders AC, include modifiers for using higher crit-multiplier weapons,
+    include modifiers for when a crit is double-confirmed, have different tables depending
+    on the critical source (ranged, melee, or magic), include inverse fumble effects,
+    balance against crit-fishing, and include critical saves and fumble saves. If possible,
+    other table lookups should also be added (wild magic, crafting perks / knacks / flaws
+    / curses), though these would likely just be simple lookup values on existing tables.
+    Optionally, I may add a method for it to calculate the crit damage if the user inputs
+    their damage values.
+
+3. What will you learn from developing this program?
+    I will practice combining the use of libraries/dictionaries for the different effects
+    and the input of user variables, along with a random number generator, to output
+    different values. If possible, I will incorporate the program on a github repository,
+    though I admit I have absolutely NO IDEA how to get a python program working on a 
+    website (but I will do it if I can, using my limited knowledge of html, css, and js).
+
+4. What Python modules will your program use?
+    I will definitely use random. I may also use csv and create a csv list and use that
+    to automatically generate a dictionary/ library, though since I'm writing the 
+    dictionary anyway, I probably wont. I don't expect to use other modules, though that
+    may change as I proceed. It is possible I may need the math module or the decimal module
+    if I do incorporate damage values.
+
+    (Some examples are: csv, datetime, functools, matplotlib, math,
+    pandas, pytest, random, requests, and tkinter.)
+
+5. Will you separate your Python program into functions that each
+perform a single task?
+
+    Yes, most (if not all) of the program will be divided into separate functions that
+    each take values passed to them. I also want my program to be able to run without
+    any user input, passing default values if none are given, or only calling part of
+    the program depending on which values are imputed.
+
+    (Remember that the most reusable functions don't get user input and
+    don't print results but instead have parameters and return a result.
+    Functions that get user input and print results are important and do
+    useful work but are not easily reusable.)
+
+    (Remember also that it's hard to test functions that get user input
+    and print results. It's easy to test functions that don't get user
+    input and don't print results but instead have parameters and return
+    a result. Therefore, you should write most of your program functions
+    to have parameters and return a result.)
+
+6. Will you write test functions to test at least two of your program
+functions?
+    Yes
+
