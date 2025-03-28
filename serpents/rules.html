@@ -218,14 +218,28 @@
 						penalty on your check if attempting one without using a weapon. If you attempt a deft maneuver with a
 						finesse weapon, you may use your DEX instead of STR for your CMB. The disarm and sunder special weapon
 						qualities provide a +2 bonus to those specific maneuvers, while if you fail either of those checks by 10 or
-						more, you drop your weapon. You are also knocked prone if you fail a drag, reposition, or trip, attempt by
+						more, you drop your weapon. You are also knocked prone if you fail a drag, reposition, or trip attempt by
 						10 or more unless the weapon possess the deft (trip) quality, which allows the wielder to drop the weapon
-						instead.</li>
+						instead.
+						<ul style="list-style-type: lower-greek;">
+							<li style="display: none;">Sunder - This maneuver is both a powerful and deft maneuver, but powerful
+								maneuvers is required for greater sunder feats.</li>
+							<li style="display: none;">Trip - A creature that succeeds at a trip combat manuever only knocks the
+								target to kneeling or sitting. If they exceed the targets CMD by 5 or more, they are instead knocked
+								prone. A creature performing this manuever may attempt to only knock their target to kneeling or
+								sitting. Forcing a creature to kneel or sit counts as knocking them prone for the purposes of spells and
+								effects.</li>
+						</ul>
+					</li>
 					<li style="display: none;"><i>Fighting Dirty</i> - Dirty Trick and Steal combat maneuvers, along with the
 						Feint social maneuver are all unique standard actions that are considered fighting dirty. Fighting dirty is
 						not evil but is considered dishonorable. The Dirty Fighting feat is required to perform a Dirty Trick or
 						Steal combat maneuver without provoking an attack of opportunity, as well as allowing you to Feint as a move
-						action.</li>
+						action.
+						<ul style="list-style-type: lower-greek;">
+							<li style="display: none;"> Dirty Trick - This maneuver can also inflict the off-balance condition. </li>
+						</ul>
+					</li>
 					<li style="display: none;"><i>Grappling</i> - Grappling is an advanced combat maneuver you may attempt as a
 						standard action or in place of an attack of opportunity. You need improved unarmed strike to initiate a
 						grapple without provoking an attack of opportunity. You take a -4 penalty on grapple checks if you’re
@@ -236,18 +250,21 @@
 						to the target. An outsider may “dog pile” a grappled target, giving the grappler a +2 bonus to their CMB and
 						CMD as though aided until the grapple is released. An outsider may also attempt to wrench a grappled target
 						free by attempting a grapple check against the controllers CMD +5; if they succeed, the grapple ends.</li>
-					<li style="display: none;"><i>Power Maneuvers</i> - Powerful Maneuvers are all standard actions which may be
-						done as part of a charge or attack of opportunity, which include the Hamstring, Overrun, and Shove (Bull
-						Rush) combat maneuvers. You can only perform any of these maneuvers against an opponent who is no more that
-						one size category larger than you. You need the Powerful Maneuvers feat to perform one of these maneuvers
-						without provoking an attack of opportunity from your target. If you fail any powerful maneuver by 5 or more,
-						you are knocked prone.
+					<li style="display: none;"><i>Powerful Maneuvers</i> - Powerful Maneuvers are all standard actions which may
+						be done as part of a charge or attack of opportunity, which include the Hamstring, Overrun, Shove (Bull
+						Rush), and Sunder combat maneuvers. You can only perform any of these maneuvers against an opponent who is
+						no more that one size category larger than you. You need the Powerful Maneuvers feat to perform one of these
+						maneuvers without provoking an attack of opportunity from your target. If you fail any powerful maneuver by
+						5 or more, you are knocked prone.
 						<ul style="list-style-type: lower-greek;">
 							<li style="display: none;"><i>Hamstring</i> - (Unified Feats as New Combat Maneuver) You attempt to
 								hamstring your opponent’s movement. If your attack exceeds the target’s CMD, the target is entangled for
 								1 round. For every 5 by which your attack exceeds your opponent’s CMD, the penalty lasts 1 additional
 								round. Creatures that are immune to critical hits cannot be hamstrung. Flying creatures can be
 								hamstrung, but only if they use non-magical means of flight. </li>
+							<li style="display: none;"><i>Overrun</i> - When you successfully overrun a target and move through their
+								space, you also force them to kneel or sit, unless you knock them prone by exceeding their CMD by 5 or
+								more.
 						</ul>
 					</li>
 				</ul>
@@ -923,11 +940,80 @@
 					</li>
 				</ul>
 				<ul class="toggleLiVis" style="list-style-type: circle;">
+					<li style="list-style-type: none;"><b>Condition Changes</b></li>
+					<li style="list-style-type: none; display: none;"><b>Condition Changes:</b></li>
+					<li style="display: none;"><i>Blinded</i> - Unified with Dazzled changes, is now a more severe form of
+						Dazzled. They additionally gain a -2 penalty on attack rolls. Conversely, this condition has no effect on
+						creatures with precise senses other than vision.</li>
+					<li style="display: none;"><i>Confused</i> - (2E) A confused creature is off guard, doesn't treat anyone as
+						their ally, cannot delay or ready an action, and cannot take immediate actions or attacks of opportunity. At
+						the beginning of each turn, they roll on the confused table to see what they do (act normally, nothing,
+						damage self, or attack nearest creature). If a confused creature was attacked since they last acted
+						normally, and at least one of their attackers is alive and visible, they randomly attack one of their
+						attackers instead of babbling incoherently, damaging themselves, or attacking the nearest creature.</li>
+					<li style="display: none;"><i>Cowering / Shaken / Frightened / Panicked</i> - (Errata) Creatures immune to
+						fear are also immune to these conditions. Cowering creatures can (and must) take the total defense action
+						each turn, but can take no other actions. Cowering creatures are no longer off-guard, but still take a -2
+						penalty to Armor Class. Cowering is a more extreme state of fear than panicked, and effects that heighten a
+						creatures level of fear may heighten a creature from panicked to cowering, and from cowering to helpless.
+					</li>
+					<li style="display: none;"><i>Dazzled</i> - (2E) Merged with partial blindness. New Text: <i>The creature is
+							unable to see well because of overstimulation of the eyes. A dazzled creature takes a -1 penalty on attack
+							rolls and perception checks, and all enemies gain partial concealment (20% miss chance). This has no
+							effect on creatures with precise senses other than vision. </i></li>
+					<li style="display: none;"><i>Deafened</i> - Unified with Rung changes, is now a more severe form of Rung. If
+						imposed during combat, the target's current initiative falls by the listed penalty for the duration of the
+						encounter. Sightless creatures reliant on sound also gain the penalties of being Blinded.</li>
+					<li style="display: none;"><i>Disabled</i> - (Unchained) A creature is now disabled and not dying when they
+						have between 0 hit points(hp) and negative hp up to their constitution modifier. Creatures with negative
+						constitution modifiers are considered disabled before they reach 0 hp (at a positive hp equal to their
+						constitution penalty), but do not take damage from performing standard actions while at positive hp.</li>
+					<li style="display: none;"><i>Doomed</i> - (CoT) Descriptive Text: <i>The creatures soul has been gripped by a
+							powerful force that calls them closer to death. This condition always has a value, which usually begins at
+							1. The creature dies when their negative hit points equals their constitution minus their Doomed value; if
+							their Doomed value becomes equal to their constitution, their are immediately slain as though via a death
+							effect. Once the source of their Doom is removed, their Doomed value decreases by 1 each time they get a
+							full night's rest.</i>
+					<li style="display: none;"><i>Exhausted</i> - Formally a heightened form of Fatigued.</li>
+					<li style="display: none;"><i>Kneeling or Sitting / Prone</i> - Prone is formally a more severe form of
+						kneeling or sitting. Standing from kneeling or sitting takes the same actions and has the same effects as
+						standing from prone, though you may also stand from kneeling or sitting by moving. You cannot take a 5-ft.
+						step while kneeling, sitting, or prone. Kneeling, sitting, or going prone behind partial cover will usually
+						grant cover. A creature that is tripped while kneeling or sitting is knocked prone. Creatures that are
+						immune to trip cannot kneel, sit, or go prone.</li>
+					<li style="display: none;"><i>Nauseated</i> - Formally a more severe form of sickened.</li>
+					<li style="display: none;"><i>Off-Balance</i> - (UA) Clarified difference between being off balance on land vs
+						underwater. New Text: <i>This creature lacks sure footing or stability. They no longer threaten or flank
+							other creatures and lose their dexterity bonus to their combat manuever defense (CMD) and skill checks.
+							Spending a move action to regain their footing, moving, or taking a 5-ft. step removes this condition. If
+							an off-balance creature is further knocked off-balance, they are also knocked prone. Creatures that cannot
+							be tripped also cannot be knocked off balance.
+							<br>This condition is more perilous for creatures that are swimming. They become off-guard, their
+							piercing weapons become just as infective in water as bludgeoning weapons, and opponents gain a +2 bonus
+							on attack rolls against it. This condition persists until the creature succeeds on a swim check or is no
+							longer swimming. Any effect that would normally knock a swimming creature prone instead knocks them
+							off-balance. </i></li>
+					<li style="display: none;"><i>Paralyzed</i> - Formally a more severe form of Staggered.
+					<li style="display: none;"><i>Rung</i> - Terminology for partial deafness, unified with Dazzled. If applied
+						during combat, the target's current initiative falls by the listed penalty for the duration of the
+						encounter. Sound based effects that impose a penalty on a failed saving throw (such as a roar that causes
+						targets to become frightened) also impose this condition for the duration (or 1 round if no duration is
+						listed). Effects that cause deafness on a failed saving throw that are not entirely negated by a success
+						also inflict this condition on a successful save for the duration (or 1 round if no duration is listed).
+						<br> Descriptive Text: <i>The creature is hard of hearing or distracted by a persistent ringing in their
+							ears. They take a -2 penalty on initiative and sound-based perception checks. Sightless creatures reliant
+							on sound also gain the penalties of being Dazzled.</i>
+					</li>
+					<li style="display: none;"><i>Stunned</i> - Formally a more severe form of Dazed.
+					<li style="display: none;"><i>Unconscious</i> - (Errata) Being asleep counts as being unconscious. Creatures
+						who do not sleep also cannot be unconscious.</li>
+				</ul>
+				<ul class="toggleLiVis" style="list-style-type: circle;">
 					<li style="list-style-type: none;"><b>Magic Changes</b></li>
 					<li style="list-style-type: none; display: none;"><b>Magic Changes:</b></li>
 					<li style="display: none;"><i>Boost Casting</i> - Caters may attempt to boost-cast their spells, applying
 						metamagic feats to their spells without raising the spell level, though failure may result in wild magic.
-						See WildMagic for more information.</li>
+						See Wild Magic for more information.</li>
 					<li style="display: none;"><i>Cure/Harm Spells</i> - (Errata) Spells that heal living and harm undead do so
 						via positive energy; spells that harm living and heal undead do so via negative energy.</li>
 					<li style="display: none;"><i>Heighten Metamagic</i> - Now a universal ability and the natural result of
@@ -942,6 +1028,10 @@
 							<li style="display: none;"><i>Magic Jar</i> - (OA) All instances of <i>Magic Jar</i> are replaced with
 								<i>possession</i>.
 							</li>
+							<li style="display: none;"><i>Levitate</i> - (Errata) Creatures that are levitating gain the off-balance
+								condition while under the effect of this spell (instead of the unstable penalty as outlined). If knocked
+								prone while levitating, they instead gain the enhanced penalties of being off-balance while underwater
+								until they spend a ful round action to stabilize themselves.
 							<li style="display: none;"><i>Mind Blank</i> - (Errata) Only protects against divination effects which
 								gather information about the creature, not all spells of the divination school.</li>
 							<li style="display: none;"><i>Reincarnate</i> - (UC) Uses the expanded races reincarnation table (see
@@ -1005,12 +1095,13 @@
 					<li style="list-style-type: none;"><b>Terminology Changes - Usable Interchangeably with Legacy Terms</b></li>
 					<li style="list-style-type: none; display: none;"><b>Terminology Changes - Usable Interchangeably with Legacy
 							Terms:</b></li>
-					<li style="display: none;"><i>Bull-Rush</i> = Shove </li>
-					<li style="display: none;"><i>Combat Expertise / Fighting Defensively</i> = Defensive Stance</li>
-					<li style="display: none;"><i>Flat-Footed</i> = Off-Guard</li>
-					<li style="display: none;"><i>Light Weapons & Weapons with Finesse SQ</i> = Finesse Weapons</li>
-					<li style="display: none;"><i>Race</i> = Ancestry</li>
-					<li style="display: none;"><i>Trip Weapon SQ</i> = Deft Weapon SQ</li>
+					<li style="display: none;"><i>Bull-Rush</i> => Shove </li>
+					<li style="display: none;"><i>Combat Expertise / Fighting Defensively</i> => Defensive Stance</li>
+					<li style="display: none;"><i>Flat-Footed</i> => Off-Guard</li>
+					<li style="display: none;"><i>Light Weapons & Weapons with Finesse SQ</i> => Finesse Weapons</li>
+					<li style="display: none;"><i>Pinned</i> => Restrained</li>
+					<li style="display: none;"><i>Race</i> => Ancestry</li>
+					<li style="display: none;"><i>Trip Weapon SQ</i> => Deft Weapon SQ</li>
 				</ul>
 			</section>
 			<!-- copy below
@@ -1665,7 +1756,7 @@
 					<li style="list-style-type: none; display: none;"><b>What does it mean to be off-balance?</b></li>
 					<li style="display: none;">What is it? Off-balance is a special state (not technically a condition) that
 						provides a few combat adjustments.</li>
-					<li style="display: none;">What does it adjust? A creature off-balance is treated as flat-footed, its piercing
+					<li style="display: none;">What does it adjust? A creature off-balance is treated as off-guard, its piercing
 						weapons become as ineffective in water as bludgeoning weapons, and its opponents gains a +2 on attack rolls
 						against it.</li>
 					<li style="display: none;">How does it happen? Generally, any time a creature fails a swim check or allows
@@ -1737,7 +1828,7 @@
 					<li style="display: none;">Ranged Touch Electricity - Spells that create electricity and deal damage at range
 						hold their integrity enough to have normal effects underwater, except it lacks the normal visual and audible
 						components of combusted air. Treat these spells as though they are invisible (+2 attack, target is
-						flat-footed) the first time this type of spell is cast by that caster in combat. This effect cannot be
+						off-guard) the first time this type of spell is cast by that caster in combat. This effect cannot be
 						overcome by abilities that detect only magical invisibility (such as <i>true seeing</i>) or rely on sound or
 						scent to overcome invisibility (such as sonar) but can be otherwise overcome by blindsight.</li>
 					<li style="display: none;">Touch, Area of Effect, and Partial-Electricity spells - The electricity portion of
@@ -1846,7 +1937,7 @@
 						levitating or while riding or flying without being knocked to the ground or while "swimming" on land, or
 						allowing yourself to be moved by someone or something else in a way that provokes attacks of opportunity
 						while flying, riding, or swimming.</li>
-					<li style="display: none;">Penalties - You become flat-footed, you take a -2 on attack rolls, and enemies gain
+					<li style="display: none;">Penalties - You become off-guard, you take a -2 on attack rolls, and enemies gain
 						a +2 on attack rolls against you.</li>
 					<li style="display: none;">Resolution - You spend a move action to right yourself. This requires a swim check
 						if underwater, a ride check if mounted, a fly check is in the air, or an acrobatics check (DC10, creatures

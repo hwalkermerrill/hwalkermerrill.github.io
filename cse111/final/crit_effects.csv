@@ -1,0 +1,107 @@
+type,effect,duration,source
+crit,no effect,0,d20critical
+crit,off-balance,1,d20critical
+crit,dazzled,1d4,d20critical
+crit,off-balance,1d4 + 1,d20critical
+crit,Bleed 1,0,d20critical
+crit,AC - 2,1,d20critical
+crit,Dazed,1,d20critical
+crit,Drop all held items,0,d20critical
+crit,Damage weapon armor or shield (ignore hardness),0,d20critical
+crit,deafened,1d4,d20critical
+crit,flatfooted,1,d20critical
+crit,add nonlethal damage roll,0,d20critical
+crit,crippled - movement reduced by 1/2,0,d20critical
+crit,sickened,1d4,d20critical
+crit,bleed 2,0,d20critical
+crit,partial blindness,1d4,d20critical
+crit,extra attack at -5,0,d20critical
+crit,extra combat manuever,0,d20critical
+crit,dumbness,0,d20critical
+crit,fatigued,1d4,d20critical
+crit,stunned,1,d20critical
+crit,knock-back d20+5 feet,0,d20critical
+crit,random ability damage,1d6,d20critical
+crit,staggered,1d4,d20critical
+crit,bleed 1d4+1,0,d20critical
+crit,provokes AoO,0,d20critical
+crit,crippled (movement reduced to 5'),0,d20critical
+crit,2x extra nonlethal damage,0,d20critical
+crit,knocked prone,0,d20critical
+crit,extra combat manuever +8,0,d20critical
+crit,exhausted,1d4,d20critical
+crit,nauseated,1d4,d20critical
+crit,confused,1d4,d20critical
+crit,blinded,0,d20critical
+crit,bleed con 1,0,d20critical
+crit,random ability drain,1d6,d20critical
+crit,stunned,1d4 + 1,d20critical
+crit,unconscious,0,d20critical
+crit,bleed 2 con,0,d20critical
+crit,roll 2x on crit table,0,d20critical
+crit,roll 3x on crit table,0,d20critical
+fumble,no effect,0,d20critical
+fumble,off-balance,1,d20critical
+fumble,dazzled,1d4,d20critical
+fumble,off-balance,1d4 + 1,d20critical
+fumble,ATK -2,1,d20critical
+fumble,AC - 2,1,d20critical
+fumble,Dazed,1,d20critical
+fumble,Drop all held items,0,d20critical
+fumble,Entangled in equipment (standard action to free self),0,d20critical
+fumble,damage weapon,1d4,d20critical
+fumble,damage armor,1,d20critical
+fumble,damage self (nonlethal),0,d20critical
+fumble,flatfooted,1,d20critical
+fumble,crippled (1/2 movement),0,d20critical
+fumble,sickened,1d4,d20critical
+fumble,partial blindness,1d4,d20critical
+fumble,damage self,0,d20critical
+fumble,fatigued,1d4,d20critical
+fumble,provokes AoO,0,d20critical
+fumble,prone,0,d20critical
+fumble,fling weapon (1d8 direction; 1d20 distance;damage first person hit; 1-5 damage self!),0,d20critical
+fumble,damage self + bleed 1,0,d20critical
+fumble,hit random adjacent ally,0,d20critical
+fumble,staggered,1,d20critical
+fumble,crippled (movement reduced to 5'),0,d20critical
+fumble,confused,1,d20critical
+fumble,smash self,0,d20critical
+fumble,nauseated,1,d20critical
+fumble,blinded,0,d20critical
+fumble,staggered,1d4 + 1,d20critical
+fumble,exhausted,1d4 + 1,d20critical
+fumble,critical smash self,1d4 + 1,d20critical
+fumble,stunned,1,d20critical
+fumble,confused,1d4,d20critical
+fumble,nauseated,1d4,d20critical
+fumble,prone + stunned,1,d20critical
+fumble,critical smash self,0,d20critical
+fumble,stunned,1d4 + 1,d20critical
+fumble,unconscious,0,d20critical
+fumble,roll 2x on crit table,0,d20critical
+fumble,roll 3x on crit table,0,d20critical
+fMelee,overextend - provoke AoO,0,paizo
+fRanged,aching back - fatigued,0,paizo
+fNatural,upset tummy - sickened,1d4,paizo
+fMagic,backblast - the attack hits you and is a critical threat,0,paizo
+fMelee,critical mistake - the attack hits you and is a critical threat,0,paizo
+fRanged,woops! - knocked prone,0,paizo
+fNatural,out of position - you cannot use this attack again,1,paizo
+fMagic,mind drain - take int wis or cha damage,1d4,paizo
+fMelee,off-balance - take a -4 penalty on all attack rolls,1,paizo
+fRanged,friendly fire - attack closest ally to target,0,paizo
+fNatural,broke a nail - take damage; cannot use thi attack again until healed,1d4,paizo
+fMagic,power drain - randomly lose one prepared spell or spell lost,0,paizo
+fMelee,pin prick - bleed 1,0,paizo
+fRanged,spilled ammo - drop all ammo from active ammo container,0,paizo
+fNatural,just a taste - hit an ally adjacent to target,0,paizo
+fMagic,tiring spell - fatigued,0,paizo
+fMelee,wide open - flat footed,1,paizo
+fRanged,cracked - damage weapon ignoring hardness,0,paizo
+fNatural,fist meets face - critical threat self,0,paizo
+fMagic,distance rift - teleported to the nearest square adjacent to the target,0,paizo
+fMelee,pulled muscle - take str damage,1d4,paizo
+fRanged,awkward attack - -2 penalty to AC,1d4,paizo
+fNatural,i bit my tug - bleed 1,0,paizo
+fMagic,arcane fire - take fire damage,2d6,paizo
