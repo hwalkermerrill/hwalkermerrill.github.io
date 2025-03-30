@@ -34,7 +34,7 @@ MASTER_INDEX = 0
 VALUE_INDEX = 1
 TYPE_INDEX = 2
 EFFECT_INDEX = 3
-SEVERITY_INDEX = 4
+QUALITY_INDEX = 4
 DETAILS_INDEX = 5
 TITLE_INDEX = 6
 
@@ -42,10 +42,10 @@ TITLE_INDEX = 6
 CRITICAL_EFFECTS_FILE = "crit_effects.csv"
 CRITICAL_MULTIPLIERS = {"x2": 2, "x3": 3, "x4": 4}
 CRITICAL_SEVERITY = {
-    "minor": (1, 19),
-    "moderate": (20, 32),
-    "serious": (33, 44),
-    "deadly": (45, 60),
+    "minor": (1, 20),
+    "moderate": (21, 30),
+    "serious": (31, 40),
+    "deadly": (41, 90),
 }
 
 # Global Variables
@@ -86,20 +86,18 @@ def build_critical_effects():
             # Split the fields that include multiple alternative entries.
             # For 'type', 'severity' (additional flavor – not the same as crit_value), and 'title':
             types = [t.strip() for t in row[TYPE_INDEX].split("|")]
-            effect_text = row[EFFECT_INDEX].strip()
-            severity_info = [s.strip() for s in row[SEVERITY_INDEX].split("|")]
+            effect_options = [option.strip() for option in row[EFFECT_INDEX].split("|")]
+            quality_options = [q.strip() for q in row[QUALITY_INDEX].split("|")]
             details = row[DETAILS_INDEX].strip()
             titles = [title.strip() for title in row[TITLE_INDEX].split("|")]
 
             # Create a dictionary for this effect entry.
             effect_entry = {
-                "index": row[
-                    MASTER_INDEX
-                ].strip(),  # if you need the master index later
+                "index": row[MASTER_INDEX].strip(),
                 "value": crit_value,
                 "types": types,
-                "effect": effect_text,
-                "severity": severity_info,  # additional flavor/duration info from CSV
+                "effect": effect_options,
+                "quality": quality_options,
                 "details": details,
                 "titles": titles,
             }
@@ -137,7 +135,8 @@ def calculate_severity(
         target_ac (int): The target's Armor Class.
         critical_multiplier (str): The weapon's critical multiplier ("x2", "x3", or "x4").
         critical_type (str, optional): "crit" (default) or "fumble".
-        is_serious (bool, optional): True if the hit/fumble is particularly serious (a smash or catastrophe).
+        is_serious (bool, optional): Optional override for smash / catastrophe.
+        random_bonus_override (int, optional): optional override for random number.
 
     Returns:
         str: A severity level ("minor", "moderate", "severe", or "deadly") based on the final calculated total.
@@ -184,7 +183,7 @@ def calculate_severity(
         return None
 
     # If running_total is greater than or equal to 46, return deadly immediately.
-    if running_total >= 45:
+    if running_total >= 41:
         severity = "deadly"
         print("Critical Severity:", severity)
         return severity
@@ -223,12 +222,13 @@ def lower_severity(severity):
         return ordered_severity_levels[idx - 1]
 
 
-def explosive_critical(severity, lethal=None, serious=None):
+def explosive_critical(severity, random_bonus_override=None, lethal=None, serious=None):
     """
     Determine if an explosive critical adjustment should be made.
 
     Parameters:
         severity (str): The original severity level
+        random_bonus_override (int, optional): optional override for random number.
         lethal (bool, optional): Allows forcing the lethal flag
         serious (bool, optional): Allows forcing the serious flag
 
@@ -258,7 +258,7 @@ def explosive_critical(severity, lethal=None, serious=None):
         return severity
 
     # Get the random bonus roll.
-    bonus = get_random_bonus()
+    bonus = get_random_bonus(random_bonus_override)
 
     # Check the bonus outcomes:
     if bonus == 20:
@@ -309,7 +309,7 @@ def get_available_filters(critical_type="crit", weapon_type="melee"):
     available_filters = {
         "general": general_filters,
         "critical": critical_filters,
-        "weapon": [weapon()],
+        "weapon": [weapon],
     }
 
     return available_filters
@@ -325,7 +325,7 @@ def search_critical_effects(severity, critical_type="crit", weapon_type="melee")
         weapon_type (str, optional): One weapon type.
 
     Returns:
-        tuple: (selected_title, effect_text, selected_secondary, details)
+        tuple: (selected_title, effect_options, selected_secondary, details)
                or a "No Critical Effect" tuple if no match is found or severity is None
     """
 
@@ -336,11 +336,12 @@ def search_critical_effects(severity, critical_type="crit", weapon_type="melee")
 
     # Get the available filters (e.g., general: ["condition", "effect"],
     # critical: ["crit", "c:ranged"] if critical_type="crit" and weapon_type="ranged").
-    avail_filters = get_available_filters(critical_type, weapon_type)
+    available_filters = get_available_filters(critical_type, weapon_type)
 
     # Combine the general and critical filters into one set for matching.
     allowed_types = set(
-        item.lower() for item in (avail_filters["general"] + avail_filters["critical"])
+        item.lower()
+        for item in (available_filters["general"] + available_filters["critical"])
     )
 
     # Retrieve the list of effects for the given severity.
@@ -360,18 +361,21 @@ def search_critical_effects(severity, critical_type="crit", weapon_type="melee")
     # Randomly choose one effect from the filtered list.
     chosen_effect = random.choice(filtered_effects)
 
-    # Randomly select one title from the chosen effect's list of titles.
+    # Randomly select one title and one quality from the chosen effect's list.
     selected_title = random.choice(chosen_effect["titles"])
+    selected_quality = random.choice(chosen_effect["quality"])
 
-    # Randomly select one secondary flavor (or duration info, etc.) from the "severity" field.
-    selected_secondary = random.choice(chosen_effect["severity"])
+    # Checks if the chosen effect has multiple options
+    if isinstance(chosen_effect["effect"], list):
+        effect_options = random.choice(chosen_effect["effect"])
+    else:
+        effect_options = chosen_effect["effect"]
 
-    # Also retrieve the main effect text and details.
-    effect_text = chosen_effect["effect"]
+    # Also retrieve the details text to explain potential confusions to the user.
     details = chosen_effect["details"]
 
     # Return the assembled information.
-    return (selected_title, effect_text, selected_secondary, details)
+    return (selected_title, effect_options, selected_quality, details)
 
 
 # main function
