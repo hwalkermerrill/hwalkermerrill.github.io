@@ -11,8 +11,8 @@ from critical_hit import (
     calculate_severity,
     lower_severity,
     explosive_critical,
-    search_critical_effects,
     get_available_filters,
+    search_critical_effects,
 )
 
 # Indexes from file
@@ -365,6 +365,73 @@ def test_explosive_critical():
     explosive_critical.__globals__["critical_is_lethal"] = False
     explosive_critical.__globals__["critical_is_explosive"] = False
     explosive_critical.__globals__["critical_is_serious"] = False
+
+
+def test_search_critical_effects():
+    # When severity is None:
+    result = search_critical_effects(None)
+    expected_no_effect = "(No Critical Effect, " ", " ", " ")"
+    assert (
+        result == expected_no_effect
+    ), f"Expected {expected_no_effect} for severity None, got {result}"
+    # Also try an invalid severity string.
+    result = search_critical_effects("invalid")
+    assert (
+        result == expected_no_effect
+    ), f"Expected {expected_no_effect} for invalid severity, got {result}"
+
+    # Clear any existing data and create our own test effects.
+    CRITICAL_EFFECTS.clear()
+    CRITICAL_EFFECTS["moderate"] = [
+        {
+            "index": "1",
+            "value": "moderate",
+            "types": ["condition", "effect"],
+            "effect": ["Stunned", "Dizzy"],
+            "quality": ["1 round", "2 rounds"],
+            "details": "Test details for stunned/ dizzy",
+            "titles": ["Crippling Impact", "Forceful Strike"],
+        }
+    ]
+    CRITICAL_EFFECTS["serious"] = [
+        {
+            "index": "2",
+            "value": "serious",
+            "types": ["nonexistent"],
+            "effect": "Knocked Unconscious",
+            "quality": ["1 round"],
+            "details": "Unconscious condition details",
+            "titles": ["Crushing Blow"],
+        }
+    ]
+
+    # Test when no matching effect is found
+    result_none = search_critical_effects("serious")
+    assert (
+        result_none is None
+    ), "Expected None when no matching effect is found for 'serious'."
+
+    # Test when a matching result is found
+    result = search_critical_effects("moderate")
+    assert isinstance(result, tuple), f"Expected tuple, got {type(result)}"
+    assert len(result) == 4, f"Expected tuple length 4, got length {len(result)}"
+
+    selected_title, effect_options, selected_quality, details = result
+
+    # Verify that the returned components come from our test data and not elsewhere.
+    test_effect = CRITICAL_EFFECTS["moderate"][0]
+    assert (
+        selected_title in test_effect["titles"]
+    ), f"Selected title {selected_title} not found in {test_effect['titles']}"
+    assert (
+        effect_options in test_effect["effect"]
+    ), f"Effect option {effect_options} not in expected list {test_effect['effect']}"
+    assert (
+        selected_quality in test_effect["quality"]
+    ), f"Selected quality {selected_quality} not in {test_effect['quality']}"
+    assert (
+        details == test_effect["details"]
+    ), f"Details {details} do not match expected {test_effect['details']}"
 
 
 # Call the main function that is part of pytest so that the
