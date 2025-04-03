@@ -6,9 +6,11 @@ import csv
 import random
 
 from critical_hit import (
+    build_critical_effects,
     get_random_bonus,
     calculate_severity,
-    build_critical_effects,
+    lower_severity,
+    explosive_critical,
     search_critical_effects,
     get_available_filters,
 )
@@ -24,14 +26,19 @@ TITLE_INDEX = 6
 
 # Constants from file
 CRITICAL_EFFECTS_FILE = "crit_effects.csv"
-CRITICAL_EFFECTS = {}
 CRITICAL_MULTIPLIERS = {"x2": 2, "x3": 3, "x4": 4}
 CRITICAL_SEVERITY = {
-    "minor": (0, 19),
-    "moderate": (20, 34),
-    "serious": (35, 44),
-    "deadly": (45, 60),
+    "minor": (1, 20),
+    "moderate": (21, 30),
+    "serious": (31, 40),
+    "deadly": (41, 90),
 }
+
+# Global Variables from file
+CRITICAL_EFFECTS = {}
+critical_is_serious = False
+critical_is_lethal = False
+critical_is_explosive = False
 
 
 # Verify the rest_random_bonus function works correctly.
@@ -59,6 +66,305 @@ def test_random_bonus():
 
 
 # Verify the calculate_severity function works correctly.
+def test_calculate_severity():
+    """
+    Run multiple tests of the calculate_severity function:
+
+    1. Call calculate_severity and verify that it returns a string
+    2. Check that severity returned is within expected ranges
+    3. Test critical is serious flag
+    4. Check that severity returns no effect if negative or 0 is encountered
+    5. Test critical multiplier effect on severity
+    6. Test critical type "fumble" changes the calculation correctly
+    7. Test special critical_is_lethal rule
+    """
+
+    # define variables for testing
+    attack_roll = 10
+    target_ac = 10
+    critical_multiplier = 2
+    critical_type = "crit"
+    is_serious = False
+    random_bonus_override = 1
+    global CRITICAL_SEVERITY
+    global critical_is_lethal
+
+    # Call calculate_severity and verify that it returns a string:
+    severity = calculate_severity(
+        attack_roll,
+        target_ac,
+        critical_multiplier,
+        critical_type,
+        is_serious,
+        random_bonus_override,
+    )
+    assert isinstance(severity, str), (
+        "calculate_severity function must return a string: "
+        f" expected a string but found a {type(severity)}"
+    )
+
+    # Check that severity returned is within expected ranges:
+    while random_bonus_override <= 60:
+        severity = calculate_severity(
+            attack_roll,
+            target_ac,
+            critical_multiplier,
+            critical_type,
+            is_serious,
+            random_bonus_override,
+        )
+        running_total = (attack_roll - target_ac) + random_bonus_override
+        expected = None
+        for sev, (lower, upper) in CRITICAL_SEVERITY.items():
+            if lower <= running_total <= upper:
+                expected = sev
+                break
+
+        assert (
+            severity == expected
+        ), f"Severity test failed. Expected {expected} but got {severity}"
+
+        random_bonus_override += 1
+
+    # reset random_bonus override for next test
+    random_bonus_override = 1
+
+    # Test critical is serious flag
+    while random_bonus_override < 20:
+        severity = calculate_severity(
+            attack_roll,
+            target_ac,
+            critical_multiplier,
+            critical_type,
+            is_serious=True,
+            random_bonus_override=random_bonus_override,
+        )
+        running_total = 20 + (attack_roll - target_ac) + random_bonus_override
+        expected = None
+        for sev, (lower, upper) in CRITICAL_SEVERITY.items():
+            if lower <= running_total <= upper:
+                expected = sev
+                break
+
+        assert (
+            severity == expected
+        ), f"critical_is_serious test failed. Expected {expected} but got {severity}"
+
+        random_bonus_override += 1
+
+    # reset random_bonus override for next test
+    random_bonus_override = 1
+
+    # Check that severity returns no effect if negative or 0 is encountered:
+    target_ac = 20
+    while attack_roll < 20:
+        severity = calculate_severity(
+            attack_roll,
+            target_ac,
+            critical_multiplier,
+            critical_type,
+            is_serious,
+            random_bonus_override,
+        )
+
+        assert severity is None, f"Expected None for no effect, got {severity}"
+
+        attack_roll += 1
+
+    # reset target_ac, attack_roll, and global critical_is_lethal flag for next test
+    attack_roll = 10
+    target_ac = 10
+
+    # Test critical multiplier effect on severity
+    random_bonus_override = 20
+    for multiplier, extra in [(2, 0), (3, 5), (4, 10)]:
+        severity = calculate_severity(
+            attack_roll,
+            target_ac,
+            critical_multiplier,
+            critical_type,
+            is_serious,
+            random_bonus_override,
+        )
+        val = (attack_roll - target_ac) + random_bonus_override + extra
+        expected = None
+        for sev, (lower, upper) in CRITICAL_SEVERITY.items():
+            if lower <= val <= upper:
+                expected = sev
+                break
+
+        assert (
+            severity == expected
+        ), f"Critical multiplier was supposed to change the severity"
+
+        critical_multiplier += 1
+
+    # reset critical multiplier and random bonus
+    critical_multiplier = 2
+    random_bonus_override = 1
+
+    # Test critical type "fumble" changes the calculation correctly
+    critical_type = "fumble"
+    target_ac = 20
+    severity = calculate_severity(
+        attack_roll,
+        target_ac,
+        critical_multiplier,
+        critical_type,
+        is_serious,
+        random_bonus_override,
+    )
+    expected = None
+    for sev, (lower, upper) in CRITICAL_SEVERITY.items():
+        if lower <= 1 <= upper:
+            expected = sev
+            break
+    assert (
+        severity == expected
+    ), f"Fumble test failed. Expected {expected}, but got {severity}"
+
+    # reset target_ac and critical_is_lethal global flag for next test
+    target_ac = 10
+    critical_is_lethal = False
+
+    # Test special critical_is_lethal rule
+    severity = calculate_severity(
+        attack_roll,
+        target_ac,
+        critical_multiplier,
+        critical_type,
+        is_serious=True,
+        random_bonus_override=20,
+    )
+    expected = None
+    for sev, (lower, upper) in CRITICAL_SEVERITY.items():
+        expected = upper
+        break
+    assert severity == "deadly", f"Expected {expected} for special rule, got {severity}"
+
+
+def test_lower_severity():
+    # Standard cases: severity should go down one step
+    assert (
+        lower_severity("deadly") == "serious"
+    ), "Expected 'serious' when lowering 'deadly'"
+    assert (
+        lower_severity("serious") == "moderate"
+    ), "Expected 'moderate' when lowering 'serious'"
+    assert (
+        lower_severity("moderate") == "minor"
+    ), "Expected 'minor' when lowering 'moderate'"
+
+    # Minor severity is minimum, and an input of minor or unknown should default to minor.
+    assert lower_severity("minor") == "minor", "Expected 'minor' to remain 'minor'"
+    assert (
+        lower_severity("unknown") == "minor"
+    ), "Expected unknown severity to default to 'minor'"
+
+
+def test_explosive_critical():
+    """
+    Run multiple tests of the explosive_critical function:
+
+    1. If lethal is True, it returns the original severity and sets critical_is_explosive True.
+    2. If bonus equals 20 (with serious False), it lowers the severity and sets the explosive flag.
+    3. If bonus equals 1 with serious False, it lowers the severity.
+    4. If bonus equals 1 with serious True, it leaves severity unchanged.
+    5. If bonus is neither 1 nor 20, it leaves severity unchanged.
+    """
+    # Reset the function's __globals__:
+    explosive_critical.__globals__["critical_is_lethal"] = False
+    explosive_critical.__globals__["critical_is_explosive"] = False
+    explosive_critical.__globals__["critical_is_serious"] = False
+
+    # If lethal is True, it returns the original severity and sets critical_is_explosive True.
+    severity_orig = "moderate"
+    result = explosive_critical(
+        severity_orig, random_bonus_override=10, lethal=True, serious=False
+    )
+    assert (
+        result == severity_orig
+    ), "When lethal is True, explosive_critical should return the original severity."
+    assert (
+        explosive_critical.__globals__["critical_is_explosive"] is True
+    ), "When lethal is True, critical_is_explosive must be set to True."
+
+    # Reset the function's __globals__:
+    explosive_critical.__globals__["critical_is_lethal"] = False
+    explosive_critical.__globals__["critical_is_explosive"] = False
+    explosive_critical.__globals__["critical_is_serious"] = False
+
+    # If bonus equals 20 (with serious False), it lowers the severity and sets the explosive flag.
+    severity_orig = "serious"
+    expected = lower_severity(severity_orig)
+    result = explosive_critical(
+        severity_orig, random_bonus_override=20, lethal=False, serious=False
+    )
+    assert (
+        result == expected
+    ), f"For bonus=20 (serious False), expected {expected} but got {result}."
+    assert (
+        explosive_critical.__globals__["critical_is_explosive"] is True
+    ), "For bonus=20, critical_is_explosive should be set True."
+
+    # Reset the function's __globals__:
+    explosive_critical.__globals__["critical_is_lethal"] = False
+    explosive_critical.__globals__["critical_is_explosive"] = False
+    explosive_critical.__globals__["critical_is_serious"] = False
+
+    # If bonus equals 1 with serious False, it lowers the severity.
+    severity_orig = "moderate"
+    expected = lower_severity(severity_orig)
+    result = explosive_critical(
+        severity_orig, random_bonus_override=1, lethal=False, serious=False
+    )
+    assert (
+        result == expected
+    ), f"For bonus=1 (serious False), expected {expected} but got {result}."
+    assert (
+        explosive_critical.__globals__["critical_is_explosive"] is False
+    ), "For bonus=1 and serious False, critical_is_explosive should remain False."
+
+    # Reset the function's __globals__:
+    explosive_critical.__globals__["critical_is_lethal"] = False
+    explosive_critical.__globals__["critical_is_explosive"] = False
+    explosive_critical.__globals__["critical_is_serious"] = False
+
+    # If bonus equals 1 with serious True, it leaves severity unchanged.
+    severity_orig = "moderate"
+    result = explosive_critical(
+        severity_orig, random_bonus_override=1, lethal=False, serious=True
+    )
+    assert (
+        result == severity_orig
+    ), f"When bonus=1 and serious is True, expected severity to remain {severity_orig}, but got {result}."
+    assert (
+        explosive_critical.__globals__["critical_is_explosive"] is False
+    ), "For bonus=1 and serious True, critical_is_explosive should remain False."
+
+    # Reset the function's __globals__:
+    explosive_critical.__globals__["critical_is_lethal"] = False
+    explosive_critical.__globals__["critical_is_explosive"] = False
+    explosive_critical.__globals__["critical_is_serious"] = False
+
+    # If bonus is neither 1 nor 20, it leaves severity unchanged.
+    explosive_critical.__globals__["critical_is_lethal"] = False
+    explosive_critical.__globals__["critical_is_explosive"] = False
+    severity_orig = "serious"
+    result = explosive_critical(
+        severity_orig, random_bonus_override=10, lethal=False, serious=False
+    )
+    assert (
+        result == severity_orig
+    ), f"For bonus not equal to 1 or 20, expected {severity_orig} but got {result}."
+    assert (
+        explosive_critical.__globals__["critical_is_explosive"] is False
+    ), "For bonus 10, critical_is_explosive should remain False."
+
+    # Reset the function's __globals__:
+    explosive_critical.__globals__["critical_is_lethal"] = False
+    explosive_critical.__globals__["critical_is_explosive"] = False
+    explosive_critical.__globals__["critical_is_serious"] = False
 
 
 # Call the main function that is part of pytest so that the
