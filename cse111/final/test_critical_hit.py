@@ -367,6 +367,52 @@ def test_explosive_critical():
     explosive_critical.__globals__["critical_is_serious"] = False
 
 
+def test_get_available_filters():
+    # Test default returns
+    filters = get_available_filters()
+    expected = {
+        "general": ["condition", "effect"],
+        "critical": ["crit", "c:melee"],
+        "weapon": ["melee"],
+    }
+    assert (
+        filters == expected
+    ), f"Default filter's loaded incorrectly. Expected {expected}, resulted in {filters}"
+
+    # Test ranged fumble
+    filters = get_available_filters(critical_type="fumble", weapon_type="ranged")
+    expected = {
+        "general": ["condition", "effect"],
+        "critical": ["fumble", "f:ranged"],
+        "weapon": ["ranged"],
+    }
+    assert (
+        filters == expected
+    ), f"Default filter's loaded incorrectly. Expected {expected}, resulted in {filters}"
+
+    # Test invalid critical type
+    filters = get_available_filters(critical_type="invalid", weapon_type="ranged")
+    expected = {
+        "general": ["condition", "effect"],
+        "critical": ["crit", "c:ranged"],
+        "weapon": ["ranged"],
+    }
+    assert (
+        filters == expected
+    ), f"Default filter's loaded incorrectly. Expected {expected}, resulted in {filters}"
+
+    # Test invalid weapon type
+    filters = get_available_filters(critical_type="fumble", weapon_type="invalid")
+    expected = {
+        "general": ["condition", "effect"],
+        "critical": ["fumble", "f:melee"],
+        "weapon": ["melee"],
+    }
+    assert (
+        filters == expected
+    ), f"Default filter's loaded incorrectly. Expected {expected}, resulted in {filters}"
+
+
 def test_search_critical_effects():
     # When severity is None:
     result = search_critical_effects(None)
@@ -381,19 +427,20 @@ def test_search_critical_effects():
     ), f"Expected {expected_no_effect} for invalid severity, got {result}"
 
     # Clear any existing data and create our own test effects.
-    CRITICAL_EFFECTS.clear()
-    CRITICAL_EFFECTS["moderate"] = [
+    crit_eff_globals = search_critical_effects.__globals__["CRITICAL_EFFECTS"]
+    crit_eff_globals.clear()
+    crit_eff_globals["moderate"] = [
         {
             "index": "1",
             "value": "moderate",
-            "types": ["condition", "effect"],
+            "types": ["condition", "crit", "melee"],
             "effect": ["Stunned", "Dizzy"],
             "quality": ["1 round", "2 rounds"],
             "details": "Test details for stunned/ dizzy",
             "titles": ["Crippling Impact", "Forceful Strike"],
         }
     ]
-    CRITICAL_EFFECTS["serious"] = [
+    crit_eff_globals["serious"] = [
         {
             "index": "2",
             "value": "serious",
@@ -412,14 +459,22 @@ def test_search_critical_effects():
     ), "Expected None when no matching effect is found for 'serious'."
 
     # Test when a matching result is found
-    result = search_critical_effects("moderate")
+    result = search_critical_effects(
+        "moderate", critical_type="crit", weapon_type="melee"
+    )
+    assert (
+        "moderate" in crit_eff_globals
+    ), "CRITICAL_EFFECTS does not contain key 'moderate'"
+    assert (
+        result is not None
+    ), "Expected a matching effect for 'moderate', but got None. Check that the allowed types intersect your effect types."
     assert isinstance(result, tuple), f"Expected tuple, got {type(result)}"
     assert len(result) == 4, f"Expected tuple length 4, got length {len(result)}"
 
     selected_title, effect_options, selected_quality, details = result
 
     # Verify that the returned components come from our test data and not elsewhere.
-    test_effect = CRITICAL_EFFECTS["moderate"][0]
+    test_effect = crit_eff_globals["moderate"][0]
     assert (
         selected_title in test_effect["titles"]
     ), f"Selected title {selected_title} not found in {test_effect['titles']}"
