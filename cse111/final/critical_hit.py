@@ -402,6 +402,13 @@ def main():
 
 
 def populate_main_window(frm_main):
+    """
+    This function creates the interactive gui, as we learned about last week. It is
+    separated based on fields for readability. Then the function uses user input to
+    call the other defined functions (starting with calculate_severity). Finally, it
+    creates a results box that can display the results for the user.
+    """
+
     # Import Global Variables
     global CRITICAL_MULTIPLIERS
     global critical_is_serious
@@ -528,16 +535,56 @@ def populate_main_window(frm_main):
                 explosive_severity, critical_type, weapon_type
             )
 
-            # Display chosen effect for user in text widget
-            txt_output.delete("1.0", tk.END)  # Clear previous output
-            txt_output.insert(
-                "1.0", f"{severity.capitalize()} {critical_type.capitalize()}: ", "bold"
-            )
+            # Gets effect tuple again if crit is explosive!
+            if critical_is_explosive:
+                double_tuple = search_critical_effects(
+                    explosive_severity, critical_type, weapon_type
+                )
+
+            # Clear any existing results
+            txt_output.delete("1.0", tk.END)
+
+            # Check and output additional text and formatting depending on critical flags
+            if critical_is_lethal:
+                txt_output.insert(
+                    "1.0", f"Lethal {critical_type.capitalize()}!!!\n", "bold"
+                )
+                txt_output.insert(
+                    tk.END,
+                    f"{severity.capitalize()} {critical_type.capitalize()}: ",
+                    "bold",
+                )
+            elif critical_is_explosive:
+                txt_output.insert(
+                    "1.0", f"Explosive {critical_type.capitalize()}!\n", "bold"
+                )
+                txt_output.insert(
+                    tk.END,
+                    f"{severity.capitalize()} {critical_type.capitalize()}: ",
+                    "bold",
+                )
+            else:
+                txt_output.insert(
+                    "1.0",
+                    f"{severity.capitalize()} {critical_type.capitalize()}: ",
+                    "bold",
+                )
+
+            # Output remaining critical data for user
             txt_output.insert(tk.END, f"{effect_tuple[0]}\n", "italic")
-            txt_output.insert(
-                tk.END, f"{effect_tuple[1]} {effect_tuple[2]}\n\n", "normal"
-            )
-            txt_output.insert(tk.END, f"{effect_tuple[3]}\n", "normal")
+            if critical_is_explosive:
+                txt_output.insert(
+                    tk.END,
+                    f"{effect_tuple[1]} {effect_tuple[2]} -AND- {double_tuple[1]} {double_tuple[2]}\n\n",
+                    "normal",
+                )
+            else:
+                txt_output.insert(
+                    tk.END, f"{effect_tuple[1]} {effect_tuple[2]}\n\n", "normal"
+                )
+            txt_output.insert(tk.END, f"{effect_tuple[3]}\n\n", "normal")
+            if critical_is_explosive:
+                txt_output.insert(tk.END, f"{double_tuple[3]}", "normal")
 
             # Reset global flags
             critical_is_lethal = False
