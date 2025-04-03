@@ -23,7 +23,7 @@ import csv
 import random
 import math
 import tkinter as tk
-from tkinter import Frame, Label, Button, ttk, StringVar, IntVar
+from tkinter import Frame, Label, Button, ttk, StringVar, IntVar, font
 
 # Indexes for the critical effects CSV file
 MASTER_INDEX = 0
@@ -416,18 +416,6 @@ def populate_main_window(frm_main):
     critical_multiplier_var = IntVar(value=CRITICAL_MULTIPLIERS["x2"])
     is_serious_var = IntVar(value=0)  # 0 = unchecked, 1 = checked
 
-    # --- Serious Checkbox ---
-    def update_serious():
-        global critical_is_serious
-        critical_is_serious = bool(is_serious_var.get())
-
-    chk_serious = tk.Checkbutton(
-        frm_main,
-        text="Critical is Serious? (Smash/Catastrophe)",
-        variable=is_serious_var,
-    )
-    chk_serious.grid(row=5, column=0, columnspan=3, padx=5, pady=5, sticky="w")
-
     # --- Attack Roll Entry ---
     lbl_attack_roll = tk.Label(frm_main, text="Attack Roll:")
     lbl_attack_roll.grid(row=0, column=0, padx=5, pady=5, sticky="w")
@@ -476,6 +464,25 @@ def populate_main_window(frm_main):
         rbtn_multiplier.grid(row=4, column=col, padx=5, pady=2, sticky="w")
         col += 1
 
+    # --- Serious Checkbox ---
+    chk_serious = tk.Checkbutton(
+        frm_main,
+        text="Critical is Serious? (Smash/Catastrophe)",
+        variable=is_serious_var,
+    )
+    chk_serious.grid(row=5, column=0, columnspan=3, padx=5, pady=5, sticky="w")
+
+    # --- Create a Text widget for output display ---
+    lbl_output = tk.Label(frm_main, text="Results:")
+    lbl_output.grid(row=8, column=0, padx=5, pady=5, sticky="w")
+    txt_output = tk.Text(frm_main, wrap=tk.WORD, height=10, width=40)
+    txt_output.grid(row=9, column=0, columnspan=4, padx=5, pady=5, sticky="ew")
+
+    # Define tags for text formatting
+    txt_output.tag_configure("bold", font=("TkDefaultFont", 10, "bold"))
+    txt_output.tag_configure("italic", font=("TkDefaultFont", 10, "italic"))
+    txt_output.tag_configure("normal", font=("TkDefaultFont", 10, "normal"))
+
     # --- Buttons ---
     def calculate():
         global critical_is_serious
@@ -521,8 +528,16 @@ def populate_main_window(frm_main):
                 explosive_severity, critical_type, weapon_type
             )
 
-            # Display chosen effect for user
-            print(f"{effect_tuple}")
+            # Display chosen effect for user in text widget
+            txt_output.delete("1.0", tk.END)  # Clear previous output
+            txt_output.insert(
+                "1.0", f"{severity.capitalize()} {critical_type.capitalize()}: ", "bold"
+            )
+            txt_output.insert(tk.END, f"{effect_tuple[0]}\n", "italic")
+            txt_output.insert(
+                tk.END, f"{effect_tuple[1]} {effect_tuple[2]}\n\n", "normal"
+            )
+            txt_output.insert(tk.END, f"{effect_tuple[3]}\n", "normal")
 
             # Reset global flags
             critical_is_lethal = False

@@ -529,4 +529,6 @@ def test_search_critical_effects():
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
-pytest.main(["-v", "--tb=line", "-rN", __file__])
+pass_hope = pytest.main(["-v", "--tb=line", "-rN", __file__])
+if pass_hope == 0:
+    print("All Tests Pass!")
