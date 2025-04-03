@@ -23,11 +23,7 @@ import csv
 import random
 import math
 import tkinter as tk
-from tkinter import Frame, Label, Button
-
-# from number_entry import FloatEntry
-import os
-
+from tkinter import Frame, Label, Button, ttk, StringVar, IntVar
 
 # Indexes for the critical effects CSV file
 MASTER_INDEX = 0
@@ -78,13 +74,13 @@ def build_critical_effects():
 
         for row in reader:
             if len(row) < 7:
-                continue  # or raise an error if the CSV format is critical
+                continue  # or raise an error
 
             # The 'value' in the CSV indicates the critical effect severity (e.g., "minor")
             crit_value = row[VALUE_INDEX].strip()
 
             # Split the fields that include multiple alternative entries.
-            # For 'type', 'severity' (additional flavor – not the same as crit_value), and 'title':
+            # For 'type', effect, 'quality', and 'title':
             types = [t.strip() for t in row[TYPE_INDEX].split("|")]
             effect_options = [option.strip() for option in row[EFFECT_INDEX].split("|")]
             quality_options = [q.strip() for q in row[QUALITY_INDEX].split("|")]
@@ -252,6 +248,10 @@ def explosive_critical(severity, random_bonus_override=None, lethal=None, seriou
     if serious is None:
         serious = critical_is_serious
 
+    # Priority check: If severity = none, return current severity.
+    if severity is None:
+        return None
+
     # Priority check: If already lethal, mark explosive and return current severity.
     if lethal:
         critical_is_explosive = True
@@ -378,50 +378,192 @@ def search_critical_effects(severity, critical_type="crit", weapon_type="melee")
     return (selected_title, effect_options, selected_quality, details)
 
 
-# main function
+# main function copied from gui.py teamwork
 def main():
-    """Main function for the program."""
+
+    # Build or rebuild the master dictionary of critical effects
+    build_critical_effects()
+
+    # Create the Tk root object.
+    root = tk.Tk()
+
+    # Create the main window. In tkinter, a window is also called a frame.
+    frm_main = Frame(root)
+    frm_main.master.title("Critical Hit Calculator")
+    frm_main.pack(padx=4, pady=3, fill=tk.BOTH, expand=1)
+
+    # Call the populate_main_window function, which will add
+    # labels, text entry boxes, and buttons to the main window.
+    populate_main_window(frm_main)
+
+    # Start the tkinter loop that processes user events
+    # such as key presses and mouse button clicks.
+    root.mainloop()
+
+
+def populate_main_window(frm_main):
+    # Import Global Variables
+    global CRITICAL_MULTIPLIERS
+    global critical_is_serious
+    global critical_is_lethal
+    global critical_is_explosive
+
+    # Variables
+    attack_roll_var = StringVar()
+    target_ac_var = StringVar()
+    weapon_type_var = StringVar(value="melee")
+    critical_type_var = StringVar(value="crit")
+    critical_multiplier_var = IntVar(value=CRITICAL_MULTIPLIERS["x2"])
+    is_serious_var = IntVar(value=0)  # 0 = unchecked, 1 = checked
+
+    # --- Serious Checkbox ---
+    def update_serious():
+        global critical_is_serious
+        critical_is_serious = bool(is_serious_var.get())
+
+    chk_serious = tk.Checkbutton(
+        frm_main,
+        text="Critical is Serious? (Smash/Catastrophe)",
+        variable=is_serious_var,
+    )
+    chk_serious.grid(row=5, column=0, columnspan=3, padx=5, pady=5, sticky="w")
+
+    # --- Attack Roll Entry ---
+    lbl_attack_roll = tk.Label(frm_main, text="Attack Roll:")
+    lbl_attack_roll.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+    attack_roll_var.set("")
+    ent_attack_roll = tk.Entry(frm_main, textvariable=attack_roll_var)
+    ent_attack_roll.grid(row=0, column=1, columnspan=3, padx=5, pady=5)
+    ent_attack_roll.focus_set()  # Focus here on default
+
+    # --- Target AC Entry ---
+    lbl_target_ac = tk.Label(frm_main, text="Target AC:")
+    lbl_target_ac.grid(row=1, column=0, padx=5, pady=5, sticky="w")
+    target_ac_var.set("10")
+    ent_target_ac = tk.Entry(frm_main, textvariable=target_ac_var)
+    ent_target_ac.grid(row=1, column=1, columnspan=3, padx=5, pady=5)
+
+    # --- Weapon Type Dropdown ---
+    lbl_weapon_type = tk.Label(frm_main, text="Weapon Type:")
+    lbl_weapon_type.grid(row=2, column=0, padx=5, pady=5, sticky="w")
+    cmb_weapon_type = ttk.Combobox(frm_main, textvariable=weapon_type_var)
+    cmb_weapon_type["values"] = ["melee", "ranged", "natural"]
+    cmb_weapon_type.state(["readonly"])  # Make dropdown read-only
+    cmb_weapon_type.grid(row=2, column=1, columnspan=3, padx=5, pady=5)
+
+    # --- Critical Type Radial Menu ---
+    lbl_critical_type = tk.Label(frm_main, text="Critical Type:")
+    lbl_critical_type.grid(row=3, column=0, padx=5, pady=5, sticky="w")
+    rbtn_crit = tk.Radiobutton(
+        frm_main, text="Crit", variable=critical_type_var, value="crit"
+    )
+    rbtn_crit.grid(row=3, column=1, padx=5, pady=2, sticky="w")
+    rbtn_fumble = tk.Radiobutton(
+        frm_main, text="Fumble", variable=critical_type_var, value="fumble"
+    )
+    rbtn_fumble.grid(row=3, column=2, columnspan=3, padx=5, pady=2, sticky="w")
+
+    # --- Critical Multiplier Radial Menu ---
+    lbl_critical_multiplier = tk.Label(frm_main, text="Critical Multiplier:")
+    lbl_critical_multiplier.grid(row=4, column=0, padx=5, pady=5, sticky="w")
+
+    # Create radio buttons for each multiplier option (e.g., "x2", "x3", "x4")
+    col = 1
+    for key, value in CRITICAL_MULTIPLIERS.items():
+        rbtn_multiplier = tk.Radiobutton(
+            frm_main, text=key, variable=critical_multiplier_var, value=value
+        )
+        rbtn_multiplier.grid(row=4, column=col, padx=5, pady=2, sticky="w")
+        col += 1
+
+    # --- Buttons ---
+    def calculate():
+        global critical_is_serious
+        global critical_is_lethal
+        global critical_is_explosive
+        # Validate inputs and run the correct functions
+        try:
+            # Force attack rolls and target AC to be non-negative int
+            try:
+                attack_roll = int(attack_roll_var.get())
+                if attack_roll < 0 or not int:
+                    raise ValueError
+            except ValueError:
+                attack_roll_var.set("0")
+                attack_roll = 0
+            try:
+                target_ac = int(target_ac_var.get())
+                if target_ac < 0 or not int:
+                    raise ValueError
+            except ValueError:
+                target_ac_var.set("0")
+                target_ac = 0
+
+            # Get remaining values from gui input
+            critical_type = critical_type_var.get()
+            critical_multiplier = critical_multiplier_var.get()
+            weapon_type = weapon_type_var.get()
+            critical_is_serious = bool(is_serious_var.get())
+
+            # Calculate severity based on inputs
+            severity = calculate_severity(
+                attack_roll,
+                target_ac,
+                critical_multiplier,
+                critical_type,
+            )
+
+            # Check if crit is explosive
+            explosive_severity = explosive_critical(severity)
+
+            # Get effect tuple
+            effect_tuple = search_critical_effects(
+                explosive_severity, critical_type, weapon_type
+            )
+
+            # Display chosen effect for user
+            print(f"{effect_tuple}")
+
+            # Reset global flags
+            critical_is_lethal = False
+            critical_is_explosive = False
+
+        except ValueError as e:
+            print(f"Error: {e}")
+
+    def clear():
+        global critical_is_serious
+        # Reset inputs to default values
+        btn_clear.focus()
+        attack_roll_var.set("")
+        target_ac_var.set("10")
+        weapon_type_var.set("melee")
+        critical_type_var.set("crit")
+        critical_multiplier_var.set(CRITICAL_MULTIPLIERS["x2"])
+        is_serious_var.set(0)
+        critical_is_serious = False
+        ent_attack_roll.focus_set()
+
+    btn_calculate = tk.Button(frm_main, text="Calculate", command=calculate)
+    btn_calculate.grid(row=6, column=0, padx=5, pady=10, sticky="w")
+
+    btn_clear = tk.Button(frm_main, text="Clear", command=clear)
+    btn_clear.grid(row=6, column=1, padx=5, pady=10, sticky="w")
+
+    # # Bind the calculate function to the age entry box so
+    # # that the computer will call the calculate function
+    # # when the user changes the text in the entry box.
+    # ent_length.bind("<KeyRelease>", calculate)
+
+    # # Bind the clear function to the clear button so
+    # # that the computer will call the clear function
+    # # when the user clicks the clear button.
+    # btn_clear.config(command=clear)
+
+    # # Give the keyboard focus to the age entry box.
+    # ent_length.focus()
 
 
 # Standard Python boilerplate to run the main function
 if __name__ == "__main__":
-    build_critical_effects()
-    # print(CRITICAL_EFFECTS)
-
-    # test severity calculator:
-    example_attack_roll = get_random_bonus()  # Simulate an attack roll
-    example_target_ac = 0
-    example_critical_multiplier = 3
-    example_critical_type = "crit"  # Can be "crit" or "fumble"
-    example_is_serious = False  # Represents a smash or catastrophe
-
-    severity = calculate_severity(
-        example_attack_roll,
-        example_target_ac,
-        example_critical_multiplier,
-        example_critical_type,
-        example_is_serious,
-        random_bonus_override=None,  # Example for override testing
-    )
-    print("Returned Severity:", severity)
-
-    # test get_available_filters:
-    print(
-        get_available_filters()
-    )  # Defaults to critical: ["crit", "c:melee"], weapon: ["melee"]
-    print(
-        get_available_filters("fumble", "ranged")
-    )  # Should return critical: ["fumble", "f:ranged"], weapon: ["Ranged"]
-    # main()
-
-    # print blank line
-    print()
-
-    # test search_critical_effects:
-    print(
-        search_critical_effects(
-            severity,
-            critical_type="crit",
-            weapon_type="melee",
-        )
-    )
+    main()

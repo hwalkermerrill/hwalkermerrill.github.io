@@ -41,6 +41,32 @@ critical_is_lethal = False
 critical_is_explosive = False
 
 
+# Verify the build_critical_effects function correctly builds the master dictionary file
+def test_build_critical_effects():
+    # Run program to import results file
+    CRITICAL_EFFECTS = build_critical_effects()
+
+    # Verify that the make_periodic_table function returns a dictionary.
+    assert isinstance(CRITICAL_EFFECTS, dict), (
+        "make_periodic_table function must return a dictionary: "
+        f" expected a dictionary but found a {type(CRITICAL_EFFECTS)}"
+    )
+
+    # Test data returned types
+    assert (
+        "minor" in CRITICAL_EFFECTS
+    ), "Expected 'minor' to be a key in CRITICAL_EFFECTS."
+    assert (
+        "moderate" in CRITICAL_EFFECTS
+    ), "Expected 'moderate' to be a key in CRITICAL_EFFECTS."
+    assert (
+        "serious" in CRITICAL_EFFECTS
+    ), "Expected 'serious' to be a key in CRITICAL_EFFECTS."
+    assert (
+        "deadly" in CRITICAL_EFFECTS
+    ), "Expected 'deadly' to be a key in CRITICAL_EFFECTS."
+
+
 # Verify the rest_random_bonus function works correctly.
 def test_random_bonus():
 
@@ -243,6 +269,7 @@ def test_calculate_severity():
     assert severity == "deadly", f"Expected {expected} for special rule, got {severity}"
 
 
+# Test lower_severity correctly lowers the inputted severity
 def test_lower_severity():
     # Standard cases: severity should go down one step
     assert (
@@ -262,20 +289,29 @@ def test_lower_severity():
     ), "Expected unknown severity to default to 'minor'"
 
 
+# Test the explosive_critical functions interactions with global flags
 def test_explosive_critical():
     """
     Run multiple tests of the explosive_critical function:
 
-    1. If lethal is True, it returns the original severity and sets critical_is_explosive True.
-    2. If bonus equals 20 (with serious False), it lowers the severity and sets the explosive flag.
-    3. If bonus equals 1 with serious False, it lowers the severity.
-    4. If bonus equals 1 with serious True, it leaves severity unchanged.
-    5. If bonus is neither 1 nor 20, it leaves severity unchanged.
+    1. If severity is None, returns None
+    2. If lethal is True, it returns the original severity and sets critical_is_explosive True.
+    3. If bonus equals 20 (with serious False), it lowers the severity and sets the explosive flag.
+    4. If bonus equals 1 with serious False, it lowers the severity.
+    5. If bonus equals 1 with serious True, it leaves severity unchanged.
+    6. If bonus is neither 1 nor 20, it leaves severity unchanged.
     """
     # Reset the function's __globals__:
     explosive_critical.__globals__["critical_is_lethal"] = False
     explosive_critical.__globals__["critical_is_explosive"] = False
     explosive_critical.__globals__["critical_is_serious"] = False
+
+    # If severity is None, returns None
+    severity_orig = None
+    result = explosive_critical(
+        severity_orig, random_bonus_override=10, lethal=False, serious=False
+    )
+    assert result == None, "If severity is None, explosive_critical should return None"
 
     # If lethal is True, it returns the original severity and sets critical_is_explosive True.
     severity_orig = "moderate"
@@ -367,6 +403,7 @@ def test_explosive_critical():
     explosive_critical.__globals__["critical_is_serious"] = False
 
 
+# Test get_available_filters works correctly
 def test_get_available_filters():
     # Test default returns
     filters = get_available_filters()
@@ -413,6 +450,7 @@ def test_get_available_filters():
     ), f"Default filter's loaded incorrectly. Expected {expected}, resulted in {filters}"
 
 
+# Test search_critical_effects returns expected results
 def test_search_critical_effects():
     # When severity is None:
     result = search_critical_effects(None)
