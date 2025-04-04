@@ -539,44 +539,44 @@ def test_calculate_damage_out():
     # Test fumble mapping.
     result = calculate_damage_out("minor", 2, "fumble", False)
     assert (
-        result == "Your Attack Misses"
-    ), f"Expected 'Your Attack Misses', got {result}"
+        result == "Your Attack Misses, and you"
+    ), f"Expected 'Your Attack Misses, and you', got {result}"
     result = calculate_damage_out("moderate", 2, "fumble", False)
     assert (
-        result == "Your Attack Misses and you Cannot Attack Again this turn"
-    ), f"Expected 'Your Attack Misses and you Cannot Attack Again this turn', got {result}"
+        result == "Your Attack Misses, you Cannot Attack Again this turn, and you"
+    ), f"Expected 'Your Attack Misses, you Cannot Attack Again this turn, and you', got {result}"
     result = calculate_damage_out("serious", 2, "fumble", False)
     assert (
-        result == "Your Attack Misses and you End Your Turn"
-    ), f"Expected 'Your Attack Misses and you End Your Turn', got {result}"
+        result == "Your Attack Misses, you End Your Turn, and you"
+    ), f"Expected 'Your Attack Misses, you End Your Turn, and you', got {result}"
     result = calculate_damage_out("deadly", 2, "fumble", False)
     assert (
         result
-        == "Your Attack Misses, you End Your Turn, and your Initiative is Reduced by 5"
-    ), f"Expected 'Your Attack Misses, you End Your Turn, and your Initiative is Reduced by 5', got {result}"
+        == "Your Attack Misses, you End Your Turn, your Initiative is Reduced by 5, and you"
+    ), f"Expected 'Your Attack Misses, you End Your Turn, your Initiative is Reduced by 5, and you', got {result}"
     result = calculate_damage_out("minor", 2, "fumble", True)
     assert (
         result
-        == "Your Attack Misses, you End Your Turn, and your Initiative Falls to the Bottom of the Order"
-    ), f"Expected 'Your Attack Misses, you End Your Turn, and your Initiative Falls to the Bottom of the Order', got {result}"
+        == "Your Attack Misses, you End Your Turn, your Initiative Falls to the Bottom of the Order, and you"
+    ), f"Expected 'Your Attack Misses, you End Your Turn, your Initiative Falls to the Bottom of the Order, and you', got {result}"
 
     # Test critical mapping.
     result = calculate_damage_out("minor", 2, "crit", False)
     assert (
-        result == "Roll Double Damage Rolls"
-    ), f"Expected 'Roll Double Damage Rolls', got {result}"
+        result == "Roll Double Damage Rolls, and they"
+    ), f"Expected 'Roll Double Damage Rolls, and they', got {result}"
     result = calculate_damage_out("moderate", 3, "crit", False)
     assert (
-        result == "Deal Max Damage plus Double Damage Roll"
-    ), f"Expected 'Deal Max Damage plus Double Damage Roll', got {result}"
+        result == "Deal Max Damage plus Double Damage Roll, and they"
+    ), f"Expected 'Deal Max Damage plus Double Damage Roll, and they', got {result}"
     result = calculate_damage_out("serious", 4, "crit", False)
     assert (
-        result == "Deal Double Max Damage plus Double Damage Roll"
-    ), f"Expected 'Deal Double Max Damage plus Double Damage Roll', got {result}"
+        result == "Deal Double Max Damage plus Double Damage Roll, and they"
+    ), f"Expected 'Deal Double Max Damage plus Double Damage Roll, and they', got {result}"
     result = calculate_damage_out("minor", 2, "crit", True)
     assert (
-        result == "Deal Double Max Damage"
-    ), f"Expected 'Deal Double Max Damage', got {result}"
+        result == "Deal Double Max Damage, and they"
+    ), f"Expected 'Deal Double Max Damage, and they', got {result}"
 
 
 # Call the main function that is part of pytest so that the
