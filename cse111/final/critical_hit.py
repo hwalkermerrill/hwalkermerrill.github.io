@@ -557,7 +557,7 @@ def populate_main_window(frm_main):
     # --- Create a Text widget for output display ---
     lbl_output = tk.Label(frm_main, text="Results:")
     lbl_output.grid(row=8, column=0, padx=5, pady=5, sticky="w")
-    txt_output = tk.Text(frm_main, wrap=tk.WORD, height=10, width=40)
+    txt_output = tk.Text(frm_main, wrap=tk.WORD, height=12, width=40)
     txt_output.grid(row=9, column=0, columnspan=4, padx=5, pady=5, sticky="ew")
 
     # Define tags for text formatting
@@ -654,6 +654,7 @@ def populate_main_window(frm_main):
 
             # Output remaining critical data for user
             txt_output.insert(tk.END, f"{effect_tuple[0]}\n", "italic")
+            txt_output.insert(tk.END, f"{damage_output} ", "normal")
             if critical_is_explosive:
                 txt_output.insert(
                     tk.END,
