@@ -13,6 +13,7 @@ from critical_hit import (
     explosive_critical,
     get_available_filters,
     search_critical_effects,
+    calculate_damage_out,
 )
 
 # Indexes from file
@@ -525,6 +526,57 @@ def test_search_critical_effects():
     assert (
         details == test_effect["details"]
     ), f"Details {details} do not match expected {test_effect['details']}"
+
+
+# Test calculate_damage_out returns expected results
+def test_calculate_damage_out():
+
+    # Test when if result returned is a string and if severity is None.
+    result = calculate_damage_out(None, 2, "fumble", False)
+    assert isinstance(result, str), f"Expected string, got {type(result)}"
+    assert result == "No Effect", f"Expected 'No Effect', got {result}"
+
+    # Test fumble mapping.
+    result = calculate_damage_out("minor", 2, "fumble", False)
+    assert (
+        result == "Your Attack Misses"
+    ), f"Expected 'Your Attack Misses', got {result}"
+    result = calculate_damage_out("moderate", 2, "fumble", False)
+    assert (
+        result == "Your Attack Misses and you Cannot Attack Again this turn"
+    ), f"Expected 'Your Attack Misses and you Cannot Attack Again this turn', got {result}"
+    result = calculate_damage_out("serious", 2, "fumble", False)
+    assert (
+        result == "Your Attack Misses and you End Your Turn"
+    ), f"Expected 'Your Attack Misses and you End Your Turn', got {result}"
+    result = calculate_damage_out("deadly", 2, "fumble", False)
+    assert (
+        result
+        == "Your Attack Misses, you End Your Turn, and your Initiative is Reduced by 5"
+    ), f"Expected 'Your Attack Misses, you End Your Turn, and your Initiative is Reduced by 5', got {result}"
+    result = calculate_damage_out("minor", 2, "fumble", True)
+    assert (
+        result
+        == "Your Attack Misses, you End Your Turn, and your Initiative Falls to the Bottom of the Order"
+    ), f"Expected 'Your Attack Misses, you End Your Turn, and your Initiative Falls to the Bottom of the Order', got {result}"
+
+    # Test critical mapping.
+    result = calculate_damage_out("minor", 2, "crit", False)
+    assert (
+        result == "Roll Double Damage Rolls"
+    ), f"Expected 'Roll Double Damage Rolls', got {result}"
+    result = calculate_damage_out("moderate", 3, "crit", False)
+    assert (
+        result == "Deal Max Damage plus Double Damage Roll"
+    ), f"Expected 'Deal Max Damage plus Double Damage Roll', got {result}"
+    result = calculate_damage_out("serious", 4, "crit", False)
+    assert (
+        result == "Deal Double Max Damage plus Double Damage Roll"
+    ), f"Expected 'Deal Double Max Damage plus Double Damage Roll', got {result}"
+    result = calculate_damage_out("minor", 2, "crit", True)
+    assert (
+        result == "Deal Double Max Damage"
+    ), f"Expected 'Deal Double Max Damage', got {result}"
 
 
 # Call the main function that is part of pytest so that the

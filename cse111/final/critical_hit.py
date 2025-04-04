@@ -139,6 +139,7 @@ def calculate_severity(
     """
 
     # Use Global Variables if no override is given
+    global critical_roll
     if is_serious == None:
         is_serious = critical_is_serious
 
@@ -152,10 +153,10 @@ def calculate_severity(
 
     # Special rule: if the crit is serious and bonus is 20, immediately return "deadly".
     if is_serious and bonus == 20:
-        print("Lethal!!!")
+        # print("Lethal!!!")
         global critical_is_lethal
         critical_is_lethal = True
-        print("Critical Severity: deadly")
+        # print("Critical Severity: deadly")
         return "deadly"
 
     # Base calculation depending on whether it's a crit or a fumble.
@@ -171,27 +172,27 @@ def calculate_severity(
         running_total += 10
 
     # print number for debug purposes
-    print("Running Total:", running_total)
+    # print("Running Total:", running_total)
 
     # Check for no effect.
     if running_total <= 0:
-        print("No Effect")
+        # print("No Effect")
         return None
 
     # If running_total is greater than or equal to 46, return deadly immediately.
     if running_total >= 41:
         severity = "deadly"
-        print("Critical Severity:", severity)
+        # print("Critical Severity:", severity)
         return severity
 
     # Compare the running_total to the defined CRITICAL_SEVERITY ranges.
     for severity, (min_val, max_val) in CRITICAL_SEVERITY.items():
         if min_val <= running_total <= max_val:
-            print("Critical Severity:", severity)
+            # print("Critical Severity:", severity)
             return severity
 
     # If no matching range is found, return minor.
-    print("Critical Severity: minor")
+    # print("Critical Severity: minor")
     return "minor"
 
 
@@ -376,6 +377,80 @@ def search_critical_effects(severity, critical_type="crit", weapon_type="melee")
 
     # Return the assembled information.
     return (selected_title, effect_options, selected_quality, details)
+
+
+def calculate_damage_out(
+    severity, critical_multiplier, critical_type="crit", is_lethal=None
+):
+    """
+    Calculate the critical damage based on the severity and weapon multiplier.
+
+    Parameters:
+        severity (str): The severity level of the critical hit.
+        weapon_multiplier (str): The weapon's critical multiplier ("x2", "x3", or "x4").
+        critical_type (str): Either "crit" or "fumble", default to "crit".
+        is_lethal (bool): Checks the global critical_is_lethal flag, or override.
+
+    Returns:
+        str: A formatted string indicating the damage output.
+    """
+
+    # If severity is None, output a No Effect message.
+    if severity is None:
+        return "No Effect"
+
+    # Use Global Variables if no override is given.
+    if is_lethal is None:
+        is_lethal = critical_is_lethal
+
+    # Use lethal to override severity, otherwise use severity for mapped effects.
+    if is_lethal:
+        severity = "lethal"
+
+    # Crit and Fumble severity maps:
+    fumble_map = {
+        "minor": "Your Attack Misses",
+        "moderate": "Your Attack Misses and you Cannot Attack Again this turn",
+        "serious": "Your Attack Misses and you End Your Turn",
+        "deadly": "Your Attack Misses, you End Your Turn, and your Initiative is Reduced by 5",
+        "lethal": "Your Attack Misses, you End Your Turn, and your Initiative Falls to the Bottom of the Order",
+    }
+    x2_map = {
+        "minor": "Roll Double Damage Rolls",
+        "moderate": "Deal Max Damage plus Damage Roll",
+        "serious": "Deal Max Damage plus Damage Roll",
+        "deadly": "Deal Double Max Damage",
+        "lethal": "Deal Double Max Damage",
+    }
+    x3_map = {
+        "minor": "Roll Triple Damage Rolls",
+        "moderate": "Deal Max Damage plus Double Damage Roll",
+        "serious": "Deal Double Max Damage plus Damage Roll",
+        "deadly": "Deal Triple Max Damage",
+        "lethal": "Deal Triple Max Damage",
+    }
+    x4_map = {
+        "minor": "Roll Quadruple Normal Damage",
+        "moderate": "Deal Max Damage plus Triple Damage Roll",
+        "serious": "Deal Double Max Damage plus Double Damage Roll",
+        "deadly": "Deal Triple Max Damage plus Damage Roll",
+        "lethal": "Deal Quadruple Max Damage",
+    }
+
+    # Check critical type for logic fork, then map based on severity/lethality.
+    if critical_type == "fumble":
+        effect_map = fumble_map
+    elif critical_multiplier == 4:
+        effect_map = x4_map
+    elif critical_multiplier == 3:
+        effect_map = x3_map
+    else:
+        effect_map = x2_map
+
+    # Get the damage output based on the severity and critical multiplier.
+    critical_damage = effect_map.get(severity)
+
+    return critical_damage
 
 
 # main function copied from gui.py teamwork
@@ -582,9 +657,9 @@ def populate_main_window(frm_main):
                 txt_output.insert(
                     tk.END, f"{effect_tuple[1]} {effect_tuple[2]}\n\n", "normal"
                 )
-            txt_output.insert(tk.END, f"{effect_tuple[3]}\n\n", "normal")
+            txt_output.insert(tk.END, f"{effect_tuple[3].strip('"')}\n\n", "normal")
             if critical_is_explosive:
-                txt_output.insert(tk.END, f"{double_tuple[3]}", "normal")
+                txt_output.insert(tk.END, f"{double_tuple[3].strip('"')}", "normal")
 
             # Reset global flags
             critical_is_lethal = False
