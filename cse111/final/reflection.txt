@@ -17,7 +17,19 @@ to solve a problem instead of copy-pasting between points.
 
 2. In your judgment, what is the value of test functions?
 
-
+Test functions help to ensure that a function is operating as intended, if it isn't,
+helps you pinpoint what is going wrong. Not only is this very useful during development,
+it is critical when refactoring code, to ensure that any changes do not have unintended
+knock-on effects.
 
 3. Describe your process for troubleshooting and fixing a program that
 has a problem. What is one thing you can do to improve your process?
+
+Usually, the first thing I try when troubleshooting code is to check the arguments
+against the parameters to make sure that the intended thing is being passed
+(and of the intended data type). Then I usually write a test function, since I have
+so-far needed to do that anyway. When I get really stuck, I start going through the
+code line-by-line. If I'm still stuck, I turn to researching things online to see if
+I'm missing something or approaching things incorrectly. My biggest weakness is not
+being very good/quick at stepping through code; if I did it more, I would be more
+confident in how to step through code, and I could probably troubleshoot things faster.
