@@ -1,0 +1,23 @@
+Please respond thoroughly (at least two sentences for each question) to
+the following three questions.
+
+1. Describe an experience you had this semester where you saw the power of
+functions.
+
+It might be silly, but I really had a moment when I learned about exception. I kinda
+knew how functions worked and I was trying to use functions instead of copy/pasting code,
+but I often felt like I was spending a ton of time writing validation loops to feel like
+I could get the program working under ordinary scenarios. But when I learned about
+exceptions, something just clicked and I had a ton of fun learning how to use them to
+troubleshoot a run or build. Even more, when I was working on my final, I was able to use
+an exception so that if the wrong input was put in by the user, it corrected it to a
+default input before processing, which kept my program together. Now I feel like I can
+do/have done a lot with functions, and I'm trying to figure out how to write a function
+to solve a problem instead of copy-pasting between points.
+
+2. In your judgment, what is the value of test functions?
+
+
+
+3. Describe your process for troubleshooting and fixing a program that
+has a problem. What is one thing you can do to improve your process?
