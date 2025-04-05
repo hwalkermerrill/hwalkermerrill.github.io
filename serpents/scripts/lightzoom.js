@@ -68,8 +68,8 @@
 			const mx = event.pageX;
 			const my = event.pageY;
 			const bounding = obj.getBoundingClientRect();
-			const w = bounding.width;
-			const h = bounding.height;
+			const w = obj.naturalWidth; // Use naturalWidth for the original image size
+			const h = obj.naturalHeight; // Use naturalHeight for the original image size
 
 			// Offset position of the image relative to the document, accounting for scroll
 			const ol = bounding.left + window.pageXOffset;
@@ -84,12 +84,12 @@
 				}
 			}
 
-			// Calculate and update zoom effect
-			if (mx > ol && mx < ol + w && ot < my && ot + h > my) {
-				const offsetXfixer = ((mx - ol - w / 2) / (w / 2)) * quarterSize;
-				const offsetYfixer = ((my - ot - h / 2) / (h / 2)) * quarterSize;
-				const cx = (((mx - ol + offsetXfixer) / w)) * 100;
-				const cy = (((my - ot + offsetYfixer) / h)) * 100;
+			// Calculate and update zoom effect using natural dimensions
+			if (mx > ol && mx < ol + bounding.width && ot < my && ot + bounding.height > my) {
+				const offsetXfixer = ((mx - ol - bounding.width / 2) / (bounding.width / 2)) * quarterSize;
+				const offsetYfixer = ((my - ot - bounding.height / 2) / (bounding.height / 2)) * quarterSize;
+				const cx = (((mx - ol + offsetXfixer) / bounding.width)) * 100;
+				const cy = (((my - ot + offsetYfixer) / bounding.height)) * 100;
 				const newMy = my - halfSize;
 				const newMx = mx - halfSize;
 
