@@ -83,10 +83,6 @@ window.onload = function () {
 		window.scrollTo(0, localStorage.getItem('scrollPosition'));
 	}
 };
-// Toggle visibility of toggleLiVis class elements
-document.addEventListener("DOMContentLoaded", function () {
-	toggleLiVis(".toggleLiVis");
-});
 
 // These following code snippets require the jQuerry library to be loaded in the html file.
 // CDL: <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -97,24 +93,38 @@ document.addEventListener("DOMContentLoaded", function () {
 // Call the script with something like this:
 // {<script>$(document).ready(clickLoad('section'))</script>}
 function clickLoad(clickClass) {
-	$(clickClass).click(function () {
-		$(this).toggleClass("click");
-	})
+	document.querySelectorAll(clickClass).forEach(element => {
+		element.addEventListener("click", function () {
+			this.classList.toggle("click");
+		});
+	});
 }
 
 // This function toggles the visibility of select classes.
 //Call the script with something like this:
 // <button onclick="toggleHide('.helpful')">Show/Hide Helpful NPC's</button>
 function toggleHide(className) {
-	$(className).toggle();
-};
+	document.querySelectorAll(className).forEach(element => {
+		const currentDisplay = getComputedStyle(element).display;
+		element.style.display = currentDisplay === "none" ? "block" : "none";
+	});
+}
 
 // This causes ul and ol elements (li) to with the specified class to toggle on and off when clicked.
 // Call the script with something like this:
-//<script>$(document).ready(toggleLiVis(".toggleLi"))</script>
+// <script>
+// 	document.addEventListener("DOMContentLoaded", function () {
+// 		toggleLiVis(".toggleLiVis");
+// 	});
+// </script>
 function toggleLiVis(className) {
-	$(className).click(function () {
-		$("li", this).toggle();
+	document.querySelectorAll(className).forEach(element => {
+		element.addEventListener("click", function () {
+			this.querySelectorAll("li").forEach(li => {
+				const currentDisplay = getComputedStyle(li).display;
+				li.style.display = currentDisplay === "none" ? "list-item" : "none";
+			});
+		});
 	});
 }
 

@@ -128,7 +128,10 @@
 			<button onclick="topFunction()" id="returnTopBtn" title="Go to top">Return to Top</button>
 			<!-- RETURN TO TOP BUTTON -->
 			<section class="toggleLiVis">
-				<h2>Campaign Details</h2>
+				<h2>Campaign Setting Details</h2>
+				<p>Each region of the golarion is unique; culture, economy, language, and societal structure vary greatly from
+					one part of the world to another. Here are some important details to know about this campaign's setting:
+				</p>
 				<ul style="list-style-type:circle">
 					<li style="list-style-type: none;"><b>Click to Show Campaign and Character Details:</b></li>
 					<li style="list-style-type: none; display: none;"><b>Click to Hide Campaign and Character Details:</b></li>
@@ -166,49 +169,71 @@
 			</section>
 			<section class="toggleLiVis">
 				<h2>Knowledge Breakdown</h2>
+				<p>The Knowledge skill is broken down into several different areas of expertise, each representing the sum of
+					what your character knows about a given creature, location, event, or situation. If you have no training in a
+					particular knowledge, you can typically not roll higher than a 10 on any one knowledge check (10 representing
+					information that is generally known), while any information that would rely on specialized education or
+					training to suss out will have a DC starting at 15 and increasing with its obscurity. Click to learn more
+					about knowledge:</p>
 				<ul style="list-style-type:circle">
 					<li style="list-style-type: none;"><b>Click to Detail Knowledge Uses:</b></li>
 					<li style="list-style-type: none; display: none;"><b>Click to Obscure Knowledge Uses:</b></li>
-					<li style="display: none;"><b>All: Monster Identification</b> - Most Knowledge's allow for identifying
+					<li style="display: none;"><b>Lore</b> - The Lore skill represents training in a very narrow field; not as
+						broad as knowledge, they are generally less useful to learn, but may (in certain instances) span more than
+						one knowledge field of study. Examples of appropriate Lore skill's include topics like Dogs, Elven Nobility,
+						Light Spells, or Tea, but not areas so broad as Animals, Elves, Nobility, Magic, or Valuables - those are
+						covered by specific knowledge's. If your character is trained in a Lore skill, it may be used in place of
+						the appropriate knowledge skill. This will usually be at the same DC as the Knowledge skill, but may be up
+						to 5 points easier depending on the narrowness of the Lore skill's scope. Profession and Craft skills may
+						also be used in place of a Knowledge when it interacts with their realm of expertise, but that is rare.</li>
+					<li style="display: none;"><b>Monster Identification</b> - Most Knowledge's allow for identifying
 						monsters. The DC's for these are DC10+CR for common creatures (typically CR9-), DC15+CR for uncommon
 						creatures (typically CR10+), and DC20+CR for unique creatures (unique or CR20+). For every 5 points you
 						exceed the DC, you may <a href="attachments/what-can-i-ask.pdf">ask a question about the creature.</a></li>
-					<li style="list-style-type: none; display: none;"><br></li>
-					<li style="display: none;"><b>Arcana:</b> Identifies dragons and magical beasts. Also identifies ongoing
-						magical effects and transmuted/conjured materials (DC20+Spell Lvl). Can also decipher arcane mysteries,
-						magical traditions, and magical auras. Also used in phrenology and magical rituals.</li>
-					<li style="display: none;"><b>Dungeoneering:</b> Identifies aberrations and oozes. Also identifies underground
-						hazard's and how to bypass them (DC15+CR). Can also identify stones, metals, and minerals, identify makeup
-						of caverns and underground tunnels, determine slope and depth underground. Also used in understanding and
-						navigating the Darklands</li>
-					<li style="display: none;"><b>Engineering:</b> Identifies constructs. Also identifies dangerous construction
-						and a structures style, age, or weakness (DC10-20). Can also be used in construction, demolition, and
-						renovation. Also used in inventions and innovations.</li>
-					<li style="display: none;"><b>Geography:</b> Does not identify creatures. Can identify a creatures' ethnicity
-						(DC15 or 10+Disguise). Can also recognize climate, soil, and terrain features, and represents knowing the
-						location of noteworthy sites and communities. Also used in astronomy and farming.</li>
-					<li style="display: none;"><b>History:</b> Does not identify creatures. Can identify past events and age of
-						documents, items, structures, and styles. Also used in archeology.</li>
-					<li style="display: none;"><b>Local:</b> Identifies humanoids. Also identifies class levels (DC 15+lvl).
-						Represents knowledge of local cultures, customs, folklore, legends, people, personalities, organizations,
-						and traditions. Also used in secret organizations.</li>
-					<li style="display: none;"><b>Nature:</b> Identifies animals, fey, monstrous humanoids, plants, and vermin.
-						Also identifies natural hazard's and how to bypass them (DC15+CR). Can also be used to identify plants and
-						herbs, recognize weather patterns and phenomenon, and determine if something is natural or artificial. Also
-						used in herbology.</li>
-					<li style="display: none;"><b>Nobility:</b> Does not identify creatures. Can recognize correct and proper
-						etiquette, heraldry, lineages, nobility, and succession. Also used in interpreting rank and relationship in
-						a court, social rounds, and social combat.</li>
-					<li style="display: none;"><b>Planes:</b> Identifies outsiders. Can also recognize planes, identify planar
-						features, and identify planar magic. Also used in navigating teleportation magic.</li>
-					<li style="display: none;"><b>Religion:</b> Identifies undead. Also identifies haunts and how to lay them to
-						rest (DC15+CR for general method, DC15+2xCR for exact method). Can also recognize deities by their holy
-						symbols, recognize domains, recognize cults and worshippers, recognize burial rights and procedures, and
-						recognize religious tenets. Also used in divine interventions and deific boons.</li>
+					<li style="list-style-type: none; display: none;">
+						<br> The specific uses of each knowledge skill are outlined below:
+						<ul style="list-style-type: lower-greek;">
+							<li style="display: none;"><b>Arcana:</b> Identifies dragons and magical beasts. Also identifies ongoing
+								magical effects and transmuted/conjured materials (DC20+Spell Lvl). Can also decipher arcane mysteries,
+								magical traditions, and magical auras. Also used in phrenology and magical rituals.</li>
+							<li style="display: none;"><b>Dungeoneering:</b> Identifies aberrations and oozes. Also identifies
+								underground hazard's and how to bypass them (DC15+CR). Can also identify stones, metals, and minerals,
+								identify makeup of caverns and underground tunnels, determine slope and depth underground. Also used in
+								understanding and navigating the Darklands</li>
+							<li style="display: none;"><b>Engineering:</b> Identifies constructs. Also identifies dangerous
+								construction and a structures style, age, or weakness (DC10-20). Can also be used in construction,
+								demolition, and renovation. Also used in inventions and innovations.</li>
+							<li style="display: none;"><b>Geography:</b> Does not identify creatures. Can identify a creatures'
+								ethnicity (DC15 or 10+Disguise). Can also recognize climate, soil, and terrain features, and represents
+								knowing the location of noteworthy sites and communities. Also used in astronomy and farming.</li>
+							<li style="display: none;"><b>History:</b> Does not identify creatures. Can identify past events and age
+								of documents, items, structures, and styles. Also used in archeology.</li>
+							<li style="display: none;"><b>Local:</b> Identifies humanoids. Also identifies class levels (DC 15+lvl).
+								Represents knowledge of local cultures, customs, folklore, legends, people, personalities,
+								organizations, and traditions. Also used in secret organizations.</li>
+							<li style="display: none;"><b>Nature:</b> Identifies animals, fey, monstrous humanoids, plants, and
+								vermin. Also identifies natural hazard's and how to bypass them (DC15+CR). Can also be used to identify
+								plants and herbs, recognize weather patterns and phenomenon, and determine if something is natural or
+								artificial. Also used in herbology.</li>
+							<li style="display: none;"><b>Nobility:</b> Does not identify creatures. Can recognize correct and proper
+								etiquette, heraldry, lineages, nobility, and succession. Also used in interpreting rank and relationship
+								in a court, social rounds, and social combat.</li>
+							<li style="display: none;"><b>Planes:</b> Identifies outsiders. Can also recognize planes, identify planar
+								features, and identify planar magic. Also used in navigating teleportation magic.</li>
+							<li style="display: none;"><b>Religion:</b> Identifies undead. Also identifies haunts and how to lay them
+								to rest (DC15+CR for general method, DC15+2xCR for exact method). Can also recognize deities by their
+								holy symbols, recognize domains, recognize cults and worshippers, recognize burial rights and
+								procedures, and recognize religious tenets. Also used in divine interventions and deific boons.</li>
+						</ul>
+					</li>
 				</ul>
 			</section>
 			<section class="toggleLiVis">
 				<h2>The 10 Commandments of Tomb Raiding</h2>
+				<p>While there are many tools in the arsenal of an adventurer, there will inevitably be certain challenges that
+					force them to rely on their innate abilities, skillful training, and tactical preparation. The act of delving
+					deep into dungeons is perilous, and there are several things every would-be adventurer should keep in mind,
+					regardless of their level of experience:</p>
 				<ol reversed>
 					<li style="list-style-type: none;"><b>Click to Reveal the Tomb Raiding Commandments:</b></li>
 					<li style="list-style-type: none; display: none;"><b>Click to Apostatize the Tomb Raiding Commandments:</b>
@@ -239,8 +264,8 @@
 					<li style="display: none;"><b>Check for Traps:</b> <i>(Recommended Skill - Disable Device)</i> Monster lairs
 						and ancient tombs are often warded with traps and curses. A keen eye, particularly on doors and chests, as
 						well as the occasional use of spells like <i>Detect Magic</i> will often feel unrewarded, but occasionally
-						prevent a horrible death. Watch for monsters disguising their undead or monstrous features while feigning
-						innocence in an effort to lure you closer.</li>
+						prevent a horrible death. Watch for monsters disguising their undeath or abominable features, all while
+						feigning innocence in an effort to lure you closer.</li>
 					<li style="display: none;"><b>Be Prepared:</b> <i>(Recommended Skill - Climb/Swim)</i> Rope, pitons, tools,
 						torches, mirrors, waterproof bags, ten-foot poles. <i>Detect Magic, Dimension Door, Light, Levitation,
 							Summon Monster, Silent Image, Unseen Servant.</i> Whether you need a way up, down, or out, or you just
@@ -264,7 +289,12 @@
 			</section>
 			<section>
 				<h2>Tribes of the Frontier</h2>
-				<ul class="toggleLiVis" style="list-style-type: none;">
+				<p>While colonists find it difficult to distinguish between the various tribes and ethno-linguistic groups in
+					Mwangi, the local tribespeople recognize distinctions every bit as definitive as those between Ulfen and
+					Taldan - and most all of them bristle at being lumped together colloquially as simply "natives." Those that
+					interact with them frequently realize there are six major heritages within the blanket Mwangi ethnicity, each
+					containing a handful of dominant tribes:</p>
+				<!-- <ul class="toggleLiVis" style="list-style-type: none;">
 					<li style="display: none;"><b>Click to Unfold the Native Tribes' Forward:</b></li>
 					<li><b>Click to Fold-up the Native Tribes' Forward:</b></li>
 					<li>While colonists find it difficult to distinguish between the
@@ -272,7 +302,7 @@
 						bit as definitive as those between Ulfen and Taldan - and most all of them bristle at being lumped together
 						colloquially as simply "natives." Those that interact with them frequently realize there are six major
 						heritages within the blanket Mwangi ethnicity, each containing a handful of dominant tribes:</li>
-				</ul>
+				</ul> -->
 				<!-- <br> -->
 				<ul class="toggleLiVis" style="list-style-type: circle;">
 					<li style="list-style-type: none;"><b>Bekyar - The Raiders:</b></li>
