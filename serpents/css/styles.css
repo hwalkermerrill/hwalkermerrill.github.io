@@ -433,6 +433,8 @@ img {
 		overflow: hidden;
 		width: 270px; /* Ensure the width and height are set */
 		height: 270px; /* Ensure the width and height are set */
+		max-width: 100vw; /* Prevent it from exceeding the viewport width */
+		max-height: 100vh; /* Prevent it from exceeding the viewport height */
 	}
 
 	#crosshair {
