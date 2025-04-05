@@ -382,19 +382,17 @@
 	</footer>
 
 	<!-- SCRIPT HERE -->
-	<script>$(window).on("load", clickLoad('section'))</script>
 	<script>
-		$(window).on("load", function () {
-			$('img.light-zoom').lightzoom({
-				zoomPower: 3,    //Default = 3
-				glassSize: 270,  //Default = 270
+		window.addEventListener("load", function () {
+			const images = document.querySelectorAll('img.light-zoom');
+			lightzoom(images, {
+				zoomPower: 3,    // Default = 3
+				glassSize: 270,  // Default = 270
 			});
-
-			console.log('Lightzoom initialized'); // Added for debugging
+			console.log('Lightzoom initialized'); // Debugging
 		});
-
-		$(document).ready(function () {
-			console.log('Document is ready'); // Added for debugging
+		document.addEventListener("DOMContentLoaded", function () {
+			console.log('Document is ready'); // Debugging
 		});
 	</script>
 

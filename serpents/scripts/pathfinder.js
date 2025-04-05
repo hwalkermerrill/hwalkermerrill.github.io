@@ -84,14 +84,16 @@ window.onload = function () {
 	}
 };
 
-// These following code snippets require the jQuerry library to be loaded in the html file.
-// CDL: <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-// ---------------------------------------------------------------------------------------------
+// The next few functions toggle displayed content on the page:
+// [Begin Toggle Block]
 
 // This function toggles the class "click" on the clicked element.
-// Use this function to change the appearance of something when clicked.
 // Call the script with something like this:
-// {<script>$(document).ready(clickLoad('section'))</script>}
+// <script>
+// document.addEventListener("DOMContentLoaded", function () {
+// clickLoad("section");
+// });
+// </script>
 function clickLoad(clickClass) {
 	document.querySelectorAll(clickClass).forEach(element => {
 		element.addEventListener("click", function () {
@@ -101,7 +103,7 @@ function clickLoad(clickClass) {
 }
 
 // This function toggles the visibility of select classes.
-//Call the script with something like this:
+// Call the script with something like this:
 // <button onclick="toggleHide('.helpful')">Show/Hide Helpful NPC's</button>
 function toggleHide(className) {
 	document.querySelectorAll(className).forEach(element => {
@@ -130,27 +132,33 @@ function toggleLiVis(className) {
 
 // This function auto-loads and turns a series of images into an automatically rotating carousel.
 // Apply this function by adding 'id="slideshow"' to a figure, and then loading multiple src's into the figure.
-$(function () {
-	$('#slideshow img:gt(0)').hide();
-	setInterval(function () {
-		$('#slideshow :first-child')
-			.fadeOut(1000)
-			.next('img')
-			.fadeIn(1000)
-			.end()
-			.appendTo('#slideshow');
-	}, 4000);
+document.addEventListener("DOMContentLoaded", function () {
+	const images = document.querySelectorAll('#slideshow img');
+	let index = 0;
+
+	if (images.length > 1) {
+		images.forEach((img, i) => {
+			if (i > 0) img.style.display = "none"; // Hide all images except the first
+		});
+
+		setInterval(() => {
+			images[index].style.display = "none";
+			index = (index + 1) % images.length; // Move to the next image
+			images[index].style.display = "block";
+		}, 4000);
+	}
 });
 
+
 // The below three functions all operate the .viewer modular image viewer class.
+// [Start .viewer Block]
+
 // This function defines the actions of the event listener for .viewer
 function listenViewer(event) {
 	if (
 		event.target.matches(".close-viewer") ||
 		!event.target.closest("img")
-	) {
-		closeViewer();
-	}
+	) { closeViewer(); }
 }
 
 // Call this function with an onclick="viewHandler(event)"
@@ -207,3 +215,6 @@ function closeViewer() {
 		document.removeEventListener("click", listenViewer, false)
 	}
 }
+
+// [End .viewer Block]
+// [End Toggle Block]

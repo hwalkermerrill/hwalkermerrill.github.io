@@ -1981,7 +1981,11 @@
 	</footer>
 
 	<!-- SCRIPT HERE -->
-	<script>$(document).ready(toggleLiVis(".toggleLiVis"))</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			toggleLiVis(".toggleLiVis");
+		});
+	</script>
 
 </body>
 

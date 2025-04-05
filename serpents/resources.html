@@ -244,10 +244,11 @@
 	</footer>
 
 	<!-- SCRIPT HERE -->
-	<script>$(window).on("load", clickLoad('section'))</script>
 	<script>
-		$(document).ready(() => {
+		document.addEventListener("DOMContentLoaded", function () {
+			// Always populate content before manipulating how it's displayed
 			populateLoot("magic");
+			clickLoad("section");
 			toggleLiVis(".toggleLiVis");
 		});
 	</script>

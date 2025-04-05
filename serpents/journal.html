@@ -209,7 +209,8 @@
 
 	<!-- SCRIPT HERE -->
 	<script>
-		$(document).ready(() => {
+		document.addEventListener("DOMContentLoaded", function () {
+			// Always populate content before manipulating how it's displayed
 			populateLoot("note1");
 			populateLoot("note2");
 			populateLoot("dream1");

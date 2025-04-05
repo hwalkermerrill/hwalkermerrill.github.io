@@ -497,7 +497,11 @@
 	</footer>
 
 	<!-- SCRIPT HERE -->
-	<script>$(window).on("load", clickLoad('section'))</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			clickLoad("section");
+		});
+	</script>
 
 </body>
 
