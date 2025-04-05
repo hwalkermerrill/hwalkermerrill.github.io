@@ -83,6 +83,10 @@ window.onload = function () {
 		window.scrollTo(0, localStorage.getItem('scrollPosition'));
 	}
 };
+// Toggle visibility of toggleLiVis class elements
+document.addEventListener("DOMContentLoaded", function () {
+	toggleLiVis(".toggleLiVis");
+});
 
 // These following code snippets require the jQuerry library to be loaded in the html file.
 // CDL: <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
