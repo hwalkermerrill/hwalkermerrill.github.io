@@ -245,6 +245,17 @@ const loot = [
       "You're laying on the floor looking up at the stars. In the sky above you, you note the constellations, counting each one that you know. All at once, a collection of stars form an obvious grouping; as you trace the stars with your eyes, lines form between the stars into the shape of a serpentine skull. Its mouth is open, as though speaking, but you cannot understand its whispers. You listen closer, trying to interpret the darkness it spews. Out of the corner of your eyes, you notice something large with blood-red eyes watching from the jungle's edge, but you cannot move, cannot scream, all that comes out is a rasping hiss...",
     ]
   },
+  {
+    id: 23,
+    type: "magic",
+    name: "Atlquipan",
+    img: false,
+    src: "/serpents/images/placeholder.webp",
+    description: [
+      "This golden azlanti serpentine idol appears inanimate, but it eagerly transforms into a <i>+1 monstrous humanoid bane returning trident</i> when grasped, its shaft decorated with the golden serpents twinning along its length. In addition to having the eager perk, it may be drawn as a non-action when initiative is rolled, as it springs into its owners hand, something it occasionally does on its own.",
+      "As a standard action, the wielder can wrestle the serpent into twining around the shaft of another held trident or spear. This grants that other spear the <i>monstrous humanoid bane</i> ability; however, once that weapon is thrown, this weapon returns using its <i>returning</i> ability, leaving the weapon it was twined around behind.",
+    ]
+  },
 ]
 // type must match div names (magic, note1-6, dream1-6)
 // img is true if there is an image to display
