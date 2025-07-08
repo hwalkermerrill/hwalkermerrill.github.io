@@ -1,5 +1,6 @@
 /* Imports */
 @import url("https://fonts.googleapis.com/css?family=Amiri|Trade+Winds|Cabin+Sketch");
+@import url("https://fonts.cdnfonts.com/css/indiana-jonas");
 
 /* ----- Root Data ----- */
 :root {
@@ -10,9 +11,12 @@
 	--spirit-aura: #c1ffff;
 	--primary-font: "Amiri", Verdana, sans-serif;
 	--secondary-font: "Trade Winds", serif;
+	--tertiary-font: "Indiana Jonas", "Cabin Sketch", serif;
 	--text-shadow-basic: 4px 4px 4px #aaa;
 	--text-shadow-spirit: 1px 1px 0px var(--spirit-aura);
 	--text-shadow-black: 1px 1px 0px black;
+	--text-shadow-indiana: 1px 1px 2px rgba(0, 0, 0, 0.1),
+		2px 2px 4px rgba(0, 0, 0, 0.2);
 	--text-shadow-light: -5px 0px 5px var(--text-light),
 		0px 5px 5px var(--text-light), 5px 0px 5px var(--text-light),
 		0px -5px 5px var(--text-light);
@@ -22,7 +26,15 @@
 	--text-shadow-secondary: -5px 0px 5px var(--secondary-color),
 		0px 5px 5px var(--secondary-color), 5px 0px 5px var(--secondary-color),
 		0px -5px 5px var(--secondary-color);
-	/* --secondary-font: "Cabin Sketch", serif; */
+	--text-indiana-gradient: linear-gradient(
+		to bottom,
+		#8b2e1c 0%,
+		#c14a2e 20%,
+		#e76f31 40%,
+		#ff9f1c 60%,
+		#ffd447 80%,
+		#ffec8b 100%
+	);
 }
 
 /* Prevent adjustments of font size after orientation changes on mobile (iOS) and tablet (win) */
@@ -66,12 +78,23 @@ h1 {
 	margin-top: 0;
 	margin-bottom: 8px;
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 72px;
+	font-family: var(--tertiary-font);
+	background-image: var(--text-indiana-gradient);
+	background-clip: text;
+	color: transparent;
+	text-shadow: var(--text-shadow-indiana);
 }
 h2 {
+	margin-top: 8px;
 	margin-bottom: 8px;
 	font-weight: normal;
-	font-size: 30px;
+	font-size: 50px;
+	font-family: var(--tertiary-font);
+	background-image: var(--text-indiana-gradient);
+	background-clip: text;
+	color: transparent;
+	text-shadow: var(--text-shadow-indiana);
 }
 strong {
 	font-weight: bold;
@@ -121,6 +144,8 @@ img {
 	header h1,
 	header h2 {
 		margin: 0;
+		color: var(--primary-color);
+		font-family: var(--secondary-font);
 		text-shadow: var(--text-shadow-light);
 	}
 

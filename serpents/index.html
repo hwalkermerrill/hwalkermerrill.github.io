@@ -26,10 +26,11 @@
 	<!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- This loads the "Amiri", "Cabin Sketch", and "Trade Winds" fonts while browsing this HTML-->
+	<!-- This loads the "Amiri", "Cabin Sketch", "Trade Winds", and "Indiana Jones" fonts while browsing this HTML-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cabin+Sketch&family=Trade+Winds" rel="stylesheet">
+	<link href="https://fonts.cdnfonts.com/css/indiana-jonas" rel="stylesheet">
 
 	<!-- STYLE SHEETS -->
 	<link href="/serpents/css/normalize.css" rel="stylesheet">
@@ -74,9 +75,10 @@
 
 	<!-- CONTENT HERE -->
 	<main class="clearfix" id="maincontent">
-		<h1>Kadena AB Pathfinder Group</h1>
-		<h2><i>&nbsp;“It’s a dangerous business, Frodo, going out your door. You step onto the road, and if you don’t keep
-				your feet, there’s no knowing where you might be swept off to.”</i></h2>
+		<h1>Kadena-Shields Pathfinder Group</h1>
+		<strong><i>&nbsp;“It’s a dangerous business, Frodo, going out your door. You step onto the road, and if you don’t
+				keep
+				your feet, there’s no knowing where you might be swept off to.”</i></strong>
 		<div class="herodiv" onclick="viewHandler(event)">
 			<picture>
 				<!-- <source srcset="/serpents/images/hero-shipwrecked.webp" type="image/webp"> -->
@@ -233,7 +235,7 @@
 				</ul>
 			</section>
 			<section class="toggleLiVis">
-				<h2>The 10 Commandments of Tomb Raiding</h2>
+				<h2>The 1o Commandments of Tomb Raiding</h2>
 				<p>While there are many tools in the arsenal of an adventurer, there will inevitably be certain challenges that
 					force them to rely on their innate abilities, skillful training, and tactical preparation. The act of delving
 					deep into dungeons is perilous, and there are several things every would-be adventurer should keep in mind,
@@ -638,7 +640,7 @@
 
 		// Function to generate travel log HTML
 		function generateTravelLogHTML(log) {
-			let html = `<h3>Travel-Log</h3>`;
+			let html = `<h2>Travel-Log</h2>`;
 			log.forEach(entry => {
 				html += `<p>Days ${entry.location}: ${entry.days}</p>`;
 			});
