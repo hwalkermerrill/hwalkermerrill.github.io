@@ -530,30 +530,41 @@
 		<h2>Locations across the Mwangi Expanse</h2>
 		<div class="floatswitch" onclick="viewHandler(event)">
 			<section class="clearfix">
-				<h3>Where We Are Now: The Korir River</h3>
+				<h3>Where We Are Now: The Lost City of Saventh-Yhi</h3>
 				<picture>
-					<source srcset="/serpents/images/sketch-great-river.webp" type="image/webp">
+					<source srcset="/serpents/images/hero-saventh-yhi.webp" type="image/webp">
 					<img class="pointer" src="/serpents/images/unknown.png" alt="The Korir River" loading="lazy">
 				</picture>
-				<p>Known to the locals simply as "The River," this river flows through the entirety of the Mwangi Expanse,
-					flowing down from the shattered range, through the jungles and hills, past countless ruined civilizations, and
-					emptying in to the ocean to the west through large delta's. The word "Korir" is a portmanteau of the polyglot
-					words for Serpent's Tears, suggesting a river that is winding, sorrowful, and endless.
-					The large number of waterfalls and rapids coupled with the jungle terrain make both navigation and portaging
-					difficult, and while this does reduce the number of crocodiles, hippopotamuses, and enchanted dolphins
-					frequently encountered, it does have the added threat of large snakes dropping on passing prey from branches
-					hanging over the river.</p>
-				<p>Few explorers dare navigate the waters all the way to the shattered range, and none have successfully managed
-					to bridge the gap and sail from one end of the continent to the other. While the shattered range is the most
-					obvious perilous obstacle, most explorers get lost just traveling through the screaming jungle, with its heavy
-					daily rains, low obscuring fog, endless chattering monkeys, and heavy dreams which pull people into fevered
-					nightmares and sleeping sickness. Fatigue takes many, and eventually, sleep takes all. It is said that all
-					people dream of the jungle and its treasures...</p>
+				<p>One of the most legendary of the still-undiscovered cities of the Mwangi Expanse is Saventh-Yhi. Believed by
+					some to be the classic “city of gold” and by others to be nothing more than a hallucination born from jungle
+					fever, most scholars agree that the real Saventh-Yhi exists somewhere in the deep Mwangi Jungle, where it is
+					likely hidden by a combination of fortuitous terrain and lingering magic. The most fascinating rumors of
+					Saventh-Yhi indicate that the city was established by the ancient Azlanti — if so, it would be the only
+					significant Azlanti ruin in the region. The fact that the city’s name has a meaning in the Azlanti tongue
+					(“Savith’s Grave”—the Azlanti hero Savith being the one most often credited with beheading the serpentfolk god
+					Ydersius) is certainly the most compelling evidence to support this theory. Indeed, the thought of an
+					undiscovered Azlanti ruin in Garund has driven countless Pathfinders, Aspis Consortium agents, and other
+					explorers to unknown dooms, for if such a ruin does exist, the secrets it must hide could revolutionize what
+					is known of the mysterious Age before Earthfall. The city could have been the crown jewel of the empire, a
+					bastion of magic and technology on this continental frontier, and a city that may have largely survived the
+					calamity that destroyed the rest of the civilization ten thousand years ago. Since then, the city has lain
+					lost and sleeping.</p>
+				<p>&emsp;&emsp;Ten thousand years is a long time to wait.</p>
+				<p>The expedition has now used the light of tazion to find the city, hidden by a strong curtain of storm and
+					wind 1-mile thick and 70-miles wide, the storm seems to deter all intruders that stumble upon it, as compasses
+					bend out of its way. Now within the cities borders, trapped by the stormwall, the expedition is completely
+					isolated, hoping to uncover the secrets of the city and claim its treasures and the renown for its discovery.
+				</p>
+				<p>While exploring the lost city, the expedition team has discovered that each of its seven districts have
+					formed their own disparate, warring communities, each blessed by a tall obelesk atop a zigurat they call their
+					"spear," which grants the residents additional abilities when lit. Each district also features a vault which
+					can only be opened while the spear is lit. It is hoped that the treasures within these vaults will unlock the
+					cities secrets, as well as provide means for escape.</p>
 			</section>
 			<!-- <section class="clearfix">
         <p>Currently lost and stranded, everyone is just trying to stay alive.</p>
       </section> -->
-			<section class="clearfix">
+			<!-- <section class="clearfix">
 				<h3>Destination: Ruins of Tazion</h3>
 				<picture>
 					<source srcset="/serpents/images/hero-tazion.webp" type="image/webp">
@@ -575,7 +586,7 @@
 					communicate with them, as while semi-intelligent, they are unlikely to speak unless they can use speaking to
 					bait their victims into a trap. Those who find themselves encircled by Charau-Ka frequently take their own
 					lives to prevent capture, out of fear of being brutalized and transformed into another of their kind.</p>
-			</section>
+			</section> -->
 			<section class="clearfix">
 				<h3>Sargava at a Glance</h3>
 				<picture>
@@ -632,10 +643,12 @@
 			{ location: "in Port with the Jenivere", days: 33 }, // default
 			{ location: "at Sea aboard the Jenivere", days: 71 }, // default
 			{ location: "Castaway on Smuggler’s Shiv", days: 30 }, // +0
-			{ location: "Establishing an Expedition in Eleder", days: 15 }, // +0 
+			{ location: "Establishing an Expedition", days: 15 }, // +0 
 			{ location: "Racing to Kalabuto", days: 18 }, // +1
 			{ location: "Searching for a Moonstone", days: 15 }, // +0
-			{ location: "Venturing to Tazion", days: 17 } // unknown
+			{ location: "Venturing to Tazion", days: 35 }, // +2
+			{ location: "Following the Lights of Tazion", days: 8 }, // +1
+			{ location: "Exploring Saventh-Yhi", days: 34 } //unknown
 		];
 
 		// Function to generate travel log HTML
@@ -646,7 +659,7 @@
 			});
 			// const totalDays = calculateTotalDays(log);
 			const totalDays = log.reduce((acc, entry) => acc + entry.days, 0);
-			html += `<p>Total Journey: ${totalDays}</p>`;
+			html += `<p>&emsp; Total Journey: ${totalDays}</p>`;
 			return html;
 		}
 
