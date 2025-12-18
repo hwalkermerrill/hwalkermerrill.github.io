@@ -447,6 +447,59 @@ img {
 	}
 
 	/*----- Light-zoom classes -----*/
+	.lz-wrapper {
+		position: relative;
+		overflow: hidden;
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+		border: 0;
+	}
+
+	.light-zoom {
+		display: block;
+		max-width: 100%;
+		height: auto;
+		/* transform-origin: center center; */
+		will-change: transform;
+	}
+
+	.lz-draw-canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: transparent;
+		pointer-events: none;
+		z-index: 5;
+	}
+
+	.lz-zoom-canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: 5;
+	}
+
+	.lz-zoom-wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.lz-zoom-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
 	#glass {
 		position: absolute;
 		border-radius: 50%;
@@ -456,10 +509,12 @@ img {
 		background-repeat: no-repeat;
 		background-color: rgba(0, 0, 0, 0.6);
 		overflow: hidden;
+		pointer-events: none;
 		width: 270px; /* Ensure the width and height are set */
 		height: 270px; /* Ensure the width and height are set */
 		max-width: 100vw; /* Prevent it from exceeding the viewport width */
 		max-height: 100vh; /* Prevent it from exceeding the viewport height */
+		z-index: 20;
 	}
 
 	#crosshair {
@@ -467,8 +522,8 @@ img {
 		width: 100%;
 		height: 100%;
 		background: url("/serpents/images/logo-target.png") center center no-repeat;
-		background-repeat: no-repeat;
-		background-position: center;
+		/* background-repeat: no-repeat; */
+		/* background-position: center; */
 		opacity: 0.5;
 		pointer-events: none;
 		z-index: 10; /* Ensure the crosshair stays on top */

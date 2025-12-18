@@ -87,7 +87,7 @@
 		<cite>&emsp; — Bahalos Voa, Mwangi Guide</cite>
 		<div class="herodiv">
 			<figure>
-				<picture>
+				<picture class="lz-wrapper">
 					<!-- <source srcset="/serpents/images/map-smugglers-shiv.webp" type="image/webp"> -->
 					<!-- <source srcset="/serpents/images/map-sargava.webp" type="image/webp"> -->
 					<!-- <source srcset="/serpents/images/map-mwangi-redacted.webp" type="image/webp"> -->
@@ -512,13 +512,11 @@
 		window.addEventListener("load", function () {
 			const images = document.querySelectorAll('img.light-zoom');
 			lightzoom(images, {
-				zoomPower: 2,    // Default = 3
-				glassSize: 270,  // Default = 270
+				zoomPower: 2,        // Default = 3
+				glassSize: 270,      // Default = 270
+				lineWidth: 2,        // Default 3
+				lineColor: '#c14a2e' // Default = 'red'
 			});
-			// 	console.log('Lightzoom initialized'); // Debugging
-			// });
-			// document.addEventListener("DOMContentLoaded", function () {
-			// 	console.log('Document is ready'); // Debugging
 		});
 	</script>
 

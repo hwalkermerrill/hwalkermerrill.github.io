@@ -1,18 +1,8 @@
-/*
- Author: Original - Jafar Akhondali; Refactored By - Harrison Merrill
- Release year: 2016; Refactored 2025
- Explanation: Light-zoom was a JQuery plugin that used pure CSS to zoom in on images.
- This enabled you to zoom without loading a bigger image and zoom even on gif images.
- The original code was refactored to use requestAnimationFrame for smoother updates and
- to improve performance. The code was also updated to use modern JavaScript features such
- as arrow functions and template literals and to remove jQuery dependency. These
- improvements dramatically improved the code's usability and compatability, as well as
- reduced its library overhead. Despite being  essentially completely re-written, the
- code retains the original author's name in the header for attribution purposes.
- Link to original script: https://github.com/JafarAkhondali/lightzoom
- */
+/* Real Zoom LightZoom with Correct Drawing Alignment */
 
 (function () {
+
+	// Simple debounce helper
 	const debounce = (func, delay) => {
 		let timeout;
 		return (...args) => {
@@ -21,97 +11,260 @@
 		};
 	};
 
+	// Main initializer
 	const lightzoom = (elements, options = {}) => {
-		console.log('Initializing lightzoom'); // Debugging
+		// console.log('Initializing lightzoom'); // Debugging
 
+		// Default settings for reference and passthrough
 		const settings = {
 			zoomPower: 3,
 			glassSize: 175,
-			...options, // Merge default settings with passed options
+			lineWidth: 3,
+			lineColor: "red",
+			...options,
 		};
 
-		const halfSize = settings.glassSize / 2;
-		const quarterSize = settings.glassSize / 4;
-		const zoomPower = settings.zoomPower;
+		// const zoomPower = settings.zoomPower;
+		// const halfSize = settings.glassSize / 2;
 
-		// Create the glass element
+		// Create Magnifying Glass and Zoom Wrapper
 		const glass = document.createElement('div');
 		glass.id = 'glass';
-		glass.innerHTML = '<div id="crosshair"></div>';
+
+		const zoomWrapper = document.createElement('div');
+		zoomWrapper.classList.add('lz-zoom-wrapper');
+
+		const crosshair = document.createElement('div');
+		crosshair.id = 'crosshair';
+
+		glass.appendChild(zoomWrapper);
+		glass.appendChild(crosshair);
 		document.body.appendChild(glass);
 
-		let animationFrameId;
-
-		// Debounced faker function
-		const debouncedFaker = debounce((event, targetObj) => {
-			faker(event, targetObj);
+		// Debounced hover handler
+		const debouncedFaker = debounce((event, wrapper) => {
+			faker(event, wrapper, glass, zoomWrapper, settings);
 		}, 10);
 
-		// Apply lightzoom functionality to all target elements
-		elements.forEach((element) => {
-			element.addEventListener('mousemove', (event) => {
-				console.log('Mouse moved over img element', event); // Debugging
-				debouncedFaker(event, element);
+		// ForEach image loop
+		elements.forEach((img) => {
+			// Constants
+			const wrapper = img.parentElement;
+			const baseCanvas = document.createElement('canvas');
+			const rect = wrapper.getBoundingClientRect();
+			const zoomCanvas = document.createElement('canvas');
+			const resolvedSrc = img.currentSrc; // prevents incorrect fallback
+
+			// Wrapper position
+			wrapper.classList.add('lz-wrapper');
+			wrapper.style.position = 'relative';
+			wrapper.appendChild(baseCanvas);
+
+			// Make base canvas visible over base image
+			baseCanvas.classList.add('lz-draw-canvas');
+			baseCanvas.width = rect.width;
+			baseCanvas.height = rect.height;
+			baseCanvas.style.position = 'absolute';
+			baseCanvas.style.top = '0';
+			baseCanvas.style.left = '0';
+			baseCanvas.style.pointerEvents = 'none';
+			baseCanvas.style.zIndex = 5;
+
+			// Zoom canvas (only used inside magnifier)
+			zoomCanvas.classList.add('lz-zoom-canvas');
+			zoomCanvas.width = rect.width;
+			zoomCanvas.height = rect.height;
+			zoomCanvas.style.position = 'absolute';
+			zoomCanvas.style.top = '0';
+			zoomCanvas.style.left = '0';
+			zoomCanvas.style.pointerEvents = 'none';
+			zoomCanvas.style.zIndex = 5;
+
+			// Create zoomed image using the resolved URL
+			const zoomImg = new Image();
+			zoomImg.src = resolvedSrc;
+			zoomImg.classList.add('lz-zoom-image');
+			zoomImg.style.position = 'absolute';
+			zoomImg.style.top = '0';
+			zoomImg.style.left = '0';
+			zoomImg.style.width = '100%';
+			zoomImg.style.height = '100%';
+			zoomImg.style.objectFit = 'contain';
+
+			// Store references on wrapper
+			wrapper.baseCanvas = baseCanvas;
+			wrapper.zoomCanvas = zoomCanvas;
+			wrapper.zoomImg = zoomImg;
+
+			// Setup events
+			setupDrawing(baseCanvas, zoomCanvas, img, wrapper, settings);
+
+			wrapper.addEventListener('mousemove', (event) => {
+				// console.log('Mouse moved over img element', event); // Debugging
+				debouncedFaker(event, wrapper);
+			});
+
+			wrapper.addEventListener('mousedown', (e) => {
+				// console.log('Clicked on img element', event); // Debugging
+				baseCanvas.style.pointerEvents = 'auto';
+				baseCanvas.dispatchEvent(new MouseEvent('mousedown', e));
+			});
+
+			wrapper.addEventListener('mouseleave', () => {
+				resetGlass(glass);
 			});
 		});
 
-		glass.addEventListener('mousemove', (event) => {
-			const targetObj = glass.targ;
-			event.target = targetObj;
-			console.log('Mouse moved over glass element', event); // Debugging
-			debouncedFaker(event, targetObj);
-		});
-
-		const faker = (event, obj) => {
-			console.log('Faker function called', event, obj); // Debugging
-			glass.targ = obj;
-			const mx = event.pageX;
-			const my = event.pageY;
-			const bounding = obj.getBoundingClientRect();
-			const w = obj.naturalWidth; // Use naturalWidth for the original image size
-			const h = obj.naturalHeight; // Use naturalHeight for the original image size
-
-			// Offset position of the image relative to the document, accounting for scroll
-			const ol = bounding.left + window.pageXOffset;
-			const ot = bounding.top + window.pageYOffset;
-
-			// Extract src, considering <picture> tag
-			let src = obj.src;
-			if (obj.parentElement.tagName.toLowerCase() === 'picture') {
-				const sourceElement = obj.parentElement.querySelector('source');
-				if (sourceElement && sourceElement.hasAttribute('srcset')) {
-					src = sourceElement.getAttribute('srcset');
-				}
-			}
-
-			// Calculate and update zoom effect using natural dimensions
-			if (mx > ol && mx < ol + bounding.width && ot < my && ot + bounding.height > my) {
-				const offsetXfixer = ((mx - ol - bounding.width / 2) / (bounding.width / 2)) * quarterSize;
-				const offsetYfixer = ((my - ot - bounding.height / 2) / (bounding.height / 2)) * quarterSize;
-				const cx = (((mx - ol + offsetXfixer) / bounding.width)) * 100;
-				const cy = (((my - ot + offsetYfixer) / bounding.height)) * 100;
-				const newMy = my - halfSize;
-				const newMx = mx - halfSize;
-
-				// Use requestAnimationFrame for smoother updates
-				cancelAnimationFrame(animationFrameId);
-				animationFrameId = requestAnimationFrame(() => {
-					glass.style.top = `${newMy}px`;
-					glass.style.left = `${newMx}px`;
-					glass.style.backgroundImage = `url('${src}')`;
-					glass.style.backgroundSize = `${w * zoomPower}px ${h * zoomPower}px`;
-					glass.style.backgroundPosition = `${cx}% ${cy}%`;
-					glass.style.display = 'inline-block';
-					document.body.style.cursor = 'none';
-				});
-			} else {
-				glass.style.display = 'none';
-				document.body.style.cursor = 'default';
-			}
-		};
+		// Store settings
+		window._lightzoomSettings = settings;
 	};
 
-	// Attach lightzoom to the global window object for use
+	// Core magnifier logic
+	const faker = (event, wrapper, glass, zoomWrapper, settings) => {
+		//Constants
+		// glass.targ = obj;
+		const zoomPower = settings.zoomPower;
+		const glassSize = settings.glassSize;
+		const halfSize = glassSize / 2;
+		// const quarterSize = glassSize / 4;
+		// const img = wrapper.querySelector('img.light-zoom');
+		const baseCanvas = wrapper.baseCanvas;
+		const zoomCanvas = wrapper.zoomCanvas;
+		// const zoomImg = wrapper.zoomImg;
+		const bounding = wrapper.getBoundingClientRect();
+		const mx = event.clientX;
+		const my = event.clientY;
+		const left = bounding.left;
+		const top = bounding.top;
+		const right = left + bounding.width;
+		const bottom = top + bounding.height;
+		const glassTop = my + window.pageYOffset - halfSize;
+		const glassLeft = mx + window.pageXOffset - halfSize;
+		const relX = mx - left; // in [0, width]
+		const relY = my - top;  // in [0, height]
+		const scaledX = relX * zoomPower;
+		const scaledY = relY * zoomPower;
+		const offsetX = halfSize - scaledX;
+		const offsetY = halfSize - scaledY;
+
+		// cancelAnimationFrame(animationFrameId);
+
+		// Failsafe if cursor is outside wrapper
+		if (!(mx > left && mx < right && my > top && my < bottom)) {
+			resetGlass(glass);
+			return;
+		}
+
+		// Ensure zoomWrapper and canvas match
+		if (zoomWrapper.currentWrapper !== wrapper) {
+			zoomWrapper.innerHTML = ''; // clear previous content
+			zoomWrapper.appendChild(wrapper.zoomImg);
+			zoomWrapper.appendChild(wrapper.zoomCanvas);
+			zoomWrapper.currentWrapper = wrapper;
+		}
+
+		if (zoomCanvas.width !== baseCanvas.width || zoomCanvas.height !== baseCanvas.height) {
+			zoomCanvas.width = baseCanvas.width;
+			zoomCanvas.height = baseCanvas.height;
+		}
+
+		zoomWrapper.style.width = `${bounding.width}px`;
+		zoomWrapper.style.height = `${bounding.height}px`;
+		zoomWrapper.style.transformOrigin = '0 0';
+		zoomWrapper.style.transform = `scale(${zoomPower})`;
+		zoomWrapper.style.left = `${offsetX}px`;
+		zoomWrapper.style.top = `${offsetY}px`;
+
+		// Position the glass around the cursor (page coords)
+		glass.style.top = `${glassTop}px`;
+		glass.style.left = `${glassLeft}px`;
+		glass.style.display = 'block';
+		document.body.style.cursor = 'none';
+	};
+
+	// Reset state
+	function resetGlass(glass) {
+		if (!glass) {
+			glass = document.getElementById('glass');
+			if (!glass) return;
+		}
+		glass.style.display = 'none';
+		document.body.style.cursor = 'default';
+	}
+
+	// Drawing logic for both base and zoom
+	function setupDrawing(baseCanvas, zoomCanvas, imgElement, wrapper, settings) {
+		// constants
+		const baseCtx = baseCanvas.getContext('2d');
+		const zoomCtx = zoomCanvas.getContext('2d');
+
+		let drawing = false;
+
+		const getPos = (e) => {
+			const rect = wrapper.getBoundingClientRect();
+			return {
+				x: e.clientX - rect.left,
+				y: e.clientY - rect.top,
+			};
+		};
+
+		const stopDrawing = () => {
+			drawing = false;
+			baseCanvas.style.pointerEvents = 'none'; // return control to zoom
+			baseCtx.beginPath();
+			zoomCtx.beginPath();
+		};
+
+		baseCanvas.addEventListener('mousedown', (e) => {
+			baseCanvas.style.pointerEvents = 'auto';
+			drawing = true;
+			const pos = getPos(e);
+
+			baseCtx.beginPath();
+			baseCtx.moveTo(pos.x, pos.y);
+			zoomCtx.beginPath();
+			zoomCtx.moveTo(pos.x, pos.y);
+		});
+
+		baseCanvas.addEventListener('mousemove', (e) => {
+			if (!drawing) return;
+			const pos = getPos(e);
+
+			baseCtx.lineTo(pos.x, pos.y);
+			baseCtx.strokeStyle = settings.lineColor;
+			baseCtx.lineWidth = settings.lineWidth;
+			baseCtx.lineCap = 'round';
+			baseCtx.stroke();
+
+			zoomCtx.lineTo(pos.x, pos.y);
+			zoomCtx.strokeStyle = settings.lineColor;
+			zoomCtx.lineWidth = settings.lineWidth;
+			zoomCtx.lineCap = 'round';
+			zoomCtx.stroke();
+		});
+
+		baseCanvas.addEventListener('mouseup', stopDrawing);
+		baseCanvas.addEventListener('mouseleave', stopDrawing);
+	}
+
+	// Keep canvases in sync with wrapper size on resize and move
+	window.addEventListener('resize', () => {
+		document.querySelectorAll('.lz-wrapper').forEach((wrapper) => {
+			// constants
+			const rect = wrapper.getBoundingClientRect();
+			const baseCanvas = wrapper.baseCanvas;
+			const zoomCanvas = wrapper.zoomCanvas;
+
+			if (!baseCanvas || !zoomCanvas) return;
+
+			baseCanvas.width = rect.width;
+			baseCanvas.height = rect.height;
+			zoomCanvas.width = rect.width;
+			zoomCanvas.height = rect.height;
+		});
+	});
+
+	// Expose globally
 	window.lightzoom = lightzoom;
 })();
 
@@ -123,6 +276,8 @@ window.addEventListener("load", function () {
 	lightzoom(images, {
 		zoomPower: 3,    // Default = 3
 		glassSize: 270,  // Default = 270
+			lineWidth: 3,        // Default 3
+			lineColor: 'red' // Default = 'red'
 	});
 });
 </script>
@@ -130,29 +285,85 @@ window.addEventListener("load", function () {
 
 // Place this in the CSS file to style the glass element
 
-/*----- Light-zoom classes -----*/
-// #glass {
-// 	position: absolute;
-// 	border - radius: 50 %;
-// 	box - shadow: 0 0 0 7px rgba(118, 118, 117, 0.35),
-// 		0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
-// 	display: none;
-// 	background - repeat: no - repeat;
-// 	background - color: rgba(0, 0, 0, 0.6);
-// 	overflow: hidden;
-// 	width: 270px; /* Ensure the width and height are set */
-// 	height: 270px; /* Ensure the width and height are set */
-// 	max - width: 100vw; /* Prevent it from exceeding the viewport width */
-// 	max - height: 100vh; /* Prevent it from exceeding the viewport height */
-// }
-// #crosshair {
-// 	position: absolute;
-// 	width: 100 %;
-// 	height: 100 %;
-// 	background: url("/serpents/images/logo-target.png") center center no - repeat;
-// 	background - repeat: no - repeat;
-// 	background - position: center;
-// 	opacity: 0.5;
-// 	pointer - events: none;
-// 	z - index: 10; /* Ensure the crosshair stays on top */
-// }
+// /*----- Light-zoom classes -----*/
+// 	.lz-wrapper {
+// 		position: relative;
+// 		overflow: hidden;
+// 		display: inline-block;
+// 		padding: 0;
+// 		margin: 0;
+// 		border: 0;
+// 	}
+
+// 	.light-zoom {
+// 		display: block;
+// 		max-width: 100%;
+// 		height: auto;
+// 		/* transform-origin: center center; */
+// 		will-change: transform;
+// 	}
+
+// 	.lz-draw-canvas {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		background: transparent;
+// 		pointer-events: none;
+// 		z-index: 5;
+// 	}
+
+// 	.lz-zoom-canvas {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		pointer-events: none;
+// 		z-index: 5;
+// 	}
+
+// 	.lz-zoom-wrapper {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 	}
+
+// 	.lz-zoom-image {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		object-fit: contain;
+// 	}
+
+// 	#glass {
+// 		position: absolute;
+// 		border-radius: 50%;
+// 		box-shadow: 0 0 0 7px rgba(118, 118, 117, 0.35),
+// 			0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+// 		display: none;
+// 		background-repeat: no-repeat;
+// 		background-color: rgba(0, 0, 0, 0.6);
+// 		overflow: hidden;
+// 		pointer-events: none;
+// 		width: 270px; /* Ensure the width and height are set */
+// 		height: 270px; /* Ensure the width and height are set */
+// 		max-width: 100vw; /* Prevent it from exceeding the viewport width */
+// 		max-height: 100vh; /* Prevent it from exceeding the viewport height */
+// 		z-index: 20;
+// 	}
+
+// 	#crosshair {
+// 		position: absolute;
+// 		width: 100%;
+// 		height: 100%;
+// 		background: url("/serpents/images/logo-target.png") center center no-repeat;
+// 		/* background-repeat: no-repeat; */
+// 		/* background-position: center; */
+// 		opacity: 0.5;
+// 		pointer-events: none;
+// 		z-index: 10; /* Ensure the crosshair stays on top */
+// 	}
