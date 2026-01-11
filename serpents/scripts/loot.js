@@ -256,6 +256,16 @@ const loot = [
       "As a standard action, the wielder can wrestle the serpent into twining around the shaft of another held trident or spear. This grants that other spear the <i>monstrous humanoid bane</i> ability; however, once that weapon is thrown, this weapon returns using its <i>returning</i> ability, leaving the weapon it was twined around behind.",
     ]
   },
+  {
+    id: 24,
+    type: "magic",
+    name: "Wavecutter",
+    img: false,
+    src: "/serpents/images/placeholder.webp",
+    description: [
+      "This unusual <i>+1 keen steel terbuje is made of sharp chunks of quarts embedded along a length of steel. Wavecutter may be used underwater without suffering any penalties, and its bearer may use attack rolls in place of swim checks to swim underwater.",
+    ]
+  },
 ]
 // type must match div names (magic, note1-6, dream1-6)
 // img is true if there is an image to display
