@@ -1,2 +1,3 @@
 # hwalkermerrill.github.io
-Public Repository for School (CIT230)
+
+Public Repository for School (BYU-I)
