@@ -266,6 +266,16 @@ const loot = [
       "This unusual <i>+1 keen steel terbuje is made of sharp chunks of quarts embedded along a length of steel. Wavecutter may be used underwater without suffering any penalties, and its bearer may use attack rolls in place of swim checks to swim underwater.",
     ]
   },
+  {
+    id: 25,
+    type: "magic",
+    name: "Savage Sting",
+    img: false,
+    src: "/serpents/images/placeholder.webp",
+    description: [
+      "This +1 seeking blowgun is made of a hollowed piece of reed lacquered in vibrant orange hues and decorated with a fetish of brilliantly colored feathers. Up to three times per day, the wielder may envenom a dart fired from the blowgun with a virulent toxin, which functions as the poison spell.",
+    ]
+  },
 ]
 // type must match div names (magic, note1-6, dream1-6)
 // img is true if there is an image to display
