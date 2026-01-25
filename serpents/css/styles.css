@@ -15,17 +15,17 @@
 	--text-shadow-basic: 4px 4px 4px #aaa;
 	--text-shadow-spirit: 1px 1px 0px var(--spirit-aura);
 	--text-shadow-black: 1px 1px 0px black;
-	--text-shadow-indiana: 1px 1px 2px rgba(0, 0, 0, 0.1),
-		2px 2px 4px rgba(0, 0, 0, 0.2);
-	--text-shadow-light: -5px 0px 5px var(--text-light),
-		0px 5px 5px var(--text-light), 5px 0px 5px var(--text-light),
-		0px -5px 5px var(--text-light);
-	--text-shadow-primary: -5px 0px 5px var(--primary-color),
-		0px 5px 5px var(--primary-color), 5px 0px 5px var(--primary-color),
-		0px -5px 5px var(--primary-color);
-	--text-shadow-secondary: -5px 0px 5px var(--secondary-color),
-		0px 5px 5px var(--secondary-color), 5px 0px 5px var(--secondary-color),
-		0px -5px 5px var(--secondary-color);
+	--text-shadow-indiana:
+		1px 1px 2px rgba(0, 0, 0, 0.1), 2px 2px 4px rgba(0, 0, 0, 0.2);
+	--text-shadow-light:
+		-5px 0px 5px var(--text-light), 0px 5px 5px var(--text-light),
+		5px 0px 5px var(--text-light), 0px -5px 5px var(--text-light);
+	--text-shadow-primary:
+		-5px 0px 5px var(--primary-color), 0px 5px 5px var(--primary-color),
+		5px 0px 5px var(--primary-color), 0px -5px 5px var(--primary-color);
+	--text-shadow-secondary:
+		-5px 0px 5px var(--secondary-color), 0px 5px 5px var(--secondary-color),
+		5px 0px 5px var(--secondary-color), 0px -5px 5px var(--secondary-color);
 	--text-indiana-gradient: linear-gradient(
 		to bottom,
 		#8b2e1c 0%,
@@ -100,12 +100,12 @@ strong {
 	font-weight: bold;
 	font-size: 1.25em;
 	font-style: oblique;
-}
-strong.spirit {
-	text-shadow: var(--text-shadow-spirit);
-}
-strong.spiritBlack {
-	text-shadow: var(--text-shadow-black);
+	&.spirit {
+		text-shadow: var(--text-shadow-spirit);
+	}
+	&.spiritBlack {
+		text-shadow: var(--text-shadow-black);
+	}
 }
 img {
 	width: 100%;
@@ -503,8 +503,10 @@ img {
 	#glass {
 		position: absolute;
 		border-radius: 50%;
-		box-shadow: 0 0 0 7px rgba(118, 118, 117, 0.35),
-			0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+		box-shadow:
+			0 0 0 7px rgba(118, 118, 117, 0.35),
+			0 0 7px 7px rgba(0, 0, 0, 0.25),
+			inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
 		display: none;
 		background-repeat: no-repeat;
 		background-color: rgba(0, 0, 0, 0.6);
