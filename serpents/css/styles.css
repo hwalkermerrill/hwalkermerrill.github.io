@@ -4,6 +4,7 @@
 
 /* ----- Root Data ----- */
 :root {
+	--frame-border: url("/serpents/images/border-frame.png") 30 round;
 	--primary-color: #12674a;
 	--secondary-color: #dc8837;
 	--text-light: #fdefcd;
@@ -109,8 +110,7 @@ strong {
 }
 img {
 	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
+	margin-inline: auto;
 }
 
 /* Mobile Screen Size - 15em is also 240px (if basefont is 16px) */
@@ -123,30 +123,31 @@ img {
 		grid-template-columns: max-content auto;
 		gap: 2%;
 		align-items: center;
-	}
-	header .slogan {
-		display: none;
-	}
-	header figure {
-		margin: 0;
-	}
-	header img {
-		max-width: 80vw;
-		max-height: 115px;
-	}
-	header button {
-		margin: 1rem 2%;
-		background-color: transparent;
-		border: none;
-		font-size: 3rem;
-		color: #555;
-	}
-	header h1,
-	header h2 {
-		margin: 0;
-		color: var(--primary-color);
-		font-family: var(--secondary-font);
-		text-shadow: var(--text-shadow-light);
+
+		.slogan {
+			display: none;
+		}
+		figure {
+			margin: 0;
+		}
+		img {
+			max-width: 80vw;
+			max-height: 115px;
+		}
+		button {
+			margin: 1rem 2%;
+			background-color: transparent;
+			border: none;
+			font-size: 3rem;
+			color: #555;
+		}
+		h1,
+		h2 {
+			margin: 0;
+			color: var(--primary-color);
+			font-family: var(--secondary-font);
+			text-shadow: var(--text-shadow-light);
+		}
 	}
 
 	/* ----- Accessibility skip-to-main-content ----- */
@@ -164,33 +165,38 @@ img {
 	/*---------- NAVIGATION ----------*/
 	nav {
 		background-color: var(--secondary-color);
-	}
-	nav ul {
-		list-style-type: none;
-		padding: 0;
-		margin: 0;
-	}
-	nav ul.hide {
-		display: none;
-	}
-	nav ul li a {
-		display: block;
-		color: var(--primary-color);
-		border-top: 1px solid rgba(0, 0, 0, 0.3);
-		padding: 0.5rem 0;
-		text-decoration: none;
-		font-size: 20px;
-		text-align: center;
-		text-shadow: var(--text-shadow-light);
-	}
-	nav ul li a:hover {
-		background-color: var(--text-light);
-		color: var(--primary-color);
-	}
-	nav ul li.active a {
-		background-color: var(--primary-color);
-		color: black;
-		text-shadow: var(--text-shadow-light);
+		ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+
+			&.hide {
+				display: none;
+			}
+
+			li {
+				a {
+					display: block;
+					color: var(--primary-color);
+					border-top: 1px solid rgba(0, 0, 0, 0.3);
+					padding: 0.5rem 0;
+					text-decoration: none;
+					font-size: 20px;
+					text-align: center;
+					text-shadow: var(--text-shadow-light);
+					&:hover {
+						background-color: var(--text-light);
+						color: var(--primary-color);
+					}
+				}
+
+				&.active a {
+					background-color: var(--primary-color);
+					color: black;
+					text-shadow: var(--text-shadow-light);
+				}
+			}
+		}
 	}
 
 	/*---------- MAIN ----------*/
@@ -204,45 +210,44 @@ img {
 	.herodiv {
 		width: 100%;
 		padding: 0.5rem 2%;
-		margin-left: auto;
-		margin-right: auto;
+		margin-inline: auto;
 		position: relative;
-	}
-	.herodiv figure {
-		width: 100%;
-		padding: 0;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.herodiv .actioncall {
-		position: absolute;
-		top: 2rem;
-		left: 2rem;
-		background: var(--text-light);
-		border: 1px solid #000;
-		padding: 0.2rem;
-		box-shadow: 0 0 30px var(--primary-color);
-	}
-	.herodiv .actioncall h3 {
-		margin: 0.5rem;
-	}
-	.herodiv .actioncall p {
-		margin: 0.2rem;
-	}
-	.herodiv .actioncall button {
-		border: none;
-		background-color: var(--primary-color);
-		color: black;
-		border-radius: 1rem;
-		padding: 0.75rem 1.5rem;
-		width: 96%;
-		max-width: 20rem;
+
+		figure {
+			width: 100%;
+			padding: 0;
+			margin-inline: auto;
+		}
+		.actioncall {
+			position: absolute;
+			top: 2rem;
+			left: 2rem;
+			background: var(--text-light);
+			border: 1px solid #000;
+			padding: 0.2rem;
+			box-shadow: 0 0 30px var(--primary-color);
+
+			h3 {
+				margin: 0.5rem;
+			}
+			p {
+				margin: 0.2rem;
+			}
+			button {
+				border: none;
+				background-color: var(--primary-color);
+				color: black;
+				border-radius: 1rem;
+				padding: 0.75rem 1.5rem;
+				width: 96%;
+				max-width: 20rem;
+			}
+		}
 	}
 	.row {
 		display: block;
 		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
+		margin-inline: auto;
 		padding: 0.2rem;
 	}
 	.row section:nth-child(2) {
@@ -270,50 +275,59 @@ img {
 
 	/*----- Flexwrap Classes -----*/
 	/* This manages floating img boxes, which can be clicked to view further data */
-	main .asset,
-	main .gallery {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	main .asset section,
-	main .gallery figure {
-		margin: 1rem 2%;
-		flex-basis: 96%;
-		border: 12px solid transparent;
-		border-image: url("/serpents/images/border-frame.png") 30 round;
-		/* border-style: ridge; */
-		/* border-color: #005633; */
-		/* border-width: 6px; */
-		padding: 1%;
-		transition: all 0.2s ease-in-out;
-	}
-	main .asset section img,
-	main .gallery figure img {
-		max-height: 100%;
-		max-width: 100%;
-		object-fit: contain;
-	}
-	main .asset section:hover,
-	main .gallery figure:hover {
-		box-shadow: 0 0 12px #555;
-		transform: scale(1.05);
-		cursor: pointer;
-	}
-	main .asset section figure {
-		margin: 0;
-		padding: 0;
-	}
-	main .gallery figure {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+	main {
+		.asset,
+		.gallery {
+			display: flex;
+			flex-wrap: wrap;
+
+			section,
+			figure {
+				margin: 1rem 2%;
+				flex-basis: 96%;
+				border: 12px solid transparent;
+				border-image: var(--frame-border);
+				/* border-style: ridge; */
+				/* border-color: #005633; */
+				/* border-width: 6px; */
+				padding: 1%;
+				transition: all 0.2s ease-in-out;
+
+				img {
+					max-height: 100%;
+					max-width: 100%;
+					object-fit: contain;
+				}
+				&:hover {
+					box-shadow: 0 0 12px #555;
+					transform: scale(1.05);
+					cursor: pointer;
+				}
+			}
+		}
+		/* asset-only tweaks */
+		.asset {
+			section {
+				figure {
+					margin: 0;
+					padding: 0;
+				}
+			}
+		}
+		/* gallery-only tweaks */
+		.gallery {
+			figure {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+		}
 	}
 
 	/*----- Multi Image -----*/
 	/* This allows you to set two images for a single object,
 	The first image fades into second image on hover */
-	figure.multiImage picture,
 	figure.multiImage {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -322,23 +336,25 @@ img {
 		position: relative;
 		justify-content: center;
 		align-items: center;
-	}
-	figure.multiImage picture,
-	figure.multiImage img {
-		grid-column: 1 / -1;
-		grid-row: 1 / -1;
-		transition: opacity 0.3s ease-out;
-		max-height: 100%;
-		max-width: 100%;
-		object-fit: cover;
-	}
-	figure.multiImage img.appearOnHover,
-	figure.multiImage:hover img.fadeOnHover {
-		opacity: 0;
-	}
-	figure.multiImage:hover img.appearOnHover,
-	figure.multiImage img.faderOnHover {
-		opacity: 1;
+
+		picture,
+		img {
+			grid-column: 1 / -1;
+			grid-row: 1 / -1;
+			transition: opacity 0.3s ease-out;
+			max-height: 100%;
+			max-width: 100%;
+			object-fit: cover;
+		}
+
+		img.appearOnHover,
+		&:hover img.fadeOnHover {
+			opacity: 0;
+		}
+		&:hover img.appearOnHover,
+		img.fadeOnHover {
+			opacity: 1;
+		}
 	}
 
 	/* This .two-three class forces the img inside to be at 2:3 aspect ratio */
@@ -382,21 +398,22 @@ img {
 		margin: 2%;
 		padding: 2%;
 		border-radius: 10px; /*Rounded corners*/
-	}
-	.viewer button {
-		background: rgba(0, 0, 0, 0);
-		border-color: rgba(0, 0, 0, 0);
-		color: var(--secondary-color);
-		cursor: pointer;
-		grid-row: 1;
-		text-align: right;
-	}
-	.viewer img {
-		max-height: 100%;
-		min-height: 0;
-		max-width: 100%;
-		min-width: 0;
-		grid-row: 2;
+
+		button {
+			background: rgba(0, 0, 0, 0);
+			border-color: rgba(0, 0, 0, 0);
+			color: var(--secondary-color);
+			cursor: pointer;
+			grid-row: 1;
+			text-align: right;
+		}
+		img {
+			max-height: 100%;
+			min-height: 0;
+			max-width: 100%;
+			min-width: 0;
+			grid-row: 2;
+		}
 	}
 	.pointer {
 		cursor: pointer;
