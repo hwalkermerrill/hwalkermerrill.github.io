@@ -2,7 +2,6 @@
 pnpm init
 
 //Install ESLint, Stylelint, and Prettier
-pnpm add -D eslint
 pnpm add -D eslint @eslint/js globals
 pnpm add -D stylelint stylelint-config-standard stylelint-config-standard-scss postcss postcss-nesting
 pnpm add -D prettier eslint-config-prettier
