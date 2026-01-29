@@ -7,7 +7,7 @@ const today = new Date();
 const yyyy = today.getFullYear();
 const versionIteration = "v1.6.2."
 
-function writeLongDate() {
+function writeLongDate() { // eslint-disable-line no-unused-vars
 	let dwArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	let mmArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -20,7 +20,7 @@ function writeLongDate() {
 	document.getElementById("longDate").textContent = longDate;
 }
 
-function writeCurrentVersion() {
+function writeCurrentVersion() { // eslint-disable-line no-unused-vars
 	let yy = yyyy.toString().slice(2);
 	let mn = today.getMonth() + 1;
 	if (mn < 10) { mn = "0" + mn }
@@ -42,12 +42,12 @@ function maxDate(dd, m2, yyyy) {
 }*/
 
 // This creates a dropdown hamburger menu
-function toggleMenu() {
+function toggleMenu() { // eslint-disable-line no-unused-vars
 	document.getElementById("primaryNav").classList.toggle("hide");
 }
 
 // This allows the user to hide all elements of a specific class (like 'locked')
-function toggleVisible(className) {
+function toggleVisible(className) { // eslint-disable-line no-unused-vars
 	document.getElementsByClassName(className).classList.toggle("hide");
 }
 
@@ -66,7 +66,7 @@ function showTopBtn() {
 window.onscroll = function () { showTopBtn() };
 
 // When the user clicks on the button, scroll to the top of the document.
-function topFunction() {
+function topFunction() { // eslint-disable-line no-unused-vars
 	document.body.scrollTop = 0; // For Safari
 	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
@@ -94,7 +94,7 @@ window.onload = function () {
 // clickLoad("section");
 // });
 // </script>
-function clickLoad(clickClass) {
+function clickLoad(clickClass) { // eslint-disable-line no-unused-vars
 	document.querySelectorAll(clickClass).forEach(element => {
 		element.addEventListener("click", function () {
 			this.classList.toggle("click");
@@ -105,7 +105,7 @@ function clickLoad(clickClass) {
 // This function toggles the visibility of select classes.
 // Call the script with something like this:
 // <button onclick="toggleHide('.helpful')">Show/Hide Helpful NPC's</button>
-function toggleHide(className) {
+function toggleHide(className) { // eslint-disable-line no-unused-vars
 	document.querySelectorAll(className).forEach(element => {
 		const currentDisplay = getComputedStyle(element).display;
 		element.style.display = currentDisplay === "none" ? "block" : "none";
@@ -119,7 +119,7 @@ function toggleHide(className) {
 // 		toggleLiVis(".toggleLiVis");
 // 	});
 // </script>
-function toggleLiVis(className) {
+function toggleLiVis(className) { // eslint-disable-line no-unused-vars
 	document.querySelectorAll(className).forEach(element => {
 		element.addEventListener("click", function () {
 			this.querySelectorAll("li").forEach(li => {
@@ -162,7 +162,7 @@ function listenViewer(event) {
 }
 
 // Call this function with an onclick="viewHandler(event)"
-function viewHandler(event) {
+function viewHandler(event) { // eslint-disable-line no-unused-vars
 	// Error solve: Stop the event from bubbling up to avoid immediate closure
 	event.stopPropagation();
 	// 1. Create a variable to hold the element that was clicked on from event.target
