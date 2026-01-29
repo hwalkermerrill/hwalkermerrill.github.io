@@ -490,14 +490,16 @@
 	<!-- FOOTER HERE -->
 	<footer>
 		&copy;
-		<script>writeLongDate()</script> &bull; Harrison Merrill &bull; All rights reserved &bull;
-		<script>writeCurrentVersion()</script>
-		<br> Open Games License v1.02 2000, Wizards of the Coast, Inc. &bull; Pathfinder Adventure Path #37-42 2011, Paizo
-		Publishing, LLC
+		<span id="longDate"></span> &bull; Harrison Merrill &bull; All rights reserved &bull;
+		<span id="versionNumber">
+			<br> Open Games License v1.02 2000, Wizards of the Coast, Inc. &bull; Pathfinder Adventure Path #37-42 2011, Paizo
+			Publishing, LLC
 	</footer>
 
 	<!-- SCRIPT HERE -->
 	<script>
+		writeLongDate();
+		writeVersionNumber("1.0.0");
 		document.addEventListener("DOMContentLoaded", function () {
 			clickLoad("section");
 		});

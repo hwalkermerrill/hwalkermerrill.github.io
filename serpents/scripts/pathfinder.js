@@ -14,19 +14,19 @@ function writeLongDate() {
 	let dw = dwArray[today.getDay()];
 	let mm = mmArray[today.getMonth()];
 	let dd = today.getDate();
-	if (dd < 10) { dd = '0' + dd }
+	if (dd < 10) { dd = "0" + dd }
 
-	let longDate = dw + ", " + dd + " " + mm + " " + yyyy;
-	document.write(longDate);
+	let longDate = `${dw}, ${dd} ${mm} ${yyyy}`;
+	document.getElementById("longDate").textContent = longDate;
 }
 
 function writeCurrentVersion() {
 	let yy = yyyy.toString().slice(2);
 	let mn = today.getMonth() + 1;
-	if (mn < 10) { mn = '0' + mn }
+	if (mn < 10) { mn = "0" + mn }
 
 	let versionNumber = versionIteration + yy + mn;
-	document.write(versionNumber);
+	document.getElementById("versionNumber").textContent = versionNumber;
 }
 // [End Date and Version Block]
 
@@ -75,12 +75,12 @@ function topFunction() {
 // These two snippets of code saves the user's position on screen when they refresh the page.
 // Save the scroll position before refresh
 window.onbeforeunload = function () {
-	localStorage.setItem('scrollPosition', window.scrollY);
+	localStorage.setItem("scrollPosition", window.scrollY);
 };
 // Restore the scroll position after refresh
 window.onload = function () {
-	if (localStorage.getItem('scrollPosition') !== null) {
-		window.scrollTo(0, localStorage.getItem('scrollPosition'));
+	if (localStorage.getItem("scrollPosition") !== null) {
+		window.scrollTo(0, localStorage.getItem("scrollPosition"));
 	}
 };
 
@@ -133,7 +133,7 @@ function toggleLiVis(className) {
 // This function auto-loads and turns a series of images into an automatically rotating carousel.
 // Apply this function by adding 'id="slideshow"' to a figure, and then loading multiple src's into the figure.
 document.addEventListener("DOMContentLoaded", function () {
-	const images = document.querySelectorAll('#slideshow img');
+	const images = document.querySelectorAll("#slideshow img");
 	let index = 0;
 
 	if (images.length > 1) {
@@ -168,25 +168,25 @@ function viewHandler(event) {
 	// 1. Create a variable to hold the element that was clicked on from event.target
 	let clickedElement = event.target;
 	// 2. If statement allows the function to work on figures with embedded imgs
-	if (clickedElement.tagName.toLowerCase() === 'img') {
+	if (clickedElement.tagName.toLowerCase() === "img") {
 		// 3. Get the attribute's from the img element
 		let src, alt;
 		// Check if the clickedElement is an image within a picture element
-		if (clickedElement.parentElement.tagName.toLowerCase() === 'picture') {
+		if (clickedElement.parentElement.tagName.toLowerCase() === "picture") {
 			let pictureElement = clickedElement.parentElement;
-			let sourceElement = pictureElement.querySelector('source');
+			let sourceElement = pictureElement.querySelector("source");
 
 			// If the source element exists and has a srcset attribute, use it
-			if (sourceElement && sourceElement.hasAttribute('srcset')) {
-				src = sourceElement.getAttribute('srcset');
+			if (sourceElement && sourceElement.hasAttribute("srcset")) {
+				src = sourceElement.getAttribute("srcset");
 			} else {
-				src = clickedElement.getAttribute('src');
+				src = clickedElement.getAttribute("src");
 			}
 			// Otherwise, use clickedElement's src attribute 
 		} else {
-			src = clickedElement.getAttribute('src');
+			src = clickedElement.getAttribute("src");
 		}
-		alt = clickedElement.getAttribute('alt');
+		alt = clickedElement.getAttribute("alt");
 
 		// 4. USe the below to alter the path of the src, if needed
 		// let srcParts = ogSrc.split('-');
@@ -194,7 +194,7 @@ function viewHandler(event) {
 
 		// 5. Insert the viewerTemplate into the top of the body element
 		document.body.insertAdjacentHTML(
-			'afterbegin', `<div class="viewer" id="active-viewer">
+			"afterbegin", `<div class="viewer" id="active-viewer">
             <button class="close-viewer" id="close-viewer">X</button>
             <img src="${src}" alt="${alt}">
             </div>`
@@ -209,7 +209,7 @@ function viewHandler(event) {
 
 // This function is necessary to be able to close the viewer element
 function closeViewer() {
-	let viewer = document.getElementById('active-viewer');
+	let viewer = document.getElementById("active-viewer");
 	if (viewer) {
 		viewer.remove();
 		document.removeEventListener("click", listenViewer, false)
