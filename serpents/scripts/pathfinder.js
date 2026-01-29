@@ -20,7 +20,7 @@ function writeLongDate() { // eslint-disable-line no-unused-vars
 	document.getElementById("longDate").textContent = longDate;
 }
 
-function writeCurrentVersion() { // eslint-disable-line no-unused-vars
+function writeVersionNumber() { // eslint-disable-line no-unused-vars
 	let yy = yyyy.toString().slice(2);
 	let mn = today.getMonth() + 1;
 	if (mn < 10) { mn = "0" + mn }
