@@ -303,7 +303,7 @@ const loot = [
 */
 
 // Populates loot when called
-function populateLoot(type) {
+function populateLoot(type) { // eslint-disable-line no-unused-vars
 
   // constants
   const displayHide = "display: none;";
