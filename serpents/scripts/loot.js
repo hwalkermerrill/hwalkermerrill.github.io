@@ -276,6 +276,16 @@ const loot = [
       "This +1 seeking blowgun is made of a hollowed piece of reed lacquered in vibrant orange hues and decorated with a fetish of brilliantly colored feathers. Up to three times per day, the wielder may envenom a dart fired from the blowgun with a virulent toxin, which functions as the poison spell.",
     ]
   },
+  {
+    id: 26,
+    type: "magic",
+    name: "Orb of the Kindred Flame",
+    img: false,
+    src: "/serpents/images/placeholder.webp",
+    description: [
+      "This glowing red orb acts as a pearl of power level 3, except it is usable up to three times per day and it can only restore spells with the fire descriptor.",
+    ]
+  },
 ]
 // type must match div names (magic, note1-6, dream1-6)
 // img is true if there is an image to display
@@ -311,14 +321,14 @@ function populateLoot(type) {
     const lootContainer = document.querySelector(`#${item.type}`);
 
     // This constructs the descriptions for each item
-    let descriptionsHTML = '';
+    let descriptionsHTML = "";
     item.description.forEach(description => {
       descriptionsHTML += `<li style="${displayHide}">${description}</li>`;
     });
 
-    const lootElement = document.createElement('ul');
-    lootElement.classList.add('toggleLiVis');
-    lootElement.style.listStyleType = 'none';
+    const lootElement = document.createElement("ul");
+    lootElement.classList.add("toggleLiVis");
+    lootElement.style.listStyleType = "none";
 
     // add this to the lootElement:
     lootElement.innerHTML = `
