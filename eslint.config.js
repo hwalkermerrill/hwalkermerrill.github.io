@@ -8,16 +8,23 @@ export default defineConfig([
     plugins: { js },
     extends: ["js/recommended"],
   },
+  // Browser environment for public
+  {
+    files: ["public/**/*.{js,mjs,cjs}"],
+    languageOptions: { globals: globals.browser },
+  },
+  // Node environment for everything else
   {
     files: ["**/*.{js,mjs,cjs}"],
-    languageOptions: { globals: globals.browser },
+    ignores: ["public/**/*.{js,mjs,cjs}"],
+    languageOptions: { globals: globals.node },
   },
   {
     rules: {
       "no-unused-vars": "warn",
       "no-undef": "warn",
       quotes: ["error", "double", { allowTemplateLiterals: true }],
-      "no-console": "warn",
+      // "no-console": "warn",
     },
   },
 ]);
