@@ -1,0 +1,81 @@
+<%- include('../partials/header') %>
+<h1><%- title %></h1>
+
+<div id="filters">
+	Search by Region:
+	<select id="region-filter">
+		<option value="all">All Regions</option>
+		<% regions.forEach((region) => { %>
+		<option value="<%= region %>" <%= query.region === region ? 'selected' : '' %>>
+			<%= region.charAt(0).toUpperCase() + region.slice(1) %></option>
+		<% }); %>
+	</select>
+
+	Search by Season:
+	<select id="season-filter">
+		<option value="all">Any Season</option>
+		<% seasons.forEach((season) => { %>
+		<option value="<%= season %>" <%= query.season === season ? 'selected' : '' %>>
+			<%= season.charAt(0).toUpperCase() + season.slice(1) %></option>
+		<% }); %>
+	</select>
+</div>
+
+<div class="routes-grid">
+	<% routes.forEach(route => { %>
+	<div class="route-card <%= route.region %>">
+		<div class="route-header">
+			<h2 class="route-name"><%= route.name %></h2>
+			<span class="route-region"><%= route.region %></span>
+		</div>
+
+		<div class="station-info">
+			<div class="station">
+				<div class="station-type">From:</div>
+				<div class="station-name"><%= route.startStation %></div>
+			</div>
+			<div class="route-arrow">&#8594;</div>
+			<div class="station">
+				<div class="station-type">To:</div>
+				<div class="station-name"><%= route.endStation %></div>
+			</div>
+		</div>
+
+		<div class="route-details">
+			<div class="detail-item">
+				<span class="detail-icon">&#128337;</span>
+				<span><span class="detail-label">Duration:</span> <%= route.duration %></span>
+			</div>
+			<div class="detail-item">
+				<span class="detail-icon">&#128205;</span>
+				<span><span class="detail-label">Distance:</span> <%= route.distance %>km</span>
+			</div>
+			<div class="detail-item">
+				<span class="season-badge season-<%= route.bestSeason %>">
+					Best in <%= route.bestSeason %>
+				</span>
+			</div>
+		</div>
+
+		<div class="route-description">
+			<%= route.description %>
+		</div>
+
+		<div class="highlights">
+			<div class="highlights-list">
+				<% route.highlights.forEach(highlight => { %>
+				<span class="highlight-tag"><%= highlight %></span>
+				<% }); %>
+			</div>
+		</div>
+
+		<div class="route-actions">
+			<a href="/routes/<%= route.id %>" class="view-details-btn">
+				View Details &amp; Book &#8594;
+			</a>
+		</div>
+	</div>
+	<% }); %>
+</div>
+
+<%- include('../partials/footer') %>

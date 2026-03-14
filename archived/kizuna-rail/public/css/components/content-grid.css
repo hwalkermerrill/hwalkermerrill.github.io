@@ -1,0 +1,56 @@
+/**
+ * Inspired by: https://youtu.be/c13gpBrnGEw
+ */
+.content-grid {
+    display: grid;
+    align-content: start;
+
+    grid-template-columns:
+        [full-width-start]
+        minmax(var(--space-md), 1fr)
+        [breakout-start]
+        minmax(0, var(--breakout-size))
+        [content-start]
+        min(100% - (var(--space-md) * 2), var(--content-max-width))
+        [content-end]
+        minmax(0, var(--breakout-size))
+        [breakout-end]
+        minmax(var(--space-md), 1fr)
+        [full-width-end];
+
+    & > :not(.breakout, .full-width),
+    .full-width > :not(.breakout, .full-width) {
+        grid-column: content;
+        margin-bottom: var(--space-lg);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    & > .breakout {
+        grid-column: breakout;
+    }
+
+    & > .full-width {
+        grid-column: full-width;
+
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    @media (min-width: 768px) {
+        grid-template-columns:
+            [full-width-start]
+            minmax(var(--space-lg), 1fr)
+            [breakout-start]
+            minmax(0, var(--breakout-size))
+            [content-start]
+            min(100% - (var(--space-lg) * 2), var(--content-max-width))
+            [content-end]
+            minmax(0, var(--breakout-size))
+            [breakout-end]
+            minmax(var(--space-lg), 1fr)
+            [full-width-end];
+    }
+}

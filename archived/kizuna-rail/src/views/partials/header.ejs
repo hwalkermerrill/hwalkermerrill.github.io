@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= title %></title>
+	<link rel="stylesheet" href="/css/main.css">
+	<script src="/js/main.js"></script>
+	<% if (NODE_ENV.includes('dev')) { %>
+	<script>
+		// Get the current hostname and port from the browser
+		const host = window.location.hostname;
+		const currentPort = window.location.port;
+		// Calculate WebSocket port (current port + 1)
+		const wsPort = currentPort ? (parseInt(currentPort) + 1) : 3001;
+		// Create WebSocket connection using dynamic hostname and port
+		const ws = new WebSocket(`ws://${host}:${wsPort}`);
+		ws.onclose = () => {
+			setTimeout(() => location.reload(), 2000);
+		};
+	</script>
+	<% } %>
+</head>
+
+<body>
+	<header class="content-grid">
+		<div class="content">
+			<div class="logo">
+				<a href="/" title="Return to Kizuna Rail Homepage"><img src="/images/logo-with-text.png"
+						alt="Kizuna Rail Logo"></a>
+			</div>
+			<nav>
+				<input id="mobile-menu-toggle" type="checkbox">
+				<label for="mobile-menu-toggle">
+					<span></span>
+					<span></span>
+					<span></span>
+				</label>
+				<ul>
+					<li><a href="/routes">Routes</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/scenarios">Scenarios</a></li>
+					<!-- <li><a href="/404">404</a></li> -->
+					<!-- <li><a href="/500">500</a></li> -->
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main class="content-grid">

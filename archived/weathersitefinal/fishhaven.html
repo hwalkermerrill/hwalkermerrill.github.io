@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Weather Site Project">
+<meta name="author" content="Harrison Merrill">
+
+<title>Hometown Weather: Fish Haven</title>
+<link href="images/logofav.png" rel="icon">
+<link href="images/logo_apple120x.png" rel="apple-touch-icon">
+<link href="images/logo_apple152x.png" rel="apple-touch-icon" sizes="152x152">
+<link href="images/logo_apple167x.png" rel="apple-touch-icon" sizes="167x167">
+<link href="images/logo_apple180x.png" rel="apple-touch-icon" sizes="180x180">
+<link href="images/logo_icon192x.png" rel="icon" sizes="192x192">
+<link href="images/logo_icon128x.png" rel="icon" sizes="128x128">
+
+<!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH & stops the font from enlarging when a phone is turned sideways-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- This loads the "Cabin" font style on the user device while browsing this HTML-->
+<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+
+<!-- STYLE SHEETS -->
+<link href="css/normalize.css" rel="stylesheet">
+<!-- phone-default -->
+<link href="css/small.css" rel="stylesheet">
+<!-- enhance-tablet -->
+<link href="css/medium.css" rel="stylesheet">
+<!-- enhance-desktop -->
+<link href="css/large.css" rel="stylesheet">
+
+
+<script src="js/hamburger.js"></script>
+<script src="js/getweather.js"></script>
+<script src="js/getforecast.js"></script>
+<script src="js/forecastDate.js"></script>
+</head>
+<body>
+<!-- HEADER HERE -->
+	<header class="clearfix">
+        <figure class="logo">
+            <a href="index.html">
+            <img src="images/logo.png" alt="logo"
+            srcset="images/logo.png 1x, images/logo2x.png 2x, images/logo3x.png 3x">
+            </a>
+        </figure>
+        <div class="slogan">
+            <h1>Hometown Weather</h1>
+            <h2>Your Center for Local Weather</h2>
+        </div>
+        <div class="menu">
+            <button onclick="toggleMenu()">&#8801;</button>
+        </div>
+    </header>
+        
+<!-- NAVIGATION HERE -->
+    <nav class="clearfix">
+        <ul id="primaryNav" class="hide">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="preston.html">Preston</a></li>
+            <li><a href="sodasprings.html">Soda Springs</a></li>
+            <li class="active"><a href="fishhaven.html">Fish Haven</a></li>
+            <li><a href="stormcenter.html">Storm Center</a></li>
+            <li><a href="gallery.html">Gallery</a></li>    
+        </ul>
+    </nav>
+    
+    
+<!-- CONTENT HERE -->
+<main class="clearfix">
+    <h1>Fish Haven</h1>
+    <h3>"Country Home with Modern Convenience"</h3>
+    <p>Weather forecast information provided by <a href="//openweathermap.org">Open Weather Map</a></p>
+    <div class="herodiv">
+        <img src="images/wahiawa.jpg" alt="Fish Haven: Country Home with Modern Convenience" sizes="100vw"
+        srcset="images/wahiawa.jpg 720w,
+                images/wahiawa_1028.jpg 1028w,
+                images/wahiawa_1920.jpg 1920w,
+                images/wahiawa_original.jpg 2798w">
+        <section class="conditions">
+            <h3>Current Conditions <script>currentWeather(3)</script></h3>
+            <p>Currently: <span id="currentType">Cloudy</span><!--<img src="images/placeholder.png" alt="current weather" id="weather_icon">--></p>
+            <p>Feels Like: <span id="windChill">00</span>&deg;</p>
+            <p>Low <span id="lowTemp">00</span>&deg;</p>
+            <p>High <span id="highTemp">00</span>&deg;</p>
+            <p>Wind Speed <span id="wind">00</span> mph</p>
+        </section>
+    </div>
+    <div class="row">
+        <section>
+            <h2>Five Day Forecast <script>futureWeather(3)</script></h2>
+            <table>
+                <tr>
+                    <th><b>Day</b></th>
+                    <th><b>Description</b></th>
+                    <th><b>High / Low</b></th>
+                    <th><b>Wind</b></th>
+                </tr>
+                <tr>
+                    <td><script>forecastDate(1)</script></td>
+                    <td><span id="description1">Sunny</span></td> 
+                    <td>High: <span id="high1">00</span>&deg; / Low: <span id="low1">00</span>&deg;</td> 
+                    <td>Wind: <span id="wind1">00</span> mph</td>
+                </tr>
+                <tr>
+                    <td><script>forecastDate(2)</script></td>
+                    <td><span id="description2">Sunny</span></td>
+                    <td>High: <span id="high2">00</span>&deg; / Low: <span id="low2">00</span>&deg;</td> 
+                    <td>Wind: <span id="wind2">00</span> mph</td>
+                </tr>
+                <tr>
+                    <td><script>forecastDate(3)</script></td>
+                    <td><span id="description3">Sunny</span></td>
+                    <td>High: <span id="high3">00</span>&deg; / Low: <span id="low3">00</span>&deg;</td> 
+                    <td>Wind: <span id="wind3">00</span> mph</td>
+                </tr>
+                <tr>
+                    <td><script>forecastDate(4)</script></td>
+                    <td><span id="description4">Sunny</span></td>
+                    <td>High: <span id="high4">00</span>&deg; / Low: <span id="low4">00</span>&deg;</td> 
+                    <td>Wind: <span id="wind4">00</span> mph</td>
+                </tr>
+                <tr>
+                    <td><script>forecastDate(5)</script></td>
+                    <td><span id="description5">Sunny</span></td>
+                    <td>High: <span id="high5"></span>&deg; / Low: <span id="low5"></span>&deg;</td> 
+                    <td>Wind: <span id="wind5"></span> mph</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h2>This Day in History</h2>
+            <p>On this day in history, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+        </section>
+        <section>
+            <h2>   </h2>
+            <img src="images/lake_small.png" alt="This Day in History: Lake Event"
+            srcset="images/lake_small.png 324w,
+                    images/lake_large.png 810w">      
+        </section>
+        <!-- <section>
+            <h2>Contact Us</h2>
+            <p><b>Address:</b></p>
+            <p>Hometown Weather</p>
+            <p>55-0010 Weather Road</p>
+            <p>Preston, Hawaii 96826</p>
+            <br>
+            <p><b>Phone:</b></p>
+            <p>(808) 080-8080</p>
+            <br>
+            <p><b>Email:</b></p>
+            <p><a href="#">hometownweather@local.hawaii.org</a></p>            
+        </section> -->
+    </div>
+</main>
+
+<!-- SCRIPT HERE -->      
+
+<!-- CONTACT HERE -->
+    <div class="contact">
+        <h2>Contact Us</h2>
+        <p><b>Address:</b></p>
+        <p>Hometown Weather</p>
+        <p>55-0010 Weather Road</p>
+        <p>Preston, Hawaii 96826</p>
+        <br>
+        <p><b>Phone:</b></p>
+        <p>(808) 080-8080</p>
+        <br>
+        <p><b>Email:</b></p>
+        <p><a href="#">hometownweather@local.hawaii.org</a></p>
+    </div>
+
+<!-- FOOTER HERE -->   
+    <footer>
+        &copy; <script src="js/currentdate.js"></script> &bull; Harrison Merrill &bull; All rights reserved
+    </footer>
+
+</body>
+</html>

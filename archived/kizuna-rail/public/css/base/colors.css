@@ -1,0 +1,65 @@
+:root {
+    /* Colors - Soft Pastel Green Theme */
+    --clr-primary: #7fa98f;
+    --clr-primary-light: #a8c9b8;
+    --clr-primary-pale: #d4e8dd;
+    --clr-accent: #9eb4a5;
+    --clr-accent-warm: #c8b89e;
+
+    /* Lighter secondary variants */
+    --clr-primary-secondary: rgba(159, 207, 184, 0.3);
+    --clr-primary-light-secondary: rgba(198, 225, 208, 0.3);
+    --clr-primary-pale-secondary: rgba(234, 247, 240, 0.3);
+    --clr-accent-secondary: rgba(192, 213, 201, 0.3);
+    --clr-accent-warm-secondary: rgba(230, 220, 207, 0.3);
+    
+    --clr-background: #f8faf9;
+    --clr-surface: #ffffff;
+    --clr-surface-alt: #f0f4f2;
+    
+    --clr-text-primary: #2d3e3a;
+    --clr-text-secondary: #5a6f68;
+    --clr-text-muted: #8b9d96;
+
+    --clr-text-alt-primary: #f8faf9;
+    --clr-text-alt-secondary: #d8e3dd;
+    --clr-text-alt-muted: #a8c9b8;
+    
+    --clr-border: #d8e3dd;
+    --clr-border-light: #e8f0eb;
+    
+    /* Regional Colors */
+    --clr-region-central: #faf6f0;
+    --clr-region-central-text: #6b5d48;
+    --clr-region-central-border: rgba(107, 93, 72, 0.5);
+
+    --clr-region-northern: #f0f6fa;
+    --clr-region-northern-text: #3d5468;
+    --clr-region-northern-border: rgba(61, 84, 104, 0.5);
+
+    --clr-region-kansai: #faf0f6;
+    --clr-region-kansai-text: #68485d;
+    --clr-region-kansai-border: rgba(104, 72, 93, 0.5);
+
+    --clr-region-hokkaido: #f0f8fa;
+    --clr-region-hokkaido-text: #3d5d68;
+    --clr-region-hokkaido-border: rgba(61, 93, 104, 0.5);
+    
+    /* Season Colors */
+    --clr-spring: #f5d9e3;
+    --clr-spring-text: #6b4554;
+    --clr-summer: #d9f0e3;
+    --clr-summer-text: #3a5a48;
+    --clr-autumn: #f5e8d9;
+    --clr-autumn-text: #6b5a45;
+    --clr-winter: #d9e8f5;
+    --clr-winter-text: #3a4f6b;
+
+    /* Link Colors */
+    --clr-link: #6fa8d6;
+    --clr-link-hover: #3f7fb0;
+    --clr-link-md: #4f8fc3;
+    --clr-link-md-hover: #2f6f93;
+    --clr-link-dark: #2f6f93;
+    --clr-link-dark-hover: #123f63;
+}

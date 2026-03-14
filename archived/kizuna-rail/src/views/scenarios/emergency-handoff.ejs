@@ -1,0 +1,95 @@
+<%- include('../partials/header') %>
+
+<h1>Scenario: Emergency Handoff</h1>
+
+<section class="scenario-background">
+    <h2>Background</h2>
+    <p>
+        You work for a small software design company that was hired to create an English-language version of Kizuna Rail's website. The original Kizuna Rail site is in Japanese and tailored for domestic customers. This new version is specifically designed to attract international tourists visiting Japan.
+    </p>
+    <p>
+        The project has gone through several standard phases. It started with <strong>discovery</strong>, where the project manager and business analyst met with Kizuna Rail to understand their needs and goals. Next came <strong>design</strong>, where UI/UX designers created mockups and wireframes. Then <strong>development</strong> began, where a full-stack developer built the site based on those designs, handling both frontend and backend work while also testing functionality along the way. In larger companies, these roles might be split among separate frontend developers, backend developers, and QA testers, but in smaller teams one person often handles multiple responsibilities.
+    </p>
+    <p>
+        The developer assigned to finish this project had a family emergency and will be out for at least a week. You've been asked to complete the remaining tasks so the site can launch on schedule. Fortunately, your coworker left you a detailed todo list of what still needs to be done.
+    </p>
+</section>
+
+<section class="scenario-tasks">
+    <h2>Your Tasks</h2>
+    <ul class="task-list">
+        <li class="task-item">
+            <input type="checkbox" id="task-1">
+            <label for="task-1" class="task-title">Fix the logo accessibility</label>
+            <p class="task-description">The site's logo in the header is missing a proper <code>title</code> attribute for hover tooltips, which helps with accessibility and user experience.</p>
+        </li>
+        
+        <li class="task-item">
+            <input type="checkbox" id="task-2">
+            <label for="task-2" class="task-title">Reorganize the routes folder structure</label>
+            <p class="task-description">The <code>routes</code> folder (controllers) is disorganized with all files dumped in one place. Create a <code>routes</code> subfolder, rename <code>routes.js</code> to <code>index.js</code> and move it inside, then move all route-related files into this new folder. Remember we're talking about train routes here, not every <code>Express.js</code> route controller.</p>
+        </li>
+        
+        <li class="task-item">
+            <input type="checkbox" id="task-3">
+            <label for="task-3" class="task-title">Repair the routes page filtering</label>
+            <p class="task-description">The routes page has broken sorting features for region and season. The dropdowns exist but don't actually filter the displayed routes. Get the filtering working using query parameters, keeping in mind that users might filter by region only, season only, or both. You should also add a grid layout so you can center the region filter on the left side and the season filter on the right side of the page.</p>
+        </li>
+        
+        <li class="task-item">
+            <input type="checkbox" id="task-4">
+            <label for="task-4" class="task-title">Improve the operating schedule display</label>
+            <p class="task-description">When viewing a route's details, the operating months are shown as numbers (1, 2, 3) instead of text (Jan, Feb, Mar), which isn't intuitive for users. Create a new helper function and use it to display three-letter month abbreviations instead.</p>
+        </li>
+        
+        <li class="task-item">
+            <input type="checkbox" id="task-5">
+            <label for="task-5" class="task-title">Update currency display</label>
+            <p class="task-description">When booking a trip, prices are currently shown in Yen (¥). The database stores prices in Yen and cannot be modified, but you need to convert and display prices in USD ($) throughout the booking flow. I already created a Yen to USD converter helper function you can use in <code>src/includes/helpers.js</code>.</p>
+        </li>
+        
+        <li class="task-item">
+            <input type="checkbox" id="task-6">
+            <label for="task-6" class="task-title">Add print styles</label>
+            <p class="task-description">The confirmation page has a working print button, but there are no print-specific styles. Add <code>@media print {}</code> CSS so the confirmation page so it prints cleanly on a single page, ideally single-sided.</p>
+        </li>
+    </ul>
+</section>
+
+<details class="hints-section">
+    <summary>Hints &amp; Suggestions</summary>
+
+    <div class="hints-content">
+        <div class="hint-item">
+            <h3>Logo Title</h3>
+            <p>Look in the <code>header</code> partial. The <code>title</code> attribute goes directly on the anchor or image tag.</p>
+        </div>
+
+        <div class="hint-item">
+            <h3>Reorganize Routes Folder</h3>
+            <p>Create a new folder called <code>"routes"</code> inside your controllers directory. Rename the existing <code>routes.js</code> file to <code>index.js</code> and move it into this new folder. Then identify all other files related to train routes (like <code>route-detail.js</code>, etc.) and move those into the <code>routes</code> folder as well. Update any import paths that reference these files.</p>
+        </div>
+
+        <div class="hint-item">
+            <h3>Routes Filtering</h3>
+            <p>You'll need to read query parameters (like <code>?region=central</code> or <code>?season=autumn</code>) in the routes controller, then pass those values to filter the routes data before sending it to the view. The JavaScript on the page should update the URL when users select filters. For the layout, use CSS Grid on the filters container with two columns to position the region filter on the left and season filter on the right.</p>
+        </div>
+
+        <div class="hint-item">
+            <h3>Month Display</h3>
+            <p>Your helper function should accept a month number and return the three-letter abbreviation. You could use an array lookup or a switch statement. The best place to use this is in the model function that retrieves route data, so the data is formatted before it even reaches the controller.</p>
+        </div>
+
+        <div class="hint-item">
+            <h3>Currency Conversion</h3>
+            <p>Check the <code>ticketOptions</code> model function where the data is retrieved. You'll need to use the helper function to convert each price and update the property. Don't forget to change the currency symbol in the booking and confirmation views from ¥ to $.</p>
+        </div>
+
+        <div class="hint-item">
+            <h3>Print Styles</h3>
+            <p>Use <code>@media print {}</code> in your CSS. The goal is to hide (not shrink) elements you don't need for printing. Use <code>display: none</code> to completely remove navigation, buttons, footers, and other non-essential elements. Keep the important content at its normal size—don't shrink everything. Ensure the page doesn't break awkwardly across multiple pages by checking padding and margins. Test by using your browser's print preview.</p>
+        </div>
+    </div>
+</details>
+
+<%- include('../partials/footer') %>

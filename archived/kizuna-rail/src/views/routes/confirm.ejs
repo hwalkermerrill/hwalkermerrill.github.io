@@ -1,0 +1,142 @@
+<%- include('../partials/header') %>
+<article class="confirmation-page">
+    <div class="confirmation-header">
+        <div class="success-icon">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="32" fill="var(--clr-primary)"/>
+                <path d="M20 32L28 40L44 24" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <h1 class="confirmation-title"><%= title %></h1>
+        <p class="confirmation-message">Your scenic railway journey has been confirmed. We've sent the details to your email.</p>
+        
+        <div class="booking-reference">
+            <span class="reference-label">Booking Reference</span>
+            <span class="reference-number"><%= confirmation.id %></span>
+        </div>
+    </div>
+
+    <div class="confirmation-content">
+        <section class="booking-details">
+            <h2 class="section-title">Booking Details</h2>
+            
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">🎫</div>
+                    <div class="detail-content">
+                        <span class="detail-label">Ticket Class</span>
+                        <span class="detail-value"><%= confirmation.ticketClass %></span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">📅</div>
+                    <div class="detail-content">
+                        <span class="detail-label">Travel Day</span>
+                        <span class="detail-value"><%= confirmation.selectedDay %></span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">👥</div>
+                    <div class="detail-content">
+                        <span class="detail-label">Number of Passengers</span>
+                        <span class="detail-value"><%= confirmation.passengers.length %></span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">🕐</div>
+                    <div class="detail-content">
+                        <span class="detail-label">Booked On</span>
+                        <span class="detail-value"><%= new Date(confirmation.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) %></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="passengers-info">
+            <h2 class="section-title">Passenger Information</h2>
+            
+            <div class="passengers-list">
+                <% confirmation.passengers.forEach(function(passenger, index) { %>
+                <div class="passenger-info-card">
+                    <div class="passenger-header">
+                        <h3 class="passenger-title">Passenger <%= index + 1 %></h3>
+                    </div>
+                    <div class="passenger-details">
+                        <div class="passenger-detail">
+                            <span class="passenger-label">Name</span>
+                            <span class="passenger-value"><%= passenger.firstName %> <%= passenger.lastName %></span>
+                        </div>
+                        <div class="passenger-detail">
+                            <span class="passenger-label">Email</span>
+                            <span class="passenger-value"><%= passenger.email %></span>
+                        </div>
+                        <div class="passenger-detail">
+                            <span class="passenger-label">Phone</span>
+                            <span class="passenger-value"><%= passenger.phone %></span>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <h2 class="section-title">What's Next?</h2>
+            
+            <div class="steps-list">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Check Your Email</h3>
+                        <p class="step-description">A confirmation email with your booking details and QR code has been sent to <%= confirmation.passengers[0].email %></p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Arrive Early</h3>
+                        <p class="step-description">Please arrive at the station at least 30 minutes before departure time</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Present Your Booking</h3>
+                        <p class="step-description">Show your booking reference or QR code at the boarding gate</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Enjoy Your Journey</h3>
+                        <p class="step-description">Relax and enjoy the scenic views along your route</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="important-info">
+            <h3 class="info-title">Important Information</h3>
+            <ul class="info-list">
+                <li>Tickets are non-refundable but can be modified up to 24 hours before departure</li>
+                <li>Please bring a valid photo ID for all passengers</li>
+                <li>Luggage allowance: One carry-on per passenger</li>
+            </ul>
+        </section>
+
+        <div class="confirmation-actions">
+            <button onclick="window.print()" class="btn btn-secondary">
+                <span class="btn-icon">🖨️</span>
+                Print Confirmation
+            </button>
+            <a href="/routes" class="btn btn-primary">Browse More Routes</a>
+        </div>
+    </div>
+</article>
+<%- include('../partials/footer') %>

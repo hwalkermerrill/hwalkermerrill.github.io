@@ -1,0 +1,2 @@
+# Important Note About This Directory
+This directory is called `routes` because it contains the views for the different features related to the train routes **NOT** because it contains views for all the routes (route handlers) in the application.

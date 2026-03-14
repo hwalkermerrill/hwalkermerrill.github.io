@@ -1,0 +1,33 @@
+/**
+ * To use with content-grid.css you will need to wrap the content intended for the columns
+ * in a div with the class "columns" and the class of "two" or "three".
+ */
+.columns {
+    display: grid;
+    grid-gap: 1rem;
+    grid-auto-rows: auto;
+
+    &.two {
+        grid-template-columns: 1fr;
+    }
+
+    &.three {
+        grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 480px) {
+        &.two {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    
+        &.three {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (min-width: 768px) {
+        &.three {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}

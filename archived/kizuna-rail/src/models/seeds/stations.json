@@ -1,0 +1,154 @@
+[
+    {
+        "id": "nagoya",
+        "name": "Nagoya Station",
+        "prefecture": "Aichi",
+        "region": "central",
+        "facilities": [
+            "restaurant",
+            "shop",
+            "restroom",
+            "lockers",
+            "tourist_info"
+        ],
+        "description": "Major transportation hub in central Japan."
+    },
+    {
+        "id": "toyama",
+        "name": "Toyama Station",
+        "prefecture": "Toyama",
+        "region": "central",
+        "facilities": [
+            "restaurant",
+            "shop",
+            "restroom",
+            "lockers"
+        ],
+        "description": "Gateway to the Northern Alps."
+    },
+    {
+        "id": "aomori",
+        "name": "Aomori Station",
+        "prefecture": "Aomori",
+        "region": "northern",
+        "facilities": [
+            "restaurant",
+            "shop",
+            "restroom",
+            "tourist_info"
+        ],
+        "description": "Northern gateway with apple orchards nearby."
+    },
+    {
+        "id": "akita",
+        "name": "Akita Station",
+        "prefecture": "Akita",
+        "region": "northern",
+        "facilities": [
+            "restaurant",
+            "shop",
+            "restroom",
+            "lockers",
+            "tourist_info"
+        ],
+        "description": "Famous for Akita dogs and sake breweries."
+    },
+    {
+        "id": "osaka",
+        "name": "Osaka Station",
+        "prefecture": "Osaka",
+        "region": "kansai",
+        "facilities": [
+            "restaurant",
+            "shop",
+            "restroom",
+            "lockers",
+            "tourist_info",
+            "hotel"
+        ],
+        "description": "Major western Japan hub known for food culture."
+    },
+    {
+        "id": "wakayama",
+        "name": "Wakayama Station",
+        "prefecture": "Wakayama",
+        "region": "kansai",
+        "facilities": [
+            "restaurant",
+            "shop",
+            "restroom"
+        ],
+        "description": "Access point to historic temples and coastal views."
+    },
+    {
+        "id": "unazuki",
+        "name": "Unazuki Onsen Station",
+        "prefecture": "Toyama",
+        "region": "central",
+        "facilities": [
+            "restaurant",
+            "restroom",
+            "onsen"
+        ],
+        "description": "Hot spring town at gorge entrance."
+    },
+    {
+        "id": "keyakidaira",
+        "name": "Keyakidaira Station",
+        "prefecture": "Toyama",
+        "region": "central",
+        "facilities": [
+            "restroom",
+            "observation_deck"
+        ],
+        "description": "Mountain station with hiking trails."
+    },
+    {
+        "id": "kushiro",
+        "name": "Kushiro Station",
+        "prefecture": "Hokkaido",
+        "region": "hokkaido",
+        "facilities": [
+            "restaurant",
+            "shop",
+            "restroom",
+            "tourist_info"
+        ],
+        "description": "Eastern Hokkaido's largest city."
+    },
+    {
+        "id": "shibecha",
+        "name": "Shibecha Station",
+        "prefecture": "Hokkaido",
+        "region": "hokkaido",
+        "facilities": [
+            "restroom",
+            "shop"
+        ],
+        "description": "Small town near wetland viewing areas."
+    },
+    {
+        "id": "arashiyama",
+        "name": "Arashiyama Station",
+        "prefecture": "Kyoto",
+        "region": "kansai",
+        "facilities": [
+            "restaurant",
+            "shop",
+            "restroom",
+            "tourist_info"
+        ],
+        "description": "Historic district with bamboo groves and temples."
+    },
+    {
+        "id": "kameoka",
+        "name": "Kameoka Station",
+        "prefecture": "Kyoto",
+        "region": "kansai",
+        "facilities": [
+            "restaurant",
+            "restroom"
+        ],
+        "description": "Rural town at river gorge entrance."
+    }
+]

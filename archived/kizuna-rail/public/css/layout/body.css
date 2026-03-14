@@ -1,0 +1,10 @@
+body {
+    background-color: var(--clr-background);
+    color: var(--clr-text-primary);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-md);
+    min-height: 100%;
+}

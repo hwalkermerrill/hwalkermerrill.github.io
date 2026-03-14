@@ -1,0 +1,18 @@
+{
+	"name": "kizuna-rail-byui-demo",
+	"dependencies": {
+		"ejs": "^3.1.10",
+		"express": "^5.1.0"
+	},
+	"scripts": {
+		"dev": "nodemon --env-file=.env server.js",
+		"reset": "node restore.js 3000 3001",
+		"start": "node server.js"
+	},
+	"type": "module",
+	"version": "1.0.0",
+	"devDependencies": {
+		"nodemon": "^3.1.10",
+		"ws": "^8.18.3"
+	}
+}

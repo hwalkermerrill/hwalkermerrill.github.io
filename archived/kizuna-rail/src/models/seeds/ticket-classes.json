@@ -1,0 +1,38 @@
+[
+    {
+        "class": "standard",
+        "name": "Standard Class",
+        "pricePerKm": 80,
+        "amenities": [
+            "Comfortable seats",
+            "Large windows",
+            "Complimentary tea"
+        ],
+        "description": "Enjoy scenic views from comfortable seats with complimentary refreshments"
+    },
+    {
+        "class": "premium",
+        "name": "Premium Class",
+        "pricePerKm": 150,
+        "amenities": [
+            "Panoramic windows",
+            "Meal service",
+            "Reserved seating",
+            "Souvenir photo"
+        ],
+        "description": "Enhanced experience with meal service and panoramic viewing windows"
+    },
+    {
+        "class": "first",
+        "name": "First Class",
+        "pricePerKm": 250,
+        "amenities": [
+            "Private compartment",
+            "Multi-course meal",
+            "Champagne service",
+            "Priority boarding",
+            "Souvenir gift"
+        ],
+        "description": "Ultimate luxury with private seating and full dining service"
+    }
+]

@@ -1,0 +1,164 @@
+[
+    {
+        "id": "alpine-panorama",
+        "name": "Alpine Panorama Express",
+        "description": "Journey through the Japanese Alps with stunning mountain views and traditional villages.",
+        "region": "central",
+        "startStation": "nagoya",
+        "endStation": "toyama",
+        "duration": "4.5 hours",
+        "distance": 180,
+        "highlights": [
+            "Mount Tateyama views",
+            "Hida River gorge",
+            "Traditional alpine villages"
+        ],
+        "bestSeason": "autumn",
+        "operatingMonths": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+        ],
+        "imageUrl": "/images/routes/alpine-panorama.png"
+    },
+    {
+        "id": "coastal-breeze",
+        "name": "Coastal Breeze Line",
+        "description": "Follow the scenic coastline of the Sea of Japan with ocean views and sunset vistas.",
+        "region": "northern",
+        "startStation": "aomori",
+        "endStation": "akita",
+        "duration": "5 hours",
+        "distance": 147,
+        "highlights": [
+            "Sea of Japan coastline",
+            "Senjojiki Rock Beach",
+            "Traditional fishing villages"
+        ],
+        "bestSeason": "summer",
+        "operatingMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+        ],
+        "imageUrl": "/images/routes/coastal-breeze.png"
+    },
+    {
+        "id": "sakura-valley",
+        "name": "Sakura Valley Limited",
+        "description": "Experience cherry blossom season along scenic river valleys and mountain passes.",
+        "region": "kansai",
+        "startStation": "osaka",
+        "endStation": "wakayama",
+        "duration": "2.5 hours",
+        "distance": 63,
+        "highlights": [
+            "Cherry blossom valleys",
+            "Historic temples",
+            "Mountain tunnels"
+        ],
+        "bestSeason": "spring",
+        "operatingMonths": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "imageUrl": "/images/routes/sakura-valley.png"
+    },
+    {
+        "id": "gorge-explorer",
+        "name": "Kurobe Gorge Explorer",
+        "description": "Navigate through dramatic gorges and cross spectacular bridges in the Northern Alps.",
+        "region": "central",
+        "startStation": "unazuki",
+        "endStation": "keyakidaira",
+        "duration": "1.5 hours",
+        "distance": 20,
+        "highlights": [
+            "Kurobe Gorge",
+            "Alpine bridges",
+            "Waterfall views"
+        ],
+        "bestSeason": "autumn",
+        "operatingMonths": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+        ],
+        "imageUrl": "/images/routes/gorge-explorer.png"
+    },
+    {
+        "id": "winter-wetlands",
+        "name": "Winter Wetlands Steam Train",
+        "description": "Steam locomotive journey through snowy wetlands famous for red-crowned cranes.",
+        "region": "hokkaido",
+        "startStation": "kushiro",
+        "endStation": "shibecha",
+        "duration": "2 hours",
+        "distance": 31,
+        "highlights": [
+            "Kushiro Wetlands",
+            "Red-crowned cranes",
+            "Steam locomotive experience"
+        ],
+        "bestSeason": "winter",
+        "operatingMonths": [
+            1,
+            2
+        ],
+        "imageUrl": "/images/routes/winter-wetlands.png"
+    },
+    {
+        "id": "romantic-gorge",
+        "name": "Sagano Romantic Train",
+        "description": "Travel along the scenic Hozu River with views of historic Kyoto gorges.",
+        "region": "kansai",
+        "startStation": "arashiyama",
+        "endStation": "kameoka",
+        "duration": "0.5 hours",
+        "distance": 7,
+        "highlights": [
+            "Hozu River gorge",
+            "Bamboo forests",
+            "Historic temples"
+        ],
+        "bestSeason": "autumn",
+        "operatingMonths": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+        ],
+        "imageUrl": "/images/routes/romantic-gorge.png"
+    }
+]
