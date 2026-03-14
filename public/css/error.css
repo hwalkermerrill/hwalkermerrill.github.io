@@ -1,0 +1,165 @@
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+/*----------- BODY --------------*/
+body {
+	font-family: Verdana;
+	font-size: 16px;
+}
+
+/*----------- HEADER --------------*/
+header {
+	background-color: #17a8e4;
+	padding: 1rem 2%;
+}
+header h1 {
+	margin: 0;
+}
+header h2 {
+	margin: 0;
+}
+
+/*----------- NAVIGATION --------------*/
+nav {
+	background-color: #111;
+}
+nav ul {
+	margin: 0;
+	padding: 0;
+}
+nav li {
+	list-style-type: none;
+}
+nav li.active {
+	background-color: #333;
+}
+nav a {
+	display: block;
+	padding: 0.8rem 0; /* 44 min height */
+	color: #eee;
+	text-align: center;
+	text-decoration: none;
+}
+nav a:hover {
+	background-color: #444;
+}
+nav ul li a {
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+nav ul.hide {
+	display: none;
+	margin-right: auto;
+	margin-left: auto;
+}
+/*----------- MAIN --------------*/
+main {
+	padding: 1rem 2%;
+	display: block;
+}
+main h1 {
+	color: #17a8e4;
+}
+
+main figure img {
+	width: 100%;
+}
+main figure {
+	width: 100%;
+	margin: 0;
+}
+main figcaption {
+	text-align: center;
+	font-size: 0.8rem;
+}
+
+/*----------- 404 --------------*/
+main .e404 {
+	background-color: #17a8e4;
+	padding: 2%;
+	font-size: 28px;
+	float: right;
+	text-align: center;
+}
+main .e404 h1 {
+	color: #333;
+	font-size: 128px;
+	margin-top: 2rem;
+}
+main .e404 h2 {
+	font-size: 36px;
+}
+main .e404 figure {
+	float: left;
+	margin-top: 8rem;
+	margin-bottom: 12rem;
+}
+main .e404 button {
+	margin: 4rem;
+}
+/*----------- FOOTER--------------*/
+footer {
+	text-align: center;
+	padding: 1rem 2%;
+	background-color: #eee;
+}
+
+/*----------- CLEARFIX --------------*/
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+@media only screen and (min-width: 560px) {
+	nav li {
+		float: left;
+		width: 25%;
+	}
+	nav ul.hide {
+		display: block;
+	}
+
+	main figure {
+		float: right;
+		width: 48%;
+		margin-left: 2%;
+		padding-bottom: 0.5rem;
+	}
+
+	div.news {
+		clear: both;
+		column-count: 2;
+		column-rule: 1px solid #ddd;
+	}
+}
+@media only screen and (min-width: 1028px) {
+	main {
+		max-width: 75rem;
+		margin: auto;
+	}
+
+	nav ul {
+		padding-left: 2%;
+	}
+	nav li {
+		width: auto;
+	}
+	nav a {
+		padding: 0.5rem 1rem;
+	}
+
+	main figure {
+		width: 31%;
+	}
+
+	div.news {
+		column-count: 3;
+	}
+}
