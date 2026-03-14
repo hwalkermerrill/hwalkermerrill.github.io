@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="404 Error Page">
+  <meta name="author" content="Harrison Merrill">
+
+  <title>Error 404: Page Not Found</title>
+
+  <!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- STYLE SHEETS -->
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/error.css" rel="stylesheet">
+
+  <script src="scripts/pathfinder.js"> </script>
+</head>
+
+<body>
+  <!-- HEADER HERE -->
+  <header class="clearfix">
+
+  </header>
+
+  <!-- NAVIGATION HERE -->
+  <nav class="clearfix">
+    <ul id="primaryNav" class="hide">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="creation.html">Character Creation</a></li>
+      <li><a href="resources.html">Discoveries</a></li>
+      <li><a href="heroes.html">Explorers</a></li>
+      <li><a href="npcs.html">Profiles</a></li>
+      <li><a href="map.html">Surveys</a></li>
+      <li><a href="journal.html">Travel Log</a></li>
+      <li><a href="rules.html">Jungle Law</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENT HERE -->
+  <main class="clearfix">
+    <div class="e404">
+      <figure>
+        <img src="images/404-detective.png" alt="Missing Page Detective">
+        <figcaption></figcaption>
+      </figure>
+      <h1>404</h1>
+      <h2>Looks like this page is missing.</h2>
+      <h2>Don't worry though, our best man is on the case.</h2>
+      <p>Meanwhile, why don't you follow a link above,</p>
+      <br>
+      <p>or</p>
+      <button onclick="history.go(-1)">GO BACK</button>
+    </div>
+  </main>
+
+  <!-- FOOTER HERE -->
+  <footer>
+    &copy;
+    <span id="longDate"></span> &bull; Harrison Merrill &bull; All rights reserved &bull;
+  </footer>
+
+  <!-- SCRIPT HERE -->
+  <script>
+    writeLongDate();
+  </script>
+
+</body>
+
+</html>
