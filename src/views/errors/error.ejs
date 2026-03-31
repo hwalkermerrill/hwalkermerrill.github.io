@@ -1,7 +1,5 @@
 <!-- Source from ejs templates -->
-<%- include("../partials/head") %>
 <%- include("../partials/header") %>
-<%- include("../partials/nav") %>
 
 <!-- MAIN CONTENT HERE -->
 <main>
@@ -13,6 +11,13 @@
     and figures out how to make it STOP sending you here, theres nothing left to do except:
   </p>
   <p><a href="javascript:history.back()">Go Back</a> or <a href="/">Return to the Homepage</a></p>
+  <% if (NODE_ENV === 'development') { %>
+  <details open>
+    <summary>Error Details (Development Only)</summary>
+    <pre><%= error %></pre>
+    <pre><%= stack %></pre>
+  </details>
+  <% } %>
 </main>
 
 <%- include('../partials/footer') %>
