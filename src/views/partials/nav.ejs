@@ -1,19 +1,20 @@
-<!-- NAVIGATION HERE -->
 <nav class="clearfix">
   <ul id="primaryNav" class="hide">
     <!-- Always Visible Links First -->
     <li class="<%= activePage === 'home' ? 'active' : '' %>"><a href="/">Home</a></li>
-    <li class="<%= activePage === 'about' ? 'active' : '' %>"><a href="/about">About</a></li>
-    <li class="<%= activePage === 'catalog' ? 'active' : '' %>"><a href="/catalog">Course Catalog</a></li>
-    <li class="<%= activePage === 'faculty' ? 'active' : '' %>"><a href="/faculty">Faculty Directory</a></li>
-    <li class="<%= activePage === 'contact' ? 'active' : '' %>"><a href="/contact">Contact Us</a></li>
-    <li class="<%= activePage === 'demo' ? 'active' : '' %>"><a href="/demo">Middleware Demo</a></li>
+    <li class="<%= activePage === 'creation' ? 'active' : '' %>"><a href="/creation">Character Creation</a></li>
+    <li class="<%= activePage === 'resources' ? 'active' : '' %>"><a href="/resources">Discoveries</a></li>
+    <li class="<%= activePage === 'hero' ? 'active' : '' %>"><a href="/hero">Explorers</a></li>
+    <li class="<%= activePage === 'npc' ? 'active' : '' %>"><a href="/npc">Profiles</a></li>
+    <li class="<%= activePage === 'map' ? 'active' : '' %>"><a href="/map">Surveys</a></li>
+    <li class="<%= activePage === 'journal' ? 'active' : '' %>"><a href="/journal">Travel Log</a></li>
+    <li class="<%= activePage === 'rules' ? 'active' : '' %>"><a href="/rules">Jungle Law</a></li>
 
     <!-- Only Visible when Logged In -->
     <% if (isLoggedIn) { %>
     <li class="<%= activePage === 'dashboard' ? 'active' : '' %>"><a href="/dashboard">Dashboard</a></li>
-    <li class="<%= activePage === 'register' ? 'active' : '' %>"><a href="/register/list">All Users</a></li>
-    <li class="<%= activePage === 'contact' ? 'active' : '' %>"><a href="/contact/responses">Contact Responses</a></li>
+    <!-- <li class="<%= activePage === 'register' ? 'active' : '' %>"><a href="/register/list">All Users</a></li>
+    <li class="<%= activePage === 'contact' ? 'active' : '' %>"><a href="/contact/responses">Contact Responses</a></li> -->
     <li class="<%= activePage === 'logout' ? 'active' : '' %>"><a href="/logout">Logout</a></li>
     <% } %>
 
