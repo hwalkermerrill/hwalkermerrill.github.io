@@ -1,0 +1,46 @@
+<%- include("../../partials/head") %>
+<%- include("../../partials/header") %>
+<%- include("../../partials/nav") %>
+<main>
+	<h1><%= title %></h1>
+
+	<!-- IF LOGIC: Check if users array exists and has content using: if (users && users.length > 0) -->
+	<% if (users && users.length > 0) { %>
+
+	<div class="users-list"> <% users.forEach(user => { %>
+		<% 
+			// Calculate permissions for this user card
+			// 'user' variable contains the current logged-in user (from session)
+			// 'listUser' is the user from the users array we're currently rendering
+			const currentUser = typeof isLoggedIn !== 'undefined' && isLoggedIn ? user : null;
+			const canEdit = currentUser && (currentUser.id === listUser.id || currentUser.roleName === 'admin');
+			const canDelete = currentUser && currentUser.roleName === 'admin' && currentUser.id !== listUser.id;
+		%>
+		<div class="user-card">
+			<h3><%= listUser.name %></h3>
+			<p><%= listUser.email %></p>
+			<% if (canEdit || canDelete) { %>
+			<div class="user-actions">
+				<% if (canEdit) { %>
+				<a href="/register/<%= listUser.id %>/edit">Edit</a>
+				<% } %>
+				<% if (canDelete) { %>
+				<form method="POST" action="/register/<%= listUser.id %>/delete" style="display: inline;">
+					<button type="submit" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+				</form>
+				<% } %>
+			</div>
+			<% } %>
+		</div>
+		<% }); %>
+	</div>
+
+	<!-- ELSE LOGIC -->
+	<% }); } else { %>
+
+	<div class="users-list">
+		<p class="no-users">No users registered yet.</p>
+	</div>
+	<% } %>
+</main>
+<%- include("../../partials/footer") %>

@@ -1,0 +1,18 @@
+<!-- Source from ejs templates -->
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+<%- include("../partials/nav") %>
+
+<!-- MAIN CONTENT HERE -->
+<main>
+  <h1>How did you... How did you do that?</h1>
+  <h3><%= error ? error : "UNEXPECTED ERROR" %></h3>
+  <p>We don't know how you created this error. Well done, you've outperformed our QA team! Unless this is Bob in QA, in
+    which case, you're still behind the community on this one... Anyway, the steps you made to create this error
+    have been logged with Bob, who will do everything in his power to see this page just like you did. Until he does,
+    and figures out how to make it STOP sending you here, theres nothing left to do except:
+  </p>
+  <p><a href="javascript:history.back()">Go Back</a> or <a href="/">Return to the Homepage</a></p>
+</main>
+
+<%- include('../partials/footer') %>

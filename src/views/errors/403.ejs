@@ -1,0 +1,15 @@
+<!-- Source from ejs templates -->
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+<%- include("../partials/nav") %>
+
+<!-- MAIN CONTENT HERE -->
+<main>
+  <h1>Error 4o3: You Are Not Authorized to Access This Page</h1>
+  <h3><%= error ? error : "FORBIDDEN" %></h3>
+  <p>You do not have permission to access this page. Please contact an administrator if you believe this is an error.
+  </p>
+  <p><a href="/">Return to the Homepage</a></p>
+</main>
+
+<%- include('../partials/footer') %>

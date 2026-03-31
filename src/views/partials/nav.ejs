@@ -1,0 +1,43 @@
+<!-- NAVIGATION HERE -->
+<nav class="clearfix">
+  <ul id="primaryNav" class="hide">
+    <!-- Always Visible Links First -->
+    <li class="<%= activePage === 'home' ? 'active' : '' %>"><a href="/">Home</a></li>
+    <li class="<%= activePage === 'about' ? 'active' : '' %>"><a href="/about">About</a></li>
+    <li class="<%= activePage === 'catalog' ? 'active' : '' %>"><a href="/catalog">Course Catalog</a></li>
+    <li class="<%= activePage === 'faculty' ? 'active' : '' %>"><a href="/faculty">Faculty Directory</a></li>
+    <li class="<%= activePage === 'contact' ? 'active' : '' %>"><a href="/contact">Contact Us</a></li>
+    <li class="<%= activePage === 'demo' ? 'active' : '' %>"><a href="/demo">Middleware Demo</a></li>
+
+    <!-- Only Visible when Logged In -->
+    <% if (isLoggedIn) { %>
+    <li class="<%= activePage === 'dashboard' ? 'active' : '' %>"><a href="/dashboard">Dashboard</a></li>
+    <li class="<%= activePage === 'register' ? 'active' : '' %>"><a href="/register/list">All Users</a></li>
+    <li class="<%= activePage === 'contact' ? 'active' : '' %>"><a href="/contact/responses">Contact Responses</a></li>
+    <li class="<%= activePage === 'logout' ? 'active' : '' %>"><a href="/logout">Logout</a></li>
+    <% } %>
+
+    <!-- Only Visible when NOT Logged In -->
+    <% if (!isLoggedIn) { %>
+    <li class="<%= activePage === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
+    <li class="<%= activePage === 'register' ? 'active' : '' %>"><a href="/register">Register</a></li>
+    <% } %>
+  </ul>
+</nav>
+
+<!-- FLASH MESSAGING HERE -->
+<% 
+  const messages = flash();
+  const hasMessages = Object.values(messages).some(arr => arr.length > 0);
+%>
+<% if (hasMessages) { %>
+<div class="flash-messages">
+  <% Object.keys(messages).forEach(type => { %>
+  <% messages[type].forEach(message => { %>
+  <div class="flash <%= type %>">
+    <%= message %>
+  </div>
+  <% }); %>
+  <% }); %>
+</div>
+<% } %>

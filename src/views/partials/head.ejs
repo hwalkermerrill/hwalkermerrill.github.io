@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="CSE340 Web Backend Development">
+  <meta name="author" content="Harrison Merrill">
+  <meta name="theme-color" content="#005633">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    <%= title %>
+  </title>
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cabin+Sketch&family=Trade+Winds" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/indiana-jonas" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <%- renderStyles() %>
+
+  <!-- Scripts -->
+  <!-- <script src="/scripts/main.js"></script> -->
+  <%- renderScripts() %>
+
+  <!-- DEV_ENV Live Reload WebSocket-->
+  <% if (NODE_ENV.includes('dev')) { %>
+  <script>
+    // Get the current hostname and port from the browser
+    const host = window.location.hostname;
+    const currentPort = window.location.port;
+
+    // Calculate WebSocket port (current port + 1)
+    const wsPort = currentPort ? (parseInt(currentPort) + 1) : 3001;
+
+    // Create WebSocket connection using dynamic hostname and port
+    const ws = new WebSocket(`ws://${host}:${wsPort}`);
+    ws.onclose = () => {
+      setTimeout(() => location.reload(), 2000);
+    };
+  </script>
+  <% } %>
+</head>

@@ -1,0 +1,23 @@
+<!-- Source from ejs templates -->
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+<%- include("../partials/nav") %>
+
+<!-- MAIN CONTENT HERE -->
+<main>
+  <h1>Error 4o4</h1>
+  <div class="floatswitch" onclick="viewHandler(event)">
+    <section>
+      <figure>
+        <img src="/images/404-detective.png" alt="404 Not Found" class="tooTall">
+      </figure>
+    </section>
+    <section>
+      <h3><%= error ? error : "PAGE NOT FOUND" %></h3>
+      <strong>The page you are looking for could not be found, but don't worry, our best man is on the case!</strong>
+    </section>
+  </div>
+  <p><a href="javascript:history.back()">Go Back</a> or <a href="/">Return to the Homepage</a> to continue browsing.</p>
+</main>
+
+<%- include('../partials/footer') %>

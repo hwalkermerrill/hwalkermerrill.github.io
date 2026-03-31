@@ -1,0 +1,21 @@
+<!-- Source from ejs templates -->
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+<%- include("../partials/nav") %>
+
+<!-- MAIN CONTENT HERE -->
+<main>
+  <h1>Error 5oo: Something Went Wrong</h1>
+  <h3><%= error ? error : "INTERNAL SERVER ERROR" %></h3>
+  <p>We are experiencing technical difficulties. Our team has been notified and is working to fix the issue.</p>
+  <p><a href="/">Return to the Homepage</a></p>
+  <% if (NODE_ENV === 'development') { %>
+  <details open>
+    <summary>Error Details (Development Only)</summary>
+    <pre><%= error %></pre>
+    <pre><%= stack %></pre>
+  </details>
+  <% } %>
+</main>
+
+<%- include('../partials/footer') %>
