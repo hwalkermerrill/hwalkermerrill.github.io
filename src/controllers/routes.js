@@ -17,22 +17,22 @@ router.use("/login", (req, res, next) => {
 	res.addStyle("<link rel=\"stylesheet\" href=\"/css/login.css\">");
 	next();
 });
-router.use("/register", (req, res, next) => {
-	res.addStyle("<link rel=\"stylesheet\" href=\"/css/registration.css\">");
-	next();
-});
-router.use("/catalog", (req, res, next) => {
-	res.addStyle("<link rel=\"stylesheet\" href=\"/css/catalog.css\">");
-	next();
-});
-router.use("/faculty", (req, res, next) => {
-	res.addStyle("<link rel=\"stylesheet\" href=\"/css/faculty.css\">");
-	next();
-});
-router.use("/contact", (req, res, next) => {
-	res.addStyle("<link rel=\"stylesheet\" href=\"/css/contact.css\">");
-	next();
-});
+// router.use("/register", (req, res, next) => {
+// 	res.addStyle("<link rel=\"stylesheet\" href=\"/css/registration.css\">");
+// 	next();
+// });
+// router.use("/catalog", (req, res, next) => {
+// 	res.addStyle("<link rel=\"stylesheet\" href=\"/css/catalog.css\">");
+// 	next();
+// });
+// router.use("/faculty", (req, res, next) => {
+// 	res.addStyle("<link rel=\"stylesheet\" href=\"/css/faculty.css\">");
+// 	next();
+// });
+// router.use("/contact", (req, res, next) => {
+// 	res.addStyle("<link rel=\"stylesheet\" href=\"/css/contact.css\">");
+// 	next();
+// });
 
 // Routes.get
 router.get("/", homePage);
