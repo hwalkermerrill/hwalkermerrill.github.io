@@ -43,6 +43,9 @@ router.get("/npcs", npcPage);
 router.get("/maps", mapPage);
 router.get("/journal", journalPage);
 router.get("/rules", rulesPage);
+router.get("/login", showLoginForm);
+router.get("/logout", processLogout);
+router.get("/register", showRegistrationForm);
 
 // Routes.get that requireLogin
 // router.get("/contact/responses", requireLogin, showContactResponses);
