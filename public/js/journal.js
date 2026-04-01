@@ -5,7 +5,7 @@ const sessionLogs = [
 		id: 1,
 		book: "book1",
 		title: "Chapter 01 - Castaway",
-		img: "/serpents/images/hero-souls-for-smugglers-shiv.webp",
+		img: "/images/hero/hero-souls-for-smugglers-shiv.webp",
 		alt: "Castaway on Smuggler's Shiv",
 		isTall: false,
 		paragraphs: [
@@ -20,7 +20,7 @@ const sessionLogs = [
 		id: 2,
 		book: "book1",
 		title: "Chapter 02 - The Wreck of the <i>Jenivere</i>",
-		img: "/serpents/images/hero-dimorphodon-nest.webp",
+		img: "/images/hero/hero-dimorphodon-nest.webp",
 		alt: "Raiding a Dimorphodon's Nest",
 		isTall: false,
 		paragraphs: [
@@ -35,7 +35,7 @@ const sessionLogs = [
 		id: 3,
 		book: "book1",
 		title: "Chapter 03 - Getting to Know Each Other",
-		img: "/serpents/images/loot-exsanguinated-goat.webp",
+		img: "/images/loot/loot-exsanguinated-goat.webp",
 		alt: "A Goat Dropped in the Fire",
 		isTall: false,
 		paragraphs: [
@@ -48,7 +48,7 @@ const sessionLogs = [
 		id: 4,
 		book: "book1",
 		title: "Chapter 04 - A Ghost Captain and a Typhoon",
-		img: "/serpents/images/monster-captain-kinkarion.webp",
+		img: "/images/monsters/monster-captain-kinkarion.webp",
 		alt: "Ghost of Captain Kinkarion",
 		isTall: true,
 		paragraphs: [
@@ -62,7 +62,7 @@ const sessionLogs = [
 		id: 5,
 		book: "book1",
 		title: "Chapter 05 - Poor Pezock",
-		img: "/serpents/images/place-pezocks-crab.webp",
+		img: "/images/map/place-pezocks-crab.webp",
 		alt: "Pezock's Castaway Crab Home",
 		isTall: false,
 		paragraphs: [
@@ -77,7 +77,7 @@ const sessionLogs = [
 		id: 6,
 		book: "book1",
 		title: "Chapter 06 - The Money Pit",
-		img: "/serpents/images/monster-festrog.webp",
+		img: "/images/monsters/monster-festrog.webp",
 		alt: "Undead Amphibian Lacedon",
 		isTall: true,
 		paragraphs: [
@@ -91,7 +91,7 @@ const sessionLogs = [
 		id: 7,
 		book: "book1",
 		title: "Chapter 07 - The Silent Gray Island",
-		img: "/serpents/images/sketch-gray-island-fungus.webp",
+		img: "/images/map/sketch-gray-island-fungus.webp",
 		alt: "Sketch of the Gray Island Fungus",
 		isTall: false,
 		paragraphs: [
@@ -108,7 +108,7 @@ const sessionLogs = [
 		id: 8,
 		book: "book1",
 		title: "Chapter 08 - The Red Mountain Looms",
-		img: "/serpents/images/monster-red-mountain-devil.webp",
+		img: "/images/monster/monster-red-mountain-devil.webp",
 		alt: "The Devil of Red Mountain",
 		isTall: true,
 		paragraphs: [
@@ -125,7 +125,7 @@ const sessionLogs = [
 		id: 9,
 		book: "book1",
 		title: "Chapter 09 - Charming Cannibals",
-		img: "/serpents/images/monster-witch-malikadna.webp",
+		img: "/images/monsters/monster-witch-malikadna.webp",
 		alt: "The Cannibal-Witch Malikadna",
 		isTall: true,
 		paragraphs: [
@@ -136,7 +136,7 @@ const sessionLogs = [
 		id: 10,
 		book: "book1",
 		title: "Chapter 10 - Shiv'ers and Snakes",
-		img: "/serpents/images/hero-temple-zura.webp",
+		img: "/images/hero/hero-temple-zura.webp",
 		alt: "Pendulum and Pit Traps of the Temple of Zura",
 		isTall: false,
 		paragraphs: [
@@ -147,7 +147,7 @@ const sessionLogs = [
 		id: 11,
 		book: "book2",
 		title: "Chapter 11 - Picking Sides and Parting Ways",
-		img: "/serpents/images/hero-eleder.webp",
+		img: "/images/hero/hero-eleder.webp",
 		alt: "The City of Eleder",
 		isTall: false,
 		paragraphs: [
@@ -158,7 +158,7 @@ const sessionLogs = [
 		id: 12,
 		book: "book2",
 		title: "Chapter 12 - A Riot of Surfs and Slaves",
-		img: "/serpents/images/npc-umagro.webp",
+		img: "/images/npc/npc-umagro.webp",
 		alt: "Freeman Brotherhood Radical - Umargo",
 		isTall: true,
 		paragraphs: [
@@ -169,7 +169,7 @@ const sessionLogs = [
 		id: 13,
 		book: "book2",
 		title: "Chapter 13 - A Storm-Wrought Spirit Journey",
-		img: "/serpents/images/monster-kelpie.webp",
+		img: "/images/monsters/monster-kelpie.webp",
 		alt: "A Protective Kelpie",
 		isTall: true,
 		paragraphs: [
@@ -180,7 +180,7 @@ const sessionLogs = [
 		id: 14,
 		book: "book2",
 		title: "Chapter 14 - Starting the Race in Last Place",
-		img: "/serpents/images/hero-cheliax-v-pirates.webp",
+		img: "/images/hero/hero-cheliax-v-pirates.webp",
 		alt: "Red Mantis and Rivermen Sabotaging Each-Others' Ships",
 		isTall: false,
 		paragraphs: [
@@ -191,7 +191,7 @@ const sessionLogs = [
 		id: 15,
 		book: "book2",
 		title: "Chapter 15 - Fzumi Salt Mines",
-		img: "/serpents/images/monster-blue-warrior.webp",
+		img: "/images/monsters/monster-blue-warrior.webp",
 		alt: "The Blue Warrior",
 		isTall: true,
 		paragraphs: [
@@ -202,7 +202,7 @@ const sessionLogs = [
 		id: 16,
 		book: "book2",
 		title: "Chapter 16 - A Ranch's Night-mare",
-		img: "/serpents/images/monster-chemosit.webp",
+		img: "/images/monsters/monster-chemosit.webp",
 		alt: "Chemosit Night Terror",
 		isTall: true,
 		paragraphs: [
@@ -213,7 +213,7 @@ const sessionLogs = [
 		id: 17,
 		book: "book2",
 		title: "Chapter 17 - Trouble on the Road",
-		img: "/serpents/images/hero-ankheg-attack.webp",
+		img: "/images/hero/hero-ankheg-attack.webp",
 		alt: "*",
 		isTall: false,
 		paragraphs: [
@@ -224,7 +224,7 @@ const sessionLogs = [
 		id: 18,
 		book: "book2",
 		title: "Chapter 18 - On Sharrowsmith's Trail",
-		img: "/serpents/images/npc-gcs-miner.webp",
+		img: "/images/npc/npc-gcs-miner.webp",
 		alt: "A G.C.S. Miner",
 		isTall: true,
 		paragraphs: [
@@ -235,7 +235,7 @@ const sessionLogs = [
 		id: 19,
 		book: "book2",
 		title: "Chapter 19 - A Song that Grippli's the Heart",
-		img: "/serpents/images/hero-mwangi-t-rex.webp",
+		img: "/images/hero/hero-mwangi-t-rex.webp",
 		alt: "Fleeing an Angry T-Rex",
 		isTall: false,
 		paragraphs: [
@@ -246,7 +246,7 @@ const sessionLogs = [
 		id: 20,
 		book: "book2",
 		title: "Chapter 20 - The Ruins of Ashkurnhall",
-		img: "/serpents/images/monster-kobold-cultists.webp",
+		img: "/images/monsters/monster-kobold-cultists.webp",
 		alt: "Kobold Cultist",
 		isTall: true,
 		paragraphs: [
@@ -257,7 +257,7 @@ const sessionLogs = [
 		id: 21,
 		book: "book2",
 		title: "Chapter 21 - A Golden Guardian and a Bronze Moon",
-		img: "/serpents/images/monster-golden-guardian.webp",
+		img: "/images/monsters/monster-golden-guardian.webp",
 		alt: "A Golden Guardian",
 		isTall: true,
 		paragraphs: [
@@ -268,7 +268,7 @@ const sessionLogs = [
 		id: 22,
 		book: "book2",
 		title: "Chapter 22 - A Jungle Cruise",
-		img: "/serpents/images/monster-needle-tooth-piranhas.webp",
+		img: "/images/monsters/monster-needle-tooth-piranhas.webp",
 		alt: "Needle-toothed Piranhas",
 		isTall: true,
 		paragraphs: [
@@ -279,7 +279,7 @@ const sessionLogs = [
 		id: 23,
 		book: "book2",
 		title: "Chapter 23 - Welcome to the Jungle",
-		img: "/serpents/images/hero-mwangi-campaigns.webp",
+		img: "/images/hero/hero-mwangi-campaigns.webp",
 		alt: "Fleeing Hostile Natives on a River Boat",
 		isTall: false,
 		paragraphs: [
@@ -290,7 +290,7 @@ const sessionLogs = [
 		id: 24,
 		book: "book2",
 		title: "Chapter 24 - Being Head-hunted",
-		img: "/serpents/images/hero-headhunter-ambush.webp",
+		img: "/images/hero/hero-headhunter-ambush.webp",
 		alt: "Ambushed (not really) by Headhunters",
 		isTall: false,
 		paragraphs: [
@@ -305,7 +305,7 @@ const sessionLogs = [
 		id: #,
 		book: "book2",
 		title: "Chapter # - ",
-		img: "/serpents/images/placeholder.webp",
+		img: "/images/core/placeholder.webp",
 		alt: "*",
 		isTall: false,
 		paragraphs: [
@@ -314,7 +314,7 @@ const sessionLogs = [
 	},
 */
 
-function populateJournal() {
+function populateJournal() { //eslint-disable-line no-unused-vars
 	// This .js writes the articles to the page, with div's determined by bookID
 	const displayNone = "display: none;";
 
@@ -324,12 +324,12 @@ function populateJournal() {
 	sessionLogs.forEach(session => {
 		const bookContainer = document.querySelector(`#${session.book}`);
 
-		const sessionElement = document.createElement('ul');
-		sessionElement.classList.add('toggleLiVis');
-		sessionElement.style.listStyleType = 'none';
+		const sessionElement = document.createElement("ul");
+		sessionElement.classList.add("toggleLiVis");
+		sessionElement.style.listStyleType = "none";
 
 		// This constructs the paragraphs for each session
-		let paragraphsHTML = '';
+		let paragraphsHTML = "";
 		session.paragraphs.forEach(paragraph => {
 			paragraphsHTML += `<li style="${displayNone}">${paragraph}</li>`;
 		});
@@ -348,7 +348,7 @@ function populateJournal() {
     <li style="${displayNone}">
       <picture>
         <source srcset="${session.img}" type="image/webp">
-        <img class="pointer ${imgClass}" src="/serpents/images/unknown.png" alt="${session.alt}" loading="lazy">
+        <img class="pointer ${imgClass}" src="/images/core/unknown.png" alt="${session.alt}" loading="lazy">
       </picture>
     </li>
     ${paragraphsHTML}
