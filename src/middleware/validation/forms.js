@@ -9,18 +9,18 @@ const registrationValidation = [
     .withMessage("Name must be at least 2 characters and no more than 100 characters")
     .matches(/^[a-zA-Z\s'-]+$/)
     .withMessage("Name can only contain letters, spaces, hyphens, and apostrophes'"),
-  body("email")
+  body("username")
     .trim()
-    .isEmail()
-    .normalizeEmail()
-    .withMessage("Must be a valid email address")
-    .isLength({ max: 255 })
-    .withMessage("Email address is too long"),
-  body("emailConfirm")
+    .normalize()
+    .isLength({ min: 2, max: 100 })
+    .withMessage("Username must be at least 2 characters and no more than 100 characters")
+    .matches(/^[a-zA-Z0-9_]+$/)
+    .withMessage("Username can only contain letters, numbers, and underscores"),
+  body("usernameConfirm")
     .trim()
-    .normalizeEmail()
-    .custom((value, { req }) => value === req.body.email)
-    .withMessage("Email addresses must match"),
+    .normalize()
+    .custom((value, { req }) => value === req.body.username)
+    .withMessage("Usernames must match"),
   body("password")
     .trim()
     .isLength({ min: 8 })
@@ -42,13 +42,13 @@ const registrationValidation = [
 ];
 
 const loginValidation = [
-  body("email")
+  body("username")
     .trim()
-    .isEmail()
-    .withMessage("Please provide a valid email address")
-    .isLength({ max: 255 })
-    .withMessage("Email address is too long")
-    .normalizeEmail(),
+    .normalize()
+    .isLength({ min: 2, max: 100 })
+    .withMessage("Username must be at least 2 characters and no more than 100 characters")
+    .matches(/^[a-zA-Z0-9_]+$/)
+    .withMessage("Username can only contain letters, numbers, and underscores"),
   body("password")
     .trim()
     .isLength({ min: 8 })
@@ -64,13 +64,13 @@ const updateAccountValidation = [
     .withMessage("Name must be between 2 and 100 characters")
     .matches(/^[a-zA-Z\s'-]+$/)
     .withMessage("Name can only contain letters, spaces, hyphens, and apostrophes"),
-  body("email")
+  body("username")
     .trim()
-    .isEmail()
-    .normalizeEmail()
-    .withMessage("Must be a valid email address")
-    .isLength({ max: 255 })
-    .withMessage("Email address is too long")
+    .normalize()
+    .isLength({ min: 2, max: 100 })
+    .withMessage("Username must be at least 2 characters and no more than 100 characters")
+    .matches(/^[a-zA-Z0-9_]+$/)
+    .withMessage("Username can only contain letters, numbers, and underscores")
 ];
 
 const contactValidation = [
