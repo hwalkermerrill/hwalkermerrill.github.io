@@ -48,7 +48,7 @@ const sessionLogs = [
 		id: 4,
 		book: "book1",
 		title: "Chapter 04 - A Ghost Captain and a Typhoon",
-		img: "/images/monsters/monster-captain-kinkarion.webp",
+		img: "/images/monster/monster-captain-kinkarion.webp",
 		alt: "Ghost of Captain Kinkarion",
 		isTall: true,
 		paragraphs: [
@@ -77,7 +77,7 @@ const sessionLogs = [
 		id: 6,
 		book: "book1",
 		title: "Chapter 06 - The Money Pit",
-		img: "/images/monsters/monster-festrog.webp",
+		img: "/images/monster/monster-festrog.webp",
 		alt: "Undead Amphibian Lacedon",
 		isTall: true,
 		paragraphs: [
@@ -125,7 +125,7 @@ const sessionLogs = [
 		id: 9,
 		book: "book1",
 		title: "Chapter 09 - Charming Cannibals",
-		img: "/images/monsters/monster-witch-malikadna.webp",
+		img: "/images/monster/monster-witch-malikadna.webp",
 		alt: "The Cannibal-Witch Malikadna",
 		isTall: true,
 		paragraphs: [
@@ -169,7 +169,7 @@ const sessionLogs = [
 		id: 13,
 		book: "book2",
 		title: "Chapter 13 - A Storm-Wrought Spirit Journey",
-		img: "/images/monsters/monster-kelpie.webp",
+		img: "/images/monster/monster-kelpie.webp",
 		alt: "A Protective Kelpie",
 		isTall: true,
 		paragraphs: [
@@ -191,7 +191,7 @@ const sessionLogs = [
 		id: 15,
 		book: "book2",
 		title: "Chapter 15 - Fzumi Salt Mines",
-		img: "/images/monsters/monster-blue-warrior.webp",
+		img: "/images/monster/monster-blue-warrior.webp",
 		alt: "The Blue Warrior",
 		isTall: true,
 		paragraphs: [
@@ -202,7 +202,7 @@ const sessionLogs = [
 		id: 16,
 		book: "book2",
 		title: "Chapter 16 - A Ranch's Night-mare",
-		img: "/images/monsters/monster-chemosit.webp",
+		img: "/images/monster/monster-chemosit.webp",
 		alt: "Chemosit Night Terror",
 		isTall: true,
 		paragraphs: [
@@ -246,7 +246,7 @@ const sessionLogs = [
 		id: 20,
 		book: "book2",
 		title: "Chapter 20 - The Ruins of Ashkurnhall",
-		img: "/images/monsters/monster-kobold-cultists.webp",
+		img: "/images/monster/monster-kobold-cultists.webp",
 		alt: "Kobold Cultist",
 		isTall: true,
 		paragraphs: [
@@ -257,7 +257,7 @@ const sessionLogs = [
 		id: 21,
 		book: "book2",
 		title: "Chapter 21 - A Golden Guardian and a Bronze Moon",
-		img: "/images/monsters/monster-golden-guardian.webp",
+		img: "/images/monster/monster-golden-guardian.webp",
 		alt: "A Golden Guardian",
 		isTall: true,
 		paragraphs: [
@@ -268,7 +268,7 @@ const sessionLogs = [
 		id: 22,
 		book: "book2",
 		title: "Chapter 22 - A Jungle Cruise",
-		img: "/images/monsters/monster-needle-tooth-piranhas.webp",
+		img: "/images/monster/monster-needle-tooth-piranhas.webp",
 		alt: "Needle-toothed Piranhas",
 		isTall: true,
 		paragraphs: [
