@@ -1,13 +1,13 @@
 // Imports (Core-Middleware-Routes)
 import { Router } from "express";
-import { addDemoHeaders } from "../middleware/demo/headers.js";
+// import { addDemoHeaders } from "../middleware/demo/headers.js";
 import { requireLogin } from "../middleware/auth.js";
 import { registrationValidation, loginValidation, updateAccountValidation, contactValidation } from "../middleware/validation/forms.js";
-import { catalogPage, courseDetailPage, randomCoursePage } from "./catalog/catalog.js";
-import { facultyListPage, facultyDetailPage } from "./faculty/faculty.js";
-import { homePage, aboutPage, demoPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError } from "./index.js";
+// import { catalogPage, courseDetailPage, randomCoursePage } from "./catalog/catalog.js";
+// import { facultyListPage, facultyDetailPage } from "./faculty/faculty.js";
+import { homePage, creationPage, resourcesPage, heroPage, npcPage, mapPage, journalPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError } from "./index.js";
 import { processLogin, processLogout, showLoginForm, showDashboard } from "./forms/login.js";
-import { showContactForm, handleContactSubmission, showContactResponses } from "./forms/contact.js";
+// import { showContactForm, handleContactSubmission, showContactResponses } from "./forms/contact.js";
 import { showRegistrationForm, processRegistration, showAllUsers, showEditAccountForm, processEditAccount, processDeleteAccount } from "./forms/registration.js";
 
 // Constants
@@ -37,23 +37,19 @@ router.use("/contact", (req, res, next) => {
 
 // Routes.get
 router.get("/", homePage);
-router.get("/about", aboutPage);
-router.get("/catalog", catalogPage);
-router.get("/catalog/random", randomCoursePage);
-router.get("/catalog/:slugId", courseDetailPage);
-router.get("/contact", showContactForm);
-router.get("/demo", addDemoHeaders, demoPage);
-router.get("/faculty", facultyListPage);
-router.get("/faculty/:facultySlug", facultyDetailPage);
-router.get("/login", showLoginForm);
-router.get("/logout", processLogout);
-router.get("/register", showRegistrationForm);
+router.get("/creation", creationPage);
+router.get("/resources", resourcesPage);
+router.get("/hero", heroPage);
+router.get("/npc", npcPage);
+router.get("/map", mapPage);
+router.get("/journal", journalPage);
+router.get("/rules", rulesPage);
 
 // Routes.get that requireLogin
-router.get("/contact/responses", requireLogin, showContactResponses);
+// router.get("/contact/responses", requireLogin, showContactResponses);
 router.get("/dashboard", requireLogin, showDashboard);
-router.get("/register/list", requireLogin, showAllUsers);
-router.get("/register/:id/edit", requireLogin, showEditAccountForm);
+// router.get("/register/list", requireLogin, showAllUsers);
+// router.get("/register/:id/edit", requireLogin, showEditAccountForm);
 
 // Development Only Routes
 if (process.env.NODE_ENV === "development") {
@@ -64,7 +60,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Routes.post
-router.post("/contact", contactValidation, handleContactSubmission);
+// router.post("/contact", contactValidation, handleContactSubmission);
 router.post("/login", loginValidation, processLogin);
 router.post("/register", registrationValidation, processRegistration);
 

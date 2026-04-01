@@ -3,13 +3,33 @@ const homePage = (req, res) => {
   res.render("home", { title: "Welcome Home" });
 };
 
-const aboutPage = (req, res) => {
-  res.render("about", { title: "About Me" });
+const creationPage = (req, res) => {
+  res.render("creation", { title: "Character Creation - Step by Step Guide" });
 };
 
-const demoPage = (req, res) => {
-  res.render("demo", { title: "Middleware Demo Page" });
+const resourcesPage = (req, res) => {
+  res.render("resources", { title: "Resources, Artifacts, Relics, Magical Items, and Favors" });
 };
+
+const heroPage = (req, res) => {
+  res.render("hero", { title: "Player Explorers and Companions" });
+}
+
+const npcPage = (req, res) => {
+  res.render("npc", { title: "Notable NPC and Faction Profiles" });
+}
+
+const mapPage = (req, res) => {
+  res.render("map", { title: "Surveys and Maps" });
+}
+
+const journalPage = (req, res) => {
+  res.render("journal", { title: "Travel Log and Expedition Journals" });
+}
+
+const rulesPage = (req, res) => {
+  res.render("rules", { title: "House Rules, Rulings, Explanations, and Guidelines" });
+}
 
 // Development test routes
 const testErrorPage = (req, res, next) => {
@@ -36,4 +56,4 @@ const testForbiddenError = (req, res, next) => {
   next(err);
 }
 
-export { homePage, aboutPage, demoPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };
+export { homePage, creationPage, resourcesPage, heroPage, npcPage, mapPage, journalPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };
