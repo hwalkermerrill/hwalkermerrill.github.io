@@ -1,6 +1,5 @@
 // Imports (Core-Middleware-Routes)
 import { Router } from "express";
-// import { addDemoHeaders } from "../middleware/demo/headers.js";
 import { requireLogin } from "../middleware/auth.js";
 import { registrationValidation, loginValidation, updateAccountValidation, contactValidation } from "../middleware/validation/forms.js";
 // import { catalogPage, courseDetailPage, randomCoursePage } from "./catalog/catalog.js";
