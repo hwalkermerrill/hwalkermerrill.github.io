@@ -4,7 +4,7 @@
 
 /* ----- Root Data ----- */
 :root {
-	--frame-border: url("/serpents/images/border-frame.png") 30 round;
+	--frame-border: url("/images/core/border-frame.png") 30 round;
 	--primary-color: #12674a;
 	--secondary-color: #dc8837;
 	--text-light: #fdefcd;
@@ -56,7 +56,7 @@ body {
 	min-width: 15rem;
 	margin: 0;
 	/*----- Background Img -----*/
-	background-image: url("/serpents/images/background-cover.jpg");
+	background-image: url("/images/core/background-cover.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -540,7 +540,7 @@ img {
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background: url("/serpents/images/logo-target.png") center center no-repeat;
+		background: url("/images/core/logo-target.png") center center no-repeat;
 		/* background-repeat: no-repeat; */
 		/* background-position: center; */
 		opacity: 0.5;
