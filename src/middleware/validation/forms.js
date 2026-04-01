@@ -11,14 +11,12 @@ const registrationValidation = [
     .withMessage("Name can only contain letters, spaces, hyphens, and apostrophes'"),
   body("username")
     .trim()
-    .normalize()
     .isLength({ min: 2, max: 100 })
     .withMessage("Username must be at least 2 characters and no more than 100 characters")
     .matches(/^[a-zA-Z0-9_]+$/)
     .withMessage("Username can only contain letters, numbers, and underscores"),
   body("usernameConfirm")
     .trim()
-    .normalize()
     .custom((value, { req }) => value === req.body.username)
     .withMessage("Usernames must match"),
   body("password")
@@ -44,7 +42,6 @@ const registrationValidation = [
 const loginValidation = [
   body("username")
     .trim()
-    .normalize()
     .isLength({ min: 2, max: 100 })
     .withMessage("Username must be at least 2 characters and no more than 100 characters")
     .matches(/^[a-zA-Z0-9_]+$/)
@@ -66,7 +63,6 @@ const updateAccountValidation = [
     .withMessage("Name can only contain letters, spaces, hyphens, and apostrophes"),
   body("username")
     .trim()
-    .normalize()
     .isLength({ min: 2, max: 100 })
     .withMessage("Username must be at least 2 characters and no more than 100 characters")
     .matches(/^[a-zA-Z0-9_]+$/)
