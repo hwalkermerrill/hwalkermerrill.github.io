@@ -2,14 +2,14 @@
 <main>
   <h1><%= title %></h1>
   <p>
-    Enter your email and password to access your account. Do not have an account? <a href="/register">Register here</a>.
+    Enter your user name and password to access your account. Don't have an account? Contact the GM for access.
   </p>
 
   <form method="POST" action="/login" class="login-form">
-    <!-- Email field -->
+    <!-- User name field -->
     <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required placeholder="Enter your email address">
+      <label for="username">User Name</label>
+      <input type="text" id="username" name="username" required placeholder="Enter your user name">
     </div>
 
     <!-- Password field -->

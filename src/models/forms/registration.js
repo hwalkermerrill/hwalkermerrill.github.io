@@ -2,16 +2,16 @@
 import db from "../db.js";
 
 /**
- * Checks if an email address is already registered in the database.
+ * Checks if a user name is already registered in the database.
  * 
- * @param {string} email - The email address to check
- * @returns {Promise<boolean>} True if email exists, false otherwise
+ * @param {string} username - The user name to check
+ * @returns {Promise<boolean>} True if username exists, false otherwise
  */
-const emailExists = async (email) => {
+const usernameExists = async (username) => {
   const query = `
-      SELECT EXISTS(SELECT 1 FROM users WHERE email = $1) as exists
+      SELECT EXISTS(SELECT 1 FROM users WHERE username = $1) as exists
     `;
-  const result = await db.query(query, [email]);
+  const result = await db.query(query, [username]);
   return result.rows[0].exists;
 };
 
@@ -19,17 +19,17 @@ const emailExists = async (email) => {
  * Saves a new user to the database with a hashed password.
  * 
  * @param {string} name - The user's full name
- * @param {string} email - The user's email address
+ * @param {string} username - The user's username
  * @param {string} hashedPassword - The bcrypt-hashed password
  * @returns {Promise<Object>} The newly created user record (without password)
  */
-const saveUser = async (name, email, hashedPassword) => {
+const saveUser = async (name, username, hashedPassword) => {
   const query = `
-      INSERT INTO users (name, email, password)
+      INSERT INTO users (name, username, password)
       VALUES ($1, $2, $3)
-      RETURNING id, name, email, created_at
+      RETURNING id, name, username, created_at
     `;
-  const result = await db.query(query, [name, email, hashedPassword]);
+  const result = await db.query(query, [name, username, hashedPassword]);
   return result.rows[0];
 };
 
@@ -40,7 +40,7 @@ const saveUser = async (name, email, hashedPassword) => {
  */
 const getAllUsers = async () => {
   const query = `
-      SELECT id, name, email, created_at
+      SELECT id, name, username, created_at
       FROM users
       ORDER BY created_at DESC
     `;
@@ -68,16 +68,16 @@ const getUserById = async (id) => {
 };
 
 /**
- * Update a user's name and email
+ * Update a user's name and username
  */
-const updateUser = async (id, name, email) => {
+const updateUser = async (id, name, username) => {
   const query = `
       UPDATE users 
-      SET name = $1, email = $2, updated_at = CURRENT_TIMESTAMP
+      SET name = $1, username = $2, updated_at = CURRENT_TIMESTAMP
       WHERE id = $3
-      RETURNING id, name, email, updated_at
+      RETURNING id, name, username, updated_at
     `;
-  const result = await db.query(query, [name, email, id]);
+  const result = await db.query(query, [name, username, id]);
   return result.rows[0] || null;
 };
 
@@ -90,4 +90,4 @@ const deleteUser = async (id) => {
   return result.rowCount > 0;
 };
 
-export { emailExists, saveUser, getAllUsers, getUserById, updateUser, deleteUser };
+export { usernameExists, saveUser, getAllUsers, getUserById, updateUser, deleteUser };

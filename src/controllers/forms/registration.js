@@ -1,7 +1,7 @@
 // Imports (Core-Middleware-Models)
 import bcrypt from "bcrypt";
 import { validationResult } from "express-validator";
-import { emailExists, saveUser, getAllUsers, getUserById, updateUser, deleteUser } from "../../models/forms/registration.js";
+import { usernameExists, saveUser, getAllUsers, getUserById, updateUser, deleteUser } from "../../models/forms/registration.js";
 
 // Controller Functions
 const showEditAccountForm = async (req, res) => {
@@ -43,7 +43,7 @@ const processEditAccount = async (req, res) => {
 
 	const targetUserId = parseInt(req.params.id);
 	const currentUser = req.session.user;
-	const { name, email } = req.body;
+	const { name, username } = req.body;
 
 	try {
 		const targetUser = await getUserById(targetUserId);
@@ -61,20 +61,20 @@ const processEditAccount = async (req, res) => {
 			return res.redirect("/register/list");
 		}
 
-		// Check if new email already exists (and belongs to different user)
-		const emailTaken = await emailExists(email);
-		if (emailTaken && targetUser.email !== email) {
-			req.flash("error", "An account with this email already exists.");
+		// Check if new username already exists (and belongs to different user)
+		const usernameTaken = await usernameExists(username);
+		if (usernameTaken && targetUser.username !== username) {
+			req.flash("error", "A user with this username already exists.");
 			return res.redirect(`/register/${targetUserId}/edit`);
 		}
 
 		// Update the user
-		await updateUser(targetUserId, name, email);
+		await updateUser(targetUserId, name, username);
 
 		// If user edited their own account, update session
 		if (currentUser.id === targetUserId) {
 			req.session.user.name = name;
-			req.session.user.email = email;
+			req.session.user.username = username;
 		}
 
 		req.flash("success", "Account updated successfully.");
@@ -135,19 +135,19 @@ const processRegistration = async (req, res) => {
 	}
 
 	// Extract validated data from request body
-	const { name, email, password } = req.body;
+	const { name, username, password } = req.body;
 
 	try {
-		if (await emailExists(email)) {
-			// Check if email already exists in database
-			req.flash("warning", `Email ${email} already exists`);
+		if (await usernameExists(username)) {
+			// Check if username already exists in database
+			req.flash("warning", `Username ${username} already exists`);
 			return res.redirect("/register");
 		}
 
 		// SECURITY NOTE: Hash the password before saving to database
 		const hashedPassword = await bcrypt.hash(password, 10);
-		await saveUser(name, email, hashedPassword);
-		req.flash("success", `Successfully registered user: ${name} (${email})`);
+		await saveUser(name, username, hashedPassword);
+		req.flash("success", `Successfully registered user: ${name} (${username})`);
 
 		return res.redirect("/login");
 

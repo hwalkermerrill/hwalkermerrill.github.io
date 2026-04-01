@@ -1,6 +1,6 @@
 // Imports
 import { validationResult } from "express-validator";
-import { findUserByEmail, verifyPassword } from "../../models/forms/login.js";
+import { findUserByUsername, verifyPassword } from "../../models/forms/login.js";
 
 // Controller Functions
 const showLoginForm = (req, res) => {
@@ -22,18 +22,18 @@ const processLogin = async (req, res) => {
   }
 
   // Constants
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 
   try {
-    const user = await findUserByEmail(email);
+    const user = await findUserByUsername(username);
     if (!user) {
-      req.flash("error", "Invalid Email or Password");
+      req.flash("error", "Invalid User Name or Password");
       return res.redirect("/login");
     }
 
     const verified = await verifyPassword(password, user.password);
     if (!verified) {
-      req.flash("error", "Invalid Email or Password");
+      req.flash("error", "Invalid User Name or Password");
       return res.redirect("/login");
     }
 
