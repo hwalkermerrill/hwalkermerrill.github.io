@@ -38,9 +38,9 @@ router.use("/contact", (req, res, next) => {
 router.get("/", homePage);
 router.get("/creation", creationPage);
 router.get("/resources", resourcesPage);
-router.get("/hero", heroPage);
-router.get("/npc", npcPage);
-router.get("/map", mapPage);
+router.get("/heroes", heroPage);
+router.get("/npcs", npcPage);
+router.get("/maps", mapPage);
 router.get("/journal", journalPage);
 router.get("/rules", rulesPage);
 

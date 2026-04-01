@@ -12,15 +12,15 @@ const resourcesPage = (req, res) => {
 };
 
 const heroPage = (req, res) => {
-  res.render("hero", { title: "Player Explorers and Companions" });
+  res.render("heroes", { title: "Player Explorers and Companions" });
 }
 
 const npcPage = (req, res) => {
-  res.render("npc", { title: "Notable NPC and Faction Profiles" });
+  res.render("npcs", { title: "Notable NPC and Faction Profiles" });
 }
 
 const mapPage = (req, res) => {
-  res.render("map", { title: "Surveys and Maps" });
+  res.render("maps", { title: "Surveys and Maps" });
 }
 
 const journalPage = (req, res) => {
