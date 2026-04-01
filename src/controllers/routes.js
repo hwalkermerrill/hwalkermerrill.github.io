@@ -67,5 +67,6 @@ router.post("/register", registrationValidation, processRegistration);
 // Routes.post that requireLogin
 router.post("/register/:id/edit", requireLogin, updateAccountValidation, processEditAccount);
 router.post("/register/:id/delete", requireLogin, processDeleteAccount);
+router.post("/logout", requireLogin, processLogout);
 
 export default router;
