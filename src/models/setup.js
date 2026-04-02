@@ -13,7 +13,7 @@ const setupDatabase = async () => {
 	let hasData = false;
 	try {
 		const result = await db.query(
-			"SELECT EXISTS (SELECT 1 FROM faculty LIMIT 1) as has_data"
+			"SELECT EXISTS (SELECT 1 FROM pc LIMIT 1) as has_data"
 		);
 		hasData = result.rows[0]?.has_data || false;
 	} catch (error) { // eslint-disable-line no-unused-vars
@@ -25,19 +25,19 @@ const setupDatabase = async () => {
 		return true;
 	}
 
+	// Run structure.sql if it exists to ensure tables are created
+	const structurePath = join(__dirname, "sql", "structure.sql");
+	if (fs.existsSync(structurePath)) {
+		const structureSQL = fs.readFileSync(structurePath, "utf8");
+		await db.query(structureSQL);
+		console.log("Structure database tables initialized");
+	}
+
 	// No faculty found - run full seed
 	console.log("Seeding database...");
 	const seedPath = join(__dirname, "sql", "seed.sql");
 	const seedSQL = fs.readFileSync(seedPath, "utf8");
 	await db.query(seedSQL);
-
-	// Run practice.sql if it exists (for student assignments)
-	const practicePath = join(__dirname, "sql", "practice.sql");
-	if (fs.existsSync(practicePath)) {
-		const practiceSQL = fs.readFileSync(practicePath, "utf8");
-		await db.query(practiceSQL);
-		console.log("Practice database tables initialized");
-	}
 
 	console.log("Database seeded successfully");
 	return true;

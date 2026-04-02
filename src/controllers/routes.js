@@ -13,10 +13,10 @@ import { showRegistrationForm, processRegistration, showAllUsers, showEditAccoun
 const router = Router();
 
 // Router-level CSS Middleware
-router.use("/login", (req, res, next) => {
-	res.addStyle("<link rel=\"stylesheet\" href=\"/css/login.css\">");
-	next();
-});
+// router.use("/login", (req, res, next) => {
+// 	res.addStyle("<link rel=\"stylesheet\" href=\"/css/login.css\">");
+// 	next();
+// });
 // router.use("/register", (req, res, next) => {
 // 	res.addStyle("<link rel=\"stylesheet\" href=\"/css/registration.css\">");
 // 	next();
