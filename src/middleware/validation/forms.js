@@ -9,6 +9,10 @@ const registrationValidation = [
     .withMessage("Name must be at least 2 characters and no more than 100 characters")
     .matches(/^[a-zA-Z\s'-]+$/)
     .withMessage("Name can only contain letters, spaces, hyphens, and apostrophes'"),
+  body("inviteCode")
+    .trim()
+    .equals("GameNight2018-Forever")
+    .withMessage("Invalid invitation code"),
   body("username")
     .trim()
     .isLength({ min: 2, max: 100 })
