@@ -1,5 +1,4 @@
--- Database seed file for student course catalog
--- This file creates tables and inserts all initial data
+-- Database seed file for existing data and initial setup
 
 BEGIN;
 
