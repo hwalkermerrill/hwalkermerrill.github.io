@@ -71,12 +71,25 @@ CREATE TABLE IF NOT EXISTS attitude (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) UNIQUE NOT NULL -- Hostile, Unfriendly, Neutral, Friendly, Helpful, Indifferent
 );
+CREATE TABLE IF NOT EXISTS speed (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) UNIQUE NOT NULL -- Base, Fly, Swim, Climb, Burrow, etc.
+);
 CREATE TABLE IF NOT EXISTS classes (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(50) UNIQUE NOT NULL
+    name VARCHAR(50) UNIQUE NOT NULL,
+    source VARCHAR(50), -- Core, APG, Hybrid, NPC, Prestige, etc.
+    class_type VARCHAR(50) DEFAULT NULL, -- Martial, Skill, Magic, Hybrid(s), Hybrid(m), Hybrid(3), Prestige
+    magic_type VARCHAR(50) DEFAULT NULL, -- Alchemical, Arcane, Divine, Primal, Occult, Null
+    caster_spontaneous BOOLEAN NOT NULL DEFAULT FALSE,
+    has_companion BOOLEAN NOT NULL DEFAULT FALSE,
+    is_recommended BOOLEAN NOT NULL DEFAULT FALSE
 );
 CREATE TABLE IF NOT EXISTS race (
     id SERIAL PRIMARY KEY,
+    limited BOOLEAN NOT NULL DEFAULT TRUE,
+    remaining INTEGER NOT NULL DEFAULT 1,
+    prejudiced BOOLEAN NOT NULL DEFAULT FALSE,
     name VARCHAR(50) UNIQUE NOT NULL
 );
 CREATE TABLE IF NOT EXISTS religions (
@@ -87,10 +100,9 @@ CREATE TABLE IF NOT EXISTS languages (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) UNIQUE NOT NULL
 );
-CREATE TABLE IF NOT EXISTS speed (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(50) UNIQUE NOT NULL -- Base, Fly, Swim, Climb, Burrow, etc.
-);
+-- END GLOBAL TABLES BLOCK
+
+-- START ACHIEVEMENTS AND TITLES TABLES BLOCK
 CREATE TABLE IF NOT EXISTS achievements (
     id SERIAL PRIMARY KEY,
     campaign_id INTEGER
@@ -112,7 +124,7 @@ CREATE TABLE IF NOT EXISTS titles (
     UNIQUE (name, campaign_id),
     session_received INTEGER NOT NULL DEFAULT 1
 );
--- END GLOBAL TABLES BLOCK
+-- END ACHIEVEMENTS AND TITLES TABLES BLOCK
 
 -- START PC TABLES BLOCK 
 -- Table for player characters (PCs), each player may build multiple, but may only have one active at a time.
@@ -131,6 +143,7 @@ CREATE TABLE IF NOT EXISTS pc_main (
     race_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
         REFERENCES race(id)
         ON DELETE RESTRICT,
+    unknown_name VARCHAR(50) DEFAULT 'Unknown',
     name VARCHAR(255) NOT NULL,
     description TEXT,
     race_traits TEXT,
@@ -184,6 +197,7 @@ CREATE TABLE IF NOT EXISTS pc_class (
     class_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
         REFERENCES classes(id)
         ON DELETE RESTRICT,
+    unknown_name VARCHAR(50) DEFAULT 'Unknown',
     level INTEGER NOT NULL DEFAULT 1,
     UNIQUE (pc_id, class_id)
 );
@@ -330,6 +344,7 @@ CREATE TABLE IF NOT EXISTS companion_main (
     race_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
         REFERENCES race(id)
         ON DELETE RESTRICT,
+    unknown_name VARCHAR(50) DEFAULT 'Unknown',
     name VARCHAR(255) NOT NULL,
     description TEXT,
     race_traits TEXT,
@@ -346,6 +361,7 @@ CREATE TABLE IF NOT EXISTS companion_class (
     class_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
         REFERENCES classes(id)
         ON DELETE RESTRICT,
+    unknown_name VARCHAR(50) DEFAULT 'Unknown',
     level INTEGER NOT NULL DEFAULT 1,
     UNIQUE (companion_id, class_id)
 );
@@ -505,6 +521,7 @@ CREATE TABLE IF NOT EXISTS npc_main (
     race_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
         REFERENCES race(id)
         ON DELETE RESTRICT,
+    unknown_name VARCHAR(50) DEFAULT 'Unknown',
     identified BOOLEAN NOT NULL DEFAULT FALSE,
     name VARCHAR(255) NOT NULL,
     description TEXT,
