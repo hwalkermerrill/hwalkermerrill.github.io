@@ -1,20 +1,30 @@
 [sqlfluff]
 dialect = postgres
 large_file_skip_byte_limit = 0
-max_line_length = 120
-
-# Treat warnings as errors (optional, but good for consistency)
-# ignore = parsing
-
-# Use tabs for indentation
+max_line_length = 200
 indent_unit = tab
 tab_space_size = 2
 
-[rule_L003]  # Indentation
-indent_unit = tab
+[sqlfluff:indentation]
+indent_unit = space
 tab_space_size = 2
-indentation_policy = aligned
-allow_implicit_indents = false
+indented_joins = True
+indented_using_on = True
+indented_on_contents = True
+implicit_indents = allow
+
+[sqlfluff:layout:type:values_clause]
+# Force the values to start on a new line if they aren't already
+line_position = alone
+
+[sqlfluff:layout:type:values_clause_row]
+# Specifically target the rows within the VALUES clause
+line_position = alone
+
+[sqlfluff:layout:type:bracketed]
+# This ensures the (1, ...) rows are treated as indented blocks
+line_position = alone
+spacing_before = single 
 
 [rule_L010]
 capitalisation_policy = upper
@@ -22,17 +32,14 @@ capitalisation_policy = upper
 [rule_L014]
 extended_capitalisation_policy = upper
 
-[rule_L029]  # Keywords before FROM/WHERE/etc.
+[rule_L029]
 unquoted_identifiers_policy = consistent
 
-[rule_L034]  # Avoid ambiguous JOINs
+[rule_L034]
 force_enable = true
 
-[rule_L036]  # Ensure indentation of comma-separated lists
+[rule_L036]
 force_enable = true
 
-[rule_L039]  # Consistent SELECT targets
+[rule_L039]
 select_clause_trailing_comma = forbid
-
-[sqlfluff:ignore:prestige_cte]
-match = WITH prestige
