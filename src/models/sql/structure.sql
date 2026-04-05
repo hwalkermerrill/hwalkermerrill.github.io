@@ -26,9 +26,11 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS campaigns (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
+    description TEXT,
+    start_date DATE,
+    end_date DATE DEFAULT NULL,
     active BOOLEAN NOT NULL DEFAULT TRUE,
-    archived BOOLEAN NOT NULL DEFAULT FALSE,
-    description TEXT
+    archived BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 -- General notes for players and GMs, one-to-many as each note is separate but each user may have multiple notes.
@@ -124,14 +126,23 @@ CREATE TABLE IF NOT EXISTS achievements (
 );
 CREATE TABLE IF NOT EXISTS titles (
     id SERIAL PRIMARY KEY,
-    campaign_id INTEGER
-        REFERENCES campaigns(id)
+    rank_id INTEGER
+        REFERENCES title_ranks(id)
         ON DELETE SET NULL,
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    UNIQUE (name, campaign_id),
-    session_received INTEGER NOT NULL DEFAULT 1
+    name VARCHAR(255) UNIQUE NOT NULL,
+    name_feminine VARCHAR(255) DEFAULT NULL,
+    honorific_masculine VARCHAR(255) DEFAULT NULL,
+    honorific_feminine VARCHAR(255) DEFAULT NULL,
+    prefix_masculine VARCHAR(255) DEFAULT NULL,
+    prefix_feminine VARCHAR(255) DEFAULT NULL,
+    description TEXT
 );
+CREATE TABLE IF NOT EXISTS title_ranks (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) UNIQUE NOT NULL, -- 'empire', 'kingdom', 'duchy', etc.
+    sort_order INTEGER NOT NULL       -- 1 = highest, etc.
+);
+
 -- END ACHIEVEMENTS AND TITLES TABLES BLOCK
 
 -- START PC TABLES BLOCK 
@@ -153,6 +164,8 @@ CREATE TABLE IF NOT EXISTS pc_main (
         ON DELETE RESTRICT,
     unknown_name VARCHAR(50) DEFAULT 'Unknown',
     name VARCHAR(255) NOT NULL,
+    is_gendered BOOLEAN NOT NULL DEFAULT TRUE,
+    is_female BOOLEAN NOT NULL DEFAULT FALSE,
     description TEXT,
     race_traits TEXT,
     retired_reason TEXT,
@@ -269,7 +282,9 @@ CREATE TABLE IF NOT EXISTS pc_titles (
     title_id INTEGER NOT NULL
         REFERENCES titles(id)
         ON DELETE RESTRICT,
-    UNIQUE (pc_id, title_id),
+    location VARCHAR(255) DEFAULT NULL,
+    has_location BOOLEAN DEFAULT FALSE,
+    UNIQUE (pc_id, title_id, location),
     received_session INTEGER NOT NULL DEFAULT 1
 );
 
@@ -354,6 +369,8 @@ CREATE TABLE IF NOT EXISTS companion_main (
         ON DELETE RESTRICT,
     unknown_name VARCHAR(50) DEFAULT 'Unknown',
     name VARCHAR(255) NOT NULL,
+    is_gendered BOOLEAN NOT NULL DEFAULT TRUE,
+    is_female BOOLEAN NOT NULL DEFAULT FALSE,
     description TEXT,
     race_traits TEXT,
     death_cause TEXT,
@@ -456,7 +473,9 @@ CREATE TABLE IF NOT EXISTS companion_titles (
     title_id INTEGER NOT NULL
         REFERENCES titles(id)
         ON DELETE RESTRICT,
-    UNIQUE (companion_id, title_id),
+    location VARCHAR(255) DEFAULT NULL,
+    has_location BOOLEAN DEFAULT FALSE,
+    UNIQUE (companion_id, title_id, location),
     received_session INTEGER NOT NULL DEFAULT 1
 );
 CREATE TABLE IF NOT EXISTS companion_scars (
@@ -532,6 +551,8 @@ CREATE TABLE IF NOT EXISTS npc_main (
     unknown_name VARCHAR(50) DEFAULT 'Unknown',
     identified BOOLEAN NOT NULL DEFAULT FALSE,
     name VARCHAR(255) NOT NULL,
+    is_gendered BOOLEAN NOT NULL DEFAULT TRUE,
+    is_female BOOLEAN NOT NULL DEFAULT FALSE,
     description TEXT,
     secrets TEXT,
     pinned BOOLEAN NOT NULL DEFAULT FALSE,
@@ -562,7 +583,9 @@ CREATE TABLE IF NOT EXISTS npc_titles (
     title_id INTEGER NOT NULL
         REFERENCES titles(id)
         ON DELETE RESTRICT,
-    UNIQUE (npc_id, title_id),
+    location VARCHAR(255) DEFAULT NULL,
+    has_location BOOLEAN DEFAULT FALSE,
+    UNIQUE (npc_id, title_id, location),
     received_session INTEGER NOT NULL DEFAULT 1
 );
 -- NPC's have changing attitudes towards the PC's which can be tracked here. Each NPC can only have one attitude at a time.
@@ -1040,13 +1063,17 @@ CREATE INDEX idx_companion_achievements_companion_id ON companion_achievements(c
 CREATE INDEX idx_companion_achievements_achievement_id ON companion_achievements(achievement_id);
 
 -- INDEXES FOR TITLES
-CREATE INDEX idx_titles_campaign_id ON titles(campaign_id);
+CREATE INDEX idx_titles_rank_id ON titles(rank_id);
 CREATE INDEX idx_pc_titles_pc_id ON pc_titles(pc_id);
 CREATE INDEX idx_pc_titles_title_id ON pc_titles(title_id);
 CREATE INDEX idx_companion_titles_companion_id ON companion_titles(companion_id);
 CREATE INDEX idx_companion_titles_title_id ON companion_titles(title_id);
 CREATE INDEX idx_npc_titles_npc_id ON npc_titles(npc_id);
 CREATE INDEX idx_npc_titles_title_id ON npc_titles(title_id);
+CREATE INDEX idx_pc_titles_location ON pc_titles(location);
+CREATE INDEX idx_npc_titles_location ON npc_titles(location);
+CREATE INDEX idx_companion_titles_location ON companion_titles(location);
+
 
 -- INDEXES FOR SOCIAL
 CREATE INDEX idx_pc_social_pc_id ON pc_social(pc_id);

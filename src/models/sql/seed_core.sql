@@ -2,651 +2,875 @@
 
 BEGIN;
 
--- SEED GLOBAL LOOKUP TABLES
--- Seed active_status (idempotent - safe to run multiple times)
+-- START GLOBAL LOOKUP TABLES SEED BLOCK
+-- Seed Active_Status (idempotent - safe to run multiple times)
 INSERT INTO active_status (id, name)
-  VALUES
-    (1, 'PENDING')
-  ON CONFLICT (id) DO NOTHING;
+VALUES
+(1, 'PENDING')
+ON CONFLICT (id) DO NOTHING;
 INSERT INTO active_status (name)
-  VALUES
-    ('Active'),
-    ('Retired'),
-    ('Deceased')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Active'),
+('Retired'),
+('Deceased')
+ON CONFLICT (name) DO NOTHING;
+-- End Active_Status Seeds
 
--- Seed attitude (idempotent - safe to run multiple times)
+-- Seed Attitude (idempotent - safe to run multiple times)
 INSERT INTO attitude (id, name)
-  VALUES
-    (1, 'Hostile'),
-    (2, 'Unfriendly'),
-    (3, 'Neutral'),
-    (4, 'Friendly'),
-    (5, 'Helpful'),
-    (6, 'Indifferent')
-  ON CONFLICT (id) DO NOTHING;
+VALUES
+(1, 'Hostile'),
+(2, 'Unfriendly'),
+(3, 'Neutral'),
+(4, 'Friendly'),
+(5, 'Helpful'),
+(6, 'Indifferent')
+ON CONFLICT (id) DO NOTHING;
+-- End Attitude Seeds
 
--- Seed speeds (idempotent - safe to run multiple times)
+-- Seed Speeds (idempotent - safe to run multiple times)
 INSERT INTO speed (id, name)
-  VALUES
-    (1, 'Base')
-  ON CONFLICT (id) DO NOTHING;
+VALUES
+(1, 'Base')
+ON CONFLICT (id) DO NOTHING;
 INSERT INTO speed (name)
-  VALUES
-    ('Climb'),
-    ('Swim'),
-    ('Fly'),
-    ('Burrow')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Climb'),
+('Swim'),
+('Fly'),
+('Burrow')
+ON CONFLICT (name) DO NOTHING;
+-- End Speed Seeds
 
--- Seed classes, Reserve ID 1 for Unknown
+-- Seed Classes (idempotent - safe to run multiple times)
 INSERT INTO classes (id, name, source)
-  VALUES
-    (1, 'Unknown', 'Core')
-  ON CONFLICT (id) DO NOTHING;
+VALUES
+(1, 'Unknown', 'Core')
+ON CONFLICT (id) DO NOTHING;
 -- Core Rulebook classes
 INSERT INTO classes (name, source, class_type, magic_type, caster_spontaneous, has_companion)
-  VALUES
-    ('Barbarian', 'Core', 'Martial', NULL, FALSE, FALSE),
-    ('Bard', 'Core', 'Hybrid(s)', 'Arcane', TRUE, FALSE),
-    ('Cleric', 'Core', 'Magic', 'Divine', FALSE, FALSE),
-    ('Druid', 'Core', 'Magic', 'Primal', FALSE, TRUE),
-    ('Fighter', 'Core', 'Martial', NULL, FALSE, FALSE),
-    ('Monk', 'Core', 'Martial', NULL, FALSE, FALSE),
-    ('Paladin', 'Core', 'Hybrid(m)', 'Divine', FALSE, TRUE),
-    ('Ranger', 'Core', 'Hybrid(m)', 'Divine', FALSE, TRUE),
-    ('Rogue', 'Core', 'Skill', NULL, FALSE, FALSE),
-    ('Sorcerer', 'Core', 'Magic', 'Arcane', TRUE, FALSE),
-    ('Wizard', 'Core', 'Magic', 'Arcane', FALSE, TRUE)
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Barbarian', 'Core', 'Martial', NULL, FALSE, FALSE),
+('Bard', 'Core', 'Hybrid(s)', 'Arcane', TRUE, FALSE),
+('Cleric', 'Core', 'Magic', 'Divine', FALSE, FALSE),
+('Druid', 'Core', 'Magic', 'Primal', FALSE, TRUE),
+('Fighter', 'Core', 'Martial', NULL, FALSE, FALSE),
+('Monk', 'Core', 'Martial', NULL, FALSE, FALSE),
+('Paladin', 'Core', 'Hybrid(m)', 'Divine', FALSE, TRUE),
+('Ranger', 'Core', 'Hybrid(m)', 'Divine', FALSE, TRUE),
+('Rogue', 'Core', 'Skill', NULL, FALSE, FALSE),
+('Sorcerer', 'Core', 'Magic', 'Arcane', TRUE, FALSE),
+('Wizard', 'Core', 'Magic', 'Arcane', FALSE, TRUE)
+ON CONFLICT (name) DO NOTHING;
 -- APG classes
 INSERT INTO classes (name, source, class_type, magic_type, caster_spontaneous, has_companion)
-  VALUES
-    ('Alchemist', 'APG', 'Hybrid(s)', 'Alchemical', FALSE, FALSE),
-    ('Cavalier', 'APG', 'Martial', NULL, FALSE, TRUE),
-    ('Gunslinger', 'APG', 'Martial', NULL, FALSE, FALSE),
-    ('Inquisitor', 'APG', 'Hybrid(m)', 'Divine', TRUE, FALSE),
-    ('Magus', 'APG', 'Hybrid(m)', 'Arcane', FALSE, FALSE),
-    ('Oracle', 'APG', 'Magic', 'Divine', TRUE, FALSE),
-    ('Summoner', 'APG', 'Magic', 'Arcane', TRUE, TRUE),
-    ('Witch', 'APG', 'Magic', 'Occult', FALSE, TRUE),
-    ('Vigilante', 'APG', 'Hybrid(s)', NULL, FALSE, FALSE)
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Alchemist', 'APG', 'Hybrid(s)', 'Alchemical', FALSE, FALSE),
+('Cavalier', 'APG', 'Martial', NULL, FALSE, TRUE),
+('Gunslinger', 'APG', 'Martial', NULL, FALSE, FALSE),
+('Inquisitor', 'APG', 'Hybrid(m)', 'Divine', TRUE, FALSE),
+('Magus', 'APG', 'Hybrid(m)', 'Arcane', FALSE, FALSE),
+('Oracle', 'APG', 'Magic', 'Divine', TRUE, FALSE),
+('Summoner', 'APG', 'Magic', 'Arcane', TRUE, TRUE),
+('Witch', 'APG', 'Magic', 'Occult', FALSE, TRUE),
+('Vigilante', 'APG', 'Hybrid(s)', NULL, FALSE, FALSE)
+ON CONFLICT (name) DO NOTHING;
 -- Hybrid classes
 INSERT INTO classes (name, source, class_type, magic_type, caster_spontaneous, has_companion)
-  VALUES
-    ('Arcanist', 'ACG', 'Magic', 'Arcane', TRUE, FALSE),
-    ('Bloodrager', 'ACG', 'Hybrid(m)', 'Arcane', TRUE, FALSE),
-    ('Brawler', 'ACG', 'Martial', NULL, FALSE, FALSE),
-    ('Hunter', 'ACG', 'Hybrid(m)', 'Primal', TRUE, TRUE),
-    ('Investigator', 'ACG', 'Hybrid(s)', 'Alchemical', FALSE, FALSE),
-    ('Shaman', 'ACG', 'Magic', 'Primal', FALSE, TRUE),
-    ('Skald', 'ACG', 'Hybrid(3)', 'Arcane', TRUE, FALSE),
-    ('Slayer', 'ACG', 'Hybrid(s)', NULL, FALSE, FALSE),
-    ('Swashbuckler', 'ACG', 'Martial', NULL, FALSE, FALSE),
-    ('Warpriest', 'ACG', 'Hybrid(m)', 'Divine', FALSE, FALSE)
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Arcanist', 'ACG', 'Magic', 'Arcane', TRUE, FALSE),
+('Bloodrager', 'ACG', 'Hybrid(m)', 'Arcane', TRUE, FALSE),
+('Brawler', 'ACG', 'Martial', NULL, FALSE, FALSE),
+('Hunter', 'ACG', 'Hybrid(m)', 'Primal', TRUE, TRUE),
+('Investigator', 'ACG', 'Hybrid(s)', 'Alchemical', FALSE, FALSE),
+('Shaman', 'ACG', 'Magic', 'Primal', FALSE, TRUE),
+('Skald', 'ACG', 'Hybrid(3)', 'Arcane', TRUE, FALSE),
+('Slayer', 'ACG', 'Hybrid(s)', NULL, FALSE, FALSE),
+('Swashbuckler', 'ACG', 'Martial', NULL, FALSE, FALSE),
+('Warpriest', 'ACG', 'Hybrid(m)', 'Divine', FALSE, FALSE)
+ON CONFLICT (name) DO NOTHING;
 -- Occult classes
 INSERT INTO classes (name, source, class_type, magic_type, caster_spontaneous, has_companion)
-  VALUES
-    ('Kineticist', 'Occult', 'Magic', 'Occult', FALSE, FALSE),
-    ('Medium', 'Occult', 'Hybrid(3)', 'Occult', TRUE, FALSE),
-    ('Mesmerist', 'Occult', 'Hybrid(s)', 'Occult', TRUE, FALSE),
-    ('Occultist', 'Occult', 'Hybrid(3)', 'Occult', TRUE, FALSE),
-    ('Psychic', 'Occult', 'Magic', 'Occult', TRUE, FALSE),
-    ('Spiritualist', 'Occult', 'Magic', 'Occult', TRUE, TRUE)
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Kineticist', 'Occult', 'Magic', 'Occult', FALSE, FALSE),
+('Medium', 'Occult', 'Hybrid(3)', 'Occult', TRUE, FALSE),
+('Mesmerist', 'Occult', 'Hybrid(s)', 'Occult', TRUE, FALSE),
+('Occultist', 'Occult', 'Hybrid(3)', 'Occult', TRUE, FALSE),
+('Psychic', 'Occult', 'Magic', 'Occult', TRUE, FALSE),
+('Spiritualist', 'Occult', 'Magic', 'Occult', TRUE, TRUE)
+ON CONFLICT (name) DO NOTHING;
 -- Alternate classes
 INSERT INTO classes (name, source, class_type, magic_type, caster_spontaneous, has_companion)
-  VALUES
-    ('Antipaladin', 'Alt', 'Hybrid(m)', 'Divine', FALSE, TRUE),
-    ('Ninja', 'Alt', 'Skill', NULL, FALSE, FALSE),
-    ('Samurai', 'Alt', 'Martial', NULL, FALSE, FALSE)
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Antipaladin', 'Alt', 'Hybrid(m)', 'Divine', FALSE, TRUE),
+('Ninja', 'Alt', 'Skill', NULL, FALSE, FALSE),
+('Samurai', 'Alt', 'Martial', NULL, FALSE, FALSE)
+ON CONFLICT (name) DO NOTHING;
 -- NPC classes
 INSERT INTO classes (name, source, class_type)
-  VALUES
-    ('Adept', 'NPC', 'Magic'),
-    ('Aristocrat', 'NPC', 'Skill'),
-    ('Commoner', 'NPC', 'Martial'),
-    ('Expert', 'NPC', 'Skill'),
-    ('Warrior', 'NPC', 'Martial')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Adept', 'NPC', 'Magic'),
+('Aristocrat', 'NPC', 'Skill'),
+('Commoner', 'NPC', 'Martial'),
+('Expert', 'NPC', 'Skill'),
+('Warrior', 'NPC', 'Martial')
+ON CONFLICT (name) DO NOTHING;
 -- Other base classes
 INSERT INTO classes (name, source, class_type, magic_type, caster_spontaneous, has_companion)
-  VALUES
-    ('Shifter', 'Other', 'Martial', NULL, FALSE, FALSE),
-    ('Vampire Hunter', 'Other', 'Hybrid(3)', 'DIVINE', TRUE, TRUE)
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Shifter', 'Other', 'Martial', NULL, FALSE, FALSE),
+('Vampire Hunter', 'Other', 'Hybrid(3)', 'DIVINE', TRUE, TRUE)
+ON CONFLICT (name) DO NOTHING;
 -- Prestige Classes
-WITH prestige(name) AS (
-  Values
-    ('Agent of the Grave'),
-    ('Aldori Swordlord'),
-    ('Arcane Archer'),
-    ('Arcane Trickster'),
-    ('Archlord of Nex'),
-    ('Argent Dramaturge'),
-    ('Asavir'),
-    ('Ashavic Dancer'),
-    ('Aspis Agent'),
-    ('Assassin'),
-    ('Balanced Scale of Abadar'),
-    ('Battle Herald'),
-    ('Bellflower Tiller'),
-    ('Blackfire Adept'),
-    ('Bloatmage'),
-    ('Brewkeeper'),
-    ('Brightness Seeker'),
-    ('Brother of the Seal'),
-    ('Champion of Irori'),
-    ('Chernasardo Warden'),
-    ('Chevalier'),
-    ('Crimson Templar'),
-    ('Cyphermage'),
-    ('Daggermark Poisoner'),
-    ('Daivrat'),
-    ('Darechaser'),
-    ('Dawnflower Anchorite'),
-    ('Dawnflower Dissident'),
-    ('Death Slayer'),
-    ('Demoniac'),
-    ('Devoted Muse'),
-    ('Diabolist'),
-    ('Divine Scion'),
-    ('Dragon Disciple'),
-    ('Duelist'),
-    ('Eldritch Knight'),
-    ('Enchanting Courtesan'),
-    ('Envoy of Balance'),
-    ('Esoteric Knight'),
-    ('Evangelist'),
-    ('Exalted'),
-    ('Feysworn'),
-    ('Genie Binder'),
-    ('Golden Legionnaire'),
-    ('Gray Corsair'),
-    ('Gray Gardener'),
-    ('Green Faith Acolyte'),
-    ('Halfling Opportunist'),
-    ('Harrower'),
-    ('Hellknight'),
-    ('Hellknight Signifier'),
-    ('Heritor Knight'),
-    ('Hinterlander'),
-    ('Holy Vindicator'),
-    ('Horizon Walker'),
-    ('Inheritors Crusader'),
-    ('Inner Sea Pirate'),
-    ('Justicar'),
-    ('Knight of Ozem'),
-    ('Lantern Bearer'),
-    ('Liberator'),
-    ('Lion Blade'),
-    ('Living Monolith'),
-    ('Loremaster'),
-    ('Low Templar'),
-    ('Magaambyan Arcanist'),
-    ('Mammoth Rider'),
-    ('Master Chymist'),
-    ('Master Spy'),
-    ('Mortal Usher'),
-    ('Mystery Cultist'),
-    ('Nature Warden'),
-    ('Noble Scion'),
-    ('Pain Taster'),
-    ('Pathfinder Chronicler'),
-    ('Pathfinder Delver'),
-    ('Pathfinder Field Agent'),
-    ('Pathfinder Savant'),
-    ('Pit Fighter'),
-    ('Proctor'),
-    ('Prophet of Kalistrade'),
-    ('Pure Legion Enforcer'),
-    ('Rage Prophet'),
-    ('Razmiran Priest'),
-    ('Red Mantis Assassin'),
-    ('Riftwarden'),
-    ('Ritualist'),
-    ('Rivethun Emissary'),
-    ('Rose Warden'),
-    ('Runeguard'),
-    ('Sacred Sentinel'),
-    ('Sanguine Angel'),
-    ('Scar Seeker'),
-    ('Sentinel'),
-    ('Shackles Pirate'),
-    ('Shadowdancer'),
-    ('Shieldmarshal'),
-    ('Skyseeker'),
-    ('Sleepless Detective'),
-    ('Soul Warden'),
-    ('Souldrinker'),
-    ('Sphere Singer'),
-    ('Spherewalker'),
-    ('Stalwart Defender'),
-    ('Stargazer'),
-    ('Steel Falcon'),
-    ('Storm Kindler'),
-    ('Student of Perfection'),
-    ('Student of War'),
-    ('Tattooed Mystic'),
-    ('Technomancer'),
-    ('Thuvian Alchemist'),
-    ('Twilight Talon'),
-    ('Ulfen Guard'),
-    ('Umbral Court Agent'),
-    ('Veiled Illusionist'),
-    ('Westcrown Devil'),
-    ('Winter Witch')
-  )
-  INSERT INTO classes (name, source, class_type)
-  SELECT name, 'Prestige', 'Prestige'
-  FROM prestige
-  ON CONFLICT (name) DO NOTHING;
+INSERT INTO classes (name, source, class_type)
+VALUES
+('Agent of the Grave', 'Prestige', 'Prestige'),
+('Aldori Swordlord', 'Prestige', 'Prestige'),
+('Arcane Archer', 'Prestige', 'Prestige'),
+('Arcane Trickster', 'Prestige', 'Prestige'),
+('Archlord of Nex', 'Prestige', 'Prestige'),
+('Argent Dramaturge', 'Prestige', 'Prestige'),
+('Asavir', 'Prestige', 'Prestige'),
+('Ashavic Dancer', 'Prestige', 'Prestige'),
+('Aspis Agent', 'Prestige', 'Prestige'),
+('Assassin', 'Prestige', 'Prestige'),
+('Balanced Scale of Abadar', 'Prestige', 'Prestige'),
+('Battle Herald', 'Prestige', 'Prestige'),
+('Bellflower Tiller', 'Prestige', 'Prestige'),
+('Blackfire Adept', 'Prestige', 'Prestige'),
+('Bloatmage', 'Prestige', 'Prestige'),
+('Brewkeeper', 'Prestige', 'Prestige'),
+('Brightness Seeker', 'Prestige', 'Prestige'),
+('Brother of the Seal', 'Prestige', 'Prestige'),
+('Champion of Irori', 'Prestige', 'Prestige'),
+('Chernasardo Warden', 'Prestige', 'Prestige'),
+('Chevalier', 'Prestige', 'Prestige'),
+('Crimson Templar', 'Prestige', 'Prestige'),
+('Cyphermage', 'Prestige', 'Prestige'),
+('Daggermark Poisoner', 'Prestige', 'Prestige'),
+('Daivrat', 'Prestige', 'Prestige'),
+('Darechaser', 'Prestige', 'Prestige'),
+('Dawnflower Anchorite', 'Prestige', 'Prestige'),
+('Dawnflower Dissident', 'Prestige', 'Prestige'),
+('Death Slayer', 'Prestige', 'Prestige'),
+('Demoniac', 'Prestige', 'Prestige'),
+('Devoted Muse', 'Prestige', 'Prestige'),
+('Diabolist', 'Prestige', 'Prestige'),
+('Divine Scion', 'Prestige', 'Prestige'),
+('Dragon Disciple', 'Prestige', 'Prestige'),
+('Duelist', 'Prestige', 'Prestige'),
+('Eldritch Knight', 'Prestige', 'Prestige'),
+('Enchanting Courtesan', 'Prestige', 'Prestige'),
+('Envoy of Balance', 'Prestige', 'Prestige'),
+('Esoteric Knight', 'Prestige', 'Prestige'),
+('Evangelist', 'Prestige', 'Prestige'),
+('Exalted', 'Prestige', 'Prestige'),
+('Feysworn', 'Prestige', 'Prestige'),
+('Genie Binder', 'Prestige', 'Prestige'),
+('Golden Legionnaire', 'Prestige', 'Prestige'),
+('Gray Corsair', 'Prestige', 'Prestige'),
+('Gray Gardener', 'Prestige', 'Prestige'),
+('Green Faith Acolyte', 'Prestige', 'Prestige'),
+('Halfling Opportunist', 'Prestige', 'Prestige'),
+('Harrower', 'Prestige', 'Prestige'),
+('Hellknight', 'Prestige', 'Prestige'),
+('Hellknight Signifier', 'Prestige', 'Prestige'),
+('Heritor Knight', 'Prestige', 'Prestige'),
+('Hinterlander', 'Prestige', 'Prestige'),
+('Holy Vindicator', 'Prestige', 'Prestige'),
+('Horizon Walker', 'Prestige', 'Prestige'),
+('Inheritors Crusader', 'Prestige', 'Prestige'),
+('Inner Sea Pirate', 'Prestige', 'Prestige'),
+('Justicar', 'Prestige', 'Prestige'),
+('Knight of Ozem', 'Prestige', 'Prestige'),
+('Lantern Bearer', 'Prestige', 'Prestige'),
+('Liberator', 'Prestige', 'Prestige'),
+('Lion Blade', 'Prestige', 'Prestige'),
+('Living Monolith', 'Prestige', 'Prestige'),
+('Loremaster', 'Prestige', 'Prestige'),
+('Low Templar', 'Prestige', 'Prestige'),
+('Magaambyan Arcanist', 'Prestige', 'Prestige'),
+('Mammoth Rider', 'Prestige', 'Prestige'),
+('Master Chymist', 'Prestige', 'Prestige'),
+('Master Spy', 'Prestige', 'Prestige'),
+('Mortal Usher', 'Prestige', 'Prestige'),
+('Mystery Cultist', 'Prestige', 'Prestige'),
+('Nature Warden', 'Prestige', 'Prestige'),
+('Noble Scion', 'Prestige', 'Prestige'),
+('Pain Taster', 'Prestige', 'Prestige'),
+('Pathfinder Chronicler', 'Prestige', 'Prestige'),
+('Pathfinder Delver', 'Prestige', 'Prestige'),
+('Pathfinder Field Agent', 'Prestige', 'Prestige'),
+('Pathfinder Savant', 'Prestige', 'Prestige'),
+('Pit Fighter', 'Prestige', 'Prestige'),
+('Proctor', 'Prestige', 'Prestige'),
+('Prophet of Kalistrade', 'Prestige', 'Prestige'),
+('Pure Legion Enforcer', 'Prestige', 'Prestige'),
+('Rage Prophet', 'Prestige', 'Prestige'),
+('Razmiran Priest', 'Prestige', 'Prestige'),
+('Red Mantis Assassin', 'Prestige', 'Prestige'),
+('Riftwarden', 'Prestige', 'Prestige'),
+('Ritualist', 'Prestige', 'Prestige'),
+('Rivethun Emissary', 'Prestige', 'Prestige'),
+('Rose Warden', 'Prestige', 'Prestige'),
+('Runeguard', 'Prestige', 'Prestige'),
+('Sacred Sentinel', 'Prestige', 'Prestige'),
+('Sanguine Angel', 'Prestige', 'Prestige'),
+('Scar Seeker', 'Prestige', 'Prestige'),
+('Sentinel', 'Prestige', 'Prestige'),
+('Shackles Pirate', 'Prestige', 'Prestige'),
+('Shadowdancer', 'Prestige', 'Prestige'),
+('Shieldmarshal', 'Prestige', 'Prestige'),
+('Skyseeker', 'Prestige', 'Prestige'),
+('Sleepless Detective', 'Prestige', 'Prestige'),
+('Soul Warden', 'Prestige', 'Prestige'),
+('Souldrinker', 'Prestige', 'Prestige'),
+('Sphere Singer', 'Prestige', 'Prestige'),
+('Spherewalker', 'Prestige', 'Prestige'),
+('Stalwart Defender', 'Prestige', 'Prestige'),
+('Stargazer', 'Prestige', 'Prestige'),
+('Steel Falcon', 'Prestige', 'Prestige'),
+('Storm Kindler', 'Prestige', 'Prestige'),
+('Student of Perfection', 'Prestige', 'Prestige'),
+('Student of War', 'Prestige', 'Prestige'),
+('Tattooed Mystic', 'Prestige', 'Prestige'),
+('Technomancer', 'Prestige', 'Prestige'),
+('Thuvian Alchemist', 'Prestige', 'Prestige'),
+('Twilight Talon', 'Prestige', 'Prestige'),
+('Ulfen Guard', 'Prestige', 'Prestige'),
+('Umbral Court Agent', 'Prestige', 'Prestige'),
+('Veiled Illusionist', 'Prestige', 'Prestige'),
+('Westcrown Devil', 'Prestige', 'Prestige'),
+('Winter Witch', 'Prestige', 'Prestige')
+ON CONFLICT (name) DO NOTHING;
 
--- Seed Races, Reserve 1 for Unknown
+-- Seed Races (idempotent - safe to run multiple times)
 INSERT INTO race (id, name)
-  VALUES
-    (1, 'Unknown')
-  ON CONFLICT (id) DO NOTHING;
+VALUES
+(1, 'Unknown')
+ON CONFLICT (id) DO NOTHING;
 -- Core Races
 INSERT INTO race (name, limited)
-  VALUES
-    ('Human', FALSE),
-    ('Dwarf', FALSE),
-    ('Elf', FALSE),
-    ('Gnome', FALSE),
-    ('Halfling', FALSE),
-    ('Half-Elf', FALSE),
-    ('Half-Orc', FALSE)
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Human', FALSE),
+('Dwarf', FALSE),
+('Elf', FALSE),
+('Gnome', FALSE),
+('Halfling', FALSE),
+('Half-Elf', FALSE),
+('Half-Orc', FALSE)
+ON CONFLICT (name) DO NOTHING;
 -- Standard Races
 INSERT INTO race (name)
-  VALUES
-    ('Catfolk'),
-    ('Duergar'),
-    ('Gnoll'),
-    ('Grippli'),
-    ('Goblin'),
-    ('Hobgoblin'),
-    ('Ifrit'),
-    ('Kobold'),
-    ('Lizardfolk'),
-    ('Monkey Goblin'),
-    ('Orc'),
-    ('Oread'),
-    ('Ratfolk'),
-    ('Skinwalker'),
-    ('Sylph'),
-    ('Triaxian'),
-    ('Undine'),
-    ('Vanara')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Catfolk'),
+('Duergar'),
+('Gnoll'),
+('Grippli'),
+('Goblin'),
+('Hobgoblin'),
+('Ifrit'),
+('Kobold'),
+('Lizardfolk'),
+('Monkey Goblin'),
+('Orc'),
+('Oread'),
+('Ratfolk'),
+('Skinwalker'),
+('Sylph'),
+('Triaxian'),
+('Undine'),
+('Vanara')
+ON CONFLICT (name) DO NOTHING;
 -- Advanced Races
 INSERT INTO race (name)
-  VALUES
-    ('Aasimar'),
-    ('Android'),
-    ('Dhampir'),
-    ('Drow'),
-    ('Fetchling'),
-    ('Gathlain'),
-    ('Ghoran'),
-    ('Kasatha'),
-    ('Shabti'),
-    ('Syrinx'),
-    ('Suli'),
-    ('Tengu'),
-    ('Tiefling'),
-    ('Vishkanya'),
-    ('Wyrwood'),
-    ('Wyvaran')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Aasimar'),
+('Android'),
+('Dhampir'),
+('Drow'),
+('Fetchling'),
+('Gathlain'),
+('Ghoran'),
+('Kasatha'),
+('Shabti'),
+('Syrinx'),
+('Suli'),
+('Tengu'),
+('Tiefling'),
+('Vishkanya'),
+('Wyrwood'),
+('Wyvaran')
+ON CONFLICT (name) DO NOTHING;
 -- Other Races
 INSERT INTO race (name)
-  VALUES
-    ('Svirfneblin'),
-    ('Drider'),
-    ('Gargoyle'),
-    ('Trox'),
-    ('Aquatic Elf'),
-    ('Astomoi'),
-    ('Caligni'),
-    ('Changeling'),
-    ('Deep One Hybrid'),
-    ('Ganzi'),
-    ('Gillmen'),
-    ('Kitsune'),
-    ('Kuru'),
-    ('Merfolk'),
-    ('Munavri'),
-    ('Nagaji'),
-    ('Orang-Pendak'),
-    ('Reptoid'),
-    ('Samsaran'),
-    ('Strix'),
-    ('Wayang')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Svirfneblin'),
+('Drider'),
+('Gargoyle'),
+('Trox'),
+('Aquatic Elf'),
+('Astomoi'),
+('Caligni'),
+('Changeling'),
+('Deep One Hybrid'),
+('Ganzi'),
+('Gillmen'),
+('Kitsune'),
+('Kuru'),
+('Merfolk'),
+('Munavri'),
+('Nagaji'),
+('Orang-Pendak'),
+('Reptoid'),
+('Samsaran'),
+('Strix'),
+('Wayang')
+ON CONFLICT (name) DO NOTHING;
+-- End Race Seeds
 
--- Seed Religions, reserve 1-5
+-- Seed Religions, reserve 1-5,  (idempotent - safe to run multiple times)
 INSERT INTO religions (id, name)
-  VALUES
-    (1, 'Unknown'),
-    (2, 'Atheist'),
-    (3, 'Concept'),
-    (4, 'Ancestors'),
-    (5, 'Totem Spirits')
-  ON CONFLICT (id) DO NOTHING;
+VALUES
+(1, 'Unknown'),
+(2, 'Atheist'),
+(3, 'Concept'),
+(4, 'Ancestors'),
+(5, 'Totem Spirits')
+ON CONFLICT (id) DO NOTHING;
 -- Core 20 deities from Golarion (Pathfinder 1e)
 INSERT INTO religions (name)
-  VALUES
-    ('Abadar'),
-    ('Asmodeus'),
-    ('Calistria'),
-    ('Cayden Cailean'),
-    ('Desna'),
-    ('Erastil'),
-    ('Gorum'),
-    ('Gozreh'),
-    ('Iomedae'),
-    ('Irori'),
-    ('Lamashtu'),
-    ('Nethys'),
-    ('Norgorber'),
-    ('Pharasma'),
-    ('Sarenrae'),
-    ('Shelyn'),
-    ('Torag'),
-    ('Urgathoa'),
-    ('Zon-Kuthon')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Abadar'),
+('Asmodeus'),
+('Calistria'),
+('Cayden Cailean'),
+('Desna'),
+('Erastil'),
+('Gorum'),
+('Gozreh'),
+('Iomedae'),
+('Irori'),
+('Lamashtu'),
+('Nethys'),
+('Norgorber'),
+('Pharasma'),
+('Sarenrae'),
+('Shelyn'),
+('Torag'),
+('Urgathoa'),
+('Zon-Kuthon')
+ON CONFLICT (name) DO NOTHING;
 -- Major Religious Groups
 INSERT INTO religions (name, obscurity)
-  Values
-    ('Green Faith', 'Common'),
-    ('Godclaw', 'Uncommon'),
-    ('Prophecies of Kalistrade', 'Regional'),
-    ('Faith of the Living God', 'Regional'),
-    ('Vudran Pantheon', 'Regional'),
-    ('Old Sun Gods', 'Regional'),
-    ('Empyreal Court', 'Obscure'),
-    ('The Eldest', 'Obscure'),
-    ('Perfected Man', 'Racial'),
-    ('Laws of Mortality', 'Racial'),
-    ('Whispering Way', 'Regional')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Green Faith', 'Common'),
+('Godclaw', 'Uncommon'),
+('Prophecies of Kalistrade', 'Regional'),
+('Faith of the Living God', 'Regional'),
+('Vudran Pantheon', 'Regional'),
+('Old Sun Gods', 'Regional'),
+('Empyreal Court', 'Obscure'),
+('The Eldest', 'Obscure'),
+('Perfected Man', 'Racial'),
+('Laws of Mortality', 'Racial'),
+('Whispering Way', 'Regional')
+ON CONFLICT (name) DO NOTHING;
 -- Regional Faiths
 INSERT INTO religions (name, obscurity)
-  Values
-    --Mwangi / Arcadia
-    ('Angazhan', 'Regional'),
-    ('Chamidu', 'Regional'),
-    ('Balumbdar', 'Regional'),
-    ('Iomedae (Mwangi)', 'Regional'),
-    ('Grandmother Spider', 'Regional'),
-    ('Old-Mage Jatembe', 'Regional'),
-    ('Ragdya', 'Regional'),
-    ('Shelyn (Mwangi)', 'Regional'),
-    ('Shimye-Magalla', 'Regional'),
-    --Osirion
-    ('Anubis', 'Regional'),
-    ('Bastet', 'Regional'),
-    ('Horus', 'Regional'),
-    ('Isis', 'Regional'),
-    ('Nethys (Osirion)', 'Regional'),
-    ('Ra', 'Regional'),
-    ('Sobek', 'Regional'),
-    ('Thoth', 'Regional'),
-    -- Tian Xia
-    ('Hei Feng (Tian Xia)', 'Regional'),
-    ('Tsukiyo (Tian Xia)', 'Regional'),
-    ('Daikitsu (Tian Xia)', 'Regional'),
-    ('Shizuru (Tian Xia)', 'Regional'),
-    -- Vudran (Hindi)
-    ('Irori (Vudra)', 'Regional'),
-    ('Chohar', 'Regional'),
-    ('Gruhastha', 'Regional'),
-    ('Lahkgya', 'Regional'),
-    ('Nalinivati', 'Regional'),
-    ('Vineshvakhi', 'Regional'),
-    --City/Nation Patrons
-    ('Besmara (Shackles Regional Cult)', 'Regional'),
-    ('Walkena (Mzali)', 'Regional'),
-    ('Achaekek (Red Mantis)', 'Regional')
-    --Other/ Various
-    ('Abadar (Localized)', 'Regional'),
-    ('Lost Sun', 'Regional'),
-    ('Sandpoint Pantheon', 'Regional')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+--Mwangi / Arcadia
+('Angazhan', 'Regional'),
+('Chamidu', 'Regional'),
+('Balumbdar', 'Regional'),
+('Iomedae (Mwangi)', 'Regional'),
+('Grandmother Spider', 'Regional'),
+('Old-Mage Jatembe', 'Regional'),
+('Ragdya', 'Regional'),
+('Shelyn (Mwangi)', 'Regional'),
+('Shimye-Magalla', 'Regional'),
+--Osirion
+('Anubis', 'Regional'),
+('Bastet', 'Regional'),
+('Horus', 'Regional'),
+('Isis', 'Regional'),
+('Nethys (Osirion)', 'Regional'),
+('Ra', 'Regional'),
+('Sobek', 'Regional'),
+('Thoth', 'Regional'),
+-- Tian Xia
+('Hei Feng (Tian Xia)', 'Regional'),
+('Tsukiyo (Tian Xia)', 'Regional'),
+('Daikitsu (Tian Xia)', 'Regional'),
+('Shizuru (Tian Xia)', 'Regional'),
+-- Vudran (Hindi)
+('Irori (Vudra)', 'Regional'),
+('Chohar', 'Regional'),
+('Gruhastha', 'Regional'),
+('Lahkgya', 'Regional'),
+('Nalinivati', 'Regional'),
+('Vineshvakhi', 'Regional'),
+--City/Nation Patrons
+('Besmara (Shackles Regional Cult)', 'Regional'),
+('Walkena (Mzali)', 'Regional'),
+('Achaekek (Red Mantis)', 'Regional'),
+--Other/ Various
+('Abadar (Localized)', 'Regional'),
+('Lost Sun', 'Regional'),
+('Sandpoint Pantheon', 'Regional')
+ON CONFLICT (name) DO NOTHING;
 -- Racial Faiths
 INSERT INTO religions (name, obscurity)
-  Values
-    ('Findeladlara', 'Racial'),
-    ('Ketephys', 'Racial'),
-    ('Yuelral', 'Racial'),
-    ('Alseta', 'Racial'),
-    ('Nivi Rhombodazzle', 'Racial'),
-    ('Angradd', 'Racial'),
-    ('Bolka', 'Racial'),
-    ('Dranngvit', 'Racial'),
-    ('Folgrit', 'Racial'),
-    ('Grundinnar', 'Racial'),
-    ('Kols', 'Racial'),
-    ('Magrim', 'Racial'),
-    ('Trudd', 'Racial'),
-    ('Sezelrian the Butcher', 'Racial'),
-    ('Nulgreth', 'Racial'),
-    ('Varg', 'Racial'),
-    ('Verex', 'Racial'),
-    ('Hadregash', 'Racial'),
-    ('Venkelvore the Glutton Dark', 'Racial'),
-    ('Zarongel', 'Racial'),
-    ('Zogmugot', 'Racial'),
-    ('Bargrivyek', 'Racial'),
-    ('No-mens', 'Racial'),
-    ('Chaldira Zuzaristan', 'Racial'),
-    ('Minderhal', 'Racial'),
-    ('Kelizandri', 'Racial'),
-    ('Grandmother Crow', 'Racial'),
-    ('Hei Feng', 'Racial'),
-    ('Tsukiyo', 'Racial'),
-    ('Daikitsu', 'Racial'),
-    ('Shizuru', 'Racial')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Findeladlara', 'Racial'),
+('Ketephys', 'Racial'),
+('Yuelral', 'Racial'),
+('Alseta', 'Racial'),
+('Nivi Rhombodazzle', 'Racial'),
+('Angradd', 'Racial'),
+('Bolka', 'Racial'),
+('Dranngvit', 'Racial'),
+('Folgrit', 'Racial'),
+('Grundinnar', 'Racial'),
+('Kols', 'Racial'),
+('Magrim', 'Racial'),
+('Trudd', 'Racial'),
+('Sezelrian the Butcher', 'Racial'),
+('Nulgreth', 'Racial'),
+('Varg', 'Racial'),
+('Verex', 'Racial'),
+('Hadregash', 'Racial'),
+('Venkelvore the Glutton Dark', 'Racial'),
+('Zarongel', 'Racial'),
+('Zogmugot', 'Racial'),
+('Bargrivyek', 'Racial'),
+('No-mens', 'Racial'),
+('Chaldira Zuzaristan', 'Racial'),
+('Minderhal', 'Racial'),
+('Kelizandri', 'Racial'),
+('Grandmother Crow', 'Racial'),
+('Hei Feng', 'Racial'),
+('Tsukiyo', 'Racial'),
+('Daikitsu', 'Racial'),
+('Shizuru', 'Racial')
+ON CONFLICT (name) DO NOTHING;
 -- Lost/Dead/Imprisoned/Pre-Transformed Gods
 INSERT INTO religions (name, obscurity)
-  Values
-    ('Aroden', 'Lost'),
-    ('Acavna', 'Lost'),
-    ('Amaznen', 'Lost'),
-    ('Curchanus', 'Lost'),
-    ('Ydersius', 'Lost'),
-    ('Rovagug', 'Lost'),
-    ('Dou-Bral', 'Lost'),
-    ('Kazutal', 'Lost'),
-    ('Nocticula (Demon Lord)', 'Lost'),
-    ('Lissala', 'Lost'),
-    ('Arazni (Herald)', 'Lost'),
-    ('Deskari', 'Lost'),
-    ('Viriavaxus', 'Lost'),
-    ('Ragadahn', 'Lost'),
-    ('Mazludeh', 'Lost')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Aroden', 'Lost'),
+('Acavna', 'Lost'),
+('Amaznen', 'Lost'),
+('Curchanus', 'Lost'),
+('Ydersius', 'Lost'),
+('Rovagug', 'Lost'),
+('Dou-Bral', 'Lost'),
+('Kazutal', 'Lost'),
+('Nocticula (Demon Lord)', 'Lost'),
+('Lissala', 'Lost'),
+('Arazni (Herald)', 'Lost'),
+('Deskari', 'Lost'),
+('Viriavaxus', 'Lost'),
+('Ragadahn', 'Lost'),
+('Mazludeh', 'Lost')
+ON CONFLICT (name) DO NOTHING;
 -- Recovered (Lost) or Promoted Gods
-INSERT INTO religions (name, Obscurity)
-  Values
-    ('Nocticula', 'Obscure'),
-    ('Easivra', 'Obscure'),
-    ('Apsu', 'Racial'),
-    ('Dahak', 'Racial'),
-    ('Arazni', 'Regional')
-  ON CONFLICT (name) DO NOTHING;
+INSERT INTO religions (name, obscurity)
+VALUES
+('Nocticula', 'Obscure'),
+('Easivra', 'Obscure'),
+('Apsu', 'Racial'),
+('Dahak', 'Racial'),
+('Arazni', 'Regional')
+ON CONFLICT (name) DO NOTHING;
 -- Other Uncommon Dieties
 INSERT INTO religions (name)
-  Values
-    ('Achaekek', 'Uncommon'),
-    ('Besmara', 'Uncommon'),
-    ('Black Butterfly', 'Uncommon'),
-    ('Brigh', 'Uncommon'),
-    ('Groetus', 'Uncommon'),
-    ('Ghlaunder', 'Uncommon'),
-    ('Gyronna', 'Uncommon'),
-    ('Hanspur', 'Uncommon'),
-    ('Milani', 'Uncommon'),
-    ('Pulura', 'Uncommon'),
-    ('Ragathiel', 'Uncommon'),
-    ('Sivanah', 'Uncommon'),
-    ('Vildeis', 'Uncommon'),
-    ('Zyphus', 'Uncommon'),
-    ('Cihua', 'Uncommon'),
-    ('Kurgess', 'Uncommon'),
-    ('Kazutal', 'Uncommon'),
-    ('Mazludeh', 'Uncommon'),
-    ('Besmara (Shackles)', 'Uncommon'),
-    ('Hei Feng', 'Uncommon'),
-    ('Tsukiyo', 'Uncommon'),
-    ('Daikitsu', 'Uncommon'),
-    ('Shizuru', 'Uncommon')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Achaekek', 'Uncommon'),
+('Besmara', 'Uncommon'),
+('Black Butterfly', 'Uncommon'),
+('Brigh', 'Uncommon'),
+('Groetus', 'Uncommon'),
+('Ghlaunder', 'Uncommon'),
+('Gyronna', 'Uncommon'),
+('Hanspur', 'Uncommon'),
+('Milani', 'Uncommon'),
+('Pulura', 'Uncommon'),
+('Ragathiel', 'Uncommon'),
+('Sivanah', 'Uncommon'),
+('Vildeis', 'Uncommon'),
+('Zyphus', 'Uncommon'),
+('Cihua', 'Uncommon'),
+('Kurgess', 'Uncommon'),
+('Kazutal', 'Uncommon'),
+('Mazludeh', 'Uncommon'),
+('Besmara (Shackles)', 'Uncommon'),
+('Hei Feng', 'Uncommon'),
+('Tsukiyo', 'Uncommon'),
+('Daikitsu', 'Uncommon'),
+('Shizuru', 'Uncommon')
+ON CONFLICT (name) DO NOTHING;
 -- Other Obscure Dieties
 INSERT INTO religions (name)
-  Values
-      -- Empyreal Lords (treated as obscure divine patrons)
-    ('Andoletta', 'Obscure'),
-    ('Arshea', 'Obscure'),
-    ('Ashava', 'Obscure'),
-    ('Cernunnos', 'Obscure'),
-    ('Dammerich', 'Obscure'),
-    ('Falayna', 'Obscure'),
-    ('Korada', 'Obscure'),
-    ('Soralyon', 'Obscure'),
-    ('Szuriel', 'Obscure'),
-    -- The Eldest (First World powers)
-    ('The Lantern King', 'Obscure'),
-    ('Ng', 'Obscure'),
-    ('Shyka', 'Obscure'),
-    ('Magdh', 'Obscure'),
-    ('Imbrex', 'Obscure'),
-    ('The Lost Prince', 'Obscure'),
-    -- Great Old Ones / Outer Gods (Cthulhu Mythos in PF1)
-    ('Azathoth', 'Obscure'),
-    ('Nyarlathotep', 'Obscure'),
-    ('Yog-Sothoth', 'Obscure'),
-    ('Shub-Niggurath', 'Obscure'),
-    ('Cthulhu', 'Obscure'),
-    ('Hastur', 'Obscure'),
-    ('Ghatanothoa', 'Obscure'),
-    -- Demon Lords (as obscure religions rather than broad cults)
-    ('Dagon', 'Obscure'),
-    ('Kostchtchie', 'Obscure'),
-    ('Pazuzu', 'Obscure'),
-    ('Socothbenoth', 'Obscure'),
-    ('Shax', 'Obscure'),
-    -- Archdevils (non-Asmodeus)
-    ('Mephistopheles', 'Obscure'),
-    ('Dispater', 'Obscure'),
-    ('Mammon', 'Obscure'),
-    ('Belial', 'Obscure'),
-    ('Moloch', 'Obscure'),
-    ('Geryon', 'Obscure'),
-    ('Baalzebul', 'Obscure'),
-    -- Other obscure or single-reference PF1 deities
-    ('Easivra', 'Obscure'),
-    ('Picoperi', 'Obscure'),
-    ('Hanspur (River Cult)', 'Obscure'),
-    ('Groetus (Apocalyptic Cult)', 'Obscure')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+-- Empyreal Lords (treated as obscure divine patrons)
+('Andoletta', 'Obscure'),
+('Arshea', 'Obscure'),
+('Ashava', 'Obscure'),
+('Cernunnos', 'Obscure'),
+('Dammerich', 'Obscure'),
+('Falayna', 'Obscure'),
+('Korada', 'Obscure'),
+('Soralyon', 'Obscure'),
+('Szuriel', 'Obscure'),
+-- The Eldest (First World powers)
+('The Lantern King', 'Obscure'),
+('Ng', 'Obscure'),
+('Shyka', 'Obscure'),
+('Magdh', 'Obscure'),
+('Imbrex', 'Obscure'),
+('The Lost Prince', 'Obscure'),
+-- Great Old Ones / Outer Gods (Cthulhu Mythos in PF1)
+('Azathoth', 'Obscure'),
+('Nyarlathotep', 'Obscure'),
+('Yog-Sothoth', 'Obscure'),
+('Shub-Niggurath', 'Obscure'),
+('Cthulhu', 'Obscure'),
+('Hastur', 'Obscure'),
+('Ghatanothoa', 'Obscure'),
+-- Demon Lords (as obscure religions rather than broad cults)
+('Dagon', 'Obscure'),
+('Kostchtchie', 'Obscure'),
+('Pazuzu', 'Obscure'),
+('Socothbenoth', 'Obscure'),
+('Shax', 'Obscure'),
+-- Archdevils (non-Asmodeus)
+('Mephistopheles', 'Obscure'),
+('Dispater', 'Obscure'),
+('Mammon', 'Obscure'),
+('Belial', 'Obscure'),
+('Moloch', 'Obscure'),
+('Geryon', 'Obscure'),
+('Baalzebul', 'Obscure'),
+-- Other obscure or single-reference PF1 deities
+('Easivra', 'Obscure'),
+('Picoperi', 'Obscure'),
+('Hanspur (River Cult)', 'Obscure'),
+('Groetus (Apocalyptic Cult)', 'Obscure')
+ON CONFLICT (name) DO NOTHING;
+-- End Religion Seeds
 
--- Seed languages, reserving 1-2 for common and other
+-- Seed Languages, reserving 1-2 for common and other, (idempotent - safe to run multiple times)
 INSERT INTO languages (id, name, is_recommended)
-  VALUES
-    (1, 'Common', TRUE),
-    (2, 'Other', FALSE)
-  ON CONFLICT (id) DO NOTHING;
+VALUES
+(1, 'Common', TRUE),
+(2, 'Other', FALSE)
+ON CONFLICT (id) DO NOTHING;
 -- Core Languages (CRB + broadly useful tongues)
 INSERT INTO languages (name)
-  VALUES
-    -- Ancestral / racial core
-    ('Dwarven'),
-    ('Elven'),
-    ('Gnome'),
-    ('Halfling'),
-    ('Orc'),
-    ('Goblin'),
-    ('Giant'),
-    ('Draconic'),
-    ('Sylvan'),
-    ('Tengu'),
-    ('Undercommon'),
-    -- Planar / elemental / divine
-    ('Celestial'),
-    ('Abyssal'),
-    ('Infernal'),
-    ('Aquan'),
-    ('Auran'),
-    ('Ignan'),
-    ('Terran'),
-    ('Protean'),
-    ('Daemonic'),
-    ('Div'),
-    ('Qlippothic'),
-    ('Shadowtongue'),
-    -- Widely referenced “other” tongues
-    ('Aklo'),
-    ('Alghollthu (Aboleth)'),
-    ('Cyclops'),
-    ('Dark Folk Cant'),
-    ('Gnoll'),
-    ('Grippli'),
-    ('Necril'),
-    ('Sahuagin'),
-    ('Sphinx'),
-    ('Treant'),
-    ('Vegepygmy'),
-    ('Yeti')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+-- Ancestral / racial core
+('Dwarven'),
+('Elven'),
+('Gnome'),
+('Halfling'),
+('Orc'),
+('Goblin'),
+('Giant'),
+('Draconic'),
+('Sylvan'),
+('Tengu'),
+('Undercommon'),
+-- Planar / elemental / divine
+('Celestial'),
+('Abyssal'),
+('Infernal'),
+('Aquan'),
+('Auran'),
+('Ignan'),
+('Terran'),
+('Protean'),
+('Daemonic'),
+('Div'),
+('Qlippothic'),
+('Shadowtongue'),
+-- Widely referenced “other” tongues
+('Aklo'),
+('Alghollthu (Aboleth)'),
+('Cyclops'),
+('Dark Folk Cant'),
+('Gnoll'),
+('Grippli'),
+('Necril'),
+('Sahuagin'),
+('Sphinx'),
+('Treant'),
+('Vegepygmy'),
+('Yeti')
+ON CONFLICT (name) DO NOTHING;
 -- Secret Languages
 INSERT INTO languages (name, is_secret)
-  VALUES
-    ('Druidic (Wildsong)', TRUE),
-    ('Drow Sign Language', TRUE),
-    ('Thieves Cant', TRUE),
-    ('Lion Blade Codespeak', TRUE)
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Druidic (Wildsong)', TRUE),
+('Drow Sign Language', TRUE),
+('Thieves Cant', TRUE),
+('Lion Blade Codespeak', TRUE)
+ON CONFLICT (name) DO NOTHING;
 -- Regional Dialects (usually human)
 INSERT INTO languages (name, is_dialect)
-  VALUES
-    ('Akitan', TRUE),
-    ('Ekujae Shape-Script', TRUE),
-    ('Hallit', TRUE),
-    ('Kelish', TRUE),
-    ('Osiriani', TRUE),
-    ('Polyglot', TRUE),
-    ('Shoanti', TRUE),
-    ('Skald', TRUE),
-    ('Tien', TRUE),
-    ('Varisian', TRUE),
-    ('Vudrani', TRUE)
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Akitan', TRUE),
+('Ekujae Shape-Script', TRUE),
+('Hallit', TRUE),
+('Kelish', TRUE),
+('Osiriani', TRUE),
+('Polyglot', TRUE),
+('Shoanti', TRUE),
+('Skald', TRUE),
+('Tien', TRUE),
+('Varisian', TRUE),
+('Vudrani', TRUE)
+ON CONFLICT (name) DO NOTHING;
 -- Ancient / Dead Languages
 INSERT INTO languages (name, is_ancient)
-  VALUES
-    ('Ancient Osiriani', TRUE),
-    ('Ancient Azlanti', TRUE),
-    ('Ancient Thassilonian', TRUE),
-    ('Jistka', TRUE),
-    ('Orvian', TRUE),
-    ('Shory', TRUE),
-    ('Tekritanin', TRUE)
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+('Ancient Osiriani', TRUE),
+('Ancient Azlanti', TRUE),
+('Ancient Thassilonian', TRUE),
+('Jistka', TRUE),
+('Orvian', TRUE),
+('Shory', TRUE),
+('Tekritanin', TRUE)
+ON CONFLICT (name) DO NOTHING;
 -- Other Languages (nonhuman / setting-flavor, not already covered above)
 INSERT INTO languages (name)
-  VALUES
-    -- You can treat this block as an extension space for future additions
-    ('Boggard'),
-    ('Caligni'),
-    ('Kech'),
-    ('Syrinx'),
-    ('Strix')
-  ON CONFLICT (name) DO NOTHING;
+VALUES
+-- You can treat this block as an extension space for future additions
+('Boggard'),
+('Caligni'),
+('Kech'),
+('Syrinx'),
+('Strix')
+ON CONFLICT (name) DO NOTHING;
+-- End Language Seeds
+-- END GLOBAL LOOKUP TABLES SEED BLOCK
+
+-- START GLOBAL TITLES SEED BLOCK (idempotent - safe to run multiple times)
+-- Seed title_rank order for backend sorting and prioritizing
+INSERT INTO title_ranks (name, sort_order)
+VALUES
+('empire', 1),
+('kingdom', 2),
+('grand duchy', 2),
+('country', 2),
+('high general', 2),
+('major faith', 2),
+('duchy', 3),
+('state', 3),
+('major guild', 3),
+('major general', 3),
+('major city', 3),
+('county', 4),
+('regional guild', 4),
+('regional faith', 4),
+('major important', 4),
+('general', 4),
+('barony', 5),
+('city', 5),
+('captain', 5),
+('regional important', 5),
+('estate', 6),
+('district', 6),
+('local guild', 6),
+('local faith', 6),
+('local important', 6),
+('council', 6),
+('officer', 6),
+('noble blood', 6),
+('gentry', 6),
+('property', 7),
+('sergeant', 7),
+('landless', 8),
+('landless unmarried', 9),
+('peasant', 10)
+ON CONFLICT (name) DO NOTHING;
+-- Seed Gender-Neutral Titles
+INSERT INTO titles (name, honorific_masculine, prefix_masculine, rank_id)
+VALUES
+(
+    'hero, city', 'Hero', NULL,
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'local important'
+    )
+),
+(
+    'hero, regional', 'Hero', NULL,
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'regional important'
+    )
+),
+(
+    'hero, major', 'Renowned Hero', 'Renowned Hero',
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'major important'
+    )
+),
+(
+    'champion, city', 'Champion', NULL,
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'local important'
+    )
+),
+(
+    'champion, regional', 'Champion', NULL,
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'regional important'
+    )
+),
+(
+    'champion, major', 'Renowned Champion', 'Renowned Champion',
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'major important'
+    )
+),
+(
+    'general', 'General', 'General',
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'general'
+    )
+),
+(
+    'captain', 'Captain', 'Captain',
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'captain'
+    )
+),
+(
+    'lieutenant', 'Lieutenant', 'Lt.',
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'officer'
+    )
+),
+(
+    'sergeant', 'Sergeant', 'Sgt.',
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'sergeant'
+    )
+),
+(
+    'corporal', 'Corporal', 'Cpl.',
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'landless'
+    )
+),
+(
+    'corporal', 'Guard', NULL,
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'landless'
+    )
+),
+(
+    'private', 'Private', 'Pvt.',
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'peasant'
+    )
+),
+(
+    'mayor', 'Mayor', 'The Honorable',
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'city'
+    )
+),
+(
+    'lord mayor', 'Lord Mayor', 'The Most Honorable',
+    (
+        SELECT id FROM title_ranks
+        WHERE name = 'major city'
+    )
+)
+ON CONFLICT (name) DO NOTHING;
+
+-- Seed Noble Titles
+INSERT INTO titles (
+    name, name_feminine, honorific_masculine, honorific_feminine, prefix_masculine, prefix_feminine, rank_id
+)
+VALUES
+(
+    'Emperor', 'Empress', 'His Imperial Majesty', 'Her Imperial Majesty', 'Emperor', 'Empress', (
+        SELECT id FROM title_ranks
+        WHERE name = 'empire'
+    )
+),
+('King', 'Queen', 'His Majesty', 'Her Majesty', 'King', 'Queen', (
+    SELECT id FROM title_ranks
+    WHERE name = 'kingdom'
+)),
+(
+    'Prince', 'Princess', 'His Highness', 'Her Highness', 'Prince', 'Princess', (
+        SELECT id FROM title_ranks
+        WHERE name = 'kingdom'
+    )
+),
+('Duke', 'Duchess', 'His Grace', 'Her Grace', 'Duke', 'Duchess', (
+    SELECT id FROM title_ranks
+    WHERE name = 'duchy'
+)),
+(
+    'Count', 'Countess', 'His Lordship', 'Her Ladyship', 'Count', 'Countess', (
+        SELECT id FROM title_ranks
+        WHERE name = 'county'
+    )
+),
+(
+    'Baron', 'Baroness', 'His Lordship', 'Her Ladyship', 'Baron', 'Baroness', (
+        SELECT id FROM title_ranks
+        WHERE name = 'barony'
+    )
+),
+('Lord', 'Lady', 'Lord', 'Lady', 'Lord', 'Lady', (
+    SELECT id FROM title_ranks
+    WHERE name = 'landless'
+)),
+('Knight', 'Dame', 'Sir', 'Dame', 'Sir', 'Dame', (
+    SELECT id FROM title_ranks
+    WHERE name = 'landless'
+))
+ON CONFLICT (name) DO NOTHING;
+-- Seed Non-Noble Titles
+INSERT INTO titles (
+    name, name_feminine, honorific_masculine, honorific_feminine, prefix_masculine, prefix_feminine, rank_id
+)
+VALUES
+('Archmage', 'Archmage', 'Archmage', 'Archmage', NULL, NULL, (
+    SELECT id FROM title_ranks
+    WHERE name = 'landless'
+)),
+(
+    'High Priest', 'High Priestess', 'Your Holiness', 'Your Holiness', NULL, NULL, (
+        SELECT id FROM title_ranks
+        WHERE name = 'landless'
+    )
+),
+('Champion', 'Champion', 'Champion', 'Champion', NULL, NULL, (
+    SELECT id FROM title_ranks
+    WHERE name = 'landless'
+))
+ON CONFLICT (name) DO NOTHING;
+
+-- END GLOBAL TITLES SEED BLOCK
+
+-- Save seed
+COMMIT;

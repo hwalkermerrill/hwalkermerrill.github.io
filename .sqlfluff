@@ -1,0 +1,38 @@
+[sqlfluff]
+dialect = postgres
+large_file_skip_byte_limit = 0
+max_line_length = 120
+
+# Treat warnings as errors (optional, but good for consistency)
+# ignore = parsing
+
+# Use tabs for indentation
+indent_unit = tab
+tab_space_size = 2
+
+[rule_L003]  # Indentation
+indent_unit = tab
+tab_space_size = 2
+indentation_policy = aligned
+allow_implicit_indents = false
+
+[rule_L010]
+capitalisation_policy = upper
+
+[rule_L014]
+extended_capitalisation_policy = upper
+
+[rule_L029]  # Keywords before FROM/WHERE/etc.
+unquoted_identifiers_policy = consistent
+
+[rule_L034]  # Avoid ambiguous JOINs
+force_enable = true
+
+[rule_L036]  # Ensure indentation of comma-separated lists
+force_enable = true
+
+[rule_L039]  # Consistent SELECT targets
+select_clause_trailing_comma = forbid
+
+[sqlfluff:ignore:prestige_cte]
+match = WITH prestige
