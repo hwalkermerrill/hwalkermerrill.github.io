@@ -287,7 +287,7 @@ CREATE TABLE IF NOT EXISTS pc_titles (
   adjust_value INTEGER DEFAULT NULL, -- Amount adjusted
   has_location BOOLEAN DEFAULT FALSE,
   use_honorific BOOLEAN DEFAULT TRUE,
-  UNIQUE (pc_id, title_id, location),
+  UNIQUE (pc_id, title_id, title_location),
   received_session INTEGER NOT NULL DEFAULT 1
 );
 
@@ -465,7 +465,7 @@ CREATE TABLE IF NOT EXISTS companion_achievements (
   achievement_id INTEGER NOT NULL
     REFERENCES achievements (id)
     ON DELETE CASCADE,
-  killing_blow BOOLEAN NOT NULL DEFAULT FALSE,
+  is_killing_blow BOOLEAN NOT NULL DEFAULT FALSE,
   UNIQUE (companion_id, achievement_id)
 );
 CREATE TABLE IF NOT EXISTS companion_titles (
@@ -481,7 +481,7 @@ CREATE TABLE IF NOT EXISTS companion_titles (
   adjust_value INTEGER DEFAULT NULL, -- Amount adjusted
   has_location BOOLEAN DEFAULT FALSE,
   use_honorific BOOLEAN DEFAULT TRUE,
-  UNIQUE (companion_id, title_id, location),
+  UNIQUE (companion_id, title_id, title_location),
   received_session INTEGER NOT NULL DEFAULT 1
 );
 CREATE TABLE IF NOT EXISTS companion_scars (
@@ -610,7 +610,7 @@ CREATE TABLE IF NOT EXISTS npc_attitude (
     REFERENCES pc_main (id)
     ON DELETE SET NULL,
   allies TEXT,
-  allied_visible BOOLEAN NOT NULL DEFAULT FALSE,
+  allies_visible BOOLEAN NOT NULL DEFAULT FALSE,
   enemies TEXT,
   enemies_visible BOOLEAN NOT NULL DEFAULT FALSE,
   influence_skills TEXT,
@@ -742,7 +742,7 @@ CREATE TABLE IF NOT EXISTS faction_attitude (
     REFERENCES pc_main (id)
     ON DELETE SET NULL,
   allies TEXT,
-  allied_visible BOOLEAN NOT NULL DEFAULT FALSE,
+  allies_visible BOOLEAN NOT NULL DEFAULT FALSE,
   enemies TEXT,
   enemies_visible BOOLEAN NOT NULL DEFAULT FALSE,
   influence_skills TEXT,
@@ -953,7 +953,7 @@ CREATE TABLE IF NOT EXISTS session_logs (
   id SERIAL PRIMARY KEY,
   campaign_id INTEGER NOT NULL
     REFERENCES campaigns (id)
-    ON DELETE CASCADE,
+    ON DELETE RESTRICT,
   book_number INTEGER NOT NULL DEFAULT 1,
   log_type VARCHAR(50) NOT NULL, -- session summary, quest recap, npc spotlight, etc.
   session_number INTEGER NOT NULL,
@@ -1034,7 +1034,7 @@ CREATE INDEX idx_campaign_notes_campaign_id ON campaign_notes (campaign_id);
 
 -- INDEXES FOR PCs, NPCs, COMPANIONS, Factions, Etc.
 -- INDEXES FOR PC MAIN
-CREATE INDEX idx_pc_main_owner ON pc_main (owner);
+CREATE INDEX idx_pc_user_id ON pc_main (id);
 CREATE INDEX idx_pc_main_campaign_id ON pc_main (campaign_id);
 CREATE INDEX idx_pc_main_active_status_id ON pc_main (active_status_id);
 CREATE INDEX idx_pc_main_race_id ON pc_main (race_id);
@@ -1170,7 +1170,7 @@ CREATE INDEX idx_merchant_inventory_item_id ON merchant_inventory (item_id);
 -- ITEM INDEXES
 CREATE INDEX idx_items_campaign_id ON items (campaign_id);
 CREATE INDEX idx_items_active_status_id ON items (active_status_id);
-CREATE INDEX idx_items_type ON items (type);
+CREATE INDEX idx_items_type ON items (item_type);
 
 -- ITEM OWNERSHIP INDEXES
 CREATE INDEX idx_item_owners_item_id ON item_owners (item_id);

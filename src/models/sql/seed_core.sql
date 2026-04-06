@@ -9,24 +9,22 @@ VALUES (1, 'PENDING')
 ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO active_status (active_status_name)
-VALUES (
+VALUES 
   ('Active'),
   ('Retired'),
   ('Deceased')
-)
 ON CONFLICT (active_status_name) DO NOTHING;
 -- End Active_Status Seeds
 
 -- Seed Attitude (idempotent - safe to run multiple times)
 INSERT INTO attitude (id, attitude_name)
-VALUES (
+VALUES 
   (1, 'Hostile'),
   (2, 'Unfriendly'),
   (3, 'Neutral'),
   (4, 'Friendly'),
   (5, 'Helpful'),
   (6, 'Indifferent')
-)
 ON CONFLICT (id) DO NOTHING;
 -- End Attitude Seeds
 
@@ -36,12 +34,11 @@ VALUES (1, 'Base')
 ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO speed (speed_name)
-VALUES (
+VALUES 
   ('Climb'),
   ('Swim'),
   ('Fly'),
   ('Burrow')
-)
 ON CONFLICT (speed_name) DO NOTHING;
 -- End Speed Seeds
 
@@ -50,9 +47,9 @@ INSERT INTO classes (id, class_name, source)
 VALUES (1, 'Unknown', 'Core')
 ON CONFLICT (id) DO NOTHING;
 
-
 INSERT INTO classes (class_name, source, class_type, magic_type, caster_spontaneous, has_companion)
-VALUES ( -- Core Rulebook classes
+VALUES
+  -- Core Rulebook classes
   ('Barbarian', 'Core', 'Martial', NULL, FALSE, FALSE),
   ('Bard', 'Core', 'Hybrid(s)', 'Arcane', TRUE, FALSE),
   ('Cleric', 'Core', 'Magic', 'Divine', FALSE, FALSE),
@@ -99,21 +96,21 @@ VALUES ( -- Core Rulebook classes
   -- Other base classes
   ('Shifter', 'Other', 'Martial', NULL, FALSE, FALSE),
   ('Vampire Hunter', 'Other', 'Hybrid(3)', 'DIVINE', TRUE, TRUE)
-)
 ON CONFLICT (class_name) DO NOTHING;
 
 INSERT INTO classes (class_name, source, class_type)
-VALUES (-- NPC classes
+VALUES
+  -- NPC classes
   ('Adept', 'NPC', 'Magic'),
   ('Aristocrat', 'NPC', 'Skill'),
   ('Commoner', 'NPC', 'Martial'),
   ('Expert', 'NPC', 'Skill'),
   ('Warrior', 'NPC', 'Martial')
-)
 ON CONFLICT (class_name) DO NOTHING;
 
 INSERT INTO classes (class_name, source, class_type)
-VALUES (-- Prestige Classes
+VALUES
+  -- Prestige Classes
   ('Agent of the Grave', 'Prestige', 'Prestige'),
   ('Aldori Swordlord', 'Prestige', 'Prestige'),
   ('Arcane Archer', 'Prestige', 'Prestige'),
@@ -232,7 +229,6 @@ VALUES (-- Prestige Classes
   ('Veiled Illusionist', 'Prestige', 'Prestige'),
   ('Westcrown Devil', 'Prestige', 'Prestige'),
   ('Winter Witch', 'Prestige', 'Prestige')
-)
 ON CONFLICT (class_name) DO NOTHING;
 
 -- Seed Races (idempotent - safe to run multiple times)
@@ -240,9 +236,9 @@ INSERT INTO race (id, race_name)
 VALUES (1, 'Unknown')
 ON CONFLICT (id) DO NOTHING;
 
-
 INSERT INTO race (race_name, limited)
-VALUES (-- Core Races
+VALUES
+  -- Core Races
   ('Human', FALSE),
   ('Dwarf', FALSE),
   ('Elf', FALSE),
@@ -250,11 +246,11 @@ VALUES (-- Core Races
   ('Halfling', FALSE),
   ('Half-Elf', FALSE),
   ('Half-Orc', FALSE)
-)
 ON CONFLICT (race_name) DO NOTHING;
 
 INSERT INTO race (race_name)
-VALUES (-- Standard Races
+VALUES 
+  -- Standard Races
   ('Catfolk'),
   ('Duergar'),
   ('Gnoll'),
@@ -304,6 +300,7 @@ VALUES (-- Standard Races
   ('Gillmen'),
   ('Kitsune'),
   ('Kuru'),
+  ('Leshy'),
   ('Merfolk'),
   ('Munavri'),
   ('Nagaji'),
@@ -312,23 +309,23 @@ VALUES (-- Standard Races
   ('Samsaran'),
   ('Strix'),
   ('Wayang')
-)
 ON CONFLICT (race_name) DO NOTHING;
 -- End Race Seeds
 
 -- Seed Religions   (idempotent - safe to run multiple times)
 INSERT INTO religions (id, religion_name)
-VALUES (-- reserve 1 - 5
+VALUES 
+  -- reserve 1 - 5
   (1, 'Unknown'),
   (2, 'Atheist'),
   (3, 'Concept'),
   (4, 'Ancestors'),
   (5, 'Totem Spirits')
-)
 ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO religions (religion_name)
-VALUES (-- Core 20 deities from Golarion (Pathfinder 1e)
+VALUES 
+  -- Core 20 deities from Golarion (Pathfinder 1e)
   ('Abadar'),
   ('Asmodeus'),
   ('Calistria'),
@@ -348,11 +345,11 @@ VALUES (-- Core 20 deities from Golarion (Pathfinder 1e)
   ('Torag'),
   ('Urgathoa'),
   ('Zon-Kuthon')
-)
 ON CONFLICT (religion_name) DO NOTHING;
 
 INSERT INTO religions (religion_name, obscurity)
-VALUES (-- Major Religious Groups
+VALUES 
+  -- Major Religious Groups
   ('Green Faith', 'Common'),
   ('Godclaw', 'Uncommon'),
   ('Prophecies of Kalistrade', 'Regional'),
@@ -384,10 +381,10 @@ VALUES (-- Major Religious Groups
   ('Sobek', 'Regional'),
   ('Thoth', 'Regional'),
   -- Regional Faiths - Tian Xia
-  ('Hei Feng (Tian Xia)', 'Regional'),
-  ('Tsukiyo (Tian Xia)', 'Regional'),
-  ('Daikitsu (Tian Xia)', 'Regional'),
-  ('Shizuru (Tian Xia)', 'Regional'),
+  ('Hei Feng', 'Regional'),
+  ('Tsukiyo', 'Regional'),
+  ('Daikitsu', 'Regional'),
+  ('Shizuru', 'Regional'),
   -- Regional Faiths - Vudran (Hindi)
   ('Irori (Vudra)', 'Regional'),
   ('Chohar', 'Regional'),
@@ -396,8 +393,8 @@ VALUES (-- Major Religious Groups
   ('Nalinivati', 'Regional'),
   ('Vineshvakhi', 'Regional'),
   -- Regional Faiths -City/Nation Patrons
-  ('Besmara (Shackles Regional Cult)', 'Regional'),
-  ('Walkena (Mzali)', 'Regional'),
+  ('Besmara', 'Regional'),
+  ('Walkena', 'Regional'),
   ('Achaekek (Red Mantis)', 'Regional'),
   -- Regional Faiths - Other/ Various
   ('Abadar (Localized)', 'Regional'),
@@ -431,10 +428,6 @@ VALUES (-- Major Religious Groups
   ('Minderhal', 'Racial'),
   ('Kelizandri', 'Racial'),
   ('Grandmother Crow', 'Racial'),
-  ('Hei Feng', 'Racial'),
-  ('Tsukiyo', 'Racial'),
-  ('Daikitsu', 'Racial'),
-  ('Shizuru', 'Racial'),
   -- Lost/Dead/Imprisoned/Pre-Transformed Gods
   ('Aroden', 'Lost'),
   ('Acavna', 'Lost'),
@@ -459,13 +452,10 @@ VALUES (-- Major Religious Groups
   ('Arazni', 'Regional'),
   -- Other Uncommon Dieties
   ('Achaekek', 'Uncommon'),
-  ('Besmara', 'Uncommon'),
   ('Black Butterfly', 'Uncommon'),
   ('Brigh', 'Uncommon'),
-  ('Groetus', 'Uncommon'),
   ('Ghlaunder', 'Uncommon'),
   ('Gyronna', 'Uncommon'),
-  ('Hanspur', 'Uncommon'),
   ('Milani', 'Uncommon'),
   ('Pulura', 'Uncommon'),
   ('Ragathiel', 'Uncommon'),
@@ -474,13 +464,6 @@ VALUES (-- Major Religious Groups
   ('Zyphus', 'Uncommon'),
   ('Cihua', 'Uncommon'),
   ('Kurgess', 'Uncommon'),
-  ('Kazutal', 'Uncommon'),
-  ('Mazludeh', 'Uncommon'),
-  ('Besmara (Shackles)', 'Uncommon'),
-  ('Hei Feng', 'Uncommon'),
-  ('Tsukiyo', 'Uncommon'),
-  ('Daikitsu', 'Uncommon'),
-  ('Shizuru', 'Uncommon'),
   -- Empyreal Lords (treated as obscure divine patrons)
   ('Andoletta', 'Obscure'),
   ('Arshea', 'Obscure'),
@@ -521,24 +504,23 @@ VALUES (-- Major Religious Groups
   ('Geryon', 'Obscure'),
   ('Baalzebul', 'Obscure'),
   -- Other obscure or single-reference PF1 deities
-  ('Easivra', 'Obscure'),
   ('Picoperi', 'Obscure'),
-  ('Hanspur (River Cult)', 'Obscure'),
-  ('Groetus (Apocalyptic Cult)', 'Obscure')
-)
+  ('Hanspur', 'Obscure'),
+  ('Groetus', 'Obscure')
 ON CONFLICT (religion_name) DO NOTHING;
 -- End Religion Seeds
 
 -- Seed Languages (idempotent - safe to run multiple times)
 INSERT INTO languages (id, language_name, is_recommended)
-VALUES ( --reserving 1-2 for common and other
+VALUES
+  --reserving 1-2 for common and other
   (1, 'Common', TRUE),
   (2, 'Other', FALSE)
-)
 ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO languages (language_name)
-VALUES ( -- Ancestral / racial core
+VALUES 
+  -- Ancestral / racial core
   ('Dwarven'),
   ('Elven'),
   ('Gnome'),
@@ -558,9 +540,11 @@ VALUES ( -- Ancestral / racial core
   ('Auran'),
   ('Ignan'),
   ('Terran'),
+  ('Leshy'),
   ('Protean'),
   ('Daemonic'),
   ('Div'),
+  ('Kyton'),
   ('Qlippothic'),
   ('Shadowtongue'),
   -- Widely referenced “other” tongues
@@ -568,28 +552,34 @@ VALUES ( -- Ancestral / racial core
   ('Alghollthu (Aboleth)'),
   ('Cyclops'),
   ('Dark Folk Cant'),
+  ('Drider'),
+  ('Ettercap'),
   ('Gnoll'),
   ('Grippli'),
+  ('Minotaur'),
   ('Necril'),
   ('Sahuagin'),
   ('Sphinx'),
   ('Treant'),
+  ('Troglodyte'),
   ('Vegepygmy'),
   ('Yeti')
-)
 ON CONFLICT (language_name) DO NOTHING;
 
 INSERT INTO languages (language_name, is_secret)
-VALUES (-- Secret Languages
+VALUES
+  -- Secret Languages
   ('Druidic (Wildsong)', TRUE),
   ('Drow Sign Language', TRUE),
   ('Thieves Cant', TRUE),
-  ('Lion Blade Codespeak', TRUE)
-)
+  ('Lion Blade Codespeak', TRUE),
+  ('Hellknight Signifier Cant', TRUE),
+  ('Red Mantis Sign Language', TRUE)
 ON CONFLICT (language_name) DO NOTHING;
 
 INSERT INTO languages (language_name, is_dialect)
-VALUES (-- Regional Dialects (usually human)
+VALUES
+  -- Regional Dialects (usually human)
   ('Akitan', TRUE),
   ('Ekujae Shape-Script', TRUE),
   ('Hallit', TRUE),
@@ -601,36 +591,37 @@ VALUES (-- Regional Dialects (usually human)
   ('Tien', TRUE),
   ('Varisian', TRUE),
   ('Vudrani', TRUE)
-)
 ON CONFLICT (language_name) DO NOTHING;
 
 INSERT INTO languages (language_name, is_ancient)
-VALUES (-- Ancient / Dead Languages
+VALUES
+  -- Ancient / Dead Languages
   ('Ancient Osiriani', TRUE),
   ('Ancient Azlanti', TRUE),
   ('Ancient Thassilonian', TRUE),
+  ('Akashic', TRUE),
   ('Jistka', TRUE),
   ('Orvian', TRUE),
   ('Shory', TRUE),
   ('Tekritanin', TRUE)
-)
 ON CONFLICT (language_name) DO NOTHING;
 
 INSERT INTO languages (language_name)
-VALUES (-- Other Languages (expansion block space)
+VALUES
+  -- Other Languages (expansion block space)
   ('Boggard'),
   ('Caligni'),
   ('Kech'),
+  ('Sasquatch'),
   ('Syrinx'),
   ('Strix')
-)
 ON CONFLICT (language_name) DO NOTHING;
 -- End Language Seeds
 -- END GLOBAL LOOKUP TABLES SEED BLOCK
 
 -- START GLOBAL TITLES SEED BLOCK (idempotent - safe to run multiple times)
 INSERT INTO title_ranks (title_rank_name, sort_order)
-VALUES (-- Rank order for backend sorting
+VALUES -- Rank order for backend sorting
   -- 1. Imperial Authority
   ('empire', 10),
   ('imperial advisor', 20),
@@ -698,11 +689,11 @@ VALUES (-- Rank order for backend sorting
   ('tradesman', 180),
   ('guard', 180),
   ('private', 180)
-)
 ON CONFLICT (title_rank_name) DO NOTHING;
 
 INSERT INTO titles (title_name, honorific_masculine, prefix_masculine)
-VALUES (-- Gender-Neutral Titles
+VALUES 
+  -- Gender-Neutral Titles
   ('hero, city', 'Hero', NULL),
   ('hero, regional', 'Hero', NULL),
   ('hero, major', 'Renowned Hero', 'Renowned Hero'),
@@ -778,11 +769,11 @@ VALUES (-- Gender-Neutral Titles
   ('talon captain', 'Captain', 'Captain'),
   ('steel falcon', 'Falcon', 'Falcon'),
   ('whispering agent', 'Whisper', 'Whisper')
-)
 ON CONFLICT (title_name) DO NOTHING;
 
 INSERT INTO titles (title_name, name_feminine, honorific_masculine, honorific_feminine, prefix_masculine, prefix_feminine)
-VALUES (-- Noble Titles
+VALUES 
+  -- Noble Titles
   ('emperor', 'empress', 'His Imperial Majesty', 'Her Imperial Majesty', 'Emperor', 'Empress'),
   ('grand prince', 'grand princess', 'His Imperial Majesty', 'Her Imperial Majesty', 'Grand Prince', 'Grand Princess'),
   ('king', 'queen', 'His Majesty', 'Her Majesty', 'King', 'Queen'),
@@ -838,12 +829,8 @@ VALUES (-- Noble Titles
   ('demibaron', 'demibaroness', 'His Lordship', 'Her Ladyship', 'Demi-Baron', 'Demi-Baroness'),
   ('satrap', 'satrap', 'His Excellency', 'Her Excellency', 'Satrap', 'Satrap'),
   ('padishah emperor', 'padishah empress', 'His Divine Majesty', 'Her Divine Majesty', 'Padishah Emperor', 'Padishah Empress'),
-  ('trade prince', 'trade princess', 'Your Excellency', 'Your Excellency', 'Prince', 'Princess')
-)
-ON CONFLICT (title_name) DO NOTHING;
-
-INSERT INTO titles (title_name, name_feminine, honorific_masculine, honorific_feminine, prefix_masculine, prefix_feminine)
-VALUES (-- Other Titles
+  ('trade prince', 'trade princess', 'Your Excellency', 'Your Excellency', 'Prince', 'Princess'),
+  -- Other Titles
   ('widower emperor', 'dowager empress', 'His Imperial Majesty', 'Her Imperial Majesty', 'Emperor', 'Empress'),
   ('widower duke', 'dowager duchess', 'His Grace', 'Her Grace', 'Duke', 'Duchess'),
   ('widower', 'dowager', 'His Grace', 'Her Grace', 'Widower', 'Dowager'),
@@ -871,7 +858,6 @@ VALUES (-- Other Titles
   ('high chancellor', 'High Chancellor', 'High Chancellor'),
   ('grand vizier', 'Grand Vizier', 'Grand Vizier'),
   ('freeman', 'freewoman', NULL, NULL, NULL, NULL)
-)
 ON CONFLICT (title_name) DO NOTHING;
 
 -- Set rank_id for titles by name as Case (avoid nested select)
@@ -879,14 +865,13 @@ UPDATE titles AS t
 SET rank_id = r.id
 FROM title_ranks AS r
 WHERE r.title_rank_name = CASE t.title_name
--- Heroic / achievement titles
+    -- Heroic / achievement titles
     WHEN 'hero, city' THEN 'local important'
     WHEN 'hero, regional' THEN 'regional important'
     WHEN 'hero, major' THEN 'major important'
     WHEN 'champion, city' THEN 'local important'
     WHEN 'champion, regional' THEN 'regional important'
     WHEN 'champion, major' THEN 'major important'
-
     -- Military / civic (gender-neutral)
     WHEN 'general' THEN 'general'
     WHEN 'colonel' THEN 'colonel'
@@ -946,7 +931,6 @@ WHERE r.title_rank_name = CASE t.title_name
     WHEN 'grand councillor' THEN 'imperial advisor'
     WHEN 'imperial steward' THEN 'imperial advisor'
     WHEN 'imperial marshal' THEN 'imperial advisor'
-
     -- Noble titles (core)
     WHEN 'emperor' THEN 'empire'
     WHEN 'grand prince' THEN 'empire' -- imperial prince-tier
@@ -1002,7 +986,6 @@ WHERE r.title_rank_name = CASE t.title_name
     WHEN 'satrap' THEN 'kingdom'
     WHEN 'padishah emperor' THEN 'empire'
     WHEN 'trade prince' THEN 'major guild'
-
     -- Faith Titles
     WHEN 'caliph' THEN 'major faith'
     WHEN 'high priest' THEN 'major faith'
@@ -1015,7 +998,6 @@ WHERE r.title_rank_name = CASE t.title_name
     WHEN 'prior' THEN 'temple'
     WHEN 'archmage' THEN 'major important'
     WHEN 'magister' THEN 'regional important'
-
     -- Other / dowager titles
     WHEN 'widower emperor' THEN 'empire'
     WHEN 'widower duke' THEN 'duchy'
