@@ -8,23 +8,13 @@ tab_space_size = 2
 [sqlfluff:indentation]
 indent_unit = space
 tab_space_size = 2
+implicit_indents = require
 indented_joins = True
 indented_using_on = True
 indented_on_contents = True
-implicit_indents = allow
-
-[sqlfluff:layout:type:values_clause]
-# Force the values to start on a new line if they aren't already
-line_position = alone
-
-[sqlfluff:layout:type:values_clause_row]
-# Specifically target the rows within the VALUES clause
-line_position = alone
-
-[sqlfluff:layout:type:bracketed]
-# This ensures the (1, ...) rows are treated as indented blocks
-line_position = alone
-spacing_before = single 
+indented_then = True
+indented_then_contents = True
+indented_constraints = True
 
 [rule_L010]
 capitalisation_policy = upper

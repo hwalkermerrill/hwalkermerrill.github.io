@@ -4,21 +4,21 @@ BEGIN;
 
 -- START GLOBAL LOOKUP TABLES SEED BLOCK
 -- Seed Active_Status (idempotent - safe to run multiple times)
-INSERT INTO active_status (id, name)
+INSERT INTO active_status (id, active_status_name)
 VALUES (1, 'PENDING')
 ON CONFLICT (id) DO NOTHING;
 
-INSERT INTO active_status (name)
+INSERT INTO active_status (active_status_name)
 VALUES (
   ('Active'),
   ('Retired'),
   ('Deceased')
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (active_status_name) DO NOTHING;
 -- End Active_Status Seeds
 
 -- Seed Attitude (idempotent - safe to run multiple times)
-INSERT INTO attitude (id, name)
+INSERT INTO attitude (id, attitude_name)
 VALUES (
   (1, 'Hostile'),
   (2, 'Unfriendly'),
@@ -31,27 +31,27 @@ ON CONFLICT (id) DO NOTHING;
 -- End Attitude Seeds
 
 -- Seed Speeds (idempotent - safe to run multiple times)
-INSERT INTO speed (id, name)
+INSERT INTO speed (id, speed_name)
 VALUES (1, 'Base')
 ON CONFLICT (id) DO NOTHING;
 
-INSERT INTO speed (name)
+INSERT INTO speed (speed_name)
 VALUES (
   ('Climb'),
   ('Swim'),
   ('Fly'),
   ('Burrow')
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (speed_name) DO NOTHING;
 -- End Speed Seeds
 
 -- Seed Classes (idempotent - safe to run multiple times)
-INSERT INTO classes (id, name, source)
+INSERT INTO classes (id, class_name, source)
 VALUES (1, 'Unknown', 'Core')
 ON CONFLICT (id) DO NOTHING;
 
 
-INSERT INTO classes (name, source, class_type, magic_type, caster_spontaneous, has_companion)
+INSERT INTO classes (class_name, source, class_type, magic_type, caster_spontaneous, has_companion)
 VALUES ( -- Core Rulebook classes
   ('Barbarian', 'Core', 'Martial', NULL, FALSE, FALSE),
   ('Bard', 'Core', 'Hybrid(s)', 'Arcane', TRUE, FALSE),
@@ -100,9 +100,9 @@ VALUES ( -- Core Rulebook classes
   ('Shifter', 'Other', 'Martial', NULL, FALSE, FALSE),
   ('Vampire Hunter', 'Other', 'Hybrid(3)', 'DIVINE', TRUE, TRUE)
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (class_name) DO NOTHING;
 
-INSERT INTO classes (name, source, class_type)
+INSERT INTO classes (class_name, source, class_type)
 VALUES (-- NPC classes
   ('Adept', 'NPC', 'Magic'),
   ('Aristocrat', 'NPC', 'Skill'),
@@ -110,9 +110,9 @@ VALUES (-- NPC classes
   ('Expert', 'NPC', 'Skill'),
   ('Warrior', 'NPC', 'Martial')
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (class_name) DO NOTHING;
 
-INSERT INTO classes (name, source, class_type)
+INSERT INTO classes (class_name, source, class_type)
 VALUES (-- Prestige Classes
   ('Agent of the Grave', 'Prestige', 'Prestige'),
   ('Aldori Swordlord', 'Prestige', 'Prestige'),
@@ -233,15 +233,15 @@ VALUES (-- Prestige Classes
   ('Westcrown Devil', 'Prestige', 'Prestige'),
   ('Winter Witch', 'Prestige', 'Prestige')
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (class_name) DO NOTHING;
 
 -- Seed Races (idempotent - safe to run multiple times)
-INSERT INTO race (id, name)
+INSERT INTO race (id, race_name)
 VALUES (1, 'Unknown')
 ON CONFLICT (id) DO NOTHING;
 
 
-INSERT INTO race (name, limited)
+INSERT INTO race (race_name, limited)
 VALUES (-- Core Races
   ('Human', FALSE),
   ('Dwarf', FALSE),
@@ -251,9 +251,9 @@ VALUES (-- Core Races
   ('Half-Elf', FALSE),
   ('Half-Orc', FALSE)
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (race_name) DO NOTHING;
 
-INSERT INTO race (name)
+INSERT INTO race (race_name)
 VALUES (-- Standard Races
   ('Catfolk'),
   ('Duergar'),
@@ -313,11 +313,11 @@ VALUES (-- Standard Races
   ('Strix'),
   ('Wayang')
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (race_name) DO NOTHING;
 -- End Race Seeds
 
 -- Seed Religions   (idempotent - safe to run multiple times)
-INSERT INTO religions (id, name)
+INSERT INTO religions (id, religion_name)
 VALUES (-- reserve 1 - 5
   (1, 'Unknown'),
   (2, 'Atheist'),
@@ -327,7 +327,7 @@ VALUES (-- reserve 1 - 5
 )
 ON CONFLICT (id) DO NOTHING;
 
-INSERT INTO religions (name)
+INSERT INTO religions (religion_name)
 VALUES (-- Core 20 deities from Golarion (Pathfinder 1e)
   ('Abadar'),
   ('Asmodeus'),
@@ -349,9 +349,9 @@ VALUES (-- Core 20 deities from Golarion (Pathfinder 1e)
   ('Urgathoa'),
   ('Zon-Kuthon')
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (religion_name) DO NOTHING;
 
-INSERT INTO religions (name, obscurity)
+INSERT INTO religions (religion_name, obscurity)
 VALUES (-- Major Religious Groups
   ('Green Faith', 'Common'),
   ('Godclaw', 'Uncommon'),
@@ -526,18 +526,18 @@ VALUES (-- Major Religious Groups
   ('Hanspur (River Cult)', 'Obscure'),
   ('Groetus (Apocalyptic Cult)', 'Obscure')
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (religion_name) DO NOTHING;
 -- End Religion Seeds
 
 -- Seed Languages (idempotent - safe to run multiple times)
-INSERT INTO languages (id, name, is_recommended)
+INSERT INTO languages (id, language_name, is_recommended)
 VALUES ( --reserving 1-2 for common and other
   (1, 'Common', TRUE),
   (2, 'Other', FALSE)
 )
 ON CONFLICT (id) DO NOTHING;
 
-INSERT INTO languages (name)
+INSERT INTO languages (language_name)
 VALUES ( -- Ancestral / racial core
   ('Dwarven'),
   ('Elven'),
@@ -577,18 +577,18 @@ VALUES ( -- Ancestral / racial core
   ('Vegepygmy'),
   ('Yeti')
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (language_name) DO NOTHING;
 
-INSERT INTO languages (name, is_secret)
+INSERT INTO languages (language_name, is_secret)
 VALUES (-- Secret Languages
   ('Druidic (Wildsong)', TRUE),
   ('Drow Sign Language', TRUE),
   ('Thieves Cant', TRUE),
   ('Lion Blade Codespeak', TRUE)
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (language_name) DO NOTHING;
 
-INSERT INTO languages (name, is_dialect)
+INSERT INTO languages (language_name, is_dialect)
 VALUES (-- Regional Dialects (usually human)
   ('Akitan', TRUE),
   ('Ekujae Shape-Script', TRUE),
@@ -602,9 +602,9 @@ VALUES (-- Regional Dialects (usually human)
   ('Varisian', TRUE),
   ('Vudrani', TRUE)
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (language_name) DO NOTHING;
 
-INSERT INTO languages (name, is_ancient)
+INSERT INTO languages (language_name, is_ancient)
 VALUES (-- Ancient / Dead Languages
   ('Ancient Osiriani', TRUE),
   ('Ancient Azlanti', TRUE),
@@ -614,9 +614,9 @@ VALUES (-- Ancient / Dead Languages
   ('Shory', TRUE),
   ('Tekritanin', TRUE)
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (language_name) DO NOTHING;
 
-INSERT INTO languages (name)
+INSERT INTO languages (language_name)
 VALUES (-- Other Languages (expansion block space)
   ('Boggard'),
   ('Caligni'),
@@ -624,51 +624,84 @@ VALUES (-- Other Languages (expansion block space)
   ('Syrinx'),
   ('Strix')
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (language_name) DO NOTHING;
 -- End Language Seeds
 -- END GLOBAL LOOKUP TABLES SEED BLOCK
 
 -- START GLOBAL TITLES SEED BLOCK (idempotent - safe to run multiple times)
-INSERT INTO title_ranks (name, sort_order)
+INSERT INTO title_ranks (title_rank_name, sort_order)
 VALUES (-- Rank order for backend sorting
+  -- 1. Imperial Authority
   ('empire', 1),
-  ('kingdom', 2),
-  ('grand duchy', 2),
-  ('country', 2),
-  ('high general', 2),
-  ('major faith', 2),
-  ('duchy', 3),
-  ('state', 3),
-  ('major guild', 3),
-  ('major general', 3),
-  ('major city', 3),
-  ('county', 4),
-  ('regional guild', 4),
-  ('regional faith', 4),
-  ('major important', 4),
-  ('general', 4),
-  ('barony', 5),
-  ('city', 5),
-  ('captain', 5),
-  ('regional important', 5),
-  ('estate', 6),
-  ('district', 6),
-  ('local guild', 6),
-  ('local faith', 6),
-  ('local important', 6),
-  ('council', 6),
-  ('officer', 6),
-  ('noble blood', 6),
-  ('gentry', 6),
-  ('property', 7),
-  ('sergeant', 7),
-  ('landless', 8),
-  ('landless unmarried', 9),
-  ('peasant', 10)
+  ('holy empire', 1),
+  ('imperial advisor', 2),
+  -- 2. National Authority
+  ('kingdom', 3),
+  ('national advisor', 4),
+  ('high general', 4),
+  ('major faith', 4),
+  -- 3. Sub‑National Major Authority
+  ('grand duchy', 5),
+  ('archduchy', 5),
+  ('archbishopric', 5),
+  ('principality', 6),
+  -- 4. Regional Authority
+  ('duchy', 7),
+  ('bishopric', 7),
+  ('march', 8),
+  ('landgrave', 8),
+  ('major general', 8),
+  ('major city', 8),
+  ('major guild', 8),
+  ('major important', 8),
+  -- 5. Sub‑Regional Authority
+  ('county', 9),
+  ('earldom', 9),
+  ('general', 9),
+  ('temple', 9),
+  ('regional important', 10),
+  ('regional faith', 10),
+  ('regional guild', 10),
+  ('viscounty', 10),
+  ('tribune', 10),
+  ('colonel', 10),
+  -- 6. Local Major Authority
+  ('barony', 11),
+  ('abbey', 11),
+  ('city', 11),
+  ('major', 11),
+  ('captain', 12),
+  ('guildmaster', 12),
+  -- 7. Local Minor Authority
+  ('baronet', 13),
+  ('estate', 13),
+  ('magistrate', 13),
+  ('master artisan', 13),
+  ('local important', 14),
+  ('local faith', 14),
+  ('warden', 14),
+  ('steward', 14),
+  ('castellan', 14),
+  ('reeve', 14),
+  ('property owner', 14),
+  -- 8. Landless Nobility / Officer Class
+  ('knight', 15),
+  ('lieutenant', 15),
+  ('esquire', 16),
+  ('gentleman', 16),
+  ('ensign', 16),
+  ('sergeant', 16),
+  -- 9. Wealth‑Based Authority
+  ('merchant', 17),
+  ('corporal', 17),
+  ('artisan', 17),
+  ('tradesman', 18),
+  ('guard', 18),
+  ('private', 18)
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (title_rank_name) DO NOTHING;
 
-INSERT INTO titles (name, honorific_masculine, prefix_masculine)
+INSERT INTO titles (title_name, honorific_masculine, prefix_masculine)
 VALUES (-- Gender-Neutral Titles
   ('hero, city', 'Hero', NULL),
   ('hero, regional', 'Hero', NULL),
@@ -677,32 +710,58 @@ VALUES (-- Gender-Neutral Titles
   ('champion, regional', 'Champion', NULL),
   ('champion, major', 'Renowned Champion', 'Renowned Champion'),
   ('general', 'General', 'General'),
+  ('colonel', 'Colonel', 'Colonel'),
+  ('major', 'Major', 'Major'),
   ('captain', 'Captain', 'Captain'),
   ('lieutenant', 'Lieutenant', 'Lt.'),
   ('sergeant', 'Sergeant', 'Sgt.'),
   ('corporal', 'Corporal', 'Cpl.'),
-  ('Guard', 'Guard', NULL),
+  ('guard', 'Guardsmen', NULL),
   ('private', 'Private', 'Pvt.'),
-  ('mayor', 'Mayor', 'The Honorable'),
-  ('lord mayor', 'Lord Mayor', 'The Most Honorable')
+  ('mayor', 'The Honorable', 'Mayor'),
+  ('lord mayor', 'The Most Honorable', 'Lord Mayor'),
+  ('guildmaster', 'Guildmaster', 'Guildmaster'),
+  ('magistrate', 'Magistrate', 'Magistrate'),
+  ('warden', 'Warden', 'Warden')
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (title_name) DO NOTHING;
 
-INSERT INTO titles (name, name_feminine, honorific_masculine, honorific_feminine, prefix_masculine, prefix_feminine, rank_id)
+INSERT INTO titles (title_name, name_feminine, honorific_masculine, honorific_feminine, prefix_masculine, prefix_feminine)
 VALUES (-- Noble Titles
+  ('emperor', 'empress', 'His Imperial Majesty', 'Her Imperial Majesty', 'Emperor', 'Empress'),
+  ('king', 'queen', 'His Majesty', 'Her Majesty', 'King', 'Queen'),
+  ('prince', 'princess', 'His Highness', 'Her Highness', 'Prince', 'Princess'),
+  ('grand duke', 'grand duchess', 'His Grace', 'Her Grace', 'Grand Duke', 'Grand Duchess'),
+  ('archduke', 'archduchess', 'His Imperial Highness', 'Her Imperial Highness', 'Archduke', 'Archduchess'),
+  ('duke', 'duchess', 'His Grace', 'Her Grace', 'Duke', 'Duchess'),
+  ('marquess', 'marquise', 'His Illustriousness', 'Her Illustriousness', 'Marquis', 'Marchioness'),
+  ('count', 'countess', 'His Lordship', 'Her Ladyship', 'Count', 'Countess'),
+  ('earl', 'countess', 'His Lordship', 'Her Ladyship', 'Earl', 'Countess'),
+  ('viscount', 'viscountess', 'The Right Honorable', 'The Right Honorable', 'Viscount', 'Viscountess'),
+  ('baron', 'baroness', 'His Lordship', 'Her Ladyship', 'Baron', 'Baroness'),
+  ('baronet', 'baronetess', 'Sir', 'Dame', 'Baronet', 'Baronetess'),
+  ('lord', 'lady', 'Lord', 'Lady', 'Lord', 'Lady'),
+  ('knight', 'dame', 'Sir', 'Dame', 'Sir', 'Dame'),
+  ('esquire', 'esquire', 'Esquire', 'Esquire', 'Esq.', 'Esq.')
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (title_name) DO NOTHING;
 
-INSERT INTO titles (name, name_feminine, honorific_masculine, honorific_feminine, prefix_masculine, prefix_feminine, rank_id)
+INSERT INTO titles (title_name, name_feminine, honorific_masculine, honorific_feminine, prefix_masculine, prefix_feminine)
 VALUES (-- Other Titles
+  ('widower emperor', 'dowager empress', 'His Imperial Majesty', 'Her Imperial Majesty', 'Emperor', 'Empress'),
+  ('widower duke', 'dowager duchess', 'His Grace', 'Her Grace', 'Duke', 'Duchess'),
+  ('widower', 'dowager', 'His Grace', 'Her Grace', 'Widower', 'Dowager'),
+  ('widower marquess', 'dowager marquess', 'His Illustriousness', 'Her Illustriousness', 'Marquess', 'Marquise'),
+  ('widower count', 'dowager countess', 'His Excellency', 'Her Excellency', 'Count in Residence', 'Dowager Countess'),
+  ('widower baron', 'dowager baroness', 'His Lordship', 'Her Lordship', 'Lord Baron', 'Lady Baroness')
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (title_name) DO NOTHING;
 
 -- Set rank_id for titles by name as Case (avoid nested select)
 UPDATE titles AS t
 SET rank_id = r.id
 FROM title_ranks AS r
-WHERE r.name = CASE t.name
+WHERE r.title_rank_name = CASE t.title_name
     WHEN 'hero, city' THEN 'local important'
     WHEN 'hero, regional' THEN 'regional important'
     WHEN 'hero, major' THEN 'major important'
@@ -710,14 +769,25 @@ WHERE r.name = CASE t.name
     WHEN 'champion, regional' THEN 'regional important'
     WHEN 'champion, major' THEN 'major important'
     WHEN 'general' THEN 'general'
+    WHEN 'colonel' THEN 'colonel'
+    WHEN 'major' THEN 'major'
     WHEN 'captain' THEN 'captain'
-    WHEN 'lieutenant' THEN 'officer'
+    WHEN 'lieutenant' THEN 'lieutenant'
     WHEN 'sergeant' THEN 'sergeant'
-    WHEN 'corporal' THEN 'landless'
-    WHEN 'guard' THEN 'landless'
-    WHEN 'private' THEN 'peasant'
+    WHEN 'corporal' THEN 'corporal'
+    WHEN 'guard' THEN 'guard'
+    WHEN 'private' THEN 'private'
     WHEN 'mayor' THEN 'city'
     WHEN 'lord mayor' THEN 'major city'
+    WHEN 'widower emperor' THEN 'empire'
+    WHEN 'widower duke' THEN 'duchy'
+    WHEN 'widower' THEN 'principality'
+    WHEN 'widower marquess' THEN 'march'
+    WHEN 'widower count' THEN 'county'
+    WHEN 'widower baron' THEN 'barony'
+    WHEN 'guildmaster' THEN 'guildmaster'
+    WHEN 'magistrate' THEN 'magistrate'
+    WHEN 'warden' THEN 'warden'
   END;
 -- END GLOBAL TITLES SEED BLOCK
 
