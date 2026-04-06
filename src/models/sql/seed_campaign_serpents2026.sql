@@ -1,5 +1,4 @@
 -- Database seed file for existing data and initial setup
-
 BEGIN;
 
 -- Seed campaign into structure for organization
