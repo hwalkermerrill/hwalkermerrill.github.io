@@ -283,6 +283,8 @@ CREATE TABLE IF NOT EXISTS pc_titles (
     REFERENCES titles (id)
     ON DELETE RESTRICT,
   title_location VARCHAR(255) DEFAULT NULL,
+  adjust_ranking VARCHAR(10) DEFAULT NULL, -- Up, Down, or Null
+  adjust_value INTEGER DEFAULT NULL, -- Amount adjusted
   has_location BOOLEAN DEFAULT FALSE,
   use_honorific BOOLEAN DEFAULT TRUE,
   UNIQUE (pc_id, title_id, location),
@@ -475,6 +477,8 @@ CREATE TABLE IF NOT EXISTS companion_titles (
     REFERENCES titles (id)
     ON DELETE RESTRICT,
   title_location VARCHAR(255) DEFAULT NULL,
+  adjust_ranking VARCHAR(10) DEFAULT NULL, -- Up, Down, or Null
+  adjust_value INTEGER DEFAULT NULL, -- Amount adjusted
   has_location BOOLEAN DEFAULT FALSE,
   use_honorific BOOLEAN DEFAULT TRUE,
   UNIQUE (companion_id, title_id, location),
@@ -586,6 +590,8 @@ CREATE TABLE IF NOT EXISTS npc_titles (
     REFERENCES titles (id)
     ON DELETE RESTRICT,
   title_location VARCHAR(255) DEFAULT NULL,
+  adjust_ranking VARCHAR(10) DEFAULT NULL, -- Up, Down, or Null
+  adjust_value INTEGER DEFAULT NULL, -- Amount adjusted
   has_location BOOLEAN DEFAULT FALSE,
   use_honorific BOOLEAN DEFAULT TRUE,
   UNIQUE (npc_id, title_id, title_location),

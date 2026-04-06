@@ -632,72 +632,72 @@ ON CONFLICT (language_name) DO NOTHING;
 INSERT INTO title_ranks (title_rank_name, sort_order)
 VALUES (-- Rank order for backend sorting
   -- 1. Imperial Authority
-  ('empire', 1),
-  ('holy empire', 1),
-  ('imperial advisor', 2),
+  ('empire', 10),
+  ('imperial advisor', 20),
   -- 2. National Authority
-  ('kingdom', 3),
-  ('national advisor', 4),
-  ('high general', 4),
-  ('major faith', 4),
+  ('kingdom', 30),
+  ('national advisor', 40),
+  ('high general', 40),
+  ('major faith', 40),
   -- 3. Sub‑National Major Authority
-  ('grand duchy', 5),
-  ('archduchy', 5),
-  ('archbishopric', 5),
-  ('principality', 6),
+  ('grand duchy', 50),
+  ('archduchy', 50),
+  ('archbishopric', 50),
+  ('principality', 60),
   -- 4. Regional Authority
-  ('duchy', 7),
-  ('bishopric', 7),
-  ('march', 8),
-  ('landgrave', 8),
-  ('major general', 8),
-  ('major city', 8),
-  ('major guild', 8),
-  ('major important', 8),
+  ('duchy', 70),
+  ('bishopric', 70),
+  ('march', 80),
+  ('landgrave', 80),
+  ('major general', 80),
+  ('major city', 80),
+  ('major guild', 80),
+  ('major important', 80),
   -- 5. Sub‑Regional Authority
-  ('county', 9),
-  ('earldom', 9),
-  ('general', 9),
-  ('temple', 9),
-  ('regional important', 10),
-  ('regional faith', 10),
-  ('regional guild', 10),
-  ('viscounty', 10),
-  ('tribune', 10),
-  ('colonel', 10),
+  ('county', 90),
+  ('earldom', 90),
+  ('general', 90),
+  ('temple', 90),
+  ('regional important', 100),
+  ('regional faith', 100),
+  ('regional guild', 100),
+  ('viscounty', 100),
+  ('tribune', 100),
+  ('colonel', 100),
   -- 6. Local Major Authority
-  ('barony', 11),
-  ('abbey', 11),
-  ('city', 11),
-  ('major', 11),
-  ('captain', 12),
-  ('guildmaster', 12),
+  ('barony', 110),
+  ('abbey', 110),
+  ('city', 110),
+  ('major', 110),
+  ('captain', 120),
+  ('guildmaster', 120),
   -- 7. Local Minor Authority
-  ('baronet', 13),
-  ('estate', 13),
-  ('magistrate', 13),
-  ('master artisan', 13),
-  ('local important', 14),
-  ('local faith', 14),
-  ('warden', 14),
-  ('steward', 14),
-  ('castellan', 14),
-  ('reeve', 14),
-  ('property owner', 14),
+  ('baronet', 130),
+  ('estate', 130),
+  ('magistrate', 130),
+  ('master artisan', 130),
+  ('master tradesman', 130),
+  ('local important', 140),
+  ('local faith', 140),
+  ('warden', 140),
+  ('steward', 140),
+  ('castellan', 140),
+  ('reeve', 140),
+  ('property owner', 140),
   -- 8. Landless Nobility / Officer Class
-  ('knight', 15),
-  ('lieutenant', 15),
-  ('esquire', 16),
-  ('gentleman', 16),
-  ('ensign', 16),
-  ('sergeant', 16),
+  ('knight', 150),
+  ('lieutenant', 150),
+  ('esquire', 160),
+  ('gentleman', 160),
+  ('ensign', 160),
+  ('sergeant', 160),
   -- 9. Wealth‑Based Authority
-  ('merchant', 17),
-  ('corporal', 17),
-  ('artisan', 17),
-  ('tradesman', 18),
-  ('guard', 18),
-  ('private', 18)
+  ('merchant', 170),
+  ('corporal', 170),
+  ('artisan', 170),
+  ('tradesman', 180),
+  ('guard', 180),
+  ('private', 180)
 )
 ON CONFLICT (title_rank_name) DO NOTHING;
 
@@ -721,28 +721,124 @@ VALUES (-- Gender-Neutral Titles
   ('mayor', 'The Honorable', 'Mayor'),
   ('lord mayor', 'The Most Honorable', 'Lord Mayor'),
   ('guildmaster', 'Guildmaster', 'Guildmaster'),
+  ('major guild', 'Guildmaster', 'Guildmaster'),
+  ('regional guild', 'Guildmaster', 'Guildmaster'),
+  ('regional guildman', 'Guilly', 'Guilly'),
+  ('pathfinder', 'Pathfinder', 'Pathfinder'),
+  ('asp', 'Asp', 'Asp'),
+  ('red mantis', NULL, NULL),
+  ('red mantis mistress', 'Mistress', 'Mistress'),
+  ('patron', 'Patron', NULL),
+  ('venture-lieutenant', 'Venturer', 'Venture Lt.'),
+  ('venture-captain', 'Venture-Captain', 'Venture Cpt.'),
+  ('decemvirate', NULL, NULL),
   ('magistrate', 'Magistrate', 'Magistrate'),
-  ('warden', 'Warden', 'Warden')
+  ('warden', 'Warden', 'Warden'),
+  ('tribune', 'Tribune', 'Tribune'),
+  ('merchant', NULL, NULL),
+  ('artisan', NULL, NULL),
+  ('tradesman', NULL, NULL),
+  ('estate', 'Master', 'Master'),
+  ('master artisan', 'Master', 'Master'),
+  ('master tradesman', 'Master', 'Master'),
+  ('property owner', NULL, NULL),
+  ('marshal', 'Marshal', 'Marshal'),
+  ('field marshal', 'Field Marshal', 'Field Marshal'),
+  ('commander', 'Commander', 'Commander'),
+  ('high commander', 'High Commander', 'High Commander'),
+  ('vizier', 'Vizier', 'Vizier'),
+  ('high inquisitor', 'High Inquisitor', 'High Inquisitor'),
+  ('alderman', 'Alderman', 'Alderman'),
+  ('councilor', 'Councilor', 'Councilor'),
+  ('provost', 'Provost', 'Provost'),
+  ('burgomaster', 'Burgomaster', 'Burgomaster'),
+  ('sheriff', 'Sheriff', 'Sheriff'),
+  ('bailiff', 'Bailiff', 'Bailiff'),
+  ('justiciar', 'Justiciar', 'Justiciar'),
+  ('senator', 'Senator', 'Senator'),
+  ('legate', 'Legate', 'Legate'),
+  ('prefect', 'Prefect', 'Prefect'),
+  ('tribune of the senate', 'Tribune', 'Tribune'),
+  ('speaker', 'Speaker', 'Speaker'),
+  ('consul', 'Consul', 'Consul'),
+  ('proconsul', 'Proconsul', 'Proconsul'),
+  ('imperial chancellor', 'Imperial Chancellor', 'Imperial Chancellor'),
+  ('imperial secretary', 'Imperial Secretary', 'Imperial Secretary'),
+  ('privy councillor', 'Privy Councillor', 'Privy Councillor'),
+  ('grand councillor', 'Grand Councillor', 'Grand Councillor'),
+  ('imperial steward', 'Imperial Steward', 'Imperial Steward'),
+  ('imperial marshal', 'Imperial Marshal', 'Imperial Marshal'),
+  ('castellan', 'Castellan', 'Keeper'),
+  ('reeve', 'Reaper', 'Reeve'),
+  ('yeoman', NULL, NULL),
+  ('ensign', 'Ensign', 'Ens.'),
+  ('lictor', 'Lictor', 'Lictor'),
+  ('paralictor', 'Paralictor', 'Paralictor'),
+  ('maralictor', 'Maralictor', 'Maralictor'),
+  ('talon captain', 'Captain', 'Captain'),
+  ('steel falcon', 'Falcon', 'Falcon'),
+  ('whispering agent', 'Whisper', 'Whisper')
 )
 ON CONFLICT (title_name) DO NOTHING;
 
 INSERT INTO titles (title_name, name_feminine, honorific_masculine, honorific_feminine, prefix_masculine, prefix_feminine)
 VALUES (-- Noble Titles
   ('emperor', 'empress', 'His Imperial Majesty', 'Her Imperial Majesty', 'Emperor', 'Empress'),
+  ('grand prince', 'grand princess', 'His Imperial Majesty', 'Her Imperial Majesty', 'Grand Prince', 'Grand Princess'),
   ('king', 'queen', 'His Majesty', 'Her Majesty', 'King', 'Queen'),
   ('prince', 'princess', 'His Highness', 'Her Highness', 'Prince', 'Princess'),
-  ('grand duke', 'grand duchess', 'His Grace', 'Her Grace', 'Grand Duke', 'Grand Duchess'),
+  ('grand duke', 'grand duchess', 'His Royal Highness', 'Her Royal Highness', 'Grand Duke', 'Grand Duchess'),
   ('archduke', 'archduchess', 'His Imperial Highness', 'Her Imperial Highness', 'Archduke', 'Archduchess'),
   ('duke', 'duchess', 'His Grace', 'Her Grace', 'Duke', 'Duchess'),
   ('marquess', 'marquise', 'His Illustriousness', 'Her Illustriousness', 'Marquis', 'Marchioness'),
+  ('landgrave', 'landgravine', 'His Highbourn Lordship', 'Her Highbourn Ladyship', 'Landgrave', 'Landgravine'),
   ('count', 'countess', 'His Lordship', 'Her Ladyship', 'Count', 'Countess'),
-  ('earl', 'countess', 'His Lordship', 'Her Ladyship', 'Earl', 'Countess'),
+  ('earl', 'arless', 'His Lordship', 'Her Ladyship', 'Earl', 'Arless'),
   ('viscount', 'viscountess', 'The Right Honorable', 'The Right Honorable', 'Viscount', 'Viscountess'),
   ('baron', 'baroness', 'His Lordship', 'Her Ladyship', 'Baron', 'Baroness'),
   ('baronet', 'baronetess', 'Sir', 'Dame', 'Baronet', 'Baronetess'),
   ('lord', 'lady', 'Lord', 'Lady', 'Lord', 'Lady'),
   ('knight', 'dame', 'Sir', 'Dame', 'Sir', 'Dame'),
-  ('esquire', 'esquire', 'Esquire', 'Esquire', 'Esq.', 'Esq.')
+  ('esquire', 'esquire', 'Esquire', 'Esquire', 'Esq.', 'Esq.'),
+  ('sultan', 'sultana', 'His Majesty', 'Her Majesty', 'Sultan', 'Sultana'),
+  ('shah', 'shahbanu', 'His Imperial Majesty', 'Her Imperial Majesty', 'Shah', 'Shahbanu'),
+  ('rajah', 'rani', 'His Highness', 'Her Highness', 'Rajah', 'Rani'),
+  ('khan', 'khatun', 'His Excellency', 'Her Excellency', 'Khan', 'Khatun'),
+  ('czar', 'czarina', 'His Imperial Majesty', 'Her Imperial Majesty', 'Czar', 'Czarina'),
+  ('tsar', 'tsarina', 'His Imperial Majesty', 'Her Imperial Majesty', 'Tsar', 'Tsarina'),
+  ('pharaoh', 'pharaoh', 'His Divine Majesty', 'Her Divine Majesty', 'Pharaoh', 'Pharaoh'),
+  ('elector', 'electress', 'His Serene Highness', 'Her Serene Highness', 'Elector', 'Electress'),
+  ('margrave', 'margravine', 'His Illustriousness', 'Her Illustriousness', 'Margrave', 'Margravine'),
+  ('jarl', 'jarless', 'His Lordship', 'Her Ladyship', 'Jarl', 'Jarless'),
+  ('thane', 'thane', 'His Lordship', 'Her Ladyship', 'Thane', 'Thane'),
+  ('boyar', 'boyarina', 'His Lordship', 'Her Ladyship', 'Boyar', 'Boyarina'),
+  ('doge', 'dogaressa', 'His Serenity', 'Her Serenity', 'Doge', 'Dogaressa'),
+  ('aristocrat', 'aristocrat', 'Sir', 'Madam', 'Mr.', 'Mrs.'),
+  ('aristocrat, single', 'aristocrat', 'Sir', 'Madam', 'Mr.', 'Ms.'),
+  ('high vaxitalian', 'high vaxitalianette', 'His Excellency', 'Her Excellency', 'High Vaxitalian', 'High Vaxitalianette'),
+  ('vaxitalian', 'vaxitalianette', 'His Excellency', 'Her Excellency', 'Vaxitalian', 'Vaxitalianette'),
+  ('grand baron', 'grand baroness', 'His Lordship', 'Her Ladyship', 'Grand Baron', 'Grand Baroness'),
+  ('suma baron', 'suma baroness', 'His Lordship', 'Her Ladyship', 'Suma-Baron', 'Suma-Baroness'),
+  ('over duke', 'over duchess', 'His Grace', 'Her Grace', 'Over Duke', 'Over Duchess'),
+  ('abra duke', 'abra duchess', 'His Grace', 'Her Grace', 'Duke', 'Duchess'),
+  ('suma duke', 'suma duchess', 'His Grace', 'Her Grace', 'Suma-Duke', 'Suma-Duchess'),
+  ('lord montcastle', 'lady montcastle', 'Lord', 'Lady', 'Lord Montcastle', 'Lady Montcastle'),
+  ('grandee', 'grandee', 'Grandee', 'Grandee', 'Grandee', 'Grandee'),
+  ('abra grandee', 'abra grandee', 'Grandee', 'Grandee', 'Grandee', 'Grandee'),
+  ('grand magnate', 'grand magnate', 'Magnate', 'Magnate', 'Grand Magnate', 'Grand Magnate'),
+  ('magnate', 'magnate', 'Magnate', 'Magnate', 'Magnate', 'Magnate'),
+  ('high lord', 'high lady', 'High Lord', 'High Lady', 'High Lord', 'High Lady'),
+  ('true lord', 'true lady', 'True Lord', 'True Lady', 'Lord', 'Lady'),
+  ('suma lord', 'suma lady', 'Lord', 'Lady', 'Lord', 'Lady'),
+  ('majestor', 'majestrix', 'His Infernal Majestrix', 'Her Infernal Majestrix', 'Majestor', 'Majestrix'),
+  ('paraduke', 'paraduchess', 'His Grace', 'Her Grace', 'Paraduke', 'Paraduchess'),
+  ('archcount', 'archcountess', 'His Excellency', 'Her Excellency', 'Archcount', 'Archcountess'),
+  ('paracount', 'paracountess', 'His Excellency', 'Her Excellency', 'Paracount', 'Paracountess'),
+  ('archbaron', 'archbaroness', 'His Lordship', 'Her Ladyship', 'Archbaron', 'Archbaroness'),
+  ('demibaron', 'demibaroness', 'His Lordship', 'Her Ladyship', 'Demi-Baron', 'Demi-Baroness'),
+  ('satrap', 'satrap', 'His Excellency', 'Her Excellency', 'Satrap', 'Satrap'),
+  ('padishah emperor', 'padishah empress', 'His Divine Majesty', 'Her Divine Majesty', 'Padishah Emperor', 'Padishah Empress'),
+  ('trade prince', 'trade princess', 'Your Excellency', 'Your Excellency', 'Prince', 'Princess')
 )
 ON CONFLICT (title_name) DO NOTHING;
 
@@ -753,7 +849,28 @@ VALUES (-- Other Titles
   ('widower', 'dowager', 'His Grace', 'Her Grace', 'Widower', 'Dowager'),
   ('widower marquess', 'dowager marquess', 'His Illustriousness', 'Her Illustriousness', 'Marquess', 'Marquise'),
   ('widower count', 'dowager countess', 'His Excellency', 'Her Excellency', 'Count in Residence', 'Dowager Countess'),
-  ('widower baron', 'dowager baroness', 'His Lordship', 'Her Lordship', 'Lord Baron', 'Lady Baroness')
+  ('widower baron', 'dowager baroness', 'His Lordship', 'Her Lordship', 'Lord Baron', 'Lady Baroness'),
+  ('caliph', 'calipha', 'His Holiness', 'Her Holiness', 'Caliph', 'Calipha'),
+  ('high priest', 'high priestess', 'Your Holiness', 'Your Holiness', 'High Priest', 'High Priestess'),
+  ('archbishop', 'archbishop', 'Your Excellency', 'Your Excellency', 'Archbishop', 'Archbishop'),
+  ('bishop', 'bishop', 'Your Grace', 'Your Grace', 'Bishop', 'Bishop'),
+  ('abbot', 'abbess', 'Reverend', 'Reverend', 'Reverend', 'Reverend'),
+  ('prior', 'prioress', 'Revered Father', 'Revered Mother', 'Revered Father', 'Revered Mother'),
+  ('priest', 'priestess', 'Father', 'Mother', 'Father', 'Mother'),
+  ('friar', 'friar', 'Friar', 'Friar', 'Friar', 'Friar'),
+  ('cardinal', 'cardinal', 'Holy Father', 'Holy Mother', 'Holy Father', 'Holy Mother'),
+  ('archmage', 'archmage', 'Archmage', 'Archmage', 'Archmage', 'Archmage'),
+  ('magister', 'magistra', 'Magister', 'Magistra', 'Magister', 'Magistra'),
+  ('steward', 'stewardess', 'Steward', 'Stewardess', 'Mr.', 'Mrs.'),
+  ('gentleman', 'gentlewoman', 'Gentleman', 'Gentlewoman', 'Gent.', 'Gent.'),
+  ('minister', 'Minister', 'Minister'),
+  ('high minister', 'High Minister', 'High Minister'),
+  ('secretary', 'Secretary', 'Secretary'),
+  ('grand secretary', 'Grand Secretary', 'Grand Secretary'),
+  ('chancellor', 'Chancellor', 'Chancellor'),
+  ('high chancellor', 'High Chancellor', 'High Chancellor'),
+  ('grand vizier', 'Grand Vizier', 'Grand Vizier'),
+  ('freeman', 'freewoman', NULL, NULL, NULL, NULL)
 )
 ON CONFLICT (title_name) DO NOTHING;
 
@@ -762,12 +879,15 @@ UPDATE titles AS t
 SET rank_id = r.id
 FROM title_ranks AS r
 WHERE r.title_rank_name = CASE t.title_name
+-- Heroic / achievement titles
     WHEN 'hero, city' THEN 'local important'
     WHEN 'hero, regional' THEN 'regional important'
     WHEN 'hero, major' THEN 'major important'
     WHEN 'champion, city' THEN 'local important'
     WHEN 'champion, regional' THEN 'regional important'
     WHEN 'champion, major' THEN 'major important'
+
+    -- Military / civic (gender-neutral)
     WHEN 'general' THEN 'general'
     WHEN 'colonel' THEN 'colonel'
     WHEN 'major' THEN 'major'
@@ -779,15 +899,153 @@ WHERE r.title_rank_name = CASE t.title_name
     WHEN 'private' THEN 'private'
     WHEN 'mayor' THEN 'city'
     WHEN 'lord mayor' THEN 'major city'
+    WHEN 'guildmaster' THEN 'guildmaster'
+    WHEN 'major guild' THEN 'major guild'
+    WHEN 'regional guild' THEN 'regional guild'
+    WHEN 'regional guildman' THEN 'guildmaster'
+    WHEN 'pathfinder' THEN 'tradesman'
+    WHEN 'asp' THEN 'tradesman'
+    WHEN 'red mantis' THEN 'tradesman'
+    WHEN 'red mantis mistress' THEN 'guildmaster'
+    WHEN 'patron' THEN 'guildmaster'
+    WHEN 'venture-lieutenant' THEN 'lieutenant'
+    WHEN 'venture-captain' THEN 'captain'
+    WHEN 'decemvirate' THEN 'major guild'
+    WHEN 'magistrate' THEN 'magistrate'
+    WHEN 'warden' THEN 'warden'
+    WHEN 'marshal' THEN 'major general'       -- same tier as high regional command
+    WHEN 'field marshal' THEN 'high general'  -- national‑level command
+    WHEN 'commander' THEN 'captain'           -- or create a mid‑tier if you want
+    WHEN 'high commander' THEN 'general'
+    WHEN 'high inquisitor' THEN 'major faith'
+    WHEN 'alderman' THEN 'local important'
+    WHEN 'councilor' THEN 'local important'
+    WHEN 'provost' THEN 'city'
+    WHEN 'burgomaster' THEN 'city'
+    WHEN 'sheriff' THEN 'local important'
+    WHEN 'bailiff' THEN 'local important'
+    WHEN 'justiciar' THEN 'magistrate'
+    WHEN 'senator' THEN 'regional important'
+    WHEN 'legate' THEN 'regional important'
+    WHEN 'prefect' THEN 'regional important'
+    WHEN 'tribune of the senate' THEN 'tribune'
+    WHEN 'speaker' THEN 'regional important'
+    WHEN 'consul' THEN 'national advisor'
+    WHEN 'proconsul' THEN 'national advisor'
+    WHEN 'minister' THEN 'national advisor'
+    WHEN 'high minister' THEN 'national advisor'
+    WHEN 'secretary' THEN 'national advisor'
+    WHEN 'grand secretary' THEN 'national advisor'
+    WHEN 'chancellor' THEN 'national advisor'
+    WHEN 'high chancellor' THEN 'national advisor'
+    WHEN 'vizier' THEN 'national advisor'
+    WHEN 'grand vizier' THEN 'imperial advisor'
+    WHEN 'imperial chancellor' THEN 'imperial advisor'
+    WHEN 'imperial secretary' THEN 'imperial advisor'
+    WHEN 'privy councillor' THEN 'imperial advisor'
+    WHEN 'grand councillor' THEN 'imperial advisor'
+    WHEN 'imperial steward' THEN 'imperial advisor'
+    WHEN 'imperial marshal' THEN 'imperial advisor'
+
+    -- Noble titles (core)
+    WHEN 'emperor' THEN 'empire'
+    WHEN 'grand prince' THEN 'empire' -- imperial prince-tier
+    WHEN 'king' THEN 'kingdom'
+    WHEN 'prince' THEN 'principality'
+    WHEN 'grand duke' THEN 'grand duchy'
+    WHEN 'archduke' THEN 'archduchy'
+    WHEN 'duke' THEN 'duchy'
+    WHEN 'marquess' THEN 'march'
+    WHEN 'landgrave' THEN 'landgrave'
+    WHEN 'count' THEN 'county'
+    WHEN 'earl' THEN 'earldom'
+    WHEN 'viscount' THEN 'viscounty'
+    WHEN 'baron' THEN 'barony'
+    WHEN 'baronet' THEN 'baronet'
+    WHEN 'lord' THEN 'local important'
+    WHEN 'knight' THEN 'knight'
+    WHEN 'esquire' THEN 'esquire'
+    WHEN 'sultan' THEN 'kingdom'
+    WHEN 'shah' THEN 'empire'
+    WHEN 'rajah' THEN 'principality'
+    WHEN 'khan' THEN 'march'
+    WHEN 'czar' THEN 'empire'
+    WHEN 'tsar' THEN 'empire'
+    WHEN 'pharaoh' THEN 'kingdom'
+    WHEN 'elector' THEN 'duchy'          -- or 'march' if you want them as border princes
+    WHEN 'margrave' THEN 'march'
+    WHEN 'jarl' THEN 'county'            -- strong regional lord
+    WHEN 'thane' THEN 'barony'           -- lesser local noble
+    WHEN 'boyar' THEN 'estate'           -- powerful landholder
+    WHEN 'doge' THEN 'major city'        -- city‑state ruler
+    WHEN 'high vaxitalian' THEN 'principality'
+    WHEN 'vaxitalian' THEN 'major important'
+    WHEN 'grand baron' THEN 'earldom'
+    WHEN 'suma baron' THEN 'viscounty'
+    WHEN 'over duke' THEN 'archduchy'
+    WHEN 'abra duke' THEN 'earldom'
+    WHEN 'suma duke' THEN 'duchy'
+    WHEN 'lord montcastle' THEN 'castellan'
+    WHEN 'grandee' THEN 'estate'
+    WHEN 'abra grandee' THEN 'estate'
+    WHEN 'grand magnate' THEN 'estate'
+    WHEN 'magnate' THEN 'estate'
+    WHEN 'high lord' THEN 'local important'
+    WHEN 'true lord' THEN 'local important'
+    WHEN 'suma lord' THEN 'local important'
+    WHEN 'majestor' THEN 'empire'
+    WHEN 'paraduke' THEN 'march'
+    WHEN 'archcount' THEN 'landgrave'
+    WHEN 'paracount' THEN 'viscounty'
+    WHEN 'archbaron' THEN 'earldom'
+    WHEN 'demibaron' THEN 'baronet'
+    WHEN 'satrap' THEN 'kingdom'
+    WHEN 'padishah emperor' THEN 'empire'
+    WHEN 'trade prince' THEN 'major guild'
+
+    -- Faith Titles
+    WHEN 'caliph' THEN 'major faith'
+    WHEN 'high priest' THEN 'major faith'
+    WHEN 'priest' THEN 'local faith'
+    WHEN 'cardinal' THEN 'regional faith'
+    WHEN 'friar' THEN 'local faith'
+    WHEN 'archbishop' THEN 'archbishopric'
+    WHEN 'bishop' THEN 'bishopric'
+    WHEN 'abbot' THEN 'abbey'
+    WHEN 'prior' THEN 'temple'
+    WHEN 'archmage' THEN 'major important'
+    WHEN 'magister' THEN 'regional important'
+
+    -- Other / dowager titles
     WHEN 'widower emperor' THEN 'empire'
     WHEN 'widower duke' THEN 'duchy'
-    WHEN 'widower' THEN 'principality'
     WHEN 'widower marquess' THEN 'march'
     WHEN 'widower count' THEN 'county'
     WHEN 'widower baron' THEN 'barony'
-    WHEN 'guildmaster' THEN 'guildmaster'
-    WHEN 'magistrate' THEN 'magistrate'
-    WHEN 'warden' THEN 'warden'
+    WHEN 'widower' THEN 'principality' -- generic very-high-status widow(er)
+    WHEN 'tribune' THEN 'tribune'
+    WHEN 'merchant' THEN 'merchant'
+    WHEN 'artisan' THEN 'artisan'
+    WHEN 'master artisan' THEN 'master artisan'
+    WHEN 'tradesman' THEN 'tradesman'
+    WHEN 'master tradesman' THEN 'master tradesman'
+    WHEN 'property owner' THEN 'property owner'
+    WHEN 'estate' THEN 'Estate'
+    WHEN 'steward' THEN 'steward'
+    WHEN 'castellan' THEN 'castellan'
+    WHEN 'reeve' THEN 'reeve'
+    WHEN 'gentleman' THEN 'gentleman'
+    WHEN 'aristocrat' THEN 'gentleman'
+    WHEN 'aristocrat, single' THEN 'gentleman'
+    WHEN 'yeoman' THEN 'property owner'
+    WHEN 'freeman' THEN 'property owner'
+    WHEN 'ensign' THEN 'ensign'
+    WHEN 'lictor' THEN 'major general'
+    WHEN 'paralictor' THEN 'captain'
+    WHEN 'maralictor' THEN 'lieutenant'
+    WHEN 'talon captain' THEN 'captain'
+    WHEN 'steel falcon' THEN 'tradesman'
+    WHEN 'whispering agent' THEN 'tradesman'
   END;
 -- END GLOBAL TITLES SEED BLOCK
 
