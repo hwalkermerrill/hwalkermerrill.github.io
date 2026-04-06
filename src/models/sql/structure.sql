@@ -11,7 +11,10 @@ CREATE TABLE IF NOT EXISTS roles (
 -- Users table for registration system
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
-  role_id INTEGER NOT NULL REFERENCES roles (id) ON UPDATE CASCADE ON DELETE SET DEFAULT,
+  role_id INTEGER NOT NULL
+    REFERENCES roles (id)
+    ON UPDATE CASCADE
+    ON DELETE SET DEFAULT,
   full_name VARCHAR(255) NOT NULL,
   username VARCHAR(50) UNIQUE NOT NULL,
   password_hash VARCHAR(255) NOT NULL,
@@ -33,8 +36,12 @@ CREATE TABLE IF NOT EXISTS campaigns (
 -- General notes for players and GMs, one-to-many as each note is separate but each user may have multiple notes.
 CREATE TABLE IF NOT EXISTS campaign_notes (
   id SERIAL PRIMARY KEY,
-  user_id INTEGER NOT NULL REFERENCES users (id) ON DELETE CASCADE,
-  campaign_id INTEGER REFERENCES campaigns (id) ON DELETE SET NULL,
+  user_id INTEGER NOT NULL
+    REFERENCES users (id)
+    ON DELETE CASCADE,
+  campaign_id INTEGER
+    REFERENCES campaigns (id)
+    ON DELETE SET NULL,
   note_title VARCHAR(255) NOT NULL,
   note_content TEXT NOT NULL,
   pinned BOOLEAN NOT NULL DEFAULT FALSE,
@@ -45,7 +52,9 @@ CREATE TABLE IF NOT EXISTS campaign_notes (
 -- General table for tracking active and past quests, one-to-many as each quest is separate but campaigns may have multiple quests.
 CREATE TABLE IF NOT EXISTS quests (
   id SERIAL PRIMARY KEY,
-  campaign_id INTEGER NOT NULL REFERENCES campaigns (id) ON DELETE CASCADE,
+  campaign_id INTEGER NOT NULL
+    REFERENCES campaigns (id)
+    ON DELETE CASCADE,
   quest_name VARCHAR(255) NOT NULL,
   description TEXT,
   active BOOLEAN NOT NULL DEFAULT TRUE,
@@ -106,7 +115,9 @@ CREATE TABLE IF NOT EXISTS languages (
 -- START ACHIEVEMENTS AND TITLES TABLES BLOCK
 CREATE TABLE IF NOT EXISTS achievements (
   id SERIAL PRIMARY KEY,
-  campaign_id INTEGER REFERENCES campaigns (id) ON DELETE SET NULL,
+  campaign_id INTEGER
+    REFERENCES campaigns (id)
+    ON DELETE SET NULL,
   achievement_name VARCHAR(255) NOT NULL,
   category VARCHAR(50) NOT NULL,
   description TEXT,
@@ -115,7 +126,9 @@ CREATE TABLE IF NOT EXISTS achievements (
 );
 CREATE TABLE IF NOT EXISTS titles (
   id SERIAL PRIMARY KEY,
-  rank_id INTEGER REFERENCES title_ranks (id) ON DELETE SET NULL,
+  rank_id INTEGER
+    REFERENCES title_ranks (id)
+    ON DELETE SET NULL,
   title_name VARCHAR(255) UNIQUE NOT NULL,
   name_feminine VARCHAR(255) DEFAULT NULL,
   honorific_masculine VARCHAR(255) DEFAULT NULL,
@@ -137,10 +150,18 @@ CREATE TABLE IF NOT EXISTS title_ranks (
 -- All other PC-related tables reference this one via pc_main(id).
 CREATE TABLE IF NOT EXISTS pc_main (
   id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users (id) ON DELETE SET NULL,
-  campaign_id INTEGER REFERENCES campaigns (id) ON DELETE SET NULL,
-  active_status_id INTEGER NOT NULL DEFAULT 1 REFERENCES active_status (id) ON DELETE RESTRICT, -- Default to "pending" status
-  race_id INTEGER NOT NULL DEFAULT 1 REFERENCES race (id) ON DELETE RESTRICT, -- Default to "unknown" race
+  user_id INTEGER
+    REFERENCES users (id)
+    ON DELETE SET NULL,
+  campaign_id INTEGER
+    REFERENCES campaigns (id)
+    ON DELETE SET NULL,
+  active_status_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Pending' status
+    REFERENCES active_status (id)
+    ON DELETE RESTRICT,
+  race_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
+    REFERENCES race (id)
+    ON DELETE RESTRICT,
   unknown_name VARCHAR(50) DEFAULT 'Unknown',
   pc_name VARCHAR(255) NOT NULL,
   is_gendered BOOLEAN NOT NULL DEFAULT TRUE,
@@ -157,7 +178,9 @@ CREATE TABLE IF NOT EXISTS pc_main (
 -- Social Biography table for roleplaying, all details public except secrets.
 CREATE TABLE IF NOT EXISTS pc_social (
   id SERIAL PRIMARY KEY,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
   appearance TEXT,
   background TEXT,
   associates TEXT,
@@ -175,7 +198,9 @@ CREATE TABLE IF NOT EXISTS pc_social (
 -- PCs can only have one main or hover image at a time. Imported is for backend so I know if the image is stored locally or is an external URL.
 CREATE TABLE IF NOT EXISTS pc_gallery (
   id SERIAL PRIMARY KEY,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
   image_url TEXT DEFAULT NULL,
   alt VARCHAR(255) NOT NULL DEFAULT 'Character Image',
   is_imported BOOLEAN NOT NULL DEFAULT FALSE,
@@ -187,50 +212,76 @@ CREATE TABLE IF NOT EXISTS pc_gallery (
 -- PC tables that interact with global tables, one-to-many as each entry is separate but PCs may have multiple entries (multiple classes, religions, languages, etc.)
 CREATE TABLE IF NOT EXISTS pc_class (
   id SERIAL PRIMARY KEY,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
-  class_id INTEGER NOT NULL DEFAULT 1 REFERENCES classes (id) ON DELETE RESTRICT, -- Default to "Unknown"
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
+  class_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
+    REFERENCES classes (id)
+    ON DELETE RESTRICT,
   unknown_name VARCHAR(50) DEFAULT 'Unknown',
   class_level INTEGER NOT NULL DEFAULT 1,
   UNIQUE (pc_id, class_id)
 );
 CREATE TABLE IF NOT EXISTS pc_class_archetype (
   id SERIAL PRIMARY KEY,
-  pc_class_id INTEGER NOT NULL REFERENCES pc_class (id) ON DELETE CASCADE,
+  pc_class_id INTEGER NOT NULL
+    REFERENCES pc_class (id)
+    ON DELETE CASCADE,
   archetype_name VARCHAR(255) NOT NULL,
   UNIQUE (pc_class_id, archetype_name)
 );
 CREATE TABLE IF NOT EXISTS pc_religion (
   id SERIAL PRIMARY KEY,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
-  religion_id INTEGER NOT NULL DEFAULT 1 REFERENCES religions (id) ON DELETE RESTRICT, -- Default to "unknown"
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
+  religion_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
+    REFERENCES religions (id)
+    ON DELETE RESTRICT,
   notes TEXT,
   secrets TEXT DEFAULT NULL,
   UNIQUE (pc_id, religion_id)
 );
 CREATE TABLE IF NOT EXISTS pc_language (
   id SERIAL PRIMARY KEY,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
-  language_id INTEGER NOT NULL DEFAULT 1 REFERENCES languages (id) ON DELETE RESTRICT, -- Default to "Common"
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
+  language_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Common'
+    REFERENCES languages (id)
+    ON DELETE RESTRICT,
   UNIQUE (pc_id, language_id)
 );
 CREATE TABLE IF NOT EXISTS pc_speed (
   id SERIAL PRIMARY KEY,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
-  speed_id INTEGER NOT NULL DEFAULT 1 REFERENCES speed (id) ON DELETE RESTRICT, -- Default to "Base"
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
+  speed_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Base'
+    REFERENCES speed (id)
+    ON DELETE RESTRICT,
   speed_value INTEGER NOT NULL DEFAULT 30,
   UNIQUE (pc_id, speed_id)
 );
 CREATE TABLE IF NOT EXISTS pc_achievements (
   id SERIAL PRIMARY KEY,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
-  achievement_id INTEGER NOT NULL REFERENCES achievements (id) ON DELETE CASCADE,
-  killing_blow BOOLEAN NOT NULL DEFAULT FALSE,
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
+  achievement_id INTEGER NOT NULL
+    REFERENCES achievements (id)
+    ON DELETE CASCADE,
+  is_killing_blow BOOLEAN NOT NULL DEFAULT FALSE,
   UNIQUE (pc_id, achievement_id)
 );
 CREATE TABLE IF NOT EXISTS pc_titles (
   id SERIAL PRIMARY KEY,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
-  title_id INTEGER NOT NULL REFERENCES titles (id) ON DELETE RESTRICT,
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
+  title_id INTEGER NOT NULL
+    REFERENCES titles (id)
+    ON DELETE RESTRICT,
   title_location VARCHAR(255) DEFAULT NULL,
   has_location BOOLEAN DEFAULT FALSE,
   use_honorific BOOLEAN DEFAULT TRUE,
@@ -241,7 +292,9 @@ CREATE TABLE IF NOT EXISTS pc_titles (
 -- Tables for quick reference of core stats, one-to-one relationships with pc_main, enforced by UNIQUE constraint on pc_id.
 CREATE TABLE IF NOT EXISTS pc_attributes (
   id SERIAL PRIMARY KEY,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
   alignment VARCHAR(50) NOT NULL DEFAULT 'Neutral',
   strength INTEGER NOT NULL DEFAULT 10,
   dexterity INTEGER NOT NULL DEFAULT 10,
@@ -254,7 +307,9 @@ CREATE TABLE IF NOT EXISTS pc_attributes (
 );
 CREATE TABLE IF NOT EXISTS pc_stats (
   id SERIAL PRIMARY KEY,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
   main_ac INTEGER NOT NULL DEFAULT 10,
   flat_ac INTEGER NOT NULL DEFAULT 10,
   touch_ac INTEGER NOT NULL DEFAULT 10,
@@ -265,7 +320,9 @@ CREATE TABLE IF NOT EXISTS pc_stats (
 );
 CREATE TABLE IF NOT EXISTS pc_skills (
   id SERIAL PRIMARY KEY,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
   initiative INTEGER NOT NULL DEFAULT 0,
   perception INTEGER NOT NULL DEFAULT 0,
   sense_motive INTEGER NOT NULL DEFAULT 0,
@@ -283,7 +340,9 @@ CREATE TABLE IF NOT EXISTS pc_skills (
 -- Scars for social reference, scars are earned from receiving critical hits or taking too much damage from one encounter, and are a record of past combats. One to many.
 CREATE TABLE IF NOT EXISTS pc_scars (
   id SERIAL PRIMARY KEY,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
   scar_cause TEXT NOT NULL DEFAULT 'Unknown',
   scar_description TEXT,
   session_received INTEGER NOT NULL DEFAULT 1
@@ -294,11 +353,21 @@ CREATE TABLE IF NOT EXISTS pc_scars (
 -- Companions are NPCs that are closely associated with a PC, such as a familiar or animal companion.
 CREATE TABLE IF NOT EXISTS companion_main (
   id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users (id) ON DELETE SET NULL,
-  pc_id INTEGER REFERENCES pc_main (id) ON DELETE SET NULL,
-  campaign_id INTEGER REFERENCES campaigns (id) ON DELETE SET NULL,
-  active_status_id INTEGER NOT NULL DEFAULT 1 REFERENCES active_status (id) ON DELETE RESTRICT,
-  race_id INTEGER NOT NULL DEFAULT 1 REFERENCES race (id) ON DELETE RESTRICT,
+  user_id INTEGER
+    REFERENCES users (id)
+    ON DELETE SET NULL,
+  pc_id INTEGER
+    REFERENCES pc_main (id)
+    ON DELETE SET NULL,
+  campaign_id INTEGER
+    REFERENCES campaigns (id)
+    ON DELETE SET NULL,
+  active_status_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Pending' status
+    REFERENCES active_status (id)
+    ON DELETE RESTRICT,
+  race_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
+    REFERENCES race (id)
+    ON DELETE RESTRICT,
   unknown_name VARCHAR(50) DEFAULT 'Unknown',
   companion_name VARCHAR(255) NOT NULL,
   is_gendered BOOLEAN NOT NULL DEFAULT TRUE,
@@ -312,21 +381,29 @@ CREATE TABLE IF NOT EXISTS companion_main (
 );
 CREATE TABLE IF NOT EXISTS companion_class (
   id SERIAL PRIMARY KEY,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
-  class_id INTEGER NOT NULL DEFAULT 1 REFERENCES classes (id) ON DELETE RESTRICT,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
+  class_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
+    REFERENCES classes (id)
+    ON DELETE RESTRICT,
   unknown_name VARCHAR(50) DEFAULT 'Unknown',
   class_level INTEGER NOT NULL DEFAULT 1,
   UNIQUE (companion_id, class_id)
 );
 CREATE TABLE IF NOT EXISTS companion_class_archetype (
   id SERIAL PRIMARY KEY,
-  companion_class_id INTEGER NOT NULL REFERENCES companion_class (id) ON DELETE CASCADE,
+  companion_class_id INTEGER NOT NULL
+    REFERENCES companion_class (id)
+    ON DELETE CASCADE,
   archetype_name VARCHAR(255) NOT NULL,
   UNIQUE (companion_class_id, archetype_name)
 );
 CREATE TABLE IF NOT EXISTS companion_social (
   id SERIAL PRIMARY KEY,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
   appearance TEXT,
   background TEXT,
   extra_details TEXT,
@@ -335,7 +412,9 @@ CREATE TABLE IF NOT EXISTS companion_social (
 );
 CREATE TABLE IF NOT EXISTS companion_gallery (
   id SERIAL PRIMARY KEY,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
   image_url TEXT DEFAULT NULL,
   alt VARCHAR(255) NOT NULL DEFAULT 'Companion Portrait',
   is_imported BOOLEAN NOT NULL DEFAULT FALSE,
@@ -345,36 +424,56 @@ CREATE TABLE IF NOT EXISTS companion_gallery (
 );
 CREATE TABLE IF NOT EXISTS companion_speed (
   id SERIAL PRIMARY KEY,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
-  speed_id INTEGER NOT NULL DEFAULT 1 REFERENCES speed (id) ON DELETE RESTRICT,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
+  speed_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Base'
+    REFERENCES speed (id)
+    ON DELETE RESTRICT,
   speed_value INTEGER NOT NULL DEFAULT 30,
   UNIQUE (companion_id, speed_id)
 );
 CREATE TABLE IF NOT EXISTS companion_religion (
   id SERIAL PRIMARY KEY,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
-  religion_id INTEGER NOT NULL DEFAULT 1 REFERENCES religions (id) ON DELETE RESTRICT,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
+  religion_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
+    REFERENCES religions (id)
+    ON DELETE RESTRICT,
   notes TEXT,
   secrets TEXT DEFAULT NULL,
   UNIQUE (companion_id, religion_id)
 );
 CREATE TABLE IF NOT EXISTS companion_language (
   id SERIAL PRIMARY KEY,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
-  language_id INTEGER NOT NULL DEFAULT 1 REFERENCES languages (id) ON DELETE RESTRICT,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
+  language_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Common'
+    REFERENCES languages (id)
+    ON DELETE RESTRICT,
   UNIQUE (companion_id, language_id)
 );
 CREATE TABLE IF NOT EXISTS companion_achievements (
   id SERIAL PRIMARY KEY,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
-  achievement_id INTEGER NOT NULL REFERENCES achievements (id) ON DELETE CASCADE,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
+  achievement_id INTEGER NOT NULL
+    REFERENCES achievements (id)
+    ON DELETE CASCADE,
   killing_blow BOOLEAN NOT NULL DEFAULT FALSE,
   UNIQUE (companion_id, achievement_id)
 );
 CREATE TABLE IF NOT EXISTS companion_titles (
   id SERIAL PRIMARY KEY,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
-  title_id INTEGER NOT NULL REFERENCES titles (id) ON DELETE RESTRICT,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
+  title_id INTEGER NOT NULL
+    REFERENCES titles (id)
+    ON DELETE RESTRICT,
   title_location VARCHAR(255) DEFAULT NULL,
   has_location BOOLEAN DEFAULT FALSE,
   use_honorific BOOLEAN DEFAULT TRUE,
@@ -383,14 +482,18 @@ CREATE TABLE IF NOT EXISTS companion_titles (
 );
 CREATE TABLE IF NOT EXISTS companion_scars (
   id SERIAL PRIMARY KEY,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
   scar_cause TEXT NOT NULL DEFAULT 'Unknown',
   scar_description TEXT,
   session_received INTEGER NOT NULL DEFAULT 1
 );
 CREATE TABLE IF NOT EXISTS companion_attributes (
   id SERIAL PRIMARY KEY,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
   alignment VARCHAR(50) NOT NULL DEFAULT 'Neutral',
   strength INTEGER NOT NULL DEFAULT 10,
   dexterity INTEGER NOT NULL DEFAULT 10,
@@ -403,7 +506,9 @@ CREATE TABLE IF NOT EXISTS companion_attributes (
 );
 CREATE TABLE IF NOT EXISTS companion_stats (
   id SERIAL PRIMARY KEY,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
   main_ac INTEGER NOT NULL DEFAULT 10,
   flat_ac INTEGER NOT NULL DEFAULT 10,
   touch_ac INTEGER NOT NULL DEFAULT 10,
@@ -414,7 +519,9 @@ CREATE TABLE IF NOT EXISTS companion_stats (
 );
 CREATE TABLE IF NOT EXISTS companion_skills (
   id SERIAL PRIMARY KEY,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
   initiative INTEGER NOT NULL DEFAULT 0,
   perception INTEGER NOT NULL DEFAULT 0,
   sense_motive INTEGER NOT NULL DEFAULT 0,
@@ -434,9 +541,15 @@ CREATE TABLE IF NOT EXISTS companion_skills (
 -- NPCs are non-player characters that are not closely associated with a PC, such as quest givers or shopkeepers.
 CREATE TABLE IF NOT EXISTS npc_main (
   id SERIAL PRIMARY KEY,
-  campaign_id INTEGER REFERENCES campaigns (id) ON DELETE SET NULL,
-  active_status_id INTEGER NOT NULL DEFAULT 1 REFERENCES active_status (id) ON DELETE RESTRICT,
-  race_id INTEGER NOT NULL DEFAULT 1 REFERENCES race (id) ON DELETE RESTRICT,
+  campaign_id INTEGER
+    REFERENCES campaigns (id)
+    ON DELETE SET NULL,
+  active_status_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Pending' status
+    REFERENCES active_status (id)
+    ON DELETE RESTRICT,
+  race_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
+    REFERENCES race (id)
+    ON DELETE RESTRICT,
   unknown_name VARCHAR(50) DEFAULT 'Unknown',
   is_identified BOOLEAN NOT NULL DEFAULT FALSE,
   npc_name VARCHAR(255) NOT NULL,
@@ -454,16 +567,24 @@ CREATE TABLE IF NOT EXISTS npc_main (
 );
 CREATE TABLE IF NOT EXISTS npc_religion (
   id SERIAL PRIMARY KEY,
-  npc_id INTEGER NOT NULL REFERENCES npc_main (id) ON DELETE CASCADE,
-  religion_id INTEGER NOT NULL DEFAULT 1 REFERENCES religions (id) ON DELETE RESTRICT,
+  npc_id INTEGER NOT NULL
+    REFERENCES npc_main (id)
+    ON DELETE CASCADE,
+  religion_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
+    REFERENCES religions (id)
+    ON DELETE RESTRICT,
   notes TEXT,
   secrets TEXT DEFAULT NULL,
   UNIQUE (npc_id, religion_id)
 );
 CREATE TABLE IF NOT EXISTS npc_titles (
   id SERIAL PRIMARY KEY,
-  npc_id INTEGER NOT NULL REFERENCES npc_main (id) ON DELETE CASCADE,
-  title_id INTEGER NOT NULL REFERENCES titles (id) ON DELETE RESTRICT,
+  npc_id INTEGER NOT NULL
+    REFERENCES npc_main (id)
+    ON DELETE CASCADE,
+  title_id INTEGER NOT NULL
+    REFERENCES titles (id)
+    ON DELETE RESTRICT,
   title_location VARCHAR(255) DEFAULT NULL,
   has_location BOOLEAN DEFAULT FALSE,
   use_honorific BOOLEAN DEFAULT TRUE,
@@ -473,9 +594,15 @@ CREATE TABLE IF NOT EXISTS npc_titles (
 -- NPC's have changing attitudes towards the PC's which can be tracked here. Each NPC can only have one attitude at a time.
 CREATE TABLE IF NOT EXISTS npc_attitude (
   id SERIAL PRIMARY KEY,
-  npc_id INTEGER NOT NULL REFERENCES npc_main (id) ON DELETE CASCADE,
-  attitude_id INTEGER NOT NULL DEFAULT 3 REFERENCES attitude (id) ON DELETE RESTRICT,
-  favored_pc INTEGER REFERENCES pc_main (id) ON DELETE SET NULL,
+  npc_id INTEGER NOT NULL
+    REFERENCES npc_main (id)
+    ON DELETE CASCADE,
+  attitude_id INTEGER NOT NULL DEFAULT 3 -- Default to 'Neutral'
+    REFERENCES attitude (id)
+    ON DELETE RESTRICT,
+  favored_pc INTEGER
+    REFERENCES pc_main (id)
+    ON DELETE SET NULL,
   allies TEXT,
   allied_visible BOOLEAN NOT NULL DEFAULT FALSE,
   enemies TEXT,
@@ -498,7 +625,9 @@ CREATE TABLE IF NOT EXISTS npc_attitude (
 );
 CREATE TABLE IF NOT EXISTS npc_social (
   id SERIAL PRIMARY KEY,
-  npc_id INTEGER NOT NULL REFERENCES npc_main (id) ON DELETE CASCADE,
+  npc_id INTEGER NOT NULL
+    REFERENCES npc_main (id)
+    ON DELETE CASCADE,
   appearance TEXT,
   background TEXT,
   extra_details TEXT,
@@ -509,13 +638,19 @@ CREATE TABLE IF NOT EXISTS npc_social (
 );
 CREATE TABLE IF NOT EXISTS npc_quests (
   id SERIAL PRIMARY KEY,
-  npc_id INTEGER NOT NULL REFERENCES npc_main (id) ON DELETE CASCADE,
-  quest_id INTEGER NOT NULL REFERENCES quests (id) ON DELETE CASCADE,
+  npc_id INTEGER NOT NULL
+    REFERENCES npc_main (id)
+    ON DELETE CASCADE,
+  quest_id INTEGER NOT NULL
+    REFERENCES quests (id)
+    ON DELETE CASCADE,
   UNIQUE (npc_id, quest_id)
 );
 CREATE TABLE IF NOT EXISTS npc_gallery (
   id SERIAL PRIMARY KEY,
-  npc_id INTEGER NOT NULL REFERENCES npc_main (id) ON DELETE CASCADE,
+  npc_id INTEGER NOT NULL
+    REFERENCES npc_main (id)
+    ON DELETE CASCADE,
   image_url TEXT DEFAULT NULL,
   alt VARCHAR(255) NOT NULL DEFAULT 'NPC Portrait',
   is_imported BOOLEAN NOT NULL DEFAULT FALSE,
@@ -525,13 +660,19 @@ CREATE TABLE IF NOT EXISTS npc_gallery (
 );
 CREATE TABLE IF NOT EXISTS npc_language (
   id SERIAL PRIMARY KEY,
-  npc_id INTEGER NOT NULL REFERENCES npc_main (id) ON DELETE CASCADE,
-  language_id INTEGER NOT NULL DEFAULT 1 REFERENCES languages (id) ON DELETE RESTRICT,
+  npc_id INTEGER NOT NULL
+    REFERENCES npc_main (id)
+    ON DELETE CASCADE,
+  language_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Common'
+    REFERENCES languages (id)
+    ON DELETE RESTRICT,
   UNIQUE (npc_id, language_id)
 );
 CREATE TABLE IF NOT EXISTS npc_stats (
   id SERIAL PRIMARY KEY,
-  npc_id INTEGER NOT NULL REFERENCES npc_main (id) ON DELETE CASCADE,
+  npc_id INTEGER NOT NULL
+    REFERENCES npc_main (id)
+    ON DELETE CASCADE,
   main_ac INTEGER NOT NULL DEFAULT 10,
   max_hp INTEGER NOT NULL DEFAULT 10,
   perception INTEGER NOT NULL DEFAULT 0,
@@ -549,8 +690,12 @@ CREATE TABLE IF NOT EXISTS npc_stats (
 -- Factions can have quests and boons, and multiple NPCs can be members of multiple factions.
 CREATE TABLE IF NOT EXISTS factions (
   id SERIAL PRIMARY KEY,
-  campaign_id INTEGER REFERENCES campaigns (id) ON DELETE SET NULL,
-  active_status_id INTEGER NOT NULL DEFAULT 1 REFERENCES active_status (id) ON DELETE RESTRICT,
+  campaign_id INTEGER
+    REFERENCES campaigns (id)
+    ON DELETE SET NULL,
+  active_status_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Pending' status
+    REFERENCES active_status (id)
+    ON DELETE RESTRICT,
   is_identified BOOLEAN NOT NULL DEFAULT FALSE,
   faction_name VARCHAR(255) NOT NULL,
   faction_type VARCHAR(50) NOT NULL,
@@ -568,7 +713,9 @@ CREATE TABLE IF NOT EXISTS factions (
 );
 CREATE TABLE IF NOT EXISTS faction_social (
   id SERIAL PRIMARY KEY,
-  faction_id INTEGER NOT NULL REFERENCES factions (id) ON DELETE CASCADE,
+  faction_id INTEGER NOT NULL
+    REFERENCES factions (id)
+    ON DELETE CASCADE,
   appearance TEXT,
   background TEXT,
   extra_details TEXT,
@@ -579,9 +726,15 @@ CREATE TABLE IF NOT EXISTS faction_social (
 );
 CREATE TABLE IF NOT EXISTS faction_attitude (
   id SERIAL PRIMARY KEY,
-  faction_id INTEGER NOT NULL REFERENCES factions (id) ON DELETE CASCADE,
-  attitude_id INTEGER NOT NULL DEFAULT 3 REFERENCES attitude (id) ON DELETE RESTRICT,
-  favored_pc INTEGER REFERENCES pc_main (id) ON DELETE SET NULL,
+  faction_id INTEGER NOT NULL
+    REFERENCES factions (id)
+    ON DELETE CASCADE,
+  attitude_id INTEGER NOT NULL DEFAULT 3 -- Default to 'Neutral'
+    REFERENCES attitude (id)
+    ON DELETE RESTRICT,
+  favored_pc INTEGER
+    REFERENCES pc_main (id)
+    ON DELETE SET NULL,
   allies TEXT,
   allied_visible BOOLEAN NOT NULL DEFAULT FALSE,
   enemies TEXT,
@@ -604,13 +757,19 @@ CREATE TABLE IF NOT EXISTS faction_attitude (
 );
 CREATE TABLE IF NOT EXISTS faction_quests (
   id SERIAL PRIMARY KEY,
-  faction_id INTEGER NOT NULL REFERENCES factions (id) ON DELETE CASCADE,
-  quest_id INTEGER NOT NULL REFERENCES quests (id) ON DELETE CASCADE,
+  faction_id INTEGER NOT NULL
+    REFERENCES factions (id)
+    ON DELETE CASCADE,
+  quest_id INTEGER NOT NULL
+    REFERENCES quests (id)
+    ON DELETE CASCADE,
   UNIQUE (faction_id, quest_id)
 );
 CREATE TABLE IF NOT EXISTS faction_gallery (
   id SERIAL PRIMARY KEY,
-  faction_id INTEGER NOT NULL REFERENCES factions (id) ON DELETE CASCADE,
+  faction_id INTEGER NOT NULL
+    REFERENCES factions (id)
+    ON DELETE CASCADE,
   image_url TEXT DEFAULT NULL,
   alt VARCHAR(255) NOT NULL DEFAULT 'Faction Logo',
   is_imported BOOLEAN NOT NULL DEFAULT FALSE,
@@ -620,20 +779,32 @@ CREATE TABLE IF NOT EXISTS faction_gallery (
 );
 CREATE TABLE IF NOT EXISTS faction_npcs (
   id SERIAL PRIMARY KEY,
-  faction_id INTEGER NOT NULL REFERENCES factions (id) ON DELETE CASCADE,
-  npc_id INTEGER NOT NULL REFERENCES npc_main (id) ON DELETE CASCADE,
+  faction_id INTEGER NOT NULL
+    REFERENCES factions (id)
+    ON DELETE CASCADE,
+  npc_id INTEGER NOT NULL
+    REFERENCES npc_main (id)
+    ON DELETE CASCADE,
   UNIQUE (faction_id, npc_id)
 );
 CREATE TABLE IF NOT EXISTS faction_pcs (
   id SERIAL PRIMARY KEY,
-  faction_id INTEGER NOT NULL REFERENCES factions (id) ON DELETE CASCADE,
-  pc_id INTEGER NOT NULL REFERENCES pc_main (id) ON DELETE CASCADE,
+  faction_id INTEGER NOT NULL
+    REFERENCES factions (id)
+    ON DELETE CASCADE,
+  pc_id INTEGER NOT NULL
+    REFERENCES pc_main (id)
+    ON DELETE CASCADE,
   UNIQUE (faction_id, pc_id)
 );
 CREATE TABLE IF NOT EXISTS faction_companions (
   id SERIAL PRIMARY KEY,
-  faction_id INTEGER NOT NULL REFERENCES factions (id) ON DELETE CASCADE,
-  companion_id INTEGER NOT NULL REFERENCES companion_main (id) ON DELETE CASCADE,
+  faction_id INTEGER NOT NULL
+    REFERENCES factions (id)
+    ON DELETE CASCADE,
+  companion_id INTEGER NOT NULL
+    REFERENCES companion_main (id)
+    ON DELETE CASCADE,
   UNIQUE (faction_id, companion_id)
 );
 -- END FACTIONS TABLES BLOCK
@@ -642,9 +813,15 @@ CREATE TABLE IF NOT EXISTS faction_companions (
 -- Both NPCs and Factions can be merchants, so this table uses a polymorphic association to link to either one. Each merchant can have multiple items for sale.
 CREATE TABLE IF NOT EXISTS merchants (
   id SERIAL PRIMARY KEY,
-  npc_id INTEGER REFERENCES npc_main (id) ON DELETE CASCADE,
-  faction_id INTEGER REFERENCES factions (id) ON DELETE CASCADE,
-  active_status_id INTEGER NOT NULL DEFAULT 1 REFERENCES active_status (id) ON DELETE RESTRICT,
+  npc_id INTEGER
+    REFERENCES npc_main (id)
+    ON DELETE CASCADE,
+  faction_id INTEGER
+    REFERENCES factions (id)
+    ON DELETE CASCADE,
+  active_status_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Pending' status
+    REFERENCES active_status (id)
+    ON DELETE RESTRICT,
   UNIQUE (npc_id),
   UNIQUE (faction_id),
   CHECK (
@@ -655,7 +832,9 @@ CREATE TABLE IF NOT EXISTS merchants (
 -- Merchant details, including the types of things they sell, how much they can carry, ect. One to one relationship with merchants.
 CREATE TABLE IF NOT EXISTS merchant_details (
   id SERIAL PRIMARY KEY,
-  merchant_id INTEGER NOT NULL REFERENCES merchants (id) ON DELETE CASCADE,
+  merchant_id INTEGER NOT NULL
+    REFERENCES merchants (id)
+    ON DELETE CASCADE,
   merchant_type VARCHAR(50) NOT NULL,
   size VARCHAR(50),
   base_value INTEGER NOT NULL DEFAULT 50,
@@ -676,8 +855,12 @@ CREATE TABLE IF NOT EXISTS merchant_details (
 -- This allows for tracking of important or unique items and their lore, as well as who currently possesses them.
 CREATE TABLE IF NOT EXISTS items (
   id SERIAL PRIMARY KEY,
-  campaign_id INTEGER REFERENCES campaigns (id) ON DELETE SET NULL,
-  active_status_id INTEGER NOT NULL DEFAULT 1 REFERENCES active_status (id) ON DELETE RESTRICT,
+  campaign_id INTEGER
+    REFERENCES campaigns (id)
+    ON DELETE SET NULL,
+  active_status_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Pending' status
+    REFERENCES active_status (id)
+    ON DELETE RESTRICT,
   is_identified BOOLEAN NOT NULL DEFAULT FALSE,
   item_type VARCHAR(50) NOT NULL, -- magic, relic, artifact, note, journal, spellbook, etc.
   item_name VARCHAR(255) NOT NULL,
@@ -696,8 +879,12 @@ CREATE TABLE IF NOT EXISTS items (
 -- This merchant table is generated after the item table to avoid issues.
 CREATE TABLE IF NOT EXISTS merchant_inventory (
   id SERIAL PRIMARY KEY,
-  merchant_id INTEGER NOT NULL REFERENCES merchants (id) ON DELETE CASCADE,
-  item_id INTEGER REFERENCES items (id) ON DELETE CASCADE,
+  merchant_id INTEGER NOT NULL
+    REFERENCES merchants (id)
+    ON DELETE CASCADE,
+  item_id INTEGER
+    REFERENCES items (id)
+    ON DELETE CASCADE,
   item_name VARCHAR(255) NOT NULL,
   item_description TEXT,
   item_price INTEGER NOT NULL DEFAULT 50,
@@ -706,11 +893,21 @@ CREATE TABLE IF NOT EXISTS merchant_inventory (
 );
 CREATE TABLE IF NOT EXISTS item_owners (
   id SERIAL PRIMARY KEY,
-  item_id INTEGER NOT NULL REFERENCES items (id) ON DELETE CASCADE,
-  pc_id INTEGER REFERENCES pc_main (id) ON DELETE SET NULL,
-  companion_id INTEGER REFERENCES companion_main (id) ON DELETE SET NULL,
-  npc_id INTEGER REFERENCES npc_main (id) ON DELETE SET NULL,
-  faction_id INTEGER REFERENCES factions (id) ON DELETE SET NULL,
+  item_id INTEGER NOT NULL
+    REFERENCES items (id)
+    ON DELETE CASCADE,
+  pc_id INTEGER
+    REFERENCES pc_main (id)
+    ON DELETE SET NULL,
+  companion_id INTEGER
+    REFERENCES companion_main (id)
+    ON DELETE SET NULL,
+  npc_id INTEGER
+    REFERENCES npc_main (id)
+    ON DELETE SET NULL,
+  faction_id INTEGER
+    REFERENCES factions (id)
+    ON DELETE SET NULL,
   UNIQUE (item_id),
   CHECK (
     (pc_id IS NOT NULL AND companion_id IS NULL AND npc_id IS NULL AND faction_id IS NULL)
@@ -722,13 +919,19 @@ CREATE TABLE IF NOT EXISTS item_owners (
 );
 CREATE TABLE IF NOT EXISTS item_quests (
   id SERIAL PRIMARY KEY,
-  item_id INTEGER NOT NULL REFERENCES items (id) ON DELETE CASCADE,
-  quest_id INTEGER NOT NULL REFERENCES quests (id) ON DELETE CASCADE,
+  item_id INTEGER NOT NULL
+    REFERENCES items (id)
+    ON DELETE CASCADE,
+  quest_id INTEGER NOT NULL
+    REFERENCES quests (id)
+    ON DELETE CASCADE,
   UNIQUE (item_id, quest_id)
 );
 CREATE TABLE IF NOT EXISTS item_gallery (
   id SERIAL PRIMARY KEY,
-  item_id INTEGER NOT NULL REFERENCES items (id) ON DELETE CASCADE,
+  item_id INTEGER NOT NULL
+    REFERENCES items (id)
+    ON DELETE CASCADE,
   image_url TEXT DEFAULT NULL,
   alt VARCHAR(255) NOT NULL DEFAULT 'Item Placeholder Image',
   is_imported BOOLEAN NOT NULL DEFAULT FALSE,
@@ -742,7 +945,9 @@ CREATE TABLE IF NOT EXISTS item_gallery (
 -- This table is for tracking what happens in each session. This allows the tracking of important events, and being fun to reread/recall past adventures.
 CREATE TABLE IF NOT EXISTS session_logs (
   id SERIAL PRIMARY KEY,
-  campaign_id INTEGER NOT NULL REFERENCES campaigns (id) ON DELETE CASCADE,
+  campaign_id INTEGER NOT NULL
+    REFERENCES campaigns (id)
+    ON DELETE CASCADE,
   book_number INTEGER NOT NULL DEFAULT 1,
   log_type VARCHAR(50) NOT NULL, -- session summary, quest recap, npc spotlight, etc.
   session_number INTEGER NOT NULL,
@@ -755,15 +960,21 @@ CREATE TABLE IF NOT EXISTS session_logs (
 );
 CREATE TABLE IF NOT EXISTS session_log_paragraphs (
   id SERIAL PRIMARY KEY,
-  session_log_id INTEGER NOT NULL REFERENCES session_logs (id) ON DELETE CASCADE,
-  user_id INTEGER REFERENCES users (id) ON DELETE SET NULL,
+  session_log_id INTEGER NOT NULL
+    REFERENCES session_logs (id)
+    ON DELETE CASCADE,
+  user_id INTEGER
+    REFERENCES users (id)
+    ON DELETE SET NULL,
   paragraph_order INTEGER NOT NULL,
   paragraph_text TEXT NOT NULL,
   UNIQUE (session_log_id, paragraph_order)
 );
 CREATE TABLE IF NOT EXISTS session_log_gallery (
   id SERIAL PRIMARY KEY,
-  session_log_id INTEGER NOT NULL REFERENCES session_logs (id) ON DELETE CASCADE,
+  session_log_id INTEGER NOT NULL
+    REFERENCES session_logs (id)
+    ON DELETE CASCADE,
   image_url TEXT DEFAULT NULL,
   alt VARCHAR(255) NOT NULL DEFAULT 'Session Image',
   is_imported BOOLEAN NOT NULL DEFAULT FALSE,
