@@ -955,7 +955,7 @@ CREATE TABLE IF NOT EXISTS session_logs (
     REFERENCES campaigns (id)
     ON DELETE RESTRICT,
   book_number INTEGER NOT NULL DEFAULT 1,
-  log_type VARCHAR(50) NOT NULL, -- session summary, quest recap, npc spotlight, etc.
+  log_type VARCHAR(50) NOT NULL DEFAULT 'Session Summary', -- session summary, quest recap, npc spotlight, etc.
   session_number INTEGER NOT NULL,
   title VARCHAR(255) NOT NULL,
   time_span VARCHAR(255),
