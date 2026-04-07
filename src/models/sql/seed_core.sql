@@ -4,12 +4,13 @@ BEGIN;
 -- START GLOBAL LOOKUP TABLES SEED BLOCK
 -- Seed Active_Status (idempotent - safe to run multiple times)
 INSERT INTO active_status (id, active_status_name)
-VALUES (1, 'PENDING')
+VALUES 
+  (1, 'Pending'),
+  (2, 'Active')
 ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO active_status (active_status_name)
 VALUES 
-  ('Active'),
   ('Retired'),
   ('Deceased')
 ON CONFLICT (active_status_name) DO NOTHING;
@@ -793,6 +794,8 @@ VALUES
   ('sultan', 'sultana', 'His Majesty', 'Her Majesty', 'Sultan', 'Sultana'),
   ('shah', 'shahbanu', 'His Imperial Majesty', 'Her Imperial Majesty', 'Shah', 'Shahbanu'),
   ('rajah', 'rani', 'His Highness', 'Her Highness', 'Rajah', 'Rani'),
+  ('maharajah', 'maharani', 'His Majesty', 'Her Majesty', 'Maharajah', 'Maharani'),
+  ('samraja', 'samraat', 'His Greatest Majesty', 'Her Greatest Majesty', 'Samraja', 'Samraat'),
   ('khan', 'khatun', 'His Excellency', 'Her Excellency', 'Khan', 'Khatun'),
   ('czar', 'czarina', 'His Imperial Majesty', 'Her Imperial Majesty', 'Czar', 'Czarina'),
   ('tsar', 'tsarina', 'His Imperial Majesty', 'Her Imperial Majesty', 'Tsar', 'Tsarina'),
@@ -951,6 +954,8 @@ WHERE r.title_rank_name = CASE t.title_name
     WHEN 'sultan' THEN 'kingdom'
     WHEN 'shah' THEN 'empire'
     WHEN 'rajah' THEN 'principality'
+    WHEN 'maharajah' THEN 'kingdom'
+    WHEN 'samrajah' THEN 'empire'
     WHEN 'khan' THEN 'march'
     WHEN 'czar' THEN 'empire'
     WHEN 'tsar' THEN 'empire'

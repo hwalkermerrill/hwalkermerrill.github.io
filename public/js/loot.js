@@ -23,16 +23,16 @@ const loot = [
   //     "Placeholder here",
   //   ]
   // },
-  {
-    id: 3,
-    type: "dream2",
-    name: "Placeholder",
-    img: false,
-    src: "/images/objects/placeholder.webp",
-    description: [
-      "Placeholder here",
-    ]
-  },
+  // {
+  //   id: 3,
+  //   type: "dream2",
+  //   name: "Placeholder",
+  //   img: false,
+  //   src: "/images/objects/placeholder.webp",
+  //   description: [
+  //     "Placeholder here",
+  //   ]
+  // },
   {
     id: 4,
     type: "note1",
@@ -43,16 +43,16 @@ const loot = [
       "An examination of this log reveals that the <i>Jenivere’s</i> captain seemed to be suffering from some sort of madness that grew over the course of the ship’s final voyage. Earlier entries from previous voyages are precise in recording progress and events along the way, as are entries from the first two-thirds of this last trip. Yet as one reads further, the more recent the entries get, the less common they become—in some cases, several days are missing entries. What entries do appear are strangely short, focusing more and more on one of the passengers—the Varisian scholar Ieana, with whom the captain seems to have become obsessed. Several entries are nothing more than poorly written love poems to Ieana, while others bemoan Captain Kovack’s inability to please her or catch her attention. Near the end, the entries begin to take on a more ominous tone with the captain starting to complain that other members of the crew are eyeing “his Ieana.” In particular, he suspects his first mate is in love with her, and writes several times about how he wishes Alton would just “have an accident.” The final entry is perhaps the most disturbing, for in it the captain writes of how he’s changed course for Smuggler’s Shiv at Ieana’s request. He hopes that the two of them can make a home on the remote island, but also notes that the crew are growing increasingly agitated at the ship’s new course. The captain muses that “something may need to be done about the crew” if their suspicions get any worse.",
     ]
   },
-  {
-    id: 5,
-    type: "note2",
-    name: "Placeholder",
-    img: false,
-    src: "/images/objects/placeholder.webp",
-    description: [
-      "Placeholder here",
-    ]
-  },
+  // {
+  //   id: 5,
+  //   type: "note2",
+  //   name: "Placeholder",
+  //   img: false,
+  //   src: "/images/objects/placeholder.webp",
+  //   description: [
+  //     "Placeholder here",
+  //   ]
+  // },
   {
     id: 6,
     type: "magic",

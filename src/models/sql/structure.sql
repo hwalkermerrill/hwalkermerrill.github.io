@@ -868,7 +868,9 @@ CREATE TABLE IF NOT EXISTS items (
     REFERENCES active_status (id)
     ON DELETE RESTRICT,
   is_identified BOOLEAN NOT NULL DEFAULT FALSE,
-  item_type VARCHAR(50) NOT NULL, -- magic, relic, artifact, note, journal, spellbook, etc.
+  item_type VARCHAR(50) NOT NULL DEFAULT 'minor', -- minor, major, relic, artifact, special; note, land, favor, debt
+  item_subtype VARCHAR(50) NOT NULL DEFAULT 'item', -- item, weapon, shield, armor; ship log, spellbook, dream, estate, personal
+  sort_order INTEGER DEFAULT NULL,
   item_name VARCHAR(255) NOT NULL,
   caster_level INTEGER DEFAULT NULL,
   description TEXT,
@@ -955,7 +957,7 @@ CREATE TABLE IF NOT EXISTS session_logs (
     REFERENCES campaigns (id)
     ON DELETE RESTRICT,
   book_number INTEGER NOT NULL DEFAULT 1,
-  log_type VARCHAR(50) NOT NULL DEFAULT 'Session Summary', -- session summary, quest recap, npc spotlight, etc.
+  log_type VARCHAR(50) NOT NULL DEFAULT 'session summary', -- session summary, quest recap, npc spotlight, etc.
   session_number INTEGER NOT NULL,
   title VARCHAR(255) NOT NULL,
   time_span VARCHAR(255),

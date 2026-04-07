@@ -567,9 +567,380 @@ VALUES
     1,
     'Placeholder: Found some headhunters (whose ambush failed), rescued some shrunken (cursed) heads, started traveling with the pathfinder again (they caught up), encountered a magical mwangi tree-ent, found bodies floating in the river belonging to the Sargavan Custodial Government.'
   );
-
 -- END Paragraphs CTE Block
+
 -- END SESSION LOGS BLOCK
+
+-- BEGIN SEED LOOT BLOCK (converted from loot.js)
+-- Start Loot Seed CTE (idempotent)
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO items (
+  campaign_id,
+  active_status_id,
+  item_type,
+  item_subtype,
+  sort_order,
+  is_identified,
+  item_name,
+  description,
+  ability
+)
+VALUES
+  -- 1. Convergent Cocoon Cloak (3 paragraphs)
+  (
+    (SELECT campaign_id FROM c_id),
+    2,
+    'minor',
+    'item',
+    NULL,
+    TRUE,
+    'Convergent Cocoon Cloak',
+    'This ruffled silk cloak is incredibly durable despite its soft, delicate construction; the outer lining is lightweight and decorated with depictions of a great moth.',
+    'This <i>Cocoon Cloak</i> appears to be connected to some being of the great beyond through some sort of magical convergence. As normal, anytime the wearer falls asleep (whether normally or they are forced unconscious), the cloak immediately transforms into sticky strands that envelop the wearer''s body, hardening into a solid silk cocoon. While wrapped in the cocoon the wearer is not helpless, they gain a +4 enhancement bonus to their natural armor and CMD against attempts to move them, and they are protected from critical hits and sneak attacks as if subject to the light fortification armor ability. 
+<br><br>Only those who sleep wrapped in its silky strands can truly know what is experienced there, or what might emerge from the cocoon come dawn; the cocoon opens and transforms back into a cloak once the wearer wakes.'
+  ),
+
+  -- 4. Captain's Log (note1 → note, ship log, sort 1)
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'note',
+    'ship log',
+    1,
+    TRUE,
+    'Captains Log of Alizandru Kovack of the <i>Jenivere</i>',
+    'This logbook was kept inside a locked and weathertight compartment in the captain''s cabin of the <i>Jenivere</i>. Bits of torn paper make it plain that the last few pages have been ripped out.',
+    'An examination of this log reveals that the <i>Jenivere''s</i> captain seemed to be suffering from some sort of madness that grew over the course of the ship''s final voyage. Earlier entries from previous voyages are precise in recording progress and events along the way, as are entries from the first two-thirds of this last trip. Yet as one reads further, the more recent the entries get, the less common they become—in some cases, several days are missing entries. What entries do appear are strangely short, focusing more and more on one of the passengers - the Varisian scholar Ieana, with whom the captain seems to have become obsessed. Several entries are nothing more than poorly written love poems to Ieana, while others bemoan Captain Kovack''s inability to please her or catch her attention. Near the end, the entries begin to take on a more ominous tone with the captain starting to complain that other members of the crew are eyeing “his Ieana.” In particular, he suspects his first mate is in love with her, and writes several times about how he wishes Alton would just “have an accident.” The final entry is perhaps the most disturbing, for in it the captain writes of how he''s changed course for Smuggler''s Shiv at Ieana''s request. He hopes that the two of them can make a home on the remote island, but also notes that the crew are growing increasingly agitated at the ship''s new course. The captain muses that “something may need to be done about the crew” if their suspicions get any worse. The last few pages have been torn from the log.'
+  ),
+
+  -- 6. Magnificent Golden Bow (1 paragraph → ability only)
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'minor',
+    'weapon',
+    NULL,
+    TRUE,
+    'Magnificent Golden Bow',
+    'This bow is magnificent to behold, made from solid gold yet magically as flexible as yew, and it - as well as its shots - look both powerful and impressive, even if they don''t seem to be exceptionally effective.',
+    'This <i>+1 composite longbow</i> has a +2 strength rating. Despite its appearances, it its not made from any special materials.'
+  ),
+
+  -- 7. Kensuke (weapon)
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'minor',
+    'weapon',
+    NULL,
+    TRUE,
+    'Kensuke',
+    'The dark blade of this machete reflects no light, and the pommel has a unique tentacle-stylized guard. When grasped, these tentacles seem to grasp back, and seem as though they would creep up the arm if only they were left unwatched.',
+    'This <i>+1 adamantine machete</i> has the tentacled touch quirk, enabling it to deliver touch spells cast through it from an extra 5ft. away.'
+  ),
+
+  -- 8. Sodden Cloak of Resistance
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'minor',
+    'item',
+    NULL,
+    TRUE,
+    'Sodden Cloak of Resistance',
+    'Whatever identifying colors or embroidery this cloak may have had have all been washed out, leaving behind a dull gray mass of thin cloth. With a texture somewhere between a wet blanket and soggy socks, the cloak is so thoroughly waterlogged, it drips even after being wrung out repeatedly. ',
+    'This <i>Cloak of Resistance +1</i> is permanently waterlogged, and wearing it causes the wearer to be damp, regardless of outside conditions. Similarly, any furniture or bag this is placed in, on, or against, becomes damp in a very short time.'
+  ),
+
+  -- 9. Thirsty Headband of Alluring Charisma
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'minor',
+    'item',
+    NULL,
+    TRUE,
+    'Thirsty Headband of Alluring Charisma',
+    'This stylish blue headband is soft and velvety to the touch. On close inspection, small swirls of deep reds and purples can be faintly seen, mixing with the deep blue hues.',
+    'This <i>+2 headband of alluring charisma</i> causes the bearer to be physically and socially thirsty. They require 3x the amount of water as a normal person, and are constantly on the lookout for gratification.'
+  ),
+
+  -- 10. Yemba Iron Bell
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'minor',
+    'item',
+    NULL,
+    TRUE,
+    'Yemba Iron Bell',
+    'This small iron bell is rusted beyond salvaging, and would likely crumble if struck or rung. Despite this, it seems to contain great magic.',
+    'Once per day, when the bell is rung as a standard action, the bell produces a loud and clear chime compelling all creatures within 60 feet that hear the bell to make a DC 14 Will save or seek out the source of the sound for 7 rounds, or until they find the source, moving at their normal speeds. If the sound leads its subjects into a dangerous area, each affected creature gets a second save. This is a mind affecting compulsion effect. The bell affects a maximum of 24 HD of creatures.
+<br><br> Any subsequent attempts that day to ring the bell produces no more sound than a faint clank, barely-audible from within 5ft.'
+  ),
+
+  -- 11. Zenj Spirit Fetish (1 paragraph)
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'minor',
+    'item',
+    NULL,
+    TRUE,
+    'Zenj Spirit Fetish',
+    'This shrunken monkey head is filled with juju magics.',
+    'The bearer of this shrunken monkey head can use it to cast dispel evil. While the spell is in effect, the bearer can make a melee touch attack with the head to banish an evil creature from another plane back to its home plane, or dispel one evil spell or one enchantment spell cast by an evil creature. This use discharges and ends the spell. When the spell ends, the fetish becomes a normal, non-magical shrunken monkey head.'
+  ),
+
+  -- 12. War Mask of Terror (2 paragraphs)
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'minor',
+    'item',
+    NULL,
+    TRUE,
+    'War Mask of Terror',
+    'This appears to be the kind of wooden war mask used by shamans and warriors of many of the indigenous tribes of western Garund to add to their fierceness and mystique. Bearing terrifying visages of demonic spirits, a war mask is considered sacred and personal, and is often handed down to the next generation when a wearer dies. Individual masks are often notorious, and many tribesfolk can readily identify masks of other tribes with a DC 15 Knowledge (local) check.',
+    'A war mask of terror provides its wearer with a +2 competence bonus on Intimidate checks and a +1 deflection bonus to Armor Class. In addition, the wearer may cast scare once per day.'
+  ),
+
+  -- 13. Fragments of Captain Beliker's Log (note1)
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'note',
+    'ship log',
+    3,
+    TRUE,
+    'Fragments of Captain Beliker''s Log of the <i>Thrunefang</i>',
+    'This journal was carefully wrapped and hidden inside the abandoned cabin on smuggler''s shiv. Though clearly well used in its time, neglect and decay have rendered most of the Journal illegible.',
+    '...many survived, the Thrune''s Fang will never sail again. Sargava''s assimilation must proceed without...
+<br><br>...fine hunting on the Shiv, but the bugs are a constant distraction. Nylithati''s skills at healing help fight the sickness, but I fear she has...
+<br><br>...founded. Nylithati has seized control of my crew. They are hers now. And so I have abandoned...
+<br><br>...fine home. Fresh water nearby and I need not endure Nylithati''s ceaseless raving about...
+<br><br>...will not be returning to that gray, silent island again. There is nothing there but horror...
+<br><br>...crew lurking about the area. They seem strange, almost feral. It has been almost a decade since the wreck. I wonder what strange beliefs Nylithati has...
+<br><br>...changed. There was no sign of Nylithati in the camp, but the focus of their ceremony was a cauldron they must have salvaged from the Thrune''s Fang at the base of the ruined lighthouse. It was into this they threw the half-eaten body of the still screaming man...
+<br><br>...all around. I can hear them chanting in the green even now. They call Nylithati “Mother Thrunefang” now, and promise me immortality if I lay down my arms and submit. I know what their immortality consists of, and I''ll have no part of that corrupt life after...'
+  ),
+
+  -- 14. Last Words of Captain Alizandru Kovack
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'note',
+    'ship log',
+    2,
+    TRUE,
+    'Last Words of Captain Alizandru Kovack',
+    'Written on a few scrap pages torn from a logbook, the words of this note appear to be written shakily in blood.',
+    'I am Captain Alizandru Kovack, betrayer of my crew and destroyer of the good ship Jenivere. Hell would be a welcome escape from what hideous un-life looms before me, but it is no less a punishment than I deserve. That I was enslaved mind and body to a serpentine demon who wore a Varisian''s skin does not pardon me. It is my weakness that led the <i>Jenivere</i>, her crew, and her passengers to their doom. That Ieana has abandoned me here is nothing more than the fate I deserve. I do not beg forgiveness, but I despair that she lives still, and that she seeks something dire on this forsaken isle — she seemed particularly interested in <i>Red Mountain</i>. If you read this and you be a kind soul, seek out what I have become and destroy me, and then seek out Ieana and slay her as well. And to those whose lives I have helped destroy, I can only apologize from this, my dark cradle and darker grave.'
+  ),
+
+  -- 15. Red Mountain Ritual Notes
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'note',
+    'rubbing',
+    1,
+    TRUE,
+    'Red Mountain Ritual Notes',
+    'A low stone altar, its sides carved like coiling snakes and its top carved to resemble a yawning viper''s maw, sits in the center of this room. The walls of the chamber are carved with images of anthropomorphic serpents using strange, pointed megaliths of stone to work great feats of magic—transforming an army of humans into zombies, calling down flaming bolts of lightning from the stars, or parting the waters of the sea to dash human ships upon the exposed rocks of the seabed below. This final image seems to have been recently cleaned of dust, and several lines of text have been made more legible via the application of inks and perhaps blood.',
+    'The translation of the legible lines of text are reproduced as follows:
+<br><br><b>To Command the Very Tides to Rise Up and Eschew What Lies Below:</b>
+<br><br>Empower the Four Sentinel Runes with the Blood of a Thinking Creature Tempered by the Kiss of a Serpent''s Tongue.
+<br><br>Anoint the Tide Stone with Waters Brought from the Sea in a Vessel of Purest Metal.
+<br><br>Invoke the Lord''s Sacred Name to Wrap His Coils around the Sea Itself that He Might Lay Bare What Lies Below and Cast Down Your Enemies on the Waves above.'
+  ),
+
+  -- 16. Venture-Captain Havner Ames' Log of the Nightvoice
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'note',
+    'ship log',
+    4,
+    TRUE,
+    'Venture-Captain Havner Ames'' Log of the <i>Nightvoice</i>',
+    'Ravaged by mold and the strange fungus, only pieces of this log survive, but the entries were detailed enough to piece together the ship''s tragic history.',
+    'The <i>Nightvoice</i> was a Pathfinder Society exploration vessel that  was on its way back from an expedition around the horn of Garund, when a strange leathery pod they discovered in a seaside cavern burst open. Only Captain Havner Ames managed to resist the resultant infection, and as he watched his crew succumb, he knew he couldn''t allow the strange bulb to reach the coast. It was all the captain could do to alter the ships course so that it would wreck on <ik>Smuggler''s Shiv</i> instead of along the populous sargavan coastline. Delirious with fever, the captain''s final log states he decided to ''carry the blasphemous pod up to the top of a rock spire on the east of the island,'' with an attempt to find a cave where he could hide it away from humanity forever.'
+  ),
+
+  -- 17. Rubbing of the Azlanti Runes in the Temple of Zura
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'note',
+    'rubbing',
+    1,
+    TRUE,
+    'Rubbing of the Azlanti Runes in the Temple of Zura',
+    'These ancient runes are remarkably intact given its age, though cracks in the wall do make portions of the text illegible.',
+    'Studying these runes is frustrating and difficult to translate because of the missing portions of wall that have cracked, coupled with the ancient inscriber''s fondness for awkward metaphor; however, four key bits of information can be gleaned from these carvings:
+<br><br>This chamber was once a scriptorium where books and scrolls sacred to the worship of Zura were transcribed and illuminated.
+<br><br>This temple was built over an even more ancient temple — one that was dedicated to a deity referred to only as the “Beheaded One,” an entity that was apparently an enemy to the ancient Zura cultists.
+<br><br>Several prayers seem to indicate that the ancients made use of undead slaves created from both “humans culled from the unbelievers and slaves of the Beheaded One.”
+<br><br>As much hatred as the Zura cultists had for the “slaves of the Beheaded One,” they also seemed to despise their own kind—especially those they called the “misbegotten of Saventh-Yhi.”'
+  ),
+
+  -- 18. Yarzoth's Notes on Saventh-Yhi
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'note',
+    'rubbing',
+    1,
+    TRUE,
+    'Yarzoth''s Notes on Saventh-Yhi',
+    'These notes appear to be meticulously detailed, written carefully on pages clearly torn from another book. The script is a combination of curved alien glyphs with sharp, jagged strokes, with the lettering arranged in odd twisting, angular clusters rather than neat rows.',
+    'These notes are written in Aklo but are otherwise quite complete, being a careful translation of the murals above the altar in the temple of Zura:
+<br><br>The three large alcoves in this room once served as meditation chambers—the cultists would enter one, pull a curtain for privacy, and recite the complex prayers and parables carved on the walls here. These carvings, all written in Azlanti, tell the history of this particular Zura cult in three stages.
+<br><br>The southern alcove tells of the cult''s genesis in the city of Saventh-Yhi in the jungle, but is frustratingly vague when it comes to exact details on the legendary city apart from confirming that it was built by Azlanti — this section ends with the cult''s exile from Saventh-Yhi and how they made a dangerous overland journey that ended on the shores of a remote island far from their homeland.
+<br><br>The northwestern alcove takes up the story at this point, detailing the cult''s exploration of this island (identifiable as Smuggler''s Shiv), their discovery and defeat of a large group of serpentfolk who had gone into hiding after the defeat of their kind many years before at Saventh-Yhi, and the creation of this temple.
+<br><br>The northeastern alcove plots the cult''s future plans, focusing on how they had hoped to earn the gift of vampirism from Zura by undertaking extensive and vile rituals, and once this gift was theirs, how they planned on making the journey back to Saventh-Yhi to ''awaken the city with Zura''s blessing.'' The route back to the ancient city is similarly cryptic, and the portions that do make sense reference antiquated geography; however, it seems they ultimately intended to use something called the ''Light of Tazion'' to return to the city through its protective wards.
+<br><br>In her notes, Yarzoth seems particularly intrigued by the possibility that Saventh-Yhi might be the exact spot where, so long ago, her god Ydersius was beheaded.'
+  ),
+
+-- 19. First Nightmare
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'dream',
+    'shiv nightmare',
+    1,
+    TRUE,
+    'First Nightmare',
+    NULL,
+    'You''re back aboard the <i>Jenivere</i>, bent over the railing being seasick. After your latest bout of retching, you slump back and see the rest of the passengers and crew are on deck as well, all of them sick save for the captain and the quiet Varisian scholar Ieana. She whispers in the captain''s ear, then gives him a kiss on the cheek. At that point the captain holds up a wooden soup spoon, and you realize that you''re holding one as well. Everyone has a spoon. The ship is sinking, and the only way to stop it is to bail out the hold with your spoon! You work feverishly, but the waters keep rushing in. Just before you wake, you can see monstrous things with pincers in the water trying to claw their way into the ship...'
+  ),
+
+  -- 20. Second Nightmare
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'dream',
+    'shiv nightmare',
+    2,
+    TRUE,
+    'Second Nightmare',
+    NULL,
+    'You''re sitting down in the galley aboard the <i>Jenivere</i>, getting ready for your meal. The ship''s cook has given you a steaming bowl of soup, but you drop your spoon. You see that the deck below is covered with seawater up to your ankles, and your dropped spoon has sunk into the water and washed out to sea through a hole. You''re forced to lift your delicious bowl of soup to your lips and drink. But something big goes into your mouth as you do so, and you feel a sharp bite on your tongue. You drop the bowl, only to reveal a serpent had hidden in your soup that now dangles from your tongue as it chews furiously. You start awake, biting your own tongue in an attempt to bite through the snake''s body.'
+  ),
+
+  -- 21. Third Nightmare
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'dream',
+    'shiv nightmare',
+    3,
+    TRUE,
+    'Third Nightmare',
+    NULL,
+    'You''re in a rowboat on the open ocean at night. Sitting across you, rowing the boat, is First Mate Alton. He''s obviously dead, with the wounds and stings his body displays on the wreck of the <i>Jenivere</i>, but still he rows. Eventually, the boat reaches an island covered with snakes. Alton waits as you exit the boat, standing ankle-deep in snakes, and then he turns and rows back out to sea, you assume off to look for more survivors to ferry to shore. But Alton never returns, and you wake up just as the snakes start to bite...'
+  ),
+
+  -- 22. Wings in the Dark
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'dream',
+    'shiv nightmare',
+    4,
+    TRUE,
+    'Wings in the Dark',
+    NULL,
+    'You''re laying on the floor looking up at the stars. In the sky above you, you note the constellations, counting each one that you know. All at once, a collection of stars form an obvious grouping; as you trace the stars with your eyes, lines form between the stars into the shape of a serpentine skull. Its mouth is open, as though speaking, but you cannot understand its whispers. You listen closer, trying to interpret the darkness it spews. Out of the corner of your eyes, you notice something large with blood-red eyes watching from the jungle''s edge, but you cannot move, cannot scream, all that comes out is a rasping hiss...'
+  ),
+
+  -- 23. Atlquipan (2 paragraphs)
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'minor',
+    'weapon',
+    NULL,
+    TRUE,
+    'Atlquipan',
+    'This golden azlanti idol of a serpent appears lifelike, though inanimate. Around the length of the belly of the serpent is a series of tightly wrapped strips of leather, creating an oddly placed grip.',
+    'This idol eagerly transforms into a <i>+1 monstrous humanoid bane returning trident</i> when grasped, its shaft decorated with a golden serpent twinning along its length. In addition to having the eager perk, it may be drawn as a non-action when initiative is rolled, as it springs into its owners hand, something it occasionally does on its own. Every time its owner draws a different weapon, there is a 5% chance they draw this one instead.'
+'<br><br>As a standard action, the wielder can wrestle the serpent into twining around the shaft of another held trident or spear. This grants that other spear the <i>monstrous humanoid bane</i> ability; however, once that weapon is thrown, this weapon returns using its <i>returning</i> ability, leaving the weapon it was twined around behind.'
+  ),
+
+  -- 24. Wavecutter
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'minor',
+    'weapon',
+    NULL,
+    TRUE,
+    'Wavecutter',
+    'This unusual terbuje is made of sharp chunks of quarts embedded along a length of steel',
+    'This <i>+1 keen steel terbuje</i> may be used underwater without suffering any penalties, and its bearer may use attack rolls in place of swim checks to swim underwater.'
+  ),
+
+  -- 25. Savage Sting
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'minor',
+    'weapon',
+    NULL,
+    TRUE,
+    'Savage Sting',
+    'This blowgun is made of a hollowed piece of reed lacquered in vibrant orange hues and decorated with a fetish of brilliantly colored feathers',
+    'This is a <i>+1 seeking blowgun</i>. Up to three times per day, the wielder may envenom a dart fired from the blowgun with a virulent toxin, which functions as the poison spell.'
+  ),
+
+  -- 26. Orb of the Kindred Flame (1 paragraph)
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'minor',
+    'item',
+    NULL,
+    TRUE,
+    'Orb of the Kindred Flame',
+    'This glowing red orb is roughly two inches in diameter with the a wooden texture, lik that of a large bead.',
+    'This orb acts as a pearl of power level 3, except it is usable up to three times per day and it can only restore spells with the fire descriptor.'
+  )
+ON CONFLICT (campaign_id, item_name) DO NOTHING;
+
+-- End Loot Seed
+
+-- Start Loot Gallery Seed CTE (idempotent)
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+),
+i_id AS (
+  SELECT id AS item_id, item_name
+  FROM items
+  WHERE campaign_id = (SELECT campaign_id FROM c_id)
+)
+INSERT INTO item_gallery (
+  item_id,
+  image_url,
+  alt,
+  is_main
+)
+VALUES
+  (
+    (SELECT item_id FROM i_id 
+      WHERE item_name = 'Convergent Cocoon Cloak'),
+    '/images/objects/loot-cocoon-cloak.webp',
+    'Convergent Cocoon Cloak',
+    TRUE
+  ),
+  (
+    (SELECT item_id FROM i_id 
+      WHERE item_name = 'Zenj Spirit Fetish'),
+    '/images/objects/loot-zenj-spirit-fetish.webp',
+    'Zenj Spirit Fetish',
+    TRUE
+  ),
+  (
+    (SELECT item_id FROM i_id 
+      WHERE item_name = 'War Mask of Terror'),
+    '/images/objects/loot-war-mask-terror.webp',
+    'War Mask of Terror',
+    TRUE
+  )
+ON CONFLICT DO NOTHING;
+-- End Loot Gallery Seed
+-- END SEED LOOT BLOCK
+
+-- START resources.ejs SEED BLOCK
+-- Seed Hardcoded Artifacts CTE (idempotent)
+
+-- End Hardcoded Artifacts seed
+-- END resources.ejs SEED BLOCK
 
 -- Save seed
 COMMIT;
