@@ -1259,7 +1259,6 @@ VALUES
     FALSE
   )
 ON CONFLICT (campaign_id, item_name) DO NOTHING;
-
 -- End Hardcoded Relics Seed
 
 -- Start resources.ejs Gallery Seed
@@ -1366,8 +1365,370 @@ VALUES
   )
 ON CONFLICT DO NOTHING;
 -- End resources.ejs Gallery Seed
-
 -- END resources.ejs SEED BLOCK
+
+-- START maps.ejs SEED Block
+-- Start Session Spotlight Seeds
+-- LOCATION SPOTLIGHTS: session_logs CTE
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO session_logs (
+  campaign_id,
+  book_number,
+  session_number,
+  title,
+  log_type
+)
+VALUES
+  ((SELECT campaign_id FROM c_id),
+    0,
+    1,
+    'Sargava at a Glance',
+    'location spotlight'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    1,
+    2,
+    'Smuggler''s Shiv',
+    'location spotlight'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    3,
+    'Eleder',
+    'location spotlight'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    4,
+    'Kalabuto',
+    'location spotlight'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    5,
+    'Fort Bandu',
+    'location spotlight'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    6,
+    'The Korir River',
+    'location spotlight'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    7,
+    'The Screaming Jungle',
+    'location spotlight'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    8,
+    'The Bandu Hills',
+    'location spotlight'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    9,
+    'Ruins of Tazion',
+    'location spotlight'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    3,
+    10,
+    'The Lost City of Saventh-Yhi',
+    'location spotlight'
+  )
+ON CONFLICT DO NOTHING;
+-- End Session Spotlight Seeds
+
+-- Start Session Spotlight Gallery
+-- LOCATION SPOTLIGHTS: gallery CTE
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+),
+sl_id AS (
+  SELECT session_number, id AS session_log_id
+  FROM session_logs
+  WHERE campaign_id = (SELECT campaign_id FROM c_id)
+)
+INSERT INTO session_log_gallery (
+  session_log_id,
+  image_url,
+  alt,
+  is_tall
+)
+VALUES
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 1),
+    '/images/map/map-sargava.webp',
+    'Sargava at a Glance',
+    FALSE
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 2),
+    '/images/hero/hero-souls-for-smugglers-shiv.webp',
+    'Smuggler''s Shiv',
+    FALSE
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 3),
+    '/images/hero/hero-eleder.webp',
+    'Eleder',
+    FALSE
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 4),
+    '/images/hero/hero-kalabuto.webp',
+    'Kalabuto',
+    FALSE
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 5),
+    '/images/npc/npc-praetor-sylien.webp',
+    'Fort Bandu',
+    FALSE
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 6),
+    '/images/map/sketch-great-river.webp',
+    'The Korir River',
+    FALSE
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 7),
+    '/images/hero/hero-screaming-jungle.webp',
+    'The Screaming Jungle',
+    FALSE
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 8),
+    '/images/hero/hero-bandu-hills.webp',
+    'The Bandu Hills',
+    FALSE
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 9),
+    '/images/hero/hero-tazion.webp',
+    'Ruins of Tazion',
+    FALSE
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 10),
+    '/images/hero/hero-saventh-yhi.webp',
+    'The Lost City of Saventh-Yhi',
+    FALSE
+  )
+ON CONFLICT DO NOTHING;
+-- End Session Spotlight Gallery
+
+-- Start Session Spotlight Paragraphs
+-- LOCATION SPOTLIGHTS: paragraphs CTE
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+),
+sl_id AS (
+  SELECT session_number, id AS session_log_id
+  FROM session_logs
+  WHERE campaign_id = (SELECT campaign_id FROM c_id)
+)
+INSERT INTO session_log_paragraphs (
+  session_log_id,
+  paragraph_order,
+  paragraph_text
+)
+VALUES
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 1),
+    1,
+    'Beset by devil-binding pilgrims and inescapable debts to pirate lords, as well as generations of resentment from the nation''s subjugated indigenous peoples, the colony of Sargava remains a bastion of northern culture and civilization in the heart of the southern wilds. Once part of a vast and mighty empire long since fallen to dust, as evidenced by the crumbling ruins still lurking beneath the veneer of lush farmland and verdant jungle, Sargava''s rich landscape is home to fierce Mwangi natives and even fiercer predators of the deep jungle, as well as a dwindling population of northern colonials who seek to uphold their ideals of culture and breeding at all cost, straining against the tides of resentment that may soon sweep them into the sea and return the land to its original owners.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 1),
+    2,
+    'Founded over 500 years ago by Prince Haliad I as part of Cheliax''s expansionist Everwar, Sargava stood as the jewel of the empire for centuries. But when Aroden died, the empire was thrown into chaos, and Sargava''s ruler backed the wrong house in the Chelish Civil War. House Thrune took control of Cheliax and sent a flotilla of warships to retake the colony that had supported their enemy in the bloody conflict. Grand Custodian Grallus anticipated the onslaught, however, and made a fateful alliance with the Free Captains of the Shackles. Swooping out of Desperation Bay to pounce on the unsuspecting Chelish Navy, the pirates'' superior fleet swiftly ended the threat to their southern neighbor, and extracted a mighty price from Sargava for their efforts. To this day, vast portions of Sargava''s wealth flow into the Free Captains'' coffers for past assistance and assurance of continued naval protection.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 1),
+    3,
+    'Financially weakened by the Free Captains'' high demands and cut off from many of their former trade partners to the north, Sargava faces an even larger threat from within. The native Mwangi people, inspired by the teachings of a mysterious, undead child-god in the nearby city-state of Mzali, move ever closer to open rebellion to free themselves from colonial rule. While Cheliax no longer has an official stake in Sargava''s government, the colonial Sargavan minority maintains control of the vastly larger native population. But the natives know that they have the resources of the entire Mwangi Expanse at their backs, and that Grand Custodian Utilinus''s government is in a poor position to quell a rebellion.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 2),
+    1,
+    '<i>"They say the dead walk on Smuggler''s Shiv, and that those who have yet to die dine on the flesh of their kin. They say that the very plants and animals of the island thirst for blood. And they say that those who sail too close to the island''s cutting edge are already doomed, even before their ships are impaled and slip beneath the shark-hungry waves. The island itself is a grave to all manner of folk - pirate and soldier, merchant and smuggler alike. By day, one who approaches too closely can hear their screams from the green that crowns the isle, and by night one can watch the witchlights dance on its shore, said to be glowing cannibal ghosts eager to lure new meals to their shore."</i>'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 2),
+    2,
+    '<i>"They say all this and more about Smuggler''s Shiv. I can think of no better place to hide my treasure."</i> - Final recorded words of Captain Lortch Quellig'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 2),
+    3,
+    'Smuggler''s Shiv is a notorious island north of Eleder. It''s not shown on most maps, but is rightfully feared by those who ply the waters of Desperation Bay. The island is named not only for the knife-like shape of its coastline, but for its uncanny habit of wrecking ships that draw too near—mostly smugglers eager to avoid detection by Sargava''s navy.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 2),
+    4,
+    'It''s commonly believed that the shores of Smuggler''s Shiv are haunted by the ghosts and ghouls of the sailors who have died on the jagged rocks and reefs surrounding the island. These rumors are supported by reports of several failed attempts to establish long-lasting colonies on the remote island.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 2),
+    5,
+    'When Sargava was first settled, Chelish engineers erected a lighthouse on the Shiv''s southwest shore. The light was intended to warn approaching ships of the dangerous waters and, eventually, was to have been the first building in a small colony. The light and all plans for colonization were abandoned just before completion amid rumors of curses, haunts, and cannibalism.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 2),
+    6,
+    'Rumors hold that a group of shipwrecked Chelish soldiers, survivors of an attempted Thrune invasion of Sargava some 70 years ago, were stranded on the island. The rumors claim that they degenerated into a cannibalistic society, and that their descendants scour the isle''s shores for shipwreck victims to add to their meals.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 3),
+    1,
+    'Appearance: Eleder is dominated by extensive stone docks, where ships from most nations on the Arcadian Ocean lie moored. The city is an unusual blend of architecture, as the gothic stonework of the colonists'' native Cheliax has adapted to the native building styles in favor of less stuffy, open designs that better combat the heat. Although Eleder itself is surrounded by a sturdy stone wall, the individual homes of many colonials also feature low stone walls and iron gates—a decorative concession to their roots that does nothing to make their homes less comfortable. These buildings are joined by more practical wood and canvas structures, and outside the city walls, countless mud-daub huts — the homes of the native workers — stretch far out into the banana, cocoa, and pineapple plantations.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 3),
+    2,
+    'History: The original founders of Sargava selected a small, natural harbor as the site of their future colony, gradually expanding from a stockaded encampment to a walled city with a fully equipped shipyard. It was named Eleder after the daughter of one of the original colonists, whose gentle diplomacy and efforts to learn Polyglot enabled the colonists to live in cooperation with the locals. Though the city today is named for Eleder''s efforts, the first several decades were fraught with violent misunderstandings between Chelaxians and natives. Large numbers of Chelish troops were brought in to help bring the native tribes under control, and they gradually convinced the tribes to assist the colonists in bringing “order” and industry to their “savage” land. When Sargava broke from Cheliax with the help of the Shackles, the citizens of Eleder opened up their repair yards as docks to ships of any nation, provided they paid a hefty fee for the privilege. Eleder is now considered one of the finest shipyards in Garund, and certainly the finest on the western coast. With the appointment of Utilinus to the position of Grand Custodian, Eleder has even made a few strides toward attracting other foreign businesses — mainly merchants from Nidal, Varisia, and Rahadoum. But though he has gained popularity with the colonials, the Grand Custodian is not well liked by the Hurricane King, who heavily taxes the merchant fleets his pirates guide past the Eye of Abendego.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 3),
+    3,
+    'Society: Eleder is a city of contradictions. The colonials live in relative luxury, while the native workers dwell in poverty outside the city walls. While countless scruffy sailors and explorers parade through Eleder every year en route to adventures in the interior — or simply on their way to enjoy the brothels and clubs Eleder maintains near the docks to keep pirates out of the city proper — the colonials maintain high personal standards of decorum and propriety. Although Grand Custodian Utilinus is Sargava''s authority, the elderly Lady Madrona Daugustana is the city''s unofficial leader. As the oldest living colonial in all of Sargava, Lady Madrona bears the responsibility of upholding the ideals and customs of her forebearers, and any major undertaking must meet her approval. While the majority of colonials consider the native Mwangi to be a “lesser people” than themselves, they rely on them not only as a labor pool but as a standing militia of poorly paid volunteers. Eleder''s Praetor, Commander Ezio Egorius, regularly drills the Sargavan Guard, which consists of mixed units, though all Mwangi natives are enlisted regulars while the colonials are all officers, much to the ire of many Mwangi veterans.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 3),
+    4,
+    'Adventurers: Though Sargava relies on the influx of foreign money to pay its debts to the Shackles pirates, the Eleder colonials would much rather the seemingly constant stream of adventurers and explorers sail up the Korir River to their destinations in-country, bypassing Eleder completely. In the words of Lady Madrona Daugustana, “Adventurers merely pass through Eleder; we must live here when they are long gone.” The major problem most colonials have with adventurers is that the colonials are barely keeping the Mwangi populace under control as it is, and in their view, the last thing they need is thrill-seekers or would-be “liberators” stirring up the natives, either by picking fights with tribal warriors or speaking ill of the colonials to the workers. Adding to the problem, adventurers rarely bother to learn the local customs, let alone observe the agreements between the tribes and the colonials, and a single incident can sour an entire tribe against all foreigners. Finally, the people of Eleder are obsessed with dignity and decorum — going even beyond many northern countries in their attempts to prove that they''ve remained “civilized” — and consider the carousing of bored adventurers the height of impropriety. It is bad enough for dwarves to stagger through the streets singing after dark, but having one''s daughter indecently solicited by an Ulfen barbarian quickly alienates even the most open-minded Sargavan colonist.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 4),
+    1,
+    'From a distance, Kalabuto seems to be nothing more than a low hill surrounded by fields of pineapples, with a few scattered buildings under a pall of smoke. This is because the city ruins are almost entirely covered with centuries of jungle growth. Closer up, visitors quickly notice the thousands of native Mwangi coming and going from the city in the hustle and bustle of commerce and daily life. For many, it''s not until they approach quite close to the city gates that they realize the hill is actually a collection of crumbling stone buildings covered in tangled vines and other greenery.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 4),
+    2,
+    'As it stands, the city appears to be overgrown by the jungle, with a large collection of shanties and warehouses along the riverbank. Kalabuto is a center of trade with the Mwangi interior, serving as a trade hub between foreign colonials, foreigners, and indigenous tribespeople. Over the years, overland caravans have declined in favor of more efficient river barges. To accommodate the increase in vessels, the city erected a snaking boardwalk connected to an elaborate tangle of docks. Warehouses make up the bulk of the structures along the water''s edge. Further inland, the ruins of the original ancient city begin, climbing up the hill to the more lavish private colonial residences.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 4),
+    3,
+    'While native Kalabuta-Vidric inhabit the majority of the city''s ruins, a small minority of Sargavan colonials rule the city and have claimed the highest buildings with the best views for themselves. Racial tension is thus rife in Kalabuto. But the city also serves as Sargava''s first line of defense against the city-state of Mzali. In this role Kalabuto has suffered greatly, and has been sacked by the Mzali forces on several occasions.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 4),
+    4,
+    'Not just the most populous city in Sargava, Kalabuto sits on the edge of the expansive jungle; the last bastion of civilization before the wilderness. In contrast to Eleder, explorers and adventurers find that Kalabuto awaits them with open arms. Those who do not find work as soldiers in the Kalabuto militia usually find plenty of opportunities with expeditions setting out to explore the Bandu Hills, Mzali, and the Screaming Jungle; the colonials look forward to sending new adventurers on the dangerous missions the local Mwangi refuse to undertake, while the natives readily hire themselves out to adventurers, who often treat and pay them better than the colonials.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 5),
+    1,
+    'Created to protect miners in the Bandu Hills from hostile Mwangi, Fort Bandu has suffered in the last hundred years — much to the consternation of its half elf commander, Praetor Sylien. Having commanded the fort for decades, the Praetor is the grandson of an old elven explorer. Though the aging Sylien rarely ventures outside anymore, he is a skilled commander of his 150-soldier legion, and it is largely thanks to him that miners and explorers are able to operate in the area at all. Fort Bandu nevertheless still has tremendous difficulties with local tribes, particularly the Bandu, who take every opportunity to attack the work crews Sylien has sent to build a bridge over the River of Tears.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 5),
+    2,
+    'The fort is a small frontier settlement surrounded by high stone walls located on the northern edge of Sargava. Within the fort''s walls, dozens of mining companies maintain outposts out of pavilion tents, hiring laborers and purchasing necessary supplies brought in by merchants from the north, south, and west. The fort''s garrison struggle to maintain a balance of defense of the frontier and protection for the miners and traders within its walls.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 5),
+    3,
+    'The fort is also a training ground and staging point for Sargava''s embattled militia. Because watches at Fort Bandu are relatively peaceful, militia personnel can become accustomed to their responsibilities before moving on to assignments requiring more vigilance. While the training of the militia excels under the old Praetor''s gaze, he has been openly displeased with the quality of the officer pool sent to him, and he has been unable to train someone he deems would be a suitable successor. Until that day, he does what he deems best for the fort and the people in his jurisdiction, frequently asking adventurers to fill the gap by assisting with training or escorting new patrols in exchange for granting them permission to venture deep into the Laughing Jungle.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 6),
+    1,
+    'Known to the locals simply as "The River," this river flows through the entirety of the Mwangi Expanse, flowing down from the shattered range, through the jungles and hills, past countless ruined civilizations, and emptying in to the ocean to the west through large delta''s. The word "Korir" is a portmanteau of the polyglot words for Serpent''s Tears, suggesting a river that is winding, sorrowful, and endless. The large number of waterfalls and rapids coupled with the jungle terrain make both navigation and portaging difficult, and while this does reduce the number of crocodiles, hippopotamuses, and enchanted dolphins frequently encountered, it does have the added threat of large snakes dropping on passing prey from branches hanging over the river.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 6),
+    2,
+    'Few explorers dare navigate the waters all the way to the shattered range, and none have successfully managed to bridge the gap and sail from one end of the continent to the other. While the shattered range is the most obvious perilous obstacle, most explorers get lost just traveling through the screaming jungle, with its heavy daily rains, low obscuring fog, endless chattering monkeys, and heavy dreams which pull people into fevered nightmares and sleeping sickness. Fatigue takes many, and eventually, sleep takes all. It is said that all people dream of the jungle and its treasures...'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 7),
+    1,
+    'An isolated corner of the Mwangi Expanse, marking the practical border of Sargava and the reach of civilization, the Screaming Jungle is mired in a thick layer of fog that perpetually rolls down from the Shattered Range and the Bandu Hills. Seen from above, it resembles a lake of clouds more than a forest. The harsh screams of primates and birds perpetually echo throughout the suffocatingly humid mists, giving the jungle its infamous name. In contrast to the majestic, tall trees common to other woodlands, the trees of the Screaming Jungle are hooked and stunted. The terrain is sloped, as the jungle extends up onto the nearby mountains, and the tangles of tough roots and wet leaves make it treacherous to navigate by foot.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 7),
+    2,
+    'It''s not just the footing one need be wary of here. The dreamlike atmosphere of the Screaming Jungle weighs heavily on the minds of all who enter it. Many within the Expanse dream of this place, even those that have never set foot within its mists.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 7),
+    3,
+    'Similar to the Kaava Lands, the particularities of the Screaming Jungle are not well known, as its location and circumstances make it dangerous to those unfamiliar with it. Those who have ventured in and returned alive often tell lively, meandering stories that do not answer any questions about the mysteries contained within the forest. From the birds that nest above the fog, to the diverse primates who make their home in the canopy, to the ground-dwelling mammals stalking the forest floor, the Screaming Jungle hosts an improbable density of wildlife. Every layer is home to an endemic assortment of insects that range from vibrantly colored to nearly invisible, and from harmless to deadly. Certain insects and birds can also mimic any sound to an eerily accurate degree, and the pattering footsteps of river hogs and rodents are occasionally punctuated by the stalking of the barukal leopard, a predator possessing the ability to shift its fur color to match its surroundings.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 8),
+    1,
+    'The Bandu Hills serve as the northern border of Sargava, separating civilization from the endless wilderness of the Expanse. These dreary slopes serve as desolate tombs — homes for the restless undead. Bleak stone ruins, bleached bone-white by centuries beneath the pitiless sun, clutter the barren land. Gray clouds sink low into the narrow valleys, cloaking the treacherous paths with dense fog, heavy with the promise of cold, soul-soaking rain. What was once a delicate sign of spring beats upon travelers in freezing, impregnable sheets of slate gray that set the mud of the Bandu Hills churning, grasping hungrily at a traveler''s every step. Despite the constant rain, the hills and vales bear only stone, packed soil, and the occasional empty cairn.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 8),
+    2,
+    'It has been whispered around many a sputtering bonfire that the sparse, spiky grass and skeletons of petrified trees harbor hungry spirits, eager to steal the breath from unsuspecting travelers. Those who find themselves trekking the neglected trails of those hills soon realize that the shallow valleys have led them astray with far more ease than expected.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 8),
+    3,
+    'It is where Mount Nakyuk and its cousins rise, like the bony fingers of a nameless, ancient god, that the erosion of the Bandu Hills remains at its most prominent - pock-marked with the forgotten mining camps and hunters'' trails that once fed into the great throat of the earth. Deep underground sprout the fruit of the Bandu Hills: veins of precious gold, deposits of minerals, and sprigs of precious stones that spread open like shimmering blossoms in the hands of foreign explorers and natives alike. It is here, in these hills, the Gold Crown Shipping and Mining Company claims its great treasures.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 8),
+    4,
+    'The main path through the Bandu Hills is known as the Trail of Burst Souls, which slithers and snakes its way from one side to the other. Travelers note the trail is lined with shallow graves and hastily constructed cairns, some of them thousands of years old. While the graves are plentiful, explorers will find that few have been disturbed by passersby. Rumors abound that those who desecrate the mounds and barrows that mark the trail will find themselves prey for hungry spirits and vengeful husks that stalk the night in search of whomever robbed them of their grave goods.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 9),
+    1,
+    'The ruins of Tazion stand as a remnant of a forgotten age, an outpost of ancient Azlant lost in the southern Mwangi Jungle. Little remains within its walls, with most of the settlement having crumbled or been buried centuries before. The majority of Tazion''s structures remain unidentifiable. Centuries of weathering and erosion have transformed the once-splendid architecture into little more than scattered stones, curious topography, and fetid tar pits. Few could have ever suspected that the ruins possess the key to finding the lost city of Saventh-Yhi, and its secrets are ripe for the taking.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 9),
+    2,
+    'Rumor says that a tribe of ape-men, known as charau-ka, now inhabit the ruins, though they wouldn''t share its secrets in the unlikely event they discovered any. From the ruins, they have reportedly established a temple in the shape of a serpent''s skull; this temple is now the ape-men''s main encampment, where they gather to share information and deposit relics they have found in the ruins as offerings to their new snake-god.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 9),
+    3,
+    'The Charau-Ka are dangerous, xenophobic abominations, whose very name translates from polyglot to "Beware-Them," though it is unclear if they are named after the phrase, or if the phrase exist because of the abominations. As mysterious as they are dangerous, and as fetid as they are strong, it is unwise to try to communicate with them, as while semi-intelligent, they are unlikely to speak unless they can use speaking to bait their victims into a trap. Those who find themselves encircled by Charau-Ka frequently take their own lives to prevent capture, out of fear of being brutalized and transformed into another of their kind.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 10),
+    1,
+    'One of the most legendary of the still-undiscovered cities of the Mwangi Expanse is Saventh-Yhi. Believed by some to be the classic “city of gold” and by others to be nothing more than a hallucination born from jungle fever, most scholars agree that the real Saventh-Yhi exists somewhere in the deep Mwangi Jungle, where it is likely hidden by a combination of fortuitous terrain and lingering magic. The most fascinating rumors of Saventh-Yhi indicate that the city was established by the ancient Azlanti — if so, it would be the only significant Azlanti ruin in the region. The fact that the city''s name has a meaning in the Azlanti tongue (“Savith''s Grave”—the Azlanti hero Savith being the one most often credited with beheading the serpentfolk god Ydersius) is certainly the most compelling evidence to support this theory. Indeed, the thought of an undiscovered Azlanti ruin in Garund has driven countless Pathfinders, Aspis Consortium agents, and other explorers to unknown dooms, for if such a ruin does exist, the secrets it must hide could revolutionize what is known of the mysterious Age before Earthfall. The city could have been the crown jewel of the empire, a bastion of magic and technology on this continental frontier, and a city that may have largely survived the calamity that destroyed the rest of the civilization ten thousand years ago. Since then, the city has lain lost and sleeping.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 10),
+    2,
+    '&ensp;&ensp;Ten thousand years is a long time to wait.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 10),
+    3,
+    'The expedition has now used the light of Tazion to find the city, hidden by a strong curtain of storm and wind 1-mile thick and 70-miles wide. The storm seems to deter all intruders that stumble upon it, as compasses bend out of its way. Now within the city''s borders, trapped by the stormwall, the expedition is completely isolated, hoping to uncover the secrets of the city and claim its treasures and the renown for its discovery.'
+  ),
+  ((SELECT session_log_id FROM sl_id
+      WHERE session_number = 10),
+    4,
+    'While exploring the lost city, the expedition team has discovered that each of its seven districts have formed their own disparate, warring communities, each blessed by a tall obelisk atop a ziggurat they call their “spear,” which grants the residents additional abilities when lit. Each district also features a vault which can only be opened while the spear is lit. It is hoped that the treasures within these vaults will unlock the city''s secrets, as well as provide means for escape.'
+  )
+ON CONFLICT DO NOTHING;
+-- End Session Spotlight Paragraphs
+-- END maps.ejs SEED BLOCK
 
 -- Save seed
 COMMIT;
