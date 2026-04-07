@@ -876,10 +876,12 @@ CREATE TABLE IF NOT EXISTS items (
   description TEXT,
   ability TEXT,
   unlocked_boons TEXT,
+  unlock_method TEXT,
   destruction_method TEXT,
   secrets TEXT,
-  boons_visible BOOLEAN NOT NULL DEFAULT FALSE,
   pinned BOOLEAN NOT NULL DEFAULT FALSE,
+  boons_visible BOOLEAN NOT NULL DEFAULT FALSE,
+  unlock_visible BOOLEAN NOT NULL DEFAULT FALSE,
   unique_destruction BOOLEAN NOT NULL DEFAULT FALSE,
   UNIQUE (campaign_id, item_name)
 );

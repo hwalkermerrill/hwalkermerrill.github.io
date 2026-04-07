@@ -911,22 +911,19 @@ INSERT INTO item_gallery (
   is_main
 )
 VALUES
-  (
-    (SELECT item_id FROM i_id 
+  ((SELECT item_id FROM i_id 
       WHERE item_name = 'Convergent Cocoon Cloak'),
     '/images/objects/loot-cocoon-cloak.webp',
     'Convergent Cocoon Cloak',
     TRUE
   ),
-  (
-    (SELECT item_id FROM i_id 
+  ((SELECT item_id FROM i_id 
       WHERE item_name = 'Zenj Spirit Fetish'),
     '/images/objects/loot-zenj-spirit-fetish.webp',
     'Zenj Spirit Fetish',
     TRUE
   ),
-  (
-    (SELECT item_id FROM i_id 
+  ((SELECT item_id FROM i_id 
       WHERE item_name = 'War Mask of Terror'),
     '/images/objects/loot-war-mask-terror.webp',
     'War Mask of Terror',
@@ -938,8 +935,438 @@ ON CONFLICT DO NOTHING;
 
 -- START resources.ejs SEED BLOCK
 -- Seed Hardcoded Artifacts CTE (idempotent)
-
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO items (
+  campaign_id,
+  active_status_id,
+  item_type,
+  item_subtype,
+  sort_order,
+  is_identified,
+  item_name,
+  description,
+  ability,
+  unlocked_boons,
+  destruction_method,
+  boons_visible,
+  unique_destruction
+)
+VALUES
+  ((SELECT campaign_id FROM c_id),
+    1,
+    'artifact',
+    'weapon',
+    NULL,
+    FALSE,
+    'Spear of Seven Parts',
+    'Fully assembled, this 14lb mithral spear bears the engraving "Orgē Aganakteō Ploúthos Agónizomai Perisseuó Horkos Euforía Anapauó Tímios Peri̱fánia," which roughly translates to "My Righteous Anger is Full, My (Zeal) is Overflowing, I Swear by (All I Love) [I Will] Lay You to Rest, and Let [Your Death] be My Glory." This spear appears to be the culmination of Savith''s work as he pursued the serpentfolk deity Ydersius. The spear glows corresponding to the spears of Saventh-Yhi.',
+    'The <i>Spear of Seven Parts</i> has a total enhancement bonus of +7 and is always considered an epic weapon with the ability to transform into any weapon from the spear weapons group and critical threaten any creature (even if they are normally immune to critical hits). Additionally, when the corresponding spear is illuminated, the bearer may exchange an equivalent amount of enhancement bonus to activate or deactivate the following, according to the color:
+<br>&ensp;Red = <i>flaming</i> or <i>flaming burst</i>
+<br>&ensp;Orange = <i>keen</i> or <i>vorpal</i>
+<br>&ensp;Yellow = <i>defending</i> or <i>defiant</i>
+<br>&ensp;Green = <i>ghost touch</i> or <i>brilliant-energy</i>
+<br>&ensp;Blue = <i>returning</i> or <i>dancing</i>
+<br>&ensp;Indigo = <i>monstrous-humanoid bane</i> or <i>furyborn</i>
+<br>&ensp;Violet = <i>holy</i> or <i>nullifying</i>.',
+    'Additionally, when scoring a critical hit, this spear has enhanced abilities depending on what color it is glowing, as follows:
+<br>&ensp;Red = Critical hits deal an additional 2d10 fire damage to all creatures within 15 feet of the target, except the wielder.
+<br>&ensp;Orange = The <i>Spear of Seven Parts</i>'' critical multiplier increases by one step.
+<br>&ensp;Yellow = Critical hits cause this weapon to cast <i>dispel magic</i> on the target.
+<br>&ensp;Green = Critical hits cause this weapon to <i>disrupt</i> and completely destroy the target if it is undead.
+<br>&ensp;Blue = The extra damage caused by a critical hit is transferred to the wielder as healing.
+<br>&ensp;Indigo = Critical hits affect the target as per the spell <i>dimension door</i>, moving them to a space of the wielder''s choice within line of sight and within 30ft.
+<br>&ensp;Violet = Critical hits grant the wielder an additional attack using the same bonus as the original attack, targeting any creature within range.',
+    'If the <i>Spear of Seven Parts</i> is disassembled and each piece taken to a different outer plane, wherein the bearer uses their fragment of the spear to commit a heinous act that is anathema to that plane''s foundation, the spear will lose its cohesion and disintegrate.',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    1,
+    'artifact',
+    'weapon',
+    1,
+    FALSE,
+    'Spear of Seven Parts - Red Spear-Tip',
+    'This 10-inch long piece of azlanti crystal is braced within a mithral housing engraved with the words "Orgē Aganakteō," meaning "Filled with Righteous Anger." When gripped by a creature attuned to its matching districts'' spear, it projects the memory of its missing parts in order to take form. Each piece weighs 2 lbs and glows in unison with its corresponding districts'' spear.',
+    'The <i>Spear of Seven Parts</i> is a mithral spear with a total enhancement bonus of +1 for each attached piece (maximum +5, minimum +1). Each piece of the <i>Spear of Seven Parts</i> may be activated while its corresponding district spear is active to change the spear''s abilities by exchanging an equivalent amount of weapon enhancement.',
+    'This piece may be activated to grant the spear <b><i>flaming</i></b>. When this piece is glowing, critical hits deal an additional 2d10 fire damage to all creatures within 15 feet of the target, except the wielder.
+<br><br>When at least three pieces of this spear are joined, the <i>Spear of Seven Parts</i> gains the ability to transform into any type of spear from the fighter weapons group, always transforming into a spear of the correct size for the creature wielding it. This functions as the resizing and transformative weapon properties.',
+    'If the <i>Spear of Seven Parts</i> is disassembled and each piece taken to a different outer plane, wherein the bearer uses their fragment of the spear to commit a heinous act that is anathema to that plane''s foundation, the spear will lose its cohesion and disintegrate.',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    1,
+    'artifact',
+    'weapon',
+    2,
+    FALSE,
+    'Spear of Seven Parts - Orange Reinforced Upper Shaft',
+    'This 11-inch long piece of azlanti crystal is braced within a mithral housing is engraved with the word "Ploúthos," meaning "abundance" or "filled." When gripped by a creature attuned to its matching districts'' spear, it projects the memory of its missing parts in order to take form. Each piece weighs 2 lbs and glows in unison with its corresponding districts'' spear.',
+    'The <i>Spear of Seven Parts</i> is a mithral spear with a total enhancement bonus of +1 for each attached piece (maximum +5, minimum +1). Each piece of the <i>Spear of Seven Parts</i> may be activated while its corresponding district spear is active to change the spear''s abilities by exchanging an equivalent amount of weapon enhancement.',
+    'This piece may be activated to grant the spear <b><i>keen</i></b>. When this piece is glowing, the <i>Spear of Seven Parts</i>'' critical multiplier increases by one step.
+<br><br>When at least three pieces of this spear are joined, the <i>Spear of Seven Parts</i> gains the ability to transform into any type of spear from the fighter weapons group, always transforming into a spear of the correct size for the creature wielding it. This functions as the resizing and transformative weapon properties.',
+    'If the <i>Spear of Seven Parts</i> is disassembled and each piece taken to a different outer plane, wherein the bearer uses their fragment of the spear to commit a heinous act that is anathema to that plane''s foundation, the spear will lose its cohesion and disintegrate.',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    1,
+    'artifact',
+    'weapon',
+    3,
+    FALSE,
+    'Spear of Seven Parts - Yellow Upper Shaft',
+    'This 12-inch long piece of azlanti crystal is braced within a mithral housing isengraved with the word "Agónizomai," generally understood to mean "overcome with zeal." When gripped by a creature attuned to its matching districts'' spear, it projects the memory of its missing parts in order to take form. Each piece weighs 2 lbs and glows in unison with its corresponding districts'' spear.',
+    'The <i>Spear of Seven Parts</i> is a mithral spear with a total enhancement bonus of +1 for each attached piece (maximum +5, minimum +1). Each piece of the <i>Spear of Seven Parts</i> may be activated while its corresponding district spear is active to change the spear''s abilities by exchanging an equivalent amount of weapon enhancement.',
+    'This piece may be activated to grant the spear <b><i>defending</i></b>. When this piece is glowing, the <i>Spear of Seven Parts</i> casts <i>dispel magic</i> on its target when delivering a critical hit.
+<br><br>When at least three pieces of this spear are joined, the <i>Spear of Seven Parts</i> gains the ability to transform into any type of spear from the fighter weapons group, always transforming into a spear of the correct size for the creature wielding it. This functions as the resizing and transformative weapon properties.',
+    'If the <i>Spear of Seven Parts</i> is disassembled and each piece taken to a different outer plane, wherein the bearer uses their fragment of the spear to commit a heinous act that is anathema to that plane''s foundation, the spear will lose its cohesion and disintegrate.',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    1,
+    'artifact',
+    'weapon',
+    4,
+    FALSE,
+    'Spear of Seven Parts - Green Central Haft',
+    'This 14-inch long piece of azlanti crystal is braced within a mithral housing is engraved with the word "Perisseuó," which appears to be an oath. When gripped by a creature attuned to its matching districts'' spear, it projects the memory of its missing parts in order to take form. Each piece weighs 2 lbs and glows in unison with its corresponding districts'' spear.',
+    'The <i>Spear of Seven Parts</i> is a mithral spear with a total enhancement bonus of +1 for each attached piece (maximum +5, minimum +1). Each piece of the <i>Spear of Seven Parts</i> may be activated while its corresponding district spear is active to change the spear''s abilities by exchanging an equivalent amount of weapon enhancement.',
+    'This piece may be activated to grant the spear <b><i>ghost touch</i></b>. When this piece is glowing, critical hits completely destroy target undead as if <i>disrupted</i>.',
+    'If the <i>Spear of Seven Parts</i> is disassembled and each piece taken to a different outer plane, wherein the bearer uses their fragment of the spear to commit a heinous act that is anathema to that plane''s foundation, the spear will lose its cohesion and disintegrate.',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'artifact',
+    'weapon',
+    5,
+    TRUE,
+    'Spear of Seven Parts - Blue Lower Shaft',
+    'This 16-inch long piece of azlanti crystal is braced within a mithral housing is engraved with the words "Horkos Euforía," which translates to both charity and love. When gripped by a creature attuned to its matching districts'' spear, it projects the memory of its missing parts in order to take form. Each piece weighs 2 lbs and glows in unison with its corresponding districts'' spear.',
+    'The <i>Spear of Seven Parts</i> is a mithral spear with a total enhancement bonus of +1 for each attached piece (maximum +5, minimum +1). Each piece of the <i>Spear of Seven Parts</i> may be activated while its corresponding district spear is active to change the spear''s abilities by exchanging an equivalent amount of weapon enhancement.',
+    'This piece may be activated to grant the spear <b><i>returning</i></b>. When this piece is glowing, the extra damage caused by a critical hit is transferred to the wielder as healing. This healing is equal to the extra damage dealt to the target before they reached zero hit points.
+<br><br>When at least three pieces of this spear are joined, the <i>Spear of Seven Parts</i> gains the ability to transform into any type of spear from the fighter weapons group, always transforming into a spear of the correct size for the creature wielding it. This functions as the resizing and transformative weapon properties.',
+    'If the <i>Spear of Seven Parts</i> is dissembled and each piece taken to a different outer plane, wherein the bearer uses their fragment of the spear to commit a heinous act that is anathema to that plane''s foundation, the <i>Spear of Seven Parts</i> will lose its cohesion and disintegrate.',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'artifact',
+    'weapon',
+    6,
+    TRUE,
+    'Spear of Seven Parts - Indigo Reinforced Lower Shaft',
+    'This 18-inch long piece of azlanti crystal is braced within a mithral housing is engraved with the word "Anapauó," commonly understood as the azlanti word for the sleep of death. When gripped by a creature attuned to its matching districts'' spear, it projects the memory of its missing parts in order to take form. Each piece weighs 2 lbs and glows in unison with its corresponding districts'' spear.',
+    'The <i>Spear of Seven Parts</i> is a mithral spear with a total enhancement bonus of +1 for each attached piece (maximum +5, minimum +1). Each piece of the <i>Spear of Seven Parts</i> may be activated while its corresponding district spear is active to change the spear''s abilities by exchanging an equivalent amount of weapon enhancement.',
+    'This piece may be activated to grant the spear <b><i>monstrous-humanoid bane</i></b>. When this piece is glowing, critical hits affect the target as per the spell <i>dimension door</i>, moving them to a space of the wielder''s choice within line of sight and within 30ft of their previous position. This cannot move the target to an inherantly unsafe location.
+<br><br>When at least three pieces of this spear are joined, the <i>Spear of Seven Parts</i> gains the ability to transform into any type of spear from the fighter weapons group, always transforming into a spear of the correct size for the creature wielding it. This functions as the resizing and transformative weapon properties.',
+    'If the <i>Spear of Seven Parts</i> is dissembled and each piece taken to a different outer plane, wherein the bearer uses their fragment of the spear to commit a heinous act that is anathema to that plane''s foundation, the <i>Spear of Seven Parts</i> will lose its cohesion and disintegrate.',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'artifact',
+    'weapon',
+    7,
+    TRUE,
+    'Spear of Seven Parts - Violet Base',
+    'This 21-inch long piece of azlanti crystal is braced within a mithral housing is engraved with the words "Tímios Peri̱fánia," meaning "[this] is my Glory." When gripped by a creature attuned to its matching districts'' spear, it projects the memory of its missing parts in order to take form. Each piece weighs 2 lbs and glows in unison with its corresponding districts'' spear.',
+    'The <i>Spear of Seven Parts</i> is a mithral spear with a total enhancement bonus of +1 for each attached piece (maximum +5, minimum +1). Each piece of the <i>Spear of Seven Parts</i> may be activated while its corresponding district spear is active to change the spear''s abilities by exchanging an equivalent amount of weapon enhancement.',
+    'This piece may be activated to grant the spear <b><i>speed</i></b>. When this piece is glowing, critical hits grant the wielder an additional attack using the same bonus as the original attack. This attack may target any creature within range, not just the original target. If thrown, this additional attack represents a ricochet and must target a creature within 30ft. of the original target.
+<br><br>When at least three pieces of this spear are joined, the <i>Spear of Seven Parts</i> gains the ability to transform into any type of spear from the fighter weapons group, always transforming into a spear of the correct size for the creature wielding it. This functions as the resizing and transformative weapon properties.',
+    'If the <i>Spear of Seven Parts</i> is dissembled and each piece taken to a different outer plane, wherein the bearer uses their fragment of the spear to commit a heinous act that is anathema to that plane''s foundation, the <i>Spear of Seven Parts</i> will lose its cohesion and disintegrate.',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    1,
+    'artifact',
+    'weapon',
+    NULL,
+    FALSE,
+    'Mantis Blade',
+    'This sinister looking sawtooth sabre is made of red chitin and bright steel that forms a curved, serrated blade.',
+    'The <i>Mantis Blade</i> is an intelligent <i>+2 axiomatic sawtooth sabre</i> which increases the sneak attack damage of its wielder by +1d6 sneak attack, granting the ability as a rogue if they don''t already possess it. When a creature is wounded with the blade, the wielder grant the blade the bane special ability against that type of creature as a swift action. This bane ability lasts for 10 minutes and is usable once per day. 
+<br><br>Sacred to the faith of the mantis god Achaekek, the mantis blade also grants bonuses to a Red Mantis assassin who wields it. A Red Mantis assassin wielding the mantis blade gains a +2 bonus to the DC of her prayer attack, and may use her red shroud and fading abilities each an additional time per day.',
+    'The <i>Mantis Blade</i> has the following statistics:
+<b>Alignment</b> LE; <b>Ego</b> 16
+<b>Senses</b> vision, hearing 60ft., darkvision 60ft.
+<br><b>Int</b> 10, <b>Wis</b> 12, <b>Cha</b> 14
+<br><b>Communication</b> telepathy
+<br><b>Spell-Like Abilities</b> (CL 20th, concentration +22)
+<br>&ensp; 3/day - <i>alter self, darkness, spider climb, true strike</i>
+<br>&ensp; 1/day - <i>clairaudience/clairvoyance, deeper darkness, dimension door, greater invisibility</i>',
+    'If a single wielder uses the mantis blade to slay nine rightful ruling monarchs, the weapon can be destroyed by a successful sunder maneuver.',
+    TRUE,
+    TRUE
+  )
+ON CONFLICT (campaign_id, item_name) DO NOTHING;
 -- End Hardcoded Artifacts seed
+
+-- Start Hardcoded Relics Seed
+
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO items (
+  campaign_id,
+  active_status_id,
+  item_type,
+  item_subtype,
+  sort_order,
+  is_identified,
+  item_name,
+  description,
+  ability,
+  unlock_method,
+  unlocked_boons,
+  destruction_method,
+  boons_visible,
+  unlock_visible,
+  unique_destruction
+)
+VALUES 
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'relic',
+    'weapon',
+    NULL,
+    TRUE,
+    'Blade of the Blood Feud',
+    'First recovered by Sharrowsmith from an old dwarven mine, this dull looking machete is with the seal of a long-dead dwarven clan and lies ready to draw blood in service to an ancient design. It''s steel doesn''t lend itself to either polish or the grindstone, as if the blade deliberately wants to look non-threatening.',
+    'This <i>+1 rival-bane machete</i> applies the bane property against agents directly employed by a rival faction. To qualify as a rival faction, the leaders of both factions must acknowledge the other as a bitter blood-rival and a threat, with a direct financial incentive to eliminating the competitor; merely desiring the destruction of one-another is not enough. Additionally, this blade provides a +2 circumstance bonus on all survival checks, instead of the normal +1 on checks to get along in the wild.',
+    'Eliminate a rival leader with an ironic fate worse than death.',
+    'The <i>Blade of the Blood Feud</i> looks shiny and deadly when properly wielded, but appears dull and lifeless in the hands of others. The blade becomes a <i>+2 heart-seeking ominous rival-bane machete</i>, and the circumstance bonus it applies on survival checks increases to +6. If the wielder begins their turn or ends their movement next to a dying or disabled agent employed by a rival faction, the blade forces them to spend a standard action to attempt a touch attack to touch the blade to the agents throat. If successful, the agent must make a DC17 will save or die as though slain by a <i>death knell</i> spell, and the wielder gains the benefits as though they cast the spell. If the wielder attempts to resist this action, they must make a DC17 will save to drop the blade.',
+    NULL,
+    FALSE,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    1,
+    'relict',
+    'item',
+    NULL,
+    FALSE,
+    'Legendary Warrior Totem',
+    'This Legendary Warrior Totem depicts one of the 10 Magic Warriors of Old-Mage Jatembe, woven by the hands of a legendary spirit and imbued with the zeitgeist of the magic warriors themselves.',
+    'This amulet acts as an amulet of natural armor +2. Legendary Warriors Found: Azure Leopard.',
+    'Slay a unique magical beast imbued with zeitgeist, and present a trophy from it to the legendary spirit of Grand Prince Cyricas, the Leaping Lion. Then it needs to be worn by a creature with an associated awakened spirit totem.',
+    'When worn by a creature with an associated awakened spirit totem, they may activate this Legendary Totem once per day when activating their totemic power, to commune with the spirit of the magic warrior for 1 minute. This unlocks their totem''s legendary power, as well as granting them the shapechanger subtype, DR 10/silver, and the ability to instantly polymorph chosen parts of their body into that of their totem animal as part of an attack action, granting all of the natural attacks (but not special attacks) possessed by their totem animal. These natural attacks count as magical, and deal half damage to swarms instead of none. It is rumored that Old-Mage Jatembe possessed a special totem of his own, one that can only be found by gathering together all ten magic warriors.',
+    'If the wearer is slain while communing with the spirit of the magic warrior, the totem is destroyed and will need to be remade. Only one totem for each magic warrior can exist at a time.',
+    FALSE,
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'relic',
+    'item',
+    NULL,
+    TRUE,
+    'Ring of Seven Virtues',
+    'This bronze band is covered in geometric shapes and studded with tiny pearls. When within the boarders of Saventh-Yhi, the pearls glow with the colors of the seven spears, corresponding to whichever one is lit.',
+    'The wearer of the <i>Ring of Seven Virtues</i> gains a constant <i>endure elements</i> effect and a +7 competence bonus on survival checks. Also, even if the bearer has not been keeyed to the districts spear, they gain the benefits of that districts spear when within that district while the spear is lit.',
+    'Gain access to the prismatic computer.',
+    NULL,
+    NULL,
+    FALSE,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'relic',
+    'weapon',
+    NULL,
+    TRUE,
+    'Rod of Well-Deserved Rest',
+    'This rod appears to be made of polished gold, and features three blown-glass onion-shaped domes at one end. It seems heavy enough to be wielded as a weapon, should the need arise.' 
+    'This rod functions as a <i>+1 light mace</i> when wielded as a weapon. Up to three times per day, with a successful hit in combat, the wielder may attempt to put the target of the attack to sleep (Will DC14 negates). This functions as the <i>sleep</i> spell, but there is no limit to the Hit Dice that may be affected. Any creature put to sleep with this rod enters a dreamscape, which the wielder may choose to enter at will.
+<br>Additionally, the wielder may create an opaque sphere of force to protect themselves from the elements once per day, as a <i>tiny hut</i> with a 5-foot radius. If the wielder goes to sleep with the rod in their possession, 2 hours of sleep is the equivalent of 8 hours of rest, and 8 hours of rest provides the equivalent benefits of a full day of bed rest, as well as granting the wielder the benefits of the <i>good hope</i> spell for 1 hour after waking.
+<br><br>In any dreamscape, regardless of the wearers form, this rod may continue to be wielded, or passed to another creature. If the wielder is not a medium creature while in the dreamscape, they may wield the rod as though they were a medium creature.',
+    'Fully attune to a dream totem and unlock its legendary powers.',
+    'There is no longer a limit to the number of times per day that the wielder may attempt to put a creature to sleep after striking them with the rod, and the wielder gains three additional daily uses of their totem magic.',
+    NULL,
+    FALSE,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'relic',
+    'weapon',
+    NULL,
+    TRUE,
+    'Savith''s Swift Strike',
+    'A replica of the heroine Savith''s sword, even this impersonation of her blade is filled with the zeitgeist of an ancient nation. This sword is incredibly heavy, with a gray stone blade that is otherwise unremarkable, except for the constant light that radiates from it.',
+    'This <i>+1 adamantine aberration-bane keen longsword</i> requires a DC30 strength check to hold aloft (reduced by 3 for each azlanti relic the person is holding, or by 5 for azlanti-blooded humans). A creature only needs to make this strength check once - if they fail, they cannot attempt it again until the next new moon. After they succeed on this strength check, the sword is weightless in their hands - otherwise, it weighs 200lbs. Being strong enough to wield this weapon, however, does not make you automatically worthy of it. IF you have not become worthy of this weapon, and another creature successfully wields it, you must make the check to wield it anew. If you are unworthy of this weapon, you may never wield it, and automatically fail any checks required to wield it.',
+    'Slay seven titanic monstrosities while either wielding this sword or with the sword on your person (not in an extradimensional space). You are unworthy of this weapon if you are evil, if you murder an innocent civilian, or if you flee an enemy who then kills a friend.',
+    NULL,
+    NULL,
+    FALSE,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'relic',
+    'shield',
+    NULL,
+    TRUE,
+    'Shield of Acavna',
+    'This azlanti shield contains a large moonstone in the center surrounded by bronze inlaid with gold depictions of crossed spears as well as the acavnan aphorism "The brave do not live forever; the cautious do not live at all."',
+    'This <i>+2 quickdraw light bronze shield</i> is as hard as steel (but immune to rust) and is only held in the hand, being as easy to stow as it is to draw. This shield counts as a holy symbol of Acavna, as well as of any deity granted their divine spark through the starstone (namely Aroden, Iomedae, Cayden Calien, and Norberger).
+<br><br>All creatures within 30 feet of a visible <i>Shield of Acavna</i> are treated as though they can see both the full moon and the open night''s sky.
+<br>As an immediate action 1/day, the bearer may take a 5ft. step and enter the square of an ally being attacked to interpose themselves, forcing the attack to resolve against their touch AC instead. This must be done before the result of the attacker''s roll is revealed. If this attack was not the result of the ally''s movement, after resolving the attack, the ally may either spend an immediate action to take a 5ft. step into the bearer''s former square, fall prone, or force the bearer to fall prone.',
+    'Interpose yourself on behalf of an ally using the <i>Shield of Acavna</i> against an attack that was a critical threat, which deals enough damage to you that it subjects you to massive damage and would have killed them outright. This may make you worthy even if it kills you, though you would still be dead. If you ever murder a helpless innocent, you stop being worthy of this item and can never become worthy of it.',
+    'The <i>Shield of Acavna''s</i> enhancement bonus increases to +4, and it grants energy resistance 10 against an element of the bearers choice (default is cold). The bearer may attune to a different element by offering a prayer to acavna as a 1-minute action. Additionally, when they use the shield to interpose themselves, they may move up to half their movement speed instead of taking a 5ft step. This movement provokes attacks of opportunity as normal.
+<br>Once per day as a standard action, the bearer can emit a 30'' aura of protection for 1 minute, granting all allied creatures within the aura a +4 deflection bonus to AC and energy resistance 10 vs the attuned element. During this time, and for 1 hour after, the shield loses its enhancement bonus to AC and does not provide energy resistance to its bearer.',
+    NULL,
+    TRUE,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'relic',
+    'weapon',
+    NULL,
+    TRUE,
+    'Seaspike',
+    'This elegant, short-hafted trident appears to be made from razor-sharp coral. A jade serpent wraps around the haft of the weapon before being impaled on the haft''s spiked foot.',
+    '<i>Seaspike</i> is treated as a light weapon for the purposes of Weapon Finesse and other similar abilities, and may be wielded as either a trident or a shortspear with the <i>+1 animal bane</i> special abilities. If a monstrous humanoid attempts to wield <i>Seaspike</i>, they automatically drop the weapon at the end of their turn.
+<br><br>Last, the wielder of <i>Seaspike</i> gains a bonus to fortitude saving throws against poison equal to twice the weapons enhancement bonus.',
+    'The wielder must recover from three different poisons while holding this weapon, without other aid. Intentionally exposing themselves to poison does not apply for this ability. If the wielder ever uses poison against another, they become unworthy of <i>Seaspike</i>.',
+    '<i>Seaspike''s</i> enhancement bonus increases to +3, and its bane special quality also applies against any serpent, including serpentine monstrous humanoids and magical beasts (at the GM''s discretion).
+<br>As a standard action, the wielder may attempt a single melee or thrown ranged attack with seaspike to embed their weapon in their target. If this special attack hits, in addition to doing normal damage, the target must make a reflex save with a DC = 10 + the amount the attack roll exceeded the targets AC. If they fail, they become entangled by the weapon. If the target is a serpentine creature, they also take a penalty to natural attacks equal to Seaspike''s effective enhancement bonus until the weapon is removed.
+<br>Special: If the wielder has vital strike, this special attack action counts as vital strike.',
+    NULL,
+    TRUE,
+    TRUE,
+    FALSE
+  )
+ON CONFLICT (campaign_id, item_name) DO NOTHING;
+
+-- End Hardcoded Relics Seed
+
+-- Start resources.ejs Gallery Seed
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+),
+i_id AS (
+  SELECT id AS item_id, item_name
+  FROM items
+  WHERE campaign_id = (SELECT campaign_id FROM c_id)
+)
+INSERT INTO item_gallery (
+  item_id,
+  image_url,
+  alt,
+  is_main
+)
+VALUES
+  ((SELECT item_id FROM i_id 
+      WHERE item_name = 'Spear of Seven Parts'),
+    '/images/objects/loot-spear-seven-parts-full.webp',
+    'Spear of Seven Parts - Complete',
+    TRUE
+  ),
+  ((SELECT item_id FROM i_id 
+      WHERE item_name = 'Spear of Seven Parts - Red Spear-Tip'),
+    '/images/objects/loot-spear-seven-parts1.webp',
+    'Spear of Seven Parts - Part 1',
+    TRUE
+  ),
+  ((SELECT item_id FROM i_id 
+      WHERE item_name = 'Spear of Seven Parts - Orange Reinforced Upper Shaft'),
+    '/images/objects/loot-spear-seven-parts2.webp',
+    'Spear of Seven Parts - Part 2',
+    TRUE
+  ),
+  ((SELECT item_id FROM i_id 
+      WHERE item_name = 'Spear of Seven Parts - Yellow Upper Shaft'),
+    '/images/objects/loot-spear-seven-parts3.webp',
+    'Spear of Seven Parts - Part 3',
+    TRUE
+  ),
+  ((SELECT item_id FROM i_id 
+      WHERE item_name = 'Spear of Seven Parts - Green Central Haft'),
+    '/images/objects/loot-spear-seven-parts4.webp',
+    'Spear of Seven Parts - Part 4',
+    TRUE
+  ),
+    ((SELECT item_id FROM i_id 
+      WHERE item_name = 'Spear of Seven Parts - Blue Lower Shaft'),
+    '/images/objects/loot-spear-seven-parts5.webp',
+    'Spear of Seven Parts - Part 5',
+    TRUE
+  ),
+  ((SELECT item_id FROM i_id 
+      WHERE item_name = 'Spear of Seven Parts - Indigo Reinforced Lower Shaft'),
+    '/images/objects/loot-spear-seven-parts6.webp',
+    'Spear of Seven Parts - Part 6',
+    TRUE
+  ),
+  ((SELECT item_id FROM i_id 
+      WHERE item_name = 'Spear of Seven Parts - Violet Base'),
+    '/images/objects/loot-spear-seven-parts7.webp',
+    'Spear of Seven Parts - Part 7',
+    TRUE
+  ),
+  ((SELECT item_id FROM i_id
+      WHERE item_name = 'Mantis Blade'),
+    '/images/objects/loot-mantis-blade.webp',
+    'Mantis Blade',
+    TRUE
+  ),
+  ((SELECT item_id FROM i_id
+      WHERE item_name = 'Legendary Warrior Totem'),
+    '/images/objects/loot-legendary-totem.webp',
+    'Legendary Warrior Totem',
+    TRUE
+  ),
+  ((SELECT item_id FROM i_id
+    WHERE item_name = 'Blade of the Blood Feud'),
+  '/images/objects/loot-bane-machete.webp',
+  'Blade of the Blood Feud',
+  TRUE
+  ),
+  ((SELECT item_id FROM i_id
+    WHERE item_name = 'Ring of Seven Virtues'),
+  '/images/objects/loot-ring-seven-virtues.webp',
+  'Ring of Seven Virtues',
+  TRUE
+  ),
+  ((SELECT item_id FROM i_id
+    WHERE item_name = 'Shield of Acavna'),
+  '/images/objects/loot-shield-acavna.webp',
+  'Shield of Acavna',
+  TRUE
+  ),
+  ((SELECT item_id FROM i_id
+    WHERE item_name = 'Seaspike'),
+  '/images/objects/loot-seaspike.webp',
+  'Seaspike',
+  TRUE
+  )
+ON CONFLICT DO NOTHING;
+-- End resources.ejs Gallery Seed
+
 -- END resources.ejs SEED BLOCK
 
 -- Save seed
