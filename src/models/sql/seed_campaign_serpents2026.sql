@@ -1728,6 +1728,129 @@ VALUES
   )
 ON CONFLICT DO NOTHING;
 -- End Session Spotlight Paragraphs
+
+-- BEGIN SEED MAP ITEMS BLOCK
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO items (
+  campaign_id,
+  item_type,
+  item_subtype,
+  is_identified,
+  item_name
+)
+VALUES
+  ((SELECT campaign_id FROM c_id),
+    'map',
+    'area',
+    1,
+    TRUE,
+    'Map of Smuggler''s Shiv'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    'map',
+    'city',
+    2,
+    TRUE,
+    'Map of Eleder'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    'map',
+    'area',
+    3,
+    TRUE,
+    'Map of Saventh-Yhi'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    'map',
+    'region',
+    4,
+    TRUE,
+    'Map of the Mwangi Expanse'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    'map',
+    'region',
+    5,
+    TRUE,
+    'Map of Sargava'
+  ),
+  ((SELECT campaign_id FROM c_id),
+    'map',
+    'area',
+    6,
+    TRUE,
+    'Map of Tazion Ruins'
+  )
+ON CONFLICT DO NOTHING;
+-- END SEED MAP ITEMS BLOCK
+
+-- BEGIN SEED MAP GALLERY BLOCK
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+),
+i_id AS (
+  SELECT id AS item_id, item_name
+  FROM items
+  WHERE campaign_id = (SELECT campaign_id FROM c_id)
+)
+INSERT INTO item_gallery (
+  item_id,
+  image_url,
+  alt,
+  is_main,
+  is_tall
+)
+VALUES
+  ((SELECT item_id FROM i_id
+      WHERE item_name = 'Map of Smuggler''s Shiv'),
+    '/images/map/map-smugglers-shiv-big.webp',
+    'Map of Smuggler''s Shiv',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT item_id FROM i_id
+      WHERE item_name = 'Map of Eleder'),
+    '/images/map/map-eleder.webp',
+    'Map of Eleder',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT item_id FROM i_id
+      WHERE item_name = 'Map of Saventh-Yhi'),
+    '/images/map/map-saventh-yhi-big.webp',
+    'Map of Saventh-Yhi',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT item_id FROM i_id
+      WHERE item_name = 'Map of the Mwangi Expanse'),
+    '/images/map/map-mwangi-redacted.webp',
+    'Map of the Mwangi Expanse',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT item_id FROM i_id
+      WHERE item_name = 'Map of Sargava'),
+    '/images/map/map-sargava.webp',
+    'Map of Sargava',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT item_id FROM i_id
+      WHERE item_name = 'Map of Tazion Ruins'),
+    '/images/map/map-ruins-tazion.webp',
+    'Map of Tazion Ruins',
+    TRUE,
+    FALSE
+  )
+ON CONFLICT DO NOTHING;
+-- END SEED MAP GALLERY BLOCK
 -- END maps.ejs SEED BLOCK
 
 -- Save seed
