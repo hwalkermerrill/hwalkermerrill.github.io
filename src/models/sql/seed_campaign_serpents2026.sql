@@ -1853,5 +1853,1273 @@ ON CONFLICT DO NOTHING;
 -- END SEED MAP GALLERY BLOCK
 -- END maps.ejs SEED BLOCK
 
+-- START npcs.ejs SEED BLOCK (idempotent)
+-- BEGIN NPC Main Seed
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO npc_main (
+  campaign_id,
+  active_status_id,
+  race_id,
+  npc_name,
+  is_identified,
+  secret_name,
+  show_secret_name,
+  secret_color,
+  is_gendered,
+  is_female
+)
+VALUES 
+  ((SELECT campaign_id FROM c_id),
+    2,
+    2,
+    'Amivor Glaur',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    FALSE
+  ),
+    ((SELECT campaign_id FROM c_id),
+    2,                -- active_status_id (unfriendly → active)
+    2,                -- race_id (human)
+    'Dargan Etters',  -- npc_name
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,             -- is_gendered
+    FALSE             -- is_female
+  ),
+    ((SELECT campaign_id FROM c_id),
+    2,  -- active_status_id
+    (SELECT id FROM race 
+      WHERE LOWER(race_name) = 'elf'),
+    'Chivañe',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    2,
+    'Kassata Lewynn',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    2,
+    'Ortho Vibius',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    2,
+    'Rotilius Havelar',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    2,
+    'Athyra "of the Jungle" Crinhouse',
+    TRUE,
+    'Fanged Raptor',
+    TRUE,
+    NULL,
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    (SELECT id FROM race 
+      WHERE LOWER(race_name) = 'half-elf'),
+    'Aerys Mavato',
+    TRUE,
+    'Poetic Raven',
+    FALSE,
+    NULL,
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    (SELECT id FROM race 
+      WHERE LOWER(race_name) = 'dwarf'),
+    'Cheiton Taralu',
+    TRUE,
+    'Stone Badger',
+    TRUE,
+    '#ada578',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    (SELECT id FROM race
+      WHERE LOWER(race_name) = 'gnome'),
+    'Gelik Aberwhinge',
+    TRUE,
+    'Cerulean Lynx',
+    TRUE,
+    '#007BA7',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    2,
+    'Ishirou',
+    TRUE,
+    'Onyx Gibbon',
+    TRUE,
+    '#353839',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    2,
+    'Jask Derindi',
+    TRUE,
+    'Garnet Jackal',
+    TRUE,
+    '#733635',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    2,
+    'Mindra Macini',
+    TRUE,
+    'Cream Bison',
+    FALSE,
+    '#FFFDD0',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    2,
+    'Nkechi "The Tempest"',
+    TRUE,
+    'Cranky Crab',
+    TRUE,
+    'crimson',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    (SELECT id FROM race 
+      WHERE LOWER(race_name) = 'tengu'),
+    'Pezock "Crow Tooth"',
+    TRUE,
+    'Olive Scorpion',
+    TRUE,
+    '#808000',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    2,
+    'Sasha Nevah',
+    TRUE,
+    'Emerald Mantis',
+    FALSE,
+    '#50C878',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    (SELECT id FROM active_status 
+      WHERE active_status_name = 'Retired'),
+    1,
+    'Aycenia - The Spirit of the Hill',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    (SELECT id FROM active_status 
+      WHERE active_status_name = 'Retired'),
+    1,
+    'Ekubus',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    FALSE
+  )
+ON CONFLICT (campaign_id, npc_name) DO NOTHING;
+-- End NPC Main Seed
+
+-- Start NPC Dead Status Seed
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+),
+as_id AS (
+  SELECT id AS status_id
+  FROM active_status
+  WHERE active_status_name = 'Deceased'
+)
+INSERT INTO npc_main (
+  campaign_id,
+  active_status_id,
+  race_id,
+  npc_name,
+  is_identified,
+  secret_name,
+  show_secret_name,
+  secret_color,
+  is_gendered,
+  is_female,
+  death_cause,
+  end_session
+)
+VALUES
+  ((SELECT campaign_id FROM c_id),
+    (SELECT status_id FROM as_id),
+    1,
+    'Ieana',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    TRUE,
+    'Was killed and replaced by Yarzoth before she boarded the Jenivere.',
+    0
+  ),
+   ((SELECT campaign_id FROM c_id),
+    (SELECT status_id FROM as_id),
+    1,
+    'Rambar Terillo',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    TRUE,
+    'Killed by a snake bite aboard the Jenivere.',
+    0
+  ),
+  ((SELECT campaign_id FROM c_id),
+    (SELECT status_id FROM as_id),
+    1,
+    'Alton Devers',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    TRUE,
+    'Succumbed to his mysterious injuries and finally to eurypterid poison.',
+    1
+  ),
+  ((SELECT campaign_id FROM c_id),
+    (SELECT status_id FROM as_id),
+    1,
+    'Alizandru Kovack',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    TRUE,
+    'Turned into an undead Lacedon by the Mother, and finally put out of his misery by the explorers.',
+    4
+  ),
+  ((SELECT campaign_id FROM c_id),
+    (SELECT status_id FROM as_id),
+    1,
+    'Klorak "the Red"',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    FALSE,
+    'Stabbed in the eyes by Loric''s thrown trident.',
+    9
+  ),
+  ((SELECT campaign_id FROM c_id),
+    (SELECT status_id FROM as_id),
+    1,
+    'Yarzoth',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    FALSE,
+    'Decapitated by Avarice, her severed head muttered, "Cut off one head, two more shall take its place..."',
+    10
+  ),
+  ((SELECT campaign_id FROM c_id),
+    (SELECT status_id FROM as_id),
+    2,
+    'Umagro',
+    TRUE,
+    NULL,
+    FALSE,
+    NULL,
+    TRUE,
+    FALSE,
+    'Martyr''d by Dakota atop the flensing house roof of the South Arcadian Whaling Company, in front of a riotous crowd.',
+    12
+  ),
+  ((SELECT campaign_id FROM c_id),
+    (SELECT status_id FROM as_id),
+    2,
+    'Neiford "The Arrow" Sharrowsmith',
+    TRUE,
+    'Cartographer Walrus',
+    TRUE,
+    NULL,
+    TRUE,
+    FALSE,
+    'Killed by failing to activate a wand of goodberry, causing him to wither and die.',
+    33
+  )
+ON CONFLICT (campaign_id, npc_name) DO NOTHING;
+-- End NPC Dead Status Seed
+
+-- Start NPC Titles Seed
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO npc_titles (
+  npc_id,
+  title_id
+)
+VALUES 
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Amivor Glaur'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT title_id FROM titles
+      WHERE LOWER(title_name) = 'venture-captain')
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Dargan Etters'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT id FROM titles
+      WHERE LOWER(title_name) = 'patron')
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Chivañe'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT id FROM titles
+      WHERE LOWER(title_name) = 'red mantis mistress')
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Kassata Lewynn'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT id FROM titles 
+      WHERE LOWER(title_name) = 'captain')
+  ),
+  ((SELECT npc_id FROM npc_main 
+      WHERE npc_name = 'Ortho Vibius'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT id FROM titles 
+      WHERE LOWER(title_name) = 'earl')
+  ),
+  ((SELECT npc_id FROM npc_main 
+      WHERE npc_name = 'Rotilius Havelar'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT id FROM titles 
+      WHERE LOWER(title_name) = 'general')
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Cheiton Taralu'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT id FROM titles
+      WHERE LOWER(title_name) = 'skipper')
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Mindra Macini'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT id FROM titles
+      WHERE LOWER(title_name) = 'lord')
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Ekubus'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT id FROM titles
+      WHERE LOWER(title_name) = 'captain')
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Allizandru Kovack'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT id FROM titles
+      WHERE LOWER(title_name) = 'captain')
+  ),
+    ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Alton Dvers'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT id FROM titles
+      WHERE LOWER(title_name) = 'first mate')
+  ),
+    ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Rambar Terillo'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT id FROM titles
+      WHERE LOWER(title_name) = 'cook')
+  ),
+    ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Klorak "the Red"'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT id FROM titles
+      WHERE LOWER(title_name) = 'chief')
+  )
+ON CONFLICT (npc_id, title_id, title_location) DO NOTHING;
+-- End NPC Titles Seed
+
+-- Start NPC Attitude Seed
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO npc_attitude (
+  npc_id,
+  attitude_id,
+  hostile_boon,
+  unhelpful_boon,
+  friendly_boon,
+  helpful_boon
+)
+VALUES 
+  ((SELECT npc_id FROM npc_main
+    WHERE npc_name = 'Amivor Glaur'
+    AND campaign_id = (SELECT campaign_id FROM c_id)),
+  2,
+  NULL,
+  NULL,
+  'Amivor shares some of his skill with disabling traps; Everyone gains the ability to make a thrilling	escape, once per day; pathfinder delvers may instead use their thrilling escape ability one additional time per day.
+<br>&ensp;Thrilling escape: When you trigger a trap via a failed disable device check, you may attempt a disable device check against its normal DC as an immediate action; if you succeed, the trap is not triggered until the end of your turn.',
+  'Amivor will vouch for the explorers, unlocking the Pathfinder Delver prestige class.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Dargan Etters'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,   -- Unfriendly
+    NULL,
+    NULL,
+    'Patron Etters pays well for loyalty. He gifts them an [item that can cast <i>detect secret doors</i> once per day].',
+    'Patron Etters concede''s to providing a letter of introduction for the Aspis consortium, unlocking the Aspis Agent prestige class.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Chivañe'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    NULL,
+    NULL,
+    'She personally educates the players in the fighting stances of the Red Mantis Assassins, granting weapon focus (sawtooth sabre) as a bonus feat (or weapon specialization (sawtooth sabre) if they already have an applicable weapon focus). Characters that already have both of these feats may immediately refund one of these spent feats.',
+    'Recognizing your talents, she is willing to induct the explorers, unlocking the Red Mantis Assassin prestige class.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Kassata Lewynn'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    NULL,
+    NULL,
+    'Kassata Lewynn offers some dueling instruction, teaching everyone the Classic Duelist pirate trick: You gain a +1 competence bonus on attack rolls made with a cutlass, rapier, or short sword.',
+    'She sponsors them in becoming free captains (once they have a ship). This unlocks the Deep Sea Pirate prestige class.'
+  ),
+  ((SELECT npc_id FROM npc_main 
+      WHERE npc_name = 'Ortho Vibius'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    4,
+    NULL,
+    NULL,
+    'Ortho Vibius studied the bold fighting style of Grand Prince Cyricas, and teaches everyone how to emulate his intrepid tread through jungles and other dangerous lands. Everyone gains Brash Stride as a bonus feat.',
+    'The players gain Lion Blade Association for the Lion Blade class.'
+  ),
+  ((SELECT npc_id FROM npc_main 
+      WHERE npc_name = 'Rotilius Havelar'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    4,
+    NULL,
+    NULL,
+    'The general is an excellent teacher, and can grant skill focus as a bonus feat in a skill of choice chosen from the following list: Intimidate, Knowledge (dungeoneering, engineering, or nobility), Ride, or Sense Motive.',
+    'He pledges to speak on their behalf before the Sargavan government, so that when the adventure is over, they might become nobility and receive land grants in Saventh-Yhi.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Athyra "of the Jungle" Crinhouse'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    5,
+    NULL,
+    NULL,
+    'She teaches everyone her naked-courage technique. Naked courage grants a +1 dodge bonus and a +1 morale bonus on saving throws versus fear effects to anyone not wearing armor.',
+    'Athyra can rally velociraptors to her, allowing them to be selected as animal companions.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Aerys Mavato'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3,
+    NULL,
+    NULL,
+    'She allows the PCs to read her unfinished epic — the Abendego Cantos. Anyone who reads it gains a +1 bonus on Will saving throws against compulsion effects.',
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Cheiton Taralu'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    5,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Gelik Aberwhinge'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    5,
+    NULL,
+    NULL,
+    'Gelik shares several secrets of comedy. Everyone gains a +1 Caster Level bonus when casting spells with the charm or language-dependent descriptors.',
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Ishirou'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    5,
+    NULL,
+    NULL,
+    'Ishirou shares some of his sword-fighting styles and tricks, granting everyone a +1 bonus to CMB and CMD against disarm combat maneuvers.',
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Jask Derindi'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    5,
+    NULL,
+    NULL,
+    'Jask shares a number of mantras and focusing chants. Everyone gains Meditation Master as a bonus feat.',
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Mindra Macini'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    4,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Nkechi "The Tempest"'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    5,
+    NULL,
+    NULL,
+    'The Tempest can create powerful drugs that enable the adventurers to go on spirit journeys.',
+    'The Tempest can perform the spirit dance ritual, unlocking advanced powers for totemic spirits.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Pezock "Crow Tooth"'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    5,
+    NULL,
+    NULL,
+    NULL,
+    'Cured of his madness, Pezock shares some of his combat tactics. He grants everyone Exotic Weapon Proficiency (Sawtooth Saber), and anyone dealing sneak attack damage with a sawtooth saber may gain the benefit of the Bleeding Attack rogue talent.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Sasha Nevah'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    4,
+    NULL,
+    NULL,
+    'Especially skilled at graceful movements, anyone who studies under Sasha gains a permanent +1 bonus on Initiative checks.',
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Aycenia - The Spirit of the Hill'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    5,
+    NULL,
+    NULL,
+    NULL,
+    'Aycenia allows the PCs to rest on her hill as often as they wish, pledges to use her magic to aid them in whatever method they desire, and can answer most specific questions about the island and its inhabitants.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Ekubus'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    5,
+    NULL,
+    NULL,
+    'Captain Ekubus is happy to escort the castaways to and through the vampiric temple, though he cannot leave his crew for more than an hour at a time.',
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Ieana'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Rambar Terillo'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Alton Devers'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Alizandru Kovack'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Klorak "the Red"'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Yarzoth'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Umagro'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Neiford "The Arrow" Sharrowsmith'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    5,
+    NULL,
+    NULL,
+    'Once per day, Sharrowsmith can gift an explorer with a single scroll containing any 3rd level or lower bard spell for free. These scrolls are custom‑made and cannot be sold, and the recipient gains a +5 circumstance bonus on Use Magic Device checks to activate the scroll. Sharrowsmith can only make 5 spell‑levels worth of scrolls per week, and will not give a new scroll if the recipient already has 5 of his scrolls.',
+    NULL
+  )
+ON CONFLICT (npc_id) DO NOTHING;
+-- End NPC Attitude Seed.
+
+-- Start NPC Social Seed
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO npc_social (
+  npc_id,
+  appearance,
+  background
+)
+VALUES 
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Amivor Glaur'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'A wild-haired redhead with a neatly trimmed beard and mustache. Amivor keeps himself conspicuously clean. Eschewing a shirt for an open vest with many pockets, he is covered in easily accessed tools, and every piece of his clothing has utility.',
+    'A veteran of several expeditions into the Mwangi interior. Skilled at organizing and leading missions, appraising sites, and exploring ruins. Hardened and made more wild by jungle life, he prefers the field to civilization.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Dargan Etters'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Well adapted to the hot climate of the expanse, Patron Etters wears loose fitting and unrestricted clothing decorated in gold. He rarely ventures anywhere without his bodyguards, but his demeanor makes it clear that in any conversation, he is always the most important, powerful, and dangerous man in the room.',
+    'A charismatic businessman, Patron Etters is solely interested in his own wealth and prestige. Based out of Blood Cove, he rose to upper echelons of a society built on subterfuge and skullduggery. Arrogant and utterly ruthless, he has a reputation for maximizing profits at the expense of lives; having no qualms about killing people in his way, either to lessen competition or to get what he wants.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Chivañe'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Startlingly beautiful, Chivañe takes the rare approach of removing her mask of the red mantis, allowing her to be recognized. This is likely due to the reality of leading an expedition of several assassins, rather than merely being on a job, but this decision enables the expedition leader to be recognized on sight at a distance.',
+    '[REDACTED]'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Kassata Lewynn'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Strikingly pretty with long, curly red hair and delicate tattoos in both prominent and delicate places, Captain Kassata wields her looks like any other weapon. Jovial, prone to heavy drinking and wild partying, Kassata lives a one-life-one-shot mantra, never letting an opportunity for fun or adventure pass idly by.',
+    'Captain of the <i>Last Hurrah</i>, Kassata Lewynn is an ambitious Free Captain of the Shackles. She craves authority and the admiration of her fellow captains, something she somewhat-rightfully believes can only be bought, and she will pursue fortune and glory with every drop of her blood.'
+  ),
+  ((SELECT npc_id FROM npc_main 
+      WHERE npc_name = 'Ortho Vibius'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Middle aged and mildly foppish, His Honorable Lordship Vibius is a confirmed old bachelor possessing both wealth and station. At all times, he is dressed impeccably and acts with decorum, though he imperiously eyes the jungle with a combination of fright and disgust. His nobility has afforded him a fantastic and diverse education at colleges across Avistan, yet he retains an insatiable curiosity for the unknown, often asking pointed questions after concluding with pleasantries.',
+    'The largest benefactor to the G.C.S., Earl Vibius typically pays them enough money to operate for a year in exchange for brief explorations of the Stasis Fields in the Bandu Hills, though he does not seem to do anything with the reports that return to him. Not a field man, he is funding the expedition entirely out of his own pocket, purely for the pursuit of knowledge.'
+  ),
+  ((SELECT npc_id FROM npc_main 
+      WHERE npc_name = 'Rotilius Havelar'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'An older man with a lifetime of military service, General Havelar keeps his grey hair and beard cropped short and neatly trimmed. His face is wrinkled and lined from decades of scowling, with a prominent scar across the left side of his face from a nearly-fatal encounter with an elephant''s tusk.',
+    'Appointed to lead the expedition to Saventh-Yhi by Grand Custodian Utilinus, Rotilius Havelar is a general of the Sargavan Guard. A loyal supporter of the Grand Custodian, General Havelar is a stereotypical self-important colonial officer, with traditionalist views of the Mwangi natives. A military man through and through, he is a veteran of several battles, highly educated, a skilled warrior and strategist, and a man who can be counted on to follow orders. Despite his qualities, however, he lacks any true leadership ability.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Athyra "of the Jungle" Crinhouse'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Athyra stands nearly 6 feet tall with a perfectly muscled figure and stunning features, her hair woven into clumped tangles. Dressed in wild scraps of animal hide, she carries a glaive-like spear she crafted from the toothed jaw of some fearsome jungle beast.',
+    'The sole survivor (and heir) of the disaster at the Fzumi Salt Mines, Athyra was raised by velociraptors in the <i>Screaming Jungle</i>, and is always seen alongside her best friend and clutch-mate, Jaji.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Aerys Mavato'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Aerys is a trim, athletic woman with short dark hair, tanned skin, and fierce blue eyes. She dresses in tightly fitted leather armor and favors dark clothing and tricorn hats.',
+    'Aerys Mavato boarded the <i>Jenivere</i> at Port Peril, and immediately got in a fight with one of the ship''s crewmen when he made an ill-advised suggestion that he and Aerys could share bunks. Aerys soundly humiliated the crewman in the resulting scrap, preventing further trouble during the rest of the voyage but sending the brooding half-elf into a self-imposed isolation in her forward cabin where she spent much of her time half-drunk or passed out, filling the gaps between bouts of work on her secret passion — poetry. She has been crafting an epic poem she calls the Abendego Cantos for many years, and worries that she''ll not be able to finish it before she gets herself killed.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Cheiton Taralu'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Cheiton is a brawny dwarf, easily recognizable by the tattoo on his shoulder belonging to a specific mining outfit within the G.C.S. A jovial drinker and fond storyteller, the Skipper is particularly fond of puns, and its endless usage is something passengers aboard his steamer sometimes find exhaust-ing.',
+    'A former miner in the Bandu Hills, Cheiton earned a modest living working for the G.C.S. Now, he makes his living organizing expeditions into the Mwangi interior for the foolhardy, and occasionally he enjoys taking up contracts from his former bosses at the G.C.S.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Gelik Aberwhinge'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Gelik is a spry, energetic gnome with blond hair and a neat goatee. He dresses like a noble at all times. With liberal use of <i>prestidigitation</i>, his fine clothes always seem freshly cleaned. Only the ink stains on his fingers break the illusion of a proper gnome nobleman.',
+    'Gelik boarded the <i>Jenivere</i> at Magnimar in something of a rush — when a local merchant discovered that Gelik had sold him a fake Thassilonian relic, things quickly got out of hand and the Magnimar city guard became involved. After losing his pursuers in a market, Gelik found himself at the docks and secured passage on the first ship out of town he could — the <i>Jenivere</i>.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Ishirou'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Ishirou is a rugged Tian man who appears much older than he is, with graying hair worn in a ponytail and a perpetual scruffy beard. His clothing and armor are well kept and clean, but obviously of low quality. Only his sword, a beautiful katana, has any real value, and he is rightfully protective of it as his only material link to his cultural heritage.',
+    'Ishirou grew up on his father''s ship, but grew to resent what he felt was a stolen childhood. In a foolish attempt to force his family to settle down, young Ishirou lit his father''s ship on fire, only to watch in horror as his father died trying to save it. Ishirou fled aboard an Aspis Consortium ship bound for Bloodcove, where he worked for ten years before boarding the <i>Jenivere</i> to seek a new life.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Jask Derindi'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Jask is a middle-aged, plain-looking Garundi man with hair starting to gray and watery eyes.',
+    'A prisoner loaded at Corentyn, Jask was once employed by the Sargavan government. After uncovering evidence of corruption, he was betrayed and framed for the same crimes. He fled to Corentyn and lived as a scribe for a decade before being captured and placed aboard the <i>Jenivere</i> for return to Sargava — only for the shipwreck to leave him alive but bound.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Mindra Macini'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Unassuming and fair, Mindra wears long knit clothes and large bucket hats to keep the sun off her skin, never removing her thick layers even when working under the hot sun. Despite this, she has never been seen sweating or complaining about the heat, and those who assume she is frail have never seen her wrestle a bull into its pen.',
+    'A Vidric native, Mindra was born and raised in Freehold after the traditions of her noble family. A champion of Mwangi rights, her large ranch is the halfway point between Eleder and Kalabuto. More than a hard worker and leader, she is a cunning politician who defends the heartlands with her well-armed shepherds and ranch-hands.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Nkechi "The Tempest"'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'The Tempest eschews wearing shirts, and his single pair of trousers is heavily worn and patched. His hair, beard, and eyebrows are permanently storm-strewn and losing color at the ends, and he is blind in his left eye. Despite this, he bears a fine holy symbol of his patron and always wears sturdy shoes.',
+    'An aged shaman of Shimye-Magalla, Nkechi is called "The Tempest" by the Vidric natives of Eleder. Knowledgeable and wise but temperamental, he is prone to fits of rage and seeming madness. Hundreds have sought his counsel, earning him both followers and enemies. After surviving several attempts on his life, he has developed a healthy sense of paranoid vigilance.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Pezock "Crow Tooth"'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'This mad black tengu has seen too many days marooned on <i>Smuggler''s Shiv</i>, and the combination of heat and isolation has taken its toll. He wears ragged pants and strips of white cloth bandaged around his head, forearms, and tarses to keep cool while covering bites, cuts, and caught hooks.',
+    'Pezock is the only survivor of the wreckage of the <i>Crow''s Tooth</i>. He was a passenger aboard the all-tengu vessel and close friend of Captain Eraka Zoventai, who gave Pezock his saw-toothed saber. All other survivors were killed by the Shiv''s cannibals.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Sasha Nevah'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Sasha has tousled red hair and mischievous green eyes, and is missing the pinky finger of her left hand. She bears a tattoo between her shoulder blades. Slender and athletic, Sasha never stands still or stays quiet for long.',
+    'Sasha Nevah is a daughter of the Red Mantis. While she shows great promise as a fighter, her curiosity, rebellious streak, and love of animals make her unsuitable as an assassin. Her mother, a high-ranking Mantis, sent her to Sargava to assist with Mantis interests — a mission that is not technically exile, though Sasha understands the threat behind it. Rather than dwell on the danger, she sees it as a great opportunity for adventure.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Aycenia - The Spirit of the Hill'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'The dryad of the single, 60-ft banyan tree atop <i>Smuggler''s Shiv</i>, Aycenia has light-bark skin, rain-water eyes, and palm-frond hair. Her voice sounds like rustling leaves, and while she speaks eagerly, her language reflects someone who rarely has a companion for conversation.',
+    'She is a tree. Her life is the life of the banyan that has stood on this hill for over a century. Young for a tree, yet older than most on the island, she pays little mind to the cannibals — she is a tree.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Ekubus'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'This small humanoid creature has thin, leathery wings, small horns, and a mischievous smile. Water drips constantly from his skin, rolling down his long ears and nose and leaving wet footprints wherever he walks.',
+    'Ekubus is the sole survivor of the <i>Salty Strumpet</i>. Once the familiar of its captain, he took up the mantle of command after the shipwreck and now lives in the sunken vessel, wearing his master''s jaunty cap and giving orders to his crew of crabs, urchins, and fish.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Ieana'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Mysterious and scantily clad, Ieana uses scarves to both hide and highlight her features. Her charms and bracelets move asynchronously with her motions, giving her an odd combination of grace and awkwardness, as though she does not quite fit in her slender frame.',
+    'A bookish Varisian scholar traveling to Sargava to explore ancient ruins. Rumors aboard the Jenivere suggest she might be the ship''s owner, a Chelish agent, or Captain Kovack''s secret lover. Ieana keeps mostly to herself and grows more intent on her studies as the ship nears Eleder.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Rambar Terillo'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Rail thin and incredibly jumpy, Ship''s Cook Terillo is most memorable for his shrill screams at the sight of bugs. Meticulously clean, he keeps his blond hair cropped short and his beard and thin mustache precisely trimmed.',
+    'A taciturn man from Senghor, Ship''s Cook Terillo has served aboard several ships, though apparently not for his culinary skill, which seems limited to watery soups.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Alton Devers'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'A youthful but weathered man, First Mate Devers has an easygoing attitude paired with an impeccable sense of honor and duty, which he strives to impart to the crew.',
+    'The Jenivere''s first mate is friendly with both passengers and crew, though he sometimes seems to chafe under Captain Kovack''s strict discipline.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Alizandru Kovack'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Smartly but practically dressed, Captain Kovack has a precisely trimmed beard and mustache, a crisp tricorn hat he wears above deck, and a particularly piercing gaze.',
+    'A Chelish man whose family has made the Magnimar-Eleder run for generations, Captain Kovack is pleasant with passengers but a strict disciplinarian with his crew.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Klorak "the Red"'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Known as "the Red" for his vibrant hair and his glorying in blood, Klorak stands 7''2" with a muscular frame. He wears a necklace of teeth from those he has torn apart, and his chest bears a crude tattoo of a boiling cook‑pot shaped like a skull.',
+    'Klorak the Red is the seventh chieftain of the Thrunefangs, known for his bloodlust and his magically preserved scimitar. Despite his long rule, he has failed to sire an un‑deformed child for years, leading the tribe to question his worthiness. He spends much of his time secluded, undergoing dubious herbal and alchemical “cures” from the tribe’s witch doctor.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Yarzoth'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Her slender frame and awkward grace are no longer incongruous now that her illusion has dropped. With two legs, clawed hands, and the head of a snake, she looks as treacherous as she behaves.',
+    'Little is known of this serpentfolk''s past. She killed and replaced Ieana, enthralled Captain Kovack, poisoned the crew, and wrecked the Jenivere to reach an ancient Zura temple. There she pieced together a map to Saventh‑Yhi.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Umagro'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Umagro wears a dark cloak and paints his face in tribal warrior patterns. His armor and weapons are new but styled after ancient Mwangi empires.',
+    'Captured by slavers as a child, Umagro spent years in salt mines before being sold into a Chelish slave army. After escaping during a Mzali siege, he joined the Freeman’s Brotherhood and eventually turned it into a violent revolutionary movement.'
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Neiford "The Arrow" Sharrowsmith'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Once moderately attractive, Sharrowsmith now suffers from horrific swelling and painful growths across his body. His condition causes constant pain and involuntary muscle strain, leading to unpredictable mood swings.',
+    'An acclaimed scout and explorer, Sharrowsmith left college to join a G.C.S. mapping team. Gifted at woodcraft and knowledgeable from partial academic training, he became known for leading dangerous expeditions—often alone when secrecy or speed was required.'
+  )
+ON CONFLICT (npc_id) DO NOTHING;
+-- END NPC Social Seed
+
+-- Start NPC Gallery Seed
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO npc_gallery (
+  npc_id,
+  image_url,
+  alt,
+  is_main,
+  is_hover,
+  show_hover,
+  is_tall
+)
+VALUES 
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Amivor Glaur'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/icon-amivor-glaur.webp',
+    'Faction Leader Iconic Profile',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Dargan Etters'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/icon-dargan-etters.webp',
+    'Faction Leader Iconic Profile',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Chivañe'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/icon-chivane.webp',
+    'Faction Leader Iconic Profile',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Kassata Lewynn'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/icon-kassata-lewynn.webp',
+    'Faction Leader Iconic Profile',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main 
+      WHERE npc_name = 'Ortho Vibius'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/icon-ortho-vibius.webp',
+    'Faction Leader Iconic Profile',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main 
+      WHERE npc_name = 'Rotilius Havelar'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-rotilius-havelar.webp',
+    'Faction Leader Regular Profile',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Athyra "of the Jungle" Crinhouse'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-athyra.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Athyra "of the Jungle" Crinhouse'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-fanged-raptor.webp',
+    'Spirit Totem',
+    FALSE,
+    TRUE,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Aerys Mavato'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-aerys-mavato.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Aerys Mavato'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-poetic-raven.webp',
+    'Spirit Totem',
+    FALSE,
+    TRUE,
+    FALSE,
+    FALSE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Cheiton Taralu'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-cheiton.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Cheiton Taralu'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-stone-badger.webp',
+    'Spirit Totem',
+    FALSE,
+    TRUE,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Gelik Aberwhinge'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-gelik-aberwhinge.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Gelik Aberwhinge'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-cerulean-lynx.webp',
+    'Spirit Totem',
+    FALSE,
+    TRUE,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Ishirou'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-ishirou.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Ishirou'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-onyx-gibbon.webp',
+    'Spirit Totem',
+    FALSE,
+    TRUE,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Jask Derindi'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-jask-derindi.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Jask Derindi'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-garnet-jackal.webp',
+    'Spirit Totem',
+    FALSE,
+    TRUE,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Mindra Macini'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-mindra-macini.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Mindra Macini'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-cream-bison.webp',
+    'Spirit Totem',
+    FALSE,
+    TRUE,
+    FALSE,
+    FALSE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Nkechi "The Tempest"'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-nkechi.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Nkechi "The Tempest"'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-giant-crab.webp',
+    'Spirit Totem',
+    FALSE,
+    TRUE,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Pezock "Crow Tooth"'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-pezock.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Pezock "Crow Tooth"'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-olive-scorpion.webp',
+    'Spirit Totem',
+    FALSE,
+    TRUE,
+    TRUE,
+    FALSE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Sasha Nevah'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-sasha-nevah.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Sasha Nevah'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-emerald-mantis.webp',
+    'Spirit Totem',
+    FALSE,
+    TRUE,
+    FALSE,
+    FALSE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Aycenia - The Spirit of the Hill'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-aycenia.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Ekubus'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-ekubus.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Ieana'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-ieana.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Rambar Terillo'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-rambar-terillo.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Alton Devers'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-alton-devers.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Alizandru Kovack'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-alizandru-kovack.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Klorak "the Red"'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-klorak-the-red.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Yarzoth'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-yarzoth.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Umagro'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-umagro.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Neiford "The Arrow" Sharrowsmith'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/npc-neiford-sharrowsmith.webp',
+    'NPC Profile Img',
+    TRUE,
+    FALSE,
+    FALSE,
+    TRUE
+  ),
+  ((SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Neiford "The Arrow" Sharrowsmith'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem-walrus.webp',
+    'Spirit Totem',
+    FALSE,
+    TRUE,
+    TRUE,
+    FALSE
+  )
+ON CONFLICT DO NOTHING;
+-- END NPC Gallery Seed
+
+-- END npcs.ejs SEED BLOCK
+
 -- Save seed
 COMMIT;

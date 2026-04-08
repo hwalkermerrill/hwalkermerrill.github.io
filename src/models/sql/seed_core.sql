@@ -21,10 +21,10 @@ INSERT INTO attitude (id, attitude_name)
 VALUES 
   (1, 'Hostile'),
   (2, 'Unfriendly'),
-  (3, 'Neutral'),
+  (3, 'Indifferent'),
   (4, 'Friendly'),
   (5, 'Helpful'),
-  (6, 'Indifferent')
+  (6, 'Locked')
 ON CONFLICT (id) DO NOTHING;
 -- End Attitude Seeds
 
@@ -233,13 +233,14 @@ ON CONFLICT (class_name) DO NOTHING;
 
 -- Seed Races (idempotent - safe to run multiple times)
 INSERT INTO race (id, race_name)
-VALUES (1, 'Unknown')
+VALUES 
+  (1, 'Unknown'),
+  (2, 'Human')
 ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO race (race_name, limited)
 VALUES
   -- Core Races
-  ('Human', FALSE),
   ('Dwarf', FALSE),
   ('Elf', FALSE),
   ('Gnome', FALSE),
@@ -768,7 +769,15 @@ VALUES
   ('maralictor', 'Maralictor', 'Maralictor'),
   ('talon captain', 'Captain', 'Captain'),
   ('steel falcon', 'Falcon', 'Falcon'),
-  ('whispering agent', 'Whisper', 'Whisper')
+  ('whispering agent', 'Whisper', 'Whisper'),
+  ('skipper', 'Skipper', 'Skipper'),
+  ('first mate', 'First Mate', 'First Mate'),
+  ('cook', 'Cook', 'Cook'),
+  ('quartermaster', 'Quartermaster', 'Quartermaster'),
+  ('boatswain', 'Boatswain', 'Boatswain'),
+  ('sailor', 'Sailor', 'Sailor'),
+  ('overseer', 'Overseer', 'Overseer'),
+  ('chief', 'Chief', 'Chief')
 ON CONFLICT (title_name) DO NOTHING;
 
 INSERT INTO titles (title_name, name_feminine, honorific_masculine, honorific_feminine, prefix_masculine, prefix_feminine)
@@ -859,7 +868,9 @@ VALUES
   ('chancellor', 'Chancellor', 'Chancellor'),
   ('high chancellor', 'High Chancellor', 'High Chancellor'),
   ('grand vizier', 'Grand Vizier', 'Grand Vizier'),
-  ('freeman', 'freewoman', NULL, NULL, NULL, NULL)
+  ('freeman', 'freewoman', NULL, NULL, NULL, NULL),
+  ('overlord', 'overlady' 'Overlord', 'Overlady', 'Overlord', 'Overlady'),
+  ('overking', 'overqueen' 'Overking', 'Overqueen', 'Overking', 'Overqueen')
 ON CONFLICT (title_name) DO NOTHING;
 
 -- Set rank_id for titles by name as Case (avoid nested select)
@@ -1032,6 +1043,17 @@ WHERE r.title_rank_name = CASE t.title_name
     WHEN 'talon captain' THEN 'captain'
     WHEN 'steel falcon' THEN 'tradesman'
     WHEN 'whispering agent' THEN 'tradesman'
+    WHEN 'skipper' THEN 'lieutenant'
+    WHEN 'overseer' THEN 'warden'
+    WHEN 'overlord' THEN 'barony'
+    WHEN 'overking' THEN 'king'
+    WHEN 'first mate' THEN 'lieutenant'
+    WHEN 'cook' THEN 'tradesman'
+    WHEN 'quartermaster' THEN 'ensign'
+    WHEN 'boatswain' THEN 'sergeant'
+    WHEN 'sailor' THEN 'private'
+    WHEN 'chief' THEN 'local important'
+    ELSE NULL
   END;
 -- END GLOBAL TITLES SEED BLOCK
 

@@ -162,8 +162,12 @@ CREATE TABLE IF NOT EXISTS pc_main (
   race_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
     REFERENCES race (id)
     ON DELETE RESTRICT,
-  unknown_name VARCHAR(50) DEFAULT 'Unknown',
   pc_name VARCHAR(255) NOT NULL,
+  unknown_name VARCHAR(255) DEFAULT 'Unknown',
+  is_identified BOOLEAN NOT NULL DEFAULT FALSE,
+  secret_name VARCHAR (255),
+  show_secret_name BOOLEAN NOT NULL DEFAULT FALSE,
+  secret_color VARCHAR(7) DEFAULT NULL, -- Hex color code for displaying the secret name
   is_gendered BOOLEAN NOT NULL DEFAULT TRUE,
   is_female BOOLEAN NOT NULL DEFAULT FALSE,
   description TEXT,
@@ -206,6 +210,7 @@ CREATE TABLE IF NOT EXISTS pc_gallery (
   is_imported BOOLEAN NOT NULL DEFAULT FALSE,
   is_main BOOLEAN NOT NULL DEFAULT FALSE,
   is_hover BOOLEAN NOT NULL DEFAULT FALSE,
+  hover_visible BOOLEAN NOT NULL DEFAULT FALSE,
   is_tall BOOLEAN NOT NULL DEFAULT FALSE
 );
 
@@ -370,8 +375,10 @@ CREATE TABLE IF NOT EXISTS companion_main (
   race_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
     REFERENCES race (id)
     ON DELETE RESTRICT,
-  unknown_name VARCHAR(50) DEFAULT 'Unknown',
   companion_name VARCHAR(255) NOT NULL,
+  secret_name VARCHAR (255),
+  show_secret_name BOOLEAN NOT NULL DEFAULT FALSE,
+  secret_color VARCHAR(7) DEFAULT NULL, -- Hex color code for displaying the secret name
   is_gendered BOOLEAN NOT NULL DEFAULT TRUE,
   is_female BOOLEAN NOT NULL DEFAULT FALSE,
   description TEXT,
@@ -422,6 +429,7 @@ CREATE TABLE IF NOT EXISTS companion_gallery (
   is_imported BOOLEAN NOT NULL DEFAULT FALSE,
   is_main BOOLEAN NOT NULL DEFAULT FALSE,
   is_hover BOOLEAN NOT NULL DEFAULT FALSE,
+  hover_visible BOOLEAN NOT NULL DEFAULT FALSE,
   is_tall BOOLEAN NOT NULL DEFAULT FALSE
 );
 CREATE TABLE IF NOT EXISTS companion_speed (
@@ -554,9 +562,10 @@ CREATE TABLE IF NOT EXISTS npc_main (
   race_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
     REFERENCES race (id)
     ON DELETE RESTRICT,
-  unknown_name VARCHAR(50) DEFAULT 'Unknown',
-  is_identified BOOLEAN NOT NULL DEFAULT FALSE,
   npc_name VARCHAR(255) NOT NULL,
+  secret_name VARCHAR (255),
+  show_secret_name BOOLEAN NOT NULL DEFAULT FALSE,
+  secret_color VARCHAR(7) DEFAULT NULL, -- Hex color code for displaying the secret name
   is_gendered BOOLEAN NOT NULL DEFAULT TRUE,
   is_female BOOLEAN NOT NULL DEFAULT FALSE,
   description TEXT,
@@ -619,10 +628,8 @@ CREATE TABLE IF NOT EXISTS npc_attitude (
   notes_visible BOOLEAN NOT NULL DEFAULT FALSE,
   progress_made INTEGER NOT NULL DEFAULT 0,
   progress_threshold INTEGER NOT NULL DEFAULT 10,
-  boon_active BOOLEAN NOT NULL DEFAULT FALSE,
   hostile_boon TEXT,
   unhelpful_boon TEXT,
-  neutral_boon TEXT,
   friendly_boon TEXT,
   helpful_boon TEXT,
   notes TEXT,
@@ -662,6 +669,7 @@ CREATE TABLE IF NOT EXISTS npc_gallery (
   is_imported BOOLEAN NOT NULL DEFAULT FALSE,
   is_main BOOLEAN NOT NULL DEFAULT FALSE,
   is_hover BOOLEAN NOT NULL DEFAULT FALSE,
+  show_hover BOOLEAN NOT NULL DEFAULT FALSE,
   is_tall BOOLEAN NOT NULL DEFAULT FALSE
 );
 CREATE TABLE IF NOT EXISTS npc_language (
@@ -702,8 +710,12 @@ CREATE TABLE IF NOT EXISTS factions (
   active_status_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Pending' status
     REFERENCES active_status (id)
     ON DELETE RESTRICT,
-  is_identified BOOLEAN NOT NULL DEFAULT FALSE,
   faction_name VARCHAR(255) NOT NULL,
+  unknown_name VARCHAR(255) DEFAULT 'Unknown',
+  is_identified BOOLEAN NOT NULL DEFAULT FALSE,
+  secret_name VARCHAR (255),
+  show_secret_name BOOLEAN NOT NULL DEFAULT FALSE,
+  secret_color VARCHAR(20) DEFAULT NULL, -- Hex color code/ color name for displaying the secret name
   faction_type VARCHAR(50) NOT NULL,
   description TEXT,
   secrets TEXT,
@@ -781,6 +793,7 @@ CREATE TABLE IF NOT EXISTS faction_gallery (
   is_imported BOOLEAN NOT NULL DEFAULT FALSE,
   is_main BOOLEAN NOT NULL DEFAULT FALSE,
   is_hover BOOLEAN NOT NULL DEFAULT FALSE,
+  hover_visible BOOLEAN NOT NULL DEFAULT FALSE,
   is_tall BOOLEAN NOT NULL DEFAULT FALSE
 );
 CREATE TABLE IF NOT EXISTS faction_npcs (
@@ -791,6 +804,8 @@ CREATE TABLE IF NOT EXISTS faction_npcs (
   npc_id INTEGER NOT NULL
     REFERENCES npc_main (id)
     ON DELETE CASCADE,
+  association_type VARCHAR(50),
+  association_rank INTEGER DEFAULT NULL,
   UNIQUE (faction_id, npc_id)
 );
 CREATE TABLE IF NOT EXISTS faction_pcs (
@@ -801,6 +816,8 @@ CREATE TABLE IF NOT EXISTS faction_pcs (
   pc_id INTEGER NOT NULL
     REFERENCES pc_main (id)
     ON DELETE CASCADE,
+  association_type VARCHAR(50),
+  association_rank INTEGER DEFAULT NULL,
   UNIQUE (faction_id, pc_id)
 );
 CREATE TABLE IF NOT EXISTS faction_companions (
@@ -811,6 +828,8 @@ CREATE TABLE IF NOT EXISTS faction_companions (
   companion_id INTEGER NOT NULL
     REFERENCES companion_main (id)
     ON DELETE CASCADE,
+  association_type VARCHAR(50),
+  association_rank INTEGER DEFAULT NULL,
   UNIQUE (faction_id, companion_id)
 );
 -- END FACTIONS TABLES BLOCK
@@ -947,6 +966,7 @@ CREATE TABLE IF NOT EXISTS item_gallery (
   is_imported BOOLEAN NOT NULL DEFAULT FALSE,
   is_main BOOLEAN NOT NULL DEFAULT FALSE,
   is_hover BOOLEAN NOT NULL DEFAULT FALSE,
+  hover_visible BOOLEAN NOT NULL DEFAULT FALSE,
   is_tall BOOLEAN NOT NULL DEFAULT FALSE
 );
 -- END ITEMS TABLES BLOCK
@@ -990,6 +1010,7 @@ CREATE TABLE IF NOT EXISTS session_log_gallery (
   is_imported BOOLEAN NOT NULL DEFAULT FALSE,
   is_main BOOLEAN NOT NULL DEFAULT FALSE,
   is_hover BOOLEAN NOT NULL DEFAULT FALSE,
+  hover_visible BOOLEAN NOT NULL DEFAULT FALSE,
   is_tall BOOLEAN NOT NULL DEFAULT FALSE
 );
 -- END SESSION LOGS TABLE BLOCK
@@ -1086,7 +1107,7 @@ CREATE INDEX idx_npc_titles_title_id ON npc_titles (title_id);
 CREATE INDEX idx_pc_titles_location ON pc_titles (title_location);
 CREATE INDEX idx_npc_titles_location ON npc_titles (title_location);
 CREATE INDEX idx_companion_titles_location ON companion_titles (title_location);
-
+CREATE INDEX idx_items_name_lower ON titles (LOWER(title_name));
 
 -- INDEXES FOR SOCIAL
 CREATE INDEX idx_pc_social_pc_id ON pc_social (pc_id);
@@ -1109,6 +1130,8 @@ CREATE INDEX idx_pc_class_archetype_pc_class_id ON pc_class_archetype (pc_class_
 CREATE INDEX idx_companion_class_companion_id ON companion_class (companion_id);
 CREATE INDEX idx_companion_class_class_id ON companion_class (class_id);
 CREATE INDEX idx_companion_class_archetype_companion_class_id ON companion_class_archetype (companion_class_id);
+CREATE INDEX idx_class_name_lower ON class (LOWER(class_name));
+CREATE INDEX idx_race_name_lower ON race (LOWER(race_name));
 
 -- INDEXES FOR RELIGION
 CREATE INDEX idx_pc_religion_pc_id ON pc_religion (pc_id);
@@ -1117,6 +1140,7 @@ CREATE INDEX idx_companion_religion_companion_id ON companion_religion (companio
 CREATE INDEX idx_companion_religion_religion_id ON companion_religion (religion_id);
 CREATE INDEX idx_npc_religion_npc_id ON npc_religion (npc_id);
 CREATE INDEX idx_npc_religion_religion_id ON npc_religion (religion_id);
+CREATE INDEX idx_religion_name_lower ON religions (LOWER(religion_name));
 
 -- INDEXES FOR LANGUAGE
 CREATE INDEX idx_pc_language_pc_id ON pc_language (pc_id);
@@ -1125,6 +1149,7 @@ CREATE INDEX idx_companion_language_companion_id ON companion_language (companio
 CREATE INDEX idx_companion_language_language_id ON companion_language (language_id);
 CREATE INDEX idx_npc_language_npc_id ON npc_language (npc_id);
 CREATE INDEX idx_npc_language_language_id ON npc_language (language_id);
+CREATE INDEX idx_language_name_lower ON languages (LOWER(language_name));
 
 -- INDEXES FOR SPEED
 CREATE INDEX idx_pc_speed_pc_id ON pc_speed (pc_id);
@@ -1174,7 +1199,10 @@ CREATE INDEX idx_merchant_inventory_item_id ON merchant_inventory (item_id);
 -- ITEM INDEXES
 CREATE INDEX idx_items_campaign_id ON items (campaign_id);
 CREATE INDEX idx_items_active_status_id ON items (active_status_id);
+CREATE INDEX idx_items_name_lower ON items (LOWER(item_name));
 CREATE INDEX idx_items_type ON items (item_type);
+CREATE INDEX idx_items_type_subtype ON items (item_type, item_subtype);
+CREATE INDEX idx_items_sort_order ON items (sort_order);
 
 -- ITEM OWNERSHIP INDEXES
 CREATE INDEX idx_item_owners_item_id ON item_owners (item_id);
