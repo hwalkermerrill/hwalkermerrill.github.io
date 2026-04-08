@@ -3255,7 +3255,7 @@ VALUES
     NULL,
     FALSE,
     'Tribe',
-    'Descended from Chelish colonists but born in Sargava, these people know only their homeland. While Inner Sea culture dominates, their lifestyle reflects local influences. Many speak Polyglot, and some incorporate Mwangi religious practices. Intermarriage, once scandalous, is now uncommon but accepted, and multi‑toned children join their fair‑skinned families in upper society.',
+    'Descended from Chelish colonists but born in Sargava, these people know only their homeland. While Inner Sea culture dominates, their lifestyle reflects local influences. Many speak Polyglot, and some incorporate Mwangi religious practices. Intermarriage, once scandalous, is now uncommon but accepted, and multi-toned children join their fair-skinned families in upper society.',
     NULL,
     FALSE
   ),
@@ -3277,7 +3277,7 @@ VALUES
     NULL,
     FALSE,
     'Tribe',
-    'The Zenj are divided between the matriarchal savannah‑dwelling Zenje and the patriarchal jungle‑dwelling Zenju. Despite differences, they see themselves as one people, trading, celebrating, and aiding each other. Legends say they split long ago over a dispute about hunting and diet.',
+    'The Zenj are divided between the matriarchal savannah-dwelling Zenje and the patriarchal jungle-dwelling Zenju. Despite differences, they see themselves as one people, trading, celebrating, and aiding each other. Legends say they split long ago over a dispute about hunting and diet.',
     NULL,
     FALSE
   ),
@@ -3288,7 +3288,7 @@ VALUES
     NULL,
     FALSE,
     'Sargavan',
-    'A noble order of Mwangi elves and magical beasts, this dragon‑led brotherhood safeguards impoverished villages from disease, famine, pestilence, and wild animals. Their well‑intentioned aid often leads to misunderstandings, such as killing herds to “protect” villagers or replacing food stores with lizards believed to be more nutritious.',
+    'A noble order of Mwangi elves and magical beasts, this dragon-led brotherhood safeguards impoverished villages from disease, famine, pestilence, and wild animals. Their well-intentioned aid often leads to misunderstandings, such as killing herds to “protect” villagers or replacing food stores with lizards believed to be more nutritious.',
     NULL,
     FALSE
   ),
@@ -3299,7 +3299,7 @@ VALUES
     NULL,
     FALSE,
     'Sargavan',
-    'Little is known of this secretive serpentfolk organization. Once thought extinct, serpentfolk have reappeared only recently. The group shares iconography with Ydersius, the long‑dead serpentfolk god, and may believe they draw power from its severed skull.',
+    'Little is known of this secretive serpentfolk organization. Once thought extinct, serpentfolk have reappeared only recently. The group shares iconography with Ydersius, the long-dead serpentfolk god, and may believe they draw power from its severed skull.',
     NULL,
     FALSE
   ),
@@ -3310,7 +3310,7 @@ VALUES
     NULL,
     FALSE,
     'Sargavan',
-    'A loose association of Mwangi natives led by ex‑slaves, the Freemen''s Brotherhood is a radical abolitionist group. They seek to instill terror in foreigners and merchants they associate with the slave trade, sometimes viewing all colonials as “Imperialist Thieves.” Their lack of structure and quick anger make them prone to riots and violence.',
+    'A loose association of Mwangi natives led by ex-slaves, the Freemen''s Brotherhood is a radical abolitionist group. They seek to instill terror in foreigners and merchants they associate with the slave trade, sometimes viewing all colonials as “Imperialist Thieves.” Their lack of structure and quick anger make them prone to riots and violence.',
     NULL,
     FALSE
   ),
@@ -3333,7 +3333,7 @@ VALUES
     FALSE,
     'Saventh-Yhi',
     'An isolated tribe of Caldaru artisans who view sculpture as the highest form of art and worship. They preserve the ancient stonework of their district and revere the Radiant Muse, their spiritual guide, though they visit it only on holy days and always with tribute.',
-    'The chief and some warriors have Taldan ancestors; survivors of a marble‑skinned, blue‑eyed, golden‑haired band of soldiers once protected their tribe from Charau‑Ka. Most returned to the jungle and vanished, but some remained, strengthening the tribe’s bloodline.',
+    'The chief and some warriors have Taldan ancestors; survivors of a marble-skinned, blue-eyed, golden-haired band of soldiers once protected their tribe from Charau-Ka. Most returned to the jungle and vanished, but some remained, strengthening the tribe''s bloodline.',
     FALSE
   ),
   ((SELECT campaign_id FROM c_id),
@@ -3354,8 +3354,118 @@ VALUES
     NULL,
     FALSE,
     'Saventh-Yhi',
-    'A large tribe of vegepygmies inhabiting the dreaming jungle of the former residential district. They revere the immense colony of russet mold growing on the district’s ziggurat as holy. Reasoning with mold‑born creatures is difficult, though they may view humanoids similarly.',
+    'A large tribe of vegepygmies inhabiting the dreaming jungle of the former residential district. They revere the immense colony of russet mold growing on the district''s ziggurat as holy. Reasoning with mold-born creatures is difficult, though they may view humanoids similarly.',
     NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Boarded in Cheliax',
+    TRUE,
+    'Carmine Hyena',
+    TRUE,
+    'Spirit Totem',
+    'While you aren''t necessarily a native of Cheliax, you boarded the Jenivere at one of that country''s port cities. As the people of Cheliax generally know the Mwangi Expanse as a near legendary land home to strange beasts and exotic treasures, your views of the region have a distinctly romantic tinge, and the desire for fame, wealth, and adventure likely motivate your travels.',
+    'b>Legendary Power:</b> You deal +1d6 extra points of damage on your first attack each round against a prone opponent.</p>',
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Boarded in Mediogalti',
+    TRUE,
+    'Verdant Spider',
+    TRUE,
+    'Spirit Totem',
+    'Your travels have brought you to the Jenivere through the dangerous port of Ilizmagorti, home to both pirates and assassins. Perhaps you''re fleeing a price on your head, perhaps you''ve jumped ship, or perhaps you seek a new start where dangers are more obvious.',
+    '<b>Legendary Power:</b> You become immune to poison, and gain a +2 bonus on all Fortitude saves.',
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Boarded in the Mwangi Expanse',
+    TRUE,
+    'Black Heron',
+    TRUE,
+    'Spirit Totem',
+    'You boarded the Jenivere in the Mwangi Expanse, where you''ve lived or recently traveled. You harbor no illusions about the deadliness of the jungles, their creatures, or their peoples.',
+    '<b>Legendary Power:</b> You deal +1d6 extra points of lethal or non-lethal damage to the target of your first combat maneuver each round, if the maneuver is successful. If the maneuver was a crit, deal critical damage as though this was an attack with a two handed x2 weapon.',
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Boarded in the Shackles',
+    TRUE,
+    'Whistling Kite',
+    TRUE,
+    'Spirit Totem',
+    'Your last home was in the Shackles, a dangerous land of pirates and treachery but also of opportunity. A life on the sea has toughened you to many hardships.',
+    '<b>Legendary Power:</b> When making a single ranged or melee attack from high ground against a single target, or a charge that starts 10 or more feet above your target, you deal double damage.',
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Boarded in Varisia',
+    TRUE,
+    'Azure Leopard',
+    TRUE,
+    'Spirit Totem',
+    'Traveling from far to the north, you likely have little experience with the jungle or its strange forces. As Garund is exotic to you, so too are you to it.',
+    '<b>Legendary Power:</b> You add half your Hit Dice to all Acrobatic checks, are always treated as if you had a running start, and never threaten from your first square of movement.',
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Colonial',
+    TRUE,
+    'White Bull',
+    TRUE,
+    'Spirit Totem',
+    'You come from a long line of Sargavan colonists dating back to Cheliax''s expansion during the Everwar. Though Sargava''s power wanes, you maintain a hardy Chelish constitution and return home hoping to put Sargava back on the map.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Get the Cargo Through',
+    TRUE,
+    'Golden Snake',
+    TRUE,
+    'Spirit Totem',
+    'Sea trade is never safe, especially near the Eye of Abendego. Your job is to ensure a precious cargo aboard the Jenivere reaches Eleder safely.',
+    'You may either replace your normal natural armor bonus with that of your totem animal (as though shapechanged), or increase your legendary natural armor bonus from +2 to +4.',
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    '<i>Jenivere</i> Crew',
+    TRUE,
+    'Foraging Ibex',
+    TRUE,
+    'Spirit Totem',
+    'This voyage is just one of many in your long career aboard the Jenivere. Whether crew, indentured servant, or aspiring captain, the ship is your home.',
+    'You add half your Hit Dice to all Acrobatics checks, are always treated as if you had a running start, and never threaten from your first square of movement.',
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Mwangi Scholar',
+    TRUE,
+    'Chronicler Elephant',
+    TRUE,
+    'Spirit Totem',
+    'You have long studied the Mwangi Expanse, one of the richest and most mysterious regions in Golarion. The Jenivere brings you to the very subject of your fascination.',
+    'You deal +1d6 extra points of lethal or non-lethal damage to the target of your first combat maneuver each round, if successful. On a crit, deal critical damage as though using a two-handed x2 weapon.',
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Stowaway',
+    TRUE,
+    'Shifting Frog',
+    TRUE,
+    'Spirit Totem',
+    'Not all passengers aboard the Jenivere are legal or known to the crew. Whether too poor for passage or hiding from authorities, you boarded in secret.',
+    'You become immune to disease and gain +2 on all Fortitude saves. On a successful Fortitude save, you suffer no effects, recover instantly from lingering effects, and become immune to further uses of that effect for the duration of your legendary power.',
     FALSE
   )
 ON CONFLICT (campaign_id, faction_name) DO NOTHING;
@@ -3444,7 +3554,7 @@ VALUES
       WHERE faction_name = 'Bonuwat Seafarers'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
     'Bonuwat appear along coastlines, often shirtless or painted, with hair cropped short, in cornrows, or shaved for hydrodynamics. They have a strong seafaring heritage, forming communities wherever water and fish are plentiful.',
-    '<i>Ijo –</i> Friendly open‑water fishers who dress simply and maintain cordial relations with colonials and tribespeople.<br><i>Ombo –</i> Merchants aligned with Shackles pirates, adopting their style and engaging in lucrative slave trading, sometimes preying on the Ijo.',
+    '<i>Ijo -</i> Friendly open-water fishers who dress simply and maintain cordial relations with colonials and tribespeople.<br><i>Ombo -</i> Merchants aligned with Shackles pirates, adopting their style and engaging in lucrative slave trading, sometimes preying on the Ijo.',
     NULL,
     FALSE
   ),
@@ -3475,7 +3585,7 @@ VALUES
   ((SELECT id FROM factions
       WHERE faction_name = 'Zenj Peoples'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    'The Zenj are divided between the matriarchal savannah‑dwelling Zenje and the patriarchal jungle‑dwelling Zenju. Despite differences, they see themselves as one people who trade, celebrate, and come to one another’s aid. Their split is said to date back to a disagreement over hunting and diet.',
+    'The Zenj are divided between the matriarchal savannah-dwelling Zenje and the patriarchal jungle-dwelling Zenju. Despite differences, they see themselves as one people who trade, celebrate, and come to one another''s aid. Their split is said to date back to a disagreement over hunting and diet.',
     NULL,
     NULL,
     FALSE
@@ -3483,7 +3593,7 @@ VALUES
   ((SELECT id FROM factions
       WHERE faction_name = 'Brotherhood of Cheerful Service'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    'A noble order of Mwangi elves and magical beasts, this dragon‑led brotherhood safeguards impoverished villages from disease, famine, pestilence, and wild animals. Their well‑intentioned aid often leads to misunderstandings, such as killing herds or replacing food stores with lizards.',
+    'A noble order of Mwangi elves and magical beasts, this dragon-led brotherhood safeguards impoverished villages from disease, famine, pestilence, and wild animals. Their well-intentioned aid often leads to misunderstandings, such as killing herds or replacing food stores with lizards.',
     NULL,
     NULL,
     FALSE
@@ -3491,7 +3601,7 @@ VALUES
   ((SELECT id FROM factions
       WHERE faction_name = 'Coils of Ydersius'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    'Little is known of this secretive serpentfolk organization. Once thought extinct, serpentfolk have reappeared only recently. The group shares iconography with Ydersius, the long‑dead serpentfolk god, and may believe they draw power from its severed skull.',
+    'Little is known of this secretive serpentfolk organization. Once thought extinct, serpentfolk have reappeared only recently. The group shares iconography with Ydersius, the long-dead serpentfolk god, and may believe they draw power from its severed skull.',
     NULL,
     NULL,
     FALSE
@@ -3499,7 +3609,7 @@ VALUES
   ((SELECT id FROM factions
       WHERE faction_name = 'Freemen''s Brotherhood'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    'A loose association of Mwangi natives led by ex‑slaves, the Freemen''s Brotherhood is a radical abolitionist group. They seek to instill terror in foreigners and merchants they associate with the slave trade, sometimes viewing all colonials as “Imperialist Thieves.” Their lack of structure and quick anger make them prone to riots and violence.',
+    'A loose association of Mwangi natives led by ex-slaves, the Freemen''s Brotherhood is a radical abolitionist group. They seek to instill terror in foreigners and merchants they associate with the slave trade, sometimes viewing all colonials as “Imperialist Thieves.” Their lack of structure and quick anger make them prone to riots and violence.',
     NULL,
     NULL,
     FALSE
@@ -3517,7 +3627,7 @@ VALUES
       AND campaign_id = (SELECT campaign_id FROM c_id)),
     'An isolated tribe of Caldaru artisans who view sculpture as the highest form of art and worship. They preserve the ancient stonework of their district and revere the Radiant Muse, their spiritual guide, though they visit it only on holy days and always with tribute.',
     NULL,
-    'The chief and some warriors have Taldan ancestors; survivors of a marble‑skinned, blue‑eyed, golden‑haired band of soldiers once protected their tribe from Charau‑Ka. Most returned to the jungle and vanished, but some remained, strengthening the tribe’s bloodline.',
+    'The chief and some warriors have Taldan ancestors; survivors of a marble-skinned, blue-eyed, golden-haired band of soldiers once protected their tribe from Charau-Ka. Most returned to the jungle and vanished, but some remained, strengthening the tribe''s bloodline.',
     TRUE
   ),
   ((SELECT id FROM factions
@@ -3531,9 +3641,129 @@ VALUES
   ((SELECT id FROM factions
       WHERE faction_name = 'Vegepygmies of the Russet Mold'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    'A large tribe of vegepygmies inhabiting the dreaming jungle of the former residential district. They revere the immense colony of russet mold growing on the district’s ziggurat as holy. Reasoning with mold‑born creatures is difficult, though they may view humanoids similarly.',
+    'A large tribe of vegepygmies inhabiting the dreaming jungle of the former residential district. They revere the immense colony of russet mold growing on the district''s ziggurat as holy. Reasoning with mold-born creatures is difficult, though they may view humanoids similarly.',
     NULL,
     NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in Cheliax'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'While you aren''t necessarily a native of Cheliax, you boarded the Jenivere at one of that country''s port cities. As the people of Cheliax generally know the Mwangi Expanse as a near legendary land home to strange beasts and exotic treasures, your views of the region have a distinctly romantic tinge, and the desire for fame, wealth, and adventure likely motivate your travels.',
+    'You begin the campaign with a detailed map of the Mwangi Expanse (granting +2 competence bonus on Knowledge [geography] checks regarding this region) and 200 gp worth of mundane equipment to aid your exploration.',
+    '<b>Spirit Totem:</b> Red-Hued Canines (Hyena, Jackal, Wild Dog, etc.)
+<br><b>Compatible Animal Shaman:</b> Wolf Shaman
+<br><b>Compatible Rage Totems:</b> Beast, Cult, and Spirit Totems
+<br><b>Totemic Skills:</b> Bluff, Perception, and Sleight of Hand.
+<br><b>Totem Magic:</b> You gain the scent universal monster ability. Beginning at 12th level, you also gain the benefits of Deft Maneuvers (or Greater Trip, if you already have Deft Maneuvers) and may attempt a trip combat maneuver as a swift action.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in Mediogalti'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Your travels have brought you to the Jenivere through the dangerous port of Ilizmagorti, home to both pirates and assassins. Perhaps you''re fleeing a price on your head, perhaps you''ve jumped ship, or perhaps you seek a new start where dangers are more obvious.',
+    'Your familiarity with subtle slayings and toxins grants you a +2 trait bonus on all saves against poison. You also gain immunity to one poison type of your choice.',
+    '<b>Spirit Totem:</b> Green-Hued Carnivorous Vermin (Mantis, Spider, Wasp, etc.)
+<br><b>Compatible Animal Shaman:</b> Bat Shaman
+<br><b>Compatible Rage Totems:</b> Beast, Hive, and Spirit Totems
+<br><b>Totemic Skills:</b> Climb, Stealth, and Survival.
+<br><b>Totem Magic:</b> Your darkvision increases by 30 ft. At 12th level, once per day for 1 minute, you may discorporate into a swarm of diminutive creatures identical to your totem, functioning as swarm skin with modified rules.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in the Mwangi Expanse'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'You boarded the Jenivere in the Mwangi Expanse, where you''ve lived or recently traveled. You harbor no illusions about the deadliness of the jungles, their creatures, or their peoples.',
+    'You gain Polyglot as a bonus language and a +1 trait bonus on Knowledge (nature) checks regarding the jungle.',
+    '<b>Spirit Totem:</b> Dark-Hued Simian (Ape, Gorilla, Lemur, Monkey, etc.)
+<br><b>Compatible Animal Shaman:</b> Ape Shaman
+<br><b>Compatible Rage Totems:</b> Atavism, Beast, and Spirit Totems
+<br><b>Totemic Skills:</b> Acrobatics, Climb, and Disable Device.
+<br><b>Totem Magic:</b> You gain a climb speed equal to half your movement speed. At 12th level, you gain Unarmed Combatant (or Greater Grapple) and Throw Anything, and may throw weapons while climbing without penalty.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in the Shackles'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Your last home was in the Shackles, a dangerous land of pirates and treachery but also of opportunity. A life on the sea has toughened you to many hardships.',
+    'Choose one saving throw category; you gain a +1 trait bonus on all saves of that type.',
+    '<b>Spirit Totem:</b> Musical Bird (Eagle, Hawk, Owl, Vulture, etc.)
+<br><b>Compatible Animal Shaman:</b> Eagle Shaman
+<br><b>Compatible Rage Totems:</b> Beast, Celestial, and Spirit Totems
+<br><b>Totemic Skills:</b> Appraise, Fly, and Perception.
+<br><b>Totem Magic:</b> You gain +1 sacred bonus on ranged attacks and your ranged crit multiplier becomes 19-20/x3. At 12th level, once per day for 1 minute, you may sprout wings granting fly speed equal to half base speed (max 30 ft).',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in Varisia'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Traveling from far to the north, you likely have little experience with the jungle or its strange forces. As Garund is exotic to you, so too are you to it.',
+    'Choose either +2 Bluff against jungle inhabitants, or +1 caster level for mind-affecting spells against jungle natives.',
+    '<b>Spirit Totem:</b> Blue-Hued Feline (Cheetah, Lion, Leopard, etc.)
+<br><b>Compatible Animal Shaman:</b> Lion Shaman
+<br><b>Compatible Rage Totems:</b> Beast, Chaos, and Spirit Totems
+<br><b>Totemic Skills:</b> Disguise, Perception, and Stealth
+<br><b>Totem Magic:</b> You gain a 1d8 bite attack. At 12th level, after a charge, AoO, or sneak attack, you may make a bite attack as an immediate action.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Colonial'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'You come from a long line of Sargavan colonists dating back to Cheliax''s expansion during the Everwar. Though Sargava''s power wanes, you maintain a hardy Chelish constitution and return home hoping to put Sargava back on the map.',
+    '+1 trait bonus on Knowledge (local) checks relating to Sargavan settlements and politics, and +1 on saves vs. disease.',
+    '<b>Spirit Totem:</b> Pale-Hued Hoofed Mammal (Antelope, Buffalo, Cow, Goat, etc.)
+<br><b>Compatible Animal Shaman:</b> Boar Totem
+<br><b>Compatible Rage Totems:</b> Beast, Daemon, and Spirit Totems
+<br><b>Totemic Skills:</b> Handle Animal, Heal, and Survival
+<br><b>Totem Magic:</b> You gain ferocity in active combat. At 12th level, you may move full speed in medium armor or medium load, and increase charge attack damage dice by one step.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Get the Cargo Through'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Sea trade is never safe, especially near the Eye of Abendego. Your job is to ensure a precious cargo aboard the Jenivere reaches Eleder safely.',
+    'You begin with an additional 300 gp in starting wealth, or 10% more starting wealth by level.',
+    '<b>Spirit Totem:</b> Yellow-Hued Reptilian (Crocodile, Dinosaur, Lizard, Turtle, etc.)
+<br><b>Compatible Animal Shamans:</b> Dragon and Serpent Shamans
+<br><b>Compatible Rage Totems:</b> Beast, Dragon, Spirit, and World Serpent Totems
+<br><b>Totemic Skills:</b> Intimidate, Stealth, and Swim
+<br><b>Totem Magic:</b> +2 sacred bonus on attacks of opportunity; +2 dodge bonus vs. AoOs you provoke. At 12th level, you may use full-round actions in surprise rounds and gain uncanny dodge using your HD as rogue level.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = '<i>Jenivere</i> Crew'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'This voyage is just one of many in your long career aboard the Jenivere. Whether crew, indentured servant, or aspiring captain, the ship is your home.',
+    'Choose one skill (Acrobatics, Climb, Knowledge nature, Knowledge geography, Swim, or Survival). You gain +1 trait bonus and it becomes a class skill.',
+    '<b>Spirit Totem:</b> Verbatious Camelid, Cervid, or Equine (Horse, Donkey, Zebra, etc.)
+<br><b>Compatible Animal Shaman:</b> Saurian Shaman
+<br><b>Compatible Rage Totems:</b> Beast, Fiend, Spire, and Spirit Totems
+<br><b>Totemic Skills:</b> Diplomacy, Handle Animal, Ride
+<br><b>Totem Magic:</b> +10 enhancement to base speed. At 12th level, move through any undergrowth without penalty and leap obstacles during movement or charge.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Mwangi Scholar'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'You have long studied the Mwangi Expanse, one of the richest and most mysterious regions in Golarion. The Jenivere brings you to the very subject of your fascination.',
+    'You gain Polyglot as a bonus language and +1 trait bonus on Knowledge (history) checks regarding the Mwangi Expanse.',
+    '<b>Spirit Totem:</b> Professional Large Mammal (Elephant, Hippo, Rhino, etc.)
+<br><b>Compatible Animal Shaman:</b> Bear Shaman
+<br><b>Compatible Rage Totems:</b> Ancestor, Beast, and Spirit Totems
+<br><b>Totemic Skills:</b> Bluff, Intimidate, Survival
+<br><b>Totem Magic:</b> +2 enhancement to natural armor. At 12th level, gain Powerful Maneuvers (or Greater Overrun) and the trample ability.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Stowaway'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Not all passengers aboard the Jenivere are legal or known to the crew. Whether too poor for passage or hiding from authorities, you boarded in secret.',
+    '+1 trait bonus on Stealth checks and Survival checks to find food.',
+    '<b>Spirit Totem:</b> Stealthy Small Mammal or Amphibian (Rat, Porcupine, Salamander, Weasel, etc.)
+<br><b>Compatible Animal Shaman:</b> Shark Shaman
+<br><b>Compatible Rage Totems:</b> Beast, Moon, and Spirit Totems
+<br><b>Totemic Skills:</b> Climb, Escape Artist, Stealth
+<br><b>Totem Magic:</b> You gain a swim speed equal to half your movement speed. Beginning at 12th level, you also gain the amphibious special quality and gain concealment while underwater against creatures that are above the water.',
     FALSE
   )
 ON CONFLICT DO NOTHING;
@@ -3644,158 +3874,117 @@ VALUES
   ((SELECT id FROM factions
       WHERE faction_name = 'Bekyar Raiders'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    1,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    1, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   ),
   ((SELECT id FROM factions
       WHERE faction_name = 'Bonuwat Seafarers'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    4,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    4, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   ),
   ((SELECT id FROM factions
       WHERE faction_name = 'Chosen Caldaru'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    3,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   ),
   ((SELECT id FROM factions
       WHERE faction_name = 'Colonial Settlers'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    3,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   ),
   ((SELECT id FROM factions
       WHERE faction_name = 'Mauxi Nomads'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    3,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   ),
   ((SELECT id FROM factions
       WHERE faction_name = 'Zenj Peoples'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    3,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   ),
   ((SELECT id FROM factions
       WHERE faction_name = 'Brotherhood of Cheerful Service'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    3,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   ),
   ((SELECT id FROM factions
       WHERE faction_name = 'Coils of Ydersius'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    1,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    1, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   ),
   ((SELECT id FROM factions
       WHERE faction_name = 'Freemen''s Brotherhood'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    2,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    2, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   ),
   ((SELECT id FROM factions
       WHERE faction_name = 'Order of the Coil'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    2,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    2, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   ),
   ((SELECT id FROM factions
       WHERE faction_name = 'Followers of the Sacred Serpent'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    2,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    2, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   ),
   ((SELECT id FROM factions
       WHERE faction_name = 'Toadies of the Green God'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    2,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    2, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   ),
   ((SELECT id FROM factions
       WHERE faction_name = 'Vegepygmies of the Russet Mold'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    2,
-    NULL,
-    FALSE,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    2, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in Cheliax'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in Mediogalti'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in the Mwangi Expanse'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in the Shackles'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in Varisia'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Colonial'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Get the Cargo Through'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = '<i>Jenivere</i> Crew'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Mwangi Scholar'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Stowaway'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3, NULL, FALSE, NULL, NULL, NULL, NULL, NULL
   )
 ON CONFLICT DO NOTHING;
 -- End Faction Attitude Seed
@@ -3941,6 +4130,86 @@ VALUES
     'Minor Faction Logo',
     TRUE,
     TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in Cheliax'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-carmine-hyena.webp',
+    'Spirit Totem',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in Mediogalti'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-verdant-bear.webp',
+    'Spirit Totem',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in the Mwangi Expanse'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-black-heron.webp',
+    'Spirit Totem',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in the Shackles'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-whistling-kite.webp',
+    'Spirit Totem',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Boarded in Varisia'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-azure-leopard.webp',
+    'Spirit Totem',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Colonial'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-white-bull.webp',
+    'Spirit Totem',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Get the Cargo Through'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-golden-snake.webp',
+    'Spirit Totem',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = '<i>Jenivere</i> Crew'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-ibex.webp',
+    'Spirit Totem',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Mwangi Scholar'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-elephant.webp',
+    'Spirit Totem',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Stowaway'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/totem/totem-shifting-frog.webp',
+    'Spirit Totem',
+    TRUE,
+    FALSE
   )
 ON CONFLICT DO NOTHING;
 -- End Faction Gallery Seed
