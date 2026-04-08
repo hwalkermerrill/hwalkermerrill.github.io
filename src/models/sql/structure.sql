@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS active_status (
 );
 CREATE TABLE IF NOT EXISTS attitude (
   id SERIAL PRIMARY KEY,
-  attitude_name VARCHAR(50) UNIQUE NOT NULL -- Hostile, Unfriendly, Neutral, Friendly, Helpful, Indifferent
+  attitude_name VARCHAR(50) UNIQUE NOT NULL -- Hostile, Unfriendly, Indifferent, Friendly, Helpful, Locked
 );
 CREATE TABLE IF NOT EXISTS speed (
   id SERIAL PRIMARY KEY,
@@ -763,7 +763,6 @@ CREATE TABLE IF NOT EXISTS faction_attitude (
   notes_visible BOOLEAN NOT NULL DEFAULT FALSE,
   progress_made INTEGER NOT NULL DEFAULT 0,
   progress_threshold INTEGER NOT NULL DEFAULT 10,
-  boon_active BOOLEAN NOT NULL DEFAULT FALSE,
   hostile_boon TEXT,
   unhelpful_boon TEXT,
   neutral_boon TEXT,

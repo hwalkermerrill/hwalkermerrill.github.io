@@ -2553,7 +2553,7 @@ VALUES
     5,
     NULL,
     NULL,
-    'Once per day, Sharrowsmith can gift an explorer with a single scroll containing any 3rd level or lower bard spell for free. These scrolls are custom‑made and cannot be sold, and the recipient gains a +5 circumstance bonus on Use Magic Device checks to activate the scroll. Sharrowsmith can only make 5 spell‑levels worth of scrolls per week, and will not give a new scroll if the recipient already has 5 of his scrolls.',
+    'Once per day, Sharrowsmith can gift an explorer with a single scroll containing any 3rd level or lower bard spell for free. These scrolls are custom-made and cannot be sold, and the recipient gains a +5 circumstance bonus on Use Magic Device checks to activate the scroll. Sharrowsmith can only make 5 spell-levels worth of scrolls per week, and will not give a new scroll if the recipient already has 5 of his scrolls.',
     NULL
   )
 ON CONFLICT (npc_id) DO NOTHING;
@@ -2706,20 +2706,20 @@ VALUES
   ((SELECT npc_id FROM npc_main
       WHERE npc_name = 'Klorak "the Red"'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
-    'Known as "the Red" for his vibrant hair and his glorying in blood, Klorak stands 7''2" with a muscular frame. He wears a necklace of teeth from those he has torn apart, and his chest bears a crude tattoo of a boiling cook‑pot shaped like a skull.',
-    'Klorak the Red is the seventh chieftain of the Thrunefangs, known for his bloodlust and his magically preserved scimitar. Despite his long rule, he has failed to sire an un‑deformed child for years, leading the tribe to question his worthiness. He spends much of his time secluded, undergoing dubious herbal and alchemical “cures” from the tribe’s witch doctor.'
+    'Known as "the Red" for his vibrant hair and his glorying in blood, Klorak stands 7''2" with a muscular frame. He wears a necklace of teeth from those he has torn apart, and his chest bears a crude tattoo of a boiling cook-pot shaped like a skull.',
+    'Klorak the Red is the seventh chieftain of the Thrunefangs, known for his bloodlust and his magically preserved scimitar. Despite his long rule, he has failed to sire an un-deformed child for years, leading the tribe to question his worthiness. He spends much of his time secluded, undergoing dubious herbal and alchemical “cures” from the tribe''s witch doctor.'
   ),
   ((SELECT npc_id FROM npc_main
       WHERE npc_name = 'Yarzoth'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
     'Her slender frame and awkward grace are no longer incongruous now that her illusion has dropped. With two legs, clawed hands, and the head of a snake, she looks as treacherous as she behaves.',
-    'Little is known of this serpentfolk''s past. She killed and replaced Ieana, enthralled Captain Kovack, poisoned the crew, and wrecked the Jenivere to reach an ancient Zura temple. There she pieced together a map to Saventh‑Yhi.'
+    'Little is known of this serpentfolk''s past. She killed and replaced Ieana, enthralled Captain Kovack, poisoned the crew, and wrecked the Jenivere to reach an ancient Zura temple. There she pieced together a map to Saventh-Yhi.'
   ),
   ((SELECT npc_id FROM npc_main
       WHERE npc_name = 'Umagro'
       AND campaign_id = (SELECT campaign_id FROM c_id)),
     'Umagro wears a dark cloak and paints his face in tribal warrior patterns. His armor and weapons are new but styled after ancient Mwangi empires.',
-    'Captured by slavers as a child, Umagro spent years in salt mines before being sold into a Chelish slave army. After escaping during a Mzali siege, he joined the Freeman’s Brotherhood and eventually turned it into a violent revolutionary movement.'
+    'Captured by slavers as a child, Umagro spent years in salt mines before being sold into a Chelish slave army. After escaping during a Mzali siege, he joined the Freeman''s Brotherhood and eventually turned it into a violent revolutionary movement.'
   ),
   ((SELECT npc_id FROM npc_main
       WHERE npc_name = 'Neiford "The Arrow" Sharrowsmith'
@@ -3119,6 +3119,894 @@ VALUES
 ON CONFLICT DO NOTHING;
 -- END NPC Gallery Seed
 
+-- Start Faction Main Seed
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO factions (
+  campaign_id,
+  active_status_id,
+  faction_name,
+  is_identified,
+  secret_name,
+  show_secret_name,
+  faction_type,
+  description,
+  secrets,
+  pinned
+)
+VALUES
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Gold Crown Shipping and Mining Company (G.C.S.)',
+    TRUE,
+    'Front for the Lion Blades',
+    TRUE,
+    'Major Faction',
+    'Although primarily known for hauling cargo between Port Freedom and Eleder, the G.C.S. originally made its profits from mining operations in the Bandu Hills. They ship everything valuable, from pineapples to gold, on their swift, well-armed barges and armored wagon trains. They also outfit expeditions into the Mwangi interior, and while many turn back with losses, their dangerous missions bring in real money and never lack volunteers.',
+    'Ortho Vibius is a member of the Kith, a network of Lion Blades affiliates. The Lion Blades have a controlling interest in G.C.S., using the Earl to launder money and fund scouting and intelligence missions.',
+    TRUE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Charau-Ka',
+    TRUE,
+    NULL,
+    FALSE,
+    'Major Faction',
+    'The feral charau-ka are the legendary ape-men of the Mwangi jungles. Savage and remorseless hunters, they are feared and hated by virtually every civilization that encounters them. They build no cities, have no concept of trade, and make war on all they meet. Most serve the Gorilla King and Angazhan, and even those tribes not under Usaro''s sway are considered monstrous.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Ivory Cross',
+    TRUE,
+    'Front for the Aspis Consortium',
+    TRUE,
+    'Major Faction',
+    'Sargava''s most organized guild, the Ivory Cross, began operations in Eleder only 30 years ago, but has quickly established itself as a force to be reckoned with. Nearly a hundred mercenary soldiers and officers operate under its badge, maintaining a visible presence in Eleder. Though they escort expeditions into the Bandu Hills, they are not treasure hunters—they seek to maintain security and order. Rumors suggest they use violence and coercion to force cooperation from ranches and Mwangi tribesmen who refuse favorable terms.',
+    'The Ivory Cross is a front for the Aspis Consortium, allowing the consortium to profit within Sargava through mercenary contracts despite sanctions. This secret is closely guarded, and the Ivory Cross is too powerful for most to oppose.',
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Pathfinder Society',
+    TRUE,
+    NULL,
+    FALSE,
+    'Major Faction',
+    'A loose-knit group of explorers, archeologists, and adventurers, the Pathfinder Society searches the globe for lost knowledge and ancient treasures. Some Pathfinders seek to unlock history''s secrets, others chase fame and fortune, and still others pursue the thrill of perilous adventure.',
+    'Venture-Captain Finze Bellaugh believes Saventh-Yhi may hold the key to locating other ancient cities and relics. They suspect Old-Mage Jatembe may have visited the city after the Age of Darkness, and legendary Pathfinders have long failed to follow his footsteps. This is a chance to walk a path untouched for millennia.',
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Red Mantis',
+    TRUE,
+    NULL,
+    FALSE,
+    'Major Faction',
+    'The Red Mantis are the most tenacious and efficient assassins in the world. They kill with sacred saw-toothed sabres, and no fortress or cavern is secure against them. Their prices vary wildly and are always nonnegotiable. They accept almost any job except regicide against a rightful monarch.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Rivermen''s Guild',
+    TRUE,
+    NULL,
+    FALSE,
+    'Major Faction',
+    'A coalition of barge sailors along the Korir River, the Rivermen''s Guild is open to anyone who makes their living on the waterways, though only barge owners may vote. Known as thugs, robbers, and thieves, they steal, sink, and hijack cargo from non-guild members—especially the G.C.S. Many join simply to avoid being targeted. Attempts to disband the guild have failed, as guards fear retaliation.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Sargavan Custodial Government',
+    TRUE,
+    NULL,
+    FALSE,
+    'Major Faction',
+    'Beset by devil-binding pilgrims, pirate debts, and resentment from the subjugated Mwangi peoples, Sargava remains a northern colonial enclave in the southern wilds. Financially weakened and cut off from northern allies, the colony faces rebellion inspired by the undead child-god of Mzali. The colonial minority maintains control, but the Mwangi know they have the Expanse at their backs, and the government is in no position to quell a revolt.',
+    'Out of money, the Sargavan Custodial Government cannot afford further payments to the Hurricane King. This expedition may be their last chance, as they will default on their next payment. They also need funds to appease independence factions threatening civil war. Infrastructure is failing, the army is underpaid, and unrest is rising. Saventh-Yhi may be their last chance to stabilize the colony.',
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Bekyar Raiders',
+    TRUE,
+    NULL,
+    FALSE,
+    'Tribe',
+    'Bekyar tend to be tall, with elaborate braided hairstyles often incorporating silk headwraps. Most hunt for game and raid other communities for food, resources, and people. What they do with their captives varies by tribe.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Bonuwat Seafarers',
+    TRUE,
+    NULL,
+    FALSE,
+    'Tribe',
+    'Bonuwat appear along coastlines, often shirtless or painted, with hair cropped short, in cornrows, or shaved for hydrodynamics. They have a strong seafaring heritage, forming communities wherever water and fish are plentiful.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Chosen Caldaru',
+    TRUE,
+    NULL,
+    FALSE,
+    'Tribe',
+    'With skin tones from olive to dark bronze, the Caldaru dress in long, flowing robes. Believing themselves a chosen people, many were enslaved or displaced when outsiders reached the Mwangi Expanse. Rather than assimilate, they absorbed outside knowledge while maintaining their identity, forming diaspora communities that trade and share expertise.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Colonial Settlers',
+    TRUE,
+    NULL,
+    FALSE,
+    'Tribe',
+    'Descended from Chelish colonists but born in Sargava, these people know only their homeland. While Inner Sea culture dominates, their lifestyle reflects local influences. Many speak Polyglot, and some incorporate Mwangi religious practices. Intermarriage, once scandalous, is now uncommon but accepted, and multi‑toned children join their fair‑skinned families in upper society.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Mauxi Nomads',
+    TRUE,
+    NULL,
+    FALSE,
+    'Tribe',
+    'The Mauxi wear head wraps to protect from the sun and favor colorful robes and textiles. They are typically peaceful nomads but ready to defend themselves. Their subgroups follow different herd animals across the expanse.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Zenj Peoples',
+    TRUE,
+    NULL,
+    FALSE,
+    'Tribe',
+    'The Zenj are divided between the matriarchal savannah‑dwelling Zenje and the patriarchal jungle‑dwelling Zenju. Despite differences, they see themselves as one people, trading, celebrating, and aiding each other. Legends say they split long ago over a dispute about hunting and diet.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Brotherhood of Cheerful Service',
+    TRUE,
+    NULL,
+    FALSE,
+    'Sargavan',
+    'A noble order of Mwangi elves and magical beasts, this dragon‑led brotherhood safeguards impoverished villages from disease, famine, pestilence, and wild animals. Their well‑intentioned aid often leads to misunderstandings, such as killing herds to “protect” villagers or replacing food stores with lizards believed to be more nutritious.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Coils of Ydersius',
+    TRUE,
+    NULL,
+    FALSE,
+    'Sargavan',
+    'Little is known of this secretive serpentfolk organization. Once thought extinct, serpentfolk have reappeared only recently. The group shares iconography with Ydersius, the long‑dead serpentfolk god, and may believe they draw power from its severed skull.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Freemen''s Brotherhood',
+    TRUE,
+    NULL,
+    FALSE,
+    'Sargavan',
+    'A loose association of Mwangi natives led by ex‑slaves, the Freemen''s Brotherhood is a radical abolitionist group. They seek to instill terror in foreigners and merchants they associate with the slave trade, sometimes viewing all colonials as “Imperialist Thieves.” Their lack of structure and quick anger make them prone to riots and violence.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Order of the Coil',
+    TRUE,
+    NULL,
+    FALSE,
+    'Sargavan',
+    'Originally part of the Hellknight Order of the Pyre, the Order of the Coil formed after a disastrous attempt to establish a headquarters in Sargava. Inspired by local vipers, the remaining Hellknights became zealously destructive, seeking to eradicate Mwangi cultures. Under Lictor Racnhe, they employ fire and poison to destroy settlements and historical sites, and attack archaeologists and explorers.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Followers of the Sacred Serpent',
+    TRUE,
+    NULL,
+    FALSE,
+    'Saventh-Yhi',
+    'An isolated tribe of Caldaru artisans who view sculpture as the highest form of art and worship. They preserve the ancient stonework of their district and revere the Radiant Muse, their spiritual guide, though they visit it only on holy days and always with tribute.',
+    'The chief and some warriors have Taldan ancestors; survivors of a marble‑skinned, blue‑eyed, golden‑haired band of soldiers once protected their tribe from Charau‑Ka. Most returned to the jungle and vanished, but some remained, strengthening the tribe’s bloodline.',
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Toadies of the Green God',
+    TRUE,
+    NULL,
+    FALSE,
+    'Saventh-Yhi',
+    'A tribe of boggards who control the flooded agricultural district. Their spiritual guide has vanished, leaving them unable to perform rituals or maintain protective wards. Desperate and fearful, they have become both pliable and dangerous.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT campaign_id FROM c_id),
+    2,
+    'Vegepygmies of the Russet Mold',
+    TRUE,
+    NULL,
+    FALSE,
+    'Saventh-Yhi',
+    'A large tribe of vegepygmies inhabiting the dreaming jungle of the former residential district. They revere the immense colony of russet mold growing on the district’s ziggurat as holy. Reasoning with mold‑born creatures is difficult, though they may view humanoids similarly.',
+    NULL,
+    FALSE
+  )
+ON CONFLICT (campaign_id, faction_name) DO NOTHING;
+-- End Faction Main Seed
+
+-- Start Faction Social Seed
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO faction_social (
+  faction_id,
+  background,
+  extra_details,
+  hidden_details,
+  reveal_hidden_details
+)
+VALUES
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Gold Crown Shipping and Mining Company (G.C.S.)'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Although primarily known for hauling cargo between Port Freedom and Eleder, the G.C.S. originally made its profits from mining operations in the Bandu Hills. They ship everything valuable, from pineapples to gold, on their swift, well-armed barges and armored wagon trains. They also outfit expeditions into the Mwangi interior, and while many turn back with losses, their dangerous missions bring in real money and never lack volunteers.',
+    'The wealthy noble Ortho Vibius regularly contracts expeditions into the Mwangi interior. His primary goal is to find the lost Sixth Army of Exploration and recover their relics, including the legendary Worldbreaker of Grand Prince Cyricus.',
+    'Ortho Vibius is a member of the Kith, a network of Lion Blades affiliates. The Lion Blades have a controlling interest in G.C.S., using the Earl to launder money and fund scouting and intelligence missions.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Charau-Ka'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'The feral charau-ka are the legendary ape-men of the Mwangi jungles. Savage and remorseless hunters, they are feared and hated by virtually every civilization that encounters them. They build no cities, have no concept of trade, and make war on all they meet. Most serve the Gorilla King and Angazhan, and even those tribes not under Usaro''s sway are considered monstrous.',
+    'The Chief High Girallon, Gorilla King Ruthazek, seeks to add Saventh-Yhi to his kingdom, enslave all within, and then move on to Kalabuto and Sargava.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Ivory Cross'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Sargava''s most organized guild, the Ivory Cross, began operations in Eleder only 30 years ago, but has quickly established itself as a force to be reckoned with. Nearly a hundred mercenary soldiers and officers operate under its badge, maintaining a visible presence in Eleder. Though they escort expeditions into the Bandu Hills, they are not treasure hunters—they seek to maintain security and order. Rumors suggest they use violence and coercion to force cooperation from ranches and Mwangi tribesmen who refuse favorable terms.',
+    'The Ivory Cross has been hired by Dargan Etters as a business venture, viewing Saventh-Yhi as a source of profit. Etters intends to maximize returns by selling valuable artifacts to select private collectors while controlling supply to keep prices high.',
+    'The Ivory Cross is a front for the Aspis Consortium, allowing the consortium to profit within Sargava through mercenary contracts despite sanctions.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Pathfinder Society'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'A loose-knit group of explorers, archeologists, and adventurers, the Pathfinder Society searches the globe for lost knowledge and ancient treasures. Some Pathfinders seek to unlock history''s secrets, others chase fame and fortune, and still others pursue the thrill of perilous adventure.',
+    'The Pathfinder Society seeks Saventh-Yhi for its lost knowledge, historical artifacts, and rumored wealth. With their lodge in Kalabuto recently destroyed, the Decemvirate also hopes Saventh-Yhi may serve as a new base of operations.',
+    'Venture-Captain Finze Bellaugh believes Saventh-Yhi may hold the key to locating other ancient cities and relics, possibly tied to Old-Mage Jatembe''s travels after the Age of Darkness.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Red Mantis'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'The Red Mantis are the most tenacious and efficient assassins in the world. They kill with sacred saw-toothed sabres, and no fortress or cavern is secure against them. Their prices vary widely and are always nonnegotiable. They accept almost any job except regicide against a rightful monarch.',
+    'The Red Mantis seek the rumored temple of Achaekek within Saventh-Yhi. They intend to claim its relics, including the head of an assassinated god, and kill any who trespass on this holy site.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Rivermen''s Guild'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'A coalition of barge sailors along the Korir River, the Rivermen''s Guild is open to anyone who makes their living on the waterways, though only barge owners may vote. Known as thugs, robbers, and thieves, they steal, sink, and hijack cargo from non-guild members—especially the G.C.S. Many join simply to avoid being targeted. Attempts to disband the guild have failed, as guards fear retaliation.',
+    'Captain Kassata Lewynn has struck a deal with the Rivermen''s Guild for barges and river knowledge to reach Saventh-Yhi. She hopes to recover enough treasure to buy the allegiance of pirate lords and make herself Hurricane King, folding the Rivermen into the Free Captains.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Sargavan Custodial Government'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Beset by devil-binding pilgrims, pirate debts, and resentment from the subjugated Mwangi peoples, Sargava remains a northern colonial enclave in the southern wilds. Financially weakened and cut off from northern allies, the colony faces rebellion inspired by the undead child-god of Mzali. The colonial minority maintains control, but the Mwangi know they have the Expanse at their backs, and the government is in no position to quell a revolt.',
+    'Sargava seeks to claim Saventh-Yhi to expand influence, deny rivals the same advantage, and access the city''s wealth and trade routes. Success could grant independence from the Free Captains—or failure could doom the colony entirely.',
+    'Out of money, the Sargavan Custodial Government cannot afford further payments to the Hurricane King. They also need funds to appease independence factions threatening civil war. Infrastructure is failing, the army is underpaid, and unrest is rising. Saventh-Yhi may be their last chance to stabilize the colony.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Bekyar Raiders'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Bekyar tend to be tall, with elaborate braided hairstyles often incorporating silk headwraps. Most hunt for game and raid other communities for food, resources, and people. What they do with their captives varies by tribe.',
+    '<i>Bandu -</i> Slavers who infest the Bandu Hills, dealing in human trafficking and sacrificing light-skinned captives to their nature spirits.
+<br><i>Yemba -</i> A smaller, rarely encountered tribe rumored to be cannibals, found along the River of Lost Tears and known for ritual feasts presided over by “Yemba-bo” witch doctors.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Bonuwat Seafarers'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Bonuwat appear along coastlines, often shirtless or painted, with hair cropped short, in cornrows, or shaved for hydrodynamics. They have a strong seafaring heritage, forming communities wherever water and fish are plentiful.',
+    '<i>Ijo –</i> Friendly open‑water fishers who dress simply and maintain cordial relations with colonials and tribespeople.<br><i>Ombo –</i> Merchants aligned with Shackles pirates, adopting their style and engaging in lucrative slave trading, sometimes preying on the Ijo.',
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Chosen Caldaru'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'With skin tones from olive to dark bronze, the Caldaru dress in long, flowing robes. Believing themselves a chosen people, many were enslaved or displaced when outsiders reached the Mwangi Expanse. Rather than assimilate, they absorbed outside knowledge while maintaining their identity, forming diaspora communities that trade and share expertise.',
+    NULL,
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Colonial Settlers'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Descended from Chelish colonists but born in Sargava, these people know only their homeland. While Inner Sea culture dominates, their lifestyle reflects local influences. Many speak Polyglot, and some incorporate Mwangi religious practices. Intermarriage, once scandalous, is now uncommon but accepted.',
+    NULL,
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Mauxi Nomads'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'The Mauxi wear head wraps to protect from the sun and favor colorful robes and textiles. They are typically peaceful nomads but ready to defend themselves. Their subgroups follow different herd animals across the expanse.',
+    NULL,
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Zenj Peoples'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'The Zenj are divided between the matriarchal savannah‑dwelling Zenje and the patriarchal jungle‑dwelling Zenju. Despite differences, they see themselves as one people who trade, celebrate, and come to one another’s aid. Their split is said to date back to a disagreement over hunting and diet.',
+    NULL,
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Brotherhood of Cheerful Service'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'A noble order of Mwangi elves and magical beasts, this dragon‑led brotherhood safeguards impoverished villages from disease, famine, pestilence, and wild animals. Their well‑intentioned aid often leads to misunderstandings, such as killing herds or replacing food stores with lizards.',
+    NULL,
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Coils of Ydersius'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Little is known of this secretive serpentfolk organization. Once thought extinct, serpentfolk have reappeared only recently. The group shares iconography with Ydersius, the long‑dead serpentfolk god, and may believe they draw power from its severed skull.',
+    NULL,
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Freemen''s Brotherhood'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'A loose association of Mwangi natives led by ex‑slaves, the Freemen''s Brotherhood is a radical abolitionist group. They seek to instill terror in foreigners and merchants they associate with the slave trade, sometimes viewing all colonials as “Imperialist Thieves.” Their lack of structure and quick anger make them prone to riots and violence.',
+    NULL,
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Order of the Coil'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Originally part of the Hellknight Order of the Pyre, the Order of the Coil formed after a disastrous attempt to establish a headquarters in Sargava. Inspired by local vipers, the remaining Hellknights became zealously destructive, seeking to eradicate Mwangi cultures. Under Lictor Racnhe, they employ fire and poison to destroy settlements and historical sites.',
+    NULL,
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Followers of the Sacred Serpent'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'An isolated tribe of Caldaru artisans who view sculpture as the highest form of art and worship. They preserve the ancient stonework of their district and revere the Radiant Muse, their spiritual guide, though they visit it only on holy days and always with tribute.',
+    NULL,
+    'The chief and some warriors have Taldan ancestors; survivors of a marble‑skinned, blue‑eyed, golden‑haired band of soldiers once protected their tribe from Charau‑Ka. Most returned to the jungle and vanished, but some remained, strengthening the tribe’s bloodline.',
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Toadies of the Green God'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'A tribe of boggards who control the flooded agricultural district. Their spiritual guide has vanished, leaving them unable to perform rituals or maintain protective wards. Desperate and fearful, they have become both pliable and dangerous.',
+    NULL,
+    NULL,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Vegepygmies of the Russet Mold'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'A large tribe of vegepygmies inhabiting the dreaming jungle of the former residential district. They revere the immense colony of russet mold growing on the district’s ziggurat as holy. Reasoning with mold‑born creatures is difficult, though they may view humanoids similarly.',
+    NULL,
+    NULL,
+    FALSE
+  )
+ON CONFLICT DO NOTHING;
+-- End Faction Social Seed
+
+-- Start Faction Attitude Seed
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO faction_attitude (
+  faction_id,
+  attitude_id,
+  enemies,
+  enemies_visible,
+  hostile_boon,
+  unfriendly_boon,
+  neutral_boon,
+  friendly_boon,
+  helpful_boon
+)
+VALUES
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Gold Crown Shipping and Mining Company (G.C.S.)'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    4,
+    'Rivermen''s Guild',
+    TRUE,
+    NULL,
+    NULL,
+    'The G.C.S. has knowledge of secret tunnels, roads, and shortcuts. Roll 1d6 instead of 1d4 on shortcuts. Each signatory also gains a 500 gp signing bonus.',
+    'Utilizes forward scouts to discover areas more easily, providing an additional +5 bonus on Perception checks to discover new areas.',
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Charau-Ka'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    'Ruthazek believes that no grouping of man is worth considering a rival; they are too weak and short-lived to be any real concern.',
+    TRUE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+    WHERE faction_name = 'Ivory Cross'
+    AND campaign_id = (SELECT campaign_id FROM c_id)),
+  1,
+  'The Pathfinder Society and the Ivory Cross are often at odds, undertaking similar jobs while holding radically different values. This expedition is yet another likely to end in bloody collision.',
+  TRUE,
+  NULL,
+  NULL,
+  'The Ivory Cross treats land trade routes as highways. A selection of scrolls, potions, and wands worth 500 gp per person is provided as a signing bonus.',
+  '+5 bonus on Diplomacy checks to secure alliances or trade routes.',
+  NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Pathfinder Society'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    4,
+    'The Pathfinder Society and the Ivory Cross are often at odds, undertaking similar jobs while holding radically different values. This expedition is yet another likely to end in bloody collision.',
+    TRUE,
+    NULL,
+    NULL,
+    'The Pathfinder Society can cross through settlements and ruins at 2x speed. Field commissions grant Wayfinders embedded with an ioun stone worth up to 400 gp.',
+    '+4 bonus to exploration checks.',
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Red Mantis'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    'The Sargavan Custodial Government has no patience for Red Mantis assassins. While they wish to reach Saventh-Yhi first, they know they can at least tax the others'' findings; but the Red Mantis answer to no one, and only nations can compete with their power.',
+    TRUE,
+    NULL,
+    NULL,
+    'The Red Mantis can sabotage two groups at a time, always sabotage the leader, and their sabotage attempts never backfire. Signing bonus includes 500 gp worth of poisons, antitoxins, and healer''s kits.',
+    'They gain a free condition (sow terror) to conquer each district within Saventh-Yhi.',
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Rivermen''s Guild'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    1,
+    'Vessels belonging to the G.C.S. are frequently preyed upon by the Rivermen''s Guild, and the two attack each other on sight.',
+    TRUE,
+    NULL,
+    NULL,
+    'The Rivermen''s Guild moves twice as far along rivers and waterways on the day they embark. Signing bonus includes either a small crew of buccaneers or 500 gp worth of guns, powder, and shot.',
+    '+4 bonus to supply and supply checks.',
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Sargavan Custodial Government'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    'The Sargavan Custodial Government has no patience for Red Mantis assassins. While they wish to reach Saventh-Yhi first, they know they can at least tax the others'' findings; but the Red Mantis answer to no one, and only nations can compete with their power.',
+    TRUE,
+    NULL,
+    NULL,
+    'The Sargavan Custodial Government can force certain people to provide shelter and lodging, opening more safe places to rest and resupply. Signing bonus includes a noble title, a tract of land, and a personal guard or servant.',
+    '+4 defense to encampments provided by Sargavan military troops.',
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Bekyar Raiders'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    1,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Bonuwat Seafarers'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    4,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Chosen Caldaru'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Colonial Settlers'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Mauxi Nomads'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Zenj Peoples'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Brotherhood of Cheerful Service'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    3,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Coils of Ydersius'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    1,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Freemen''s Brotherhood'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Order of the Coil'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Followers of the Sacred Serpent'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Toadies of the Green God'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Vegepygmies of the Russet Mold'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    2,
+    NULL,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+  )
+ON CONFLICT DO NOTHING;
+-- End Faction Attitude Seed
+
+-- Start Faction Gallery Seed
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO faction_gallery (
+  faction_id,
+  image_url,
+  alt,
+  is_main,
+  is_tall
+)
+VALUES
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Gold Crown Shipping and Mining Company (G.C.S.)'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/logo-gold-crown-shipping.webp',
+    'Faction Logo',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Charau-Ka'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/icon-gorilla-king.webp',
+    'Faction Logo',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT id FROM factions
+    WHERE faction_name = 'Ivory Cross'
+    AND campaign_id = (SELECT campaign_id FROM c_id)),
+  '/images/icon/logo-ivory-cross.webp',
+  'Faction Logo',
+  TRUE,
+  FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Pathfinder Society'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/logo-pathfinder-society-sargava.webp',
+    'Faction Logo',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Red Mantis'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/logo-red-mantis.webp',
+    'Faction Logo',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Rivermen''s Guild'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/logo-rivermens-guild.webp',
+    'Faction Logo',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Sargavan Custodial Government'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/logo-sargava-custodial-government.webp',
+    'Faction Logo',
+    TRUE,
+    FALSE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Bekyar Raiders'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/tribe-bekyar.webp',
+    'Bekyar Tribeswoman',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Bonuwat Seafarers'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/tribe-bonuwat.webp',
+    'Bekyar Tribesman',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Chosen Caldaru'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/tribe-caldaru.webp',
+    'Caldaru Tribeswoman',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Colonial Settlers'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/tribe-sargavan.webp',
+    'Colonial Settler',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Mauxi Nomads'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/tribe-mauxi.webp',
+    'Mauxi Tribesman',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Zenj Peoples'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/npc/tribe-zenj.webp',
+    'Zenj Tribesman',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Brotherhood of Cheerful Service'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/logo-brotherhood-service.webp',
+    'Minor Faction Logo',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Freemen''s Brotherhood'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/logo-freemens-brotherhood.webp',
+    'Minor Faction Logo',
+    TRUE,
+    TRUE
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Order of the Coil'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    '/images/icon/logo-order-of-the-coil.webp',
+    'Minor Faction Logo',
+    TRUE,
+    TRUE
+  )
+ON CONFLICT DO NOTHING;
+-- End Faction Gallery Seed
+
+-- Start Faction NPC Seed
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE campaign_name = 'Serpents 2026'
+)
+INSERT INTO faction_npcs (
+  faction_id,
+  npc_id,
+  association_type
+)
+VALUES
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Gold Crown Shipping and Mining Company (G.C.S.)'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Ortho Vibius'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Expedition Leader'
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Ivory Cross'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Dargan Etters'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Expedition Leader'
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Pathfinder Society'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Amivor Glaur'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Expedition Leader'
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Red Mantis'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Chivañe'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Expedition Leader'
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Rivermen''s Guild'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Kassata Lewynn'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Expedition Leader'
+  ),
+  ((SELECT id FROM factions
+      WHERE faction_name = 'Sargavan Custodial Government'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    (SELECT npc_id FROM npc_main
+      WHERE npc_name = 'Rotilius Havelar'
+      AND campaign_id = (SELECT campaign_id FROM c_id)),
+    'Expedition Leader'
+  )
+ON CONFLICT DO NOTHING;
+-- End Faction NPC Seed
 -- END npcs.ejs SEED BLOCK
 
 -- Save seed
