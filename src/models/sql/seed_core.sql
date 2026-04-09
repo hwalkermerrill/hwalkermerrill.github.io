@@ -777,7 +777,14 @@ VALUES
   ('boatswain', 'Boatswain', 'Boatswain'),
   ('sailor', 'Sailor', 'Sailor'),
   ('overseer', 'Overseer', 'Overseer'),
-  ('chief', 'Chief', 'Chief')
+  ('chief', 'Chief', 'Chief'),
+  ('minister', 'Minister', 'Minister'),
+  ('high minister', 'High Minister', 'High Minister'),
+  ('secretary', 'Secretary', 'Secretary'),
+  ('grand secretary', 'Grand Secretary', 'Grand Secretary'),
+  ('chancellor', 'Chancellor', 'Chancellor'),
+  ('high chancellor', 'High Chancellor', 'High Chancellor'),
+  ('grand vizier', 'Grand Vizier', 'Grand Vizier')
 ON CONFLICT (title_name) DO NOTHING;
 
 INSERT INTO titles (title_name, name_feminine, honorific_masculine, honorific_feminine, prefix_masculine, prefix_feminine)
@@ -861,16 +868,9 @@ VALUES
   ('magister', 'magistra', 'Magister', 'Magistra', 'Magister', 'Magistra'),
   ('steward', 'stewardess', 'Steward', 'Stewardess', 'Mr.', 'Mrs.'),
   ('gentleman', 'gentlewoman', 'Gentleman', 'Gentlewoman', 'Gent.', 'Gent.'),
-  ('minister', 'Minister', 'Minister'),
-  ('high minister', 'High Minister', 'High Minister'),
-  ('secretary', 'Secretary', 'Secretary'),
-  ('grand secretary', 'Grand Secretary', 'Grand Secretary'),
-  ('chancellor', 'Chancellor', 'Chancellor'),
-  ('high chancellor', 'High Chancellor', 'High Chancellor'),
-  ('grand vizier', 'Grand Vizier', 'Grand Vizier'),
   ('freeman', 'freewoman', NULL, NULL, NULL, NULL),
-  ('overlord', 'overlady' 'Overlord', 'Overlady', 'Overlord', 'Overlady'),
-  ('overking', 'overqueen' 'Overking', 'Overqueen', 'Overking', 'Overqueen')
+  ('overlord', 'overlady', 'Overlord', 'Overlady', 'Overlord', 'Overlady'),
+  ('overking', 'overqueen', 'Overking', 'Overqueen', 'Overking', 'Overqueen')
 ON CONFLICT (title_name) DO NOTHING;
 
 -- Set rank_id for titles by name as Case (avoid nested select)
@@ -1059,3 +1059,16 @@ WHERE r.title_rank_name = CASE t.title_name
 
 -- Save seed
 COMMIT;
+
+-- Fix sequences for all tables with manual ID inserts
+SELECT setval('roles_id_seq', (SELECT MAX(id) FROM roles));
+SELECT setval('active_status_id_seq', (SELECT MAX(id) FROM active_status));
+SELECT setval('attitude_id_seq', (SELECT MAX(id) FROM attitude));
+SELECT setval('speed_id_seq', (SELECT MAX(id) FROM speed));
+SELECT setval('classes_id_seq', (SELECT MAX(id) FROM classes));
+SELECT setval('race_id_seq', (SELECT MAX(id) FROM race));
+SELECT setval('religions_id_seq', (SELECT MAX(id) FROM religions));
+SELECT setval('languages_id_seq', (SELECT MAX(id) FROM languages));
+SELECT setval('title_ranks_id_seq', (SELECT MAX(id) FROM title_ranks));
+SELECT setval('titles_id_seq', (SELECT MAX(id) FROM titles));
+-- Add any others that manually insert IDs

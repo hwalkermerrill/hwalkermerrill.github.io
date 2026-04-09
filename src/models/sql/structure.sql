@@ -1128,7 +1128,7 @@ CREATE INDEX IF NOT EXISTS idx_pc_class_archetype_pc_class_id ON pc_class_archet
 CREATE INDEX IF NOT EXISTS idx_companion_class_companion_id ON companion_class (companion_id);
 CREATE INDEX IF NOT EXISTS idx_companion_class_class_id ON companion_class (class_id);
 CREATE INDEX IF NOT EXISTS idx_companion_class_archetype_companion_class_id ON companion_class_archetype (companion_class_id);
-CREATE INDEX IF NOT EXISTS idx_class_name_lower ON class (LOWER(class_name));
+CREATE INDEX IF NOT EXISTS idx_class_name_lower ON classes (LOWER(class_name));
 CREATE INDEX IF NOT EXISTS idx_race_name_lower ON race (LOWER(race_name));
 
 -- INDEXES FOR RELIGION
