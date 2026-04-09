@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS users (
 -- PCs can be associated with any campaign, or none, but only one at a time.
 CREATE TABLE IF NOT EXISTS campaigns (
   id SERIAL PRIMARY KEY,
-  campaign_name VARCHAR(255) NOT NULL,
+  campaign_name VARCHAR(255) UNIQUE NOT NULL,
   description TEXT,
   start_date DATE,
   end_date DATE DEFAULT NULL,
@@ -562,6 +562,8 @@ CREATE TABLE IF NOT EXISTS npc_main (
     REFERENCES race (id)
     ON DELETE RESTRICT,
   npc_name VARCHAR(255) NOT NULL,
+  unknown_name VARCHAR(255) DEFAULT 'Unknown',
+  is_identified BOOLEAN NOT NULL DEFAULT FALSE,
   secret_name VARCHAR (255),
   show_secret_name BOOLEAN NOT NULL DEFAULT FALSE,
   secret_color VARCHAR(7) DEFAULT NULL, -- Hex color code for displaying the secret name
@@ -628,7 +630,7 @@ CREATE TABLE IF NOT EXISTS npc_attitude (
   progress_made INTEGER NOT NULL DEFAULT 0,
   progress_threshold INTEGER NOT NULL DEFAULT 10,
   hostile_boon TEXT,
-  unhelpful_boon TEXT,
+  unfriendly_boon TEXT,
   friendly_boon TEXT,
   helpful_boon TEXT,
   notes TEXT,
@@ -763,7 +765,7 @@ CREATE TABLE IF NOT EXISTS faction_attitude (
   progress_made INTEGER NOT NULL DEFAULT 0,
   progress_threshold INTEGER NOT NULL DEFAULT 10,
   hostile_boon TEXT,
-  unhelpful_boon TEXT,
+  unfriendly_boon TEXT,
   neutral_boon TEXT,
   friendly_boon TEXT,
   helpful_boon TEXT,
@@ -976,7 +978,7 @@ CREATE TABLE IF NOT EXISTS session_logs (
   campaign_id INTEGER NOT NULL
     REFERENCES campaigns (id)
     ON DELETE RESTRICT,
-  book_number INTEGER NOT NULL DEFAULT 1,
+  book_number INTEGER,
   log_type VARCHAR(50) NOT NULL DEFAULT 'session summary', -- session summary, quest recap, npc spotlight, etc.
   session_number INTEGER NOT NULL,
   title VARCHAR(255) NOT NULL,
@@ -984,7 +986,7 @@ CREATE TABLE IF NOT EXISTS session_logs (
   session_date DATE,
   session_summary TEXT,
   pinned BOOLEAN NOT NULL DEFAULT FALSE,
-  UNIQUE (campaign_id, book_number, session_number)
+  UNIQUE (campaign_id, log_type, session_number)
 );
 CREATE TABLE IF NOT EXISTS session_log_paragraphs (
   id SERIAL PRIMARY KEY,
@@ -1045,106 +1047,6 @@ BEGIN
         SET role_id = user_role_id 
         WHERE role_id IS NULL;
     END IF;
-END $$;
-
--- Alterations
-DO $$
-BEGIN
-  IF NOT EXISTS (
-    SELECT 1
-    FROM pg_constraint
-    WHERE conname = 'campaigns_campaign_name_key'
-  ) THEN
-    ALTER TABLE campaigns
-    ADD CONSTRAINT campaigns_campaign_name_key UNIQUE (campaign_name);
-  END IF;
-END $$;
-DO $$
-BEGIN
-  IF EXISTS (
-    SELECT 1
-    FROM information_schema.columns
-    WHERE table_name = 'session_logs'
-      AND column_name = 'book_number'
-      AND is_nullable = 'NO'
-  ) THEN
-    ALTER TABLE session_logs
-    ALTER COLUMN book_number DROP NOT NULL;
-  END IF;
-END $$;
-DO $$
-DECLARE
-  constraint_name text;
-BEGIN
-  SELECT conname INTO constraint_name
-  FROM pg_constraint
-  WHERE conrelid = 'session_logs'::regclass
-    AND contype = 'u'
-    AND conname = 'session_logs_campaign_id_book_number_session_number_key';
-
-  IF constraint_name IS NOT NULL THEN
-    ALTER TABLE session_logs
-    DROP CONSTRAINT session_logs_campaign_id_book_number_session_number_key;
-  END IF;
-END $$;
-DO $$
-BEGIN
-  IF NOT EXISTS (
-    SELECT 1
-    FROM pg_constraint
-    WHERE conname = 'session_logs_campaign_id_log_type_session_number_key'
-  ) THEN
-    ALTER TABLE session_logs
-    ADD CONSTRAINT session_logs_campaign_id_log_type_session_number_key
-      UNIQUE (campaign_id, log_type, session_number);
-  END IF;
-END $$;
-DO $$
-BEGIN
-  IF NOT EXISTS (
-    SELECT 1
-    FROM information_schema.columns
-    WHERE table_name = 'npc_main'
-      AND column_name = 'unknown_name'
-  ) THEN
-    ALTER TABLE npc_main
-    ADD COLUMN unknown_name VARCHAR(255) DEFAULT 'Unknown';
-  END IF;
-
-  IF NOT EXISTS (
-    SELECT 1
-    FROM information_schema.columns
-    WHERE table_name = 'npc_main'
-      AND column_name = 'is_identified'
-  ) THEN
-    ALTER TABLE npc_main
-    ADD COLUMN is_identified BOOLEAN NOT NULL DEFAULT FALSE;
-  END IF;
-END $$;
-DO $$
-BEGIN
-  -- Only rename if the old column exists
-  IF EXISTS (
-    SELECT 1
-    FROM information_schema.columns
-    WHERE table_name = 'faction_attitude'
-      AND column_name = 'unhelpful_boon'
-  ) THEN
-    ALTER TABLE faction_attitude
-      RENAME COLUMN unhelpful_boon TO unfriendly_boon;
-  END IF;
-END $$;
-DO $$
-BEGIN
-  IF EXISTS (
-    SELECT 1
-    FROM information_schema.columns
-    WHERE table_name = 'npc_attitude'
-      AND column_name = 'unhelpful_boon'
-  ) THEN
-    ALTER TABLE npc_attitude
-      RENAME COLUMN unhelpful_boon TO unfriendly_boon;
-  END IF;
 END $$;
 
 -- START INDEX BLOCK
