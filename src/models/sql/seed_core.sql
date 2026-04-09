@@ -8,6 +8,7 @@ VALUES
   (1, 'Pending'),
   (2, 'Active')
 ON CONFLICT (id) DO NOTHING;
+SELECT setval('active_status_id_seq', (SELECT MAX(id) FROM active_status));
 
 INSERT INTO active_status (active_status_name)
 VALUES 
@@ -32,6 +33,7 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO speed (id, speed_name)
 VALUES (1, 'Base')
 ON CONFLICT (id) DO NOTHING;
+SELECT setval('speed_id_seq', (SELECT MAX(id) FROM speed));
 
 INSERT INTO speed (speed_name)
 VALUES 
@@ -46,6 +48,7 @@ ON CONFLICT (speed_name) DO NOTHING;
 INSERT INTO classes (id, class_name, source)
 VALUES (1, 'Unknown', 'Core')
 ON CONFLICT (id) DO NOTHING;
+SELECT setval('classes_id_seq', (SELECT MAX(id) FROM classes));
 
 INSERT INTO classes (class_name, source, class_type, magic_type, caster_spontaneous, has_companion)
 VALUES
@@ -237,6 +240,7 @@ VALUES
   (1, 'Unknown'),
   (2, 'Human')
 ON CONFLICT (id) DO NOTHING;
+SELECT setval('race_id_seq', (SELECT MAX(id) FROM race));
 
 INSERT INTO race (race_name, limited)
 VALUES
@@ -323,6 +327,7 @@ VALUES
   (4, 'Ancestors'),
   (5, 'Totem Spirits')
 ON CONFLICT (id) DO NOTHING;
+SELECT setval('religions_id_seq', (SELECT MAX(id) FROM religions));
 
 INSERT INTO religions (religion_name)
 VALUES 
@@ -518,6 +523,7 @@ VALUES
   (1, 'Common', TRUE),
   (2, 'Other', FALSE)
 ON CONFLICT (id) DO NOTHING;
+SELECT setval('languages_id_seq', (SELECT MAX(id) FROM languages));
 
 INSERT INTO languages (language_name)
 VALUES 
@@ -1057,18 +1063,10 @@ WHERE r.title_rank_name = CASE t.title_name
   END;
 -- END GLOBAL TITLES SEED BLOCK
 
--- Save seed
-COMMIT;
-
 -- Fix sequences for all tables with manual ID inserts
 SELECT setval('roles_id_seq', (SELECT MAX(id) FROM roles));
-SELECT setval('active_status_id_seq', (SELECT MAX(id) FROM active_status));
 SELECT setval('attitude_id_seq', (SELECT MAX(id) FROM attitude));
-SELECT setval('speed_id_seq', (SELECT MAX(id) FROM speed));
-SELECT setval('classes_id_seq', (SELECT MAX(id) FROM classes));
-SELECT setval('race_id_seq', (SELECT MAX(id) FROM race));
-SELECT setval('religions_id_seq', (SELECT MAX(id) FROM religions));
-SELECT setval('languages_id_seq', (SELECT MAX(id) FROM languages));
-SELECT setval('title_ranks_id_seq', (SELECT MAX(id) FROM title_ranks));
-SELECT setval('titles_id_seq', (SELECT MAX(id) FROM titles));
 -- Add any others that manually insert IDs
+
+-- Save seed
+COMMIT;
