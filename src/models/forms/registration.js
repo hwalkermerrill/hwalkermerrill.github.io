@@ -18,18 +18,18 @@ const usernameExists = async (username) => {
 /**
  * Saves a new user to the database with a hashed password.
  * 
- * @param {string} name - The user's full name
+ * @param {string} full_name - The user's full name
  * @param {string} username - The user's username
- * @param {string} hashedPassword - The bcrypt-hashed password
+ * @param {string} password_hash - The bcrypt-hashed password
  * @returns {Promise<Object>} The newly created user record (without password)
  */
-const saveUser = async (name, username, hashedPassword) => {
+const saveUser = async (full_name, username, password_hash) => {
   const query = `
-      INSERT INTO users (name, username, password)
+      INSERT INTO users (full_name, username, password_hash)
       VALUES ($1, $2, $3)
-      RETURNING id, name, username, created_at
+      RETURNING id, full_name, username, created_at
     `;
-  const result = await db.query(query, [name, username, hashedPassword]);
+  const result = await db.query(query, [full_name, username, password_hash]);
   return result.rows[0];
 };
 
@@ -40,7 +40,7 @@ const saveUser = async (name, username, hashedPassword) => {
  */
 const getAllUsers = async () => {
   const query = `
-      SELECT id, name, username, created_at
+      SELECT id, full_name, username, created_at
       FROM users
       ORDER BY created_at DESC
     `;
@@ -55,8 +55,8 @@ const getUserById = async (id) => {
   const query = `
       SELECT 
         users.id,
-        users.name,
-        users.email,
+        users.full_name,
+        users.username,
         users.created_at,
         roles.role_name AS "roleName"
       FROM users
@@ -70,14 +70,14 @@ const getUserById = async (id) => {
 /**
  * Update a user's name and username
  */
-const updateUser = async (id, name, username) => {
+const updateUser = async (id, full_name, username) => {
   const query = `
       UPDATE users 
-      SET name = $1, username = $2, updated_at = CURRENT_TIMESTAMP
+      SET full_name = $1, username = $2, updated_at = CURRENT_TIMESTAMP
       WHERE id = $3
-      RETURNING id, name, username, updated_at
+      RETURNING id, full_name, username, updated_at
     `;
-  const result = await db.query(query, [name, username, id]);
+  const result = await db.query(query, [full_name, username, id]);
   return result.rows[0] || null;
 };
 

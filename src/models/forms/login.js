@@ -5,14 +5,14 @@ import db from "../db.js";
 const findUserByUsername = async (username) => {
   const query = `
     SELECT u.id,
-      u.name,
-      u.email,
-      u.password,
+      u.full_name,
+      u.username,
+      u.password_hash,
       u.created_at,
       r.role_name AS "roleName"
     FROM users AS u
     INNER JOIN roles AS r ON u.role_id = r.id 
-    WHERE LOWER(u.name) = LOWER($1) LIMIT 1
+    WHERE LOWER(u.full_name) = LOWER($1) LIMIT 1
   `;
 
   const result = await db.query(query, [username]);
