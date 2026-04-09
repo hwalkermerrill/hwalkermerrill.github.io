@@ -12,7 +12,7 @@ const findUserByUsername = async (username) => {
       r.role_name AS "roleName"
     FROM users AS u
     INNER JOIN roles AS r ON u.role_id = r.id 
-    WHERE LOWER(u.full_name) = LOWER($1) LIMIT 1
+    WHERE LOWER(u.username) = LOWER($1) LIMIT 1
   `;
 
   const result = await db.query(query, [username]);
