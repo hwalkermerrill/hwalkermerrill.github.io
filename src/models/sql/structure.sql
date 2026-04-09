@@ -124,6 +124,11 @@ CREATE TABLE IF NOT EXISTS achievements (
   UNIQUE (achievement_name, campaign_id),
   session_received INTEGER NOT NULL DEFAULT 1
 );
+CREATE TABLE IF NOT EXISTS title_ranks (
+  id SERIAL PRIMARY KEY,
+  title_rank_name VARCHAR(50) UNIQUE NOT NULL, -- 'empire', 'kingdom', 'duchy', etc.
+  sort_order INTEGER NOT NULL       -- 1 = highest, etc.
+);
 CREATE TABLE IF NOT EXISTS titles (
   id SERIAL PRIMARY KEY,
   rank_id INTEGER
@@ -137,12 +142,6 @@ CREATE TABLE IF NOT EXISTS titles (
   prefix_feminine VARCHAR(255) DEFAULT NULL,
   description TEXT
 );
-CREATE TABLE IF NOT EXISTS title_ranks (
-  id SERIAL PRIMARY KEY,
-  title_rank_name VARCHAR(50) UNIQUE NOT NULL, -- 'empire', 'kingdom', 'duchy', etc.
-  sort_order INTEGER NOT NULL       -- 1 = highest, etc.
-);
-
 -- END ACHIEVEMENTS AND TITLES TABLES BLOCK
 
 -- START PC TABLES BLOCK 
