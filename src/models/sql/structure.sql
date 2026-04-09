@@ -1050,169 +1050,169 @@ END $$;
 
 -- START INDEX BLOCK
 -- INDEXES FOR ROLES / USERS
-CREATE INDEX idx_users_role_id ON users (role_id);
+CREATE INDEX IF NOT EXISTS idx_users_role_id ON users (role_id);
 
 -- INDEXES FOR CAMPAIGN NOTES
-CREATE INDEX idx_campaign_notes_user_id ON campaign_notes (user_id);
-CREATE INDEX idx_campaign_notes_campaign_id ON campaign_notes (campaign_id);
+CREATE INDEX IF NOT EXISTS idx_campaign_notes_user_id ON campaign_notes (user_id);
+CREATE INDEX IF NOT EXISTS idx_campaign_notes_campaign_id ON campaign_notes (campaign_id);
 
 -- INDEXES FOR PCs, NPCs, COMPANIONS, Factions, Etc.
 -- INDEXES FOR PC MAIN
-CREATE INDEX idx_pc_user_id ON pc_main (id);
-CREATE INDEX idx_pc_main_campaign_id ON pc_main (campaign_id);
-CREATE INDEX idx_pc_main_active_status_id ON pc_main (active_status_id);
-CREATE INDEX idx_pc_main_race_id ON pc_main (race_id);
+CREATE INDEX IF NOT EXISTS idx_pc_user_id ON pc_main (id);
+CREATE INDEX IF NOT EXISTS idx_pc_main_campaign_id ON pc_main (campaign_id);
+CREATE INDEX IF NOT EXISTS idx_pc_main_active_status_id ON pc_main (active_status_id);
+CREATE INDEX IF NOT EXISTS idx_pc_main_race_id ON pc_main (race_id);
 -- COMPANION MAIN
-CREATE INDEX idx_companion_main_user_id ON companion_main (user_id);
-CREATE INDEX idx_companion_main_pc_id ON companion_main (pc_id);
-CREATE INDEX idx_companion_main_campaign_id ON companion_main (campaign_id);
-CREATE INDEX idx_companion_main_active_status_id ON companion_main (active_status_id);
-CREATE INDEX idx_companion_main_race_id ON companion_main (race_id);
+CREATE INDEX IF NOT EXISTS idx_companion_main_user_id ON companion_main (user_id);
+CREATE INDEX IF NOT EXISTS idx_companion_main_pc_id ON companion_main (pc_id);
+CREATE INDEX IF NOT EXISTS idx_companion_main_campaign_id ON companion_main (campaign_id);
+CREATE INDEX IF NOT EXISTS idx_companion_main_active_status_id ON companion_main (active_status_id);
+CREATE INDEX IF NOT EXISTS idx_companion_main_race_id ON companion_main (race_id);
 -- NPC MAIN
-CREATE INDEX idx_npc_main_campaign_id ON npc_main (campaign_id);
-CREATE INDEX idx_npc_main_active_status_id ON npc_main (active_status_id);
-CREATE INDEX idx_npc_main_race_id ON npc_main (race_id);
+CREATE INDEX IF NOT EXISTS idx_npc_main_campaign_id ON npc_main (campaign_id);
+CREATE INDEX IF NOT EXISTS idx_npc_main_active_status_id ON npc_main (active_status_id);
+CREATE INDEX IF NOT EXISTS idx_npc_main_race_id ON npc_main (race_id);
 -- FACTIONS
-CREATE INDEX idx_factions_campaign_id ON factions (campaign_id);
-CREATE INDEX idx_factions_active_status_id ON factions (active_status_id);
+CREATE INDEX IF NOT EXISTS idx_factions_campaign_id ON factions (campaign_id);
+CREATE INDEX IF NOT EXISTS idx_factions_active_status_id ON factions (active_status_id);
 
 -- INDEXES FOR QUESTS
-CREATE INDEX idx_quests_campaign_id ON quests (campaign_id);
-CREATE INDEX idx_quests_active ON quests (active);
-CREATE INDEX idx_quests_completed ON quests (completed);
-CREATE INDEX idx_npc_quests_npc_id ON npc_quests (npc_id);
-CREATE INDEX idx_npc_quests_quest_id ON npc_quests (quest_id);
-CREATE INDEX idx_faction_quests_faction_id ON faction_quests (faction_id);
-CREATE INDEX idx_faction_quests_quest_id ON faction_quests (quest_id);
-CREATE INDEX idx_item_quests_item_id ON item_quests (item_id);
-CREATE INDEX idx_item_quests_quest_id ON item_quests (quest_id);
+CREATE INDEX IF NOT EXISTS idx_quests_campaign_id ON quests (campaign_id);
+CREATE INDEX IF NOT EXISTS idx_quests_active ON quests (active);
+CREATE INDEX IF NOT EXISTS idx_quests_completed ON quests (completed);
+CREATE INDEX IF NOT EXISTS idx_npc_quests_npc_id ON npc_quests (npc_id);
+CREATE INDEX IF NOT EXISTS idx_npc_quests_quest_id ON npc_quests (quest_id);
+CREATE INDEX IF NOT EXISTS idx_faction_quests_faction_id ON faction_quests (faction_id);
+CREATE INDEX IF NOT EXISTS idx_faction_quests_quest_id ON faction_quests (quest_id);
+CREATE INDEX IF NOT EXISTS idx_item_quests_item_id ON item_quests (item_id);
+CREATE INDEX IF NOT EXISTS idx_item_quests_quest_id ON item_quests (quest_id);
 
 -- INDEXES FOR ACHIEVEMENTS
-CREATE INDEX idx_achievements_campaign_id ON achievements (campaign_id);
-CREATE INDEX idx_achievements_category ON achievements (category);
-CREATE INDEX idx_pc_achievements_pc_id ON pc_achievements (pc_id);
-CREATE INDEX idx_pc_achievements_achievement_id ON pc_achievements (achievement_id);
-CREATE INDEX idx_companion_achievements_companion_id ON companion_achievements (companion_id);
-CREATE INDEX idx_companion_achievements_achievement_id ON companion_achievements (achievement_id);
+CREATE INDEX IF NOT EXISTS idx_achievements_campaign_id ON achievements (campaign_id);
+CREATE INDEX IF NOT EXISTS idx_achievements_category ON achievements (category);
+CREATE INDEX IF NOT EXISTS idx_pc_achievements_pc_id ON pc_achievements (pc_id);
+CREATE INDEX IF NOT EXISTS idx_pc_achievements_achievement_id ON pc_achievements (achievement_id);
+CREATE INDEX IF NOT EXISTS idx_companion_achievements_companion_id ON companion_achievements (companion_id);
+CREATE INDEX IF NOT EXISTS idx_companion_achievements_achievement_id ON companion_achievements (achievement_id);
 
 -- INDEXES FOR TITLES
-CREATE INDEX idx_titles_rank_id ON titles (rank_id);
-CREATE INDEX idx_pc_titles_pc_id ON pc_titles (pc_id);
-CREATE INDEX idx_pc_titles_title_id ON pc_titles (title_id);
-CREATE INDEX idx_companion_titles_companion_id ON companion_titles (companion_id);
-CREATE INDEX idx_companion_titles_title_id ON companion_titles (title_id);
-CREATE INDEX idx_npc_titles_npc_id ON npc_titles (npc_id);
-CREATE INDEX idx_npc_titles_title_id ON npc_titles (title_id);
-CREATE INDEX idx_pc_titles_location ON pc_titles (title_location);
-CREATE INDEX idx_npc_titles_location ON npc_titles (title_location);
-CREATE INDEX idx_companion_titles_location ON companion_titles (title_location);
-CREATE INDEX idx_items_name_lower ON titles (LOWER(title_name));
+CREATE INDEX IF NOT EXISTS idx_titles_rank_id ON titles (rank_id);
+CREATE INDEX IF NOT EXISTS idx_pc_titles_pc_id ON pc_titles (pc_id);
+CREATE INDEX IF NOT EXISTS idx_pc_titles_title_id ON pc_titles (title_id);
+CREATE INDEX IF NOT EXISTS idx_companion_titles_companion_id ON companion_titles (companion_id);
+CREATE INDEX IF NOT EXISTS idx_companion_titles_title_id ON companion_titles (title_id);
+CREATE INDEX IF NOT EXISTS idx_npc_titles_npc_id ON npc_titles (npc_id);
+CREATE INDEX IF NOT EXISTS idx_npc_titles_title_id ON npc_titles (title_id);
+CREATE INDEX IF NOT EXISTS idx_pc_titles_location ON pc_titles (title_location);
+CREATE INDEX IF NOT EXISTS idx_npc_titles_location ON npc_titles (title_location);
+CREATE INDEX IF NOT EXISTS idx_companion_titles_location ON companion_titles (title_location);
+CREATE INDEX IF NOT EXISTS idx_items_name_lower ON titles (LOWER(title_name));
 
 -- INDEXES FOR SOCIAL
-CREATE INDEX idx_pc_social_pc_id ON pc_social (pc_id);
-CREATE INDEX idx_companion_social_companion_id ON companion_social (companion_id);
-CREATE INDEX idx_npc_social_npc_id ON npc_social (npc_id);
-CREATE INDEX idx_faction_social_faction_id ON faction_social (faction_id);
+CREATE INDEX IF NOT EXISTS idx_pc_social_pc_id ON pc_social (pc_id);
+CREATE INDEX IF NOT EXISTS idx_companion_social_companion_id ON companion_social (companion_id);
+CREATE INDEX IF NOT EXISTS idx_npc_social_npc_id ON npc_social (npc_id);
+CREATE INDEX IF NOT EXISTS idx_faction_social_faction_id ON faction_social (faction_id);
 
 -- INDEXES FOR GALLERIES
-CREATE INDEX idx_pc_gallery_pc_id ON pc_gallery (pc_id);
-CREATE INDEX idx_companion_gallery_companion_id ON companion_gallery (companion_id);
-CREATE INDEX idx_npc_gallery_npc_id ON npc_gallery (npc_id);
-CREATE INDEX idx_faction_gallery_faction_id ON faction_gallery (faction_id);
-CREATE INDEX idx_item_gallery_item_id ON item_gallery (item_id);
-CREATE INDEX idx_session_log_gallery_log_id ON session_log_gallery (session_log_id);
+CREATE INDEX IF NOT EXISTS idx_pc_gallery_pc_id ON pc_gallery (pc_id);
+CREATE INDEX IF NOT EXISTS idx_companion_gallery_companion_id ON companion_gallery (companion_id);
+CREATE INDEX IF NOT EXISTS idx_npc_gallery_npc_id ON npc_gallery (npc_id);
+CREATE INDEX IF NOT EXISTS idx_faction_gallery_faction_id ON faction_gallery (faction_id);
+CREATE INDEX IF NOT EXISTS idx_item_gallery_item_id ON item_gallery (item_id);
+CREATE INDEX IF NOT EXISTS idx_session_log_gallery_log_id ON session_log_gallery (session_log_id);
 
 -- INDEXES FOR CLASSES
-CREATE INDEX idx_pc_class_pc_id ON pc_class (pc_id);
-CREATE INDEX idx_pc_class_class_id ON pc_class (class_id);
-CREATE INDEX idx_pc_class_archetype_pc_class_id ON pc_class_archetype (pc_class_id);
-CREATE INDEX idx_companion_class_companion_id ON companion_class (companion_id);
-CREATE INDEX idx_companion_class_class_id ON companion_class (class_id);
-CREATE INDEX idx_companion_class_archetype_companion_class_id ON companion_class_archetype (companion_class_id);
-CREATE INDEX idx_class_name_lower ON class (LOWER(class_name));
-CREATE INDEX idx_race_name_lower ON race (LOWER(race_name));
+CREATE INDEX IF NOT EXISTS idx_pc_class_pc_id ON pc_class (pc_id);
+CREATE INDEX IF NOT EXISTS idx_pc_class_class_id ON pc_class (class_id);
+CREATE INDEX IF NOT EXISTS idx_pc_class_archetype_pc_class_id ON pc_class_archetype (pc_class_id);
+CREATE INDEX IF NOT EXISTS idx_companion_class_companion_id ON companion_class (companion_id);
+CREATE INDEX IF NOT EXISTS idx_companion_class_class_id ON companion_class (class_id);
+CREATE INDEX IF NOT EXISTS idx_companion_class_archetype_companion_class_id ON companion_class_archetype (companion_class_id);
+CREATE INDEX IF NOT EXISTS idx_class_name_lower ON class (LOWER(class_name));
+CREATE INDEX IF NOT EXISTS idx_race_name_lower ON race (LOWER(race_name));
 
 -- INDEXES FOR RELIGION
-CREATE INDEX idx_pc_religion_pc_id ON pc_religion (pc_id);
-CREATE INDEX idx_pc_religion_religion_id ON pc_religion (religion_id);
-CREATE INDEX idx_companion_religion_companion_id ON companion_religion (companion_id);
-CREATE INDEX idx_companion_religion_religion_id ON companion_religion (religion_id);
-CREATE INDEX idx_npc_religion_npc_id ON npc_religion (npc_id);
-CREATE INDEX idx_npc_religion_religion_id ON npc_religion (religion_id);
-CREATE INDEX idx_religion_name_lower ON religions (LOWER(religion_name));
+CREATE INDEX IF NOT EXISTS idx_pc_religion_pc_id ON pc_religion (pc_id);
+CREATE INDEX IF NOT EXISTS idx_pc_religion_religion_id ON pc_religion (religion_id);
+CREATE INDEX IF NOT EXISTS idx_companion_religion_companion_id ON companion_religion (companion_id);
+CREATE INDEX IF NOT EXISTS idx_companion_religion_religion_id ON companion_religion (religion_id);
+CREATE INDEX IF NOT EXISTS idx_npc_religion_npc_id ON npc_religion (npc_id);
+CREATE INDEX IF NOT EXISTS idx_npc_religion_religion_id ON npc_religion (religion_id);
+CREATE INDEX IF NOT EXISTS idx_religion_name_lower ON religions (LOWER(religion_name));
 
 -- INDEXES FOR LANGUAGE
-CREATE INDEX idx_pc_language_pc_id ON pc_language (pc_id);
-CREATE INDEX idx_pc_language_language_id ON pc_language (language_id);
-CREATE INDEX idx_companion_language_companion_id ON companion_language (companion_id);
-CREATE INDEX idx_companion_language_language_id ON companion_language (language_id);
-CREATE INDEX idx_npc_language_npc_id ON npc_language (npc_id);
-CREATE INDEX idx_npc_language_language_id ON npc_language (language_id);
-CREATE INDEX idx_language_name_lower ON languages (LOWER(language_name));
+CREATE INDEX IF NOT EXISTS idx_pc_language_pc_id ON pc_language (pc_id);
+CREATE INDEX IF NOT EXISTS idx_pc_language_language_id ON pc_language (language_id);
+CREATE INDEX IF NOT EXISTS idx_companion_language_companion_id ON companion_language (companion_id);
+CREATE INDEX IF NOT EXISTS idx_companion_language_language_id ON companion_language (language_id);
+CREATE INDEX IF NOT EXISTS idx_npc_language_npc_id ON npc_language (npc_id);
+CREATE INDEX IF NOT EXISTS idx_npc_language_language_id ON npc_language (language_id);
+CREATE INDEX IF NOT EXISTS idx_language_name_lower ON languages (LOWER(language_name));
 
 -- INDEXES FOR SPEED
-CREATE INDEX idx_pc_speed_pc_id ON pc_speed (pc_id);
-CREATE INDEX idx_pc_speed_speed_id ON pc_speed (speed_id);
-CREATE INDEX idx_companion_speed_companion_id ON companion_speed (companion_id);
-CREATE INDEX idx_companion_speed_speed_id ON companion_speed (speed_id);
+CREATE INDEX IF NOT EXISTS idx_pc_speed_pc_id ON pc_speed (pc_id);
+CREATE INDEX IF NOT EXISTS idx_pc_speed_speed_id ON pc_speed (speed_id);
+CREATE INDEX IF NOT EXISTS idx_companion_speed_companion_id ON companion_speed (companion_id);
+CREATE INDEX IF NOT EXISTS idx_companion_speed_speed_id ON companion_speed (speed_id);
 
 -- INDEXES FOR ATTRIBUTES
-CREATE INDEX idx_pc_attributes_pc_id ON pc_attributes (pc_id);
-CREATE INDEX idx_companion_attributes_companion_id ON companion_attributes (companion_id);
+CREATE INDEX IF NOT EXISTS idx_pc_attributes_pc_id ON pc_attributes (pc_id);
+CREATE INDEX IF NOT EXISTS idx_companion_attributes_companion_id ON companion_attributes (companion_id);
 
 -- INDEXES FOR STATS
-CREATE INDEX idx_pc_stats_pc_id ON pc_stats (pc_id);
-CREATE INDEX idx_companion_stats_companion_id ON companion_stats (companion_id);
-CREATE INDEX idx_npc_stats_npc_id ON npc_stats (npc_id);
+CREATE INDEX IF NOT EXISTS idx_pc_stats_pc_id ON pc_stats (pc_id);
+CREATE INDEX IF NOT EXISTS idx_companion_stats_companion_id ON companion_stats (companion_id);
+CREATE INDEX IF NOT EXISTS idx_npc_stats_npc_id ON npc_stats (npc_id);
 
 -- INDEXES FOR SKILLS
-CREATE INDEX idx_pc_skills_pc_id ON pc_skills (pc_id);
-CREATE INDEX idx_companion_skills_companion_id ON companion_skills (companion_id);
+CREATE INDEX IF NOT EXISTS idx_pc_skills_pc_id ON pc_skills (pc_id);
+CREATE INDEX IF NOT EXISTS idx_companion_skills_companion_id ON companion_skills (companion_id);
 
 -- INDEXES FOR SCARS
-CREATE INDEX idx_pc_scars_pc_id ON pc_scars (pc_id);
-CREATE INDEX idx_companion_scars_companion_id ON companion_scars (companion_id);
+CREATE INDEX IF NOT EXISTS idx_pc_scars_pc_id ON pc_scars (pc_id);
+CREATE INDEX IF NOT EXISTS idx_companion_scars_companion_id ON companion_scars (companion_id);
 
 -- INDEXES FOR ATTITUDE
-CREATE INDEX idx_npc_attitude_npc_id ON npc_attitude (npc_id);
-CREATE INDEX idx_npc_attitude_attitude_id ON npc_attitude (attitude_id);
-CREATE INDEX idx_faction_attitude_faction_id ON faction_attitude (faction_id);
-CREATE INDEX idx_faction_attitude_attitude_id ON faction_attitude (attitude_id);
+CREATE INDEX IF NOT EXISTS idx_npc_attitude_npc_id ON npc_attitude (npc_id);
+CREATE INDEX IF NOT EXISTS idx_npc_attitude_attitude_id ON npc_attitude (attitude_id);
+CREATE INDEX IF NOT EXISTS idx_faction_attitude_faction_id ON faction_attitude (faction_id);
+CREATE INDEX IF NOT EXISTS idx_faction_attitude_attitude_id ON faction_attitude (attitude_id);
 
 -- FACTION MEMBERSHIP INDEXES
-CREATE INDEX idx_faction_npcs_faction_id ON faction_npcs (faction_id);
-CREATE INDEX idx_faction_npcs_npc_id ON faction_npcs (npc_id);
-CREATE INDEX idx_faction_pcs_faction_id ON faction_pcs (faction_id);
-CREATE INDEX idx_faction_pcs_pc_id ON faction_pcs (pc_id);
-CREATE INDEX idx_faction_companions_faction_id ON faction_companions (faction_id);
-CREATE INDEX idx_faction_companions_companion_id ON faction_companions (companion_id);
+CREATE INDEX IF NOT EXISTS idx_faction_npcs_faction_id ON faction_npcs (faction_id);
+CREATE INDEX IF NOT EXISTS idx_faction_npcs_npc_id ON faction_npcs (npc_id);
+CREATE INDEX IF NOT EXISTS idx_faction_pcs_faction_id ON faction_pcs (faction_id);
+CREATE INDEX IF NOT EXISTS idx_faction_pcs_pc_id ON faction_pcs (pc_id);
+CREATE INDEX IF NOT EXISTS idx_faction_companions_faction_id ON faction_companions (faction_id);
+CREATE INDEX IF NOT EXISTS idx_faction_companions_companion_id ON faction_companions (companion_id);
 
 -- MERCHANT INDEXES
-CREATE INDEX idx_merchants_npc_id ON merchants (npc_id);
-CREATE INDEX idx_merchants_faction_id ON merchants (faction_id);
-CREATE INDEX idx_merchants_active_status_id ON merchants (active_status_id);
-CREATE INDEX idx_merchant_details_merchant_id ON merchant_details (merchant_id);
-CREATE INDEX idx_merchant_inventory_merchant_id ON merchant_inventory (merchant_id);
-CREATE INDEX idx_merchant_inventory_item_id ON merchant_inventory (item_id);
+CREATE INDEX IF NOT EXISTS idx_merchants_npc_id ON merchants (npc_id);
+CREATE INDEX IF NOT EXISTS idx_merchants_faction_id ON merchants (faction_id);
+CREATE INDEX IF NOT EXISTS idx_merchants_active_status_id ON merchants (active_status_id);
+CREATE INDEX IF NOT EXISTS idx_merchant_details_merchant_id ON merchant_details (merchant_id);
+CREATE INDEX IF NOT EXISTS idx_merchant_inventory_merchant_id ON merchant_inventory (merchant_id);
+CREATE INDEX IF NOT EXISTS idx_merchant_inventory_item_id ON merchant_inventory (item_id);
 
 -- ITEM INDEXES
-CREATE INDEX idx_items_campaign_id ON items (campaign_id);
-CREATE INDEX idx_items_active_status_id ON items (active_status_id);
-CREATE INDEX idx_items_name_lower ON items (LOWER(item_name));
-CREATE INDEX idx_items_type ON items (item_type);
-CREATE INDEX idx_items_type_subtype ON items (item_type, item_subtype);
-CREATE INDEX idx_items_sort_order ON items (sort_order);
+CREATE INDEX IF NOT EXISTS idx_items_campaign_id ON items (campaign_id);
+CREATE INDEX IF NOT EXISTS idx_items_active_status_id ON items (active_status_id);
+CREATE INDEX IF NOT EXISTS idx_items_name_lower ON items (LOWER(item_name));
+CREATE INDEX IF NOT EXISTS idx_items_type ON items (item_type);
+CREATE INDEX IF NOT EXISTS idx_items_type_subtype ON items (item_type, item_subtype);
+CREATE INDEX IF NOT EXISTS idx_items_sort_order ON items (sort_order);
 
 -- ITEM OWNERSHIP INDEXES
-CREATE INDEX idx_item_owners_item_id ON item_owners (item_id);
-CREATE INDEX idx_item_owners_pc_id ON item_owners (pc_id);
-CREATE INDEX idx_item_owners_companion_id ON item_owners (companion_id);
-CREATE INDEX idx_item_owners_npc_id ON item_owners (npc_id);
-CREATE INDEX idx_item_owners_faction_id ON item_owners (faction_id);
+CREATE INDEX IF NOT EXISTS idx_item_owners_item_id ON item_owners (item_id);
+CREATE INDEX IF NOT EXISTS idx_item_owners_pc_id ON item_owners (pc_id);
+CREATE INDEX IF NOT EXISTS idx_item_owners_companion_id ON item_owners (companion_id);
+CREATE INDEX IF NOT EXISTS idx_item_owners_npc_id ON item_owners (npc_id);
+CREATE INDEX IF NOT EXISTS idx_item_owners_faction_id ON item_owners (faction_id);
 
 -- SESSION INDEXES
-CREATE INDEX idx_session_logs_campaign_id ON session_logs (campaign_id);
-CREATE INDEX idx_session_logs_book_session ON session_logs (book_number, session_number);
-CREATE INDEX idx_session_log_paragraphs_log_id ON session_log_paragraphs (session_log_id);
-CREATE INDEX idx_session_log_paragraphs_user_id ON session_log_paragraphs (user_id);
+CREATE INDEX IF NOT EXISTS idx_session_logs_campaign_id ON session_logs (campaign_id);
+CREATE INDEX IF NOT EXISTS idx_session_logs_book_session ON session_logs (book_number, session_number);
+CREATE INDEX IF NOT EXISTS idx_session_log_paragraphs_log_id ON session_log_paragraphs (session_log_id);
+CREATE INDEX IF NOT EXISTS idx_session_log_paragraphs_user_id ON session_log_paragraphs (user_id);
 -- END INDEX BLOCK
