@@ -1,6 +1,9 @@
 // Imports
 import { body } from "express-validator";
 
+// Process Invitation Code
+const INVITE_CODE = process.env.INVITE_CODE
+
 // Validation Arrays
 const registrationValidation = [
   body("name")
@@ -11,7 +14,9 @@ const registrationValidation = [
     .withMessage("Name can only contain letters, spaces, hyphens, and apostrophes'"),
   body("inviteCode")
     .trim()
-    .equals("GameNight2018-Forever")
+    .custom((value) => {
+      return INVITE_CODE && INVITE_CODE.trim() !== "" && value === INVITE_CODE;
+    })
     .withMessage("Invalid invitation code"),
   body("username")
     .trim()
