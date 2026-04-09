@@ -1047,6 +1047,106 @@ BEGIN
     END IF;
 END $$;
 
+-- Alterations
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1
+    FROM pg_constraint
+    WHERE conname = 'campaigns_campaign_name_key'
+  ) THEN
+    ALTER TABLE campaigns
+    ADD CONSTRAINT campaigns_campaign_name_key UNIQUE (campaign_name);
+  END IF;
+END $$;
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1
+    FROM information_schema.columns
+    WHERE table_name = 'session_logs'
+      AND column_name = 'book_number'
+      AND is_nullable = 'NO'
+  ) THEN
+    ALTER TABLE session_logs
+    ALTER COLUMN book_number DROP NOT NULL;
+  END IF;
+END $$;
+DO $$
+DECLARE
+  constraint_name text;
+BEGIN
+  SELECT conname INTO constraint_name
+  FROM pg_constraint
+  WHERE conrelid = 'session_logs'::regclass
+    AND contype = 'u'
+    AND conname = 'session_logs_campaign_id_book_number_session_number_key';
+
+  IF constraint_name IS NOT NULL THEN
+    ALTER TABLE session_logs
+    DROP CONSTRAINT session_logs_campaign_id_book_number_session_number_key;
+  END IF;
+END $$;
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1
+    FROM pg_constraint
+    WHERE conname = 'session_logs_campaign_id_log_type_session_number_key'
+  ) THEN
+    ALTER TABLE session_logs
+    ADD CONSTRAINT session_logs_campaign_id_log_type_session_number_key
+      UNIQUE (campaign_id, log_type, session_number);
+  END IF;
+END $$;
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1
+    FROM information_schema.columns
+    WHERE table_name = 'npc_main'
+      AND column_name = 'unknown_name'
+  ) THEN
+    ALTER TABLE npc_main
+    ADD COLUMN unknown_name VARCHAR(255) DEFAULT 'Unknown';
+  END IF;
+
+  IF NOT EXISTS (
+    SELECT 1
+    FROM information_schema.columns
+    WHERE table_name = 'npc_main'
+      AND column_name = 'is_identified'
+  ) THEN
+    ALTER TABLE npc_main
+    ADD COLUMN is_identified BOOLEAN NOT NULL DEFAULT FALSE;
+  END IF;
+END $$;
+DO $$
+BEGIN
+  -- Only rename if the old column exists
+  IF EXISTS (
+    SELECT 1
+    FROM information_schema.columns
+    WHERE table_name = 'faction_attitude'
+      AND column_name = 'unhelpful_boon'
+  ) THEN
+    ALTER TABLE faction_attitude
+      RENAME COLUMN unhelpful_boon TO unfriendly_boon;
+  END IF;
+END $$;
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1
+    FROM information_schema.columns
+    WHERE table_name = 'npc_attitude'
+      AND column_name = 'unhelpful_boon'
+  ) THEN
+    ALTER TABLE npc_attitude
+      RENAME COLUMN unhelpful_boon TO unfriendly_boon;
+  END IF;
+END $$;
+
 -- START INDEX BLOCK
 -- INDEXES FOR ROLES / USERS
 CREATE INDEX IF NOT EXISTS idx_users_role_id ON users (role_id);
