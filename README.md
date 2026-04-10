@@ -31,7 +31,7 @@ user - Default, a player or other user with basic access
 gm_admin - The Game Master or site admin with full system access
 moderator - Game Moderators with permissions to manage content and users
 
-There are test accounts of each type using the usernames of test\_%rolename% for demonstrative purposes.
+There are test accounts of each type using the usernames of "test-[rolename]" for demonstrative purposes.
 
 ## Known Limitations
 
