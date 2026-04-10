@@ -3,7 +3,6 @@
 
   <% Object.keys(logsByBook).forEach(bookKey => { %>
   <div class="session-log-book" id="<%= bookKey %>">
-    <p>SESSION LIST PARTIAL LOADED</p>
     <h3><%= bookKey.replace("book", "Book ") %></h3>
 
     <% logsByBook[bookKey].forEach(session => { %>
