@@ -3,10 +3,11 @@ import { getSessionLogsForCampaign, getParagraphsForLogs, getGalleryForLogs, get
 
 const journalPage = async (req, res) => {
   try {
-    const campaignId = req.session.campaign_id; // adjust to your setup
+    const campaignId = req.session.campaign_id;
     const userId = req.session.user_id || null;
 
-    const logs = await getSessionLogsForCampaign(campaignId);
+    let logs = await getSessionLogsForCampaign(campaignId);
+    logs = logs.filter(l => l.log_type === "session summary");
     const logIds = logs.map(l => l.id);
 
     const [paragraphs, gallery, notes] = await Promise.all([
@@ -24,6 +25,7 @@ const journalPage = async (req, res) => {
       return {
         ...log,
         paragraphs: logParagraphs,
+        images: logImages,
         mainImage
       };
     });
@@ -43,6 +45,7 @@ const journalPage = async (req, res) => {
       title: "Travel Log",
       activePage: "journal",
       isLoggedIn: !!userId,
+      campaign_id: req.session.campaign_id,
       latestLog,
       logsByBook,
       notes

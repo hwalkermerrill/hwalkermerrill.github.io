@@ -4,7 +4,7 @@ import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
 import path from "path";
 import { fileURLToPath } from "url";
-import { addLocalVariables, devLogs } from "./src/middleware/global.js";
+import { addLocalVariables, devLogs, campaignMiddleware } from "./src/middleware/global.js";
 import { error404Router, globalErrorHandler } from "./src/middleware/errorHandler.js";
 import flash from "./src/middleware/flash.js";
 import routes from "./src/controllers/routes.js";
@@ -55,6 +55,7 @@ startSessionCleanup();
 
 // Middleware (AKA Mise en Place)
 app.use(addLocalVariables);
+app.use(campaignMiddleware);
 app.use(flash);
 
 if (process.env.NODE_ENV === "development") {

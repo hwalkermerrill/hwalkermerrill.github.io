@@ -1,0 +1,32 @@
+<section id="session-recap">
+  <h2>Session Recap</h2>
+
+  <% if (!latestLog) { %>
+  <p>No session logs have been recorded yet.</p>
+  <% } else { %>
+  <article id="session-recap-content" data-log-id="<%= latestLog.id %>">
+    <h3><%= latestLog.title %></h3>
+
+    <% if (latestLog.time_span) { %>
+    <p><strong>Time Span:</strong> <%= latestLog.time_span %></p>
+    <% } %>
+
+    <% if (latestLog.session_date) { %>
+    <p><strong>Session Date:</strong> <%= latestLog.session_date.toISOString().slice(0,10) %></p>
+    <% } %>
+
+    <% if (latestLog.mainImage) { %>
+    <picture>
+      <source srcset="<%= latestLog.mainImage.image_url %>" type="image/webp">
+      <img class="pointer <%= latestLog.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/unknown.png"
+        alt="<%= latestLog.mainImage.alt %>" loading="lazy">
+    </picture>
+    <% } %>
+
+    <% latestLog.paragraphs.forEach(p => { %>
+    <p><%= p.paragraph_text %></p>
+    <% }) %>
+  </article>
+  <% } %>
+</section>
+<div class="clearfix"></div>

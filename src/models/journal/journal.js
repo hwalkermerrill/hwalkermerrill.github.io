@@ -8,7 +8,8 @@ async function getSessionLogsForCampaign(campaignId) {
     SELECT *
     FROM session_logs
     WHERE campaign_id = $1
-    ORDER BY session_date DESC NULLS LAST, session_number DESC
+      AND log_type = 'session summary'
+    ORDER BY book_number DESC, session_number DESC, id ASC
     `,
     [campaignId]
   );

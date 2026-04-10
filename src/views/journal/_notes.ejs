@@ -1,0 +1,17 @@
+<section id="campaign-notes">
+  <h2>Campaign Notes</h2>
+
+  <% if (!notes || notes.length === 0) { %>
+  <p>No notes recorded yet.</p>
+  <% } else { %>
+  <ul class="notes-list">
+    <% notes.forEach(note => { %>
+    <li>
+      <h3><%= note.note_title %></h3>
+      <small><%= note.created_at.toISOString().slice(0,19).replace("T"," ") %></small>
+      <p><%= note.note_content %></p>
+    </li>
+    <% }) %>
+  </ul>
+  <% } %>
+</section>

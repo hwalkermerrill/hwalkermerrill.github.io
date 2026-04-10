@@ -55,6 +55,12 @@ const addLocalVariables = (req, res, next) => {
 
   next();
 };
+const campaignMiddleware = (req, res, next) => {
+  if (!req.session.campaign_id) {
+    req.session.campaign_id = 35; // Serpents 2026
+  }
+  next();
+};
 const devLogs = (req, res, next) => {
   // Logs to terminal while in development mode
   const isDev = res.locals.NODE_ENV === "development";
@@ -77,4 +83,4 @@ const devLogs = (req, res, next) => {
   next();
 };
 
-export { addLocalVariables, devLogs };
+export { addLocalVariables, devLogs, campaignMiddleware };

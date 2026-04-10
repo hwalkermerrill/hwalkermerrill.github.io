@@ -1,6 +1,13 @@
+<pre>
+campaign_id: <%= campaign_id ? campaign_id : "NONE" %>
+latestLog: <%= latestLog ? latestLog.title : "NONE" %>
+books: <%= Object.keys(logsByBook || {}) %>
+notes: <%= notes ? notes.length : 0 %>
+</pre>
+
 <%- include("../partials/header") %>
 
-<!-- CONTENT HERE -->
+<!-- Hero Header Content -->
 <main class="clearfix" id="maincontent">
 	<h1>What do we <i>Think</i> we know?</h1>
 	<div class="row" onclick="viewHandler(event)">
@@ -26,10 +33,13 @@
 			<cite>&emsp; — Final entry in the journal of Nareem Daress, Guide to the Alinthorpe Expedition"</cite>
 		</aside>
 	</div>
+
 	<!-- RETURN TO TOP BUTTON -->
 	<button onclick="topFunction()" id="returnTopBtn" title="Go to top">Return to Top</button>
-	<!-- RETURN TO TOP BUTTON -->
 	<div class="clearfix"></div>
+	<!-- RETURN TO TOP BUTTON -->
+
+	<!-- Current Quest Assignment -->
 	<div class="floatswitch" onclick="viewHandler(event)">
 		<section>
 			<h2>Leader Details: Earl Ortho Vibius</h2>
@@ -98,44 +108,42 @@
 		</section>
 	</div>
 	<div class="clearfix"></div>
-	<h2>Dream Journal</h2>
-	<div class="floatswitch" id="dream2" onclick="viewHandler(event)">
-		<h3>Spirit Journeys to Saventh-Yhi</h3>
-	</div>
-	<div class="floatswitch" id="dream1" onclick="viewHandler(event)">
-		<h3>Serpentine Sleep upon the Shiv</h3>
-	</div>
-	<h2>Recovered Documents</h2>
-	<div class="floatswitch" id="note2" onclick="viewHandler(event)">
-		<h3>Notes Found en-route to Saventh-Yhi</h3>
-	</div>
-	<div class="floatswitch" id="note1" onclick="viewHandler(event)">
-		<h3>Notes Found on Smuggler’s Shiv</h3>
-	</div>
-	<h2>Session Logs</h2>
-	<!-- Edit: Add journal entries! -->
-	<div class="floatswitch" id="book2" onclick="viewHandler(event)">
-		<h3>Book 2 - Racing to Ruin</h3>
-	</div>
-	<h3>Book 1 - Souls for Smuggler's Shive</h3>
-	<div class="floatswitch" id="book1" onclick="viewHandler(event)">
 
-	</div>
+	<!-- Tabbed UI -->
+	<%- include("./_tabs", { isLoggedIn }) %>
+
+	<section id="journal-tab-session" class="journal-tab active">
+		<%- include("./_sessionRecap", { latestLog }) %>
+		<%- include("./_sessionList", { logsByBook }) %>
+	</section>
+
+	<section id="journal-tab-documents" class="journal-tab">
+		<%- include("./_recoveredDocuments") %>
+	</section>
+
+	<% if (isLoggedIn) { %>
+	<section id="journal-tab-notes" class="journal-tab">
+		<%- include("./_notes", { notes }) %>
+	</section>
+	<% } %>
 </main>
 
-<!-- SCRIPT HERE -->
 <script src="/js/loot.js"></script>
 <script src="/js/journal.js"></script>
 <script>
 	document.addEventListener("DOMContentLoaded", function () {
-		// Always populate content before manipulating how it's displayed
+		// Existing loot/dream population
 		populateLoot("note1");
 		populateLoot("note2");
 		populateLoot("dream1");
 		populateLoot("dream2");
-		populateJournal();
+
 		toggleLiVis(".toggleLiVis");
+
+		initJournalTabs();
+		initSessionRecapSwitcher();
 	});
 </script>
+
 
 <%- include("../partials/footer") %>
