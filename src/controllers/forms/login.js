@@ -40,7 +40,7 @@ const processLogin = async (req, res) => {
     // SECURITY: Remove password from user object before storing in session
     delete user.password;
     req.session.user = user;
-    req.flash("success", `Welcome, ${user.name}!`);
+    req.flash("success", `Welcome, ${user.full_name}!`);
     return res.redirect("/dashboard");
 
   } catch (error) {

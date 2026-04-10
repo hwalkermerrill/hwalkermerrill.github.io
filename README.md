@@ -31,7 +31,7 @@ user - Default, a player or other user with basic access
 gm_admin - The Game Master or site admin with full system access
 moderator - Game Moderators with permissions to manage content and users
 
-There are test accounts of each type using the usernames of "test-[rolename]" for demonstrative purposes.
+There are test accounts of each type using the usernames of "test4[rolename]" for demonstrative purposes.
 
 ## Known Limitations
 
@@ -65,3 +65,5 @@ Images that do not have an attached file need to default to a placeholder image.
 No working search bar.
 500 error page does not fail gracefully when the database cannot be reached.
 Sticky notes currently not interactive.
+Remove development objects from production.
+Increasing top and bottom padding for entry boxes, as well as internal margin and spacing between form boxes.
