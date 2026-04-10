@@ -38,7 +38,7 @@ const processLogin = async (req, res) => {
     }
 
     // SECURITY: Remove password from user object before storing in session
-    delete user.password;
+    delete user.password_hash;
     req.session.user = user;
     req.flash("success", `Welcome, ${user.full_name}!`);
     return res.redirect("/dashboard");
@@ -83,7 +83,7 @@ const showDashboard = (req, res) => {
     console.error("Security error: password found in user object, deleting now...");
     delete user.password_hash;
   }
-  if (sessionData.user && sessionData.user.password) {
+  if (sessionData.user && sessionData.user.password_hash) {
     console.error("Security error: password found in sessionData.user, deleting now...");
     delete sessionData.user.password_hash;
   }
