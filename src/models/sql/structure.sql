@@ -1019,7 +1019,8 @@ CREATE TABLE IF NOT EXISTS session_log_gallery (
 INSERT INTO roles (role_name, role_description)
 VALUES
 ('user', 'Player or user with basic access'),
-('gm_admin', 'Game Master or site admin with full system access')
+('gm_admin', 'Game Master or site admin with full system access'),
+('moderator', 'Moderator with permissions to manage content and users')
 ON CONFLICT (role_name) DO NOTHING;
 
 -- Set the default value of role_id to the 'user' role so new inserts without role_id are handled automatically
