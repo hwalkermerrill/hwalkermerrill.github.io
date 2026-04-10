@@ -80,11 +80,11 @@ const showDashboard = (req, res) => {
 
   // SECURITY: Ensure user and sessionData do not contain password field
   if (user && user.password_hash) {
-    console.error("Security error: password found in user object");
+    console.error("Security error: password found in user object, deleting now...");
     delete user.password_hash;
   }
   if (sessionData.user && sessionData.user.password) {
-    console.error("Security error: password found in sessionData.user");
+    console.error("Security error: password found in sessionData.user, deleting now...");
     delete sessionData.user.password_hash;
   }
 
