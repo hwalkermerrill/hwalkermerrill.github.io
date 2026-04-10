@@ -2,21 +2,27 @@
 <main>
 	<h1><%= title %></h1>
 
-	<!-- IF LOGIC: Check if users array exists and has content using: if (users && users.length > 0) -->
-	<% if (users && users.length > 0) { %>
+	<!-- Sets the logged-in user (if any) -->
+	<% const currentUser = isLoggedIn ? user : null;  %>
 
-	<div class="users-list"> <% users.forEach(user => { %>
+	<!-- Logic check to ensure users exist before trying to render them -->
+	<% if (users && users.length > 0) { %>
+	<p>User Accounts:</p>
+
+	<div class="users-list">
+		<% users.forEach(listUser => { %>
 		<% 
-			// Calculate permissions for this user card
-			// 'user' variable contains the current logged-in user (from session)
-			// 'listUser' is the user from the users array we're currently rendering
-			const currentUser = typeof isLoggedIn !== 'undefined' && isLoggedIn ? user : null;
-			const canEdit = currentUser && (currentUser.id === listUser.id || currentUser.roleName === 'admin');
-			const canDelete = currentUser && currentUser.roleName === 'admin' && currentUser.id !== listUser.id;
-		%>
+				// Calculate permissions for this user card
+				const canEdit = currentUser && 
+					(currentUser.id === listUser.id || currentUser.roleName === 'gm_admin');
+				const canDelete = currentUser && 
+					currentUser.roleName === 'gm_admin' && 
+					currentUser.id !== listUser.id;
+			%>
 		<div class="user-card">
-			<h3><%= listUser.name %></h3>
-			<p><%= listUser.email %></p>
+			<h3><%= listUser.full_name %></h3>
+			<!-- <p><%= listUser.username %></p> -->
+
 			<% if (canEdit || canDelete) { %>
 			<div class="user-actions">
 				<% if (canEdit) { %>
@@ -34,7 +40,7 @@
 	</div>
 
 	<!-- ELSE LOGIC -->
-	<% }); } else { %>
+	<% } else { %>
 
 	<div class="users-list">
 		<p class="no-users">No users registered yet.</p>

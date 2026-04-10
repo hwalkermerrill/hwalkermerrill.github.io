@@ -17,7 +17,7 @@ const showEditAccountForm = async (req, res) => {
 	}
 
 	// Check permissions: users can edit themselves, admins can edit anyone
-	const canEdit = currentUser.id === targetUserId || currentUser.roleName === "admin";
+	const canEdit = currentUser.id === targetUserId || currentUser.roleName === "gm_admin";
 
 	if (!canEdit) {
 		req.flash("error", "You do not have permission to edit this account.");
@@ -54,7 +54,7 @@ const processEditAccount = async (req, res) => {
 		}
 
 		// Check permissions
-		const canEdit = currentUser.id === targetUserId || currentUser.roleName === "admin";
+		const canEdit = currentUser.id === targetUserId || currentUser.roleName === "gm_admin";
 
 		if (!canEdit) {
 			req.flash("error", "You do not have permission to edit this account.");
@@ -91,7 +91,7 @@ const processDeleteAccount = async (req, res) => {
 	const targetUserId = parseInt(req.params.id);
 	const currentUser = req.session.user;
 	// Only admins can delete accounts
-	if (currentUser.roleName !== "admin") {
+	if (currentUser.roleName !== "gm_admin") {
 		req.flash("error", "You do not have permission to delete accounts.");
 		return res.redirect("/register/list");
 	}
