@@ -604,22 +604,30 @@ img {
 	}
 
 	/*---------- NAVIGATION ----------*/
-	nav ul.hide {
-		display: block;
+	nav {
+		ul.hide {
+			display: block;
+		}
+
+		ul {
+			margin-left: 4px;
+
+			li {
+				float: left;
+
+				a {
+					border: none;
+					border-right: 1px solid rgba(0, 0, 8, 0.3);
+					border-bottom: 1px solid rgba(0, 0, 8, 0.3);
+					padding: 0.8rem;
+				}
+			}
+		}
 	}
 
-	nav ul {
-		margin-left: 4px;
-	}
-
-	nav ul li {
-		float: left;
-	}
-
-	nav ul li a {
-		border: none;
-		border-right: 1px solid rgba(0, 0, 8, 0.3);
-		padding: 0.8rem;
+	.secondary-nav {
+		margin-top: 0;
+		border-top: none;
 	}
 
 	/*---------- MAIN ----------*/

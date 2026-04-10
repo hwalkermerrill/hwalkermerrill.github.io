@@ -1,4 +1,4 @@
-<nav class="clearfix">
+<nav class="primary-nav clearfix">
   <ul id="primaryNav" class="hide">
     <!-- Always Visible Links First -->
     <li class="<%= activePage === 'home' ? 'active' : '' %>"><a href="/">Home</a></li>
@@ -7,16 +7,7 @@
     <li class="<%= activePage === 'npcs' ? 'active' : '' %>"><a href="/npcs">Profiles</a></li>
     <li class="<%= activePage === 'maps' ? 'active' : '' %>"><a href="/maps">Surveys</a></li>
     <li class="<%= activePage === 'journal' ? 'active' : '' %>"><a href="/journal">Travel Log</a></li>
-
-    <!-- Only Visible when Logged In -->
-    <% if (isLoggedIn) { %>
-    <li class="<%= activePage === 'dashboard' ? 'active' : '' %>"><a href="/dashboard">Dashboard</a></li>
-    <!-- <li class="<%= activePage === 'register' ? 'active' : '' %>"><a href="/register/list">All Users</a></li>
-    <li class="<%= activePage === 'contact' ? 'active' : '' %>"><a href="/contact/responses">Contact Responses</a></li> -->
-    <li class="<%= activePage === 'creation' ? 'active' : '' %>"><a href="/creation">Character Creation</a></li>
-    <li class="<%= activePage === 'rules' ? 'active' : '' %>"><a href="/rules">Rules</a></li>
-    <li class="<%= activePage === 'logout' ? 'active' : '' %>"><a href="/logout">Logout</a></li>
-    <% } %>
+    <li class="<%= activePage === 'index' ? 'active' : '' %>"><a href="/index.html">View Archives</a></li>
 
     <!-- Only Visible when NOT Logged In -->
     <% if (!isLoggedIn) { %>
@@ -25,6 +16,20 @@
     <% } %>
   </ul>
 </nav>
+
+<!-- Only Visible when Logged In -->
+<% if (isLoggedIn) { %>
+<nav class="secondary-nav clearfix">
+  <ul id="secondaryNav" class="hide">
+    <li class="<%= activePage === 'dashboard' ? 'active' : '' %>"><a href="/dashboard">Dashboard</a></li>
+    <!-- <li class="<%= activePage === 'register' ? 'active' : '' %>"><a href="/register/list">All Users</a></li>
+    <li class="<%= activePage === 'contact' ? 'active' : '' %>"><a href="/contact/responses">Contact Responses</a></li> -->
+    <li class="<%= activePage === 'creation' ? 'active' : '' %>"><a href="/creation">Character Creation</a></li>
+    <li class="<%= activePage === 'rules' ? 'active' : '' %>"><a href="/rules">Rules</a></li>
+    <li class="<%= activePage === 'logout' ? 'active' : '' %>"><a href="/logout">Logout</a></li>
+  </ul>
+</nav>
+<% } %>
 
 <!-- FLASH MESSAGING HERE -->
 <% 
