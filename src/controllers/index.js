@@ -23,9 +23,9 @@ const mapPage = (req, res) => {
   res.render("maps", { title: "Surveys and Maps" });
 }
 
-const journalPage = (req, res) => {
-  res.render("journal", { title: "Travel Log and Expedition Journals" });
-}
+// const journalPage = (req, res) => {
+//   res.render("journal", { title: "Travel Log and Expedition Journals" });
+// }
 
 const rulesPage = (req, res) => {
   res.render("rules", { title: "House Rules, Rulings, Explanations, and Guidelines" });
@@ -56,4 +56,4 @@ const testForbiddenError = (req, res, next) => {
   next(err);
 }
 
-export { homePage, creationPage, resourcesPage, heroPage, npcPage, mapPage, journalPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };
+export { homePage, creationPage, resourcesPage, heroPage, npcPage, mapPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };
