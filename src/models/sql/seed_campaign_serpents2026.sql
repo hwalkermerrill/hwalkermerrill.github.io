@@ -75,7 +75,7 @@ VALUES
 
   ((SELECT session_log_id FROM sl_id
       WHERE session_number = 3),
-    '/images/loot/loot-exsanguinated-goat.webp',
+    '/images/objects/loot-exsanguinated-goat.webp',
     'A Goat Dropped in the Fire',
     FALSE
   ),
