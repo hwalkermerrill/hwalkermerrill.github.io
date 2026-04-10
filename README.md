@@ -60,7 +60,6 @@ Allow GMs to change statuses of PCs, items, npcs, and factions, delete content, 
 
 ## Current Minor Bugs or Visual Errors
 
-Render must be updated before submission
 Database data for tribes does not match hardcoded home data exactly. Minor corrections in wording need to be addressed.
 Images that do not have an attached file need to default to a placeholder image.
 No working search bar.
