@@ -51,13 +51,14 @@ Change PCs, NPCs, Factions, and Items to be dynamically displayed and filterable
 Change Travel Log to dynamically set data from db.
 Change Surveys to dynamically set data from DB, allow main map to be dynamically settable from interface and changeable from users perspective.
 Setup Dashboard displays.
+Setup CSS to be served dynamically.
 Allow Moderators and GMs to edit the characters of other players and descriptions of other objects.
 Allow all players to submit session notes for approval, and allow moderators and GMs to approve session notes as session logs.
 Allow moderators and GMs to edit titles and achievements of players and npcs, and ownership of items and companions.
 Allow GMs to edit user permissions, and add new objects of all types, as well as view and edit secret boxes.
 Allow GMs to change statuses of PCs, items, npcs, and factions, delete content, add content, and change content flags (is_hidden, is_tall, reveal_hidden_details, ect.)
 
-## Current Minor Bugs
+## Current Minor Bugs or Visual Errors
 
 Render must be updated before submission
 Database data for tribes does not match hardcoded home data exactly. Minor corrections in wording need to be addressed.
@@ -66,4 +67,6 @@ No working search bar.
 500 error page does not fail gracefully when the database cannot be reached.
 Sticky notes currently not interactive.
 Remove development objects from production.
-Increasing top and bottom padding for entry boxes, as well as internal margin and spacing between form boxes.
+Increase top and bottom padding for entry boxes, as well as internal margin and spacing between form boxes.
+Set logged in only tabs to different navigational bar.
+Travel Log currently still displaying some data inconsistently, embedded <i></i> not working and displaying just as text.
