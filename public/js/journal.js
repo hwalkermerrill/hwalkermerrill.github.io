@@ -36,7 +36,7 @@ function initSessionRecapSwitcher() {
 			recapContainer.innerHTML = "";
 
 			const h3 = document.createElement("h3");
-			h3.textContent = title;
+			h3.innerHTML = title;  // SECURITY NOTE: This requires the backend to sanitize text to prevent XSS
 			recapContainer.appendChild(h3);
 
 			if (timeSpan) {
@@ -74,7 +74,7 @@ function initSessionRecapSwitcher() {
 			// Render paragraphs
 			paragraphs.forEach(text => {
 				const p = document.createElement("p");
-				p.textContent = text;
+				p.innerHTML = text; // SECURITY NOTE: This requires the backend to sanitize text to prevent XSS
 				recapContainer.appendChild(p);
 			});
 		});

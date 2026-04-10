@@ -600,7 +600,7 @@ img {
 	#session-recap-content picture img {
 		float: right;
 		width: 48%;
-		padding: 2% 2% 0 0;
+		padding: 2% 2% 1rem 1rem;
 	}
 	#session-recap-content picture img.tooTall {
 		width: 29%;

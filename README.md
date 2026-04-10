@@ -68,4 +68,3 @@ Sticky notes currently not interactive.
 Remove development objects from production.
 Increase top and bottom padding for entry boxes, as well as internal margin and spacing between form boxes.
 Set logged in only tabs to different navigational bar.
-Travel Log currently still displaying some data inconsistently, embedded <i></i> not working and displaying just as text.
