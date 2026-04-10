@@ -48,6 +48,9 @@ Migrate character creation from static ejs to dynamic multi-staged process, culm
 Change hero image settings to be dynamically settable from an interface.
 Change spotlight settings to be dynamically settable from an interface.
 Change PCs, NPCs, Factions, and Items to be dynamically displayed and filterable.
+Change Travel Log to dynamically set data from db.
+Change Surveys to dynamically set data from DB, allow main map to be dynamically settable from interface and changeable from users perspective.
+Setup Dashboard displays.
 Allow Moderators and GMs to edit the characters of other players and descriptions of other objects.
 Allow all players to submit session notes for approval, and allow moderators and GMs to approve session notes as session logs.
 Allow moderators and GMs to edit titles and achievements of players and npcs, and ownership of items and companions.
@@ -56,5 +59,9 @@ Allow GMs to change statuses of PCs, items, npcs, and factions, delete content, 
 
 ## Current Minor Bugs
 
+Render must be updated before submission
 Database data for tribes does not match hardcoded home data exactly. Minor corrections in wording need to be addressed.
 Images that do not have an attached file need to default to a placeholder image.
+No working search bar.
+500 error page does not fail gracefully when the database cannot be reached.
+Sticky notes currently not interactive.
