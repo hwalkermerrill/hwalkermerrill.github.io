@@ -111,7 +111,7 @@
 	</section>
 
 	<section id="journal-tab-documents" class="journal-tab">
-		<%- include("./_recoveredDocuments") %>
+		<%- include("./_foundLore", { items }) %>
 	</section>
 
 	<% if (isLoggedIn) { %>
@@ -121,18 +121,25 @@
 	<% } %>
 </main>
 
-<script src="/js/loot.js"></script>
 <script src="/js/journal.js"></script>
 <script>
 	document.addEventListener("DOMContentLoaded", function () {
-		// Existing loot/dream population
-		populateLoot("note1");
-		populateLoot("note2");
-		populateLoot("dream1");
-		populateLoot("dream2");
+		document.querySelectorAll(".item-body").forEach(li => {
+			const raw = li.dataset.body;
+			if (!raw) return;
+
+			let text;
+			try {
+				text = JSON.parse(raw);
+			} catch {
+				text = "";
+			}
+
+			const lines = text.split("\n").filter(l => l.trim() !== "");
+			li.innerHTML = lines.map(line => `<p>${line}</p>`).join("");
+		});
 
 		toggleLiVis(".toggleLiVis");
-
 		initJournalTabs();
 		initSessionRecapSwitcher();
 	});

@@ -1,5 +1,5 @@
 // Imports
-import { getSessionLogsForCampaign, getParagraphsForLogs, getGalleryForLogs, getNotesForUserCampaign } from "../../models/journal/journal.js";
+import { getSessionLogsForCampaign, getParagraphsForLogs, getGalleryForLogs, getNotesForUserCampaign, getItemsForCampaign, getItemGalleryForItems } from "../../models/journal/journal.js";
 
 const journalPage = async (req, res) => {
   try {
@@ -41,6 +41,25 @@ const journalPage = async (req, res) => {
       logsByBook[key].push(log);
     });
 
+    // Load items (notes, dreams, logs, etc.)
+    const items = await getItemsForCampaign(campaignId);
+    const itemIds = items.map(i => i.id);
+
+    // Load item images
+    const itemGallery = await getItemGalleryForItems(itemIds);
+
+    // Attach images to items
+    const itemsWithImages = items.map(item => {
+      const images = itemGallery.filter(img => img.item_id === item.id);
+      const mainImage = images.find(img => img.is_main) || images[0] || null;
+
+      return {
+        ...item,
+        images,
+        mainImage
+      };
+    });
+
     res.render("journal/journal", {
       title: "Travel Log",
       activePage: "journal",
@@ -48,7 +67,8 @@ const journalPage = async (req, res) => {
       campaign_id: req.session.campaign_id,
       latestLog,
       logsByBook,
-      notes
+      notes,
+      items: itemsWithImages
     });
   } catch (err) {
     next(err); //es-lint-disable-line no-undef

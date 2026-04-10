@@ -59,4 +59,27 @@ async function getNotesForUserCampaign(userId, campaignId) {
   return rows;
 }
 
-export { getSessionLogsForCampaign, getParagraphsForLogs, getGalleryForLogs, getNotesForUserCampaign };
+async function getItemsForCampaign(campaignId) {
+  const { rows } = await db.query(`
+    SELECT *
+    FROM items
+    WHERE campaign_id = $1
+      AND item_type IN ('dream', 'note')
+    ORDER BY item_type, item_subtype, sort_order, item_name
+  `, [campaignId]);
+
+  return rows;
+}
+
+async function getItemGalleryForItems(itemIds) {
+  if (itemIds.length === 0) return [];
+  const { rows } = await db.query(`
+    SELECT *
+    FROM item_gallery
+    WHERE item_id = ANY($1::int[])
+    ORDER BY is_main DESC, id ASC
+  `, [itemIds]);
+  return rows;
+}
+
+export { getSessionLogsForCampaign, getParagraphsForLogs, getGalleryForLogs, getNotesForUserCampaign, getItemsForCampaign, getItemGalleryForItems };
