@@ -1,12 +1,14 @@
 // Imports (Core-Middleware-Routes)
 import { Router } from "express";
 import { requireLogin } from "../middleware/auth.js";
-import { registrationValidation, loginValidation, updateAccountValidation, contactValidation } from "../middleware/validation/forms.js";
+import { registrationValidation, loginValidation, updateAccountValidation, contactValidation, resetRequestValidation, resetPasswordValidation } from "../middleware/validation/forms.js";
 import { homePage, creationPage, resourcesPage, heroPage, npcPage, mapPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError } from "./index.js";
 import { journalPage } from "./journal/journal.js";
 import { processLogin, processLogout, showLoginForm, showDashboard } from "./forms/login.js";
 // import { showContactForm, handleContactSubmission, showContactResponses } from "./forms/contact.js";
 import { showRegistrationForm, processRegistration, showAllUsers, showEditAccountForm, processEditAccount, processDeleteAccount } from "./forms/registration.js";
+import { showResetForm, requestReset, handleReset } from "./forms/passwordReset.js";
+import { listRequests, approveRequest, denyRequest } from "./forms/passwordResetAdmin.js";
 
 // Constants
 const router = Router();
@@ -44,6 +46,7 @@ router.get("/rules", rulesPage);
 router.get("/login", showLoginForm);
 router.get("/logout", processLogout);
 router.get("/register", showRegistrationForm);
+router.get("/account/reset-password", showResetForm);
 
 // Routes.get that requireLogin
 // router.get("/contact/responses", requireLogin, showContactResponses);
@@ -52,8 +55,9 @@ router.get("/rules", requireLogin, rulesPage);
 router.get("/dashboard", requireLogin, showDashboard);
 router.get("/register/list", requireLogin, showAllUsers);
 router.get("/register/:id/edit", requireLogin, showEditAccountForm);
+router.get("/admin/password-resets", requireLogin, listRequests);
 
-// Development Only Routes
+// Development Only Get Routes
 if (process.env.NODE_ENV === "development") {
 	router.get("/test-error", testErrorPage);
 	router.get("/test-unexpected", testUnexpectedError);
@@ -65,10 +69,14 @@ if (process.env.NODE_ENV === "development") {
 // router.post("/contact", contactValidation, handleContactSubmission);
 router.post("/login", loginValidation, processLogin);
 router.post("/register", registrationValidation, processRegistration);
+router.post("/account/reset-password/request", resetRequestValidation, requestReset);
+router.post("/account/reset-password", resetPasswordValidation, handleReset);
 
 // Routes.post that requireLogin
 router.post("/register/:id/edit", requireLogin, updateAccountValidation, processEditAccount);
 router.post("/register/:id/delete", requireLogin, processDeleteAccount);
 router.post("/logout", requireLogin, processLogout);
+router.post("/admin/password-resets/:id/approve", requireLogin, approveRequest);
+router.post("/admin/password-resets/:id/deny", requireLogin, denyRequest);
 
 export default router;

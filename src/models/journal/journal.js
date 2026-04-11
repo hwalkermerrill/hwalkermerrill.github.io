@@ -51,7 +51,7 @@ async function getNotesForUserCampaign(userId, campaignId) {
     SELECT *
     FROM campaign_notes
     WHERE user_id = $1
-      AND campaign_id = $1
+      AND campaign_id = $2
     ORDER BY created_at DESC
     `,
     [userId, campaignId]

@@ -21,6 +21,17 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS password_reset_requests (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  status VARCHAR(20) NOT NULL DEFAULT 'submitted',  -- submitted, approved, completed, denied
+  reset_code VARCHAR(20),
+  requested_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  approved_at TIMESTAMP,
+  expires_at TIMESTAMP,
+  completed_at TIMESTAMP
+);
+
 -- Table for organizing data by campaigns. Multiple users per campaign and vice versa, and campaigns are optional to allow for one-offs.
 -- PCs can be associated with any campaign, or none, but only one at a time.
 CREATE TABLE IF NOT EXISTS campaigns (
@@ -1053,6 +1064,7 @@ END $$;
 -- START INDEX BLOCK
 -- INDEXES FOR ROLES / USERS
 CREATE INDEX IF NOT EXISTS idx_users_role_id ON users (role_id);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_one_open_reset_per_user ON password_reset_requests (user_id) WHERE status IN ('submitted', 'approved');
 
 -- INDEXES FOR CAMPAIGN NOTES
 CREATE INDEX IF NOT EXISTS idx_campaign_notes_user_id ON campaign_notes (user_id);

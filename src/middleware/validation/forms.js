@@ -100,4 +100,53 @@ const contactValidation = [
     })
 ];
 
-export { registrationValidation, loginValidation, updateAccountValidation, contactValidation };
+const resetRequestValidation = [
+  body("full_name")
+    .trim()
+    .isLength({ min: 2, max: 100 })
+    .withMessage("Full Name must be between 2 and 100 characters")
+    .matches(/^[a-zA-Z\s'-]+$/)
+    .withMessage("Full Name can only contain letters, spaces, hyphens, and apostrophes"),
+  body("username")
+    .trim()
+    .isLength({ min: 2, max: 100 })
+    .withMessage("Username must be at least 2 characters and no more than 100 characters")
+    .matches(/^[a-zA-Z0-9_]+$/)
+    .withMessage("Username can only contain letters, numbers, and underscores")
+];
+
+const resetPasswordValidation = [
+  body("username")
+    .trim()
+    .isLength({ min: 2, max: 100 })
+    .withMessage("Username must be at least 2 characters and no more than 100 characters")
+    .matches(/^[a-zA-Z0-9_]+$/)
+    .withMessage("Username can only contain letters, numbers, and underscores"),
+  body("reset_code")
+    .trim()
+    .isLength({ min: 4, max: 50 })
+    .withMessage("Reset code is invalid")
+    .matches(/^[A-Z0-9]+$/)
+    .withMessage("Reset code is invalid"),
+  body("password")
+    .trim()
+    .isLength({ min: 8 })
+    .withMessage("Password must be at least 8 characters")
+    .isLength({ max: 128 })
+    .withMessage("Password must be less than 129 characters")
+    .matches(/[0-9]/)
+    .withMessage("Password must contain at least one number")
+    .matches(/[a-z]/)
+    .withMessage("Password must contain at least one lowercase letter")
+    .matches(/[A-Z]/)
+    .withMessage("Password must contain at least one uppercase letter")
+    .matches(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/) // eslint-disable-line no-useless-escape
+    .withMessage("Password must contain at least one special character"),
+  body("passwordConfirm")
+    .trim()
+    .custom((value, { req }) => value === req.body.password)
+    .withMessage("Passwords must match")
+];
+
+
+export { registrationValidation, loginValidation, updateAccountValidation, contactValidation, resetRequestValidation, resetPasswordValidation };

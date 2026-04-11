@@ -38,9 +38,7 @@ There are test accounts of each type using the usernames of "test4[rolename]" fo
 Several files are still being migrated into the database from being hardcoded HTML data.
 Several ejs files still contain hardcoded HTML data (as above) rather than dynamically generated data.
 Several ejs files still need to be split into multiple partials/ dynamic files.
-The actual differences between roles and their capabilities is not yet established.
-There is not currently a way for any user to edit database content.
-There is no multistage workflow system in place.
+The actual differences between user and moderator roles and their capabilities is not yet established.
 
 ## Features to be Implemented
 
@@ -55,7 +53,7 @@ Setup CSS to be served dynamically.
 Allow Moderators and GMs to edit the characters of other players and descriptions of other objects.
 Allow all players to submit session notes for approval, and allow moderators and GMs to approve session notes as session logs.
 Allow moderators and GMs to edit titles and achievements of players and npcs, and ownership of items and companions.
-Allow GMs to edit user permissions, and add new objects of all types, as well as view and edit secret boxes.
+Allow GMs to add new objects of all types, as well as view and edit secret boxes.
 Allow GMs to change statuses of PCs, items, npcs, and factions, delete content, add content, and change content flags (is_hidden, is_tall, reveal_hidden_details, ect.)
 
 ## Current Minor Bugs or Visual Errors
@@ -66,5 +64,4 @@ No working search bar.
 500 error page does not fail gracefully when the database cannot be reached.
 Sticky notes currently not interactive.
 Remove development objects from production.
-Increase top and bottom padding for entry boxes, as well as internal margin and spacing between form boxes.
-Set logged in only tabs to different navigational bar.
+Increase top and bottom padding for form entry boxes, as well as internal margin and spacing between form boxes.
