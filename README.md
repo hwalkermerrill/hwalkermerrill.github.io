@@ -61,7 +61,6 @@ Allow GMs to change statuses of PCs, items, npcs, and factions, delete content, 
 Database data for tribes does not match hardcoded home data exactly. Minor corrections in wording need to be addressed.
 Images that do not have an attached file need to default to a placeholder image.
 No working search bar.
-500 error page does not fail gracefully when the database cannot be reached.
 Sticky notes currently not interactive.
 Remove development objects from production.
 Increase top and bottom padding for form entry boxes, as well as internal margin and spacing between form boxes.

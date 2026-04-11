@@ -10,6 +10,19 @@ const error404Router = (req, res, next) => {
 
 // Global error handler
 const globalErrorHandler = (err, req, res, next) => {
+  // Self-heal missing locals so the 500 page can fail gracefully
+  if (!res.locals.renderStyles) {
+    res.locals.styles = [];
+    res.locals.renderStyles = () => "";
+  }
+  if (!res.locals.renderScripts) {
+    res.locals.scripts = [];
+    res.locals.renderScripts = () => "";
+  }
+  if (!res.locals.title) {
+    res.locals.title = "Server Error";
+  }
+
   // Prevent infinite loops, if a response has already been sent, do nothing
   if (res.headersSent || res.finished) {
     return next(err);
