@@ -3,7 +3,7 @@ import { Router } from "express";
 import { requireLogin } from "../middleware/auth.js";
 import { registrationValidation, loginValidation, updateAccountValidation, contactValidation, resetRequestValidation, resetPasswordValidation } from "../middleware/validation/forms.js";
 import { homePage, creationPage, resourcesPage, heroPage, npcPage, mapPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError } from "./index.js";
-import { journalPage } from "./journal/journal.js";
+import { journalPage } from "./pages/journal.js";
 import { processLogin, processLogout, showLoginForm, showDashboard } from "./forms/login.js";
 // import { showContactForm, handleContactSubmission, showContactResponses } from "./forms/contact.js";
 import { showRegistrationForm, processRegistration, showAllUsers, showEditAccountForm, processEditAccount, processDeleteAccount } from "./forms/registration.js";
