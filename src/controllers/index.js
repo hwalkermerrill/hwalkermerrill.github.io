@@ -19,9 +19,9 @@ const npcPage = (req, res) => {
   res.render("npcs", { title: "Notable NPC and Faction Profiles" });
 }
 
-const mapPage = (req, res) => {
-  res.render("maps/maps", { title: "Surveys and Maps" });
-}
+// const mapPage = (req, res) => {
+//   res.render("maps/maps", { title: "Surveys and Maps" });
+// }
 
 // const journalPage = (req, res) => {
 //   res.render("journal", { title: "Travel Log and Expedition Journals" });
@@ -56,4 +56,4 @@ const testForbiddenError = (req, res, next) => {
   next(err);
 }
 
-export { homePage, creationPage, resourcesPage, heroPage, npcPage, mapPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };
+export { homePage, creationPage, resourcesPage, heroPage, npcPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };

@@ -1,9 +1,18 @@
-<div id="main-map-wrapper">
-  <figure>
+<!-- This partial allows one image to be displayed as a main image.
+This image has a magnifier on zoom and can be drawn on within the instance. -->
+<div class="herodiv">
+  <figure id="main-map-wrapper">
+    <% if (mainMap) { %>
     <picture class="lz-wrapper">
       <source srcset="<%= mainMap.image_url %>" type="image/webp">
       <img class="light-zoom" src="<%= mainMap.image_url %>" alt="<%= mainMap.alt %>">
     </picture>
     <figcaption><strong><%= mainMap.item_name %></strong></figcaption>
+    <% } else { %>
+    <picture>
+      <img src="/images/core/unknown.png" alt="No map available">
+    </picture>
+    <figcaption><strong>No map available</strong></figcaption>
+    <% } %>
   </figure>
 </div>

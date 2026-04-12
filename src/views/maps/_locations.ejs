@@ -1,0 +1,37 @@
+<% if (currentLocation) { %>
+<div class="floatswitch">
+  <section class="clearfix">
+    <h2>Where We Are Now: <%= currentLocation.title %></h2>
+    <% if (currentLocation.image_url) { %>
+    <picture>
+      <source srcset="<%= currentLocation.image_url %>" type="image/webp">
+      <img class="pointer" src="/images/core/placeholder-note.jpg" alt="<%= currentLocation.alt %>" loading="lazy">
+    </picture>
+    <% } %>
+    <% currentLocation.paragraphs.forEach(p => { %>
+    <p><%= p %></p>
+    <% }); %>
+  </section>
+</div>
+<% } %>
+
+<% if (pastLocations && pastLocations.length) { %>
+<div class="floatswitch">
+  <h2>Where We Have Been:</h2>
+
+  <% pastLocations.forEach(loc => { %>
+  <section class="clearfix">
+    <h3><%= loc.title %></h3>
+    <% if (loc.image_url) { %>
+    <picture>
+      <source srcset="<%= loc.image_url %>" type="image/webp">
+      <img class="pointer" src="/images/core/placeholder-note.jpg" alt="<%= loc.alt %>" loading="lazy">
+    </picture>
+    <% } %>
+    <% loc.paragraphs.forEach(p => { %>
+    <p><%= p %></p>
+    <% }); %>
+  </section>
+  <% }); %>
+</div>
+<% } %>

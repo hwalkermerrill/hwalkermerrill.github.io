@@ -1,6 +1,7 @@
 // Imports
 import { getSessionLogsForCampaign, getParagraphsForLogs, getGalleryForLogs, getNotesForUserCampaign, getItemsForCampaign, getItemGalleryForItems } from "../../models/pages/journal.js";
 
+// Controller Function
 const journalPage = async (req, res) => {
   try {
     const campaignId = req.session.campaign_id;
