@@ -8,7 +8,7 @@ const mapPage = async (req, res) => {
 
   try {
     const maps = await getMapsForCampaign(campaignId);
-    const spotlights = await getLocationSpotlightsForCampaign(campaignId);
+    const spotlights = await getLocationsForCampaign(campaignId);
 
     // Main map: pick a specific one or fall back to first
     const mainMap =
