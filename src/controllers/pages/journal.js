@@ -64,7 +64,8 @@ const journalPage = async (req, res) => {
     res.render("journal/journal", {
       title: "Travel Log",
       activePage: "journal",
-      isLoggedIn: !!userId,
+      isLoggedIn: res.locals.isLoggedIn,
+      user: req.session.user,
       campaign_id: req.session.campaign_id,
       latestLog,
       logsByBook,
@@ -72,7 +73,7 @@ const journalPage = async (req, res) => {
       items: itemsWithImages
     });
   } catch (err) {
-    next(err); //es-lint-disable-line no-undef
+    next(err); //Defined in global errorHandler.js
   }
 }
 
