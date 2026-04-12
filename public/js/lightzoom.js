@@ -28,14 +28,14 @@
 		// const halfSize = settings.glassSize / 2;
 
 		// Create Magnifying Glass and Zoom Wrapper
-		const glass = document.createElement('div');
-		glass.id = 'glass';
+		const glass = document.createElement("div");
+		glass.id = "glass";
 
-		const zoomWrapper = document.createElement('div');
-		zoomWrapper.classList.add('lz-zoom-wrapper');
+		const zoomWrapper = document.createElement("div");
+		zoomWrapper.classList.add("lz-zoom-wrapper");
 
-		const crosshair = document.createElement('div');
-		crosshair.id = 'crosshair';
+		const crosshair = document.createElement("div");
+		crosshair.id = "crosshair";
 
 		glass.appendChild(zoomWrapper);
 		glass.appendChild(crosshair);
@@ -50,46 +50,46 @@
 		elements.forEach((img) => {
 			// Constants
 			const wrapper = img.parentElement;
-			const baseCanvas = document.createElement('canvas');
+			const baseCanvas = document.createElement("canvas");
 			const rect = wrapper.getBoundingClientRect();
-			const zoomCanvas = document.createElement('canvas');
+			const zoomCanvas = document.createElement("canvas");
 			const resolvedSrc = img.currentSrc; // prevents incorrect fallback
 
 			// Wrapper position
-			wrapper.classList.add('lz-wrapper');
-			wrapper.style.position = 'relative';
+			wrapper.classList.add("lz-wrapper");
+			wrapper.style.position = "relative";
 			wrapper.appendChild(baseCanvas);
 
 			// Make base canvas visible over base image
-			baseCanvas.classList.add('lz-draw-canvas');
+			baseCanvas.classList.add("lz-draw-canvas");
 			baseCanvas.width = rect.width;
 			baseCanvas.height = rect.height;
-			baseCanvas.style.position = 'absolute';
-			baseCanvas.style.top = '0';
-			baseCanvas.style.left = '0';
-			baseCanvas.style.pointerEvents = 'none';
+			baseCanvas.style.position = "absolute";
+			baseCanvas.style.top = "0";
+			baseCanvas.style.left = "0";
+			baseCanvas.style.pointerEvents = "none";
 			baseCanvas.style.zIndex = 5;
 
 			// Zoom canvas (only used inside magnifier)
-			zoomCanvas.classList.add('lz-zoom-canvas');
+			zoomCanvas.classList.add("lz-zoom-canvas");
 			zoomCanvas.width = rect.width;
 			zoomCanvas.height = rect.height;
-			zoomCanvas.style.position = 'absolute';
-			zoomCanvas.style.top = '0';
-			zoomCanvas.style.left = '0';
-			zoomCanvas.style.pointerEvents = 'none';
+			zoomCanvas.style.position = "absolute";
+			zoomCanvas.style.top = "0";
+			zoomCanvas.style.left = "0";
+			zoomCanvas.style.pointerEvents = "none";
 			zoomCanvas.style.zIndex = 5;
 
 			// Create zoomed image using the resolved URL
 			const zoomImg = new Image();
 			zoomImg.src = resolvedSrc;
-			zoomImg.classList.add('lz-zoom-image');
-			zoomImg.style.position = 'absolute';
-			zoomImg.style.top = '0';
-			zoomImg.style.left = '0';
-			zoomImg.style.width = '100%';
-			zoomImg.style.height = '100%';
-			zoomImg.style.objectFit = 'contain';
+			zoomImg.classList.add("lz-zoom-image");
+			zoomImg.style.position = "absolute";
+			zoomImg.style.top = "0";
+			zoomImg.style.left = "0";
+			zoomImg.style.width = "100%";
+			zoomImg.style.height = "100%";
+			zoomImg.style.objectFit = "contain";
 
 			// Store references on wrapper
 			wrapper.baseCanvas = baseCanvas;
@@ -99,18 +99,18 @@
 			// Setup events
 			setupDrawing(baseCanvas, zoomCanvas, img, wrapper, settings);
 
-			wrapper.addEventListener('mousemove', (event) => {
+			wrapper.addEventListener("mousemove", (event) => {
 				// console.log('Mouse moved over img element', event); // Debugging
 				debouncedFaker(event, wrapper);
 			});
 
-			wrapper.addEventListener('mousedown', (e) => {
+			wrapper.addEventListener("mousedown", (e) => {
 				// console.log('Clicked on img element', event); // Debugging
-				baseCanvas.style.pointerEvents = 'auto';
-				baseCanvas.dispatchEvent(new MouseEvent('mousedown', e));
+				baseCanvas.style.pointerEvents = "auto";
+				baseCanvas.dispatchEvent(new MouseEvent("mousedown", e));
 			});
 
-			wrapper.addEventListener('mouseleave', () => {
+			wrapper.addEventListener("mouseleave", () => {
 				resetGlass(glass);
 			});
 		});
@@ -157,7 +157,7 @@
 
 		// Ensure zoomWrapper and canvas match
 		if (zoomWrapper.currentWrapper !== wrapper) {
-			zoomWrapper.innerHTML = ''; // clear previous content
+			zoomWrapper.innerHTML = ""; // clear previous content
 			zoomWrapper.appendChild(wrapper.zoomImg);
 			zoomWrapper.appendChild(wrapper.zoomCanvas);
 			zoomWrapper.currentWrapper = wrapper;
@@ -170,7 +170,7 @@
 
 		zoomWrapper.style.width = `${bounding.width}px`;
 		zoomWrapper.style.height = `${bounding.height}px`;
-		zoomWrapper.style.transformOrigin = '0 0';
+		zoomWrapper.style.transformOrigin = "0 0";
 		zoomWrapper.style.transform = `scale(${zoomPower})`;
 		zoomWrapper.style.left = `${offsetX}px`;
 		zoomWrapper.style.top = `${offsetY}px`;
@@ -178,25 +178,25 @@
 		// Position the glass around the cursor (page coords)
 		glass.style.top = `${glassTop}px`;
 		glass.style.left = `${glassLeft}px`;
-		glass.style.display = 'block';
-		document.body.style.cursor = 'none';
+		glass.style.display = "block";
+		document.body.style.cursor = "none";
 	};
 
 	// Reset state
 	function resetGlass(glass) {
 		if (!glass) {
-			glass = document.getElementById('glass');
+			glass = document.getElementById("glass");
 			if (!glass) return;
 		}
-		glass.style.display = 'none';
-		document.body.style.cursor = 'default';
+		glass.style.display = "none";
+		document.body.style.cursor = "default";
 	}
 
 	// Drawing logic for both base and zoom
 	function setupDrawing(baseCanvas, zoomCanvas, imgElement, wrapper, settings) {
 		// constants
-		const baseCtx = baseCanvas.getContext('2d');
-		const zoomCtx = zoomCanvas.getContext('2d');
+		const baseCtx = baseCanvas.getContext("2d");
+		const zoomCtx = zoomCanvas.getContext("2d");
 
 		let drawing = false;
 
@@ -210,13 +210,13 @@
 
 		const stopDrawing = () => {
 			drawing = false;
-			baseCanvas.style.pointerEvents = 'none'; // return control to zoom
+			baseCanvas.style.pointerEvents = "none"; // return control to zoom
 			baseCtx.beginPath();
 			zoomCtx.beginPath();
 		};
 
-		baseCanvas.addEventListener('mousedown', (e) => {
-			baseCanvas.style.pointerEvents = 'auto';
+		baseCanvas.addEventListener("mousedown", (e) => {
+			baseCanvas.style.pointerEvents = "auto";
 			drawing = true;
 			const pos = getPos(e);
 
@@ -226,30 +226,30 @@
 			zoomCtx.moveTo(pos.x, pos.y);
 		});
 
-		baseCanvas.addEventListener('mousemove', (e) => {
+		baseCanvas.addEventListener("mousemove", (e) => {
 			if (!drawing) return;
 			const pos = getPos(e);
 
 			baseCtx.lineTo(pos.x, pos.y);
 			baseCtx.strokeStyle = settings.lineColor;
 			baseCtx.lineWidth = settings.lineWidth;
-			baseCtx.lineCap = 'round';
+			baseCtx.lineCap = "round";
 			baseCtx.stroke();
 
 			zoomCtx.lineTo(pos.x, pos.y);
 			zoomCtx.strokeStyle = settings.lineColor;
 			zoomCtx.lineWidth = settings.lineWidth;
-			zoomCtx.lineCap = 'round';
+			zoomCtx.lineCap = "round";
 			zoomCtx.stroke();
 		});
 
-		baseCanvas.addEventListener('mouseup', stopDrawing);
-		baseCanvas.addEventListener('mouseleave', stopDrawing);
+		baseCanvas.addEventListener("mouseup", stopDrawing);
+		baseCanvas.addEventListener("mouseleave", stopDrawing);
 	}
 
 	// Keep canvases in sync with wrapper size on resize and move
-	window.addEventListener('resize', () => {
-		document.querySelectorAll('.lz-wrapper').forEach((wrapper) => {
+	window.addEventListener("resize", () => {
+		document.querySelectorAll(".lz-wrapper").forEach((wrapper) => {
 			// constants
 			const rect = wrapper.getBoundingClientRect();
 			const baseCanvas = wrapper.baseCanvas;

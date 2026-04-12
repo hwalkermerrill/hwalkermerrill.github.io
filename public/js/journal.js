@@ -80,3 +80,23 @@ function initSessionRecapSwitcher() {
 		});
 	});
 }
+document.addEventListener("DOMContentLoaded", function () {
+	document.querySelectorAll(".item-body").forEach(li => {
+		const raw = li.dataset.body;
+		if (!raw) return;
+
+		let text;
+		try {
+			text = JSON.parse(raw);
+		} catch {
+			text = "";
+		}
+
+		const lines = text.split("\n").filter(l => l.trim() !== "");
+		li.innerHTML = lines.map(line => `<p>${line}</p>`).join("");
+	});
+
+	toggleLiVis(".toggleLiVis"); // Defined in pathfinder.js
+	initJournalTabs();
+	initSessionRecapSwitcher();
+});

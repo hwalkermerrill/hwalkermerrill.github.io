@@ -26,8 +26,12 @@ window.onscroll = function () { showTopBtn() };
 
 // When the user clicks on the button, scroll to the top of the document.
 function topFunction() { // eslint-disable-line no-unused-vars
-	document.body.scrollTop = 0; // For Safari
-	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+	if ("scrollBehavior" in document.documentElement.style) { // Modern browsers get smooth scroll support
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	} else { // Fallback for older browsers
+		document.body.scrollTop = 0; // For Safari
+		document.documentElement.scrollTop = 0; // For IE, Firefox, ect.
+	}
 }
 // [End #returnTopBtn Block]
 

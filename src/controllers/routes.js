@@ -40,6 +40,12 @@ router.use("/journal", (req, res, next) => {
 	res.addScript("<script src=\"/js/journal.js\"></script>");
 	next();
 });
+router.use("/maps", (req, res, next) => {
+	res.addScript("<script src=\"/js/lightzoom.js\"></script>");
+	res.addScript("<script src=\"/js/maps.js\"></script>");
+	next();
+});
+
 
 // Routes.get
 router.get("/", homePage);

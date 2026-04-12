@@ -1,0 +1,8 @@
+<figure data-map-id="<%= map.id %>" data-image-url="<%= map.image_url %>" data-alt="<%= map.alt %>"
+  data-title="<%= map.item_name %>">
+  <picture>
+    <source srcset="<%= map.image_url %>" type="image/webp">
+    <img src="/images/core/placeholder-note.jpg" alt="<%= map.alt %>">
+  </picture>
+  <figcaption><%= map.item_name %></figcaption>
+</figure>
