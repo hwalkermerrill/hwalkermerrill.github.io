@@ -20,7 +20,7 @@ const npcPage = (req, res) => {
 }
 
 const mapPage = (req, res) => {
-  res.render("maps", { title: "Surveys and Maps" });
+  res.render("maps/maps", { title: "Surveys and Maps" });
 }
 
 // const journalPage = (req, res) => {
