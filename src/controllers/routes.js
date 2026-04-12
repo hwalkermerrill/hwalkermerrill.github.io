@@ -35,6 +35,12 @@ const router = Router();
 // 	next();
 // });
 
+// Router-level JS Middleware
+router.use("/journal", (req, res, next) => {
+	res.addScript("<script src=\"/js/journal.js\"></script>");
+	next();
+});
+
 // Routes.get
 router.get("/", homePage);
 router.get("/resources", resourcesPage);

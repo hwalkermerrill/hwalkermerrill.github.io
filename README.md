@@ -64,3 +64,4 @@ No working search bar.
 Sticky notes currently not interactive.
 Remove development objects from production.
 Increase top and bottom padding for form entry boxes, as well as internal margin and spacing between form boxes.
+When selecting the travel log tab, for some reason, it does not use the is_logged_in logic for the nav
