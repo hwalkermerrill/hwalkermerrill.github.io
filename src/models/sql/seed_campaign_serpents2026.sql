@@ -1485,7 +1485,7 @@ VALUES
       WHERE session_number = 5),
     '/images/npc/npc-praetor-sylien.webp',
     'Fort Bandu',
-    FALSE
+    TRUE
   ),
   ((SELECT session_log_id FROM sl_id
       WHERE session_number = 6),
