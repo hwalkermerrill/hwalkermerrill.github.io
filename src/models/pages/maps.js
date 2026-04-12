@@ -42,7 +42,7 @@ const getLocationsForCampaign = async (campaignId) => {
     SELECT session_log_id, image_url, alt, is_tall
     FROM session_log_gallery
     WHERE session_log_id = ANY($1::int[])
-      AND is_main = TRUE;
+    ORDER BY session_log_id, is_main DESC;
   `;
   const { rows: galleryRows } = await db.query(galleryQuery, [spotlightIds]);
 

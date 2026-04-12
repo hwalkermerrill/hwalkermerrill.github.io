@@ -5,7 +5,8 @@
     <% if (currentLocation.image_url) { %>
     <picture>
       <source srcset="<%= currentLocation.image_url %>" type="image/webp">
-      <img class="pointer" src="/images/core/placeholder-note.jpg" alt="<%= currentLocation.alt %>" loading="lazy">
+      <img class="<%= currentLocation.is_tall ? 'tooTall pointer' : 'pointer' %>"
+        src="/images/core/placeholder-note.jpg" alt="<%= currentLocation.alt %>" loading="lazy">
     </picture>
     <% } %>
     <% currentLocation.paragraphs.forEach(p => { %>
@@ -25,7 +26,8 @@
     <% if (loc.image_url) { %>
     <picture>
       <source srcset="<%= loc.image_url %>" type="image/webp">
-      <img class="pointer" src="/images/core/placeholder-note.jpg" alt="<%= loc.alt %>" loading="lazy">
+      <img class="<%= loc.is_tall ? 'tooTall pointer' : 'pointer' %>" src="/images/core/placeholder-note.jpg"
+        alt="<%= loc.alt %>" loading="lazy">
     </picture>
     <% } %>
     <% loc.paragraphs.forEach(p => { %>

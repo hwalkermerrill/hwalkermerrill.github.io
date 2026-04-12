@@ -10,6 +10,11 @@ const error404Router = (req, res, next) => {
 
 // Global error handler
 const globalErrorHandler = (err, req, res, next) => {
+  // Prevent infinite loops, if a response has already been sent, do nothing
+  if (res.headersSent || res.finished) {
+    return next(err);
+  }
+
   // Self-heal missing locals so the 500 page can fail gracefully
   if (!res.locals.renderStyles) {
     res.locals.styles = [];
@@ -22,10 +27,14 @@ const globalErrorHandler = (err, req, res, next) => {
   if (!res.locals.title) {
     res.locals.title = "Server Error";
   }
-
-  // Prevent infinite loops, if a response has already been sent, do nothing
-  if (res.headersSent || res.finished) {
-    return next(err);
+  if (typeof res.locals.isLoggedIn === "undefined") {
+    res.locals.isLoggedIn = false;
+  }
+  if (typeof res.locals.activePage === "undefined") {
+    res.locals.activePage = "";
+  }
+  if (!res.locals.flash) {
+    res.locals.flash = () => ({});
   }
 
   const status = err.status || 500;
