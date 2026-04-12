@@ -1,5 +1,5 @@
 // Imports
-import { getSessionLogsForCampaign, getParagraphsForLogs, getGalleryForLogs, getNotesForUserCampaign, getItemsForCampaign, getItemGalleryForItems } from "../../models/journal/journal.js";
+import { getSessionLogsForCampaign, getParagraphsForLogs, getGalleryForLogs, getNotesForUserCampaign, getItemsForCampaign, getItemGalleryForItems } from "../../models/pages/journal.js";
 
 const journalPage = async (req, res) => {
   try {
