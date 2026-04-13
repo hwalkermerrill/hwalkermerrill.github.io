@@ -3,42 +3,30 @@
 <main>
 	<h1><%= title %></h1>
 
-	<!-- Sets the logged-in user (if any) -->
-	<% const currentUser = isLoggedIn ? user : null;  %>
-
 	<!-- Logic check to ensure users exist before trying to render them -->
 	<% if (users && users.length > 0) { %>
 	<p>User Accounts:</p>
 
 	<!-- Allow gm_admins to view pending password reset requests -->
-	<% if (currentUser && currentUser.roleName === 'gm_admin') { %>
+	<% if (user && user.roleName === 'gm_admin') { %>
 	<p><a href="/admin/password-resets">View Password Reset Requests</a></p>
 	<% } %>
 
 	<div class="users-list">
 		<% users.forEach(listUser => { %>
-		<% 
-				// Calculate permissions for this user card
-				const canViewDetails = currentUser && 
-					(currentUser.id === listUser.id || currentUser.roleName === 'moderator' || currentUser.roleName === 'gm_admin');
-				const canEdit = currentUser && 
-					(currentUser.id === listUser.id || currentUser.roleName === 'gm_admin');
-				const canDelete = currentUser && 
-					currentUser.roleName === 'gm_admin' && 
-					currentUser.id !== listUser.id;
-			%>
+
 		<!-- Show User Cards for all canViewDetails Users -->
 		<div class="user-card">
-			<% if (canViewDetails) { %>
+			<% if (listUser.canViewDetails) { %>
 			<h3><%= listUser.full_name %></h3>
 			<p><%= listUser.username %></p>
 
 			<div class="user-actions">
-				<% if (canEdit) { %>
+				<% if (listUser.canEdit) { %>
 				<a href="/register/<%= listUser.id %>/edit">Edit</a>
 				<% } %>
 
-				<% if (canDelete) { %>
+				<% if (listUser.canDelete) { %>
 				<form method="POST" action="/register/<%= listUser.id %>/delete" style="display: inline;">
 					<button type="submit" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
 				</form>

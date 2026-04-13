@@ -5,7 +5,8 @@ import { findUserByUsername, verifyPassword } from "../../models/forms/login.js"
 // Controller Functions
 const showLoginForm = (req, res) => {
   res.render("forms/login/form", {
-    title: "User Login"
+    title: "User Login",
+    activePage: "login"
   });
 };
 
@@ -90,6 +91,7 @@ const showDashboard = (req, res) => {
 
   res.render("dashboard", {
     title: "User Dashboard",
+    activePage: "dashboard",
     user,
     sessionData
   });
