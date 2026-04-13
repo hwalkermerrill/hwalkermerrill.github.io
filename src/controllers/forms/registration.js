@@ -1,7 +1,7 @@
 // Imports (Core-Middleware-Helpers- Models)
 import bcrypt from "bcrypt";
 import { validationResult } from "express-validator";
-import { canViewUser, canEditUser, canDeleteUser } from "../../utils/permissions.js";
+import { hasPermission } from "../../utils/permissions.js";
 import { usernameExists, saveUser, getAllUsers, getUserById, updateUser, deleteUser } from "../../models/forms/registration.js";
 
 // CONTROLLER FUNCTIONS
@@ -44,8 +44,7 @@ const processRegistration = async (req, res) => {
 
 // Display all registered users.
 const showAllUsers = async (req, res) => {
-	// Constants and initialized empty array at top
-	const currentUser = req.session.user;
+	// Initialize allUsers as empty array at top
 	let allUsers = [];
 
 	try {
@@ -55,20 +54,10 @@ const showAllUsers = async (req, res) => {
 		req.flash("error", "An error occurred while retrieving users.");
 	}
 
-	// Filter users based on permissions
-	const usersWithPermissions = allUsers.map(u => ({
-		...u,
-		canView: canViewUser(currentUser, u),
-		canEdit: canEditUser(currentUser, u),
-		canDelete: canDeleteUser(currentUser, u)
-	}));
-
 	return res.render("forms/registration/list", {
-		title: "Registered Users",
+		title: "Account Management",
 		activePage: "register",
-		isLoggedIn: res.locals.isLoggedIn,
-		users: usersWithPermissions,
-		user: currentUser
+		users: allUsers
 	});
 };
 
@@ -76,24 +65,25 @@ const showAllUsers = async (req, res) => {
 const showEditAccountForm = async (req, res) => {
 	// Allow editing of existing accounts
 	const targetUserId = parseInt(req.params.id);
-	const currentUser = req.session.user;
 	const targetUser = await getUserById(targetUserId);
+	const currentUser = req.session.user;
 
 	// Permission checks
 	if (!targetUser) {
 		req.flash("error", "User not found.");
-		return res.redirect("/register/list");
+		return res.redirect("/register/account");
 	}
-	if (!canEditUser(currentUser, targetUser)) {
+
+	const isSelf = currentUser.id === targetUserId;
+
+	if (!isSelf && !hasPermission(currentUser, "edit_users")) {
 		req.flash("error", "You do not have permission to edit this account.");
-		return res.redirect("/register/list");
+		return res.redirect("/register/account");
 	}
 
 	res.render("forms/registration/edit", {
 		title: "Edit Account",
 		activePage: "register",
-		isLoggedIn: res.locals.isLoggedIn,
-		user: currentUser,
 		targetUser
 	});
 };
@@ -117,11 +107,14 @@ const processEditAccount = async (req, res) => {
 
 		if (!targetUser) {
 			req.flash("error", "User not found.");
-			return res.redirect("/register/list");
+			return res.redirect("/register/account");
 		}
-		if (!canEditUser(currentUser, targetUser)) {
+
+		const isSelf = currentUser.id === targetUserId;
+
+		if (!isSelf && !hasPermission(currentUser, "edit_users")) {
 			req.flash("error", "You do not have permission to edit this account.");
-			return res.redirect("/register/list");
+			return res.redirect("/register/account");
 		}
 
 		// Check if new username already exists (and belongs to different user)	
@@ -136,17 +129,18 @@ const processEditAccount = async (req, res) => {
 		await updateUser(targetUserId, name, username);
 
 		// If user edited their own account, update session
-		if (currentUser.id === targetUserId) {
+		if (isSelf) {
 			req.session.user.name = name;
 			req.session.user.username = username;
 		}
 
 		req.flash("success", "Account updated successfully.");
-		res.redirect("/register/list");
+		return res.redirect("/register/account");
+
 	} catch (error) {
 		console.error("Error updating account:", error);
 		req.flash("error", "An error occurred while updating the account.");
-		res.redirect(`/register/${targetUserId}/edit`);
+		return res.redirect(`/register/${targetUserId}/edit`);
 	}
 };
 
@@ -156,9 +150,13 @@ const processDeleteAccount = async (req, res) => {
 	const currentUser = req.session.user;
 
 	// Permission checks
-	if (!canDeleteUser(currentUser, { id: targetUserId })) {
-		req.flash("error", "You do not have permission to delete this account.");
-		return res.redirect("/register/list");
+	if (!hasPermission(currentUser, "delete_users")) {
+		req.flash("error", "You do not have permission to delete accounts.");
+		return res.redirect("/register/account");
+	}
+	if (currentUser.id === targetUserId) {
+		req.flash("error", "You cannot delete your own account.");
+		return res.redirect("/register/account");
 	}
 
 	try {
@@ -172,7 +170,8 @@ const processDeleteAccount = async (req, res) => {
 		console.error("Error deleting user:", error);
 		req.flash("error", "An error occurred while deleting the account.");
 	}
-	res.redirect("/register/list");
+
+	return res.redirect("/register/account");
 };
 // End account edit block
 

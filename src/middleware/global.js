@@ -1,3 +1,6 @@
+// Imports
+import { hasPermission } from "../utils/permissions.js";
+
 // GLOBAL MIDDLEWARE HERE
 const setHeadAssetsFunctionality = (res) => {
   // Adds asset management to the routes, including css and js with priority
@@ -31,19 +34,30 @@ const setHeadAssetsFunctionality = (res) => {
       .join("\n");
   };
 };
+
 const addLocalVariables = (req, res, next) => {
   // Set local variables
   const now = new Date();
   const versionIteration = "v2.0.";
   const activePage = req.path.split("/")[1] || "home";
 
-  // Make following variables available to all templates
+  // Make global template variables available in all views
   res.locals.NODE_ENV = process.env.NODE_ENV?.toLowerCase() || "production";
   res.locals.currentDate = now;
   res.locals.currentYear = now.getFullYear();
   res.locals.queryParams = { ...req.query };
   res.locals.versionNumber = `${versionIteration}${now.getFullYear().toString().slice(2)}${(now.getMonth() + 1).toString().padStart(2, "0")}`;
   res.locals.activePage = activePage;
+
+  // User and permission info
+  res.locals.user = req.session.user || null;
+  res.locals.hasPermission = hasPermission;
+  res.locals.isOwner = (ownerId) => {
+    return res.locals.user && res.locals.user.id === ownerId;
+  };
+
+  // db variables
+  res.locals.campaign_id = req.session.campaign_id || null;
 
   // DO NOT REMOVE, NOT DUPLICATE: Used for conditional rendering
   res.locals.isLoggedIn = false;
@@ -55,12 +69,17 @@ const addLocalVariables = (req, res, next) => {
 
   next();
 };
+
 const campaignMiddleware = (req, res, next) => {
   if (!req.session.campaign_id) {
     req.session.campaign_id = 35; // Serpents 2026
   }
+
+  res.locals.campaign_id = req.session.campaign_id || null;
+
   next();
 };
+
 const devLogs = (req, res, next) => {
   // Logs to terminal while in development mode
   const isDev = res.locals.NODE_ENV === "development";
