@@ -1,0 +1,18 @@
+<%- include("../partials/header") %>
+
+<main>
+  <h1>Error 4oo: Bad Request</h1>
+  <h3><%= error ? error : "BAD REQUEST" %></h3>
+  <p>The request could not be understood or was missing required information.</p>
+  <p><a href="/">Return to the Homepage</a></p>
+
+  <% if (NODE_ENV === 'development') { %>
+  <details open>
+    <summary>Error Details (Development Only)</summary>
+    <pre><%= error %></pre>
+    <pre><%= stack %></pre>
+  </details>
+  <% } %>
+</main>
+
+<%- include("../partials/footer") %>

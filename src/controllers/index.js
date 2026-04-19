@@ -37,13 +37,13 @@ const testUnexpectedError = (req, res, next) => {
 };
 
 const testNotLoggedInError = (req, res, next) => {
-  const err = new Error("You are not logged in");
+  const err = new Error("Testing not being logged in");
   err.status = 401;
   next(err);
 }
 
 const testForbiddenError = (req, res, next) => {
-  const err = new Error("You don't have permission to access this page");
+  const err = new Error("Testing not having permission");
   err.status = 403;
   next(err);
 }

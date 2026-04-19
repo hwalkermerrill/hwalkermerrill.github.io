@@ -1,0 +1,18 @@
+<%- include("../partials/header") %>
+
+<main>
+  <h1>Error 429: Slow Down, Adventurer</h1>
+  <h3><%= error ? error : "TOO MANY REQUESTS" %></h3>
+  <p>You've made too many requests in a short period of time. Please wait a moment before trying again.</p>
+  <p><a href="/">Return to the Homepage</a></p>
+
+  <% if (NODE_ENV === 'development') { %>
+  <details open>
+    <summary>Error Details (Development Only)</summary>
+    <pre><%= error %></pre>
+    <pre><%= stack %></pre>
+  </details>
+  <% } %>
+</main>
+
+<%- include("../partials/footer") %>

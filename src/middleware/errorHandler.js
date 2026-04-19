@@ -38,19 +38,27 @@ const globalErrorHandler = (err, req, res, next) => {
   }
 
   const status = err.status || 500;
-  let template = status === 404 ? "404" :
-    status === 401 ? "401" :
-      status === 403 ? "403" :
-        status === 500 ? "500" :
-          "error";
+  let template =
+    status === 400 ? "400" :
+      status === 401 ? "401" :
+        status === 403 ? "403" :
+          status === 404 ? "404" :
+            status === 429 ? "429" :
+              status === 500 ? "500" :
+                status === 503 ? "503" :
+                  "error";
 
   // Prepare data for the template
   const context = {
-    title: status === 404 ? "Page Not Found" :
-      status === 401 ? "You Are Not Logged In. Please Log In to Access this Page" :
-        status === 403 ? "You Don't Have the Keys to Access this Page" :
-          status === 500 ? "Server Error" :
-            "Unexpected Error",
+    title:
+      status === 400 ? "Bad Request, Double Check Your Spells" :
+        status === 401 ? "You Are Not Logged In. Please Log In to Access this Page" :
+          status === 403 ? "You Don't Have the Keys to Access this Page" :
+            status === 404 ? "Page Not Found, Your Quest Continues Elsewhere" :
+              status === 429 ? "Too Many Requests - Slow Down, Adventurer" :
+                status === 500 ? "Server Error, GM is Resting" :
+                  status === 503 ? "Service Unavailable, The Tavern is Closed" :
+                    "Unexpected Error, Consult the Oracle",
     error: NODE_ENV === "production" ? "An error occurred" : err.message,
     stack: NODE_ENV === "production" ? null : err.stack,
     NODE_ENV,

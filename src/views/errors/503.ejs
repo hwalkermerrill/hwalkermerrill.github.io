@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+
+<main>
+  <h1>Error 5o3: Service Unavailable</h1>
+  <h3><%= error ? error : "SERVICE UNAVAILABLE" %></h3>
+  <p>The server is temporarily unable to handle your request. This may be due to maintenance or high load.</p>
+  <p>Please try again later.</p>
+  <p><a href="/">Return to the Homepage</a></p>
+
+  <% if (NODE_ENV === 'development') { %>
+  <details open>
+    <summary>Error Details (Development Only)</summary>
+    <pre><%= error %></pre>
+    <pre><%= stack %></pre>
+  </details>
+  <% } %>
+</main>
+
+<%- include("../partials/footer") %>
