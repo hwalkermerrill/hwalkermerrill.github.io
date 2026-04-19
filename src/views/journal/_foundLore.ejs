@@ -27,14 +27,17 @@ items.forEach(item => {
       <picture>
         <source srcset="<%= item.mainImage.image_url %>" type="image/webp">
         <img class="pointer <%= item.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/placeholder-note.jpg"
-          alt="<%= item.mainImage.alt %>">
+          alt="<%= item.mainImage.alt || item.item_name %>">
       </picture>
     </li>
     <% } %>
 
-    <li class="item-body" style="display:none;"
-      data-body="<%= JSON.stringify((item.description || '') + '\n' + (item.ability || '')) %>">
-    </li>
+    <%
+      const body = (item.description || '') + '\n' + (item.ability || '');
+      const safeBody = JSON.stringify(body).replace(/"/g, '&quot;');
+    %>
+
+    <li class="item-body" style="display:none;" data-body="<%- safeBody %>"> </li>
 
     <li style="display:none;">
       <i>~ Click to put <%= item.item_name %> away...</i>

@@ -6,15 +6,18 @@
     <h3><%= bookKey.replace("book", "Book ") %></h3>
 
     <% logsByBook[bookKey].forEach(session => { %>
-    <ul class="session-log-list-item" data-log-id="<%= session.id %>" data-title="<%- session.title %>"
-      data-time-span="<%- session.time_span || '' %>"
+    <ul class="session-log-list-item" data-log-id="<%= session.id %>"
+      data-title="<%- session.title.replace(/"/g, '&quot;') %>" data-time-span="<%- session.time_span || '' %>"
       data-session-date="<%- session.session_date ? session.session_date.toISOString().slice(0,10) : '' %>"
-      data-paragraphs="<%= JSON.stringify(session.paragraphs.map(p => p.paragraph_text.replace(/"/g, '&quot;'))) %>"
-      data-images="<%= JSON.stringify(session.images.map(img => ({
-        url: img.image_url,
-        alt: img.alt,
-        tall: img.is_tall
-      }))) %>">
+      data-paragraphs="<%- JSON.stringify(
+        session.paragraphs.map(p => p.paragraph_text)
+      ).replace(/"/g, '&quot;') %>" data-images="<%- JSON.stringify(
+        session.images.map(img => ({
+          url: img.image_url,
+          alt: img.alt,
+          tall: img.is_tall
+        }))
+      ).replace(/"/g, '&quot;') %>">
       <li><b>Click to Read <%= session.title %></b></li>
     </ul>
     <% }) %>
