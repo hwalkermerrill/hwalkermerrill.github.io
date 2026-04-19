@@ -2,19 +2,19 @@
 <main>
 	<h1><%= title %></h1>
 
-	<form method="POST" action="/register/<%= user.id %>/edit">
+	<form method="POST" action="/register/<%= targetUser.id %>/edit">
 		<div>
 			<label for="full_name">Full Name:</label>
-			<input type="text" id="full_name" name="full_name" value="<%= user.full_name %>" required>
+			<input type="text" id="full_name" name="full_name" value="<%= targetUser.full_name %>" required>
 		</div>
 
 		<div>
 			<label for="username">Username:</label>
-			<input type="text" id="username" name="username" value="<%= user.username %>" required>
+			<input type="text" id="username" name="username" value="<%= targetUser.username %>" required>
 		</div>
 
 		<button type="submit">Update Account</button>
-		<a href="/register/list">Cancel</a>
+		<a href="/register/account">Cancel</a>
 	</form>
 </main>
 <%- include('../../partials/footer') %>
