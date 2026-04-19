@@ -2,7 +2,8 @@
 import { Router } from "express";
 import { requireLogin, requireRole, requirePermission } from "../middleware/auth.js";
 import { registrationValidation, loginValidation, updateAccountValidation, contactValidation, resetRequestValidation, resetPasswordValidation } from "../middleware/validation/forms.js";
-import { homePage, creationPage, resourcesPage, heroPage, npcPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError } from "./index.js";
+import { creationPage, resourcesPage, heroPage, npcPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError } from "./index.js";
+import { homePage } from "./pages/home.js";
 import { journalPage } from "./pages/journal.js";
 import { mapPage, setMainMap } from "./pages/maps.js";
 import { processLogin, processLogout, showLoginForm, showDashboard } from "./forms/login.js";

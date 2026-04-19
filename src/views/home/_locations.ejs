@@ -1,0 +1,39 @@
+<% if (currentLocation) { %>
+<div class="floatswitch">
+  <section class="clearfix">
+    <h2>Where We Are Now: <%= currentLocation.title %></h2>
+    <% if (currentLocation.image_url) { %>
+    <picture>
+      <source srcset="<%= currentLocation.image_url %>" type="image/webp">
+      <img class="<%= currentLocation.is_tall ? 'tooTall pointer' : 'pointer' %>"
+        src="/images/core/placeholder-note.jpg" alt="<%= currentLocation.alt || currentLocation.title %>"
+        loading="lazy">
+    </picture>
+    <% } %>
+    <% (currentLocation.paragraphs || []).forEach(p => { %>
+    <p><%= p %></p>
+    <% }); %>
+  </section>
+</div>
+<% } %>
+
+<% if (overviewLocation && overviewLocation !== currentLocation) { %>
+<div class="floatswitch">
+  <section class="clearfix">
+    <h2><%= overviewLocation.title %></h2>
+
+    <% if (overviewLocation.image_url) { %>
+    <picture>
+      <source srcset="<%= overviewLocation.image_url %>" type="image/webp">
+      <img class="<%= overviewLocation.is_tall ? 'tooTall pointer' : 'pointer' %>"
+        src="/images/core/placeholder-note.jpg" alt="<%= overviewLocation.alt || overviewLocation.title %>"
+        loading="lazy">
+    </picture>
+    <% } %>
+
+    <% (overviewLocation.paragraphs || []).forEach(p => { %>
+    <p><%= p %></p>
+    <% }); %>
+  </section>
+</div>
+<% } %>

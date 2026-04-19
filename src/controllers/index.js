@@ -1,7 +1,4 @@
 // Route index for static controllers
-const homePage = (req, res) => {
-  res.render("home/home", { title: "Welcome Home" });
-};
 
 const creationPage = (req, res) => {
   res.render("creation", { title: "Character Creation - Step by Step Guide" });
@@ -48,4 +45,4 @@ const testForbiddenError = (req, res, next) => {
   next(err);
 }
 
-export { homePage, creationPage, resourcesPage, heroPage, npcPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };
+export { creationPage, resourcesPage, heroPage, npcPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };

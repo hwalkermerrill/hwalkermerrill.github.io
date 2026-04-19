@@ -51,6 +51,8 @@ Change Surveys to dynamically set data from DB, allow main map to be dynamically
 Setup Dashboard displays.
 Setup CSS to be served dynamically.
 Add quests to Travel Log
+Add calculator to home model for knowledge checks
+Refactor python crit generator and implement
 Allow Moderators and GMs to edit the characters of other players and descriptions of other objects.
 Allow all players to submit session notes for approval, and allow moderators and GMs to approve session notes as session logs.
 Allow moderators and GMs to edit titles and achievements of players and npcs, and ownership of items and companions.
