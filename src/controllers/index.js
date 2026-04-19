@@ -1,6 +1,6 @@
 // Route index for static controllers
 const homePage = (req, res) => {
-  res.render("home", { title: "Welcome Home" });
+  res.render("home/home", { title: "Welcome Home" });
 };
 
 const creationPage = (req, res) => {
