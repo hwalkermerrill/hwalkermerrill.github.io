@@ -4,7 +4,7 @@ import { requireLogin, requireRole, requirePermission } from "../middleware/auth
 import { registrationValidation, loginValidation, updateAccountValidation, contactValidation, resetRequestValidation, resetPasswordValidation } from "../middleware/validation/forms.js";
 import { homePage, creationPage, resourcesPage, heroPage, npcPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError } from "./index.js";
 import { journalPage } from "./pages/journal.js";
-import { mapPage } from "./pages/maps.js";
+import { mapPage, setMainMap } from "./pages/maps.js";
 import { processLogin, processLogout, showLoginForm, showDashboard } from "./forms/login.js";
 // import { showContactForm, handleContactSubmission, showContactResponses } from "./forms/contact.js";
 import { showRegistrationForm, processRegistration, showAllUsers, showEditAccountForm, processEditAccount, processDeleteAccount } from "./forms/registration.js";
@@ -88,9 +88,10 @@ router.post("/register/reset-password", resetPasswordValidation, handleReset);
 router.post("/register/:id/edit", requireLogin, updateAccountValidation, processEditAccount);
 router.post("/logout", requireLogin, processLogout);
 
-// Routes.post that requireRole
+// Routes.post that requirePermissions
 router.post("/register/:id/delete", requireLogin, requirePermission("delete_users"), processDeleteAccount);
 router.post("/register/password-resets/:id/approve", requireLogin, requirePermission("approve_password_resets"), approveRequest);
 router.post("/register/password-resets/:id/deny", requireLogin, requirePermission("approve_password_resets"), denyRequest);
+router.post("/maps/:id/set-main", requireLogin, requirePermission("manage_maps"), setMainMap);
 
 export default router;

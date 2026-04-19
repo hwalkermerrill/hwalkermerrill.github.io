@@ -1,23 +1,22 @@
 // Imports
-import { getMapsForCampaign, getLocationsForCampaign } from "../../models/pages/maps.js";
+import { getMapsForCampaign, getLocationsForCampaign, getCampaignMainMapId, setCampaignMainMap } from "../../models/pages/maps.js";
 
 // Controller Function
-
 const mapPage = async (req, res) => {
   const campaignId = res.locals.campaign_id;
 
   try {
     const maps = await getMapsForCampaign(campaignId);
     const spotlights = await getLocationsForCampaign(campaignId);
-
-    // Main map: pick a specific one or fall back to first
-    const mainMap =
-      maps.find(m => m.item_name === "Map of Saventh-Yhi") ||
-      maps[0] ||
-      null;
-
+    const mainMapId = await getCampaignMainMapId(campaignId);
     const galleryTall = maps.filter(m => m.is_tall);
     const galleryWide = maps.filter(m => !m.is_tall);
+
+    // Main map fallback logic
+    const mainMap =
+      maps.find(m => m.id === mainMapId) ||
+      maps[0] ||
+      null;
 
     let currentLocation = null;
     let pastLocations = [];
@@ -33,7 +32,8 @@ const mapPage = async (req, res) => {
       galleryTall,
       galleryWide,
       currentLocation,
-      pastLocations
+      pastLocations,
+      mainMapId
     });
   } catch (error) {
     console.error("Error rendering maps page:", error);
@@ -42,4 +42,27 @@ const mapPage = async (req, res) => {
   }
 };
 
-export { mapPage };
+// Post set main map (manage_maps permission required)
+const setMainMap = async (req, res, next) => {
+  try {
+    const campaignId = res.locals.campaign_id;
+    const mapId = Number(req.params.id);
+
+    // Verify the map belongs to this campaign
+    const maps = await getMapsForCampaign(campaignId);
+    const map = maps.find(m => m.id === mapId);
+
+    if (!map) {
+      return next({ status: 404, message: "Map not found" });
+    }
+
+    await setCampaignMainMap(campaignId, mapId);
+
+    req.flash("success", `${map.item_name} is now the main map.`);
+    res.redirect("/maps");
+  } catch (err) {
+    next(err);
+  }
+};
+
+export { mapPage, setMainMap };

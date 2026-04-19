@@ -23,6 +23,29 @@
 
 	<!-- GALLERY PARTIAL -->
 	<h2>Maps of the Mwangi Expanse</h2>
+
+	<!-- Admin Only Panel On-Click -->
+	<% if (hasPermission(user, "manage_maps")) { %>
+	<button type="button" onclick="toggleMapAdmin()">Manage Maps</button>
+
+	<div id="map-admin-panel" style="display:none; margin-top:1rem;">
+		<h3>Set Main Map</h3>
+
+		<form method="POST" action="/maps/<%= mainMapId %>/set-main" id="set-main-map-form">
+			<label for="main-map-select">Choose a map:</label>
+			<select id="main-map-select" name="mapId">
+				<% [...galleryTall, ...galleryWide].forEach(map => { %>
+				<option value="<%= map.id %>" <%= map.id === mainMapId ? "selected" : "" %>>
+					<%= map.item_name %>
+				</option>
+				<% }) %>
+			</select>
+
+			<button type="submit">Set as Main Map</button>
+		</form>
+	</div>
+	<% } %>
+
 	<%- include("./_gallery", { galleryTall, galleryWide }) %>
 	<div class="clearfix"></div>
 
@@ -30,5 +53,24 @@
 	<%- include("./_locations", { currentLocation, pastLocations }) %>
 	<div class="floatswitch"></div>
 </main>
+
+<script>
+	function toggleMapAdmin() {
+		const panel = document.getElementById("map-admin-panel");
+		panel.style.display = panel.style.display === "none" ? "block" : "none";
+	}
+
+	// Update form action dynamically when dropdown changes
+	document.addEventListener("DOMContentLoaded", () => {
+		const select = document.getElementById("main-map-select");
+		const form = document.getElementById("set-main-map-form");
+
+		if (select && form) {
+			select.addEventListener("change", () => {
+				form.action = `/maps/${select.value}/set-main`;
+			});
+		}
+	});
+</script>
 
 <%- include("../partials/footer") %>

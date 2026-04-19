@@ -1061,6 +1061,26 @@ BEGIN
     END IF;
 END $$;
 
+-- Add column if it does not exist
+ALTER TABLE campaigns
+  ADD COLUMN IF NOT EXISTS main_map_id INTEGER;
+
+-- Add foreign key constraint if it does not exist
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1
+    FROM pg_constraint
+    WHERE conname = 'campaigns_main_map_id_fkey'
+  ) THEN
+    ALTER TABLE campaigns
+      ADD CONSTRAINT campaigns_main_map_id_fkey
+      FOREIGN KEY (main_map_id)
+      REFERENCES items(id)
+      ON DELETE SET NULL;
+  END IF;
+END $$;
+
 -- START INDEX BLOCK
 -- INDEXES FOR ROLES / USERS
 CREATE INDEX IF NOT EXISTS idx_users_role_id ON users (role_id);

@@ -24,6 +24,27 @@ const getMapsForCampaign = async (campaignId) => {
   return rows;
 };
 
+// Get the main map ID for a campaign (if set)
+const getCampaignMainMapId = async (campaignId) => {
+  const query = `
+    SELECT main_map_id
+    FROM campaigns
+    WHERE id = $1
+  `;
+  const { rows } = await db.query(query, [campaignId]);
+  return rows[0]?.main_map_id || null;
+};
+
+// Set the main map for a campaign (manage_maps permission required)
+const setCampaignMainMap = async (campaignId, mapId) => {
+  const query = `
+    UPDATE campaigns
+    SET main_map_id = $1
+    WHERE id = $2
+  `;
+  await db.query(query, [mapId, campaignId]);
+};
+
 // Get all location spotlights for a campaign
 const getLocationsForCampaign = async (campaignId) => {
   const logsQuery = `
@@ -74,4 +95,4 @@ const getLocationsForCampaign = async (campaignId) => {
   });
 };
 
-export { getMapsForCampaign, getLocationsForCampaign };
+export { getMapsForCampaign, getLocationsForCampaign, getCampaignMainMapId, setCampaignMainMap };
