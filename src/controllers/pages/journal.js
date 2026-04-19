@@ -2,10 +2,10 @@
 import { getSessionLogsForCampaign, getParagraphsForLogs, getGalleryForLogs, getNotesForUserCampaign, getItemsForCampaign, getItemGalleryForItems } from "../../models/pages/journal.js";
 
 // Controller Function
-const journalPage = async (req, res) => {
+const journalPage = async (req, res, next) => {
   try {
-    const campaignId = req.session.campaign_id;
-    const userId = req.session.user_id || null;
+    const campaignId = res.locals.campaign_id;
+    const userId = res.locals.user?.id || null;
 
     let logs = await getSessionLogsForCampaign(campaignId);
     logs = logs.filter(l => l.log_type === "session summary");
@@ -64,9 +64,6 @@ const journalPage = async (req, res) => {
     res.render("journal/journal", {
       title: "Travel Log",
       activePage: "journal",
-      isLoggedIn: res.locals.isLoggedIn,
-      user: req.session.user,
-      campaign_id: req.session.campaign_id,
       latestLog,
       logsByBook,
       notes,

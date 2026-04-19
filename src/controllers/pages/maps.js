@@ -4,7 +4,7 @@ import { getMapsForCampaign, getLocationsForCampaign } from "../../models/pages/
 // Controller Function
 
 const mapPage = async (req, res) => {
-  const campaignId = req.session.campaign_id;
+  const campaignId = res.locals.campaign_id;
 
   try {
     const maps = await getMapsForCampaign(campaignId);
