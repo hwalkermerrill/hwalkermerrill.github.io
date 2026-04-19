@@ -5,7 +5,7 @@ This image has a magnifier on zoom and can be drawn on within the instance. -->
     <% if (mainMap) { %>
     <picture class="lz-wrapper">
       <source srcset="<%= mainMap.image_url %>" type="image/webp">
-      <img class="light-zoom" src="<%= mainMap.image_url %>" alt="<%= mainMap.alt %>">
+      <img class="light-zoom" src="<%= mainMap.image_url %>" alt="<%= mainMap.alt || mainMap.item_name %>">
     </picture>
     <figcaption><strong><%= mainMap.item_name %></strong></figcaption>
     <% } else { %>
