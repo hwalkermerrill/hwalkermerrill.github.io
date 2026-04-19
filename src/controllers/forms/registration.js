@@ -66,7 +66,7 @@ const showEditAccountForm = async (req, res) => {
 	// Allow editing of existing accounts
 	const targetUserId = parseInt(req.params.id);
 	const targetUser = await getUserById(targetUserId);
-	const currentUser = req.session.user;
+	const currentUser = res.locals.user;
 
 	// Permission checks
 	if (!targetUser) {
@@ -92,7 +92,7 @@ const processEditAccount = async (req, res) => {
 	// Process account edit form submission
 	const errors = validationResult(req);
 	const targetUserId = parseInt(req.params.id);
-	const currentUser = req.session.user;
+	const currentUser = res.locals.user;
 
 	if (!errors.isEmpty()) {
 		errors.array().forEach(error => {
@@ -147,7 +147,7 @@ const processEditAccount = async (req, res) => {
 const processDeleteAccount = async (req, res) => {
 	// Only admin's can delete accounts, and they cannot delete themselves
 	const targetUserId = parseInt(req.params.id);
-	const currentUser = req.session.user;
+	const currentUser = res.locals.user;
 
 	// Permission checks
 	if (!hasPermission(currentUser, "delete_users")) {
@@ -179,9 +179,7 @@ const processDeleteAccount = async (req, res) => {
 const showRegistrationForm = (req, res) => {
 	res.render("forms/registration/form", {
 		title: "User Registration",
-		activePage: "register",
-		isLoggedIn: res.locals.isLoggedIn,
-		user: req.session.user
+		activePage: "register"
 	});
 };
 

@@ -10,13 +10,6 @@ const generateResetCode = () => {
 
 // Controller Functions
 const listRequests = async (req, res) => {
-  const currentUser = req.session.user;
-
-  if (!currentUser || currentUser.roleName !== "gm_admin") {
-    req.flash("error", "You do not have permission to view password reset requests.");
-    return res.redirect("/register/list");
-  }
-
   try {
     const requests = await getAllResetRequestsWithUser();
 
@@ -27,48 +20,33 @@ const listRequests = async (req, res) => {
   } catch (error) {
     console.error("Error retrieving password reset requests:", error);
     req.flash("error", "An error occurred while loading password reset requests.");
-    return res.redirect("/register/list");
+    return res.redirect("/register/account");
   }
 };
 
 const approveRequest = async (req, res) => {
-  const currentUser = req.session.user;
-
-  if (!currentUser || currentUser.roleName !== "gm_admin") {
-    req.flash("error", "You do not have permission to approve password reset requests.");
-    return res.redirect("/register/list");
-  }
-
   const requestId = parseInt(req.params.id, 10);
 
   try {
     const resetCode = generateResetCode();
     const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
-
     const updated = await approveResetRequest(requestId, resetCode, expiresAt);
 
     if (!updated) {
       req.flash("error", "Password reset request not found.");
-      return res.redirect("/admin/password-resets");
+      return res.redirect("/register/password-resets");
     }
 
     req.flash("success", `Request approved. Share this reset code with the user: ${resetCode}`);
-    return res.redirect("/admin/password-resets");
+    return res.redirect("/register/password-resets");
   } catch (error) {
     console.error("Error approving password reset request:", error);
     req.flash("error", "An error occurred while approving the request.");
-    return res.redirect("/admin/password-resets");
+    return res.redirect("/register/password-resets");
   }
 };
 
 const denyRequest = async (req, res) => {
-  const currentUser = req.session.user;
-
-  if (!currentUser || currentUser.roleName !== "gm_admin") {
-    req.flash("error", "You do not have permission to deny password reset requests.");
-    return res.redirect("/register/list");
-  }
-
   const requestId = parseInt(req.params.id, 10);
 
   try {
@@ -76,15 +54,15 @@ const denyRequest = async (req, res) => {
 
     if (!updated) {
       req.flash("error", "Password reset request not found.");
-      return res.redirect("/admin/password-resets");
+      return res.redirect("/register/password-resets");
     }
 
     req.flash("success", "Password reset request denied.");
-    return res.redirect("/admin/password-resets");
+    return res.redirect("/register/password-resets");
   } catch (error) {
     console.error("Error denying password reset request:", error);
     req.flash("error", "An error occurred while denying the request.");
-    return res.redirect("/admin/password-resets");
+    return res.redirect("/register/password-resets");
   }
 };
 

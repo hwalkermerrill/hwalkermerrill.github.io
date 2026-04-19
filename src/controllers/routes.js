@@ -64,7 +64,6 @@ router.get("/register", showRegistrationForm);
 // Routes.get that requireLogin
 // router.get("/contact/responses", requireLogin, showContactResponses);
 router.get("/creation", requireLogin, creationPage);
-router.get("/rules", requireLogin, rulesPage);
 router.get("/dashboard", requireLogin, showDashboard);
 router.get("/register/account", requireLogin, showAllUsers);
 router.get("/register/:id/edit", requireLogin, showEditAccountForm);
@@ -90,8 +89,8 @@ router.post("/register/:id/edit", requireLogin, updateAccountValidation, process
 router.post("/logout", requireLogin, processLogout);
 
 // Routes.post that requireRole
-router.post("/register/:id/delete", requireLogin, requireRole("gm_admin"), processDeleteAccount);
-router.post("/register/password-resets/:id/approve", requireLogin, requireRole("gm_admin"), approveRequest);
-router.post("/register/password-resets/:id/deny", requireLogin, requireRole("gm_admin"), denyRequest);
+router.post("/register/:id/delete", requireLogin, requirePermission("delete_users"), processDeleteAccount);
+router.post("/register/password-resets/:id/approve", requireLogin, requirePermission("approve_password_resets"), approveRequest);
+router.post("/register/password-resets/:id/deny", requireLogin, requirePermission("approve_password_resets"), denyRequest);
 
 export default router;

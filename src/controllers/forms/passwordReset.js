@@ -52,7 +52,7 @@ const handleReset = async (req, res) => {
     errors.array().forEach(error => {
       req.flash("error", error.msg);
     });
-    return res.redirect("/account/reset-password");
+    return res.redirect("/login/reset-password");
   }
 
   const { username, reset_code, password } = req.body;
@@ -62,7 +62,7 @@ const handleReset = async (req, res) => {
 
     if (!request) {
       req.flash("error", "Invalid or expired reset code.");
-      return res.redirect("/account/reset-password");
+      return res.redirect("/login/reset-password");
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -74,7 +74,7 @@ const handleReset = async (req, res) => {
   } catch (error) {
     console.error("Error completing password reset:", error);
     req.flash("error", "An error occurred while resetting your password.");
-    return res.redirect("/account/reset-password");
+    return res.redirect("/login/reset-password");
   }
 };
 

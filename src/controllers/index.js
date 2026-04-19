@@ -19,14 +19,6 @@ const npcPage = (req, res) => {
   res.render("npcs", { title: "Notable NPC and Faction Profiles" });
 }
 
-// const mapPage = (req, res) => {
-//   res.render("maps/maps", { title: "Surveys and Maps" });
-// }
-
-// const journalPage = (req, res) => {
-//   res.render("journal", { title: "Travel Log and Expedition Journals" });
-// }
-
 const rulesPage = (req, res) => {
   res.render("rules", { title: "House Rules, Rulings, Explanations, and Guidelines" });
 }

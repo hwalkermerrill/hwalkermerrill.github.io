@@ -76,7 +76,7 @@ const processLogout = (req, res) => {
 };
 
 const showDashboard = (req, res) => {
-  const user = req.session.user;
+  const user = res.locals.user;
   const sessionData = req.session;
 
   // SECURITY: Ensure user and sessionData do not contain password field
@@ -92,8 +92,7 @@ const showDashboard = (req, res) => {
   res.render("dashboard", {
     title: "User Dashboard",
     activePage: "dashboard",
-    user,
-    sessionData
+    user
   });
 };
 
