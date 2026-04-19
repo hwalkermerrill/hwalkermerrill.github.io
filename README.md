@@ -50,6 +50,7 @@ Change Travel Log to dynamically set data from db.
 Change Surveys to dynamically set data from DB, allow main map to be dynamically settable from interface and changeable from users perspective.
 Setup Dashboard displays.
 Setup CSS to be served dynamically.
+Add quests to Travel Log
 Allow Moderators and GMs to edit the characters of other players and descriptions of other objects.
 Allow all players to submit session notes for approval, and allow moderators and GMs to approve session notes as session logs.
 Allow moderators and GMs to edit titles and achievements of players and npcs, and ownership of items and companions.
@@ -59,7 +60,6 @@ Allow GMs to change statuses of PCs, items, npcs, and factions, delete content, 
 ## Current Minor Bugs or Visual Errors
 
 Database data for tribes does not match hardcoded home data exactly. Minor corrections in wording need to be addressed.
-Images that do not have an attached file need to default to a placeholder image.
 No working search bar.
 Sticky notes currently not interactive.
 Remove development objects from production.
