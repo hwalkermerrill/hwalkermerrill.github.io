@@ -1,0 +1,241 @@
+✅ PROJECT CHECKPOINT — MAPS + HOME PAGE REFACTOR (April 2026)
+A restorable snapshot of architecture, decisions, and code.
+
+⭐ 1. Maps Page — Final Architecture
+Database
+campaigns table now includes:
+
+sql
+ALTER TABLE campaigns
+  ADD COLUMN IF NOT EXISTS main_map_id INTEGER;
+
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_constraint WHERE conname = 'campaigns_main_map_id_fkey'
+  ) THEN
+    ALTER TABLE campaigns
+      ADD CONSTRAINT campaigns_main_map_id_fkey
+      FOREIGN KEY (main_map_id)
+      REFERENCES items(id)
+      ON DELETE SET NULL;
+  END IF;
+END $$;
+Model (models/pages/maps.js)
+New functions added:
+
+js
+const getCampaignMainMapId = async (campaignId) => {
+  const { rows } = await db.query(
+    `SELECT main_map_id FROM campaigns WHERE id = $1`,
+    [campaignId]
+  );
+  return rows[0]?.main_map_id || null;
+};
+
+const setCampaignMainMap = async (campaignId, mapId) => {
+  await db.query(
+    `UPDATE campaigns SET main_map_id = $1 WHERE id = $2`,
+    [mapId, campaignId]
+  );
+};
+Controller (controllers/pages/maps.js)
+js
+const mapPage = async (req, res) => {
+  const campaignId = res.locals.campaign_id;
+
+  try {
+    const maps = await getMapsForCampaign(campaignId);
+    const spotlights = await getLocationsForCampaign(campaignId);
+    const mainMapId = await getCampaignMainMapId(campaignId);
+
+    const galleryTall = maps.filter(m => m.is_tall);
+    const galleryWide = maps.filter(m => !m.is_tall);
+
+    const mainMap =
+      maps.find(m => m.id === mainMapId) ||
+      maps[0] ||
+      null;
+
+    let currentLocation = null;
+    let pastLocations = [];
+
+    if (spotlights.length > 0) {
+      currentLocation = spotlights[spotlights.length - 1];
+      pastLocations = spotlights.slice(0, -1);
+    }
+
+    return res.render("maps/maps", {
+      title: "Maps of the Mwangi Expanse",
+      mainMap,
+      galleryTall,
+      galleryWide,
+      currentLocation,
+      pastLocations,
+      mainMapId
+    });
+  } catch (error) {
+    console.error("Error rendering maps page:", error);
+    req.flash("error", "Unable to load maps at this time.");
+    return res.redirect("/");
+  }
+};
+Set Main Map Route
+js
+router.post(
+  "/maps/:id/set-main",
+  requireLogin,
+  requirePermission("manage_maps"),
+  setMainMap
+);
+GM‑Only Admin Panel (maps.ejs)
+A toggle panel with a dropdown to set the main map:
+
+ejs
+<% if (hasPermission(user, "manage_maps")) { %>
+  <button type="button" onclick="toggleMapAdmin()">Manage Maps</button>
+
+  <div id="map-admin-panel" style="display:none; margin-top:1rem;">
+    <h3>Set Main Map</h3>
+
+    <form method="POST" action="/maps/<%= mainMapId %>/set-main" id="set-main-map-form">
+      <label for="main-map-select">Choose a map:</label>
+      <select id="main-map-select" name="mapId">
+        <% [...galleryTall, ...galleryWide].forEach(map => { %>
+          <option value="<%= map.id %>" <%= map.id === mainMapId ? "selected" : "" %>>
+            <%= map.item_name %>
+          </option>
+        <% }) %>
+      </select>
+
+      <button type="submit">Set as Main Map</button>
+    </form>
+  </div>
+<% } %>
+⭐ 2. Home Page — New Architecture
+Home Page Structure (views/home/home.ejs)
+You modularized the home page into partials:
+
+Code
+home/
+  _heroImg.ejs
+  _siteGuide.ejs
+  _campaignSetting.ejs
+  _knowledgeChecks.ejs
+  _tombRaiding.ejs
+  _factionsTribes.ejs
+  _locations.ejs
+Dynamic Data Needed
+currentLocation → newest spotlight
+
+overviewLocation → oldest spotlight
+
+tribes → placeholder for now
+
+Home Controller (controllers/pages/home.js)
+js
+import { getLocationsForCampaign } from "../../models/pages/maps.js";
+
+const homePage = async (req, res) => {
+  const campaignId = res.locals.campaign_id;
+
+  try {
+    const spotlights = await getLocationsForCampaign(campaignId);
+
+    let currentLocation = null;
+    let overviewLocation = null;
+
+    if (spotlights.length > 0) {
+      overviewLocation = spotlights[0];
+      currentLocation = spotlights[spotlights.length - 1];
+    }
+
+    const tribes = []; // placeholder until dynamic factions are built
+
+    return res.render("home/home", {
+      title: "Welcome Home",
+      currentLocation,
+      overviewLocation,
+      tribes
+    });
+
+  } catch (error) {
+    console.error("Error rendering home page:", error);
+    req.flash("error", "Unable to load home page at this time.");
+    return res.redirect("/");
+  }
+};
+
+export { homePage };
+Home Locations Partial (views/home/_locations.ejs)
+ejs
+<% if (currentLocation) { %>
+<div class="floatswitch">
+  <section class="clearfix">
+    <h2>Where We Are Now: <%= currentLocation.title %></h2>
+
+    <% if (currentLocation.image_url) { %>
+    <picture>
+      <source srcset="<%= currentLocation.image_url %>" type="image/webp">
+      <img class="<%= currentLocation.is_tall ? 'tooTall pointer' : 'pointer' %>"
+           src="/images/core/placeholder-note.jpg"
+           alt="<%= currentLocation.alt || currentLocation.title %>"
+           loading="lazy">
+    </picture>
+    <% } %>
+
+    <% (currentLocation.paragraphs || []).forEach(p => { %>
+      <p><%= p %></p>
+    <% }); %>
+  </section>
+</div>
+<% } %>
+
+<% if (overviewLocation) { %>
+<div class="floatswitch">
+  <section class="clearfix">
+    <h2><%= overviewLocation.title %></h2>
+
+    <% if (overviewLocation.image_url) { %>
+    <picture>
+      <source srcset="<%= overviewLocation.image_url %>" type="image/webp">
+      <img class="<%= overviewLocation.is_tall ? 'tooTall pointer' : 'pointer' %>"
+           src="/images/core/placeholder-note.jpg"
+           alt="<%= overviewLocation.alt || overviewLocation.title %>"
+           loading="lazy">
+    </picture>
+    <% } %>
+
+    <% (overviewLocation.paragraphs || []).forEach(p => { %>
+      <p><%= p %></p>
+    <% }); %>
+  </section>
+</div>
+<% } %>
+⭐ 3. Next Steps (When You Return)
+A. Build the Home Model
+getTribesForCampaign (factions renderer)
+
+B. Convert _factionsTribes to dynamic
+Similar to session logs renderer
+
+C. Decide whether _heroImg becomes dynamic
+Optional, but likely later
+
+D. Decide whether _actionCall becomes dynamic
+Travel log
+
+Next session date
+
+GM announcements
+
+E. Continue converting other front‑end‑only pages
+Notes
+
+Items
+
+NPCs
+
+Factions (non‑tribe)
+
+Etc.
