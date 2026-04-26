@@ -7,25 +7,25 @@
 			keep your feet, there's no knowing where you might be swept off to."</i></strong>
 
 	<!-- HeroDiv with Action Call -->
-	<%- include("./home/_heroImg") %>
+	<%- include("./_heroImg") %>
 
 	<div class="bullets">
 
 		<!-- Site Guide above #Top -->
-		<%- include("./home/_siteGuide") %>
+		<%- include("./_siteGuide") %>
 
 		<!-- RETURN TO TOP BUTTON -->
 		<button onclick="topFunction()" id="returnTopBtn" title="Go to top">Return to Top</button>
 		<!-- RETURN TO TOP BUTTON -->
 
 		<!-- Static Inclusion Sections -->
-		<%- include("./home/_campaignSetting") %>
+		<%- include("./_campaignSetting") %>
 		<!-- Include critical/fumble generator here once built -->
-		<%- include("./home/_knowledgeChecks") %>
-		<%- include("./home/_tombRaiding") %>
+		<%- include("./_knowledgeChecks") %>
+		<%- include("./_tombRaiding") %>
 
 		<!-- Dynamic Inclusion Sections -->
-		<%- include("./home/_factionsTribes", { tribes }) %>
+		<%- include("./_factionsTribes", { tribes }) %>
 
 	</div>
 	<div class="clearfix"></div>
