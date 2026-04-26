@@ -20,6 +20,9 @@ const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV?.toLowerCase() || "production";
 
+// Test Session Connection
+console.log("DB_URL at runtime:", process.env.DB_URL);
+
 // App Configuration
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
