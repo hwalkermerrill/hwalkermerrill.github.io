@@ -1,6 +1,6 @@
 // Imports
 import { getLocationsForCampaign } from "../../models/pages/maps.js";
-import { getTribesForCampaign } from "../../models/pages/home.js";
+import { getTribesForCampaign, getLatestSessionRecap } from "../../models/pages/home.js";
 
 const homePage = async (req, res) => {
   const campaignId = res.locals.campaign_id;
@@ -9,6 +9,7 @@ const homePage = async (req, res) => {
     // Load imports for all home page sections
     const spotlights = await getLocationsForCampaign(campaignId);
     const tribes = await getTribesForCampaign(campaignId);
+    const latestRecap = await getLatestSessionRecap(campaignId);
 
     let currentLocation = null;
     let overviewLocation = null;
@@ -22,7 +23,8 @@ const homePage = async (req, res) => {
       title: "Welcome Home",
       currentLocation,
       overviewLocation,
-      tribes
+      tribes,
+      latestRecap
     });
 
   } catch (error) {

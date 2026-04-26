@@ -1,5 +1,6 @@
 // Imports
 import db from "../db.js";
+import { getLatestSessionSummary, getSessionLogContent } from "./journal.js";
 
 // Model Functions
 
@@ -51,8 +52,21 @@ const getTribesForCampaign = async (campaignId) => {
   }));
 };
 
+// Get the most recent session recap for the home page
+const getLatestSessionRecap = async (campaignId) => {
+  const latest = await getLatestSessionSummary(campaignId);
+  if (!latest) return null;
+
+  const content = await getSessionLogContent(latest.id);
+
+  return {
+    ...latest,
+    ...content
+  };
+};
+
 // (Optional future expansion)
 // const getHeroImageForCampaign = async (campaignId) => { ... }
 // const getAnnouncementsForCampaign = async (campaignId) => { ... }
 
-export { getTribesForCampaign };
+export { getTribesForCampaign, getLatestSessionRecap };

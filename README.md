@@ -58,6 +58,8 @@ Allow all players to submit session notes for approval, and allow moderators and
 Allow moderators and GMs to edit titles and achievements of players and npcs, and ownership of items and companions.
 Allow GMs to add new objects of all types, as well as view and edit secret boxes.
 Allow GMs to change statuses of PCs, items, npcs, and factions, delete content, add content, and change content flags (is_hidden, is_tall, reveal_hidden_details, ect.)
+Some sort of relationship meter that playuers can see to see how close they are to advancing/falling in a relationship.
+Individual detail pages for characters, items, ect.
 
 ## Current Minor Bugs or Visual Errors
 

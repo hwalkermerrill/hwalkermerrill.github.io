@@ -1,0 +1,39 @@
+<section id="session-recap">
+  <h2>Last Time on Serpent's Skull</h2>
+
+  <% if (!latestRecap) { %>
+  <p>No session recap is available yet.</p>
+  <% } else { %>
+
+  <article id="session-recap-content" data-log-id="<%= latestRecap.id %>">
+
+    <h3><%= latestRecap.title %></h3>
+
+    <% if (latestRecap.time_span) { %>
+    <p><strong>Time Span:</strong> <%= latestRecap.time_span %></p>
+    <% } %>
+
+    <% if (latestRecap.session_date) { %>
+    <p><strong>Session Date:</strong>
+      <%= latestRecap.session_date.toISOString().slice(0,10) %>
+    </p>
+    <% } %>
+
+    <% if (latestRecap.mainImage) { %>
+    <picture>
+      <source srcset="<%= latestRecap.mainImage.image_url %>" type="image/webp">
+      <img class="pointer <%= latestRecap.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/unknown.png"
+        alt="<%= latestRecap.mainImage.alt %>" loading="lazy">
+    </picture>
+    <% } %>
+
+    <% latestRecap.paragraphs.forEach(p => { %>
+    <p><%= p.paragraph_text %></p>
+    <% }) %>
+
+  </article>
+
+  <% } %>
+</section>
+
+<div class="clearfix"></div>

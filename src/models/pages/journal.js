@@ -16,6 +16,22 @@ async function getSessionLogsForCampaign(campaignId) {
   return rows;
 }
 
+async function getLatestSessionSummary(campaignId) {
+  const { rows } = await db.query(
+    `
+    SELECT *
+    FROM session_logs
+    WHERE campaign_id = $1
+      AND log_type = 'session summary'
+    ORDER BY book_number DESC, session_number DESC, id DESC
+    LIMIT 1
+    `,
+    [campaignId]
+  );
+
+  return rows[0] || null;
+}
+
 async function getParagraphsForLogs(logIds) {
   if (logIds.length === 0) return [];
   const { rows } = await db.query(
@@ -42,6 +58,22 @@ async function getGalleryForLogs(logIds) {
     [logIds]
   );
   return rows;
+}
+
+async function getSessionLogContent(logId) {
+  if (!logId) return null;
+
+  const [paragraphs, gallery] = await Promise.all([
+    getParagraphsForLogs([logId]),
+    getGalleryForLogs([logId])
+  ]);
+
+  const mainImage =
+    gallery.find(img => img.is_main) ||
+    gallery[0] ||
+    null;
+
+  return { paragraphs, gallery, mainImage };
 }
 
 async function getNotesForUserCampaign(userId, campaignId) {
@@ -82,4 +114,4 @@ async function getItemGalleryForItems(itemIds) {
   return rows;
 }
 
-export { getSessionLogsForCampaign, getParagraphsForLogs, getGalleryForLogs, getNotesForUserCampaign, getItemsForCampaign, getItemGalleryForItems };
+export { getSessionLogsForCampaign, getLatestSessionSummary, getParagraphsForLogs, getGalleryForLogs, getSessionLogContent, getNotesForUserCampaign, getItemsForCampaign, getItemGalleryForItems };
