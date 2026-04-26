@@ -1,13 +1,14 @@
 // Imports
 import { getLocationsForCampaign } from "../../models/pages/maps.js";
-// Later: import { getTribesForCampaign } from "../../models/pages/home.js";
+import { getTribesForCampaign } from "../../models/pages/home.js";
 
 const homePage = async (req, res) => {
   const campaignId = res.locals.campaign_id;
 
   try {
-    // Load location spotlights (same model used by maps)
+    // Load imports for all home page sections
     const spotlights = await getLocationsForCampaign(campaignId);
+    const tribes = await getTribesForCampaign(campaignId);
 
     let currentLocation = null;
     let overviewLocation = null;
@@ -16,9 +17,6 @@ const homePage = async (req, res) => {
       overviewLocation = spotlights[0];                       // first spotlight
       currentLocation = spotlights[spotlights.length - 1];    // newest spotlight
     }
-
-    // Placeholder for tribes until dynamic model is built
-    const tribes = []; // will be replaced with DB data later
 
     return res.render("home/home", {
       title: "Welcome Home",

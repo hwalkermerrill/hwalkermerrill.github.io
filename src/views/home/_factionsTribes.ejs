@@ -1,4 +1,4 @@
-<section>
+<section class="tribes-section">
   <h2>Tribes of the Frontier</h2>
   <p>While colonists find it difficult to distinguish between the various tribes and ethno-linguistic groups in
     Mwangi, the local tribespeople recognize distinctions every bit as definitive as those between Ulfen and
@@ -15,7 +15,52 @@
       heritages within the blanket Mwangi ethnicity, each containing a handful of dominant tribes:</li>
   </ul>
   <br>
-  <ul class="toggleLiVis" style="list-style-type: circle;">
+  <% if (!tribes || tribes.length === 0) { %>
+  <p>No tribes have been discovered yet.</p>
+  <% } else { %>
+  <div class="asset">
+
+    <% tribes.forEach(t => { %>
+
+    <section class="<%= t.attitude_id === 5 ? 'hostile'
+                        : t.attitude_id === 4 ? 'unfriendly'
+                        : t.attitude_id === 3 ? 'neutral'
+                        : t.attitude_id === 2 ? 'friendly'
+                        : 'helpful' %>">
+
+      <h3><%= t.faction_name %></h3>
+      <!-- <strong>Leader: None</strong><br><br> -->
+
+      <figure class="<%= t.is_tall ? 'two-three' : 'one-one' %>">
+        <picture>
+          <% if (t.image_url) { %>
+          <source srcset="<%= t.image_url %>" type="image/webp">
+          <img src="<%= t.image_url %>" alt="<%= t.alt || t.faction_name %>">
+          <% } else { %>
+          <img src="/images/core/unknown.png" alt="<%= t.faction_name %>">
+          <% } %>
+        </picture>
+      </figure>
+
+      <% if (t.description) { %>
+      <p><%= t.description %></p>
+      <% } %>
+
+      <% if (t.extra_list.length > 0) { %>
+      <ul style="list-style-type: lower-greek;">
+        <% t.extra_list.forEach(item => { %>
+        <li><%= item %></li>
+        <% }) %>
+      </ul>
+      <% } %>
+
+    </section>
+
+    <% }) %>
+
+  </div>
+  <% } %>
+  <!-- <ul class="toggleLiVis" style="list-style-type: circle;">
     <li style="list-style-type: none;"><b>Bekyar - The Raiders:</b></li>
     <li style="list-style-type: none; display: none;"><b>Click to Flee from the Bekyar...</b></li>
     <li style="display: none;">
@@ -228,5 +273,5 @@
         <li style="list-style-type: none; display: none;" class="clearfix"></li>
       </ul>
     </li>
-  </ul>
+  </ul> -->
 </section>
