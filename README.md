@@ -46,7 +46,6 @@ Migrate character creation from static ejs to dynamic multi-staged process, culm
 Change hero image settings to be dynamically settable from an interface.
 Change spotlight settings to be dynamically settable from an interface.
 Change PCs, NPCs, Factions, and Items to be dynamically displayed and filterable.
-Change Travel Log to dynamically set data from db.
 Change Surveys to dynamically set data from DB, allow main map to be dynamically settable from interface and changeable from users perspective.
 Setup Dashboard displays.
 Setup CSS to be served dynamically.
@@ -65,7 +64,6 @@ Individual detail pages for characters, items, ect.
 
 Database data for tribes does not match hardcoded home data exactly. Minor corrections in wording need to be addressed.
 No working search bar.
-Sticky notes currently not interactive.
 Remove development objects from production.
 Increase top and bottom padding for form entry boxes, as well as internal margin and spacing between form boxes.
 Alter faction/tribes to include the expanded data from the \_factionsTribes home.ejs partial (commented).
