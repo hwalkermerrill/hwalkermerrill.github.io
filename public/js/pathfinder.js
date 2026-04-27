@@ -181,3 +181,23 @@ function closeViewer() {
 
 // [End .viewer Block]
 // [End Toggle Block]
+
+// This function makes any section collapsible, using the .clickload function
+// Make any section collapsible using your existing .click behavior
+function makeCollapsible(wrapperSelector, contentSelector = ".collapse-toggle-content") { // eslint-disable-line no-unused-vars
+	const wrappers = document.querySelectorAll(wrapperSelector);
+	if (!wrappers.length) return;
+
+	wrappers.forEach(wrapper => {
+		const content = wrapper.querySelector(contentSelector);
+		if (!content) return;
+
+		// Ensure content starts collapsed (CSS handles display:none)
+		content.classList.add("collapsible-content");
+
+		// Use your existing clickLoad behavior to toggle .click
+		wrapper.addEventListener("click", () => {
+			wrapper.classList.toggle("click");
+		});
+	});
+}

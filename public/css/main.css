@@ -611,6 +611,15 @@ img {
 		clear: both;
 	}
 
+	/* ----- Action Call Toggle ----- */
+	.collapse-toggle-content {
+		display: none;
+	}
+
+	.collapse-toggle.click .collapse-toggle-content {
+		display: block;
+	}
+
 	/*---------- FOOTER ----------*/
 	footer {
 		/* background-color: var(--secondary-color); */

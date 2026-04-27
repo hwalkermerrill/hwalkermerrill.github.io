@@ -38,6 +38,10 @@ const router = Router();
 // });
 
 // Router-level JS Middleware
+router.use("/", (req, res, next) => {
+	res.addScript("<script src=\"/js/actioncall/serpentsLog.js\"></script>");
+	next();
+});
 router.use("/journal", (req, res, next) => {
 	res.addScript("<script src=\"/js/journal.js\"></script>");
 	next();

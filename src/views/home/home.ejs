@@ -43,34 +43,6 @@
 		toggleLiVis(".toggleLiVis");
 		clickLoad(".asset section");
 	});
-
-	// Generate Action Call Travel data
-	const travelLog = [
-		{ location: "in Port with the Jenivere", days: 33 }, // default
-		{ location: "at Sea aboard the Jenivere", days: 71 }, // default
-		{ location: "Castaway on Smuggler's Shiv", days: 30 }, // +0
-		{ location: "Establishing an Expedition", days: 15 }, // +0 
-		{ location: "Racing to Kalabuto", days: 18 }, // +1
-		{ location: "Searching for a Moonstone", days: 15 }, // +0
-		{ location: "Venturing to Tazion", days: 35 }, // +2
-		{ location: "Following the Lights of Tazion", days: 8 }, // +1
-		{ location: "Exploring Saventh-Yhi", days: 34 } //unknown
-	];
-
-	// Function to generate travel log HTML
-	function generateTravelLogHTML(log) {
-		let html = `<h2>Travel-Log</h2>`;
-		log.forEach(entry => {
-			html += `<p>Days ${entry.location}: ${entry.days}</p>`;
-		});
-		// const totalDays = calculateTotalDays(log);
-		const totalDays = log.reduce((acc, entry) => acc + entry.days, 0);
-		html += `<p>&emsp; Total Journey: ${totalDays}</p>`;
-		return html;
-	}
-
-	// Render the travel log HTML
-	document.querySelector('.actioncall').innerHTML = generateTravelLogHTML(travelLog);
 </script>
 
 <%- include("../partials/footer") %>
