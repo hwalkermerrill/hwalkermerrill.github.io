@@ -2,7 +2,7 @@
 import { Router } from "express";
 import { requireLogin, requireRole, requirePermission } from "../middleware/auth.js";
 import { registrationValidation, loginValidation, updateAccountValidation, contactValidation, resetRequestValidation, resetPasswordValidation } from "../middleware/validation/forms.js";
-import { creationPage, resourcesPage, heroPage, npcPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError } from "./index.js";
+import { creationPage, assetsPage, heroPage, npcPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError } from "./index.js";
 import { homePage } from "./pages/home.js";
 import { journalPage } from "./pages/journal.js";
 import { mapPage, setMainMap } from "./pages/maps.js";
@@ -55,7 +55,7 @@ router.use("/maps", (req, res, next) => {
 
 // Routes.get
 router.get("/", homePage);
-router.get("/resources", resourcesPage);
+router.get("/assets", assetsPage);
 router.get("/heroes", heroPage);
 router.get("/npcs", npcPage);
 router.get("/maps", mapPage);

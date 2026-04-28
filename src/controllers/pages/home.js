@@ -19,7 +19,7 @@ const homePage = async (req, res) => {
       currentLocation = spotlights[spotlights.length - 1];    // newest spotlight
     }
 
-    return res.render("home/home", {
+    return res.render("pages/home/home", {
       title: "Welcome Home",
       currentLocation,
       overviewLocation,

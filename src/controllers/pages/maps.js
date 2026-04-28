@@ -26,7 +26,7 @@ const mapPage = async (req, res) => {
       pastLocations = spotlights.slice(0, -1);
     }
 
-    return res.render("maps/maps", {
+    return res.render("pages/maps/maps", {
       title: "Maps of the Mwangi Expanse",
       mainMap,
       galleryTall,

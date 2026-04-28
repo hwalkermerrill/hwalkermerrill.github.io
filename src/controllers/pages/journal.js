@@ -61,7 +61,7 @@ const journalPage = async (req, res, next) => {
       };
     });
 
-    res.render("journal/journal", {
+    res.render("pages/journal/journal", {
       title: "Travel Log",
       activePage: "journal",
       latestLog,
