@@ -5,7 +5,7 @@ const creationPage = (req, res) => {
 };
 
 const assetsPage = (req, res) => {
-  res.render("assets", { title: "Assets, Artifacts, Relics, Magical Items, Resources, and Favors" });
+  res.render("pages/assets/assets", { title: "Assets, Artifacts, Relics, Magical Items, Resources, and Favors" });
 };
 
 const heroPage = (req, res) => {
