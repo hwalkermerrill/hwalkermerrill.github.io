@@ -4,9 +4,9 @@ const creationPage = (req, res) => {
   res.render("creation", { title: "Character Creation - Step by Step Guide" });
 };
 
-const assetsPage = (req, res) => {
-  res.render("pages/assets/assets", { title: "Assets, Artifacts, Relics, Magical Items, Resources, and Favors" });
-};
+// const assetsPage = (req, res) => {
+//   res.render("pages/assets/assets", { title: "Assets, Artifacts, Relics, Magical Items, Resources, and Favors" });
+// };
 
 const heroPage = (req, res) => {
   res.render("heroes", { title: "Player Explorers and Companions" });
@@ -45,4 +45,4 @@ const testForbiddenError = (req, res, next) => {
   next(err);
 }
 
-export { creationPage, assetsPage, heroPage, npcPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };
+export { creationPage, heroPage, npcPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };

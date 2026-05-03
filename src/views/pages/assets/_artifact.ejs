@@ -1,0 +1,49 @@
+<% if (artifact && artifact.length > 0) { %>
+<h2>Artifacts</h2>
+<strong>Among the most powerful objects in existence, these often-unique magic items cannot be created by mortal means
+  and are not easily destroyed.</strong>
+
+<div class="asset">
+  <% artifact.forEach(a => { %>
+  <section>
+    <h3><%= a.item_name %></h3>
+
+    <figure class="<%= a.is_tall ? 'two-three' : 'one-one' %>">
+      <picture>
+        <% if (a.image_url) { %>
+        <source srcset="<%= a.image_url %>" type="image/webp">
+        <img src="<%= a.image_url %>" alt="<%= a.alt || a.item_name %>">
+        <% } else { %>
+        <img src="/images/core/placeholder.png" alt="<%= a.item_name %>">
+        <% } %>
+      </picture>
+    </figure>
+
+    <% if (a.description) { %>
+    <p><%- a.description %></p>
+    <% } %>
+
+    <% if (a.ability) { %>
+    <p><%- a.ability %></p>
+    <% } %>
+
+    <% if (a.unlock_visible && a.unlock_method) { %>
+    <p><strong>Unlock Method:</strong> <%- a.unlock_method %></p>
+    <% } %>
+
+    <% if (a.boons_visible && a.unlocked_boons) { %>
+    <p><strong>Boons:</strong> <%- a.unlocked_boons %></p>
+    <% } %>
+
+    <% if (a.unique_destruction && a.destruction_method) { %>
+    <p><strong>Destruction:</strong> <%- a.destruction_method %></p>
+    <% } %>
+
+    <% if (hasRole(user, "gm_admin") && a.secrets) { %>
+    <p><strong>Secrets:</strong> <%- a.secrets %></p>
+    <% } %>
+
+  </section>
+  <% }) %>
+</div>
+<% } %>

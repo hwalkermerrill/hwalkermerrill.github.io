@@ -1,0 +1,58 @@
+<% if (relic && relic.length > 0) { %>
+<h2>Relics and Legacies</h2>
+<strong>Occupying a space somewhere between artifacts and magical items, relics are powered by Zeitgeist.</strong>
+<p>Each relic was once a typical magic item that played a central role in a massively important event, increasing
+  dramatically in potency as it drew power from its shaping of fate. As relics fade into obscurity and stories of
+  them cease to be told, they wane in both power and potency. Typically, to restore a Relic to its full majesty, it
+  must be used to accomplish a number of triumphs as stories are told of it anew. However, certain relics may be
+  reawakened to its former glory by being used to fight the same evils they once faced while being wielded by one
+  who is worthy of it.</p>
+<p>The bearer does not need to know how to become worthy of a relic to reawaken it to its glory, but they always
+  must be wielding the item when they accomplish its prescribed worthiness task. A reawakened relic only manifests
+  its full glory to those who are worthy of it. Spellcraft may be used to identify the worthiness task in the same
+  manner as determining an items curse (typically DC 25+CL).</p>
+
+<div class="asset">
+  <% relic.forEach(r => { %>
+  <section>
+    <h3><%= r.item_name %></h3>
+
+    <figure class="<%= r.is_tall ? 'two-three' : 'one-one' %>">
+      <picture>
+        <% if (r.image_url) { %>
+        <source srcset="<%= r.image_url %>" type="image/webp">
+        <img src="<%= r.image_url %>" alt="<%= r.alt || r.item_name %>">
+        <% } else { %>
+        <img src="/images/core/placeholder.png" alt="<%= r.item_name %>">
+        <% } %>
+      </picture>
+    </figure>
+
+    <% if (r.description) { %>
+    <p><%- r.description %></p>
+    <% } %>
+
+    <% if (r.ability) { %>
+    <p><%- r.ability %></p>
+    <% } %>
+
+    <% if (r.unlock_visible && r.unlock_method) { %>
+    <p><strong>Unlock Method:</strong> <%- r.unlock_method %></p>
+    <% } %>
+
+    <% if (r.boons_visible && r.unlocked_boons) { %>
+    <p><strong>Boons:</strong> <%- r.unlocked_boons %></p>
+    <% } %>
+
+    <% if (r.unique_destruction && r.destruction_method) { %>
+    <p><strong>Destruction:</strong> <%- r.destruction_method %></p>
+    <% } %>
+
+    <% if (hasRole(user, "gm_admin") && r.secrets) { %>
+    <p><strong>Secrets:</strong> <%- r.secrets %></p>
+    <% } %>
+
+  </section>
+  <% }) %>
+</div>
+<% } %>

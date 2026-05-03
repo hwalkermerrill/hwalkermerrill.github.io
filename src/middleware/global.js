@@ -1,5 +1,5 @@
 // Imports
-import { hasPermission } from "../utils/permissions.js";
+import { hasPermission, hasRole } from "../utils/permissions.js";
 
 // GLOBAL MIDDLEWARE HERE
 const setHeadAssetsFunctionality = (res) => {
@@ -51,7 +51,9 @@ const addLocalVariables = (req, res, next) => {
 
   // User and permission info
   res.locals.user = req.session.user || null;
+  res.locals.role = req.session.user?.roleName || null;
   res.locals.hasPermission = hasPermission;
+  res.locals.hasRole = hasRole;
   res.locals.isOwner = (ownerId) => {
     return res.locals.user && res.locals.user.id === ownerId;
   };

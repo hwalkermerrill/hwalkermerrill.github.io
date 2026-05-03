@@ -1,0 +1,41 @@
+<% if (unidentified && unidentified.length > 0) { %>
+<h2>Unidentified Items</h2>
+<p>These items have been found but not yet identified.</p>
+
+<div class="asset">
+  <% unidentified.forEach(u => { %>
+  <section>
+
+    <% if (hasRole(user, "gm_admin")) { %>
+    <h3><%= u.item_name %> (Unidentified)</h3>
+    <% } else { %>
+    <h3>Unknown <%= u.item_subtype %></h3>
+    <% } %>
+
+    <figure class="<%= u.is_tall ? 'two-three' : 'one-one' %>">
+      <picture>
+        <% if (u.image_url) { %>
+        <source srcset="<%= u.image_url %>" type="image/webp">
+        <img src="<%= u.image_url %>" alt="<%= u.alt || 'Unknown Item' %>">
+        <% } else { %>
+        <img src="/images/core/loot-placeholder.png" alt="Unknown Item">
+        <% } %>
+      </picture>
+    </figure>
+
+    <% if (u.description) { %>
+    <p><%- u.description %></p>
+    <% } %>
+
+    <% if (hasRole(user, "gm_admin") && u.ability) { %>
+    <p><%- u.ability %></p>
+    <% } %>
+
+    <% if (hasRole(user, "gm_admin") && u.secrets) { %>
+    <p><strong>Secrets:</strong> <%- u.secrets %></p>
+    <% } %>
+
+  </section>
+  <% }) %>
+</div>
+<% } %>

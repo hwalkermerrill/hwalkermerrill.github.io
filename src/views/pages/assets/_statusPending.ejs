@@ -1,0 +1,47 @@
+<% if (pending && pending.length > 0 && hasRole(user, "gm_admin")) { %>
+<h2>Pending Items</h2>
+<p class="gm-note">These items are prepared but not yet introduced into the world.</p>
+
+<div class="asset">
+  <% pending.forEach(p => { %>
+  <section>
+    <h3><%= p.item_name %></h3>
+
+    <figure class="<%= p.is_tall ? 'two-three' : 'one-one' %>">
+      <picture>
+        <% if (p.image_url) { %>
+        <source srcset="<%= p.image_url %>" type="image/webp">
+        <img src="<%= p.image_url %>" alt="<%= p.alt || p.item_name %>">
+        <% } else { %>
+        <img src="/images/core/placeholder.png" alt="<%= p.item_name %>">
+        <% } %>
+      </picture>
+    </figure>
+
+    <% if (p.description) { %>
+    <p><%- p.description %></p>
+    <% } %>
+
+    <% if (p.ability) { %>
+    <p><%- p.ability %></p>
+    <% } %>
+
+    <% if (p.unlock_visible && p.unlock_method) { %>
+    <p><strong>Unlock Method:</strong> <%- p.unlock_method %></p>
+    <% } %>
+
+    <% if (p.boons_visible && p.unlocked_boons) { %>
+    <p><strong>Boons:</strong> <%- p.unlocked_boons %></p>
+    <% } %>
+
+    <% if (p.unique_destruction && p.destruction_method) { %>
+    <p><strong>Destruction:</strong> <%- p.destruction_method %></p>
+    <% } %>
+
+    <% if (p.secrets) { %>
+    <p><strong>Secrets:</strong> <%- p.secrets %></p>
+    <% } %>
+  </section>
+  <% }) %>
+</div>
+<% } %>

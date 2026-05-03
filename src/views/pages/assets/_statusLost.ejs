@@ -1,0 +1,48 @@
+<% if (lost && lost.length > 0 && hasRole(user, "gm_admin")) { %>
+<h2>Lost / Retired Items</h2>
+<p class="gm-note">These items are no longer in circulation.</p>
+
+<div class="asset">
+  <% lost.forEach(l => { %>
+  <section>
+    <h3><%= l.item_name %></h3>
+
+    <figure class="<%= l.is_tall ? 'two-three' : 'one-one' %>">
+      <picture>
+        <% if (l.image_url) { %>
+        <source srcset="<%= l.image_url %>" type="image/webp">
+        <img src="<%= l.image_url %>" alt="<%= l.alt || l.item_name %>">
+        <% } else { %>
+        <img src="/images/core/placeholder.png" alt="<%= l.item_name %>">
+        <% } %>
+      </picture>
+    </figure>
+
+    <% if (l.description) { %>
+    <p><%- l.description %></p>
+    <% } %>
+
+    <% if (l.ability) { %>
+    <p><%- l.ability %></p>
+    <% } %>
+
+    <% if (l.unlock_visible && l.unlock_method) { %>
+    <p><strong>Unlock Method:</strong> <%- l.unlock_method %></p>
+    <% } %>
+
+    <% if (l.boons_visible && l.unlocked_boons) { %>
+    <p><strong>Boons:</strong> <%- l.unlocked_boons %></p>
+    <% } %>
+
+    <% if (l.unique_destruction && l.destruction_method) { %>
+    <p><strong>Destruction:</strong> <%- l.destruction_method %></p>
+    <% } %>
+
+    <% if (l.secrets) { %>
+    <p><strong>Secrets:</strong> <%- l.secrets %></p>
+    <% } %>
+
+  </section>
+  <% }) %>
+</div>
+<% } %>

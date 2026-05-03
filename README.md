@@ -47,6 +47,7 @@ Change hero image settings to be dynamically settable from an interface.
 Change spotlight settings to be dynamically settable from an interface.
 Change PCs, NPCs, Factions, and Items to be dynamically displayed and filterable.
 Change Surveys to dynamically set data from DB, allow main map to be dynamically settable from interface and changeable from users perspective.
+Create detail page for characters or objects, embed editing there.
 Setup Dashboard displays.
 Setup CSS to be served dynamically.
 Add quests to Travel Log

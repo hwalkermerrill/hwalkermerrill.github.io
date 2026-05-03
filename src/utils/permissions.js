@@ -94,15 +94,23 @@ const ROLE_PERMISSIONS = {
 };
 
 // Role hierarchy for easy comparison
-export const ROLE_RANK = {
+const ROLE_RANK = {
   user: 1,
   moderator: 2,
   gm_admin: 3
 };
 
+// Universal Role Check
+function hasRole(user, roleName) {
+  if (!user) return false;
+  return user.roleName === roleName;
+}
+
 // Universal Permission Check
-export function hasPermission(user, permission) {
+function hasPermission(user, permission) {
   if (!user) return false;
   const role = user.roleName;
   return ROLE_PERMISSIONS[role]?.includes(permission) || false;
 }
+
+export { ROLE_PERMISSIONS, ROLE_RANK, hasRole, hasPermission }

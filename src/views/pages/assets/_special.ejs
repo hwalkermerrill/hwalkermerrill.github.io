@@ -1,0 +1,50 @@
+<% if (special && special.length > 0) { %>
+<h2>Storied Objects</h2>
+<p>Unique curiosities, magical oddities, and strange treasures, these are not necessarily powerful, but still
+  one-of-a-kind.
+</p>
+
+<div class="asset">
+  <% special.forEach(s => { %>
+  <section>
+    <h3><%= s.item_name %></h3>
+
+    <figure class="<%= s.is_tall ? 'two-three' : 'one-one' %>">
+      <picture>
+        <% if (s.image_url) { %>
+        <source srcset="<%= s.image_url %>" type="image/webp">
+        <img src="<%= s.image_url %>" alt="<%= s.alt || s.item_name %>">
+        <% } else { %>
+        <img src="/images/core/placeholder.png" alt="<%= s.item_name %>">
+        <% } %>
+      </picture>
+    </figure>
+
+    <% if (s.description) { %>
+    <p><%- s.description %></p>
+    <% } %>
+
+    <% if (s.ability) { %>
+    <p><%- s.ability %></p>
+    <% } %>
+
+    <% if (s.unlock_visible && s.unlock_method) { %>
+    <p><strong>Unlock Method:</strong> <%- s.unlock_method %></p>
+    <% } %>
+
+    <% if (s.boons_visible && s.unlocked_boons) { %>
+    <p><strong>Boons:</strong> <%- s.unlocked_boons %></p>
+    <% } %>
+
+    <% if (s.unique_destruction && s.destruction_method) { %>
+    <p><strong>Destruction:</strong> <%- s.destruction_method %></p>
+    <% } %>
+
+    <% if (hasRole(user, "gm_admin") && s.secrets) { %>
+    <p><strong>Secrets:</strong> <%- s.secrets %></p>
+    <% } %>
+
+  </section>
+  <% }) %>
+</div>
+<% } %>

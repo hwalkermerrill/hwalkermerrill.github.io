@@ -1,0 +1,48 @@
+<% if (major && major.length > 0) { %>
+<h2>Major Items</h2>
+<strong>These powerful and often-unique magical items are crafting their stories alongside their heroes.</strong>
+
+<div class="asset">
+  <% major.forEach(m => { %>
+  <section>
+    <h3><%= m.item_name %></h3>
+
+    <figure class="<%= m.is_tall ? 'two-three' : 'one-one' %>">
+      <picture>
+        <% if (m.image_url) { %>
+        <source srcset="<%= m.image_url %>" type="image/webp">
+        <img src="<%= m.image_url %>" alt="<%= m.alt || m.item_name %>">
+        <% } else { %>
+        <img src="/images/core/placeholder.png" alt="<%= m.item_name %>">
+        <% } %>
+      </picture>
+    </figure>
+
+    <% if (m.description) { %>
+    <p><%- m.description %></p>
+    <% } %>
+
+    <% if (m.ability) { %>
+    <p><%- m.ability %></p>
+    <% } %>
+
+    <% if (m.unlock_visible && m.unlock_method) { %>
+    <p><strong>Unlock Method:</strong> <%- m.unlock_method %></p>
+    <% } %>
+
+    <% if (m.boons_visible && m.unlocked_boons) { %>
+    <p><strong>Boons:</strong> <%- m.unlocked_boons %></p>
+    <% } %>
+
+    <% if (m.unique_destruction && m.destruction_method) { %>
+    <p><strong>Destruction:</strong> <%- m.destruction_method %></p>
+    <% } %>
+
+    <% if (hasRole(user, "gm_admin") && m.secrets) { %>
+    <p><strong>Secrets:</strong> <%- m.secrets %></p>
+    <% } %>
+
+  </section>
+  <% }) %>
+</div>
+<% } %>
