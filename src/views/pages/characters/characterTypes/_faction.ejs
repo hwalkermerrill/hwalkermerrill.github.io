@@ -1,0 +1,9 @@
+<% if (factionActive && factionActive.length > 0) { %>
+<h2>Factions</h2>
+
+<div class="asset">
+  <% factionActive.forEach(faction => { %>
+  <%- include("../_card", { item: faction, type: "faction", user }) %>
+  <% }) %>
+</div>
+<% } %>

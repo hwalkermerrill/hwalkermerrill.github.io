@@ -1,0 +1,15 @@
+<% if ((npcSpotlight && npcSpotlight.length > 0) || (factionSpotlight && factionSpotlight.length > 0)) { %>
+<h2>Spotlight Characters</h2>
+
+<div class="asset spotlight">
+
+  <% npcSpotlight.forEach(npc => { %>
+  <%- include("../_card", { item: npc, type: "npc", user }) %>
+  <% }) %>
+
+  <% factionSpotlight.forEach(faction => { %>
+  <%- include("../_card", { item: faction, type: "faction", user }) %>
+  <% }) %>
+
+</div>
+<% } %>

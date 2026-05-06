@@ -1,0 +1,31 @@
+<% 
+  const hasRetired = 
+    (pcRetired && pcRetired.length > 0) ||
+    (compRetired && compRetired.length > 0) ||
+    (npcRetired && npcRetired.length > 0) ||
+    (factionRetired && factionRetired.length > 0);
+%>
+
+<% if (hasRetired) { %>
+<h2>Retired Characters</h2>
+
+<div class="asset">
+
+  <% pcRetired.forEach(pc => { %>
+  <%- include("../_card", { item: pc, type: "pc", user }) %>
+  <% }) %>
+
+  <% compRetired.forEach(comp => { %>
+  <%- include("../_card", { item: comp, type: "companion", user }) %>
+  <% }) %>
+
+  <% npcRetired.forEach(npc => { %>
+  <%- include("../_card", { item: npc, type: "npc", user }) %>
+  <% }) %>
+
+  <% factionRetired.forEach(faction => { %>
+  <%- include("../_card", { item: faction, type: "faction", user }) %>
+  <% }) %>
+
+</div>
+<% } %>

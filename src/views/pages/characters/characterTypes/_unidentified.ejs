@@ -1,0 +1,27 @@
+<% 
+  const hasUnidentified = 
+    (pcUnidentified && pcUnidentified.length > 0) ||
+    (compUnidentified && compUnidentified.length > 0) ||
+    (npcUnidentified && npcUnidentified.length > 0);
+%>
+
+<% if (hasUnidentified) { %>
+<h2>Unidentified Characters</h2>
+<p>These individuals have been encountered, but their identities remain unknown.</p>
+
+<div class="asset">
+
+  <% pcUnidentified.forEach(pc => { %>
+  <%- include("../_card", { item: pc, type: "pc", user }) %>
+  <% }) %>
+
+  <% compUnidentified.forEach(comp => { %>
+  <%- include("../_card", { item: comp, type: "companion", user }) %>
+  <% }) %>
+
+  <% npcUnidentified.forEach(npc => { %>
+  <%- include("../_card", { item: npc, type: "npc", user }) %>
+  <% }) %>
+
+</div>
+<% } %>

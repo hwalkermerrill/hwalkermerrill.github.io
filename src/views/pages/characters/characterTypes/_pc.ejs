@@ -1,0 +1,9 @@
+<% if (pcActive && pcActive.length > 0) { %>
+<h2>Player Characters</h2>
+
+<div class="asset">
+  <% pcActive.forEach(pc => { %>
+  <%- include("../_card", { item: pc, type: "pc", user }) %>
+  <% }) %>
+</div>
+<% } %>

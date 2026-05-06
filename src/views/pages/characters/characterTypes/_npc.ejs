@@ -1,0 +1,9 @@
+<% if (npcActive && npcActive.length > 0) { %>
+<h2>NPCs</h2>
+
+<div class="asset">
+  <% npcActive.forEach(npc => { %>
+  <%- include("../_card", { item: npc, type: "npc", user }) %>
+  <% }) %>
+</div>
+<% } %>

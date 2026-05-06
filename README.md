@@ -61,6 +61,8 @@ Allow GMs to change statuses of PCs, items, npcs, and factions, delete content, 
 Some sort of relationship meter that players can see to see how close they are to advancing/falling in a relationship.
 Individual detail pages for characters, items, ect.
 Make \_card partial for assets to unify styling.
+Add progress bar for influencing factions and npc's
+Add subtitle logic
 
 ## Current Minor Bugs or Visual Errors
 

@@ -1,0 +1,9 @@
+<% if (compActive && compActive.length > 0) { %>
+<h2>Companions</h2>
+
+<div class="asset">
+  <% compActive.forEach(comp => { %>
+  <%- include("../_card", { item: comp, type: "companion", user }) %>
+  <% }) %>
+</div>
+<% } %>

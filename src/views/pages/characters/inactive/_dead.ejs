@@ -1,0 +1,31 @@
+<% 
+  const hasDead = 
+    (pcDead && pcDead.length > 0) ||
+    (compDead && compDead.length > 0) ||
+    (npcDead && npcDead.length > 0) ||
+    (factionDead && factionDead.length > 0);
+%>
+
+<% if (hasDead) { %>
+<h2>Fallen Characters</h2>
+
+<div class="asset">
+
+  <% pcDead.forEach(pc => { %>
+  <%- include("../_card", { item: pc, type: "pc", user }) %>
+  <% }) %>
+
+  <% compDead.forEach(comp => { %>
+  <%- include("../_card", { item: comp, type: "companion", user }) %>
+  <% }) %>
+
+  <% npcDead.forEach(npc => { %>
+  <%- include("../_card", { item: npc, type: "npc", user }) %>
+  <% }) %>
+
+  <% factionDead.forEach(faction => { %>
+  <%- include("../_card", { item: faction, type: "faction", user }) %>
+  <% }) %>
+
+</div>
+<% } %>

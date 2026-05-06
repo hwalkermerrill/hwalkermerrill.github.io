@@ -1,0 +1,36 @@
+<% if (hasRole(user, "gm_admin")) { %>
+
+<% 
+    const hasPending = 
+      (pcPending && pcPending.length > 0) ||
+      (compPending && compPending.length > 0) ||
+      (npcPending && npcPending.length > 0) ||
+      (factionPending && factionPending.length > 0);
+  %>
+
+<% if (hasPending) { %>
+<h2>Pending Characters</h2>
+<p class="gm-note">These characters exist in the world but have not yet been introduced.</p>
+
+<div class="asset">
+
+  <% pcPending.forEach(pc => { %>
+  <%- include("../_card", { item: pc, type: "pc", user }) %>
+  <% }) %>
+
+  <% compPending.forEach(comp => { %>
+  <%- include("../_card", { item: comp, type: "companion", user }) %>
+  <% }) %>
+
+  <% npcPending.forEach(npc => { %>
+  <%- include("../_card", { item: npc, type: "npc", user }) %>
+  <% }) %>
+
+  <% factionPending.forEach(faction => { %>
+  <%- include("../_card", { item: faction, type: "faction", user }) %>
+  <% }) %>
+
+</div>
+<% } %>
+
+<% } %>

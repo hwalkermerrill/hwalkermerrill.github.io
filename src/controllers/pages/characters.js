@@ -7,10 +7,10 @@ const charactersPage = async (req, res) => {
 
   try {
     // Load data from model
-    const pcs = await getPCs({ campaignId });
-    const companions = await getCompanions({ campaignId });
-    const npcs = await getNPCs({ campaignId });
-    const factions = await getFactions({ campaignId });
+    const pcs = (await getPCs({ campaignId })).map(normalizePC);
+    const companions = (await getCompanions({ campaignId })).map(normalizeCompanion);
+    const npcs = (await getNPCs({ campaignId })).map(normalizeNPC);
+    const factions = (await getFactions({ campaignId })).map(normalizeFaction);
 
     // === SPOTLIGHT (exclusive) ===
     const npcSpotlight = npcs.filter(i => i.pinned === true);
@@ -85,5 +85,102 @@ const charactersPage = async (req, res) => {
     return res.redirect("/");
   }
 };
+
+function computeUnlockedBoons(attitudeId, row) {
+  switch (attitudeId) {
+    case 1: // Hostile
+      return [row.unfriendly_boon, row.hostile_boon].filter(Boolean).join(" ");
+    case 2: // Unfriendly
+      return row.unfriendly_boon || null;
+    case 4: // Friendly
+      return row.friendly_boon || null;
+    case 5: // Helpful
+      return [row.friendly_boon, row.helpful_boon].filter(Boolean).join(" ");
+    default:
+      return null;
+  }
+}
+
+// Normalize Functions
+function normalizePC(pc) {
+  const subtitles = [];
+
+  // TITLE LOGIC (highest title only)
+  if (pc.highest_title) {
+    const title = pc.highest_title;
+    const titleText = title.has_location
+      ? `${title.title_name} of ${title.title_location}`
+      : title.title_name;
+
+    subtitles.push(titleText);
+
+    // Honorific name
+    if (title.use_honorific) {
+      pc.name = `${title.title_name} ${pc.name}`;
+    }
+  }
+
+  // CLASS STRING
+  if (pc.class_string) {
+    subtitles.push(pc.class_string);
+  }
+
+  return {
+    ...pc,
+    subtitles,
+    attitude_class: pc.attitude_name?.toLowerCase() || null,
+    unlocked_boons: null,
+    boons_visible: false
+  };
+}
+
+function normalizeCompanion(comp) {
+  const subtitles = [];
+
+  // CLASS STRING
+  if (comp.class_string) {
+    subtitles.push(comp.class_string);
+  }
+
+  return {
+    ...comp,
+    subtitles,
+    attitude_class: comp.attitude_name?.toLowerCase() || null,
+    unlocked_boons: null,
+    boons_visible: false
+  };
+}
+
+function normalizeNPC(npc) {
+  const subtitles = []; // NPCs don't use subtitles except role, if you want
+
+  const unlocked_boons = computeUnlockedBoons(npc.attitude_id, npc);
+
+  return {
+    ...npc,
+    subtitles,
+    attitude_class: npc.attitude_name?.toLowerCase() || null,
+    unlocked_boons,
+    boons_visible: Boolean(unlocked_boons)
+  };
+}
+
+function normalizeFaction(faction) {
+  const subtitles = [];
+
+  if (faction.faction_type) {
+    subtitles.push(faction.faction_type);
+  }
+
+  const unlocked_boons = computeUnlockedBoons(faction.attitude_id, faction);
+
+  return {
+    ...faction,
+    subtitles,
+    attitude_class: faction.attitude_name?.toLowerCase() || null,
+    unlocked_boons,
+    boons_visible: Boolean(unlocked_boons)
+  };
+}
 
 export { charactersPage };
