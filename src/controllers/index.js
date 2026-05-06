@@ -8,13 +8,13 @@ const creationPage = (req, res) => {
 //   res.render("pages/assets/assets", { title: "Assets, Artifacts, Relics, Magical Items, Resources, and Favors" });
 // };
 
-const heroPage = (req, res) => {
-  res.render("heroes", { title: "Player Explorers and Companions" });
-}
+// const heroPage = (req, res) => {
+//   res.render("heroes", { title: "Player Explorers and Companions" });
+// }
 
-const npcPage = (req, res) => {
-  res.render("npcs", { title: "Notable NPC and Faction Profiles" });
-}
+// const npcPage = (req, res) => {
+//   res.render("npcs", { title: "Notable NPC and Faction Profiles" });
+// }
 
 const rulesPage = (req, res) => {
   res.render("rules", { title: "House Rules, Rulings, Explanations, and Guidelines" });
@@ -45,4 +45,4 @@ const testForbiddenError = (req, res, next) => {
   next(err);
 }
 
-export { creationPage, heroPage, npcPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };
+export { creationPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };
