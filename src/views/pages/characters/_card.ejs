@@ -1,0 +1,160 @@
+<section>
+
+  <!-- ========================= -->
+  <!--        NAME BLOCK         -->
+  <!-- ========================= -->
+
+  <h3>
+    <% 
+      // IDENTIFICATION LOGIC
+      const isGM = hasRole(user, "gm_admin");
+      const isOwner = (item.user_id && user && item.user_id === user.id);
+      const canSeeSecret = isGM || isOwner;
+
+      const displayName = item.is_identified 
+        ? item.name 
+        : item.unknown_name || "Unknown";
+
+      const secretName = (canSeeSecret && item.secret_name && item.show_secret_name)
+        ? item.secret_name
+        : null;
+    %>
+
+    <%= displayName %>
+
+    <% if (secretName) { %>
+    <br>
+    <span class="secret-name"><%= secretName %></span>
+    <% } %>
+  </h3>
+
+
+  <!-- ========================= -->
+  <!--         SUBTITLE          -->
+  <!-- ========================= -->
+
+  <% if (item.subtitle) { %>
+  <strong><%= item.subtitle %></strong>
+  <br><br>
+  <% } %>
+
+
+  <!-- ========================= -->
+  <!--       IMAGE BLOCK         -->
+  <!-- ========================= -->
+
+  <%
+    // MAIN IMAGE
+    const mainImg = item.gallery?.find(img => img.is_main) 
+      || { image_url: "/images/core/unknown.png", alt: "Unknown" };
+
+    // HOVER IMAGE
+    const hoverImg = item.gallery?.find(img => img.is_hover && img.hover_visible);
+  %>
+
+  <figure class="<%= mainImg.is_tall ? 'two-three' : 'one-one' %>">
+    <picture>
+      <source srcset="<%= mainImg.image_url %>" type="image/webp">
+      <img class="fadeOnHover" src="<%= mainImg.image_url %>" alt="<%= mainImg.alt || displayName %>">
+    </picture>
+
+    <% if (hoverImg) { %>
+    <picture>
+      <source srcset="<%= hoverImg.image_url %>" type="image/webp">
+      <img class="appearOnHover" src="<%= hoverImg.image_url %>" alt="<%= hoverImg.alt || displayName %>">
+    </picture>
+    <% } %>
+  </figure>
+
+
+  <!-- ========================= -->
+  <!--     RETIRED / DEAD        -->
+  <!-- ========================= -->
+
+  <% if (item.active_status_id === 3 && item.retired_reason) { %>
+  <p><strong>Retired:</strong> <%- item.retired_reason %></p>
+  <% } %>
+
+  <% if (item.active_status_id === 4 && item.death_cause) { %>
+  <p><strong>Cause of Death:</strong> <%- item.death_cause %></p>
+  <% } %>
+
+
+  <!-- ========================= -->
+  <!--     APPEARANCE / BG       -->
+  <!-- ========================= -->
+
+  <% if (item.appearance) { %>
+  <p><strong>Appearance:</strong> <%- item.appearance %></p>
+  <% } %>
+
+  <% if (item.background && item.is_identified) { %>
+  <p><strong>Background:</strong> <%- item.background %></p>
+  <% } %>
+
+
+  <!-- ========================= -->
+  <!--      EXTRA DETAILS        -->
+  <!-- ========================= -->
+
+  <% if (item.extra_details) { %>
+  <p><%- item.extra_details %></p>
+  <% } %>
+
+
+  <!-- ========================= -->
+  <!--      HIDDEN DETAILS       -->
+  <!-- ========================= -->
+
+  <% if (item.hidden_details) { %>
+  <% if (item.reveal_hidden_details) { %>
+  <!-- Player-visible reveal -->
+  <p><%- item.hidden_details %></p>
+  <% } else if (isGM) { %>
+  <!-- GM-only hidden text -->
+  <p><strong>Hidden Text:</strong> <%- item.hidden_details %></p>
+  <% } %>
+  <% } %>
+
+
+  <!-- ========================= -->
+  <!--      SOCIAL PROFILE       -->
+  <!-- ========================= -->
+
+  <% 
+    const isRetiredOrDead = (item.active_status_id === 3 || item.active_status_id === 4);
+  %>
+
+  <% if (!isRetiredOrDead && item.social_profile && item.social_profile.length > 0) { %>
+  <ul>
+    <li style="list-style-type:none;"><b>Social Profile:</b></li>
+
+    <% item.social_profile.forEach(line => { %>
+    <li><%= line %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+
+
+  <!-- ========================= -->
+  <!--          BOONS            -->
+  <!-- ========================= -->
+
+  <% if (!isRetiredOrDead && item.boons_visible && item.unlocked_boons) { %>
+  <p><strong>Boons:</strong> <%- item.unlocked_boons %></p>
+  <% } %>
+
+  <% if (!isRetiredOrDead && isGM && item.hidden_boons) { %>
+  <p><strong>GM Hidden Boons:</strong> <%- item.hidden_boons %></p>
+  <% } %>
+
+
+  <!-- ========================= -->
+  <!--       GM-ONLY SECRETS     -->
+  <!-- ========================= -->
+
+  <% if (isGM && item.secrets) { %>
+  <p><strong>GM Secrets:</strong> <%- item.secrets %></p>
+  <% } %>
+
+</section>

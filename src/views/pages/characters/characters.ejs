@@ -21,20 +21,20 @@
   <div class="clearfix"></div>
 
   <!-- Include Partials Order: spotlight, pc, companion, npc, unidentified, faction -->
-  <%- include("./_spotlight") %>
-  <%- include("./_pc") %>
-  <%- include("./_companion") %>
-  <%- include("./_npc") %>
-  <%- include("./_unidentified") %>
-  <%- include("./_faction") %>
+  <%- include("./characterTypes/_spotlight") %>
+  <%- include("./characterTypes/_pc") %>
+  <%- include("./characterTypes/_companion") %>
+  <%- include("./characterTypes/_npc") %>
+  <%- include("./characterTypes/_unidentified") %>
+  <%- include("./characterTypes/_faction") %>
 
   <!-- Characters Past Importance -->
-  <%- include("./_retired") %>
-  <%- include("./_dead") %>
+  <%- include("./inactive/_retired") %>
+  <%- include("./inactive/_dead") %>
 
   <!-- GM Only Inclusions -->
   <% if (hasRole(user, "gm_admin")) { %>
-  <%- include("./_pending") %>
+  <%- include("./inactive/_pending") %>
   <% } %>
 </main>
 
