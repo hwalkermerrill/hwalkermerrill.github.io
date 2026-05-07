@@ -1,9 +1,39 @@
 <% if (factionActive && factionActive.length > 0) { %>
+
 <h2>Factions</h2>
 
+<%
+  // Build dynamic groups from already-sorted factions
+  const groups = {};
+
+  factionActive.forEach(f => {
+    const type = f.faction_type || "Other";
+    if (!groups[type]) groups[type] = [];
+    groups[type].push(f);
+  });
+
+  // Label formatter
+  function labelFor(type) {
+    const lower = type.toLowerCase();
+
+    if (lower === "major faction") return "Major Factions";
+    if (lower === "spirit totem") return "Spirit Totems";
+
+    // Title Case for everything else
+    return type.replace(/\b\w/g, c => c.toUpperCase());
+  }
+%>
+
+<% Object.entries(groups).forEach(([type, list]) => { %>
+<% if (list.length > 0) { %>
+<h3><%= labelFor(type) %></h3>
+
 <div class="asset">
-  <% factionActive.forEach(faction => { %>
+  <% list.forEach(faction => { %>
   <%- include("../_card", { item: faction, type: "faction", user }) %>
   <% }) %>
 </div>
+<% } %>
+<% }) %>
+
 <% } %>

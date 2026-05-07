@@ -1,569 +1,303 @@
 // Imports
-import db from "../../db.js";
+import db from "../db.js";
 
-/**
- * Get all PCs for a campaign OR for a specific user.
- * 
- * @param {Object} filters
- * @param {number|null} filters.campaignId - Filter by campaign
- * @param {number|null} filters.userId - Filter by owner
- * 
- * If both are provided → AND filter.
- * If neither is provided → return ALL PCs (GM tools).
- */
-const getPCs = async ({ campaignId = null, userId = null } = {}) => {
-	// Create constants
-	const params = [];
-	const conditions = [];
+// Helpers - JOIN
+const SOCIAL_JOIN = (type) => `
+  LEFT JOIN ${type}_social soc
+    ON soc.${type}_id = character.id
+`;
 
-	// Filter by campaign
-	if (campaignId) {
-		params.push(campaignId);
-		conditions.push(`pc.campaign_id = $${params.length}`);
-	}
+const GALLERY_JOIN = (type) => `
+  LEFT JOIN ${type}_gallery g
+    ON g.${type}_id = character.id
+`;
 
-	// Filter by owner
-	if (userId) {
-		params.push(userId);
-		conditions.push(`pc.user_id = $${params.length}`);
-	}
+const TITLES_JOIN = (type) => `
+  LEFT JOIN ${type}_titles t
+    ON t.${type}_id = character.id
+  LEFT JOIN titles ti
+    ON ti.id = t.title_id
+  LEFT JOIN title_ranks tr
+    ON tr.id = ti.rank_id
+`;
 
-	// WHERE clause (optional)
-	const whereClause = conditions.length > 0
-		? `WHERE ${conditions.join(" AND ")}`
-		: "";
+const CLASSES_JOIN = (type) => `
+  LEFT JOIN ${type}_class cls
+    ON cls.${type}_id = character.id
+  LEFT JOIN ${type}_class_archetype arch
+    ON arch.${type}_class_id = cls.id
+`;
 
-	const query = `
-    SELECT
-      pc.id,
-      pc.user_id,
-      pc.campaign_id,
-      pc.active_status_id,
-      pc.race_id,
-      pc.pc_name,
-      pc.unknown_name,
-      pc.is_identified,
-      pc.secret_name,
-      pc.show_secret_name,
-      pc.secret_color,
-      pc.is_gendered,
-      pc.is_female,
-      pc.description,
-      pc.race_traits,
-      pc.retired_reason,
-      pc.death_cause,
-      pc.end_session,
-      pc.created_at,
+const ACHIEVEMENTS_JOIN = (type) => `
+  LEFT JOIN ${type}_achievements ach
+    ON ach.${type}_id = character.id
+`;
 
-      -- Social biography
-      soc.appearance AS social_appearance,
-      soc.background AS social_background,
-      soc.associates AS social_associates,
-      soc.rumors AS social_rumors,
-      soc.aspirations AS social_aspirations,
-      soc.anathema AS social_anathema,
-      soc.phobias AS social_phobias,
-      soc.quirks AS social_quirks,
-      soc.flaws AS social_flaws,
-      soc.secrets AS social_secrets,
+const SCARS_JOIN = (type) => `
+  LEFT JOIN ${type}_scars sc
+    ON sc.${type}_id = character.id
+`;
 
-      -- Main gallery image
-      gal_main.image_url AS main_image_url,
-      gal_main.alt AS main_image_alt,
-      gal_main.is_tall AS main_image_tall,
+const ATTITUDE_JOIN = (type) => `
+  LEFT JOIN ${type}_attitude att
+    ON att.${type}_id = character.id
+`;
 
-      -- Hover image (optional)
-      gal_hover.image_url AS hover_image_url,
-      gal_hover.alt AS hover_image_alt,
-      gal_hover.is_tall AS hover_image_tall,
+const QUESTS_JOIN = (type) => `
+  LEFT JOIN ${type}_quests q
+    ON q.${type}_id = character.id
+`;
 
-      -- Religion (optional)
-      rel.religion_id,
-      rel.notes AS religion_notes,
-      rel.secrets AS religion_secrets,
+const LANGUAGES_JOIN = (type) => `
+  LEFT JOIN ${type}_language lang
+    ON lang.${type}_id = character.id
+`;
 
-      -- Titles (optional)
-      t.title_id,
-      t.title_location,
-      t.adjust_ranking,
-      t.adjust_value,
-      t.has_location,
-      t.use_honorific,
-      t.received_session,
+// Helpers - SELECT
+const SELECT_GALLERY_AGG = `
+  json_agg(
+    jsonb_build_object(
+      'image_url', g.image_url,
+      'alt', g.alt,
+      'is_main', g.is_main,
+      'is_hover', g.is_hover,
+      'hover_visible', g.hover_visible,
+      'is_tall', g.is_tall
+    )
+  ) FILTER (WHERE g.id IS NOT NULL) AS gallery
+`;
 
-      -- Class + archetypes
-      cls.class_id,
-      cls.class_level,
-      cls.unknown_name AS class_unknown_name,
-      arch.archetype_name,
+const SELECT_TITLES_AGG = `
+  json_agg(
+    jsonb_build_object(
+      'title_id', t.title_id,
+      'title_name', ti.title_name,
+      'title_location', t.title_location,
+      'has_location', t.has_location,
+      'use_honorific', t.use_honorific,
+      'adjust_ranking', t.adjust_ranking,
+      'adjust_value', t.adjust_value,
+      'title_sort_order', tr.sort_order
+    )
+  ) FILTER (WHERE t.title_id IS NOT NULL) AS titles
+`;
 
-      -- Achievements (optional)
-      ach.achievement_id,
-      ach.is_killing_blow,
+const SELECT_CLASSES_AGG = `
+  json_agg(
+    jsonb_build_object(
+      'class_id', cls.class_id,
+      'class_level', cls.class_level,
+      'unknown_name', cls.unknown_name,
+      'archetype_name', arch.archetype_name
+    )
+  ) FILTER (WHERE cls.class_id IS NOT NULL) AS classes
+`;
 
-      -- Scars (optional)
-      sc.scar_cause,
-      sc.scar_description,
-      sc.session_received
+const SELECT_SCARS_AGG = `
+  json_agg(
+    jsonb_build_object(
+      'scar_cause', sc.scar_cause,
+      'scar_description', sc.scar_description,
+      'session_received', sc.session_received
+    )
+  ) FILTER (WHERE sc.scar_cause IS NOT NULL) AS scars
+`;
 
-    FROM pc_main pc
+const SELECT_ACHIEVEMENTS_AGG = `
+  json_agg(
+    jsonb_build_object(
+      'achievement_id', ach.achievement_id,
+      'is_killing_blow', ach.is_killing_blow
+    )
+  ) FILTER (WHERE ach.achievement_id IS NOT NULL) AS achievements
+`;
 
-    -- Social biography
-    LEFT JOIN pc_social soc
-      ON soc.pc_id = pc.id
+const SELECT_QUESTS_AGG = `
+  json_agg(q.quest_id) FILTER (WHERE q.quest_id IS NOT NULL) AS quests
+`;
 
-    -- Main gallery image
-    LEFT JOIN pc_gallery gal_main
-      ON gal_main.pc_id = pc.id
-      AND gal_main.is_main = TRUE
+const SELECT_LANGUAGES_AGG = `
+  json_agg(lang.language_id) FILTER (WHERE lang.language_id IS NOT NULL) AS languages
+`;
 
-    -- Hover image
-    LEFT JOIN pc_gallery gal_hover
-      ON gal_hover.pc_id = pc.id
-      AND gal_hover.is_hover = TRUE
-      AND gal_hover.hover_visible = TRUE
+const SELECT_ATTITUDE_OBJECT = `
+  jsonb_agg(
+    jsonb_build_object(
+      'attitude_id', att.attitude_id,
+      'favored_pc', att.favored_pc,
+      'allies', att.allies,
+      'allies_visible', att.allies_visible,
+      'enemies', att.enemies,
+      'enemies_visible', att.enemies_visible,
+      'influence_skills', att.influence_skills,
+      'skills_visible', att.skills_visible,
+      'influence_notes', att.influence_notes,
+      'notes_visible', att.notes_visible,
+      'progress_made', att.progress_made,
+      'progress_threshold', att.progress_threshold,
+      'hostile_boon', att.hostile_boon,
+      'unfriendly_boon', att.unfriendly_boon,
+      'friendly_boon', att.friendly_boon,
+      'helpful_boon', att.helpful_boon,
+      'notes', att.notes,
+      'secrets', att.secrets
+    )
+  ) FILTER (WHERE att.attitude_id IS NOT NULL) AS attitude
+`;
 
-    -- Religion
-    LEFT JOIN pc_religion rel
-      ON rel.pc_id = pc.id
+const SELECT_SOCIAL_OBJECT = (type) => {
+  switch (type) {
+    case "pc":
+      return `
+        jsonb_build_object(
+          'appearance', soc.appearance,
+          'background', soc.background,
+          'associates', soc.associates,
+          'rumors', soc.rumors,
+          'aspirations', soc.aspirations,
+          'anathema', soc.anathema,
+          'phobias', soc.phobias,
+          'quirks', soc.quirks,
+          'flaws', soc.flaws,
+          'secrets', soc.secrets
+        ) AS social
+      `;
+    case "companion":
+      return `
+        jsonb_build_object(
+          'appearance', soc.appearance,
+          'background', soc.background,
+          'extra_details', soc.extra_details,
+          'secrets', soc.secrets
+        ) AS social
+      `;
+    case "npc":
+    case "faction":
+      return `
+        jsonb_build_object(
+          'appearance', soc.appearance,
+          'background', soc.background,
+          'extra_details', soc.extra_details,
+          'hidden_details', soc.hidden_details,
+          'reveal_hidden_details', soc.reveal_hidden_details,
+          'secrets', soc.secrets
+        ) AS social
+      `;
+  }
+};
 
-    -- Titles
-    LEFT JOIN pc_titles t
-      ON t.pc_id = pc.id
+// Helpers - WHERE
+function buildWhereClause({ campaignId, userId, type }) {
+  const params = [];
+  const conditions = [];
 
-    -- Classes
-    LEFT JOIN pc_class cls
-      ON cls.pc_id = pc.id
+  if (campaignId) {
+    params.push(campaignId);
+    conditions.push(`character.campaign_id = $${params.length}`);
+  }
 
-    -- Archetypes
-    LEFT JOIN pc_class_archetype arch
-      ON arch.pc_class_id = cls.id
+  if (userId && (type === "pc" || type === "companion")) {
+    params.push(userId);
+    conditions.push(`character.user_id = $${params.length}`);
+  }
 
-    -- Achievements
-    LEFT JOIN pc_achievements ach
-      ON ach.pc_id = pc.id
+  const whereClause = conditions.length
+    ? `WHERE ${conditions.join(" AND ")}`
+    : "";
 
-    -- Scars
-    LEFT JOIN pc_scars sc
-      ON sc.pc_id = pc.id
-
-    ${whereClause}
-
-    ORDER BY pc.pc_name ASC;
-  `;
-
-	const { rows } = await db.query(query, params);
-	return rows;
+  return { whereClause, params };
 }
 
+// Helpers - Group By
+const SOCIAL_GROUP_BY = (type) => {
+  switch (type) {
+    case "pc":
+      return `
+        soc.appearance, soc.background, soc.associates, soc.rumors,
+        soc.aspirations, soc.anathema, soc.phobias, soc.quirks,
+        soc.flaws, soc.secrets
+      `;
+    case "companion":
+      return `
+        soc.appearance, soc.background, soc.extra_details, soc.secrets
+      `;
+    case "npc":
+    case "faction":
+      return `
+        soc.appearance, soc.background, soc.extra_details,
+        soc.hidden_details, soc.reveal_hidden_details, soc.secrets
+      `;
+  }
+};
+
+// Core Query Builder
+function buildCharacterQuery({ type, whereClause }) {
+  return `
+    SELECT
+      character.*,
+
+      ${SELECT_SOCIAL_OBJECT(type)},
+      ${SELECT_GALLERY_AGG},
+
+      ${type === "pc" || type === "companion" || type === "npc" ? SELECT_TITLES_AGG : "NULL AS titles"},
+      ${type === "pc" || type === "companion" ? SELECT_CLASSES_AGG : "NULL AS classes"},
+      ${type === "pc" || type === "companion" ? SELECT_SCARS_AGG : "NULL AS scars"},
+      ${type === "pc" || type === "companion" ? SELECT_ACHIEVEMENTS_AGG : "NULL AS achievements"},
+      ${type === "npc" || type === "faction" ? SELECT_ATTITUDE_OBJECT : "NULL AS attitude"},
+      ${type === "npc" || type === "faction" ? SELECT_QUESTS_AGG : "NULL AS quests"},
+      ${type === "npc" ? SELECT_LANGUAGES_AGG : "NULL AS languages"}
+
+    FROM ${type === "faction" ? "factions" : `${type}_main`} character
+
+    ${SOCIAL_JOIN(type)}
+    ${GALLERY_JOIN(type)}
+    
+    ${type === "pc" || type === "companion" || type === "npc" ? TITLES_JOIN(type) : ""}
+    ${type === "pc" || type === "companion" ? CLASSES_JOIN(type) : ""}
+    ${type === "pc" || type === "companion" ? ACHIEVEMENTS_JOIN(type) : ""}
+    ${type === "pc" || type === "companion" ? SCARS_JOIN(type) : ""}
+    ${type === "npc" || type === "faction" ? ATTITUDE_JOIN(type) : ""}
+    ${type === "npc" || type === "faction" ? QUESTS_JOIN(type) : ""}
+    ${type === "npc" ? LANGUAGES_JOIN(type) : ""}
+
+    ${whereClause}
+
+    GROUP BY
+      character.id,
+      ${SOCIAL_GROUP_BY(type)}
+
+    ORDER BY character.${type}_name ASC;
+  `;
+}
+
+// Model Functions
+
+const getPCs = async ({ campaignId = null, userId = null } = {}) => {
+  const { whereClause, params } = buildWhereClause({ campaignId, userId, type: "pc" });
+  const query = buildCharacterQuery({ type: "pc", whereClause });
+  const { rows } = await db.query(query, params);
+  return rows;
+};
+
 const getCompanions = async ({ campaignId = null, userId = null } = {}) => {
-	// Create constants
-	const params = [];
-	const conditions = [];
-
-	// Filter by campaign
-	if (campaignId) {
-		params.push(campaignId);
-		conditions.push(`c.campaign_id = $${params.length}`);
-	}
-
-	// Filter by owner
-	if (userId) {
-		params.push(userId);
-		conditions.push(`c.user_id = $${params.length}`);
-	}
-
-	// WHERE clause (optional)
-	const whereClause = conditions.length > 0
-		? `WHERE ${conditions.join(" AND ")}`
-		: "";
-
-	const query = `
-    SELECT
-      c.id,
-      c.user_id,
-      c.pc_id,
-      c.campaign_id,
-      c.active_status_id,
-      c.race_id,
-      c.companion_name,
-      c.secret_name,
-      c.show_secret_name,
-      c.secret_color,
-      c.is_gendered,
-      c.is_female,
-      c.description,
-      c.race_traits,
-      c.death_cause,
-      c.end_session,
-      c.created_at,
-
-      -- Social biography
-      soc.appearance AS social_appearance,
-      soc.background AS social_background,
-      soc.extra_details AS social_extra_details,
-      soc.secrets AS social_secrets,
-
-      -- Main gallery image
-      gal_main.image_url AS main_image_url,
-      gal_main.alt AS main_image_alt,
-      gal_main.is_tall AS main_image_tall,
-
-      -- Hover image (optional)
-      gal_hover.image_url AS hover_image_url,
-      gal_hover.alt AS hover_image_alt,
-      gal_hover.is_tall AS hover_image_tall,
-
-      -- Religion (optional)
-      rel.religion_id,
-      rel.notes AS religion_notes,
-      rel.secrets AS religion_secrets,
-
-      -- Titles (optional)
-      t.title_id,
-      t.title_location,
-      t.adjust_ranking,
-      t.adjust_value,
-      t.has_location,
-      t.use_honorific,
-      t.received_session,
-
-      -- Class + archetypes
-      cls.class_id,
-      cls.class_level,
-      cls.unknown_name AS class_unknown_name,
-      arch.archetype_name,
-
-      -- Achievements (optional)
-      ach.achievement_id,
-      ach.is_killing_blow,
-
-      -- Scars (optional)
-      sc.scar_cause,
-      sc.scar_description,
-      sc.session_received
-
-    FROM companion_main c
-
-    -- Social biography
-    LEFT JOIN companion_social soc
-      ON soc.companion_id = c.id
-
-    -- Main gallery image
-    LEFT JOIN companion_gallery gal_main
-      ON gal_main.companion_id = c.id
-      AND gal_main.is_main = TRUE
-
-    -- Hover image
-    LEFT JOIN companion_gallery gal_hover
-      ON gal_hover.companion_id = c.id
-      AND gal_hover.is_hover = TRUE
-      AND gal_hover.hover_visible = TRUE
-
-    -- Religion
-    LEFT JOIN companion_religion rel
-      ON rel.companion_id = c.id
-
-    -- Titles
-    LEFT JOIN companion_titles t
-      ON t.companion_id = c.id
-
-    -- Classes
-    LEFT JOIN companion_class cls
-      ON cls.companion_id = c.id
-
-    -- Archetypes
-    LEFT JOIN companion_class_archetype arch
-      ON arch.companion_class_id = cls.id
-
-    -- Achievements
-    LEFT JOIN companion_achievements ach
-      ON ach.companion_id = c.id
-
-    -- Scars
-    LEFT JOIN companion_scars sc
-      ON sc.companion_id = c.id
-
-    ${whereClause}
-
-    ORDER BY c.companion_name ASC;
-  `;
-
-	const { rows } = await db.query(query, params);
-	return rows;
+  const { whereClause, params } = buildWhereClause({ campaignId, userId, type: "companion" });
+  const query = buildCharacterQuery({ type: "companion", whereClause });
+  const { rows } = await db.query(query, params);
+  return rows;
 };
 
-/**
- * Get all NPCs for a campaign.
- *
- * @param {Object} filters
- * @param {number|null} filters.campaignId - Filter by campaign
- *
- * If campaignId is null → return ALL NPCs (GM tools).
- */
 const getNPCs = async ({ campaignId = null } = {}) => {
-	const params = [];
-	const conditions = [];
-
-	// Filter by campaign
-	if (campaignId) {
-		params.push(campaignId);
-		conditions.push(`n.campaign_id = $${params.length}`);
-	}
-
-	// WHERE clause (optional)
-	const whereClause = conditions.length > 0
-		? `WHERE ${conditions.join(" AND ")}`
-		: "";
-
-	const query = `
-    SELECT
-      n.id,
-      n.campaign_id,
-      n.active_status_id,
-      n.race_id,
-      n.npc_name,
-      n.unknown_name,
-      n.is_identified,
-      n.secret_name,
-      n.show_secret_name,
-      n.secret_color,
-      n.is_gendered,
-      n.is_female,
-      n.description,
-      n.secrets AS npc_secrets,
-      n.pinned,
-      n.death_cause,
-      n.retired_reason,
-      n.start_session,
-      n.end_session,
-      n.created_at,
-
-      -- Social biography
-      soc.appearance AS social_appearance,
-      soc.background AS social_background,
-      soc.extra_details AS social_extra_details,
-      soc.hidden_details AS social_hidden_details,
-      soc.reveal_hidden_details AS social_reveal_hidden,
-      soc.secrets AS social_secrets,
-
-      -- Main gallery image
-      gal_main.image_url AS main_image_url,
-      gal_main.alt AS main_image_alt,
-      gal_main.is_tall AS main_image_tall,
-
-      -- Hover image (optional)
-      gal_hover.image_url AS hover_image_url,
-      gal_hover.alt AS hover_image_alt,
-      gal_hover.is_tall AS hover_image_tall,
-
-      -- Religion (optional)
-      rel.religion_id,
-      rel.notes AS religion_notes,
-      rel.secrets AS religion_secrets,
-
-      -- Titles (optional)
-      t.title_id,
-      t.title_location,
-      t.adjust_ranking,
-      t.adjust_value,
-      t.has_location,
-      t.use_honorific,
-      t.received_session,
-
-      -- Attitude (optional)
-      att.attitude_id,
-      att.favored_pc,
-      att.allies,
-      att.allies_visible,
-      att.enemies,
-      att.enemies_visible,
-      att.influence_skills,
-      att.skills_visible,
-      att.influence_notes,
-      att.notes_visible,
-      att.progress_made,
-      att.progress_threshold,
-      att.hostile_boon,
-      att.unfriendly_boon,
-      att.friendly_boon,
-      att.helpful_boon,
-      att.notes AS attitude_notes,
-      att.secrets AS attitude_secrets,
-
-      -- Quests (optional)
-      q.quest_id,
-
-      -- Languages (optional)
-      lang.language_id
-
-    FROM npc_main n
-
-    -- Social biography
-    LEFT JOIN npc_social soc
-      ON soc.npc_id = n.id
-
-    -- Main gallery image
-    LEFT JOIN npc_gallery gal_main
-      ON gal_main.npc_id = n.id
-      AND gal_main.is_main = TRUE
-
-    -- Hover image
-    LEFT JOIN npc_gallery gal_hover
-      ON gal_hover.npc_id = n.id
-      AND gal_hover.is_hover = TRUE
-      AND gal_hover.show_hover = TRUE
-
-    -- Religion
-    LEFT JOIN npc_religion rel
-      ON rel.npc_id = n.id
-
-    -- Titles
-    LEFT JOIN npc_titles t
-      ON t.npc_id = n.id
-
-    -- Attitude
-    LEFT JOIN npc_attitude att
-      ON att.npc_id = n.id
-
-    -- Quests
-    LEFT JOIN npc_quests q
-      ON q.npc_id = n.id
-
-    -- Languages
-    LEFT JOIN npc_language lang
-      ON lang.npc_id = n.id
-
-    ${whereClause}
-
-    ORDER BY n.npc_name ASC;
-  `;
-
-	const { rows } = await db.query(query, params);
-	return rows;
+  const { whereClause, params } = buildWhereClause({ campaignId, type: "npc" });
+  const query = buildCharacterQuery({ type: "npc", whereClause });
+  const { rows } = await db.query(query, params);
+  return rows;
 };
 
-/**
- * Get all factions for a campaign.
- *
- * @param {Object} filters
- * @param {number|null} filters.campaignId - Filter by campaign
- *
- * If campaignId is null → return ALL factions (GM tools).
- */
 const getFactions = async ({ campaignId = null } = {}) => {
-	const params = [];
-	const conditions = [];
-
-	// Filter by campaign
-	if (campaignId) {
-		params.push(campaignId);
-		conditions.push(`f.campaign_id = $${params.length}`);
-	}
-
-	// WHERE clause (optional)
-	const whereClause = conditions.length > 0
-		? `WHERE ${conditions.join(" AND ")}`
-		: "";
-
-	const query = `
-    SELECT
-      f.id,
-      f.campaign_id,
-      f.active_status_id,
-      f.faction_name,
-      f.unknown_name,
-      f.is_identified,
-      f.secret_name,
-      f.show_secret_name,
-      f.secret_color,
-      f.faction_type,
-      f.description,
-      f.secrets AS faction_secrets,
-      f.pinned,
-      f.progress_able,
-      f.progress_made,
-      f.progress_threshold,
-      f.death_cause,
-      f.retired_reason,
-      f.start_session,
-      f.end_session,
-      f.created_at,
-
-      -- Social biography
-      soc.appearance AS social_appearance,
-      soc.background AS social_background,
-      soc.extra_details AS social_extra_details,
-      soc.hidden_details AS social_hidden_details,
-      soc.reveal_hidden_details AS social_reveal_hidden,
-      soc.secrets AS social_secrets,
-
-      -- Main gallery image
-      gal_main.image_url AS main_image_url,
-      gal_main.alt AS main_image_alt,
-      gal_main.is_tall AS main_image_tall,
-
-      -- Hover image (optional)
-      gal_hover.image_url AS hover_image_url,
-      gal_hover.alt AS hover_image_alt,
-      gal_hover.is_tall AS hover_image_tall,
-
-      -- Attitude (optional)
-      att.attitude_id,
-      att.favored_pc,
-      att.allies,
-      att.allies_visible,
-      att.enemies,
-      att.enemies_visible,
-      att.influence_skills,
-      att.skills_visible,
-      att.influence_notes,
-      att.notes_visible,
-      att.progress_made AS attitude_progress_made,
-      att.progress_threshold AS attitude_progress_threshold,
-      att.hostile_boon,
-      att.unfriendly_boon,
-      att.neutral_boon,
-      att.friendly_boon,
-      att.helpful_boon,
-      att.notes AS attitude_notes,
-      att.secrets AS attitude_secrets,
-
-      -- Quests (optional)
-      q.quest_id
-
-    FROM factions f
-
-    -- Social biography
-    LEFT JOIN faction_social soc
-      ON soc.faction_id = f.id
-
-    -- Main gallery image
-    LEFT JOIN faction_gallery gal_main
-      ON gal_main.faction_id = f.id
-      AND gal_main.is_main = TRUE
-
-    -- Hover image
-    LEFT JOIN faction_gallery gal_hover
-      ON gal_hover.faction_id = f.id
-      AND gal_hover.is_hover = TRUE
-      AND gal_hover.hover_visible = TRUE
-
-    -- Attitude
-    LEFT JOIN faction_attitude att
-      ON att.faction_id = f.id
-
-    -- Quests
-    LEFT JOIN faction_quests q
-      ON q.faction_id = f.id
-
-    ${whereClause}
-
-    ORDER BY f.faction_name ASC;
-  `;
-
-	const { rows } = await db.query(query, params);
-	return rows;
+  const { whereClause, params } = buildWhereClause({ campaignId, type: "faction" });
+  const query = buildCharacterQuery({ type: "faction", whereClause });
+  const { rows } = await db.query(query, params);
+  return rows;
 };
 
 // Exports

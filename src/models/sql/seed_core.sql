@@ -22,7 +22,7 @@ INSERT INTO attitude (id, attitude_name)
 VALUES 
   (1, 'Hostile'),
   (2, 'Unfriendly'),
-  (3, 'Indifferent'),
+  (3, 'Indifferent'), -- Default
   (4, 'Friendly'),
   (5, 'Helpful'),
   (6, 'Locked')

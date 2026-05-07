@@ -71,3 +71,5 @@ No working search bar.
 Remove development objects from production.
 Increase top and bottom padding for form entry boxes, as well as internal margin and spacing between form boxes.
 Alter faction/tribes to include the expanded data from the \_factionsTribes home.ejs partial (commented).
+Unify attitude logic
+Optimize performance of db queries
