@@ -20,21 +20,42 @@
   <!-- RETURN TO TOP BUTTON -->
   <div class="clearfix"></div>
 
+  <!-- Search Bar and Character Tabs -->
+  <%- include("./_tabs") %>
+
   <!-- Include Partials Order: spotlight, pc, companion, npc, unidentified, faction -->
-  <%- include("./characterTypes/_spotlight") %>
-  <%- include("./characterTypes/_pc") %>
-  <%- include("./characterTypes/_companion") %>
-  <%- include("./characterTypes/_npc") %>
-  <%- include("./characterTypes/_unidentified") %>
-  <%- include("./characterTypes/_faction") %>
+  <div class="character-section" data-section="spotlight">
+    <%- include("./characterTypes/_spotlight") %>
+  </div>
+  <div class="character-section" data-section="pc">
+    <%- include("./characterTypes/_pc") %>
+  </div>
+  <div class="character-section" data-section="companion">
+    <%- include("./characterTypes/_companion") %>
+  </div>
+  <div class="character-section" data-section="npc">
+    <%- include("./characterTypes/_npc") %>
+  </div>
+  <div class="character-section" data-section="unidentified">
+    <%- include("./characterTypes/_unidentified") %>
+  </div>
+  <div class="character-section" data-section="faction">
+    <%- include("./characterTypes/_faction") %>
+  </div>
 
   <!-- Characters Past Importance -->
-  <%- include("./inactive/_retired") %>
-  <%- include("./inactive/_dead") %>
+  <div class="character-section" data-section="retired">
+    <%- include("./inactive/_retired") %>
+  </div>
+  <div class="character-section" data-section="dead">
+    <%- include("./inactive/_dead") %>
+  </div>
 
   <!-- GM Only Inclusions -->
   <% if (hasRole(user, "gm_admin")) { %>
-  <%- include("./inactive/_pending") %>
+  <div class="character-section" data-section="pending">
+    <%- include("./inactive/_pending") %>
+  </div>
   <% } %>
 </main>
 

@@ -58,18 +58,13 @@ Allow all players to submit session notes for approval, and allow moderators and
 Allow moderators and GMs to edit titles and achievements of players and npcs, and ownership of items and companions.
 Allow GMs to add new objects of all types, as well as view and edit secret boxes.
 Allow GMs to change statuses of PCs, items, npcs, and factions, delete content, add content, and change content flags (is_hidden, is_tall, reveal_hidden_details, ect.)
-Some sort of relationship meter that players can see to see how close they are to advancing/falling in a relationship.
-Individual detail pages for characters, items, ect.
+Some sort of relationship meter that players can see to see how close they are to advancing/falling in a relationship [aka progress bar].
 Make \_card partial for assets to unify styling.
-Add progress bar for influencing factions and npc's
 Add subtitle logic
 
 ## Current Minor Bugs or Visual Errors
 
 Database data for tribes does not match hardcoded home data exactly. Minor corrections in wording need to be addressed.
-No working search bar.
 Remove development objects from production.
 Increase top and bottom padding for form entry boxes, as well as internal margin and spacing between form boxes.
-Alter faction/tribes to include the expanded data from the \_factionsTribes home.ejs partial (commented).
-Unify attitude logic
 Optimize performance of db queries

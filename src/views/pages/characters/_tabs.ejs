@@ -1,0 +1,21 @@
+<nav class="character-tabs">
+  <ul>
+    <li class="active"><a href="#" data-tab="all">All</a></li>
+    <li><a href="#" data-tab="spotlight">Spotlight</a></li>
+    <li><a href="#" data-tab="pc">PCs</a></li>
+    <li><a href="#" data-tab="companion">Companions</a></li>
+    <li><a href="#" data-tab="npc">NPCs</a></li>
+    <li><a href="#" data-tab="unidentified">Unidentified</a></li>
+    <li><a href="#" data-tab="faction">Factions</a></li>
+    <li><a href="#" data-tab="retired">Retired</a></li>
+    <li><a href="#" data-tab="dead">Dead</a></li>
+
+    <% if (hasRole(user, "gm_admin")) { %>
+    <li><a href="#" data-tab="pending">Pending</a></li>
+    <% } %>
+  </ul>
+
+  <div class="character-search">
+    <input id="characterSearch" type="text" placeholder="Search characters...">
+  </div>
+</nav>

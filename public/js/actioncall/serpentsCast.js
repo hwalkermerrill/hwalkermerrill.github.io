@@ -5,78 +5,75 @@ const castGroups = [
   {
     label: "Benjamin Hebert",
     entries: [
-      { label: "Ezekiel Thorne" },
-      { label: "Johnathan 'The Lion Slayer' Kieran" },
-      { label: "Antonio" },
-      { label: "Antonio - The Clockwork Servant" }
+      { label: "Ezekiel Thorne (Lv 1 → 2)" },
+      { label: "Johnathan 'The Lion Slayer' Kieran (Lv 1 → 2)" },
+      { label: "Antonio (Lv 1 → 2)" },
+      { label: "Antonio – The Clockwork Servant (Lv 1 → 2)" }
     ]
   },
   {
     label: "Daniel Hutchinson",
     entries: [
-      { label: "Ivy Whitebriar" }
+      { label: "Ivy Whitebriar (Lv 1 → 2)" }
     ]
   },
   {
     label: "Emma Hutchinson",
     entries: [
-      { label: "Astra" },
-      { label: "Alhemija" },
-      { label: "Bellah" }
+      { label: "Astra (Lv 1 → 2)" },
+      { label: "Alhemija (Lv 1 → 2)" },
+      { label: "Bellah (Lv 1 → 2)" }
     ]
   },
   {
     label: "Mike Hutchinson",
     entries: [
-      { label: "Loric Tidewalker" }
+      { label: "Loric Tidewalker (Lv 1 → 2)" }
     ]
   },
   {
     label: "Alice Merrill",
     entries: [
-      { label: "Dakota Ravenwood" }
+      { label: "Dakota Ravenwood (Lv 1 → 2)" }
     ]
   },
   {
     label: "Nick Inglss",
     entries: [
-      { label: "Avarice de tu Sinclaire" },
-      { label: "Mortimer" }
+      { label: "Avarice de tu Sinclaire (Lv 1 → 2)" },
+      { label: "Mortimer (Lv 1 → 2)" }
     ]
-  },
+  }
 ];
 
-function renderActionCall(groups) {
-  const container = document.querySelector(".actioncall");
+function renderCastActionCall(groups) {
+  const container = document.querySelector("#cast-container");
   if (!container) return;
 
-  // let totalAll = 0;
-  let html = `<h2>Starring</h2>`;
+  let html = "";
 
   groups.forEach((group, index) => {
-    // const groupTotal = group.entries.reduce((sum, e) => sum + e.days, 0);
-    // totalAll += groupTotal;
+    const count = group.entries.length;
 
     html += `
       <div class="collapse-toggle" data-index="${index}">
-        <h3 class="collapse-toggle pointer">
-          ${group.label} — <span class="ac-total"></span>
-        </h3>
+        <h4 class="pointer">
+          ${group.label} — <span class="ac-total">${count} character${count !== 1 ? "s" : ""}</span>
+        </h4>
+
         <div class="collapse-toggle-content">
           ${group.entries
-        .map(e => `<p>${e.label}: ${e.days} days</p>`)
+        .map(e => `<p>${e.label}</p>`)
         .join("")}
         </div>
       </div>
     `;
   });
 
-  // html += `<p class="ac-grand-total"><strong>Total Journey: ${totalAll} days</strong></p>`;
-
   container.innerHTML = html;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderActionCall(castGroups);
-  makeCollapsible(".collapse-toggle", ".collapse-toggle-content"); // eslint-ignore
+  renderCastActionCall(castGroups);
+  makeCollapsible(".collapse-toggle", ".collapse-toggle-content");
 });

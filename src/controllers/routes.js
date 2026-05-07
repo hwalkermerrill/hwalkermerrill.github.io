@@ -46,6 +46,7 @@ router.use("/", (req, res, next) => {
 });
 router.use("/characters", (req, res, next) => {
 	res.addScript("<script src=\"/js/actioncall/serpentsCast.js\"></script>");
+	res.addScript("<script src=\"/js/characterTabs.js\"></script>");
 	next();
 });
 router.use("/journal", (req, res, next) => {

@@ -1,22 +1,42 @@
-<section class="<%= item.attitude_class || '' %>">
+<!-- Metadata -->
+<%
+  // Constants
+  const isGM = hasRole(user, "gm_admin");
+  const isOwner = (item.user_id && user && item.user_id === user.id);
+  const canSeeSecret = isGM || isOwner;
+
+  const displayName = item.is_identified ? item.name : item.unknown_name || "Unknown";
+  const secretName = (item.secret_name && (canSeeSecret || item.show_secret_name))
+    ? item.secret_name
+    : null;
+
+  const searchParts = [];
+
+  if (displayName) searchParts.push(displayName);
+  if (secretName) searchParts.push(secretName);
+  if (item.subtitles && item.subtitles.length) {
+    searchParts.push(item.subtitles.join(" "));
+  }
+  if (item.attitude_class) searchParts.push(item.attitude_class);
+  if (item.faction_type) searchParts.push(item.faction_type);
+  if (item.ancestry_name) searchParts.push(item.ancestry_name);
+  if (item.race_name) searchParts.push(item.race_name);
+  if (item.class_string) searchParts.push(item.class_string);
+  if (item.religion_name) searchParts.push(item.religion_name);
+  if (item.languages && item.languages.length) {
+    searchParts.push(item.languages.join(" "));
+  }
+
+  const searchString = searchParts.join(" ").trim();
+%>
+
+<section class="character-card <%= type %> <%= item.attitude_class || '' %>" data-type="<%= type %>"
+  data-name="<%= displayName %>" data-search="<%- searchString %>">
 
   <!-- ========================= -->
   <!--        NAME BLOCK         -->
   <!-- ========================= -->
   <h3>
-    <% 
-    const isGM = hasRole(user, "gm_admin");
-    const isOwner = (item.user_id && user && item.user_id === user.id);
-    const canSeeSecret = isGM || isOwner;
-
-    const displayName = item.is_identified 
-      ? item.name 
-      : item.unknown_name || "Unknown";
-
-    const secretName = (item.secret_name && (canSeeSecret || item.show_secret_name))
-      ? item.secret_name
-      : null;
-    %>
 
     <%= displayName %>
 

@@ -620,6 +620,67 @@ img {
 		display: block;
 	}
 
+	/* ----- Character-tabs -----*/
+	/* Container */
+	.character-tabs {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: var(--page-background, transparent);
+		border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+	}
+
+	/* Tab list */
+	.character-tabs ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	/* Tab buttons */
+	.character-tabs li a {
+		display: block;
+		padding: 0.4rem 0.75rem;
+		text-decoration: none;
+		color: var(--primary-color);
+		border-radius: 4px 4px 0 0;
+		border-bottom: 2px solid transparent;
+		transition: 0.2s ease;
+	}
+
+	/* Active tab */
+	.character-tabs li.active a {
+		font-weight: bold;
+		border-bottom-color: var(--primary-color);
+	}
+
+	/* Hover */
+	.character-tabs li a:hover {
+		background: var(--secondary-color);
+	}
+
+	/* Search bar container */
+	.character-search {
+		flex: 1 1 250px; /* <-- expands to fill space */
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	/* Search input */
+	.character-search input {
+		width: 100%;
+		max-width: 600px; /* <-- expands nicely on wide screens */
+		padding: 0.45rem 0.6rem;
+		font-size: 1rem;
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		border-radius: 4px;
+	}
+
 	/*---------- FOOTER ----------*/
 	footer {
 		/* background-color: var(--secondary-color); */
