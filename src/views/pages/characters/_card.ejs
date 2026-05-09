@@ -18,6 +18,7 @@
     searchParts.push(item.subtitles.join(" "));
   }
   if (item.attitude_class) searchParts.push(item.attitude_class);
+  if (item.merchant?.shop_name) searchParts.push(item.merchant.shop_name);
   if (item.faction_type) searchParts.push(item.faction_type);
   if (item.ancestry_name) searchParts.push(item.ancestry_name);
   if (item.race_name) searchParts.push(item.race_name);
@@ -58,6 +59,21 @@
   <strong><%= sub %></strong><br>
   <% }) %>
   <br>
+  <% } %>
+
+  <!-- ========================= -->
+  <!--       MERCHANT TAG        -->
+  <!-- ========================= -->
+  <% if (item.merchant && item.merchant.merchant_id) { %>
+  <p class="merchant-tag">
+    🛒
+    <strong>
+      <%= item.merchant.shop_name || "Merchant" %>
+    </strong>
+    <% if (item.merchant.merchant_type) { %>
+    &mdash; <%= item.merchant.merchant_type %>
+    <% } %>
+  </p>
   <% } %>
 
   <!-- ========================= -->

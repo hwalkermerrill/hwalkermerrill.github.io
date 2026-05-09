@@ -147,8 +147,8 @@ function normalizeCharacter(row, type) {
   const unlocked_boons = computeUnlockedBoons(att);
 
   const class_string = computeClassString(row.classes || []);
-
   const { main_image, hover_image } = extractGalleryImages(row.gallery);
+  const merchant = Array.isArray(row.merchant) ? row.merchant[0] : row.merchant || null;
 
   // Build PC-only social profile
   const social_profile =
@@ -165,6 +165,7 @@ function normalizeCharacter(row, type) {
     ],
     highest_title,
     class_string,
+    merchant,
 
     // Social
     social: row.social || null,
@@ -183,6 +184,7 @@ function normalizeCharacter(row, type) {
     // Gallery
     main_image,
     hover_image
+
   };
 }
 

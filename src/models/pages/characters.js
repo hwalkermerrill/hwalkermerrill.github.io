@@ -53,6 +53,13 @@ const LANGUAGES_JOIN = (type) => `
     ON lang.${type}_id = character.id
 `;
 
+const MERCHANT_JOIN = (type) => `
+  LEFT JOIN merchants m
+    ON m.${type}_id = character.id
+  LEFT JOIN merchant_details md
+    ON md.merchant_id = m.id
+`;
+
 // Helpers - SELECT
 const SELECT_GALLERY_AGG = `
   json_agg(
@@ -143,6 +150,25 @@ const SELECT_ATTITUDE_OBJECT = `
       'secrets', att.secrets
     )
   ) FILTER (WHERE att.attitude_id IS NOT NULL) AS attitude
+`;
+
+const SELECT_MERCHANT_AGG = `
+  jsonb_agg(
+    jsonb_build_object(
+      'merchant_id', m.id,
+      'merchant_type', md.merchant_type,
+      'shop_name', md.shop_name,
+      'size', md.size,
+      'base_value', md.base_value,
+      'purchase_limit', md.purchase_limit,
+      'minor_items', md.minor_items,
+      'moderate_items', md.moderate_items,
+      'major_items', md.major_items,
+      'spellcasting_limit', md.spellcasting_limit,
+      'notes', md.notes,
+      'secrets', md.secrets
+    )
+  ) FILTER (WHERE m.id IS NOT NULL) AS merchant
 `;
 
 const SELECT_SOCIAL_OBJECT = (type) => {
@@ -245,7 +271,8 @@ function buildCharacterQuery({ type, whereClause }) {
       ${type === "pc" || type === "companion" ? SELECT_ACHIEVEMENTS_AGG : "NULL AS achievements"},
       ${type === "npc" || type === "faction" ? SELECT_ATTITUDE_OBJECT : "NULL AS attitude"},
       ${type === "npc" || type === "faction" ? SELECT_QUESTS_AGG : "NULL AS quests"},
-      ${type === "npc" ? SELECT_LANGUAGES_AGG : "NULL AS languages"}
+      ${type === "npc" ? SELECT_LANGUAGES_AGG : "NULL AS languages"},
+      ${type === "npc" || type === "faction" ? SELECT_MERCHANT_AGG : "NULL AS merchant"}
 
     FROM ${type === "faction" ? "factions" : `${type}_main`} character
 
@@ -259,6 +286,7 @@ function buildCharacterQuery({ type, whereClause }) {
     ${type === "npc" || type === "faction" ? ATTITUDE_JOIN(type) : ""}
     ${type === "npc" || type === "faction" ? QUESTS_JOIN(type) : ""}
     ${type === "npc" ? LANGUAGES_JOIN(type) : ""}
+    ${type === "npc" || type === "faction" ? MERCHANT_JOIN(type) : ""}
 
     ${whereClause}
 
@@ -271,7 +299,6 @@ function buildCharacterQuery({ type, whereClause }) {
 }
 
 // Model Functions
-
 const getPCs = async ({ campaignId = null, userId = null } = {}) => {
   const { whereClause, params } = buildWhereClause({ campaignId, userId, type: "pc" });
   const query = buildCharacterQuery({ type: "pc", whereClause });

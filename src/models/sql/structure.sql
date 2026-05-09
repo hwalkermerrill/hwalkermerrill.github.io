@@ -883,6 +883,9 @@ CREATE TABLE IF NOT EXISTS merchant_details (
   secrets TEXT,
   UNIQUE (merchant_id)
 );
+
+ALTER TABLE merchant_details
+  ADD COLUMN IF NOT EXISTS shop_name VARCHAR(255);
 -- END POLYMORPHIC MERCHANTS TABLE BLOCK
 
 -- START ITEMS TABLES BLOCK
