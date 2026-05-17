@@ -1,39 +1,43 @@
 {
-  "name": "hwalkermerrill.github.io",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --env-file=.env server.js",
-    "start": "node server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.28.1",
-  "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
-    "globals": "^17.1.0",
-    "nodemon": "^3.1.14",
-    "postcss": "^8.5.6",
-    "postcss-nesting": "^14.0.0",
-    "prettier": "^3.8.1",
-    "stylelint": "^17.0.0",
-    "stylelint-config-standard": "^40.0.0",
-    "stylelint-config-standard-scss": "^17.0.0",
-    "ws": "^8.19.0"
-  },
-  "dependencies": {
-    "bcrypt": "^6.0.0",
-    "connect-pg-simple": "^10.0.0",
-    "ejs": "^5.0.1",
-    "express": "^5.2.1",
-    "express-session": "^1.19.0",
-    "express-validator": "^7.3.1",
-    "pg": "^8.20.0"
-  }
+	"name": "hwalkermerrill.github.io",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"build": "lightningcss --bundle --minify --targets \">= 0.25%\" css/main.css -o dist/styles.css",
+		"watch": "chokidar \"css/**/*.css\" -c \"pnpm build\" --debounce 600",
+		"refreshCSS": "npx lightningcss-cli --bundle --minify --targets \">= 0.25%\" css/main.css -o dist/styles.css",
+		"dev": "nodemon --env-file=.env server.js",
+		"start": "node server.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.28.1",
+	"devDependencies": {
+		"@eslint/js": "^9.39.2",
+		"chokidar-cli": "^3.0.0",
+		"eslint": "^9.39.2",
+		"eslint-config-prettier": "^10.1.8",
+		"globals": "^17.1.0",
+		"lightningcss-cli": "^1.32.0",
+		"nodemon": "^3.1.14",
+		"postcss": "^8.5.6",
+		"postcss-nesting": "^14.0.0",
+		"prettier": "^3.8.1",
+		"stylelint": "^17.0.0",
+		"stylelint-config-standard": "^40.0.0",
+		"stylelint-config-standard-scss": "^17.0.0",
+		"ws": "^8.19.0"
+	},
+	"dependencies": {
+		"bcrypt": "^6.0.0",
+		"connect-pg-simple": "^10.0.0",
+		"ejs": "^5.0.1",
+		"express": "^5.2.1",
+		"express-session": "^1.19.0",
+		"express-validator": "^7.3.1",
+		"pg": "^8.20.0"
+	}
 }
