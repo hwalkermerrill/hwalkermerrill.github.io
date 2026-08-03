@@ -98,6 +98,7 @@ Several files are still being migrated into the database from being hardcoded HT
 Several ejs files still contain hardcoded HTML data (as above) rather than dynamically generated data.
 Several ejs files still need to be split into multiple partials/ dynamic files.
 The actual differences between user and moderator roles and their capabilities is not yet established.
+A great deal of content needs to be created for this newest campaign.
 
 ## Features to be Implemented
 

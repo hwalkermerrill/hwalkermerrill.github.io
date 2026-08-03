@@ -1,3 +1,6 @@
+allowBuilds:
+  bcrypt: true
+  lightningcss-cli: true
 onlyBuiltDependencies:
   - bcrypt
   - lightningcss-cli

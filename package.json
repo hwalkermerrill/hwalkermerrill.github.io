@@ -7,14 +7,15 @@
 	"scripts": {
 		"build": "lightningcss --bundle --minify --targets \">= 0.25%\" css/main.css -o dist/styles.css",
 		"watch": "chokidar \"css/**/*.css\" -c \"pnpm build\" --debounce 600",
-		"refreshCSS": "npx lightningcss-cli --bundle --minify --targets \">= 0.25%\" css/main.css -o dist/styles.css",
+		"re": "npx lightningcss-cli --bundle --minify --targets \">= 0.25%\" css/main.css -o dist/styles.css",
 		"dev": "nodemon --env-file=.env server.js",
+		"prestart": "pnpm build",
 		"start": "node server.js"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
-	"packageManager": "pnpm@10.28.1",
+	"packageManager": "pnpm@11.18.0+sha512.33d83c77da82f49fba836925c6f1b841181ec3132b670639bd012f7075f5c7cf634c5f870147c19aae7478fac01df09d8892e880454896edd23ee9b33757563c",
 	"devDependencies": {
 		"@eslint/js": "^9.39.2",
 		"chokidar-cli": "^3.0.0",
@@ -33,11 +34,11 @@
 	},
 	"dependencies": {
 		"bcrypt": "^6.0.0",
-		"connect-pg-simple": "^10.0.0",
+		"connect-mongo": "^6.0.0",
 		"ejs": "^5.0.1",
 		"express": "^5.2.1",
 		"express-session": "^1.19.0",
 		"express-validator": "^7.3.1",
-		"pg": "^8.20.0"
+		"mongoose": "^9.9.1"
 	}
 }
