@@ -1,12 +1,12 @@
 // Imports
 // import fs from "fs";
-import path from "path";
+// import path from "path";
 import { Pool } from "pg";
-import { fileURLToPath } from "url";
+// import { fileURLToPath } from "url";
 
-// Constants
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Constants //These are only needed for processing the caCert
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 // const caCert = fs.readFileSync(path.join(__dirname, "../../bin", "byuicse-psql-cert.pem"));
 
 const pool = new Pool({
