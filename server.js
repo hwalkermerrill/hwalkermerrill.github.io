@@ -10,7 +10,7 @@ import { error404Router, globalErrorHandler } from "./src/middleware/errorHandle
 import flash from "./src/middleware/flash.js";
 import routes from "./src/controllers/routes.js";
 // import { setupDatabase, testConnection } from "./src/models/setupPostgres.js"; // Replaced with MongoDB setup and connection tests
-import connectMongo from "./src/models/setupMongo.js"; // MongoDB connection
+import { connectMongo, testConnection } from "./src/models/setupMongo.js"; // MongoDB connection
 // import { caCert } from "./src/models/db.js"; //Cert no longer used with MongoDB
 // import { startSessionCleanup } from "./src/utils/session-cleanup.js"; // Replaced with MongoDB built in session cleanup
 
@@ -105,7 +105,7 @@ if (NODE_ENV.includes("dev")) {
 // Start the server and listen on the specified port
 app.listen(PORT, async () => {
 	// await setupDatabase();
-	// await testConnection();
 	await connectMongo();
+	await testConnection();
 	console.log(`Server is running on http://127.0.0.1:${PORT}`);
 });
