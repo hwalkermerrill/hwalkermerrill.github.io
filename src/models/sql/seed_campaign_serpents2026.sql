@@ -2736,7 +2736,7 @@ INSERT INTO npc_gallery (
   alt,
   is_main,
   is_hover,
-  show_hover,
+  hover_visible,
   is_tall
 )
 VALUES 
