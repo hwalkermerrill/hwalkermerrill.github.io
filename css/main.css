@@ -1,0 +1,175 @@
+/*!
+Disclosures:
+
+This code is my own work, but I want to include the below disclosures for transparency and to preemptively disclose any potential future use of AI tools or code adapted from other sources, 
+including my previous work.
+
+Some of this code is adapted from my previous work, which is available at hwalkermerrill.github.io. 
+As that content has been developed over the course of several years, some of it may have been inspired by or adapted from various other online sources,  
+but I have not copied any code directly from other sources except from scaffolding code this an previous classes without attributing the original source.
+All the work I have written is my own, written and stylized by me, though they may be reminiscent of other works I have read and been inspired by.
+
+AI Assistance:
+I have the github copilot extension installed, which sometimes suggests code completions as I write, though the suggestions are rarely used and when they are, they are often heavily modified.
+Some of the code adapted from my previous work has been proofread by AI after writing, in order to check for errors and suggest improvements, but it was written originally and principally by me.
+While I have not yet done so with this file or class, I do intend to use AI tools for tutoring and proofreading in the future.
+I have similarly not yet used the github copilot extension's code completion for this file, but I may in the future, which is why I have included it in this disclosure and above.
+*/
+
+/* Layer Declaration */
+@layer vendors, tokens, base, layout, components, utilities;
+
+/* Vendor Imports */
+@import url("vendors/fonts.css") layer(vendors);
+
+/* Tokens */
+@import url("tokens/colors.css") layer(tokens);
+@import url("tokens/variables.css") layer(tokens);
+
+/* Base */
+@import url("base/reset.css") layer(base);
+@import url("base/normalize.css") layer(base);
+@import url("base/elements.css") layer(base);
+
+/* Layout */
+@import url("layout/primary.css") layer(layout);
+
+/* Components */
+@import url("components/theme-toggle.css") layer(components);
+@import url(components/hero.css) layer(components);
+@import url("components/buttons.css") layer(components);
+@import url("components/cards.css") layer(components);
+@import url("components/forms.css") layer(components);
+@import url("components/header.css") layer(components);
+@import url("components/nav.css") layer(components);
+@import url("components/effects.css") layer(components);
+@import url("components/panel.css") layer(components);
+@import url("components/resume.css") layer(components);
+@import url("components/contact.css") layer(components);
+@import url("components/icons.css") layer(components);
+
+/* Utilities */
+@import url("utilities/utilities.css") layer(utilities);
+
+/* @Property Registrations */
+@property --holo-sweep {
+	syntax: "<percentage>";
+	inherits: false;
+	initial-value: 0%;
+}
+
+/* @Keyframe Blocks */
+@keyframes danger-shake {
+	0% {
+		transform: translateX(0);
+	}
+	20% {
+		transform: translateX(-4px);
+	}
+	40% {
+		transform: translateX(4px);
+	}
+	60% {
+		transform: translateX(-4px);
+	}
+	80% {
+		transform: translateX(4px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes holo-sweep {
+	0% {
+		background-position: 50% 0%;
+	}
+	50% {
+		background-position: -50% 0%;
+	}
+	100% {
+		background-position: 50% 0%;
+	}
+}
+
+@keyframes status-pulse {
+	from {
+		transform: scale(1);
+		opacity: 1;
+	}
+	to {
+		transform: scale(1.12);
+		opacity: 0.9;
+	}
+}
+
+/* Media Override Adjustments */
+@media (prefers-contrast: more) {
+	:root {
+		--color-border: #000;
+		--color-text-muted: #1a1a1a;
+	}
+}
+
+@media (pointer: coarse) {
+	:with(button, a, input, select) {
+		min-height: 44px;
+		min-width: 44px;
+	}
+}
+
+@media print {
+	/* Hide on Print */
+
+	header,
+	nav,
+	footer,
+	.site-header,
+	.theme-menu,
+	.no-print,
+	button,
+	aside {
+		display: none;
+	}
+	/* Handle Page Breaks */
+	:where(figure, blockquote, pre, .card) {
+		break-inside: avoid;
+	}
+	:where(h1, h2, h3, em) {
+		/* break-before: page; */
+		break-after: avoid;
+		font-family: "Trade Winds", serif;
+		background-image: none;
+	}
+	:where(em, ul) {
+		break-inside: avoid;
+	}
+	p {
+		orphans: 3;
+		widows: 3;
+	}
+
+	/* Handle Text */
+	body {
+		font-family: Georgia, serif;
+		font-size: 12pt;
+		line-height: 1.4;
+		max-width: 45em;
+		margin: 0 auto;
+		color: #000;
+		background: #fff;
+	}
+
+	/* Handle links */
+	a[href]::after {
+		content: " (" attr(href) ")";
+		font-size: 0.9em;
+		color: #555;
+	}
+	a[href^="/"]::after,
+	a[href^="#"]::after {
+		content: none;
+	}
+}
+
+/* NOTE: Study and learn to apply current color */
