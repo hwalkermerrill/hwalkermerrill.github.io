@@ -1,24 +1,24 @@
 // Imports
-import db from "../db.js";
+// import db from "../db.js";
 
 // Model Functions
 async function getSessionLogsForCampaign(campaignId) {
-  const { rows } = await db.query(
-    `
+	const { rows } = await db.query(
+		`
     SELECT *
     FROM session_logs
     WHERE campaign_id = $1
       AND log_type = 'session summary'
     ORDER BY book_number DESC, session_number DESC, id ASC
     `,
-    [campaignId]
-  );
-  return rows;
+		[campaignId]
+	);
+	return rows;
 }
 
 async function getLatestSessionSummary(campaignId) {
-  const { rows } = await db.query(
-    `
+	const { rows } = await db.query(
+		`
     SELECT *
     FROM session_logs
     WHERE campaign_id = $1
@@ -26,73 +26,73 @@ async function getLatestSessionSummary(campaignId) {
     ORDER BY book_number DESC, session_number DESC, id DESC
     LIMIT 1
     `,
-    [campaignId]
-  );
+		[campaignId]
+	);
 
-  return rows[0] || null;
+	return rows[0] || null;
 }
 
 async function getParagraphsForLogs(logIds) {
-  if (logIds.length === 0) return [];
-  const { rows } = await db.query(
-    `
+	if (logIds.length === 0) return [];
+	const { rows } = await db.query(
+		`
     SELECT *
     FROM session_log_paragraphs
     WHERE session_log_id = ANY($1::int[])
     ORDER BY session_log_id ASC, paragraph_order ASC
     `,
-    [logIds]
-  );
-  return rows;
+		[logIds]
+	);
+	return rows;
 }
 
 async function getGalleryForLogs(logIds) {
-  if (logIds.length === 0) return [];
-  const { rows } = await db.query(
-    `
+	if (logIds.length === 0) return [];
+	const { rows } = await db.query(
+		`
     SELECT *
     FROM session_log_gallery
     WHERE session_log_id = ANY($1::int[])
     ORDER BY is_main DESC, id ASC
     `,
-    [logIds]
-  );
-  return rows;
+		[logIds]
+	);
+	return rows;
 }
 
 async function getSessionLogContent(logId) {
-  if (!logId) return null;
+	if (!logId) return null;
 
-  const [paragraphs, gallery] = await Promise.all([
-    getParagraphsForLogs([logId]),
-    getGalleryForLogs([logId])
-  ]);
+	const [paragraphs, gallery] = await Promise.all([
+		getParagraphsForLogs([logId]),
+		getGalleryForLogs([logId])
+	]);
 
-  const mainImage =
-    gallery.find(img => img.is_main) ||
-    gallery[0] ||
-    null;
+	const mainImage =
+		gallery.find(img => img.is_main) ||
+		gallery[0] ||
+		null;
 
-  return { paragraphs, gallery, mainImage };
+	return { paragraphs, gallery, mainImage };
 }
 
 async function getNotesForUserCampaign(userId, campaignId) {
-  if (!userId || !campaignId) return [];
-  const { rows } = await db.query(
-    `
+	if (!userId || !campaignId) return [];
+	const { rows } = await db.query(
+		`
     SELECT *
     FROM campaign_notes
     WHERE user_id = $1
       AND campaign_id = $2
     ORDER BY created_at DESC
     `,
-    [userId, campaignId]
-  );
-  return rows;
+		[userId, campaignId]
+	);
+	return rows;
 }
 
 async function getItemsForCampaign(campaignId) {
-  const { rows } = await db.query(`
+	const { rows } = await db.query(`
     SELECT *
     FROM items
     WHERE campaign_id = $1
@@ -100,18 +100,18 @@ async function getItemsForCampaign(campaignId) {
     ORDER BY item_type, item_subtype, sort_order, item_name
   `, [campaignId]);
 
-  return rows;
+	return rows;
 }
 
 async function getItemGalleryForItems(itemIds) {
-  if (itemIds.length === 0) return [];
-  const { rows } = await db.query(`
+	if (itemIds.length === 0) return [];
+	const { rows } = await db.query(`
     SELECT *
     FROM item_gallery
     WHERE item_id = ANY($1::int[])
     ORDER BY is_main DESC, id ASC
   `, [itemIds]);
-  return rows;
+	return rows;
 }
 
 export { getSessionLogsForCampaign, getLatestSessionSummary, getParagraphsForLogs, getGalleryForLogs, getSessionLogContent, getNotesForUserCampaign, getItemsForCampaign, getItemGalleryForItems };

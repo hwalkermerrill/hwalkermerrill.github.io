@@ -1,9 +1,9 @@
 // Imports
 import bcrypt from "bcrypt";
-import db from "../db.js";
+// import db from "../db.js";
 
 const findUserByUsername = async (username) => {
-  const query = `
+	const query = `
     SELECT u.id,
       u.full_name,
       u.username,
@@ -15,13 +15,13 @@ const findUserByUsername = async (username) => {
     WHERE LOWER(u.username) = LOWER($1) LIMIT 1
   `;
 
-  const result = await db.query(query, [username]);
-  return result.rows[0] || null;
+	const result = await db.query(query, [username]);
+	return result.rows[0] || null;
 };
 
 const verifyPassword = async (plainPassword, hashedPassword) => {
-  const verified = await bcrypt.compare(plainPassword, hashedPassword);
-  return verified;
+	const verified = await bcrypt.compare(plainPassword, hashedPassword);
+	return verified;
 };
 
 export { findUserByUsername, verifyPassword };

@@ -1,5 +1,5 @@
 // Imports
-import db from "../db.js";
+// import db from "../db.js";
 
 // Helpers - JOIN
 const SOCIAL_JOIN = (type) => `
@@ -172,9 +172,9 @@ const SELECT_MERCHANT_AGG = `
 `;
 
 const SELECT_SOCIAL_OBJECT = (type) => {
-  switch (type) {
-    case "pc":
-      return `
+	switch (type) {
+		case "pc":
+			return `
         jsonb_build_object(
           'appearance', soc.appearance,
           'background', soc.background,
@@ -188,8 +188,8 @@ const SELECT_SOCIAL_OBJECT = (type) => {
           'secrets', soc.secrets
         ) AS social
       `;
-    case "companion":
-      return `
+		case "companion":
+			return `
         jsonb_build_object(
           'appearance', soc.appearance,
           'background', soc.background,
@@ -197,9 +197,9 @@ const SELECT_SOCIAL_OBJECT = (type) => {
           'secrets', soc.secrets
         ) AS social
       `;
-    case "npc":
-    case "faction":
-      return `
+		case "npc":
+		case "faction":
+			return `
         jsonb_build_object(
           'appearance', soc.appearance,
           'background', soc.background,
@@ -209,56 +209,56 @@ const SELECT_SOCIAL_OBJECT = (type) => {
           'secrets', soc.secrets
         ) AS social
       `;
-  }
+	}
 };
 
 // Helpers - WHERE
 function buildWhereClause({ campaignId, userId, type }) {
-  const params = [];
-  const conditions = [];
+	const params = [];
+	const conditions = [];
 
-  if (campaignId) {
-    params.push(campaignId);
-    conditions.push(`character.campaign_id = $${params.length}`);
-  }
+	if (campaignId) {
+		params.push(campaignId);
+		conditions.push(`character.campaign_id = $${params.length}`);
+	}
 
-  if (userId && (type === "pc" || type === "companion")) {
-    params.push(userId);
-    conditions.push(`character.user_id = $${params.length}`);
-  }
+	if (userId && (type === "pc" || type === "companion")) {
+		params.push(userId);
+		conditions.push(`character.user_id = $${params.length}`);
+	}
 
-  const whereClause = conditions.length
-    ? `WHERE ${conditions.join(" AND ")}`
-    : "";
+	const whereClause = conditions.length
+		? `WHERE ${conditions.join(" AND ")}`
+		: "";
 
-  return { whereClause, params };
+	return { whereClause, params };
 }
 
 // Helpers - Group By
 const SOCIAL_GROUP_BY = (type) => {
-  switch (type) {
-    case "pc":
-      return `
+	switch (type) {
+		case "pc":
+			return `
         soc.appearance, soc.background, soc.associates, soc.rumors,
         soc.aspirations, soc.anathema, soc.phobias, soc.quirks,
         soc.flaws, soc.secrets
       `;
-    case "companion":
-      return `
+		case "companion":
+			return `
         soc.appearance, soc.background, soc.extra_details, soc.secrets
       `;
-    case "npc":
-    case "faction":
-      return `
+		case "npc":
+		case "faction":
+			return `
         soc.appearance, soc.background, soc.extra_details,
         soc.hidden_details, soc.reveal_hidden_details, soc.secrets
       `;
-  }
+	}
 };
 
 // Core Query Builder
 function buildCharacterQuery({ type, whereClause }) {
-  return `
+	return `
     SELECT
       character.*,
 
@@ -300,31 +300,31 @@ function buildCharacterQuery({ type, whereClause }) {
 
 // Model Functions
 const getPCs = async ({ campaignId = null, userId = null } = {}) => {
-  const { whereClause, params } = buildWhereClause({ campaignId, userId, type: "pc" });
-  const query = buildCharacterQuery({ type: "pc", whereClause });
-  const { rows } = await db.query(query, params);
-  return rows;
+	const { whereClause, params } = buildWhereClause({ campaignId, userId, type: "pc" });
+	const query = buildCharacterQuery({ type: "pc", whereClause });
+	const { rows } = await db.query(query, params);
+	return rows;
 };
 
 const getCompanions = async ({ campaignId = null, userId = null } = {}) => {
-  const { whereClause, params } = buildWhereClause({ campaignId, userId, type: "companion" });
-  const query = buildCharacterQuery({ type: "companion", whereClause });
-  const { rows } = await db.query(query, params);
-  return rows;
+	const { whereClause, params } = buildWhereClause({ campaignId, userId, type: "companion" });
+	const query = buildCharacterQuery({ type: "companion", whereClause });
+	const { rows } = await db.query(query, params);
+	return rows;
 };
 
 const getNPCs = async ({ campaignId = null } = {}) => {
-  const { whereClause, params } = buildWhereClause({ campaignId, type: "npc" });
-  const query = buildCharacterQuery({ type: "npc", whereClause });
-  const { rows } = await db.query(query, params);
-  return rows;
+	const { whereClause, params } = buildWhereClause({ campaignId, type: "npc" });
+	const query = buildCharacterQuery({ type: "npc", whereClause });
+	const { rows } = await db.query(query, params);
+	return rows;
 };
 
 const getFactions = async ({ campaignId = null } = {}) => {
-  const { whereClause, params } = buildWhereClause({ campaignId, type: "faction" });
-  const query = buildCharacterQuery({ type: "faction", whereClause });
-  const { rows } = await db.query(query, params);
-  return rows;
+	const { whereClause, params } = buildWhereClause({ campaignId, type: "faction" });
+	const query = buildCharacterQuery({ type: "faction", whereClause });
+	const { rows } = await db.query(query, params);
+	return rows;
 };
 
 // Exports

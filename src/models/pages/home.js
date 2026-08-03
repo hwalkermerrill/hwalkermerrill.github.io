@@ -1,12 +1,12 @@
 // Imports
-import db from "../db.js";
+// import db from "../db.js";
 import { getLatestSessionSummary, getSessionLogContent } from "./journal.js";
 
 // Model Functions
 
 // Get all tribes (factions with type 'Tribe') for a campaign
 const getTribesForCampaign = async (campaignId) => {
-  const query = `
+	const query = `
      SELECT
       f.id,
       f.faction_name,
@@ -43,26 +43,26 @@ const getTribesForCampaign = async (campaignId) => {
     ORDER BY f.faction_name;
   `;
 
-  const { rows } = await db.query(query, [campaignId]);
-  return rows.map(t => ({
-    ...t,
-    extra_list: t.extra_details
-      ? t.extra_details.split("<br>").map(s => s.trim()).filter(Boolean)
-      : []
-  }));
+	const { rows } = await db.query(query, [campaignId]);
+	return rows.map(t => ({
+		...t,
+		extra_list: t.extra_details
+			? t.extra_details.split("<br>").map(s => s.trim()).filter(Boolean)
+			: []
+	}));
 };
 
 // Get the most recent session recap for the home page
 const getLatestSessionRecap = async (campaignId) => {
-  const latest = await getLatestSessionSummary(campaignId);
-  if (!latest) return null;
+	const latest = await getLatestSessionSummary(campaignId);
+	if (!latest) return null;
 
-  const content = await getSessionLogContent(latest.id);
+	const content = await getSessionLogContent(latest.id);
 
-  return {
-    ...latest,
-    ...content
-  };
+	return {
+		...latest,
+		...content
+	};
 };
 
 // (Optional future expansion)

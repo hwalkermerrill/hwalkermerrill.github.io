@@ -1,12 +1,12 @@
 // Imports
-import db from "../db.js";
+// import db from "../db.js";
 
 // Allowed item types for the Assets page
 const ASSET_TYPES = ["artifact", "relic", "major", "minor", "special", "favor"];
 
 // Get all assets (with main gallery image) for a campaign
 const getAssetsForCampaign = async (campaignId) => {
-  const query = `
+	const query = `
     SELECT
       i.id,
       i.active_status_id,
@@ -39,8 +39,8 @@ const getAssetsForCampaign = async (campaignId) => {
     ORDER BY i.sort_order NULLS LAST, i.item_name;
   `;
 
-  const { rows } = await db.query(query, [campaignId, ASSET_TYPES]);
-  return rows;
+	const { rows } = await db.query(query, [campaignId, ASSET_TYPES]);
+	return rows;
 };
 
 export { getAssetsForCampaign };

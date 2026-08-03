@@ -1,5 +1,5 @@
 // Imports
-import db from "../db.js";
+// import db from "../db.js";
 
 /**
  * Checks if a user name is already registered in the database.
@@ -8,11 +8,11 @@ import db from "../db.js";
  * @returns {Promise<boolean>} True if username exists, false otherwise
  */
 const usernameExists = async (username) => {
-  const query = `
+	const query = `
       SELECT EXISTS(SELECT 1 FROM users WHERE username = $1) as exists
     `;
-  const result = await db.query(query, [username]);
-  return result.rows[0].exists;
+	const result = await db.query(query, [username]);
+	return result.rows[0].exists;
 };
 
 /**
@@ -24,13 +24,13 @@ const usernameExists = async (username) => {
  * @returns {Promise<Object>} The newly created user record (without password)
  */
 const saveUser = async (full_name, username, password_hash) => {
-  const query = `
+	const query = `
       INSERT INTO users (full_name, username, password_hash)
       VALUES ($1, $2, $3)
       RETURNING id, full_name, username, created_at
     `;
-  const result = await db.query(query, [full_name, username, password_hash]);
-  return result.rows[0];
+	const result = await db.query(query, [full_name, username, password_hash]);
+	return result.rows[0];
 };
 
 /**
@@ -39,20 +39,20 @@ const saveUser = async (full_name, username, password_hash) => {
  * @returns {Promise<Array>} Array of user records (without passwords)
  */
 const getAllUsers = async () => {
-  const query = `
+	const query = `
       SELECT id, full_name, username, created_at
       FROM users
       ORDER BY created_at DESC
     `;
-  const result = await db.query(query);
-  return result.rows;
+	const result = await db.query(query);
+	return result.rows;
 };
 
 /**
  * Retrieve a single user by ID with role information
  */
 const getUserById = async (id) => {
-  const query = `
+	const query = `
       SELECT 
         users.id,
         users.full_name,
@@ -63,31 +63,31 @@ const getUserById = async (id) => {
       INNER JOIN roles ON users.role_id = roles.id
       WHERE users.id = $1
     `;
-  const result = await db.query(query, [id]);
-  return result.rows[0] || null;
+	const result = await db.query(query, [id]);
+	return result.rows[0] || null;
 };
 
 /**
  * Update a user's name and username
  */
 const updateUser = async (id, full_name, username) => {
-  const query = `
+	const query = `
       UPDATE users 
       SET full_name = $1, username = $2, updated_at = CURRENT_TIMESTAMP
       WHERE id = $3
       RETURNING id, full_name, username, updated_at
     `;
-  const result = await db.query(query, [full_name, username, id]);
-  return result.rows[0] || null;
+	const result = await db.query(query, [full_name, username, id]);
+	return result.rows[0] || null;
 };
 
 /**
  * Delete a user account
  */
 const deleteUser = async (id) => {
-  const query = "DELETE FROM users WHERE id = $1";
-  const result = await db.query(query, [id]);
-  return result.rowCount > 0;
+	const query = "DELETE FROM users WHERE id = $1";
+	const result = await db.query(query, [id]);
+	return result.rowCount > 0;
 };
 
 export { usernameExists, saveUser, getAllUsers, getUserById, updateUser, deleteUser };
