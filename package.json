@@ -5,9 +5,9 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"build": "lightningcss --bundle --minify --targets \">= 0.25%\" css/main.css -o dist/styles.css",
+		"build": "lightningcss --bundle --minify --targets \">= 0.25%\" css/main.css -o public/dist/styles.css",
 		"watch": "chokidar \"css/**/*.css\" -c \"pnpm build\" --debounce 600",
-		"re": "npx lightningcss-cli --bundle --minify --targets \">= 0.25%\" css/main.css -o dist/styles.css",
+		"re": "npx lightningcss-cli --bundle --minify --targets \">= 0.25%\" css/main.css -o public/dist/styles.css",
 		"dev": "nodemon --env-file=.env server.js",
 		"prestart": "pnpm build",
 		"start": "node server.js"
