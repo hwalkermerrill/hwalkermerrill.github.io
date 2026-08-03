@@ -1,0 +1,22 @@
+.resume {
+	max-width: 64rem;
+}
+
+.resume :where(h1, h2, h3) {
+	font-family: "Trade Winds", serif;
+	color: var(--color-primary);
+	background-image: none;
+}
+
+.multicolumn ul {
+	display: block;
+	column-count: 2;
+	column-gap: 2rem;
+}
+
+@media print {
+	/* Hide on Print */
+	:where(header) {
+		display: none;
+	}
+}

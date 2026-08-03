@@ -1,0 +1,64 @@
+/* All Icons */
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.125em;
+	flex-shrink: 0;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.icon[data-size="sm"] {
+	width: var(--icon-size-sm);
+	height: var(--icon-size-sm);
+}
+
+.icon[data-size="md"] {
+	width: var(--icon-size-md);
+	height: var(--icon-size-md);
+}
+
+/* Footer Icon-Buttons */
+footer a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--spacing-xs);
+	border-radius: var(--radius-md);
+	color: var(--header-text);
+	transition:
+		color 0.2s ease,
+		background-color 0.2s ease,
+		transform 0.2s ease;
+}
+
+footer a > .icon {
+	transition: inherit;
+}
+
+footer a:hover,
+footer a:focus-visible {
+	color: var(--color-accent);
+	background-color: var(--color-surface);
+	transform: translateY(-2px);
+}
+
+footer a:active {
+	transform: translateY(0);
+}
+
+/* @media tags */
+@media (prefers-reduced-motion: reduce) {
+	footer a {
+		transition: none;
+	}
+	footer a:hover,
+	footer a:focus-visible,
+	footer a:active {
+		transform: none;
+	}
+}

@@ -1,0 +1,82 @@
+/* slope = (max-size - min-size) / (max-vw - min-vw) */
+/* intercept = min-size - (slope × min-vw) */
+/* min-vw: 360, max-vw: 1280 */
+:root {
+	/* Typography */
+	--font-family-sans: "Amiri", system-ui, -apple-system, sans-serif;
+	--font-family-serif: "Trade Winds", "Amiri", serif;
+	--font-family-mono: "Courier New", Courier, monospace;
+	--font-family-head: "Indiana Jonas", serif;
+	--font-size-xs: clamp(1rem, 0.028vw + 0.9rem, 1.125rem);
+	--font-size-sm: clamp(1.25rem, 0.034vw + 1.13rem, 1.5rem);
+	--font-size-md: clamp(1.5rem, 0.043vw + 1.32rem, 1.875rem);
+	--font-size-lg: clamp(1.875rem, 0.054vw + 1.63rem, 2.35rem);
+	--font-size-xl: clamp(2.35rem, 0.067vw + 2.03rem, 2.95rem);
+	--font-size-2xl: clamp(2.95rem, 0.084vw + 2.55rem, 3.7rem);
+	--font-size-3xl: clamp(3.7rem, 0.105vw + 3.2rem, 4.6rem);
+
+	/* Semantic Font Sizes */
+	--font-size-body: var(--font-size-md);
+	--font-size-body-sm: var(--font-size-sm);
+	--font-size-caption: var(--font-size-xs);
+	--font-size-heading-sm: var(--font-size-lg);
+	--font-size-heading-md: var(--font-size-xl);
+	--font-size-heading-lg: var(--font-size-2xl);
+	--font-size-display: var(--font-size-3xl);
+
+	/* Spacing */
+	--spacing-xs: 0.25rem;
+	--spacing-sm: 0.5rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 2rem;
+	--spacing-xl: 4rem;
+	--spacing-xxl: 6rem;
+	--line-height: 1.5;
+
+	/* Radii */
+	--radius-sm: 0.25rem;
+	--radius-md: 0.5rem;
+	--radius-lg: 1rem;
+
+	/* Shadows */
+	--shadow-sm:
+		0 1px 2px var(--shadow-color), 0 2px 4px var(--shadow-color-soft);
+	--shadow-md:
+		0 2px 4px var(--shadow-color), 0 6px 12px var(--shadow-color-soft),
+		0 16px 32px var(--shadow-color-softer);
+	--shadow-lg:
+		0 4px 8px var(--shadow-color), 0 12px 24px var(--shadow-color-soft),
+		0 24px 48px var(--shadow-color-softer);
+	--shadow-indiana:
+		2px 2px 0 var(--shadow-indy-warm), 4px 4px 4px var(--shadow-color-soft);
+	--shadow-legible: 0 1px 3px var(--shadow-color-text);
+	--shadow-neon:
+		0 0 4px color-mix(in oklch, var(--color-accent) 80%, white),
+		0 0 12px color-mix(in oklch, var(--color-accent) 60%, white),
+		0 0 24px color-mix(in oklch, var(--color-accent) 40%, black);
+
+	/* Transitions */
+	--transition-base: 0.2s ease;
+
+	/* Layout */
+	--layout-container-small: 24rem;
+	--layout-container-medium: 48rem;
+	--layout-container-large: 80rem;
+
+	/* Opacity */
+	--opacity-disabled: 0.6;
+
+	/* Icons */
+	--icon-size-sm: 24px;
+	--icon-size-md: 32px;
+
+	/* Focus */
+	--outline-width: 2px;
+
+	/* Gradients */
+	--gradient-vignette: radial-gradient(
+		ellipse at center,
+		transparent 40%,
+		oklch(0.1 0 0 / 0.6) 100%
+	);
+}

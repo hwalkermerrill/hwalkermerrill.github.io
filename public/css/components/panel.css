@@ -1,0 +1,28 @@
+.panel {
+	height: 0;
+	overflow: hidden;
+	transition: height 0.35s ease;
+}
+
+details[open] .panel {
+	height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.panel {
+		transition: none;
+	}
+}
+
+/* Insert the following into JS if fallback support is needed */
+/* if (!CSS.supports('interpolate-size', 'allow-keywords')) {
+	document.querySelectorAll('details').forEach((details) => {
+		const panel = details.querySelector('.panel');
+
+		details.addEventListener('toggle', () => {
+			panel.style.height = details.open
+				? panel.scrollHeight + 'px'
+				: '0';
+		});
+	});
+} */

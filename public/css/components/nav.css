@@ -1,0 +1,87 @@
+/* Navigation component: .site-nav and its links
+   Style the active link using aria-current. */
+
+.site-nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--spacing-sm) var(--spacing-md);
+	background-color: var(--color-primary);
+	color: var(--header-text);
+
+	h2 {
+		font-family: var(--font-family-serif);
+		text-decoration: none;
+		font-size: var(--font-size-md);
+		color: var(--header-text);
+		-webkit-text-stroke: 0;
+		margin-right: var(--spacing-sm);
+	}
+
+	.active {
+		background-color: var(--color-accent);
+		color: var(--color-text);
+		font-weight: bold;
+	}
+
+	> a {
+		color: var(--header-text);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-accent);
+		}
+
+		&:focus-visible {
+			outline: 3px solid var(--color-accent);
+			outline-offset: 2px;
+		}
+	}
+
+	ul {
+		display: flex;
+		/* flex-wrap: wrap; */
+		align-items: center;
+		gap: var(--spacing-sm);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li a {
+			display: inline-flex;
+			align-items: center;
+			/* white-space: nowrap; */
+			gap: var(--spacing-xs);
+			padding: var(--spacing-sm) var(--spacing-md);
+			text-decoration: none;
+			color: var(--header-text);
+			border-radius: var(--radius-md);
+			transition: background-color 0.2s ease;
+			font-size: var(--font-size-sm);
+			max-width: 13ch;
+
+			&:hover:not([aria-current="page"]) {
+				background-color: color-mix(
+					in srgb,
+					var(--color-accent) 30%,
+					var(--color-primary)
+				);
+			}
+
+			&:focus-visible {
+				outline: 3px solid var(--color-accent);
+				outline-offset: 2px;
+			}
+
+			&[aria-current="page"] {
+				background-color: var(--color-accent);
+				color: var(--color-text);
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.site-nav :is(a, li a) {
+	cursor: pointer;
+}

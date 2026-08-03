@@ -1,0 +1,65 @@
+/* Utility classes: single-purpose helpers.
+	These live in the last layer so they override components
+	by layer order without needing !important. */
+
+/* Center Text */
+.u-text-center {
+	text-align: center;
+}
+
+/* No box shadow */
+.u-no-shadow {
+	box-shadow: none;
+}
+
+/* Clearfix */
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* Visually Hidden */
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Holographic Effects */
+.holo-flash {
+	background-image: var(--color-metallic-holo);
+	background-size: 300% 300%;
+	background-position: 50% 0%;
+	background-repeat: no-repeat;
+}
+
+.holo-flash-chromatic {
+	background-image: var(--color-chromatic-holo);
+	background-size: 300% 300%;
+	background-position: 50% 0%;
+	background-repeat: no-repeat;
+}
+
+.holo-flash:hover,
+.holo-flash-chromatic:hover {
+	animation: holo-sweep 1.2s ease-out;
+}
+
+.no-flash {
+	background-image: none;
+	animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.holo-flash,
+	.holo-flash-chromatic {
+		animation: none;
+	}
+}

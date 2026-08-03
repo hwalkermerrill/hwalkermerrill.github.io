@@ -1,0 +1,52 @@
+header {
+	margin: 0;
+	padding: var(--spacing-xs);
+	padding-top: env(safe-area-inset-top, var(--spacing-md));
+	background-color: var(--color-accent);
+	color: var(--header-text);
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-md);
+
+	.theme-menu {
+		margin-left: auto;
+	}
+
+	.logo {
+		margin: 0;
+		padding: 0;
+
+		img {
+			max-height: var(--spacing-xxl);
+			border-radius: var(--radius-sm);
+			object-fit: cover;
+			display: block;
+		}
+	}
+
+	.slogan h2 {
+		margin-bottom: var(--spacing-sm);
+		font-family: var(--font-family-serif);
+		color: var(--color-primary);
+	}
+}
+
+footer {
+	padding: var(--spacing-md);
+	padding-bottom: env(safe-area-inset-bottom, var(--spacing-md));
+	background-color: var(--color-accent);
+	color: var(--color-primary);
+	text-align: center;
+
+	:where(a, svg) {
+		display: inline-block;
+		margin-inline: var(--spacing-xs);
+		color: var(--header-text);
+	}
+
+	a {
+		align-items: center;
+		justify-content: center;
+		padding: var(--spacing-xs);
+	}
+}

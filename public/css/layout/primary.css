@@ -1,0 +1,38 @@
+/* Primary page layout: provided for you.
+	Focus your work on tokens, base, components, and utilities. */
+
+body {
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex: 1;
+	max-width: 80rem; /* Bumped this up to 1280px */
+	width: 100%;
+	margin-inline: auto;
+	padding-inline: var(--spacing-md, 1rem);
+}
+
+main > section {
+	margin-bottom: var(--spacing-xl, 3rem);
+}
+
+/* drop cap */
+.dropcap::first-letter {
+	-webkit-initial-letter: 3;
+	initial-letter: 3;
+	font-weight: 700;
+	color: var(--color-accent, #005633);
+}
+
+/* clamp */
+.clamp {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	max-width: 65ch;
+	line-height: 2;
+}

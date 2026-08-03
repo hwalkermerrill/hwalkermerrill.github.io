@@ -1,0 +1,58 @@
+/* Form components: .note-form, .form-field, inputs, textarea, select
+   Use native nesting. Add :focus-visible styles to all inputs. */
+
+.note-form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-lg);
+	padding: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
+	background-color: var(--header-text);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-md);
+}
+
+.form-field {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+
+	label {
+		font-family: var(--font-family-serif);
+		font-size: var(--font-size-lg);
+		color: var(--color-primary);
+	}
+}
+
+.note-form :is(input, textarea, select) {
+	padding: var(--spacing-sm) var(--spacing-md);
+	border-radius: var(--radius-md);
+	border: 2px solid var(--color-primary);
+	background-color: var(--color-bg);
+	font-family: var(--font-family-sans);
+	font-size: var(--font-size-base);
+	color: var(--color-text);
+	transition:
+		border-color 0.2s ease,
+		background-color 0.2s ease;
+
+	&:focus-visible {
+		outline: 3px solid var(--color-accent);
+		outline-offset: 2px;
+		background-color: var(--header-text);
+	}
+
+	&:not(:disabled):hover {
+		border-color: var(--color-accent);
+	}
+
+	&:disabled {
+		opacity: var(--opacity-disabled);
+		cursor: not-allowed;
+		background-color: var(--color-disabled);
+	}
+}
+
+textarea {
+	resize: vertical;
+	min-height: calc(var(--spacing-lg) * 3);
+}
