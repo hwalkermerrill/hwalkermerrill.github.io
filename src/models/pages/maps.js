@@ -1,5 +1,5 @@
 // Imports
-// import db from "../db.js";
+import db from "../db.js";
 
 // Model Functions
 // Get all maps (items + main gallery image) for a campaign

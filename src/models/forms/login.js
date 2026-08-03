@@ -1,6 +1,6 @@
 // Imports
 import bcrypt from "bcrypt";
-// import db from "../db.js";
+import db from "../db.js";
 
 const findUserByUsername = async (username) => {
 	const query = `

@@ -1,5 +1,5 @@
 // Imports
-import fs from "fs";
+// import fs from "fs";
 import path from "path";
 import { Pool } from "pg";
 import { fileURLToPath } from "url";
@@ -7,17 +7,17 @@ import { fileURLToPath } from "url";
 // Constants
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const caCert = fs.readFileSync(path.join(__dirname, "../../bin", "byuicse-psql-cert.pem"));
+// const caCert = fs.readFileSync(path.join(__dirname, "../../bin", "byuicse-psql-cert.pem"));
 
 const pool = new Pool({
 	// Create a connection pool to avoid the overhead of creating new connections for
 	// each request. This improves performance and reduces load on the database server.
 	connectionString: process.env.DB_URL,
-	ssl: {
-		ca: caCert,
-		rejectUnauthorized: true,  // SECURITY: Keep this true for proper security
-		checkServerIdentity: () => { return undefined; }  // Skip hostname verification but keep cert chain validation
-	}
+	// ssl: { ssl=require set by neon, so we don't need to specify it here.
+	// 	ca: caCert,
+	// 	rejectUnauthorized: true,  // SECURITY: Keep this true for proper security
+	// 	checkServerIdentity: () => { return undefined; }  // Skip hostname verification but keep cert chain validation
+	// }
 });
 
 // Development Tools
@@ -55,4 +55,4 @@ if (process.env.NODE_ENV.includes("dev") && process.env.ENABLE_SQL_LOGGING === "
 
 // Exports
 export default db;
-export { caCert };
+// export { caCert };

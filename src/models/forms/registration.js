@@ -1,5 +1,5 @@
 // Imports
-// import db from "../db.js";
+import db from "../db.js";
 
 /**
  * Checks if a user name is already registered in the database.

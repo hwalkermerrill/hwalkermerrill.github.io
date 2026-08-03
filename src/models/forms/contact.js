@@ -1,5 +1,5 @@
 // Imports
-// import db from "../db.js";
+import db from "../db.js";
 
 /**
  * Inserts a new contact form submission into the database.

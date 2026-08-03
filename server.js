@@ -1,30 +1,30 @@
 // Imports (Core-Middleware-Routes-Models-Utils)
 import express from "express";
 import session from "express-session";
-// import connectPgSimple from "connect-pg-simple"; //Replaced with MongoDB session store. If reinstating, reinstall dependency with: npm install connect-pg-simple and npm install pg.
-import MongoStore from "connect-mongo";
+import connectPgSimple from "connect-pg-simple";
+// import MongoStore from "connect-mongo"; // Mongodb
 import path from "path";
 import { fileURLToPath } from "url";
 import { addLocalVariables, devLogs, campaignMiddleware } from "./src/middleware/global.js";
 import { error404Router, globalErrorHandler } from "./src/middleware/errorHandler.js";
 import flash from "./src/middleware/flash.js";
 import routes from "./src/controllers/routes.js";
-// import { setupDatabase, testConnection } from "./src/models/setupPostgres.js"; // Replaced with MongoDB setup and connection tests
-import { connectMongo, testConnection } from "./src/models/setupMongo.js"; // MongoDB connection
-// import { caCert } from "./src/models/db.js"; //Cert no longer used with MongoDB
-// import { startSessionCleanup } from "./src/utils/session-cleanup.js"; // Replaced with MongoDB built in session cleanup
+import { setupDatabase, testConnection } from "./src/models/setupPostgres.js";
+// import { connectMongo, testConnection } from "./src/models/setupMongo.js"; // MongoDB connection
+// import { caCert } from "./src/models/db.js"; //Cert only used with byui db
+import { startSessionCleanup } from "./src/utils/session-cleanup.js";
 
 // Constants
 const app = express();
-// const PgSession = connectPgSimple(session); // Replaced with MongoDB session store
+const PgSession = connectPgSimple(session);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV?.toLowerCase() || "production";
 
 // Test Session Connection
-// console.log("DB_URL at runtime:", process.env.DB_URL); // Postgres connection test
-console.log("MONGO_URI at runtime:", process.env.MONGO_URI); // MongoDB connection test
+console.log("DB_URL at runtime:", process.env.DB_URL); // Postgres connection test
+// console.log("MONGO_URI at runtime:", process.env.MONGO_URI); // MongoDB connection test
 
 // App Configuration
 app.use(express.static(path.join(__dirname, "public")));
@@ -35,36 +35,33 @@ app.use(express.json());
 
 // Session Configuration
 app.use(session({
-	// store: new PgSession({ //Former PostgreSQL session store configuration, replaced with MongoDB session store
-	//   conObject: {
-	//     connectionString: process.env.DB_URL,
-	//     // Configure SSL for session store connection (required by BYU-I databases)
-	//     ssl: {
-	//       ca: caCert,
-	//       rejectUnauthorized: true,
-	//       checkServerIdentity: () => { return undefined; }
-	//     }
-	//   },
-	//   tableName: "session",
-	//   createTableIfMissing: true
-	// }),
-	store: MongoStore.create({
-		mongoUrl: process.env.MONGO_URI,
-		dbName: "merrill-ttrpg",
-		collectionName: "sessions",
-		ttl: 24 * 60 * 60, // 1 day in seconds
-		autoRemove: "native", // Use native MongoDB TTL index for automatic removal
+	store: new PgSession({
+		conString: process.env.DB_URL,
+		// ssl: { //For BYUICSE
+		// 	ca: caCert,
+		// 	rejectUnauthorized: true,
+		// 	checkServerIdentity: () => { return undefined; }
+		// }
+		tableName: "session",
+		createTableIfMissing: true
 	}),
+	// store: MongoStore.create({
+	// 	mongoUrl: process.env.MONGO_URI,
+	// 	dbName: "merrill-ttrpg",
+	// 	collectionName: "sessions",
+	// 	ttl: 24 * 60 * 60, // 1 day in seconds
+	// 	autoRemove: "native", // Use native MongoDB TTL index for automatic removal
+	// }),
 	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: false,
 	cookie: {
 		secure: NODE_ENV.includes("dev") !== true,
 		httpOnly: true,
-		maxAge: 24 * 60 * 60 * 1000
+		maxAge: 24 * 60 * 60 * 1000 // 1 day in milliseconds
 	}
 }));
-// startSessionCleanup(); // Replaced with MongoDB built-in session cleanup using TTL index
+startSessionCleanup();
 
 // Middleware (AKA Mise en Place)
 app.use(addLocalVariables);
@@ -104,8 +101,8 @@ if (NODE_ENV.includes("dev")) {
 
 // Start the server and listen on the specified port
 app.listen(PORT, async () => {
-	// await setupDatabase();
-	await connectMongo();
+	await setupDatabase();
+	// await connectMongo();
 	await testConnection();
 	console.log(`Server is running on http://127.0.0.1:${PORT}`);
 });

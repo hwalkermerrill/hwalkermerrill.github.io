@@ -1,5 +1,5 @@
 // Imports
-// import db from "../db.js";
+import db from "../db.js";
 
 // Helpers - JOIN
 const SOCIAL_JOIN = (type) => `

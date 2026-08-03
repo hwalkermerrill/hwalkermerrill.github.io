@@ -1,5 +1,5 @@
 // Imports
-// import db from "../db.js";
+import db from "../db.js";
 
 const findUserByNameAndUsername = async (full_name, username) => {
 	const result = await db.query(

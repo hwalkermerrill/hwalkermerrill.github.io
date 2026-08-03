@@ -1,5 +1,5 @@
 // Imports
-// import db from "../db.js";
+import db from "../db.js";
 
 // Allowed item types for the Assets page
 const ASSET_TYPES = ["artifact", "relic", "major", "minor", "special", "favor"];
