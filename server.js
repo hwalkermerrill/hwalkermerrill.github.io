@@ -9,10 +9,10 @@ import { addLocalVariables, devLogs, campaignMiddleware } from "./src/middleware
 import { error404Router, globalErrorHandler } from "./src/middleware/errorHandler.js";
 import flash from "./src/middleware/flash.js";
 import routes from "./src/controllers/routes.js";
-import { setupDatabase, testConnection } from "./src/models/setupPostgres.js";
+import { testConnection } from "./src/models/setupPostgres.js"; //setupDatabase no longer needed, so now this just runs the testConnection
 // import { connectMongo, testConnection } from "./src/models/setupMongo.js"; // MongoDB connection
 // import { caCert } from "./src/models/db.js"; //Cert only used with byui db
-import { startSessionCleanup } from "./src/utils/session-cleanup.js";
+// import { startSessionCleanup } from "./src/utils/session-cleanup.js"; //Session cleanup now automatic
 
 // Constants
 const app = express();
@@ -61,7 +61,7 @@ app.use(session({
 		maxAge: 24 * 60 * 60 * 1000 // 1 day in milliseconds
 	}
 }));
-startSessionCleanup();
+// startSessionCleanup();
 
 // Middleware (AKA Mise en Place)
 app.use(addLocalVariables);
@@ -101,7 +101,7 @@ if (NODE_ENV.includes("dev")) {
 
 // Start the server and listen on the specified port
 app.listen(PORT, async () => {
-	await setupDatabase();
+	// await setupDatabase(); no longer runs every time, only when needed.
 	// await connectMongo();
 	await testConnection();
 	console.log(`Server is running on http://127.0.0.1:${PORT}`);

@@ -10,7 +10,10 @@
 		"re": "npx lightningcss-cli --bundle --minify --targets \">= 0.25%\" css/main.css -o public/dist/styles.css",
 		"dev": "nodemon --env-file=.env server.js",
 		"prestart": "pnpm build",
-		"start": "node server.js"
+		"start": "node server.js",
+		"db:structure": "node src/models/runSeeds.js structure",
+		"db:core": "node src/models/runSeeds.js core",
+		"db:campaign": "node src/models/runSeeds.js campaign"
 	},
 	"keywords": [],
 	"author": "",
