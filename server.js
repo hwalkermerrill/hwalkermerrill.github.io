@@ -35,6 +35,7 @@ app.use(express.json());
 
 // Session Configuration
 app.use(session({
+	name: "merrill.sid", // rename cookies to avoid auto drop by browsers and to avoid conflicts
 	store: new PgSession({
 		conString: process.env.DB_URL,
 		// ssl: { //For BYUICSE
