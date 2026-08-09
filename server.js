@@ -80,6 +80,10 @@ app.use("/", routes);
 app.use(error404Router);
 app.use(globalErrorHandler);
 
+// Test Logging
+console.log("RENDER =", process.env.RENDER);
+console.log("NODE_ENV =", process.env.NODE_ENV);
+
 // When in development mode, start a WebSocket server for live reloading
 if (NODE_ENV.includes("dev")) {
 	const ws = await import("ws");
