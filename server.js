@@ -30,6 +30,7 @@ console.log("DB_URL at runtime:", process.env.DB_URL); // Postgres connection te
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src/views"));
+app.set("trust proxy", 1); // Trust first proxy (needed for secure cookies behind a reverse proxy)
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
