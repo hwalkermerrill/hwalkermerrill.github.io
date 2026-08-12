@@ -2,65 +2,66 @@
 <html lang="en">
 
 <head>
-  <!-- META DATA -->
-  <meta charset="utf-8">
-  <meta name="description" content="Serpents Skull">
-  <meta name="author" content="Harrison Merrill">
-  <meta name="slogan" content="Kadena AB Pathfinder Group">
-  <meta name="keywords" content="Pathfinder, Pathfinder 1E, Serpents Skull, Harrison Merrill">
-  <meta name="theme-color" content="#005633">
-  <meta name="robots" content="noimageindex">
-  <!-- <meta http-equiv="refresh" content="300"> -->
+	<!-- META DATA -->
+	<meta charset="utf-8">
+	<meta name="description" content="Pathfinder 1E Campaign Management Tool for local tabletop group at Kadena AB.">
+	<meta name="author" content="Harrison Merrill">
+	<meta name="slogan" content="Kadena AB Pathfinder Group">
+	<meta name="keywords"
+		content="Pathfinder, Pathfinder 1E, Harrison Merrill, Wrath of the Righteous, Kadena, Shields, Okinawa, Tabletop, RPG">
+	<meta name="theme-color" content="#005633">
+	<meta name="color-scheme" content="light dark">
+	<meta name="robots" content="noimageindex">
+	<!-- <meta http-equiv="refresh" content="300"> -->
 
-  <title>
-    <%= title %>
-  </title>
+	<title>
+		<%= title %>
+	</title>
 
-  <!-- Logos and Favicons -->
-  <link href="/images/core/logofav.png" rel="icon">
-  <link href="/images/core/logo_apple120x.png" rel="apple-touch-icon">
-  <link href="/images/core/logo_apple152x.png" rel="apple-touch-icon" sizes="152x152">
-  <link href="/images/core/logo_apple167x.png" rel="apple-touch-icon" sizes="167x167">
-  <link href="/images/core/logo_apple180x.png" rel="apple-touch-icon" sizes="180x180">
-  <link href="/images/core/logo_icon192x.png" rel="icon" sizes="192x192">
-  <link href="/images/core/logo_icon128x.png" rel="icon" sizes="128x128">
+	<!-- Logos and Favicons -->
+	<link href="/images/core/favicon.ico" rel="icon">
+	<link href="/images/core/favicon-64x.png" rel="icon" sizes="64x64">
+	<link href="/images/core/logo_apple180x.png" rel="apple-touch-icon" sizes="180x180">
+	<link href="/images/core/logo_icon192x.png" rel="icon" sizes="192x192">
+	<link href="/js/manifest.json" rel="manifest">
 
-  <!-- This tells MS Edge users to use Edge instead of IE -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- This tells MS Edge users to use Edge instead of IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH-->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Preconnect to Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cabin+Sketch&family=Trade+Winds" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/indiana-jonas" rel="stylesheet">
+	<!-- Preconnect to Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Trade+Winds" rel="stylesheet">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <%- renderStyles() %>
+	<!-- Stylesheets -->
+	<link href="/dist/styles.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css">
+	<%- renderStyles() %>
 
-  <!-- Scripts -->
-  <script src="/js/pathfinder.js"></script>
-  <%- renderScripts() %>
+	<!-- Scripts -->
+	<script src="/js/theme-preference.js"></script>
+	<script src="/js/utilities.js"></script>
+	<script src="/js/pathfinder.js"></script>
+	<%- renderScripts() %>
 
-  <!-- DEV_ENV Live Reload WebSocket-->
-  <% if (NODE_ENV.includes('dev')) { %>
-  <script>
-    // Get the current hostname and port from the browser
-    const host = window.location.hostname;
-    const currentPort = window.location.port;
+	<!-- DEV_ENV Live Reload WebSocket-->
+	<% if (NODE_ENV.includes('dev')) { %>
+	<script>
+		// Get the current hostname and port from the browser
+		const host = window.location.hostname;
+		const currentPort = window.location.port;
 
-    // Calculate WebSocket port (current port + 1)
-    const wsPort = currentPort ? (parseInt(currentPort) + 1) : 3001;
+		// Calculate WebSocket port (current port + 1)
+		const wsPort = currentPort ? (parseInt(currentPort) + 1) : 3001;
 
-    // Create WebSocket connection using dynamic hostname and port
-    const ws = new WebSocket(`ws://${host}:${wsPort}`);
-    ws.onclose = () => {
-      setTimeout(() => location.reload(), 2000);
-    };
-  </script>
-  <% } %>
+		// Create WebSocket connection using dynamic hostname and port
+		const ws = new WebSocket(`ws://${host}:${wsPort}`);
+		ws.onclose = () => {
+			setTimeout(() => location.reload(), 2000);
+		};
+	</script>
+	<% } %>
 </head>
