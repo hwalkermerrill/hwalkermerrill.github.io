@@ -56,7 +56,7 @@ body {
 	min-width: 15rem;
 	margin: 0;
 	/*----- Background Img -----*/
-	background-image: url("/images/core/background-cover.jpg");
+	/* background-image: url("/images/core/background-cover.jpg"); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
