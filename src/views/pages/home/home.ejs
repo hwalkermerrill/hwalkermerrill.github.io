@@ -20,14 +20,19 @@
 		<%- include("./_knowledgeChecks") %>
 		<%- include("./_tombRaiding") %>
 
+		<!-- Wrath of The Righteous Unique Sections -->
+		<%- include("./_crusadingFaiths") %>
+		<%- include("./_righteousMedals") %>
+
 		<!-- Dynamic Inclusion Sections -->
 		<!-- <  %- include("./_factionsTribes", { tribes }) %  > -->
-		<!-- include redemption mechanics as dynamic section here once built -->
+		<!-- < %- include("./_crusadeOrders, {orders}") % > need to create at least the orders table before i can populate this section-->
 
 	</div>
 	<div class="clearfix"></div>
 
 	<!-- Recap Partials -->
+	<!-- include brief history of the crusades as dynamic section here once built -->
 	<%- include("./_latestRecap", { latestRecap }) %>
 	<%- include("./_locations", { currentLocation, overviewLocation }) %>
 	<div class="floatswitch"></div>

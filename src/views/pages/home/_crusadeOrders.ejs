@@ -1,0 +1,68 @@
+<section class="orders-section">
+	<h2>Knightly Orders of Crusaders</h2>
+	<p>Without a meaningful cause to pursue, a knight would be little more than a well-versed brawler. What exactly this
+		driving force is varies from knight to knight, but chief among these motives is faith. Whether pursuing Torag's
+		favor by showing unwavering courage in the face of battle or spreading the word of Sarenrae's wisdom with a flaming
+		sword, knight dedicated to holy and unholy orders are as multitudinous as they are varied. Since knights join the
+		crusades for a myriad of reasons, they do not all take the same form, but generally fall into the following broad
+		types: Heavy Knights wearing sturdy armor and wielding great weapons, Thaumaturgic Knights wielding arcane or divine
+		magic as their primary means of gallantry, and Unhindered Knights who favor lightweight garb and perform their
+		duties with unparalleled grace.</p>
+	<ul class="toggleLiVis" style="list-style-type: none;">
+		<li style="display: none;"><b>Click to Unfold the Knightly Orders' Forward:</b></li>
+		<li><b>Click to Fold-up the Knightly Orders' Forward:</b></li>
+		<li>It can be incredibly useful to recognize and distinguish the various knightly orders, both holy and unholy, that
+			are involved in the crusades, as knight devoted to the same order typically also share principles and goals, as
+			well as common patron deities and recruitment practices. Being able to locate and identify a riftwarden, eagle
+			knight, or cultist by their signs, tokens, and symbols, can save your life in a crisis and the shared culture can
+			go a long way for cutting through lengthy introductions. Membership in these orders is also a privilege that needs
+			to be earned, and many adventurers may dedicate the next step of their lived to pursuing admission to their ranks.
+			The predominant knightly orders present amongst crusaders include the following:</li>
+	</ul>
+	<br>
+	<% if (!orders || orders.length === 0) { %>
+	<p>No orders have been discovered yet.</p>
+	<% } else { %>
+	<div class="asset">
+
+		<% orders.forEach(t => { %>
+
+		<section class="<%= t.attitude_id === 5 ? 'hostile'
+                        : t.attitude_id === 4 ? 'unfriendly'
+                        : t.attitude_id === 3 ? 'neutral'
+                        : t.attitude_id === 2 ? 'friendly'
+                        : 'helpful' %>">
+
+			<h3><%= t.faction_name %></h3>
+			<!-- <strong>Leader: None</strong><br><br> -->
+
+			<figure class="<%= t.is_tall ? 'two-three' : 'one-one' %>">
+				<picture>
+					<% if (t.image_url) { %>
+					<source srcset="<%= t.image_url %>" type="image/webp">
+					<img src="<%= t.image_url %>" alt="<%= t.alt || t.faction_name %>">
+					<% } else { %>
+					<img src="/images/core/unknown.png" alt="<%= t.faction_name %>">
+					<% } %>
+				</picture>
+			</figure>
+
+			<% if (t.description) { %>
+			<p><%= t.description %></p>
+			<% } %>
+
+			<% if (t.extra_list.length > 0) { %>
+			<ul style="list-style-type: lower-greek;">
+				<% t.extra_list.forEach(item => { %>
+				<li><%= item %></li>
+				<% }) %>
+			</ul>
+			<% } %>
+
+		</section>
+
+		<% }) %>
+
+	</div>
+	<% } %>
+</section>

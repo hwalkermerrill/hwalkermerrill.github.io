@@ -2,8 +2,8 @@
 @font-face {
 	font-family: "Indiana Jonas";
 	src:
-		url("../../public/fonts/Indiana-Jonas-48p.woff2") format("woff2"),
-		url("../../public/fonts/indiana-jonas-48p.woff") format("woff");
+		url("/fonts/Indiana-Jonas-48p.woff2") format("woff2"),
+		url("/fonts/indiana-jonas-48p.woff") format("woff");
 	font-display: swap;
 	font-style: normal;
 	font-weight: 500;
@@ -12,8 +12,8 @@
 @font-face {
 	font-family: "Indiana Jonas Inline";
 	src:
-		url("../../public/fonts/Indiana-Jonas-48ip.woff2") format("woff2"),
-		url("../../public/fonts/Indiana-Jonas-48ip.woff") format("woff");
+		url("/fonts/Indiana-Jonas-48ip.woff2") format("woff2"),
+		url("/fonts/Indiana-Jonas-48ip.woff") format("woff");
 	font-display: swap;
 	font-style: normal;
 	font-weight: 500;
