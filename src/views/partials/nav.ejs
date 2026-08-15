@@ -1,32 +1,32 @@
 <nav class="primary-nav clearfix">
-  <ul id="primaryNav" class="hide">
-    <!-- Always Visible Links First -->
-    <li class="<%= activePage === 'home' ? 'active' : '' %>"><a href="/">Home</a></li>
-    <li class="<%= activePage === 'characters' ? 'active' : '' %>"><a href="/characters">Cast</a></li>
-    <li class="<%= activePage === 'assets' ? 'active' : '' %>"><a href="/assets">Discoveries</a></li>
-    <li class="<%= activePage === 'maps' ? 'active' : '' %>"><a href="/maps">Surveys</a></li>
-    <li class="<%= activePage === 'journal' ? 'active' : '' %>"><a href="/journal">Travel Log</a></li>
-    <li class="<%= activePage === 'rules' ? 'active' : '' %>"><a href="/rules">Rules</a></li>
-    <!-- <li class="<%= activePage === 'index' ? 'active' : '' %>"><a href="/index.html">View Archives</a></li> HIDE FROM NAV UNTIL FIXED-->
+	<ul id="primaryNav" class="hide">
+		<!-- Always Visible Links First -->
+		<li class="<%= activePage === 'home' ? 'active' : '' %>"><a href="/">Home</a></li>
+		<li class="<%= activePage === 'characters' ? 'active' : '' %>"><a href="/characters">Characters</a></li>
+		<li class="<%= activePage === 'assets' ? 'active' : '' %>"><a href="/assets">Relics</a></li>
+		<li class="<%= activePage === 'maps' ? 'active' : '' %>"><a href="/maps">Maps</a></li>
+		<li class="<%= activePage === 'journal' ? 'active' : '' %>"><a href="/journal">Journal</a></li>
+		<li class="<%= activePage === 'rules' ? 'active' : '' %>"><a href="/rules">Rules</a></li>
+		<!-- <li class="<%= activePage === 'index' ? 'active' : '' %>"><a href="/index.html">View Archives</a></li> HIDE FROM NAV UNTIL FIXED-->
 
-    <!-- Only Visible when NOT Logged In -->
-    <% if (!isLoggedIn) { %>
-    <li class="<%= activePage === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
-    <!-- <li class="<%= activePage === 'register' ? 'active' : '' %>"><a href="/register">Register</a></li> -->
-    <% } %>
-  </ul>
+		<!-- Only Visible when NOT Logged In -->
+		<% if (!isLoggedIn) { %>
+		<li class="<%= activePage === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
+		<!-- <li class="<%= activePage === 'register' ? 'active' : '' %>"><a href="/register">Register</a></li> -->
+		<% } %>
+	</ul>
 </nav>
 
 <!-- Only Visible when Logged In -->
 <% if (isLoggedIn) { %>
 <nav class="secondary-nav clearfix">
-  <ul id="secondaryNav" class="hide">
-    <li class="<%= activePage === 'dashboard' ? 'active' : '' %>"><a href="/dashboard">Dashboard</a></li>
-    <li class="<%= activePage === 'register' ? 'active' : '' %>"><a href="/register/account">Account</a></li>
-    <!-- <li class="<%= activePage === 'contact' ? 'active' : '' %>"><a href="/contact/responses">Contact Responses</a></li> -->
-    <li class="<%= activePage === 'creation' ? 'active' : '' %>"><a href="/creation">Character Creation</a></li>
-    <li class="<%= activePage === 'logout' ? 'active' : '' %>"><a href="/logout">Logout</a></li>
-  </ul>
+	<ul id="secondaryNav" class="hide">
+		<li class="<%= activePage === 'dashboard' ? 'active' : '' %>"><a href="/dashboard">Dashboard</a></li>
+		<li class="<%= activePage === 'register' ? 'active' : '' %>"><a href="/register/account">Account</a></li>
+		<!-- <li class="<%= activePage === 'contact' ? 'active' : '' %>"><a href="/contact/responses">Contact Responses</a></li> -->
+		<li class="<%= activePage === 'creation' ? 'active' : '' %>"><a href="/creation">Character Creation</a></li>
+		<li class="<%= activePage === 'logout' ? 'active' : '' %>"><a href="/logout">Logout</a></li>
+	</ul>
 </nav>
 <% } %>
 
@@ -37,12 +37,12 @@
 %>
 <% if (hasMessages) { %>
 <div class="flash-messages">
-  <% Object.keys(messages).forEach(type => { %>
-  <% messages[type].forEach(message => { %>
-  <div class="flash <%= type %>">
-    <%= message %>
-  </div>
-  <% }); %>
-  <% }); %>
+	<% Object.keys(messages).forEach(type => { %>
+	<% messages[type].forEach(message => { %>
+	<div class="flash <%= type %>">
+		<%= message %>
+	</div>
+	<% }); %>
+	<% }); %>
 </div>
 <% } %>
