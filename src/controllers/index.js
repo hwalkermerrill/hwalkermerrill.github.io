@@ -1,7 +1,7 @@
 // Route index for static controllers
 
 const creationPage = (req, res) => {
-  res.render("creation", { title: "Character Creation - Step by Step Guide" });
+	res.render("creation", { title: "Character Creation - Step by Step Guide" });
 };
 
 // const assetsPage = (req, res) => {
@@ -17,32 +17,32 @@ const creationPage = (req, res) => {
 // }
 
 const rulesPage = (req, res) => {
-  res.render("rules", { title: "House Rules, Rulings, Explanations, and Guidelines" });
+	res.render("pages/rules/rules", { title: "House Rules, Rulings, Explanations, and Guidelines" });
 }
 
 // Development test routes
 const testErrorPage = (req, res, next) => {
-  const err = new Error("This is a test error");
-  err.status = 500;
-  next(err);
+	const err = new Error("This is a test error");
+	err.status = 500;
+	next(err);
 };
 
 const testUnexpectedError = (req, res, next) => {
-  const err = new Error("This is an unexpected test error");
-  err.status = 418;
-  next(err);
+	const err = new Error("This is an unexpected test error");
+	err.status = 418;
+	next(err);
 };
 
 const testNotLoggedInError = (req, res, next) => {
-  const err = new Error("Testing not being logged in");
-  err.status = 401;
-  next(err);
+	const err = new Error("Testing not being logged in");
+	err.status = 401;
+	next(err);
 }
 
 const testForbiddenError = (req, res, next) => {
-  const err = new Error("Testing not having permission");
-  err.status = 403;
-  next(err);
+	const err = new Error("Testing not having permission");
+	err.status = 403;
+	next(err);
 }
 
 export { creationPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError };
