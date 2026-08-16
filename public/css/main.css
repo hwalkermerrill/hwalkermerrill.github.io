@@ -207,6 +207,10 @@ img {
 	.floatswitch ul li {
 		text-indent: 2rem;
 	}
+	.toggleLiVis picture {
+		float: left;
+	}
+
 	.session-log-book ul {
 		list-style: none;
 		padding: 0;
