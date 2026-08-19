@@ -1,21 +1,151 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-us">
 
 <head>
-	<meta charset="UTF-8">
-	<link href="css/styles.css" rel="stylesheet">
-	<title>Harrison Merrill: Home</title>
+	<!-- META DATA -->
+	<meta charset="utf-8">
+	<meta name="description" content="Harrison Merrill - Home">
+	<meta name="author" content="Harrison Merrill">
+	<meta name="slogan" content="Merrilly Rolling Dice and Crashing Castles">
+	<meta name="theme-color" content="#005633">
+	<meta name="color-scheme" content="light dark">
+
+	<title>Harrison Merrill - Senior Project</title>
+
+	<!-- This tells MS Edge users to use Edge instead of IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+	<!-- This loads the "Amiri" and "Trade Winds" fonts while browsing this HTML-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Trade+Winds" rel="stylesheet">
+
+	<!-- STYLE SHEETS -->
+	<link href="public/dist/styles.css" rel="stylesheet">
+
+	<!-- SCRIPT HERE -->
+	<script src="public/js/theme-preference.js"></script>
+	<script src="public/js/utilities.js"></script>
 </head>
 
 <body>
+	<!-- SVG HERE-->
+	<svg xmlns="http://www.w3.org/2000/svg" style="display:none;" aria-hidden="true">
+
+		<!-- Home -->
+		<symbol id="icon-home" viewBox="0 0 24 24">
+			<path d="M3 11l9-8 9 8" />
+			<path d="M5 12v9h5v-6h4v6h5v-9" />
+		</symbol>
+
+		<!-- Document (assignments) -->
+		<symbol id="icon-file-text" viewBox="0 0 24 24">
+			<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+			<path d="M14 2v6h6" />
+			<path d="M8 13h8" />
+			<path d="M8 17h5" />
+		</symbol>
+
+		<!-- Mickey Mouse ears (teaching demos) -->
+		<symbol id="icon-mickey" viewBox="0 0 24 24">
+			<circle cx="8" cy="8" r="4" />
+			<circle cx="16" cy="8" r="4" />
+			<circle cx="12" cy="14" r="6" />
+		</symbol>
+
+		<!-- Mail -->
+		<symbol id="icon-mail" viewBox="0 0 24 24">
+			<rect x="3" y="5" width="18" height="14" rx="2" />
+			<path d="M3 7l9 6 9-6" />
+		</symbol>
+
+		<!-- GitHub -->
+		<symbol id="icon-github" viewBox="0 0 24 24">
+			<path d="M12 2a10 10 0 0 0-3.16 19.49
+				c.5.09.68-.22.68-.48v-1.7
+				c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.12-1.47-1.12-1.47-.92-.63.07-.62.07-.62 1.02.07 1.55 1.06 1.55 1.06.9 1.54 2.37 1.1 2.95.84a2.2 2.2 0 0 1 .66-1.38
+				c-2.22-.25-4.56-1.11-4.56-4.94a3.86 3.86 0 0 1 1.03-2.68 3.6 3.6 0 0 1 .1-2.65s.84-.27 2.75 1.02
+				a9.4 9.4 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02a3.6 3.6 0 0 1 .1 2.65 3.86 3.86 0 0 1 1.03 2.68c0 3.84-2.34 4.69-4.57 4.94a2.4 2.4 0 0 1 .69 1.86v2.76c0 .27.18.58.69.48
+				A10 10 0 0 0 12 2z" />
+		</symbol>
+
+		<!-- LinkedIn -->
+		<symbol id="icon-linkedin" viewBox="0 0 24 24">
+			<rect x="3" y="3" width="18" height="18" rx="2" />
+			<path d="M8 17v-6" />
+			<path d="M8 9V7" />
+			<path d="M12 17v-4.5a2.5 2.5 0 0 1 5 0V17" />
+		</symbol>
+
+		<!-- Map pin -->
+		<symbol id="icon-map-pin" viewBox="0 0 24 24">
+			<path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10z" />
+			<circle cx="12" cy="11" r="2.5" />
+		</symbol>
+
+		<!-- Arrow Up (return-to-top) -->
+		<symbol id="icon-arrow-up" viewBox="0 0 24 24">
+			<path d="M12 19V5" />
+			<path d="M5 12l7-7 7 7" />
+		</symbol>
+	</svg>
+
+	<!-- HEADER HERE -->
 	<header>
-		<h1>Harrison Merrill</h1>
-		<h2>Access Current and Archived Projects:</h2>
+		<figure class="logo">
+			<a href="/index.html">
+				<img src="public/images/core/profile-pic.jpg" alt="Profile Picture of Harrison Merrill">
+			</a>
+		</figure>
+
+		<div class="slogan">
+			<h2>Harrison Merrill - Senior Project</h2>
+			<strong>Merrilly Rolling Dice and Crashing Castles</strong>
+		</div>
+
+		<!-- Theme toggle to allow users to manually switch between light-dark -->
+		<details class="theme-menu">
+			<summary class="theme-control">
+				<span class="visually-hidden">Color scheme</span>
+			</summary>
+			<div class="theme-extra" role="group" aria-label="Choose color scheme">
+				<label class="theme-control theme-pick" data-theme-pick="light">
+					<input name="theme-preference" type="radio" value="light">
+					<span aria-hidden="true">&#9788;&#65039;</span>
+					<span class="visually-hidden">Light</span>
+				</label>
+				<label class="theme-control theme-pick" data-theme-pick="system">
+					<input name="theme-preference" type="radio" value="system" checked>
+					<span aria-hidden="true">&#9881;&#65039;</span>
+					<span class="visually-hidden">System default</span>
+				</label>
+				<label class="theme-control theme-pick" data-theme-pick="dark">
+					<input name="theme-preference" type="radio" value="dark">
+					<span aria-hidden="true">&#127766;</span>
+					<span class="visually-hidden">Dark</span>
+				</label>
+			</div>
+		</details>
 	</header>
-	<nav>
+
+
+	<!-- NAV HERE -->
+	<nav class="site-nav">
+		<h2>Current and Archived Campaigns:</h2>
 		<ul>
+			<li><a href="index.html" class="active">
+					<svg class="icon" aria-hidden="true" focusable="false">
+						<use href="#icon-home"></use>
+					</svg> Home </a>
+			</li>
+
+			<!-- Active Campaign -->
+			<li><a href="https://merrill-trpg.onrender.com/">Current Campaign</a></li>
+
 			<!-- Major Archived Campaigns -->
-			<li><a href="index.html">Home</a></li>
 			<li><a href="archived/war4crown/index.html">War for the Crown</a></li>
 			<li><a href="archived/councilofthieves/index.html">Council of Thieves</a></li>
 			<li><a href="archived/azlant/index.html">Ruins of Azlant</a></li>
@@ -24,50 +154,257 @@
 			<li><a href="serpents/index.html">Serpents Skull</a></li>
 		</ul>
 	</nav>
-	<main>
-		<h1>Project Access</h1>
-		<img src="images/harrison-merrill.png" alt="Harrison Merrill">
 
-		<h2>Live Campaigns and Projects</h2>
-		<ul style="list-style-type:circle">
-			<li><a href="serpents/index.html">Serpents Skull Adventure Path</a></li>: The latest campaign I am running,
-			started in October 2024.
-			<li><a href="cookbook/main.html">Cookbook Project</a>: Developing placeholder for family cookbook.
-		</ul>
+	<!-- CONTENT HERE -->
+	<main class="clearfix" id="maincontent">
 
-		<h2>Archived Campaigns:</h2>
-		<ul style="list-style-type:circle">
-			<li>Echoes of Glory: My first Homebrew game and attempt to GM, ran roughly one book's worth,
-				running from August 2015 - February 2016.</li>
-			<li>Council of Thieves (1): My first full campaign (does not have a site),
-				running from August 2017 - March 2018, completing the whole campaign.</li>
-			<li><a href="archived/WotR.html">Wrath of the Righteous</a>: My first campaign with a site,
-				running from May 2018 - January 2019, completing the first three books.</li>
-			<li><a href="archived/war4crown/index.html">War for the Crown</a>: My second major campaign,
-				running from March 2019 - June 2020, completing the whole campaign.</li>
-			<li><a href="tyrant/archived1/index.html">Tyrant's Grasp</a>: My third major campaign,
-				running from January 2020 - March 2021, completing 1 1/2 books and aborting for the pandemic.</li>
-			<li><a href="archived/councilofthieves/index.html">Council of Thieves</a>: My fourth major campaign,
-				running from July 2020 - June 2021, completing the whole campaign.</li>
-			<li><a href="archived/azlant/index.html">Ruins of Azlant</a>: My fifth major campaign,
-				running from August 2021 - June 2023, completing the whole campaign</li>
-			<!-- TODO: Refactor into archives -->
-			<li><a href="tyrant/index.html">Tyrant's Grasp</a>: My sixth major campaign,
-				running from July 2023 - February 2024, completing 2 books and aborting to PCS.</li>
-		</ul>
+		<!-- Hero Div -->
+		<div class="hero-div">
+			<figure>
+				<picture>
+					<source srcset="images/hero-virtue-in-radiance.webp" type="image/webp">
+					<img src="images/hero-virtue-in-radiance.jpg" alt="Japanese Mural for Gundam 22 Memorial">
+				</picture>
+				<figcaption>
+					Mural painted by my friend Sean Jones for the Gundam 22 Memorial, Yokota Air Base 2023
+				</figcaption>
+			</figure>
+		</div>
 
-		<h2> Archived Projects:</h2>
-		<ul style="list-style-type:circle">
-			<li><a href="archived/weathersitefinal/index.html">Weather Site Final</a></li>
-			<li><a href="archived/templesitefinal/index.html">Temple Inn & Suites Final</a></li>
-			<li><a href="archived/wdd131/index.html">Basic Web Design</a></li>
-			<li><a href="archived/kizuna-rail/src/views/home.ejs">Kizuna Rail Web Backend Project (Needs Server Rendering)</a>
-			</li>
-		</ul>
+		<!-- Introductory Bio -->
+		<section>
+			<h1>Konbanwa!</h1>
+			<p>My name is Harrison Merrill, and I'm a senior at BYU-I studying software development technology with an
+				emphasis in web development. I live in the future (by about 14 hours) - specifically, I live in Okinawa Japan
+				with my wife, two boys (ages 6 and 2), and dogs. My wife works for the US Air Force as a maintainer (mechanic)
+				for C-130J's, and we have previously lived in Tachikawa, Tokyo, Japan, doing the same work, meaning we have
+				lived in Japan for 8 consecutive years (and I admit that I am still functionally illiterate).</p>
+			<p>I also volunteer as a key support liaison for the 1stSOAMXS, and as the branch activity committee chair, both
+				of which mostly involve me cooking for and feeding large groups of people. When groups get over a certain size,
+				that almost always means smoking several pork butts, brisket, hot dogs, and mac & cheese, or otherwise making
+				hawaiian style food, but for smaller groups I lean heavily on asian-pacific, italian, mexican, and french
+				cooking styles. When I need to relax and do something that isn't school, family, community, or beach oriented, I
+				spend my time learning new recipes and cooking techniques, painting miniature figurines, watching films, and
+				playing various types of video, board, and tabletop games.</p>
+		</section>
+
+		<section class="u-text-center">
+			<p><em>Want to Know More About Me? <br></em>
+				<a href="resume.html" class="btn">
+					<svg class="icon" aria-hidden="true" focusable="false">
+						<use href="#icon-file-text"></use>
+					</svg> View My Resume </a> | or |
+				<a href="contact.html" class="btn">
+					<svg class="icon" aria-hidden="true" focusable="false">
+						<use href="#icon-mail"></use>
+					</svg> Contact Me Directly</a>
+			</p>
+		</section>
+
+		<section>
+			<h2>Project Access</h2>
+			<p>This is currently serving as a live collection of repositories for the various types of work I've done as I've
+				progressed towards my degree. The highlights of this work include several pathfinder ttrpg campaigns, which I
+				have been working on as a passion project since 2019, and act both as a record of our local campaigns, as well
+				as a living record of my growth and progression as a web developer. Other sections include work and projects
+				done for classes since being at BYU-I, and fill the roll of my academic portfolio.</p>
+			<br>
+
+			<div class="cards-wide">
+				<article class="card">
+					<h3>Live Campaigns and Projects</h3>
+					<p>This the the active campaign for my players, along with any other current projects. My current campaign is
+						Wrath of the Righteous, which started in August 2026 and coincides with the 3.0 full stack release of my
+						campaign site for my players.</p>
+					<p>Follow the link below to view my:</p>
+					<ul class="svg-bullet">
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-mickey"></use>
+							</svg>
+							<a href="https://merrill-trpg.onrender.com">Live Campaign on Render</a>
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-github"></use>
+							</svg>
+							<a href="https://github.com/hwalkermerrill/hwalkermerrill.github.io">Main Repository</a>
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-file-text"></use>
+							</svg>
+							<a href="cookbook/main.html">Cookbook Project</a>: Developing placeholder for family cookbook.
+						</li>
+					</ul>
+				</article>
+
+				<article class="card">
+					<h3>Archived Campaigns</h3>
+					<p>These links lead to my past campaigns, with the live sites stored on github pages. Due to architecture
+						changes over the years, some of the links and images may not function as they did previously, but generally,
+						these projects still detail the escapades of my group, as well as detail my growth as a GM and web
+						developer. The projects here are listed in order from most recent to oldest campaigns, and span from July
+						2026 with the end of our serpents skull campaign through August 2015 with my first campaign before I started
+						school or had any web resources.</p>
+
+					<p>Follow the links below to view my campaigns:</p>
+					<ul class="svg-bullet">
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-mickey"></use>
+							</svg>
+							<a href="serpents/index.html">Serpents Skull</a> (June 2024 - July 2026, 4 Books)
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-mickey"></use>
+							</svg>
+							<a href="tyrant/index.html">Tyrant's Grasp</a> (July 2023 - February 2024, 2 Books)
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-mickey"></use>
+							</svg>
+							<a href="archived/azlant/index.html">Ruins of Azlant</a> (August 2021 - June 2023, 6 Books)
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-mickey"></use>
+							</svg>
+							<a href="archived/councilofthieves/index.html">Council of Thieves</a> (July 2020 - June 2021, 6 Books)
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-mickey"></use>
+							</svg>
+							<a href="tyrant/archived1/index.html">Tyrant's Grasp</a> (January 2020 - March 2021, 2 Books)
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-mickey"></use>
+							</svg>
+							<a href="archived/war4crown/index.html">War for the Crown</a> (March 2019 - June 2020, 6 Books)
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-mickey"></use>
+							</svg>
+							<a href="archived/WotR.html">Wrath of the Righteous</a> (May 2018 - January 2019, 3 Books)
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-file-text"></use>
+							</svg>
+							Council of Thieves (August 2017 - March 2018, 6 Books)
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-file-text"></use>
+							</svg>
+							Echoes of Glory (August 2015 - February 2016, Homebrew)
+						</li>
+					</ul>
+				</article>
+				<article class="card">
+					<h3> Archived Projects:</h3>
+					<p>These are other projects I developed over the course of my scholastic career, with varying levels of
+						technical difficulty and proficiency. They are generally listed in order from newest to oldest. Some of
+						these projects are entirely back-end or require a backend to view correctly - those projects will just have
+						repositories listed.</p>
+					<p>Follow the links below to view my:</p>
+					<ul class="svg-bullet">
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-mickey"></use>
+							</svg>
+							<a href="https://hwalkermerrill.github.io/wdd331R_aCSS/">Advanced CSS Site</a>
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-file-text"></use>
+							</svg>
+							<a href="https://github.com/hwalkermerrill/cooking-merrilly">Merrill Cookbook - Web Backend
+								Development</a> (Needs Server Rendering)
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-file-text"></use>
+							</svg>
+							<a href="archived/kizuna-rail/src/views/home.ejs">Kizuna Rail Web Backend Project</a> (Needs Server
+							Rendering)
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-file-text"></use>
+							</svg>
+							<a href="https://github.com/hwalkermerrill/wdd330-webdev2-team2">Web Front End Group Project</a> (Needs
+							Server Rendering)
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-file-text"></use>
+							</svg>
+							<a href="archived/wdd131/index.html">Basic Web Design</a>
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-file-text"></use>
+							</svg>
+							<a href="archived/templesitefinal/index.html">Temple Inn & Suites Final</a>
+						</li>
+						<li>
+							<svg class="icon" aria-hidden="true" focusable="false">
+								<use href="#icon-file-text"></use>
+							</svg>
+							<a href="archived/weathersitefinal/index.html">Weather Site Final</a>
+						</li>
+					</ul>
+				</article>
+			</div>
 	</main>
+
+	<!-- FOOTER HERE -->
 	<footer>
-		&copy; Harrison Merrill 2019
+		<!-- Icon-only links -->
+		<a href="mailto:hwalkermerrill@gmail.com" aria-label="Email">
+			<svg class="icon" aria-hidden="true">
+				<use href="#icon-mail"></use>
+			</svg>
+		</a>
+
+		<a href="https://github.com/hwalkermerrill/" aria-label="GitHub Profile">
+			<svg class="icon" aria-hidden="true">
+				<use href="#icon-github"></use>
+			</svg>
+		</a>
+
+		<a href="https://linkedin.com/in/harrison-merrill-774113362/" aria-label="LinkedIn Profile">
+			<svg class="icon" aria-hidden="true">
+				<use href="#icon-linkedin"></use>
+			</svg>
+		</a>
+
+		<a href="https://www.google.com/maps/place/Okinawa,+Japan/" aria-label="Location: Okinawa, Japan">
+			<svg class="icon" aria-hidden="true" focusable="false">
+				<use href="#icon-map-pin"></use>
+			</svg>
+		</a>
+
+		<!-- Copyright -->
+		<p>&copy; <span id="longDate"></span> &bull; Harrison Merrill &bull; All rights reserved &bull;</p>
 	</footer>
+
+	<!-- RETURN TO TOP BUTTON -->
+	<button onclick="topFunction()" id="returnTopBtn" title="Return to top" aria-label="Return to top">
+		<svg class="icon" aria-hidden="true" focusable="false">
+			<use href="#icon-arrow-up"></use>
+		</svg>Return to Top
+	</button>
+
+	<script>
+		writeLongDate();
+	</script>
 </body>
 
 </html>

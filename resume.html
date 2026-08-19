@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<!-- META DATA -->
+	<meta charset="utf-8">
+	<meta name="description" content="About Me">
+	<meta name="author" content="Harrison Merrill">
+	<meta name="slogan" content="Postprocessing the Cascade">
+	<meta name="theme-color" content="#005633">
+	<!-- <meta http-equiv="refresh" content="300"> -->
+
+	<title>Harrison Merrill - Practice Site</title>
+
+	<!-- This tells MS Edge users to use Edge instead of IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- This loads the "Amiri", "Cabin Sketch", "Trade Winds", and "Indiana Jones" fonts while browsing this HTML-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cabin+Sketch&family=Trade+Winds" rel="stylesheet">
+
+	<!-- STYLE SHEETS -->
+	<link href="public/dist/styles.css" rel="stylesheet">
+
+	<!-- SCRIPT HERE -->
+	<script src="public/js/theme-preference.js"></script>
+	<script src="public/js/utilities.js"></script>
+</head>
+
+<body>
+	<!-- SVG HERE-->
+	<svg xmlns="http://www.w3.org/2000/svg" style="display:none;" aria-hidden="true">
+
+		<!-- Home -->
+		<symbol id="icon-home" viewBox="0 0 24 24">
+			<path d="M3 11l9-8 9 8" />
+			<path d="M5 12v9h5v-6h4v6h5v-9" />
+		</symbol>
+
+		<!-- Document (assignments) -->
+		<symbol id="icon-file-text" viewBox="0 0 24 24">
+			<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+			<path d="M14 2v6h6" />
+			<path d="M8 13h8" />
+			<path d="M8 17h5" />
+		</symbol>
+
+		<!-- Mickey Mouse ears (teaching demos) -->
+		<symbol id="icon-mickey" viewBox="0 0 24 24">
+			<circle cx="8" cy="8" r="4" />
+			<circle cx="16" cy="8" r="4" />
+			<circle cx="12" cy="14" r="6" />
+		</symbol>
+
+		<!-- Mail -->
+		<symbol id="icon-mail" viewBox="0 0 24 24">
+			<rect x="3" y="5" width="18" height="14" rx="2" />
+			<path d="M3 7l9 6 9-6" />
+		</symbol>
+
+		<!-- GitHub -->
+		<symbol id="icon-github" viewBox="0 0 24 24">
+			<path d="M12 2a10 10 0 0 0-3.16 19.49
+				c.5.09.68-.22.68-.48v-1.7
+				c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.12-1.47-1.12-1.47-.92-.63.07-.62.07-.62 1.02.07 1.55 1.06 1.55 1.06.9 1.54 2.37 1.1 2.95.84a2.2 2.2 0 0 1 .66-1.38
+				c-2.22-.25-4.56-1.11-4.56-4.94a3.86 3.86 0 0 1 1.03-2.68 3.6 3.6 0 0 1 .1-2.65s.84-.27 2.75 1.02
+				a9.4 9.4 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02a3.6 3.6 0 0 1 .1 2.65 3.86 3.86 0 0 1 1.03 2.68c0 3.84-2.34 4.69-4.57 4.94a2.4 2.4 0 0 1 .69 1.86v2.76c0 .27.18.58.69.48
+				A10 10 0 0 0 12 2z" />
+		</symbol>
+
+		<!-- LinkedIn -->
+		<symbol id="icon-linkedin" viewBox="0 0 24 24">
+			<rect x="3" y="3" width="18" height="18" rx="2" />
+			<path d="M8 17v-6" />
+			<path d="M8 9V7" />
+			<path d="M12 17v-4.5a2.5 2.5 0 0 1 5 0V17" />
+		</symbol>
+
+		<!-- Map pin -->
+		<symbol id="icon-map-pin" viewBox="0 0 24 24">
+			<path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10z" />
+			<circle cx="12" cy="11" r="2.5" />
+		</symbol>
+
+		<!-- Arrow Up (return-to-top) -->
+		<symbol id="icon-arrow-up" viewBox="0 0 24 24">
+			<path d="M12 19V5" />
+			<path d="M5 12l7-7 7 7" />
+		</symbol>
+	</svg>
+
+	<!-- HEADER HERE -->
+	<header>
+
+		<figure class="logo">
+			<a href="/index.html">
+				<img src="images/profile-pic.jpg" alt="Profile Picture of Harrison Merrill">
+			</a>
+		</figure>
+
+		<div class="slogan">
+			<h2>Harrison Merrill - Practice Site</h2>
+			<strong>WDD 331R Advanced CSS - Postprocessing the Cascade</strong>
+		</div>
+
+		<!-- Theme toggle to allow users to manually switch between light-dark -->
+		<details class="theme-menu">
+			<summary class="theme-control">
+				<span class="visually-hidden">Color scheme</span>
+			</summary>
+			<div class="theme-extra" role="group" aria-label="Choose color scheme">
+				<label class="theme-control theme-pick" data-theme-pick="light">
+					<input name="theme-preference" type="radio" value="light">
+					<span aria-hidden="true">&#9788;&#65039;</span>
+					<span class="visually-hidden">Light</span>
+				</label>
+				<label class="theme-control theme-pick" data-theme-pick="system">
+					<input name="theme-preference" type="radio" value="system" checked>
+					<span aria-hidden="true">&#9881;&#65039;</span>
+					<span class="visually-hidden">System default</span>
+				</label>
+				<label class="theme-control theme-pick" data-theme-pick="dark">
+					<input name="theme-preference" type="radio" value="dark">
+					<span aria-hidden="true">&#127766;</span>
+					<span class="visually-hidden">Dark</span>
+				</label>
+			</div>
+		</details>
+	</header>
+
+	<!-- NAV HERE -->
+	<nav class="site-nav">
+		<h2>Primary Navigation:</h2>
+		<ul>
+			<li><a href="index.html">
+					<svg class="icon" aria-hidden="true" focusable="false">
+						<use href="#icon-home"></use>
+					</svg> Home </a>
+			</li>
+
+			<li><a href="resume.html" class="active">
+					<svg class="icon" aria-hidden="true" focusable="false">
+						<use href="#icon-file-text"></use>
+					</svg> Resume </a>
+			</li>
+
+			<li><a href="contact.html">
+					<svg class="icon" aria-hidden="true" focusable="false">
+						<use href="#icon-mail"></use>
+					</svg> Contact Me </a>
+			</li>
+		</ul>
+	</nav>
+
+	<!-- CONTENT HERE -->
+	<main class="clearfix resume" id="maincontent">
+		<section class="resume">
+			<h1>Harrison Merrill</h1>
+			<em>hwalkermerrill@gmail.com &ensp;|&ensp; +81 (080) 4686-1971</em>
+		</section>
+
+		<section class="resume">
+			<h2>Expert Problem Solver</h2>
+			<p>A well-trained expert with a passion for solving complicated problems related to IT Systems with recent and
+				relevant education in this sector, and prior experience in large organizations. Also currently lives in Japan
+				with 8 years of experience in-country as an MSP with a great deal of interpersonal skills, technical experience
+				and education, and a drive to deliver solutions.</p>
+		</section>
+
+		<section class="resume multicolumn">
+			<h2>Skills</h2>
+			<ul>
+				<li>Certified Technician</li>
+				<li>Full-Stack Software Developer</li>
+				<li>Great with Customers and Clients</li>
+				<li>International Experience in Japan</li>
+				<li>AD Military Key-Spouse (MSP)</li>
+				<li>Loves Creative Problem Solving</li>
+			</ul>
+		</section>
+
+		<section class="resume">
+			<h2>Education</h2>
+			<article>
+				<h3>Brigham Young University - Idaho</h3>
+				<p>Associates of Science &ensp;|&ensp; December 2026</p>
+				<p>Software Developer Bachelor's Degree &ensp;|&ensp; Anticipated July 2027</p>
+				<ul>
+					<li>Certificate in Web and Computer Development and CompTIA Security+</li>
+					<li>Demonstrated passion for full stack web development using the Github, MongoDB, Render pipeline</li>
+					<li>Demonstrated proficiency in multiple computer languages including: C#, CSS, HTML, JavaScript, Python, SQL,
+						and TypeScript</li>
+					<li>Demonstrated proficiency with multiple systems, including MS Office/Excel, Windows CMD, Linux MintOS,
+						Visual Studio Code, MySQL, Photoshop, CISCO, and emergent AI applications</li>
+				</ul>
+			</article>
+		</section>
+
+		<section class="resume">
+			<h2>Experience</h2>
+			<article>
+				<h3>Founder</h3>
+				<p>I Can Fix Your 00ps, LLC &ensp;|&ensp; August 2017 - March 2025</p>
+				<ul>
+					<li>Interfaced with clients and client systems to diagnose repairs and deploy solutions</li>
+					<li>Deployed marketing materials, managed business assets, and handled billing</li>
+					<li>Delivered personalized solutions in country in both the United States and Japan</li>
+				</ul>
+			</article>
+			<br>
+			<article>
+				<h3>Lead IT Systems and Network Administrator</h3>
+				<p>The Book Table &ensp;|&ensp; Oct 2014 - March 2018</p>
+				<ul>
+					<li>Collaborated with COO on proprietary computer software powering a $100 million dollar Amazon FBO business
+					</li>
+					<li>Set up and managed hundreds of workstations and multiple networks both remotely and on-site, as well as
+						set up, monitored, and reviewed inventory, training, and security systems </li>
+					<li>Interfaced directly with upper management in a national organization</li>
+					<li>Designed and enforced computer usage policies and training programs</li>
+					<li>Lead both small and medium-sized teams of employees </li>
+				</ul>
+			</article>
+		</section>
+
+		<section class="resume">
+			<h2>Other Accolades and Volunteer Affiliations</h2>
+			<ul>
+				<li>Scouts of America - Eagle Scout, Former Assistant Scoutmaster</li>
+				<li>Church of Jesus Christ of Latter-Day Saints - Active Member, Former Full-Time Missionary</li>
+				<li>Civil Air Patrol (USAF Auxiliary) - Eaker Award Recipient, Former Commandant of Cadets</li>
+				<li>United States Air Force 1stSOAMXS - MSP and Key Support Liaison</li>
+			</ul>
+		</section>
+	</main>
+
+	<!-- FOOTER HERE -->
+	<footer>
+		<!-- Icon-only links -->
+		<a href="mailto:hwalkermerrill@gmail.com" aria-label="Email">
+			<svg class="icon" aria-hidden="true">
+				<use href="#icon-mail"></use>
+			</svg>
+		</a>
+
+		<a href="https://github.com/hwalkermerrill/" aria-label="GitHub Profile">
+			<svg class="icon" aria-hidden="true">
+				<use href="#icon-github"></use>
+			</svg>
+		</a>
+
+		<a href="https://linkedin.com/in/harrison-merrill-774113362/" aria-label="LinkedIn Profile">
+			<svg class="icon" aria-hidden="true">
+				<use href="#icon-linkedin"></use>
+			</svg>
+		</a>
+
+		<a href="https://www.google.com/maps/place/Okinawa,+Japan/" aria-label="Location: Okinawa, Japan">
+			<svg class="icon" aria-hidden="true" focusable="false">
+				<use href="#icon-map-pin"></use>
+			</svg>
+		</a>
+
+		<!-- Copyright -->
+		<p>&copy; <span id="longDate"></span> &bull; Harrison Merrill &bull; All rights reserved &bull;</p>
+	</footer>
+
+	<!-- RETURN TO TOP BUTTON -->
+	<button onclick="topFunction()" id="returnTopBtn" title="Return to top" aria-label="Return to top">
+		<svg class="icon" aria-hidden="true" focusable="false">
+			<use href="#icon-arrow-up"></use>
+		</svg>Return to Top
+	</button>
+
+	<script>
+		writeLongDate();
+	</script>
+</body>
+
+</html>
