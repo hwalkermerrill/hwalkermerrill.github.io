@@ -5,8 +5,8 @@
 /* ----- Root Data ----- */
 /* :root { */
 /* --frame-border: url("/images/core/border-frame.png") 30 round; */
-/* --primary-color: #12674a;
-	--secondary-color: #dc8837;
+/* --color-primary: #12674a;
+	--color-accent: #dc8837;
 	--text-light: #fdefcd;
 	--npc-helpful: #5a7a9b;
 	--spirit-aura: #c1ffff; */
@@ -22,11 +22,11 @@
 		-5px 0px 5px var(--text-light), 0px 5px 5px var(--text-light),
 		5px 0px 5px var(--text-light), 0px -5px 5px var(--text-light);
 	--text-shadow-primary:
-		-5px 0px 5px var(--primary-color), 0px 5px 5px var(--primary-color),
-		5px 0px 5px var(--primary-color), 0px -5px 5px var(--primary-color);
+		-5px 0px 5px var(--color-primary), 0px 5px 5px var(--color-primary),
+		5px 0px 5px var(--color-primary), 0px -5px 5px var(--color-primary);
 	--text-shadow-secondary:
-		-5px 0px 5px var(--secondary-color), 0px 5px 5px var(--secondary-color),
-		5px 0px 5px var(--secondary-color), 0px -5px 5px var(--secondary-color);
+		-5px 0px 5px var(--color-accent), 0px 5px 5px var(--color-accent),
+		5px 0px 5px var(--color-accent), 0px -5px 5px var(--color-accent);
 	--text-indiana-gradient: linear-gradient(
 		to bottom,
 		#8b2e1c 0%,
@@ -71,7 +71,7 @@ ol {
 h2,
 h3,
 figcaption {
-	color: var(--primary-color);
+	color: var(--color-primary);
 	text-shadow: var(--text-shadow-basic);
 	font-family: var(--secondary-font);
 } */
@@ -116,9 +116,9 @@ h2 {
 /* Mobile Screen Size - 15em is also 240px (if basefont is 16px) */
 @media only screen and (min-width: 15rem) {
 	/*---------- HEADER ----------*/
-	header {
+	/* header {
 		padding: 0.5rem 5rem 0 0;
-		background-color: var(--secondary-color);
+		background-color: var(--color-accent);
 		display: grid;
 		grid-template-columns: max-content auto;
 		gap: 2%;
@@ -144,17 +144,17 @@ h2 {
 		h1,
 		h2 {
 			margin: 0;
-			color: var(--primary-color);
+			color: var(--color-primary);
 			font-family: var(--secondary-font);
 			text-shadow: var(--text-shadow-light);
 		}
-	}
+	} */
 
 	/* ----- Accessibility skip-to-main-content -----
 	.skip-to-content a {
 		position: absolute;
 		top: -40px;
-		background-color: var(--secondary-color);
+		background-color: var(--color-accent);
 		color: var(--text-light);
 	}
 
@@ -164,7 +164,7 @@ h2 {
 
 	/*---------- NAVIGATION ----------*/
 	/* nav {
-		background-color: var(--secondary-color);
+		background-color: var(--color-accent);
 		ul {
 			list-style-type: none;
 			padding: 0;
@@ -177,7 +177,7 @@ h2 {
 			li {
 				a {
 					display: block;
-					color: var(--primary-color);
+					color: var(--color-primary);
 					border-top: 1px solid rgba(0, 0, 0, 0.3);
 					padding: 0.5rem 0;
 					text-decoration: none;
@@ -186,12 +186,12 @@ h2 {
 					text-shadow: var(--text-shadow-light);
 					&:hover {
 						background-color: var(--text-light);
-						color: var(--primary-color);
+						color: var(--color-primary);
 					}
 				}
 
 				&.active a {
-					background-color: var(--primary-color);
+					background-color: var(--color-primary);
 					color: black;
 					text-shadow: var(--text-shadow-light);
 				}
@@ -238,7 +238,7 @@ h2 {
 			background: var(--text-light);
 			border: 1px solid #000;
 			padding: 0.2rem;
-			box-shadow: 0 0 30px var(--primary-color);
+			box-shadow: 0 0 30px var(--color-primary);
 
 			h3 {
 				margin: 0.5rem;
@@ -248,7 +248,7 @@ h2 {
 			}
 			button {
 				border: none;
-				background-color: var(--primary-color);
+				background-color: var(--color-primary);
 				color: black;
 				border-radius: 1rem;
 				padding: 0.75rem 1.5rem;
@@ -405,7 +405,7 @@ h2 {
 		display: grid;
 		grid-template-rows: 20px auto;
 		background: rgba(0, 0, 0, 0.75);
-		color: var(--secondary-color);
+		color: var(--color-accent);
 		justify-content: center;
 		align-items: center;
 		margin: 2%;
@@ -415,7 +415,7 @@ h2 {
 		button {
 			background: rgba(0, 0, 0, 0);
 			border-color: rgba(0, 0, 0, 0);
-			color: var(--secondary-color);
+			color: var(--color-accent);
 			cursor: pointer;
 			grid-row: 1;
 			text-align: right;
@@ -440,8 +440,8 @@ h2 {
 		background-color: var(--npc-helpful);
 	}
 	main .friendly {
-		background-color: var(--primary-color);
-		border-color: var(--secondary-color);
+		background-color: var(--color-primary);
+		border-color: var(--color-accent);
 		color: var(--text-light);
 	}
 	main .friendly h3 {
@@ -449,7 +449,7 @@ h2 {
 		text-shadow: var(--text-shadow-secondary);
 	}
 	main .unfriendly {
-		background-color: var(--secondary-color);
+		background-color: var(--color-accent);
 	}
 	main .hostile {
 		background-color: #000;
@@ -570,10 +570,10 @@ h2 {
 		margin-left: -57px;
 		z-index: 99; /* Button appears on top */
 		border-style: ridge;
-		border-color: var(--primary-color);
+		border-color: var(--color-primary);
 		border-width: 6px;
-		background-color: var(--secondary-color);
-		color: var(--primary-color);
+		background-color: var(--color-accent);
+		color: var(--color-primary);
 		text-shadow: var(--text-shadow-black);
 		cursor: pointer; /* Add a mouse pointer on hover */
 		padding: 5px;
@@ -651,7 +651,7 @@ h2 {
 		display: block;
 		padding: 0.4rem 0.75rem;
 		text-decoration: none;
-		color: var(--primary-color);
+		color: var(--color-primary);
 		border-radius: 4px 4px 0 0;
 		border-bottom: 2px solid transparent;
 		transition: 0.2s ease;
@@ -660,12 +660,12 @@ h2 {
 	/* Active tab */
 	.character-tabs li.active a {
 		font-weight: bold;
-		border-bottom-color: var(--primary-color);
+		border-bottom-color: var(--color-primary);
 	}
 
 	/* Hover */
 	.character-tabs li a:hover {
-		background: var(--secondary-color);
+		background: var(--color-accent);
 	}
 
 	/* Search bar container */
@@ -686,19 +686,19 @@ h2 {
 	}
 
 	/*---------- FOOTER ----------*/
-	footer {
-		/* background-color: var(--secondary-color); */
-		color: var(--primary-color);
+	/* footer {
+		background-color: var(--color-accent);
+		color: var(--color-primary);
 		padding: 0.5rem 2%;
 		text-align: center;
 		clear: both;
-	}
+	} */
 }
 /* ---------- Responsive @media Screen Sizes ---------- */
 /* Tablet Screen Size - 45em is also 720px (if basefont is 16px) */
 @media only screen and (min-width: 45rem) {
 	/*---------- HEADER ----------*/
-	header button {
+	/* header button {
 		display: none;
 	}
 
@@ -712,7 +712,7 @@ h2 {
 
 	header .slogan {
 		display: block;
-	}
+	} */
 
 	/*---------- NAVIGATION ----------*/
 	/* nav {

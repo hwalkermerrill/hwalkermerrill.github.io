@@ -59,8 +59,9 @@
 			padding: var(--spacing-sm) var(--spacing-md);
 			text-decoration: none;
 			color: var(--header-text);
-			border-top: 1px solid rgba(0, 0, 8, 0.3);
+			/* border-top: 1px solid rgba(0, 0, 8, 0.3); */
 			border-radius: var(--radius-md);
+			box-shadow: var(--shadow-lg);
 			transition: background-color 0.2s ease;
 			font-size: var(--font-size-sm);
 			max-width: 18ch;
@@ -127,11 +128,11 @@
 			&.hide {
 				display: block;
 			}
-			li a {
+			/* li a {
 				border-top: none;
 				border-right: 1px solid rgba(0, 0, 8, 0.3);
 				border-bottom: 1px solid rgba(0, 0, 8, 0.3);
-			}
+			} */
 		}
 	}
 }
