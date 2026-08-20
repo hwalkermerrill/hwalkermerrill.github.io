@@ -118,7 +118,7 @@
 	.site-nav {
 		ul {
 			&.hide {
-				display: none;
+				display: block;
 			}
 			li a {
 				border-top: none;
