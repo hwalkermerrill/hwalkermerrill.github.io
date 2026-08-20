@@ -1,0 +1,19 @@
+.campaign-indiana :where(h1, h2) {
+	font-family: var(--font-family-indiana);
+	background-image: var(--color-indiana-gradient);
+	background-clip: text;
+	color: transparent;
+	filter: drop-shadow(2px 2px 0 var(--shadow-indy-warm));
+	-webkit-text-stroke: 0.25px var(--indy-stroke);
+	line-height: 0.9;
+}
+
+.campaign-indiana :where(h1, h2)::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: var(--color-metallic-highlight);
+	background-clip: text;
+	color: transparent;
+	pointer-events: none;
+}

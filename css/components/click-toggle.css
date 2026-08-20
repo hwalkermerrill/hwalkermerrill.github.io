@@ -1,0 +1,30 @@
+/*----- toggleClass lists -----*/
+.toggleLiVis {
+	ul,
+	ol {
+		cursor: pointer;
+	}
+	picture {
+		float: left;
+	}
+}
+
+/*----- toggleClass sub-CSS -----*/
+main .asset p,
+main .asset ul {
+	display: none;
+}
+
+main .asset .click p,
+main .asset .click ul {
+	display: block;
+}
+
+/* ----- Action Call Toggle ----- */
+.collapse-toggle-content {
+	display: none;
+}
+
+.collapse-toggle.click .collapse-toggle-content {
+	display: block;
+}

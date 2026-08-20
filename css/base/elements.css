@@ -20,13 +20,28 @@ p {
 	padding: var(--spacing-sm);
 }
 
+strong {
+	font-weight: bold;
+	font-size: 1.25em;
+	font-style: oblique;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin-inline: auto;
+}
+
 /* Headings */
 h1 {
 	font-size: var(--font-size-display);
+	text-shadow: var(--shadow-lg);
 }
 
 h2 {
 	font-size: var(--font-size-heading-lg);
+	text-shadow: var(--shadow-md);
 }
 
 :where(h1, h2) {
@@ -35,29 +50,15 @@ h2 {
 	margin-bottom: var(--spacing-sm);
 	padding-block: var(--spacing-xs);
 	font-family: var(--font-family-head);
-	background-image: var(--color-indiana-gradient);
-	background-clip: text;
-	color: transparent;
-	filter: drop-shadow(2px 2px 0 var(--shadow-indy-warm));
-	-webkit-text-stroke: 0.25px var(--indy-stroke);
+	color: var(--color-primary);
 	text-wrap: balance;
-	line-height: 0.9;
-}
-
-:where(h1, h2)::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background: var(--color-metallic-highlight);
-	background-clip: text;
-	color: transparent;
-	pointer-events: none;
 }
 
 :where(h3, h4, h5, h6) {
 	font-family: var(--font-family-serif);
 	line-height: var(--line-height);
 	color: var(--color-primary);
+	text-shadow: var(--shadow-sm);
 	text-wrap: balance;
 }
 
@@ -119,4 +120,16 @@ textarea {
 	field-sizing: content;
 	min-height: 3lh;
 	max-height: 10lh;
+}
+
+/* Accessibility Rules */
+.skip-to-content a {
+	position: absolute;
+	top: -40px;
+	background-color: var(--secondary-color);
+	color: var(--text-light);
+}
+
+.skip-to-content a:focus {
+	top: 0;
 }

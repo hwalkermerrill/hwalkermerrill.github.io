@@ -153,6 +153,15 @@
 		oklch(0.25 0.05 40 / 0.55),
 		oklch(0.18 0.04 40 / 0.75)
 	);
+
+	/* Legacy Imports */
+	--primary-color: #12674a;
+	--secondary-color: #dc8837;
+	--text-light: #fdefcd;
+	--npc-helpful: #5a7a9b;
+	--spirit-aura: #c1ffff;
+
+	--text-shadow-spirit: 1px 1px 0px var(--spirit-aura);
 }
 
 html {

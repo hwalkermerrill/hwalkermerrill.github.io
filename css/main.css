@@ -4,7 +4,7 @@ Disclosures:
 This code is my own work, but I want to include the below disclosures for transparency and to preemptively disclose any potential future use of AI tools or code adapted from other sources, 
 including my previous work.
 
-Some of this code is adapted from my previous work, which is available at hwalkermerrill.github.io. 
+Some of this code is adapted from my previous work, also available at hwalkermerrill.github.io. 
 As that content has been developed over the course of several years, some of it may have been inspired by or adapted from various other online sources,  
 but I have not copied any code directly from other sources except from scaffolding code this an previous classes without attributing the original source.
 All the work I have written is my own, written and stylized by me, though they may be reminiscent of other works I have read and been inspired by.
@@ -36,7 +36,9 @@ I have similarly not yet used the github copilot extension's code completion for
 
 /* Components */
 @import url("components/theme-toggle.css") layer(components);
-@import url(components/hero.css) layer(components);
+@import url("components/click-toggle.css") layer(components);
+/* @import url("components/background-image.css") layer(components); */
+@import url("components/hero.css") layer(components);
 @import url("components/buttons.css") layer(components);
 @import url("components/cards.css") layer(components);
 @import url("components/forms.css") layer(components);
@@ -47,6 +49,7 @@ I have similarly not yet used the github copilot extension's code completion for
 @import url("components/resume.css") layer(components);
 @import url("components/contact.css") layer(components);
 @import url("components/icons.css") layer(components);
+@import url("components/campaign.css") layer(components);
 
 /* Utilities */
 @import url("utilities/utilities.css") layer(utilities);
@@ -173,3 +176,6 @@ I have similarly not yet used the github copilot extension's code completion for
 }
 
 /* NOTE: Study and learn to apply current color */
+
+/*---------- CLOSE CODE ----------*/
+/* Written by Harrison Merrill */

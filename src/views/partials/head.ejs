@@ -12,6 +12,9 @@
 	<meta name="theme-color" content="#005633">
 	<meta name="color-scheme" content="light dark">
 	<meta name="robots" content="noimageindex">
+	<meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+	<!-- Auto Refresh, uncomment if needed -->
 	<!-- <meta http-equiv="refresh" content="300"> -->
 
 	<title>
@@ -25,11 +28,18 @@
 	<link href="/images/core/logo_icon192x.png" rel="icon" sizes="192x192">
 	<link href="/js/manifest.json" rel="manifest">
 
-	<!-- This tells MS Edge users to use Edge instead of IE -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Open Graph Metadata -->
+	<meta property="og:title" content="<%= title %>">
+	<meta property="og:description"
+		content="Pathfinder 1E Campaign Management Tool for local tabletop group at Kadena AB.">
+	<meta property="og:image" content="/images/core/logo_icon512x.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="512">
+	<meta property="og:type" content="website">
+	<meta name="twitter:card" content="summary_large_image">
 
 	<!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH-->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 	<!-- Preconnect to Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">

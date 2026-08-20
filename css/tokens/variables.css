@@ -7,6 +7,7 @@
 	--font-family-serif: "Trade Winds", "Amiri", serif;
 	--font-family-mono: "Courier New", Courier, monospace;
 	--font-family-head: "Indiana Jonas", serif;
+	--font-family-indiana: "Indiana Jonas", serif;
 	--font-size-xs: clamp(1rem, 0.028vw + 0.9rem, 1.125rem);
 	--font-size-sm: clamp(1.25rem, 0.034vw + 1.13rem, 1.5rem);
 	--font-size-md: clamp(1.5rem, 0.043vw + 1.32rem, 1.875rem);
@@ -37,6 +38,7 @@
 	--radius-sm: 0.25rem;
 	--radius-md: 0.5rem;
 	--radius-lg: 1rem;
+	--frame-border: url("/images/core/border-frame.png") 30 round;
 
 	/* Shadows */
 	--shadow-sm:
@@ -79,4 +81,15 @@
 		transparent 40%,
 		oklch(0.1 0 0 / 0.6) 100%
 	);
+
+	/* Legacy Imports */
+	--primary-font: var(--font-family-sans);
+	--secondary-font: var(--font-family-serif);
+	--tertiary-font: var(--font-family-indiana);
+	--text-shadow-indiana: var(--shadow-indiana);
+	--text-shadow-basic: var(--shadow-sm);
+	--text-shadow-light: var(--shadow-md);
+	--text-shadow-black: var(--shadow-md);
+	--text-shadow-secondary: var(--shadow-neon);
+	--text-shadow-primary: var(--shadow-legible);
 }

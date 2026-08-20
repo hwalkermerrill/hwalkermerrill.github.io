@@ -1,35 +1,36 @@
-<nav class="primary-nav clearfix">
-	<ul id="primaryNav" class="hide">
-		<!-- Always Visible Links First -->
-		<li class="<%= activePage === 'home' ? 'active' : '' %>"><a href="/">Home</a></li>
-		<li class="<%= activePage === 'characters' ? 'active' : '' %>"><a href="/characters">Characters</a></li>
-		<li class="<%= activePage === 'assets' ? 'active' : '' %>"><a href="/assets">Relics</a></li>
-		<li class="<%= activePage === 'maps' ? 'active' : '' %>"><a href="/maps">Maps</a></li>
-		<li class="<%= activePage === 'journal' ? 'active' : '' %>"><a href="/journal">Journal</a></li>
-		<li class="<%= activePage === 'rules' ? 'active' : '' %>"><a href="/rules">Orders</a></li>
-		<li class="<%= activePage === 'index' ? 'active' : '' %>"><a href="https://hwalkermerrill.github.io">View
-				Archives</a></li>
+<nav class="site-nav">
+	<div class="site-nav-group">
+		<ul id="primaryNav" class="hide">
+			<!-- Always Visible Links First -->
+			<li><a href="/" aria-current="<%= activePage === 'home' ? 'page' : '' %>">Home</a></li>
+			<li><a href="/characters" aria-current="<%= activePage === 'characters' ? 'page' : '' %>">Characters</a></li>
+			<li><a href="/assets" aria-current="<%= activePage === 'assets' ? 'page' : '' %>">Relics</a></li>
+			<li><a href="/maps" aria-current="<%= activePage === 'maps' ? 'page' : '' %>">Maps</a></li>
+			<li><a href="/journal" aria-current="<%= activePage === 'journal' ? 'page' : '' %>">Journal</a></li>
+			<li><a href="/rules" aria-current="<%= activePage === 'rules' ? 'page' : '' %>">Orders</a></li>
+			<li><a href="https://hwalkermerrill.github.io">View Archives</a></li>
 
-		<!-- Only Visible when NOT Logged In -->
-		<% if (!isLoggedIn) { %>
-		<li class="<%= activePage === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
-		<!-- <li class="<%= activePage === 'register' ? 'active' : '' %>"><a href="/register">Register</a></li> -->
-		<% } %>
-	</ul>
-</nav>
+			<!-- Only Visible when NOT Logged In -->
+			<% if (!isLoggedIn) { %>
+			<li><a href="/login" aria-current="<%= activePage === 'login' ? 'page' : '' %>">Login</a></li>
+			<li><a href="/register" aria-current="<%= activePage === 'register' ? 'page' : '' %>">Register</a></li>
+			<% } %>
+		</ul>
+	</div>
 
-<!-- Only Visible when Logged In -->
-<% if (isLoggedIn) { %>
-<nav class="secondary-nav clearfix">
-	<ul id="secondaryNav" class="hide">
-		<li class="<%= activePage === 'dashboard' ? 'active' : '' %>"><a href="/dashboard">Dashboard</a></li>
-		<li class="<%= activePage === 'register' ? 'active' : '' %>"><a href="/register/account">Account</a></li>
-		<!-- <li class="<%= activePage === 'contact' ? 'active' : '' %>"><a href="/contact/responses">Contact Responses</a></li> -->
-		<li class="<%= activePage === 'creation' ? 'active' : '' %>"><a href="/creation">Character Creation</a></li>
-		<li class="<%= activePage === 'logout' ? 'active' : '' %>"><a href="/logout">Logout</a></li>
-	</ul>
+	<!-- Only Visible when Logged In -->
+	<% if (isLoggedIn) { %>
+	<div class="site-nav-group">
+		<ul id="secondaryNav" class="hide">
+			<li><a href="/dashboard" aria-current="<%= activePage === 'dashboard' ? 'page' : '' %>">Dashboard</a></li>
+			<li><a href="/register/account" aria-current="<%= activePage === 'register' ? 'page' : '' %>">Account</a></li>
+			<!-- <li><a href="/contact/responses" aria-current="<%= activePage === 'contact' ? 'page' : '' %>">Contact Responses</a></li> -->
+			<li><a href="/creation" aria-current="<%= activePage === 'creation' ? 'page' : '' %>">Character Creation</a></li>
+			<li><a href="/logout" aria-current="<%= activePage === 'logout' ? 'page' : '' %>">Logout</a></li>
+		</ul>
+	</div>
+	<% } %>
 </nav>
-<% } %>
 
 <!-- FLASH MESSAGING HERE -->
 <% 

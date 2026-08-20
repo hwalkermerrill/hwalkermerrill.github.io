@@ -1,24 +1,24 @@
 /* Imports */
-@import url("https://fonts.googleapis.com/css?family=Amiri|Trade+Winds|Cabin+Sketch");
-@import url("https://fonts.cdnfonts.com/css/indiana-jonas");
+/* @import url("https://fonts.googleapis.com/css?family=Amiri|Trade+Winds|Cabin+Sketch"); */
+/* @import url("https://fonts.cdnfonts.com/css/indiana-jonas"); */
 
 /* ----- Root Data ----- */
-:root {
-	--frame-border: url("/images/core/border-frame.png") 30 round;
-	--primary-color: #12674a;
+/* :root { */
+/* --frame-border: url("/images/core/border-frame.png") 30 round; */
+/* --primary-color: #12674a;
 	--secondary-color: #dc8837;
 	--text-light: #fdefcd;
 	--npc-helpful: #5a7a9b;
-	--spirit-aura: #c1ffff;
-	--primary-font: "Amiri", Verdana, sans-serif;
+	--spirit-aura: #c1ffff; */
+/* --primary-font: "Amiri", Verdana, sans-serif;
 	--secondary-font: "Trade Winds", serif;
-	--tertiary-font: "Indiana Jonas", "Cabin Sketch", serif;
-	--text-shadow-basic: 4px 4px 4px #aaa;
-	--text-shadow-spirit: 1px 1px 0px var(--spirit-aura);
-	--text-shadow-black: 1px 1px 0px black;
-	--text-shadow-indiana:
-		1px 1px 2px rgba(0, 0, 0, 0.1), 2px 2px 4px rgba(0, 0, 0, 0.2);
-	--text-shadow-light:
+	--tertiary-font: "Indiana Jonas", "Cabin Sketch", serif; */
+/* --text-shadow-basic: 4px 4px 4px #aaa; */
+/* --text-shadow-spirit: 1px 1px 0px var(--spirit-aura); */
+/* --text-shadow-black: 1px 1px 0px black; */
+/* --text-shadow-indiana:
+		1px 1px 2px rgba(0, 0, 0, 0.1), 2px 2px 4px rgba(0, 0, 0, 0.2); */
+/* --text-shadow-light:
 		-5px 0px 5px var(--text-light), 0px 5px 5px var(--text-light),
 		5px 0px 5px var(--text-light), 0px -5px 5px var(--text-light);
 	--text-shadow-primary:
@@ -35,47 +35,47 @@
 		#ff9f1c 60%,
 		#ffd447 80%,
 		#ffec8b 100%
-	);
-}
+	); */
+/* } */
 
 /* Prevent adjustments of font size after orientation changes on mobile (iOS) and tablet (win) */
-html {
+/* html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
-}
+} */
 
 /*----- Apply a natural box layout model to all elements -----*/
-* {
+/* * {
 	box-sizing: border-box;
-}
+} */
 
 /*---------- BODY ----------*/
-body {
-	font-size: 16px;
-	font-family: var(--primary-font);
-	min-width: 15rem;
-	margin: 0;
-	/*----- Background Img -----*/
-	/* background-image: url("/images/core/background-cover.jpg"); */
-	background-size: cover;
+/* body { */
+/* font-size: 16px;
+	font-family: var(--primary-font); */
+/* min-width: 15rem; */
+/* margin: 0; */
+/*----- Background Img -----*/
+/* background-image: url("/images/core/background-cover.jpg"); */
+/* background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-position: center;
-}
+	background-position: center; */
+/* } */
 /* This makes ul/li's appear clickable */
-ul,
+/* ul,
 ol {
 	cursor: pointer;
-}
-h1,
+} */
+/* h1,
 h2,
 h3,
 figcaption {
 	color: var(--primary-color);
 	text-shadow: var(--text-shadow-basic);
 	font-family: var(--secondary-font);
-}
-h1 {
+} */
+/* h1 {
 	margin-top: 0;
 	margin-bottom: 8px;
 	font-weight: bold;
@@ -96,8 +96,8 @@ h2 {
 	background-clip: text;
 	color: transparent;
 	text-shadow: var(--text-shadow-indiana);
-}
-strong {
+} */
+/* strong {
 	font-weight: bold;
 	font-size: 1.25em;
 	font-style: oblique;
@@ -107,11 +107,11 @@ strong {
 	&.spiritBlack {
 		text-shadow: var(--text-shadow-black);
 	}
-}
-img {
+} */
+/* img {
 	width: 100%;
 	margin-inline: auto;
-}
+} */
 
 /* Mobile Screen Size - 15em is also 240px (if basefont is 16px) */
 @media only screen and (min-width: 15rem) {
@@ -150,7 +150,7 @@ img {
 		}
 	}
 
-	/* ----- Accessibility skip-to-main-content ----- */
+	/* ----- Accessibility skip-to-main-content -----
 	.skip-to-content a {
 		position: absolute;
 		top: -40px;
@@ -160,10 +160,10 @@ img {
 
 	.skip-to-content a:focus {
 		top: 0;
-	}
+	} */
 
 	/*---------- NAVIGATION ----------*/
-	nav {
+	/* nav {
 		background-color: var(--secondary-color);
 		ul {
 			list-style-type: none;
@@ -197,7 +197,7 @@ img {
 				}
 			}
 		}
-	}
+	} */
 
 	/*---------- MAIN ----------*/
 	main {
@@ -207,9 +207,9 @@ img {
 	.floatswitch ul li {
 		text-indent: 2rem;
 	}
-	.toggleLiVis picture {
+	/* .toggleLiVis picture {
 		float: left;
-	}
+	} */
 
 	.session-log-book ul {
 		list-style: none;
@@ -220,7 +220,7 @@ img {
 		cursor: pointer;
 		padding: 0.5rem 0;
 	}
-	.herodiv {
+	/* .herodiv {
 		width: 100%;
 		padding: 0.5rem 2%;
 		margin-inline: auto;
@@ -256,7 +256,7 @@ img {
 				max-width: 20rem;
 			}
 		}
-	}
+	} */
 	.row {
 		display: block;
 		width: 100%;
@@ -465,7 +465,7 @@ img {
 		text-shadow: var(--text-shadow-primary);
 	}
 
-	/*----- toggleClass sub-CSS -----*/
+	/* ----- toggleClass sub-CSS -----
 	main .asset p,
 	main .asset ul {
 		display: none;
@@ -474,7 +474,7 @@ img {
 	main .asset .click p,
 	main .asset .click ul {
 		display: block;
-	}
+	} */
 
 	/*----- Light-zoom classes -----*/
 	.lz-wrapper {
@@ -615,14 +615,14 @@ img {
 		clear: both;
 	}
 
-	/* ----- Action Call Toggle ----- */
+	/* ----- Action Call Toggle -----
 	.collapse-toggle-content {
 		display: none;
 	}
 
 	.collapse-toggle.click .collapse-toggle-content {
 		display: block;
-	}
+	} */
 
 	/* ----- Character-tabs -----*/
 	/* Container */
@@ -715,7 +715,7 @@ img {
 	}
 
 	/*---------- NAVIGATION ----------*/
-	nav {
+	/* nav {
 		ul.hide {
 			display: block;
 		}
@@ -739,7 +739,7 @@ img {
 	.secondary-nav {
 		margin-top: 0;
 		border-top: none;
-	}
+	} */
 
 	/*---------- MAIN ----------*/
 	img.tooTall {
@@ -804,13 +804,3 @@ img {
 		flex-basis: 21%;
 	}
 }
-
-/*----- Clearfix: Force an Element not to collapse -----*/
-.clearfix:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-/*---------- CLOSE CODE ----------*/
-/* Written by Harrison Merrill */

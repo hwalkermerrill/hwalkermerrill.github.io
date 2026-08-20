@@ -57,6 +57,29 @@
 	animation: none;
 }
 
+/* Cursor utilities */
+.i-cursor-default {
+	cursor: default;
+}
+.u-cursor-point {
+	cursor: pointer;
+}
+.u-cursor-text {
+	cursor: text;
+}
+.u-cursor-move {
+	cursor: move;
+}
+.u-cursor-grab {
+	cursor: grab;
+}
+.u-cursor-draw {
+	cursor: crosshair;
+}
+.u-cursor-not-allowed {
+	cursor: not-allowed;
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.holo-flash,
 	.holo-flash-chromatic {
