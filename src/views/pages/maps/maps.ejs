@@ -27,7 +27,7 @@
 
 	<!-- Admin Only Panel On-Click -->
 	<% if (hasPermission(user, "manage_maps")) { %>
-	<button type="button" onclick="toggleMapAdmin()">Manage Maps</button>
+	<button type="button" class="btn" onclick="toggleMapAdmin()">Manage Maps</button>
 
 	<div id="map-admin-panel" style="display:none; margin-top:1rem;">
 		<h3>Set Main Map</h3>
@@ -42,7 +42,7 @@
 				<% }) %>
 			</select>
 
-			<button type="submit">Set as Main Map</button>
+			<button type="submit" class="btn">Set as Main Map</button>
 		</form>
 	</div>
 	<% } %>

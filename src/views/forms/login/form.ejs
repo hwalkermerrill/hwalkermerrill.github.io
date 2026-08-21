@@ -1,51 +1,51 @@
 <%- include("../../partials/header") %>
 <main>
-  <h1><%= title %></h1>
-  <p>
-    Enter your user name and password to access your account. Don't have an account? Contact the GM for an invitation.
-  </p>
+	<h1><%= title %></h1>
+	<p>
+		Enter your user name and password to access your account. Don't have an account? Contact the GM for an invitation.
+	</p>
 
-  <form method="POST" action="/login" class="login-form">
-    <!-- User name field -->
-    <div class="form-group">
-      <label for="username">User Name</label>
-      <input type="text" id="username" name="username" required placeholder="Enter your user name">
-    </div>
+	<form method="POST" action="/login" class="login-form">
+		<!-- User name field -->
+		<div class="form-group">
+			<label for="username">User Name</label>
+			<input type="text" id="username" name="username" required placeholder="Enter your user name">
+		</div>
 
-    <!-- Password field -->
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" minlength="8" required placeholder="Enter your password">
-    </div>
+		<!-- Password field -->
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" minlength="8" required placeholder="Enter your password">
+		</div>
 
-    <!-- Submit button -->
-    <div class="form-group">
-      <button type="submit">Login</button>
-    </div>
-  </form>
+		<!-- Submit button -->
+		<div class="form-group">
+			<button class="btn" type="submit">Login</button>
+		</div>
+	</form>
 
-  <!-- Reset Password Request Button and Logic -->
-  <button type="button" onclick="toggleResetRequest()">Forgot your password?</button>
+	<!-- Reset Password Request Button and Logic -->
+	<button type="button" class="btn" onclick="toggleResetRequest()">Forgot your password?</button>
 
-  <div id="reset-request" style="display:none;">
-    <form method="POST" action="/register/reset-password/request">
-      <label for="reset_full_name">Full Name</label>
-      <input type="text" name="full_name" id="reset_full_name" required>
+	<div id="reset-request" style="display:none;">
+		<form method="POST" action="/register/reset-password/request">
+			<label for="reset_full_name">Full Name</label>
+			<input type="text" name="full_name" id="reset_full_name" required>
 
-      <label for="reset_username">Username</label>
-      <input type="text" name="username" id="reset_username" required>
+			<label for="reset_username">Username</label>
+			<input type="text" name="username" id="reset_username" required>
 
-      <button type="submit">Request Password Reset</button>
-    </form>
-  </div>
+			<button type="submit" class="btn">Request Password Reset</button>
+		</form>
+	</div>
 
 </main>
 
 <script>
-  function toggleResetRequest() {
-    const box = document.getElementById("reset-request");
-    box.style.display = box.style.display === "none" ? "block" : "none";
-  }
+	function toggleResetRequest() {
+		const box = document.getElementById("reset-request");
+		box.style.display = box.style.display === "none" ? "block" : "none";
+	}
 </script>
 
 <%- include('../../partials/footer') %>
