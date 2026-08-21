@@ -32,6 +32,14 @@
 	border: 0;
 }
 
+/* Disabled Link */
+.disabled-link {
+	background-color: var(--color-disabled);
+	animation: none;
+	cursor: not-allowed;
+	opacity: var(--opacity-disabled);
+}
+
 /* Holographic Effects */
 .holo-flash {
 	background-image: var(--color-metallic-holo);
