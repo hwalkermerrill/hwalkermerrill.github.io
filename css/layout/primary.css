@@ -52,74 +52,61 @@ main > section {
 	margin: var(--spacing-sm);
 }
 
-.row,
-.floatswitch {
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-md);
+/* floatswitch */
+.floatswitch ul {
+	cursor: pointer;
+	li {
+		text-indent: var(--spacing-lg);
+	}
+}
+
+/* row */
+.row {
+	display: block;
 	width: 100%;
 	margin-inline: auto;
 	padding: var(--spacing-xs);
-
-	/* Children */
-	aside,
-	section,
-	ul,
-	li {
-		flex: 1;
+	ul {
+		cursor: pointer;
 	}
-
-	figure {
-		figcaption {
-			padding: var(--spacing-xs);
-			text-align: center;
-		}
-	}
-
-	/* Images default to full width on mobile */
-	img {
-		width: 100%;
-		height: auto;
-	}
+}
+.row section:nth-child(2) {
+	margin-left: var(--spacing-md);
+}
+.row figure figcaption {
+	padding: var(--spacing-sm);
+	text-align: center;
 }
 
 /* -----Media Queries----- */
 @media (min-width: 45rem) {
-	/* tooTall Images */
 	img.tooTall {
 		width: 48%;
 	}
-
-	ul img.tooTall {
-		width: 29%;
+	ul img,
+	.row section,
+	.row aside,
+	.floatswitch section img,
+	.floatswitch ul img {
+		float: left;
+		width: 48%;
+		padding: 2% 2% 0 2%; /*Sets padding to 2% everywhere except top*/
 	}
-
-	/* floatswitch and row*/
-	.floatswitch,
-	.row {
-		flex-direction: row;
-		flex-wrap: wrap; /* <-- handles 2, 3, 4, or more children */
-		align-items: flex-start;
-		gap: var(--spacing-lg);
-
-		aside,
-		section,
-		ul,
-		li {
-			flex: 1 1 48%;
-			max-width: 48%;
-			padding: var(--spacing-sm);
-		}
-
-		img {
-			width: 100%;
-			max-width: 100%;
-			padding: var(--spacing-sm);
-		}
-
-		img.tooTall {
-			flex: 0 0 29%;
-			max-width: 29%;
-		}
+	ul img,
+	.row section:nth-child(2n),
+	.row aside:nth-child(2n),
+	.floatswitch section:nth-child(2n) img,
+	.floatswitch ul:nth-child(2n) img {
+		float: right;
+	}
+	.row section {
+		margin-left: 2%;
+	}
+	ul img.tooTall,
+	.row section img.tooTall,
+	.floatswitch section img.tooTall,
+	.floatswitch ul img.tooTall {
+		/* This is a class for images that are too tall for the screen */
+		width: 29%;
 	}
 }

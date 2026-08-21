@@ -1,5 +1,4 @@
 /* Hero image and caption styling */
-
 .hero-div,
 .herodiv {
 	margin: var(--spacing-sm);
@@ -57,4 +56,22 @@ aside figcaption {
 	font-size: var(--font-size-caption);
 	color: var(--color-text-muted);
 	background-color: var(--color-surface);
+}
+
+@media (min-width: 45rem) {
+	.hero-aside aside:first-child {
+		float: left;
+		width: 48%;
+		padding: 2% 2% 0 2%;
+	}
+
+	.hero-aside aside:nth-child(2) {
+		padding: 2% 2% 0 2%;
+	}
+
+	.hero-aside::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
 }
