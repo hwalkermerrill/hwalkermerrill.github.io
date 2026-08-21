@@ -39,11 +39,11 @@ I have similarly not yet used the github copilot extension's code completion for
 @import url("components/theme-toggle.css") layer(components);
 @import url("components/click-toggle.css") layer(components);
 /* @import url("components/background-image.css") layer(components); */
-@import url(components/characters.css) layer(components);
 @import url("components/hero.css") layer(components);
 @import url("components/buttons.css") layer(components);
 @import url("components/cards.css") layer(components);
 @import url("components/forms.css") layer(components);
+@import url(components/flexwrap.css) layer(components);
 @import url("components/header.css") layer(components);
 @import url("components/nav.css") layer(components);
 @import url("components/effects.css") layer(components);
