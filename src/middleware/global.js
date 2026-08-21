@@ -38,7 +38,7 @@ const setHeadAssetsFunctionality = (res) => {
 const addLocalVariables = (req, res, next) => {
 	// Set local variables
 	const now = new Date();
-	const versionIteration = "v2.0.";
+	const versionIteration = "v3.0.";
 	const activePage = req.path.split("/")[1] || "home";
 
 	// Make global template variables available in all views
