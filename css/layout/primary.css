@@ -14,7 +14,11 @@ main {
 	min-height: 10rem;
 	width: 100%;
 	margin-inline: auto;
-	padding-inline: var(--spacing-md, 1rem);
+	padding-inline: var(--spacing-lg);
+}
+
+li {
+	padding-left: var(--spacing-md);
 }
 
 main > section {
