@@ -6,17 +6,25 @@
 	--seed-surface: #ffffff;
 	--seed-text: #1e293b;
 	--seed-text-muted: #64748b;
-	--seed-accent: oklch(0.55 0.2 68);
+	--seed-primary: oklch(0.48 0.2 320);
+	--seed-accent: oklch(0.78 0.14 210);
 	--seed-accent-hover: color-mix(in oklch, var(--seed-accent) 80%, black);
-	--seed-primary: oklch(0.45 0.12 162);
 	--seed-soft-vis: oklch(0.56 0.14 245);
 	--seed-high-vis: magenta;
+
+	/* ---- Object Seeds ---- */
+	--seed-metal-cool: oklch(0.85 0.03 260);
+	--seed-metal-warm: oklch(0.78 0.16 85);
 	--seed-adobe: oklch(0.62 0.27 29);
 	--seed-adobe-hover: color-mix(in oklch, var(--seed-link-pdf) 80%, black);
 	--seed-link: var(--seed-accent);
 	--seed-link-hover: var(--seed-accent-hover);
 	--seed-border: #e2e8f0;
 	--seed-border-strong: #050505;
+
+	/* ---- Legacy Seeds ---- */
+	--seed-azlant: oklch(0.45 0.12 162);
+	--seed-serpents: oklch(0.55 0.2 68);
 
 	/* ---- Color Ramps ---- */
 	--accent-200: color-mix(in oklch, var(--seed-accent) 30%, white);
@@ -35,8 +43,23 @@
 	--primary-700: color-mix(in oklch, var(--seed-primary) 60%, black);
 	--primary-800: color-mix(in oklch, var(--seed-primary) 40%, black);
 
-	/* ---- Color Gradients ---- */
+	--azlant-200: color-mix(in oklch, var(--seed-azlant) 30%, white);
+	--azlant-300: color-mix(in oklch, var(--seed-azlant) 50%, white);
+	--azlant-400: color-mix(in oklch, var(--seed-azlant) 75%, white);
+	--azlant-500: var(--seed-azlant);
+	--azlant-600: color-mix(in oklch, var(--seed-azlant) 80%, black);
+	--azlant-700: color-mix(in oklch, var(--seed-azlant) 60%, black);
+	--azlant-800: color-mix(in oklch, var(--seed-azlant) 40%, black);
 
+	--serpents-200: color-mix(in oklch, var(--seed-serpents) 30%, white);
+	--serpents-300: color-mix(in oklch, var(--seed-serpents) 50%, white);
+	--serpents-400: color-mix(in oklch, var(--seed-serpents) 75%, white);
+	--serpents-500: var(--seed-serpents);
+	--serpents-600: color-mix(in oklch, var(--seed-serpents) 80%, black);
+	--serpents-700: color-mix(in oklch, var(--seed-serpents) 60%, black);
+	--serpents-800: color-mix(in oklch, var(--seed-serpents) 40%, black);
+
+	/* ---- Color Gradients ---- */
 	--color-indiana-gradient-light: linear-gradient(
 		to bottom,
 		oklch(0.45 0.15 30) 0%,
@@ -98,15 +121,12 @@
 	--color-text: light-dark(var(--seed-text), oklch(0.88 0.02 260));
 	--color-text-muted: light-dark(var(--seed-text-muted), oklch(0.68 0.03 250));
 	--color-disabled: var(--color-text-muted);
-	--color-accent: light-dark(var(--seed-accent), oklch(0.62 0.15 68));
-	--color-accent-hover: light-dark(
-		var(--seed-accent-hover),
-		oklch(0.68 0.18 68)
-	);
+	--color-accent: light-dark(var(--seed-primary), var(--accent-600));
+	--color-accent-hover: light-dark(var(--seed-accent-hover), var(--accent-400));
 	--color-soft: var(--seed-soft-vis);
 	--color-vis: var(--seed-high-vis);
-	--color-link: light-dark(var(--seed-link), oklch(0.65 0.16 68));
-	--color-link-hover: light-dark(var(--seed-link-hover), oklch(0.72 0.18 68));
+	--color-link: light-dark(var(--seed-link), var(--accent-600));
+	--color-link-hover: light-dark(var(--seed-link-hover), var(--accent-700));
 	--color-link-pdf: var(--seed-adobe);
 	--color-link-pdf-hover: var(--seed-adobe-hover);
 	--color-border: light-dark(var(--seed-border), oklch(0.32 0.02 260));
@@ -114,6 +134,8 @@
 		var(--seed-border-strong),
 		oklch(0.38 0.02 260)
 	);
+	--color-border-cool: var(--seed-metal-cool);
+	--color-border-warm: var(--seed-metal-warm);
 
 	/* ---- Header chrome ---- */
 	--header-bg: var(--color-accent);
@@ -154,9 +176,17 @@
 		oklch(0.18 0.04 40 / 0.75)
 	);
 
+	/* NPC Attitude Colors */
+	/* Helpful: teal (accent) */
+	--color-helpful: oklch(0.78 0.14 210);
+	--color-friendly: oklch(0.45 0.12 162);
+	--color-unfriendly: oklch(0.55 0.2 68);
+	--color-hostile: oklch(0.48 0.2 320);
+	--color-locked: var(--color-text-muted);
+
 	/* Legacy Imports */
 	--text-light: #fdefcd;
-	--npc-helpful: #5a7a9b;
+	--npc-helpful: var(--color-helpful);
 	--spirit-aura: #c1ffff;
 
 	--text-shadow-spirit: 1px 1px 0px var(--spirit-aura);

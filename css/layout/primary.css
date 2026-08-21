@@ -38,63 +38,88 @@ main > section {
 	max-width: 65ch;
 	line-height: 2;
 }
+
+/* pointers */
 .pointer {
 	cursor: pointer;
 }
 .crosshair {
 	cursor: crosshair;
 }
-.floatswitch ul li {
-	text-indent: 2rem;
+
+/* files */
+.files ul li {
+	margin: var(--spacing-sm);
 }
-.row {
-	display: block;
+
+.row,
+.floatswitch {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
 	width: 100%;
 	margin-inline: auto;
-	padding: 0.2rem;
-}
-.row section:nth-child(2) {
-	margin-left: 2%;
-}
-.row figure figcaption {
-	padding: 1%;
-	text-align: center;
-}
-.files ul li {
-	margin: 10px;
+	padding: var(--spacing-xs);
+
+	/* Children */
+	aside,
+	section,
+	ul,
+	li {
+		flex: 1;
+	}
+
+	figure {
+		figcaption {
+			padding: var(--spacing-xs);
+			text-align: center;
+		}
+	}
+
+	/* Images default to full width on mobile */
+	img {
+		width: 100%;
+		height: auto;
+	}
 }
 
 /* -----Media Queries----- */
-@media only screen and (min-width: 45rem) {
-	/*---------- MAIN ----------*/
+@media (min-width: 45rem) {
+	/* tooTall Images */
 	img.tooTall {
-		/* This is a class for images that are too tall for the screen */
 		width: 48%;
 	}
-	ul img,
-	.row section,
-	.row aside,
-	.floatswitch section img,
-	.floatswitch ul img {
-		float: left;
-		width: 48%;
-		padding: 2% 2% 0 2%; /*Sets padding to 2% everywhere except top*/
-	}
-	ul img,
-	.row section:nth-child(2n),
-	.row aside:nth-child(2n),
-	.floatswitch section:nth-child(2n) img,
-	.floatswitch ul:nth-child(2n) img {
-		float: right;
-	}
-	.row section {
-		margin-left: 2%;
-	}
-	ul img.tooTall,
-	.row section img.tooTall,
-	.floatswitch section img.tooTall,
-	.floatswitch ul img.tooTall {
-		/* This is a class for images that are too tall for the screen */
+
+	ul img.tooTall {
 		width: 29%;
+	}
+
+	/* floatswitch and row*/
+	.floatswitch,
+	.row {
+		flex-direction: row;
+		flex-wrap: wrap; /* <-- handles 2, 3, 4, or more children */
+		align-items: flex-start;
+		gap: var(--spacing-lg);
+
+		aside,
+		section,
+		ul,
+		li {
+			flex: 1 1 48%;
+			max-width: 48%;
+			padding: var(--spacing-sm);
+		}
+
+		img {
+			width: 100%;
+			max-width: 100%;
+			padding: var(--spacing-sm);
+		}
+
+		img.tooTall {
+			flex: 0 0 29%;
+			max-width: 29%;
+		}
 	}
 }
