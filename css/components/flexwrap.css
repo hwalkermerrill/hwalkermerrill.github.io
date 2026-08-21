@@ -1,0 +1,73 @@
+/*----- Flexwrap Classes -----*/
+/* This manages floating img boxes, which can be clicked to view further data */
+.asset,
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+
+	section,
+	figure {
+		margin: 1rem 2%;
+		flex-basis: 96%;
+		border: 12px solid transparent;
+		border-image: var(--frame-border);
+		/* border-style: ridge; */
+		/* border-color: #005633; */
+		/* border-width: 6px; */
+		padding: 1%;
+		transition: all 0.2s ease-in-out;
+
+		img {
+			max-height: 100%;
+			max-width: 100%;
+			object-fit: contain;
+		}
+		&:hover {
+			box-shadow: 0 0 12px #555;
+			transform: scale(1.05);
+			cursor: pointer;
+		}
+	}
+}
+/* asset-only tweaks */
+.asset {
+	section {
+		figure {
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+/* gallery-only tweaks */
+.gallery {
+	figure {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+/* -----@media Queries----- */
+@media only screen and (min-width: 45rem) {
+	.gallery,
+	.asset {
+		justify-content: center;
+	}
+	.gallery figure,
+	.asset section {
+		flex-basis: 46%;
+	}
+}
+@media only screen and (min-width: 64rem) {
+	.asset section,
+	.gallery figure {
+		flex-basis: 29%;
+	}
+}
+@media only screen and (min-width: 90rem) {
+	.asset section,
+	.gallery figure {
+		flex-basis: 21%;
+	}
+}

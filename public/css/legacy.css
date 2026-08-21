@@ -1,32 +1,32 @@
 /* Imports */
-/* @import url("https://fonts.googleapis.com/css?family=Amiri|Trade+Winds|Cabin+Sketch"); */
-/* @import url("https://fonts.cdnfonts.com/css/indiana-jonas"); */
+@import url("https://fonts.googleapis.com/css?family=Amiri|Trade+Winds|Cabin+Sketch");
+@import url("https://fonts.cdnfonts.com/css/indiana-jonas");
 
 /* ----- Root Data ----- */
-/* :root { */
-/* --frame-border: url("/images/core/border-frame.png") 30 round; */
-/* --color-primary: #12674a;
-	--color-accent: #dc8837;
+:root {
+	--frame-border: url("/serpents/images/border-frame.png") 30 round;
+	--primary-color: #12674a;
+	--secondary-color: #dc8837;
 	--text-light: #fdefcd;
 	--npc-helpful: #5a7a9b;
-	--spirit-aura: #c1ffff; */
-/* --primary-font: "Amiri", Verdana, sans-serif;
+	--spirit-aura: #c1ffff;
+	--primary-font: "Amiri", Verdana, sans-serif;
 	--secondary-font: "Trade Winds", serif;
-	--tertiary-font: "Indiana Jonas", "Cabin Sketch", serif; */
-/* --text-shadow-basic: 4px 4px 4px #aaa; */
-/* --text-shadow-spirit: 1px 1px 0px var(--spirit-aura); */
-/* --text-shadow-black: 1px 1px 0px black; */
-/* --text-shadow-indiana:
-		1px 1px 2px rgba(0, 0, 0, 0.1), 2px 2px 4px rgba(0, 0, 0, 0.2); */
-/* --text-shadow-light:
+	--tertiary-font: "Indiana Jonas", "Cabin Sketch", serif;
+	--text-shadow-basic: 4px 4px 4px #aaa;
+	--text-shadow-spirit: 1px 1px 0px var(--spirit-aura);
+	--text-shadow-black: 1px 1px 0px black;
+	--text-shadow-indiana:
+		1px 1px 2px rgba(0, 0, 0, 0.1), 2px 2px 4px rgba(0, 0, 0, 0.2);
+	--text-shadow-light:
 		-5px 0px 5px var(--text-light), 0px 5px 5px var(--text-light),
 		5px 0px 5px var(--text-light), 0px -5px 5px var(--text-light);
 	--text-shadow-primary:
-		-5px 0px 5px var(--color-primary), 0px 5px 5px var(--color-primary),
-		5px 0px 5px var(--color-primary), 0px -5px 5px var(--color-primary);
+		-5px 0px 5px var(--primary-color), 0px 5px 5px var(--primary-color),
+		5px 0px 5px var(--primary-color), 0px -5px 5px var(--primary-color);
 	--text-shadow-secondary:
-		-5px 0px 5px var(--color-accent), 0px 5px 5px var(--color-accent),
-		5px 0px 5px var(--color-accent), 0px -5px 5px var(--color-accent);
+		-5px 0px 5px var(--secondary-color), 0px 5px 5px var(--secondary-color),
+		5px 0px 5px var(--secondary-color), 0px -5px 5px var(--secondary-color);
 	--text-indiana-gradient: linear-gradient(
 		to bottom,
 		#8b2e1c 0%,
@@ -35,47 +35,47 @@
 		#ff9f1c 60%,
 		#ffd447 80%,
 		#ffec8b 100%
-	); */
-/* } */
+	);
+}
 
 /* Prevent adjustments of font size after orientation changes on mobile (iOS) and tablet (win) */
-/* html {
+html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
-} */
+}
 
 /*----- Apply a natural box layout model to all elements -----*/
-/* * {
+* {
 	box-sizing: border-box;
-} */
+}
 
 /*---------- BODY ----------*/
-/* body { */
-/* font-size: 16px;
-	font-family: var(--primary-font); */
-/* min-width: 15rem; */
-/* margin: 0; */
-/*----- Background Img -----*/
-/* background-image: url("/images/core/background-cover.jpg"); */
-/* background-size: cover;
+body {
+	font-size: 16px;
+	font-family: var(--primary-font);
+	min-width: 15rem;
+	margin: 0;
+	/*----- Background Img -----*/
+	background-image: url("/serpents/images/background-cover.jpg");
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-position: center; */
-/* } */
+	background-position: center;
+}
 /* This makes ul/li's appear clickable */
-/* ul,
+ul,
 ol {
 	cursor: pointer;
-} */
-/* h1,
+}
+h1,
 h2,
 h3,
 figcaption {
-	color: var(--color-primary);
+	color: var(--primary-color);
 	text-shadow: var(--text-shadow-basic);
 	font-family: var(--secondary-font);
-} */
-/* h1 {
+}
+h1 {
 	margin-top: 0;
 	margin-bottom: 8px;
 	font-weight: bold;
@@ -96,8 +96,8 @@ h2 {
 	background-clip: text;
 	color: transparent;
 	text-shadow: var(--text-shadow-indiana);
-} */
-/* strong {
+}
+strong {
 	font-weight: bold;
 	font-size: 1.25em;
 	font-style: oblique;
@@ -107,18 +107,18 @@ h2 {
 	&.spiritBlack {
 		text-shadow: var(--text-shadow-black);
 	}
-} */
-/* img {
+}
+img {
 	width: 100%;
 	margin-inline: auto;
-} */
+}
 
 /* Mobile Screen Size - 15em is also 240px (if basefont is 16px) */
 @media only screen and (min-width: 15rem) {
 	/*---------- HEADER ----------*/
-	/* header {
+	header {
 		padding: 0.5rem 5rem 0 0;
-		background-color: var(--color-accent);
+		background-color: var(--secondary-color);
 		display: grid;
 		grid-template-columns: max-content auto;
 		gap: 2%;
@@ -144,27 +144,27 @@ h2 {
 		h1,
 		h2 {
 			margin: 0;
-			color: var(--color-primary);
+			color: var(--primary-color);
 			font-family: var(--secondary-font);
 			text-shadow: var(--text-shadow-light);
 		}
-	} */
+	}
 
-	/* ----- Accessibility skip-to-main-content -----
+	/* ----- Accessibility skip-to-main-content ----- */
 	.skip-to-content a {
 		position: absolute;
 		top: -40px;
-		background-color: var(--color-accent);
+		background-color: var(--secondary-color);
 		color: var(--text-light);
 	}
 
 	.skip-to-content a:focus {
 		top: 0;
-	} */
+	}
 
 	/*---------- NAVIGATION ----------*/
-	/* nav {
-		background-color: var(--color-accent);
+	nav {
+		background-color: var(--secondary-color);
 		ul {
 			list-style-type: none;
 			padding: 0;
@@ -177,7 +177,7 @@ h2 {
 			li {
 				a {
 					display: block;
-					color: var(--color-primary);
+					color: var(--primary-color);
 					border-top: 1px solid rgba(0, 0, 0, 0.3);
 					padding: 0.5rem 0;
 					text-decoration: none;
@@ -186,18 +186,18 @@ h2 {
 					text-shadow: var(--text-shadow-light);
 					&:hover {
 						background-color: var(--text-light);
-						color: var(--color-primary);
+						color: var(--primary-color);
 					}
 				}
 
 				&.active a {
-					background-color: var(--color-primary);
+					background-color: var(--primary-color);
 					color: black;
 					text-shadow: var(--text-shadow-light);
 				}
 			}
 		}
-	} */
+	}
 
 	/*---------- MAIN ----------*/
 	main {
@@ -207,20 +207,7 @@ h2 {
 	.floatswitch ul li {
 		text-indent: 2rem;
 	}
-	/* .toggleLiVis picture {
-		float: left;
-	} */
-
-	.session-log-book ul {
-		list-style: none;
-		padding: 0;
-		margin: 0 0 1rem 0;
-	}
-	.session-log-list-item {
-		cursor: pointer;
-		padding: 0.5rem 0;
-	}
-	/* .herodiv {
+	.herodiv {
 		width: 100%;
 		padding: 0.5rem 2%;
 		margin-inline: auto;
@@ -238,7 +225,7 @@ h2 {
 			background: var(--text-light);
 			border: 1px solid #000;
 			padding: 0.2rem;
-			box-shadow: 0 0 30px var(--color-primary);
+			box-shadow: 0 0 30px var(--primary-color);
 
 			h3 {
 				margin: 0.5rem;
@@ -248,7 +235,7 @@ h2 {
 			}
 			button {
 				border: none;
-				background-color: var(--color-primary);
+				background-color: var(--primary-color);
 				color: black;
 				border-radius: 1rem;
 				padding: 0.75rem 1.5rem;
@@ -256,7 +243,7 @@ h2 {
 				max-width: 20rem;
 			}
 		}
-	} */
+	}
 	.row {
 		display: block;
 		width: 100%;
@@ -405,7 +392,7 @@ h2 {
 		display: grid;
 		grid-template-rows: 20px auto;
 		background: rgba(0, 0, 0, 0.75);
-		color: var(--color-accent);
+		color: var(--secondary-color);
 		justify-content: center;
 		align-items: center;
 		margin: 2%;
@@ -415,7 +402,7 @@ h2 {
 		button {
 			background: rgba(0, 0, 0, 0);
 			border-color: rgba(0, 0, 0, 0);
-			color: var(--color-accent);
+			color: var(--secondary-color);
 			cursor: pointer;
 			grid-row: 1;
 			text-align: right;
@@ -440,8 +427,8 @@ h2 {
 		background-color: var(--npc-helpful);
 	}
 	main .friendly {
-		background-color: var(--color-primary);
-		border-color: var(--color-accent);
+		background-color: var(--primary-color);
+		border-color: var(--secondary-color);
 		color: var(--text-light);
 	}
 	main .friendly h3 {
@@ -449,7 +436,7 @@ h2 {
 		text-shadow: var(--text-shadow-secondary);
 	}
 	main .unfriendly {
-		background-color: var(--color-accent);
+		background-color: var(--secondary-color);
 	}
 	main .hostile {
 		background-color: #000;
@@ -465,7 +452,7 @@ h2 {
 		text-shadow: var(--text-shadow-primary);
 	}
 
-	/* ----- toggleClass sub-CSS -----
+	/*----- toggleClass sub-CSS -----*/
 	main .asset p,
 	main .asset ul {
 		display: none;
@@ -474,7 +461,7 @@ h2 {
 	main .asset .click p,
 	main .asset .click ul {
 		display: block;
-	} */
+	}
 
 	/*----- Light-zoom classes -----*/
 	.lz-wrapper {
@@ -553,7 +540,7 @@ h2 {
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background: url("/images/core/logo-target.png") center center no-repeat;
+		background: url("/serpents/images/logo-target.png") center center no-repeat;
 		/* background-repeat: no-repeat; */
 		/* background-position: center; */
 		opacity: 0.5;
@@ -570,10 +557,10 @@ h2 {
 		margin-left: -57px;
 		z-index: 99; /* Button appears on top */
 		border-style: ridge;
-		border-color: var(--color-primary);
+		border-color: var(--primary-color);
 		border-width: 6px;
-		background-color: var(--color-accent);
-		color: var(--color-primary);
+		background-color: var(--secondary-color);
+		color: var(--primary-color);
 		text-shadow: var(--text-shadow-black);
 		cursor: pointer; /* Add a mouse pointer on hover */
 		padding: 5px;
@@ -587,118 +574,20 @@ h2 {
 		transform: scale(1.05);
 	}
 
-	/*------JOURNAL-TAB----------  */
-	.journal-tab {
-		display: none;
-	}
-	.journal-tab.active {
-		display: block;
-	}
-
-	/* Session Recap */
-	#session-recap-content * {
-		float: none;
-		width: auto;
-		text-indent: 0;
-	}
-	#session-recap-content picture img {
-		float: right;
-		width: 48%;
-		padding: 2% 2% 1rem 1rem;
-	}
-	#session-recap-content picture img.tooTall {
-		width: 29%;
-	}
-	.session-log-list-item {
-		cursor: pointer;
-		padding: 0.5rem 0;
-		clear: both;
-	}
-
-	/* ----- Action Call Toggle -----
-	.collapse-toggle-content {
-		display: none;
-	}
-
-	.collapse-toggle.click .collapse-toggle-content {
-		display: block;
-	} */
-
-	/* ----- Character-tabs -----*/
-	/* Container */
-	.character-tabs {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.5rem 1rem;
-		background: var(--page-background, transparent);
-		border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-	}
-
-	/* Tab list */
-	.character-tabs ul {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.25rem;
-		padding: 0;
-		margin: 0;
-		list-style: none;
-	}
-
-	/* Tab buttons */
-	.character-tabs li a {
-		display: block;
-		padding: 0.4rem 0.75rem;
-		text-decoration: none;
-		color: var(--color-primary);
-		border-radius: 4px 4px 0 0;
-		border-bottom: 2px solid transparent;
-		transition: 0.2s ease;
-	}
-
-	/* Active tab */
-	.character-tabs li.active a {
-		font-weight: bold;
-		border-bottom-color: var(--color-primary);
-	}
-
-	/* Hover */
-	.character-tabs li a:hover {
-		background: var(--color-accent);
-	}
-
-	/* Search bar container */
-	.character-search {
-		flex: 1 1 250px; /* <-- expands to fill space */
-		display: flex;
-		justify-content: flex-end;
-	}
-
-	/* Search input */
-	.character-search input {
-		width: 100%;
-		max-width: 600px; /* <-- expands nicely on wide screens */
-		padding: 0.45rem 0.6rem;
-		font-size: 1rem;
-		border: 1px solid rgba(0, 0, 0, 0.3);
-		border-radius: 4px;
-	}
-
 	/*---------- FOOTER ----------*/
-	/* footer {
-		background-color: var(--color-accent);
-		color: var(--color-primary);
+	footer {
+		/* background-color: var(--secondary-color); */
+		color: var(--primary-color);
 		padding: 0.5rem 2%;
 		text-align: center;
 		clear: both;
-	} */
+	}
 }
 /* ---------- Responsive @media Screen Sizes ---------- */
 /* Tablet Screen Size - 45em is also 720px (if basefont is 16px) */
 @media only screen and (min-width: 45rem) {
 	/*---------- HEADER ----------*/
-	/* header button {
+	header button {
 		display: none;
 	}
 
@@ -712,34 +601,26 @@ h2 {
 
 	header .slogan {
 		display: block;
-	} */
-
-	/*---------- NAVIGATION ----------*/
-	/* nav {
-		ul.hide {
-			display: block;
-		}
-
-		ul {
-			margin-left: 4px;
-
-			li {
-				float: left;
-
-				a {
-					border: none;
-					border-right: 1px solid rgba(0, 0, 8, 0.3);
-					border-bottom: 1px solid rgba(0, 0, 8, 0.3);
-					padding: 0.8rem;
-				}
-			}
-		}
 	}
 
-	.secondary-nav {
-		margin-top: 0;
-		border-top: none;
-	} */
+	/*---------- NAVIGATION ----------*/
+	nav ul.hide {
+		display: block;
+	}
+
+	nav ul {
+		margin-left: 4px;
+	}
+
+	nav ul li {
+		float: left;
+	}
+
+	nav ul li a {
+		border: none;
+		border-right: 1px solid rgba(0, 0, 8, 0.3);
+		padding: 0.8rem;
+	}
 
 	/*---------- MAIN ----------*/
 	img.tooTall {
@@ -804,3 +685,13 @@ h2 {
 		flex-basis: 21%;
 	}
 }
+
+/*----- Clearfix: Force an Element not to collapse -----*/
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/*---------- CLOSE CODE ----------*/
+/* Written by Harrison Merrill */

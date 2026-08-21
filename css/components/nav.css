@@ -74,6 +74,10 @@
 				);
 			}
 
+			&:active {
+				transform: scale(0.97);
+			}
+
 			&:focus-visible {
 				outline: 3px solid var(--color-accent);
 				outline-offset: 2px;
@@ -122,6 +126,7 @@
 	}
 }
 
+/* Media Querries */
 @media (min-width: 45rem) {
 	.site-nav {
 		ul {
@@ -134,5 +139,13 @@
 				border-bottom: 1px solid rgba(0, 0, 8, 0.3);
 			} */
 		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.site-nav ul li a {
+		transition: none;
+		transform: none;
+		animation: none;
 	}
 }

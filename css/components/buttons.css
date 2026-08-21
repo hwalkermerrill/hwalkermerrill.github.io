@@ -68,8 +68,8 @@ button[data-variant="danger"] {
 	bottom: var(--spacing-md);
 	z-index: 99;
 	display: none; /* JS will set display when scrolled past threshold */
-	border: none;
-	border-radius: 999px;
+	border-style: ridge;
+	border-radius: var(--radius-lg);
 	padding: var(--spacing-sm);
 	background-color: var(--color-primary);
 	color: var(--header-text);

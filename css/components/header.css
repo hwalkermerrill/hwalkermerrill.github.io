@@ -1,7 +1,7 @@
 header {
 	margin: 0;
 	padding: var(--spacing-xs);
-	padding-top: env(safe-area-inset-top, var(--spacing-md));
+	padding-top: env(safe-area-inset-top, var(--spacing-sm));
 	background-color: var(--color-accent);
 	color: var(--header-text);
 	display: flex;
@@ -50,11 +50,18 @@ header {
 			display: block;
 		}
 	}
-
+	.slogan h1 {
+		margin: 0;
+	}
 	.slogan h2 {
-		margin-bottom: var(--spacing-sm);
+		margin-bottom: var(--spacing-xm);
 		font-family: var(--font-family-serif);
 		color: var(--color-primary);
+		font-size: clamp(
+			var(--font-size-body),
+			var(--font-size-heading-sm),
+			var(--font-size-heading-md)
+		);
 	}
 }
 

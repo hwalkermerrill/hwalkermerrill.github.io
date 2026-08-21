@@ -2,7 +2,10 @@
 	<div class="site-nav-group">
 		<ul id="primaryNav" class="hide">
 			<!-- Always Visible Links First -->
-			<li><a href="/" aria-current="<%= activePage === 'home' ? 'page' : '' %>">Home</a></li>
+			<li><a href="/" aria-current="<%= activePage === 'home' ? 'page' : '' %>">
+					<svg class="icon" aria-hidden="true" focusable="false">
+						<use href="#icon-home"></use>
+					</svg> Home </a></li>
 			<li><a href="/characters" aria-current="<%= activePage === 'characters' ? 'page' : '' %>">Characters</a></li>
 			<li><a href="/assets" aria-current="<%= activePage === 'assets' ? 'page' : '' %>">Relics</a></li>
 			<li><a href="/maps" aria-current="<%= activePage === 'maps' ? 'page' : '' %>">Maps</a></li>

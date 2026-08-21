@@ -11,6 +11,7 @@ body {
 main {
 	flex: 1;
 	max-width: 80rem; /* Bumped this up to 1280px */
+	min-height: 10rem;
 	width: 100%;
 	margin-inline: auto;
 	padding-inline: var(--spacing-md, 1rem);
@@ -36,4 +37,64 @@ main > section {
 	overflow: hidden;
 	max-width: 65ch;
 	line-height: 2;
+}
+.pointer {
+	cursor: pointer;
+}
+.crosshair {
+	cursor: crosshair;
+}
+.floatswitch ul li {
+	text-indent: 2rem;
+}
+.row {
+	display: block;
+	width: 100%;
+	margin-inline: auto;
+	padding: 0.2rem;
+}
+.row section:nth-child(2) {
+	margin-left: 2%;
+}
+.row figure figcaption {
+	padding: 1%;
+	text-align: center;
+}
+.files ul li {
+	margin: 10px;
+}
+
+/* -----Media Queries----- */
+@media only screen and (min-width: 45rem) {
+	/*---------- MAIN ----------*/
+	img.tooTall {
+		/* This is a class for images that are too tall for the screen */
+		width: 48%;
+	}
+	ul img,
+	.row section,
+	.row aside,
+	.floatswitch section img,
+	.floatswitch ul img {
+		float: left;
+		width: 48%;
+		padding: 2% 2% 0 2%; /*Sets padding to 2% everywhere except top*/
+	}
+	ul img,
+	.row section:nth-child(2n),
+	.row aside:nth-child(2n),
+	.floatswitch section:nth-child(2n) img,
+	.floatswitch ul:nth-child(2n) img {
+		float: right;
+	}
+	.row section {
+		margin-left: 2%;
+	}
+	ul img.tooTall,
+	.row section img.tooTall,
+	.floatswitch section img.tooTall,
+	.floatswitch ul img.tooTall {
+		/* This is a class for images that are too tall for the screen */
+		width: 29%;
+	}
 }
