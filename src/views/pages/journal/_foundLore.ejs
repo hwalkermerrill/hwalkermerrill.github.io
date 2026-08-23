@@ -1,5 +1,14 @@
+<!-- Fallback text -->
+<% if (!items || !items.length) { %>
+<section id="found-lore">
+	<h2>Recovered Lore</h2>
+	<p>No documents or lore have been recovered yet.</p>
+</section>
+<div class="clearfix"></div>
+<% } else { %>
+
+<!-- Group items by type + subtype -->
 <%
-// Group items by type + subtype
 const grouped = {};
 items.forEach(item => {
   const key = `${item.item_type}:${item.item_subtype}`;
@@ -12,39 +21,40 @@ items.forEach(item => {
 <% const [type, subtype] = key.split(":"); %>
 
 <section class="item-section">
-  <h3><%= subtype %>'s</h3>
+	<h3><%= subtype %>'s</h3>
 
-  <% grouped[key].forEach(item => { %>
-  <ul class="toggleLiVis" style="list-style-type:none;">
-    <li><b>Click to read <%= item.item_name %></b></li>
+	<% grouped[key].forEach(item => { %>
+	<ul class="toggleLiVis" style="list-style-type:none;">
+		<li><b>Click to read <%= item.item_name %></b></li>
 
-    <li style="display:none;">
-      <b><i><%= item.item_name %></i></b>
-    </li>
+		<li style="display:none;">
+			<b><i><%= item.item_name %></i></b>
+		</li>
 
-    <% if (item.mainImage) { %>
-    <li style="display:none;">
-      <picture>
-        <source srcset="<%= item.mainImage.image_url %>" type="image/webp">
-        <img class="pointer <%= item.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/placeholder-note.jpg"
-          alt="<%= item.mainImage.alt || item.item_name %>">
-      </picture>
-    </li>
-    <% } %>
+		<% if (item.mainImage) { %>
+		<li style="display:none;">
+			<picture>
+				<source srcset="<%= item.mainImage.image_url %>" type="image/webp">
+				<img class="pointer <%= item.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/placeholder-note.jpg"
+					alt="<%= item.mainImage.alt || item.item_name %>">
+			</picture>
+		</li>
+		<% } %>
 
-    <%
+		<%
       const body = (item.description || '') + '\n' + (item.ability || '');
       const safeBody = JSON.stringify(body).replace(/"/g, '&quot;');
     %>
 
-    <li class="item-body" style="display:none;" data-body="<%- safeBody %>"> </li>
+		<li class="item-body" style="display:none;" data-body="<%- safeBody %>"> </li>
 
-    <li style="display:none;">
-      <i>~ Click to put <%= item.item_name %> away...</i>
-    </li>
+		<li style="display:none;">
+			<i>~ Click to put <%= item.item_name %> away...</i>
+		</li>
 
-    <li class="clearfix" style="display:none;"></li>
-  </ul>
-  <% }); %>
+		<li class="clearfix" style="display:none;"></li>
+	</ul>
+	<% }); %>
 </section>
 <% }); %>
+<% } %>
