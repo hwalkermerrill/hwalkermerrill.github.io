@@ -190,3 +190,77 @@ ON CONFLICT DO NOTHING;
 -- ============================================
 -- END WRATH LOCATION SPOTLIGHT SEED
 -- ============================================
+
+-- ============================================
+-- BEGIN WRATH ARTIFACT SEED: Terendelev's Scales
+-- ============================================
+
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE id = 18
+)
+INSERT INTO items (
+  campaign_id,
+  active_status_id,
+  item_type,
+  item_subtype,
+  sort_order,
+  is_identified,
+  item_name,
+  description,
+  ability,
+  unlocked_boons,
+  destruction_method,
+  boons_visible,
+  unique_destruction
+)
+VALUES
+  ((SELECT campaign_id FROM c_id),
+    1,
+    'artifact',
+    'item',
+    NULL,
+    TRUE,
+    'Terendelev''s Scales',
+    'These palm-sized silver dragon scales are minor artifacts resulting from Terendelev''s death to the Storm King''s blade.',
+    'Each of Terendelev''s scales weighs 2lbs and grants a different power to the person who carries them. The powers granted do not function at all if more than one scale is carried. The powers of the scales are immediately understood by any nonevil creature that handles them, though they may only be used by a creature who has been marked by Terendelev. Each scale may be activated 3/day as a standard action to cast a spell-like ability of Terendelev at CL19. If the scale duplicates a spell that can be cast on others, it may be used on others normally. These scales return to the possession of the creature who was originally marked and received it from Terendelev after 20 minutes of being lost or given away.',
+    'The seven scales received grant the powers of Cloudwalking, Disguise, Fog Vision, Grace, Icy Breath, Resistance, and Sacred Weaponry.',
+    'The Storm King Khorramzadeh can destroy each of Terendelev''s scales merely by eating it, and the scales lose their power while the creature who was originally marked and received it from Terendelev is evil or no longer alive.',
+    FALSE,
+    TRUE
+  )
+ON CONFLICT (campaign_id, item_name) DO NOTHING;
+
+-- ============================================
+-- BEGIN WRATH ARTIFACT GALLERY SEED
+-- ============================================
+
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE id = 18
+),
+i_id AS (
+  SELECT id AS item_id, item_name
+  FROM items
+  WHERE campaign_id = (SELECT campaign_id FROM c_id)
+)
+INSERT INTO item_gallery (
+  item_id,
+  image_url,
+  alt,
+  is_main
+)
+VALUES
+  ((SELECT item_id FROM i_id
+      WHERE item_name = 'Terendelev''s Scales'),
+    '/images/objects/artifact-terendelevs-scales.webp',
+    'Terendelev''s Scales',
+    TRUE
+  )
+ON CONFLICT DO NOTHING;
+
+-- ============================================
+-- END WRATH ARTIFACT SEED
+-- ============================================
