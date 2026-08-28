@@ -9,7 +9,7 @@ const castGroups = [
 	{
 		label: "Ruben Escobar",
 		entries: [
-			{ label: "Palamedes (Lv 1 → ?)" }
+			{ label: "Stark (Lv 1 → ?)" }
 		]
 	},
 	{
