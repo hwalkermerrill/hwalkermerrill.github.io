@@ -5,6 +5,7 @@
 	box-shadow: var(--shadow-md);
 	border-radius: var(--radius-md);
 	overflow: hidden;
+	position: relative;
 
 	figure,
 	picture,
@@ -25,18 +26,23 @@
 
 	.actioncall {
 		position: absolute;
-		top: var(--spacing-lg);
-		left: var(--spacing-lg);
-		background: var(--color-text);
+		top: var(--spacing-md);
+		left: var(--spacing-md);
+		background: var(--color-surface-translucent);
 		border: 1px solid var(--color-border);
 		padding: var(--spacing-xs);
 		box-shadow: 0 0 30px var(--color-primary);
 
-		h3 {
+		h3,
+		h6 {
 			margin: var(--spacing-sm);
+			text-shadow: var(--shadow-neon);
 		}
 		p {
-			margin: var(--spacing-xs);
+			padding: var(--spacing-xs);
+			font-family: var(--font-family-head);
+			font-size: var(--font-size-caption);
+			text-shadow: var(--shadow-neon);
 		}
 		button {
 			border: none;

@@ -2,70 +2,55 @@
 
 <!-- CONTENT HERE -->
 <main class="clearfix" id="maincontent">
-  <h1>Discoveries</h1>
-  <!-- Import Herodiv and set pc's as the staring characters in model -->
-  <%- include("./_heroImg") %>
+	<h1>Cast of Characters</h1>
+	<%- include("./_heroImg") %>
 
-  <blockquote><strong>
-      &nbsp;“'Oops.' That's the last word I want to hear inside one of these deathtraps. 'Oops' implies that
-      something has just gone horribly, probably lethally, wrong. There are a thousand different ways to die in any
-      one of these gods-forsaken pits, and when it comes to risking our necks for a grab at some of the most fantastic
-      treasures these jungles have to hide, I'm telling you now, there ain't no room on my expedition for 'oops.' And
-      you can all bet your shares on one thing: If your 'oops' doesn't kill you, I sure as <b>Hell</b> will.”
-    </strong></blockquote>
-  <cite>&emsp; — Pathfinder Venture-Captain Imrin Vanks</cite>
+	<!-- Search Bar and Character Tabs -->
+	<%- include("./_tabs") %>
 
-  <!-- RETURN TO TOP BUTTON -->
-  <button onclick="topFunction()" id="returnTopBtn" title="Go to top">Return to Top</button>
-  <!-- RETURN TO TOP BUTTON -->
-  <div class="clearfix"></div>
+	<!-- Include Partials Order: spotlight, pc, companion, npc, unidentified, faction -->
+	<div class="character-section" data-section="spotlight">
+		<%- include("./characterTypes/_spotlight") %>
+	</div>
+	<div class="character-section" data-section="pc">
+		<%- include("./characterTypes/_pc") %>
+	</div>
+	<div class="character-section" data-section="companion">
+		<%- include("./characterTypes/_companion") %>
+	</div>
+	<div class="character-section" data-section="npc">
+		<%- include("./characterTypes/_npc") %>
+	</div>
+	<div class="character-section" data-section="unidentified">
+		<%- include("./characterTypes/_unidentified") %>
+	</div>
+	<div class="character-section" data-section="faction">
+		<%- include("./characterTypes/_faction") %>
+	</div>
 
-  <!-- Search Bar and Character Tabs -->
-  <%- include("./_tabs") %>
+	<!-- Characters Past Importance -->
+	<div class="character-section" data-section="retired">
+		<%- include("./inactive/_retired") %>
+	</div>
+	<div class="character-section" data-section="dead">
+		<%- include("./inactive/_dead") %>
+	</div>
 
-  <!-- Include Partials Order: spotlight, pc, companion, npc, unidentified, faction -->
-  <div class="character-section" data-section="spotlight">
-    <%- include("./characterTypes/_spotlight") %>
-  </div>
-  <div class="character-section" data-section="pc">
-    <%- include("./characterTypes/_pc") %>
-  </div>
-  <div class="character-section" data-section="companion">
-    <%- include("./characterTypes/_companion") %>
-  </div>
-  <div class="character-section" data-section="npc">
-    <%- include("./characterTypes/_npc") %>
-  </div>
-  <div class="character-section" data-section="unidentified">
-    <%- include("./characterTypes/_unidentified") %>
-  </div>
-  <div class="character-section" data-section="faction">
-    <%- include("./characterTypes/_faction") %>
-  </div>
-
-  <!-- Characters Past Importance -->
-  <div class="character-section" data-section="retired">
-    <%- include("./inactive/_retired") %>
-  </div>
-  <div class="character-section" data-section="dead">
-    <%- include("./inactive/_dead") %>
-  </div>
-
-  <!-- GM Only Inclusions -->
-  <% if (hasRole(user, "gm_admin")) { %>
-  <div class="character-section" data-section="pending">
-    <%- include("./inactive/_pending") %>
-  </div>
-  <% } %>
+	<!-- GM Only Inclusions -->
+	<% if (hasRole(user, "gm_admin")) { %>
+	<div class="character-section" data-section="pending">
+		<%- include("./inactive/_pending") %>
+	</div>
+	<% } %>
 </main>
 
 <!-- SCRIPT HERE -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Always populate content before manipulating how it's displayed
-    clickLoad("section");
-    toggleLiVis(".toggleLiVis");
-  });
+	document.addEventListener("DOMContentLoaded", function () {
+		// Always populate content before manipulating how it's displayed
+		clickLoad("section");
+		toggleLiVis(".toggleLiVis");
+	});
 </script>
 
 <%- include("../../partials/footer") %>

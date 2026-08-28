@@ -41,11 +41,13 @@ const router = Router();
 
 // Router-level JS Middleware
 router.use("/", (req, res, next) => {
-	res.addScript("<script src=\"/js/actioncall/serpentsLog.js\"></script>");
+	if (req.path === "/") {
+		res.addScript("<script src=\"/js/actioncall/serpentsLog.js\"></script>");
+	}
 	next();
 });
 router.use("/characters", (req, res, next) => {
-	res.addScript("<script src=\"/js/actioncall/serpentsCast.js\"></script>");
+	res.addScript("<script src=\"/js/actioncall/wrathCast.js\"></script>");
 	res.addScript("<script src=\"/js/characterTabs.js\"></script>");
 	next();
 });

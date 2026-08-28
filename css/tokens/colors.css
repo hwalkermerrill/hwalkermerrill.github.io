@@ -118,6 +118,12 @@
 	--color-primary: var(--primary-600);
 	--color-bg: light-dark(var(--seed-bg), oklch(0.18 0.02 260));
 	--color-surface: light-dark(var(--seed-surface), oklch(0.22 0.03 260));
+	--color-surface-translucent: color-mix(
+		in oklch,
+		var(--color-surface) 70%,
+		transparent
+	);
+
 	--color-text: light-dark(var(--seed-text), oklch(0.88 0.02 260));
 	--color-text-muted: light-dark(var(--seed-text-muted), oklch(0.68 0.03 250));
 	--color-disabled: var(--color-text-muted);
@@ -129,13 +135,14 @@
 	--color-link-hover: light-dark(var(--seed-link-hover), var(--accent-700));
 	--color-link-pdf: var(--seed-adobe);
 	--color-link-pdf-hover: var(--seed-adobe-hover);
+
 	--color-border: light-dark(var(--seed-border), oklch(0.32 0.02 260));
+	--color-border-cool: var(--seed-metal-cool);
+	--color-border-warm: var(--seed-metal-warm);
 	--color-border-strong: light-dark(
 		var(--seed-border-strong),
 		oklch(0.38 0.02 260)
 	);
-	--color-border-cool: var(--seed-metal-cool);
-	--color-border-warm: var(--seed-metal-warm);
 
 	/* ---- Header chrome ---- */
 	--header-bg: var(--color-accent);
@@ -177,8 +184,7 @@
 	);
 
 	/* NPC Attitude Colors */
-	/* Helpful: teal (accent) */
-	--color-helpful: oklch(0.78 0.14 210);
+	--color-helpful: oklch(0.78 0.14 210); /* Helpful: teal (accent) */
 	--color-friendly: oklch(0.45 0.12 162);
 	--color-unfriendly: oklch(0.55 0.2 68);
 	--color-hostile: oklch(0.48 0.2 320);

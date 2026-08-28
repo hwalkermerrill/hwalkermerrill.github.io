@@ -1,49 +1,53 @@
-// public/js/homeActionCall.js
-
 // Data for THIS page's action call only
 const castGroups = [
 	{
+		label: "Benjamin Bricker",
+		entries: [
+			{ label: "Palamedes (Lv 1 → ?)" }
+		]
+	},
+	{
+		label: "Ruben Escobar",
+		entries: [
+			{ label: "Palamedes (Lv 1 → ?)" }
+		]
+	},
+	{
 		label: "Benjamin Hebert",
 		entries: [
-			{ label: "Ezekiel Thorne (Lv 1 → 2)" },
-			{ label: "Johnathan 'The Lion Slayer' Kieran (Lv 1 → 2)" },
-			{ label: "Antonio (Lv 1 → 2)" },
-			{ label: "Ant0n10 - The Clockwork Servant (Lv 1 → 2)" }
-		]
-	},
-	{
-		label: "Daniel Hutchinson",
-		entries: [
-			{ label: "Ivy Whitebriar (Lv 1 → 2)" }
-		]
-	},
-	{
-		label: "Emma Hutchinson",
-		entries: [
-			{ label: "Astra (Lv 1 → 2)" },
-			{ label: "Alhemija (Lv 1 → 2)" },
-			{ label: "Bellah (Lv 1 → 2)" }
+			{ label: "Ravamir Briarstride (Lv 1 → ?)" }
 		]
 	},
 	{
 		label: "Mike Hutchinson",
 		entries: [
-			{ label: "Loric Tidewalker (Lv 1 → 2)" }
+			{ label: "Dorian Kalder (Lv 1 → ?)" }
 		]
 	},
 	{
-		label: "Alice Merrill",
+		label: "Nickolas Iglesias",
 		entries: [
-			{ label: "Dakota Ravenwood (Lv 1 → 2)" }
+			{ label: "Bukka (Lv 1 → ?)" }
 		]
 	},
 	{
 		label: "Nick Inglss",
 		entries: [
-			{ label: "Avarice de tu Sinclaire (Lv 1 → 2)" },
-			{ label: "Mortimer (Lv 1 → 2)" }
+			{ label: "Syre Forvirre (Lv 1 → ?)" }
+		]
+	},
+	{
+		label: "Alice Merrill",
+		entries: [
+			{ label: "Serenity Dragomir (Lv 1 → ?)" }
 		]
 	}
+	// {
+	// 	label: "Harrison Merrill",
+	// 	entries: [
+	// 		{ label: "Game Master" }
+	// 	]
+	// }
 ];
 
 function renderCastActionCall(groups) {
@@ -57,9 +61,9 @@ function renderCastActionCall(groups) {
 
 		html += `
       <div class="collapse-toggle" data-index="${index}">
-        <h4 class="pointer">
-          ${group.label} — <span class="ac-total">${count} character${count !== 1 ? "s" : ""}</span>
-        </h4>
+        <h6 class="pointer">
+          ${group.label} — <span class="ac-total">${count} pc${count !== 1 ? "s" : ""}</span>
+        </h6>
 
         <div class="collapse-toggle-content">
           ${group.entries

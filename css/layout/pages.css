@@ -1,32 +1,39 @@
 /*----- CHARACTERS -----*/
 /* Attitude Colors*/
 main .helpful {
-	background-color: var(--npc-helpful);
+	background-color: var(--color-helpful);
+	border-color: var(--color-accent);
 }
 main .friendly {
-	background-color: var(--color-primary);
+	background-color: var(--color-friendly);
 	border-color: var(--color-accent);
-	color: var(--text-light);
-}
-main .friendly h3 {
-	color: var(--text-light);
-	text-shadow: var(--text-shadow-secondary);
 }
 main .unfriendly {
-	background-color: var(--color-accent);
+	background-color: var(--color-unfriendly);
+	border-color: var(--color-primary);
 }
 main .hostile {
-	background-color: #000;
-	color: var(--text-light);
+	background-color: var(--color-hostile);
+	border-color: var(--color-primary);
 }
 main .locked {
-	background-color: #aaa;
+	background-color: var(--color-locked);
 }
-main .helpful h3,
+main .locked,
+main .indifferent,
+main .asset {
+	border-color: var(--color-accent);
+}
+
+/* main .helpful h3,
 main .unfriendly h3,
 main .hostile h3 {
 	color: var(--text-light);
 	text-shadow: var(--text-shadow-primary);
+} */
+:is(.helpful, .friendly, .indifferent, .unfriendly, .hostile, .locked, .asset)
+	h3 {
+	text-shadow: var(--shadow-md);
 }
 
 /* Character-tabs*/
