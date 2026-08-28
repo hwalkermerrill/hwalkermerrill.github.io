@@ -4,9 +4,7 @@
 .gallery {
 	display: flex;
 	flex-wrap: wrap;
-
-	section,
-	figure {
+	section {
 		margin: 1rem 2%;
 		flex-basis: 96%;
 		border: 12px solid transparent;
@@ -23,9 +21,16 @@
 			object-fit: contain;
 		}
 		&:hover {
-			box-shadow: 0 0 12px #555;
+			box-shadow: var(--shadow-lg);
 			transform: scale(1.05);
 			cursor: pointer;
+		}
+	}
+	figure {
+		img {
+			max-height: 100%;
+			max-width: 100%;
+			object-fit: contain;
 		}
 	}
 }
