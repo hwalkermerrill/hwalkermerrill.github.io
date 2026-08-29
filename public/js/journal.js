@@ -1,20 +1,4 @@
-function initJournalTabs() { //es-lint-disable-line no-unused-vars
-	const buttons = document.querySelectorAll(".journal-tab-button");
-	const tabs = document.querySelectorAll(".journal-tab");
-
-	buttons.forEach(btn => {
-		btn.addEventListener("click", () => {
-			const targetId = btn.dataset.tab;
-
-			buttons.forEach(b => b.classList.remove("active"));
-			tabs.forEach(t => t.classList.remove("active"));
-
-			btn.classList.add("active");
-			document.getElementById(targetId).classList.add("active");
-		});
-	});
-}
-
+// Recap Switcher
 function initSessionRecapSwitcher() {
 	const items = document.querySelectorAll(".session-log-list-item");
 	const recapContainer = document.getElementById("session-recap-content");
@@ -80,7 +64,51 @@ function initSessionRecapSwitcher() {
 		});
 	});
 }
-document.addEventListener("DOMContentLoaded", function () {
+
+// Journal Tabs
+function initJournalTabs() {
+	const tabs = document.querySelectorAll(".journal-tabs a");
+	const sections = document.querySelectorAll(".journal-tab");
+	const searchInput = document.getElementById("journalSearch");
+
+	if (!tabs.length || !sections.length) return;
+
+	// Tab switching
+	tabs.forEach(tab => {
+		tab.addEventListener("click", (e) => {
+			e.preventDefault();
+
+			const target = tab.dataset.tab;
+
+			// Update active tab
+			tabs.forEach(t => t.parentElement.classList.remove("active"));
+			tab.parentElement.classList.add("active");
+
+			// Show correct section
+			sections.forEach(section => {
+				section.classList.toggle("active", section.id === target);
+			});
+		});
+	});
+
+	// Search filtering
+	if (searchInput) {
+		searchInput.addEventListener("input", () => {
+			const query = searchInput.value.toLowerCase();
+
+			document.querySelectorAll(
+				".note-entry, .session-entry, .lore-entry"
+			).forEach(entry => {
+				const text = entry.dataset.search?.toLowerCase() || "";
+				entry.style.display = text.includes(query) ? "" : "none";
+			});
+		});
+	}
+}
+
+// Dom Content Loaded
+document.addEventListener("DOMContentLoaded", () => {
+	// Item body parsing
 	document.querySelectorAll(".item-body").forEach(li => {
 		const raw = li.dataset.body;
 		if (!raw) return;

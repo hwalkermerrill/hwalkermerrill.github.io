@@ -1,0 +1,57 @@
+<section id="player-notes">
+	<h2>Your Notes</h2>
+
+	<div class="notes-actions">
+		<a href="/journal/notes/new" class="btn btn-primary">Take Notes</a>
+	</div>
+
+	<% if (!notes || notes.length === 0) { %>
+	<p>You haven't written any notes yet.</p>
+	<% } else { %>
+
+	<!-- // Group notes by category -->
+	<%	const grouped = {};
+      notes.forEach(n => {
+        if (!grouped[n.category_name]) grouped[n.category_name] = [];
+        grouped[n.category_name].push(n);
+	}); %>
+
+	<% Object.keys(grouped).forEach(category => { %>
+	<% const list = grouped[category]; %>
+	<% if (list.length > 0) { %>
+
+	<div class="note-category-group">
+		<h2><%= category %></h2>
+
+		<div class="note-category-cards">
+			<% list.forEach(note => { %>
+			<div class="note-card"
+				data-search="<%= note.note_title %> <%= note.note_content %> <%= note.category_name %> <%= note.pc_id || '' %>">
+
+				<!-- Title -->
+				<h3><%= note.note_title %></h3>
+
+				<!-- Content -->
+				<p class="note-content"><%- note.note_content %></p>
+
+				<!-- Actions and Metadata -->
+				<div class="note-card-footer">
+					<div class="note-meta">
+						<% const identity = note.pc_name || note.username; %>
+						<span class="note-badge identity"><%= identity %></span>
+					</div>
+					<a href="/journal/notes/<%= note.id %>/edit" class="btn btn-small">Edit</a>
+					<form action="/journal/notes/<%= note.id %>/delete" method="POST" class="inline-form">
+						<button type="submit" class="btn btn-small" data-variant="danger">Delete</button>
+					</form>
+				</div>
+
+			</div>
+			<% }) %>
+		</div>
+	</div>
+
+	<% } %>
+	<% }) %>
+	<% } %>
+</section>

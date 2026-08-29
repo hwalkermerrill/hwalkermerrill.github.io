@@ -76,21 +76,6 @@ async function getSessionLogContent(logId) {
 	return { paragraphs, gallery, mainImage };
 }
 
-async function getNotesForUserCampaign(userId, campaignId) {
-	if (!userId || !campaignId) return [];
-	const { rows } = await db.query(
-		`
-    SELECT *
-    FROM campaign_notes
-    WHERE user_id = $1
-      AND campaign_id = $2
-    ORDER BY created_at DESC
-    `,
-		[userId, campaignId]
-	);
-	return rows;
-}
-
 async function getItemsForCampaign(campaignId) {
 	const { rows } = await db.query(`
     SELECT *
@@ -114,4 +99,12 @@ async function getItemGalleryForItems(itemIds) {
 	return rows;
 }
 
-export { getSessionLogsForCampaign, getLatestSessionSummary, getParagraphsForLogs, getGalleryForLogs, getSessionLogContent, getNotesForUserCampaign, getItemsForCampaign, getItemGalleryForItems };
+export {
+	getSessionLogsForCampaign,
+	getLatestSessionSummary,
+	getParagraphsForLogs,
+	getGalleryForLogs,
+	getSessionLogContent,
+	getItemsForCampaign,
+	getItemGalleryForItems
+};

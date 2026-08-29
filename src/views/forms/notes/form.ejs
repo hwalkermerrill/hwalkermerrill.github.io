@@ -1,0 +1,136 @@
+<%- include("../../partials/header") %>
+
+<main id="maincontent" class="clearfix">
+	<h1><%= formMode === "edit" ? "Edit Note" : "Create Note" %></h1>
+
+	<form action="<%= formMode === 'edit'
+      ? '/journal/notes/' + note.id + '/edit'
+      : '/journal/notes/new' %>" method="POST" class="note-form">
+
+		<!-- Campaign / PC / Category -->
+		<div class="form-row">
+
+			<!-- Campaign -->
+			<div class="form-field">
+				<label for="campaign_id">Campaign</label>
+				<select id="campaign_id" name="campaign_id" required>
+					<% campaigns.forEach(c => { %>
+					<option value="<%= c.id %>"
+						<%= (note && note.campaign_id === c.id) || (!note && c.id === campaign_id) ? "selected" : "" %>>
+						<%= c.campaign_name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<!-- PC -->
+			<div class="form-field">
+				<label for="pc_id">Character</label>
+				<select id="pc_id" name="pc_id">
+					<option value="">No character</option>
+					<% pcs.forEach(pc => { %>
+					<option value="<%= pc.id %>" <%= note && note.pc_id === pc.id ? "selected" : "" %>>
+						<%= pc.pc_name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<!-- Category -->
+			<div class="form-field">
+				<label for="category_id">Category</label>
+				<select id="category_id" name="category_id" required>
+					<% categories.forEach(cat => { %>
+					<option value="<%= cat.id %>" <%= note && note.category_id === cat.id ? "selected" : "" %>>
+						<%= cat.category_name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+
+		<!-- Title -->
+		<div class="form-field">
+			<label for="note_title">Title</label>
+			<input type="text" id="note_title" name="note_title" maxlength="255" value="<%= note ? note.note_title : '' %>"
+				placeholder="Enter a title..." required>
+		</div>
+
+		<!-- Content -->
+		<div class="form-field">
+			<label for="note_content">Content</label>
+			<textarea id="note_content" name="note_content" placeholder="Write your note here..."
+				required><%= note ? note.note_content.replace(/<br>/g, "\n") : '' %></textarea>
+		</div>
+
+		<!-- Formatting Buttons -->
+		<div class="form-formatting">
+			<button type="button" class="btn fmt-btn" data-tag="i"><i>Italic</i></button>
+			<button type="button" class="btn fmt-btn" data-tag="b"><b>Bold</b></button>
+			<button type="button" class="btn fmt-btn" data-tag="br">New Line</button>
+		</div>
+
+		<!-- Visibility -->
+		<div class="form-field">
+			<label for="is_public">Visibility</label>
+			<select id="is_public" name="is_public">
+				<option value="false" <%= note && !note.is_public ? "selected" : "" %>> Personal </option>
+				<option value="true" <%= note && note.is_public ? "selected" : "" %>> Party </option>
+			</select>
+		</div>
+
+		<!-- Submit -->
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">
+				<%= formMode === "edit" ? "Save Changes" : "Create Note" %>
+			</button>
+
+			<a href="/journal#journal-tab-player-notes" class="btn fmt-btn"> Cancel </a>
+		</div>
+
+	</form>
+</main>
+
+<script>
+	// Formatting buttons
+	document.querySelectorAll(".fmt-btn").forEach(btn => {
+		btn.addEventListener("click", () => {
+			const tag = btn.dataset.tag;
+			const textarea = document.getElementById("note_content");
+
+			if (!textarea) return;
+
+			if (tag === "br") {
+				// Insert <br> at cursor
+				const start = textarea.selectionStart;
+				const end = textarea.selectionEnd;
+				const value = textarea.value;
+
+				textarea.value =
+					value.substring(0, start) +
+					"<br>" +
+					value.substring(end);
+
+				textarea.selectionStart = textarea.selectionEnd = start + 4;
+				return;
+			}
+
+			// Wrap selected text in <i> or <b>
+			const start = textarea.selectionStart;
+			const end = textarea.selectionEnd;
+			const selected = textarea.value.substring(start, end);
+
+			const wrapped = `<${tag}>${selected}</${tag}>`;
+
+			textarea.value =
+				textarea.value.substring(0, start) +
+				wrapped +
+				textarea.value.substring(end);
+
+			textarea.selectionStart = start;
+			textarea.selectionEnd = start + wrapped.length;
+		});
+	});
+</script>
+
+<%- include("../../partials/footer") %>

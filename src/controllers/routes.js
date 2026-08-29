@@ -9,6 +9,7 @@ import { mapPage, setMainMap } from "./pages/maps.js";
 import { assetsPage } from "./pages/assets.js";
 import { charactersPage } from "./pages/characters.js";
 import { processLogin, processLogout, showLoginForm, showDashboard } from "./forms/login.js";
+import { showCreateNoteForm, submitNewNote, showEditNoteForm, submitNoteEdit, deleteNote } from "./forms/notes.js";
 // import { showContactForm, handleContactSubmission, showContactResponses } from "./forms/contact.js";
 import { showRegistrationForm, processRegistration, showAllUsers, showEditAccountForm, processEditAccount, processDeleteAccount } from "./forms/registration.js";
 import { showResetForm, requestReset, handleReset } from "./forms/passwordReset.js";
@@ -24,14 +25,6 @@ const router = Router();
 // });
 // router.use("/register", (req, res, next) => {
 // 	res.addStyle("<link rel=\"stylesheet\" href=\"/css/registration.css\">");
-// 	next();
-// });
-// router.use("/catalog", (req, res, next) => {
-// 	res.addStyle("<link rel=\"stylesheet\" href=\"/css/catalog.css\">");
-// 	next();
-// });
-// router.use("/faculty", (req, res, next) => {
-// 	res.addStyle("<link rel=\"stylesheet\" href=\"/css/faculty.css\">");
 // 	next();
 // });
 // router.use("/contact", (req, res, next) => {
@@ -77,6 +70,8 @@ router.get("/register", showRegistrationForm);
 // router.get("/contact/responses", requireLogin, showContactResponses);
 router.get("/creation", requireLogin, creationPage);
 router.get("/dashboard", requireLogin, showDashboard);
+router.get("/journal/notes/new", requireLogin, showCreateNoteForm);
+router.get("/journal/notes/:id/edit", requireLogin, showEditNoteForm);
 router.get("/register/account", requireLogin, showAllUsers);
 router.get("/register/:id/edit", requireLogin, showEditAccountForm);
 router.get("/register/password-resets", requireLogin, listRequests);
@@ -99,6 +94,9 @@ router.post("/register/reset-password", resetPasswordValidation, handleReset);
 // Routes.post that requireLogin
 router.post("/register/:id/edit", requireLogin, updateAccountValidation, processEditAccount);
 router.post("/logout", requireLogin, processLogout);
+router.post("/journal/notes/new", requireLogin, submitNewNote);
+router.post("/journal/notes/:id/edit", requireLogin, submitNoteEdit);
+router.post("/journal/notes/:id/delete", requireLogin, deleteNote);
 
 // Routes.post that requirePermissions
 router.post("/register/:id/delete", requireLogin, requirePermission("delete_users"), processDeleteAccount);

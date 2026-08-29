@@ -1,8 +1,16 @@
-<div class="journal-tabs">
-  <button data-tab="journal-tab-session" class="journal-tab-button active">Session Logs</button>
-  <button data-tab="journal-tab-documents" class="journal-tab-button">Recovered Documents</button>
+<nav class="journal-tabs">
+	<ul>
+		<li class="active"><a href="#" data-tab="journal-tab-session">Session Logs</a></li>
+		<li><a href="#" data-tab="journal-tab-documents">Documents</a></li>
+		<li><a href="#" data-tab="journal-tab-party-notes">Party Notes</a></li>
 
-  <% if (isLoggedIn) { %>
-  <button data-tab="journal-tab-notes" class="journal-tab-button">Notes</button>
-  <% } %>
-</div>
+		<% if (isLoggedIn) { %>
+		<li><a href="#" data-tab="journal-tab-player-notes">Player Notes</a></li>
+		<% } %>
+	</ul>
+
+	<!-- Search Bar -->
+	<div class="journal-search">
+		<input id="journalSearch" type="text" placeholder="Search journal...">
+	</div>
+</nav>

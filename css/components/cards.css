@@ -29,7 +29,8 @@
 	gap: clamp(var(--spacing-sm), 2vw, var(--spacing-lg));
 }
 
-.card {
+.card,
+.note-card {
 	background-color: var(--header-text);
 	border-radius: var(--radius-md);
 	padding: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
@@ -104,6 +105,7 @@
 		}
 	}
 }
+
 .card--disabled {
 	filter: grayscale(0.8) opacity(0.6);
 	pointer-events: none;
@@ -112,6 +114,11 @@
 	filter: blur(8px) brightness(1.2);
 	/* backdrop-filter: blur(12px) saturate(1.4); */
 	pointer-events: none;
+}
+
+/* Overrides */
+.note-card h3 {
+	font-family: var(--font-family-head);
 }
 
 /* @Media Blocks */

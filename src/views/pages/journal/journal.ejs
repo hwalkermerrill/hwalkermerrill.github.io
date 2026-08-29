@@ -13,6 +13,7 @@
 	<!-- Tabbed UI -->
 	<%- include("./_tabs") %>
 
+	<!-- Tabbed Section Content -->
 	<section id="journal-tab-session" class="journal-tab active">
 		<%- include("./_sessionRecap", { latestLog }) %>
 		<%- include("./_sessionList", { logsByBook }) %>
@@ -22,9 +23,14 @@
 		<%- include("./_foundLore", { items }) %>
 	</section>
 
+	<section id="journal-tab-party-notes" class="journal-tab">
+		<%- include("./_partyNotes", { publicNotes }) %>
+	</section>
+
+	<!-- Logged-in OnlyTabs -->
 	<% if (isLoggedIn) { %>
-	<section id="journal-tab-notes" class="journal-tab">
-		<%- include("./_notes", { notes }) %>
+	<section id="journal-tab-player-notes" class="journal-tab">
+		<%- include("./_userNotes", { notes: userNotes }) %>
 	</section>
 	<% } %>
 </main>

@@ -37,44 +37,6 @@ main .hostile h3 {
 	text-shadow: var(--shadow-md);
 }
 
-/* Character-tabs*/
-.character-tabs {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 0.5rem;
-	padding: 0.5rem 1rem;
-	background: var(--page-background, transparent);
-	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-}
-
-.character-tabs ul {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.25rem;
-	padding: 0;
-	margin: 0;
-	list-style: none;
-}
-
-.character-tabs li a {
-	display: block;
-	padding: 0.4rem 0.75rem;
-	text-decoration: none;
-	color: var(--color-primary);
-	border-radius: 4px 4px 0 0;
-	border-bottom: 2px solid transparent;
-	transition: 0.2s ease;
-	&hover {
-		background: var(--color-accent);
-	}
-}
-
-.character-tabs li.active a {
-	font-weight: bold;
-	border-bottom-color: var(--color-primary);
-}
-
 /* Figure Aspect Ratio */
 figure.two-three {
 	/* This .two-three class forces the img inside to be at 2:3 aspect ratio */
@@ -100,22 +62,61 @@ figure.two-three img {
 	object-fit: cover; /* Ensure image scales correctly */
 }
 
+/* ----- Character + Journal Tab UI ----- */
+/* Character-tabs & Journal-tabs*/
+.character-tabs,
+.journal-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
+	background: var(--page-background, transparent);
+	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-xs);
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	li a {
+		display: block;
+		font-family: var(--font-family-head);
+		padding: var(--spacing-xs);
+		text-decoration: none;
+		color: var(--color-primary);
+		border-radius: var(--radius-md);
+		border-bottom: 2px solid transparent;
+		transition: 0.2s ease;
+		&:hover {
+			background: var(--color-accent);
+		}
+	}
+	li.active a {
+		font-weight: bold;
+		border-bottom-color: var(--color-primary);
+	}
+}
+
 /* Search Bar*/
-.character-search {
+.character-search,
+.journal-search {
 	flex: 1 1 250px; /* <-- expands to fill space */
 	display: flex;
 	justify-content: flex-end;
-}
-.character-search input {
-	width: 100%;
-	max-width: 600px; /* <-- expands nicely on wide screens */
-	padding: 0.45rem 0.6rem;
-	font-size: 1rem;
-	border: 1px solid rgba(0, 0, 0, 0.3);
-	border-radius: 4px;
+	input {
+		width: 100%;
+		max-width: 600px;
+		padding: 0.45rem 0.6rem;
+		font-size: 1rem;
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		border-radius: 4px;
+	}
 }
 
-/*-----JOURNAL-----  */
+/* ----- JOURNAL -----  */
 /*Journal Tabs  */
 .journal-tab {
 	display: none;

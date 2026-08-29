@@ -44,11 +44,11 @@
 }
 
 button[data-variant="danger"] {
-	margin-left: var(--spacing-md);
+	/* margin-left: var(--spacing-md); */
 	padding: var(--spacing-sm) var(--spacing-md);
 	background: var(--seed-adobe);
 	color: var(--seed-surface);
-	border: var(--color-vis) 6px dashed;
+	border: var(--color-border-warm) 6px dashed;
 	box-shadow: var(--shadow-md);
 
 	cursor:
@@ -60,6 +60,14 @@ button[data-variant="danger"] {
 		transition: transform 0.15s ease-out;
 		animation: danger-shake 0.4s ease-in-out;
 	}
+}
+
+.fmt-btn {
+	font-size: var(--font-size-caption);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
 }
 
 #returnTopBtn {
@@ -86,6 +94,12 @@ button[data-variant="danger"] {
 	}
 }
 
+/* Overrides */
+.note-card-footer .btn {
+	line-height: 1.2;
+	border: none;
+	padding: var(--spacing-sm) var(--spacing-md);
+}
 @media (prefers-reduced-motion: reduce) {
 	.btn {
 		transition: none;

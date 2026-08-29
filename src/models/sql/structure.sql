@@ -44,22 +44,6 @@ CREATE TABLE IF NOT EXISTS campaigns (
   archived BOOLEAN NOT NULL DEFAULT FALSE
 );
 
--- General notes for players and GMs, one-to-many as each note is separate but each user may have multiple notes.
-CREATE TABLE IF NOT EXISTS campaign_notes (
-  id SERIAL PRIMARY KEY,
-  user_id INTEGER NOT NULL
-    REFERENCES users (id)
-    ON DELETE CASCADE,
-  campaign_id INTEGER
-    REFERENCES campaigns (id)
-    ON DELETE SET NULL,
-  note_title VARCHAR(255) NOT NULL,
-  note_content TEXT NOT NULL,
-  pinned BOOLEAN NOT NULL DEFAULT FALSE,
-  UNIQUE (user_id, campaign_id, note_title),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
 -- General table for tracking active and past quests, one-to-many as each quest is separate but campaigns may have multiple quests.
 CREATE TABLE IF NOT EXISTS quests (
   id SERIAL PRIMARY KEY,
@@ -1089,10 +1073,6 @@ END $$;
 CREATE INDEX IF NOT EXISTS idx_users_role_id ON users (role_id);
 CREATE UNIQUE INDEX IF NOT EXISTS idx_one_open_reset_per_user ON password_reset_requests (user_id) WHERE status IN ('submitted', 'approved');
 
--- INDEXES FOR CAMPAIGN NOTES
-CREATE INDEX IF NOT EXISTS idx_campaign_notes_user_id ON campaign_notes (user_id);
-CREATE INDEX IF NOT EXISTS idx_campaign_notes_campaign_id ON campaign_notes (campaign_id);
-
 -- INDEXES FOR PCs, NPCs, COMPANIONS, Factions, Etc.
 -- INDEXES FOR PC MAIN
 CREATE INDEX IF NOT EXISTS idx_pc_user_id ON pc_main (id);
@@ -1253,3 +1233,107 @@ CREATE INDEX IF NOT EXISTS idx_session_logs_book_session ON session_logs (book_n
 CREATE INDEX IF NOT EXISTS idx_session_log_paragraphs_log_id ON session_log_paragraphs (session_log_id);
 CREATE INDEX IF NOT EXISTS idx_session_log_paragraphs_user_id ON session_log_paragraphs (user_id);
 -- END INDEX BLOCK
+
+-- ============================================================
+-- START PLAYER NOTES TABLE BLOCK
+-- ============================================================
+
+-- Player Note Categories
+CREATE TABLE IF NOT EXISTS player_note_categories (
+  id INTEGER PRIMARY KEY,
+  category_name VARCHAR(50) NOT NULL UNIQUE
+);
+
+-- Seed Player Note Categories (idempotent)
+INSERT INTO player_note_categories (id, category_name)
+VALUES
+  (1, 'Important'),
+  (2, 'Inventory'),
+  (3, 'Journal'),
+  (4, 'Lore'),
+  (5, 'Personal'),
+  (6, 'Quest'),
+  (7, 'Social'),
+  (8, 'Other')
+ON CONFLICT (id) DO NOTHING;
+
+-- Player Notes Table
+CREATE TABLE IF NOT EXISTS player_notes (
+  id SERIAL PRIMARY KEY,
+
+  user_id INTEGER NOT NULL
+    REFERENCES users (id)
+    ON DELETE CASCADE
+		ON UPDATE CASCADE,
+
+  campaign_id INTEGER NOT NULL
+    REFERENCES campaigns (id)
+    ON DELETE CASCADE
+		ON UPDATE CASCADE,
+
+  pc_id INTEGER
+    REFERENCES pc_main (id)
+    ON DELETE SET NULL
+		ON UPDATE CASCADE,
+
+  category_id INTEGER NOT NULL
+    REFERENCES player_note_categories (id)
+    ON DELETE RESTRICT
+		ON UPDATE CASCADE,
+
+  note_title VARCHAR(255) NOT NULL DEFAULT 'Untitled Note',
+  note_content TEXT NOT NULL,
+  is_public BOOLEAN NOT NULL DEFAULT FALSE,
+
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+-- Auto-update updated_at on UPDATE
+CREATE OR REPLACE FUNCTION update_player_notes_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = NOW();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_update_player_notes_timestamp
+BEFORE UPDATE ON player_notes
+FOR EACH ROW
+EXECUTE FUNCTION update_player_notes_timestamp();
+
+-- ============================================================
+-- INDEXES FOR PLAYER NOTES
+-- ============================================================
+
+-- Fast lookup by user
+CREATE INDEX IF NOT EXISTS idx_player_notes_user_id
+  ON player_notes (user_id);
+
+-- Fast lookup by campaign
+CREATE INDEX IF NOT EXISTS idx_player_notes_campaign_id
+  ON player_notes (campaign_id);
+
+-- Fast lookup by category
+CREATE INDEX IF NOT EXISTS idx_player_notes_category_id
+  ON player_notes (category_id);
+
+-- Fast lookup by character
+CREATE INDEX IF NOT EXISTS idx_player_notes_pc_id
+  ON player_notes (pc_id);
+
+-- Fast sorting by creation/update time
+CREATE INDEX IF NOT EXISTS idx_player_notes_created_at
+  ON player_notes (created_at);
+
+CREATE INDEX IF NOT EXISTS idx_player_notes_updated_at
+  ON player_notes (updated_at);
+
+-- Fast filtering by visibility
+CREATE INDEX IF NOT EXISTS idx_player_notes_is_public
+  ON player_notes (is_public);
+
+-- ============================================================
+-- END PLAYER NOTES TABLE BLOCK
+-- ============================================================
