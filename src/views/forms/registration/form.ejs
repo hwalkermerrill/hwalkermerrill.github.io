@@ -8,41 +8,42 @@
 
 	<form method="POST" action="/register" class="registration-form">
 		<!-- DIV ORDER: Name, Invite Code, Username, Username Confirm, Password, Password Confirm, Submit button -->
-		<div class="form-group">
+		<div class="form-field">
 			<label for="name">Name</label>
 			<input type="text" id="name" name="name" minlength="2" placeholder="Enter your full name" required>
 		</div>
 
-		<div class="form-group">
+		<div class="form-field">
 			<label for="inviteCode">Invite Code</label>
 			<input type="text" id="inviteCode" name="inviteCode" required
 				placeholder="Enter the invitation code provided by the GM">
 		</div>
 
-		<div class="form-group">
+		<div class="form-field">
 			<label for="username">Username</label>
 			<input type="text" id="username" name="username" minlength="2" placeholder="Enter a username" required>
 		</div>
 
-		<div class="form-group">
+		<div class="form-field">
 			<label for="usernameConfirm">Confirm Username</label>
 			<input type="text" id="usernameConfirm" name="usernameConfirm" required>
 		</div>
 
-		<div class="form-group">
+		<div class="form-field">
 			<label for="password">Password</label>
 			<input type="password" id="password" name="password" minlength="8" required
 				pattern="(?=.*[0-9])(?=.*[!@#$%^&*]).*">
 			<div class="help-text">Must be at least 8 characters with a number and special character</div>
 		</div>
 
-		<div class="form-group">
+		<div class="form-field">
 			<label for="passwordConfirm">Confirm Password</label>
 			<input type="password" id="passwordConfirm" name="passwordConfirm" minlength="8" required
 				pattern="(?=.*[0-9])(?=.*[!@#$%^&*]).*">
 		</div>
 
-		<div class="form-group">
+		<br>
+		<div class="form-actions">
 			<button type="submit" class="btn">Create Account</button>
 		</div>
 	</form>

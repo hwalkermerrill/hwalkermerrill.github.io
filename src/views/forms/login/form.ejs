@@ -5,35 +5,42 @@
 
 	<form method="POST" action="/login" class="login-form">
 		<!-- User name field -->
-		<div class="form-group">
+		<div class="form-field">
 			<label for="username">User Name</label>
 			<input type="text" id="username" name="username" required placeholder="Enter your user name">
 		</div>
 
 		<!-- Password field -->
-		<div class="form-group">
+		<div class="form-field">
 			<label for="password">Password</label>
 			<input type="password" id="password" name="password" minlength="8" required placeholder="Enter your password">
 		</div>
 
-		<!-- Submit button -->
-		<div class="form-group">
+		<!-- Form buttons -->
+		<br>
+		<div class="form-actions">
 			<button class="btn" type="submit">Login</button>
+			<button type="button" class="btn" onclick="toggleResetRequest()">Forgot your password?</button>
 		</div>
 	</form>
 
-	<!-- Reset Password Request Button and Logic -->
-	<button type="button" class="btn" onclick="toggleResetRequest()">Forgot your password?</button>
-
 	<div id="reset-request" style="display:none;">
 		<form method="POST" action="/register/reset-password/request">
-			<label for="reset_full_name">Full Name</label>
-			<input type="text" name="full_name" id="reset_full_name" required>
 
-			<label for="reset_username">Username</label>
-			<input type="text" name="username" id="reset_username" required>
+			<div class="form-field">
+				<label for="reset_full_name">Full Name</label>
+				<input type="text" name="full_name" id="reset_full_name" required>
+			</div>
 
-			<button type="submit" class="btn">Request Password Reset</button>
+			<div class="form-field">
+				<label for="reset_username">Username</label>
+				<input type="text" name="username" id="reset_username" required>
+			</div>
+
+			<br>
+			<div class="form-actions">
+				<button type="submit" class="btn">Request Password Reset</button>
+			</div>
 		</form>
 	</div>
 	<br>
