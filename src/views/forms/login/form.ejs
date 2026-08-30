@@ -1,9 +1,7 @@
 <%- include("../../partials/header") %>
 <main>
 	<h1><%= title %></h1>
-	<p>
-		Enter your user name and password to access your account. Don't have an account? Contact the GM for an invitation.
-	</p>
+	<p> Enter your user name and password to access your account. </p>
 
 	<form method="POST" action="/login" class="login-form">
 		<!-- User name field -->
@@ -38,6 +36,8 @@
 			<button type="submit" class="btn">Request Password Reset</button>
 		</form>
 	</div>
+	<br>
+	<p> Don't have an account? Contact the GM for an invitation and <a href="/register">Register Here</a>.</p>
 
 </main>
 

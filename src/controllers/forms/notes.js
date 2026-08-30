@@ -56,6 +56,7 @@ async function showCreateNoteForm(req, res) {
 
 	res.render("forms/notes/form", {
 		title: "Take Notes",
+		activePage: "notes",
 		formMode: "create",
 		note: null,
 		campaign_id,
@@ -131,6 +132,7 @@ async function showEditNoteForm(req, res) {
 
 	res.render("forms/notes/form", {
 		title: "Take Notes",
+		activePage: "notes",
 		formMode: "edit",
 		note,
 		campaign_id,

@@ -128,8 +128,10 @@ Database data for tribes does not match hardcoded home data exactly. Minor corre
 Remove development objects from production.
 Increase top and bottom padding for form entry boxes, as well as internal margin and spacing between form boxes.
 Optimize performance of db queries
-Notes - Add pined note option for notes, add pc name instead of pc-id, add delete confirmation modal, stylize form buttons
+Add delete confirmation modal
 Add auto ellipses and card elements over the current asset flexbox method.
+Add request/confirmation system for moderator changes to be approved by gm_admin
+Fix form css for login, register, dashboard, ect.
 
 ## Roadmap Checklist (Version 3.0)
 

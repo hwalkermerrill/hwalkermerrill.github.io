@@ -9,9 +9,10 @@ import { mapPage, setMainMap } from "./pages/maps.js";
 import { assetsPage } from "./pages/assets.js";
 import { charactersPage } from "./pages/characters.js";
 import { processLogin, processLogout, showLoginForm, showDashboard } from "./forms/login.js";
-import { showCreateNoteForm, submitNewNote, showEditNoteForm, submitNoteEdit, deleteNote } from "./forms/notes.js";
-// import { showContactForm, handleContactSubmission, showContactResponses } from "./forms/contact.js";
 import { showRegistrationForm, processRegistration, showAllUsers, showEditAccountForm, processEditAccount, processDeleteAccount } from "./forms/registration.js";
+import { showCreateNoteForm, submitNewNote, showEditNoteForm, submitNoteEdit, deleteNote } from "./forms/notes.js";
+import { showLogSelectPage, showCreateLogForm, showEditLogForm, submitNewLog, submitLogEdit, deleteLogController, togglePin } from "./forms/logs.js";
+// import { showContactForm, handleContactSubmission, showContactResponses } from "./forms/contact.js";
 import { showResetForm, requestReset, handleReset } from "./forms/passwordReset.js";
 import { listRequests, approveRequest, denyRequest } from "./forms/passwordResetAdmin.js";
 
@@ -76,6 +77,11 @@ router.get("/register/account", requireLogin, showAllUsers);
 router.get("/register/:id/edit", requireLogin, showEditAccountForm);
 router.get("/register/password-resets", requireLogin, listRequests);
 
+// Routes.get that requireRole
+router.get("/logs/new", requireLogin, requireRole("moderator"), showCreateLogForm);
+router.get("/logs/select", requireLogin, requireRole("moderator"), showLogSelectPage);
+router.get("/logs/:id/edit", requireLogin, requireRole("moderator"), showEditLogForm);
+
 // Development Only Get Routes
 if (process.env.NODE_ENV === "development") {
 	router.get("/test-error", requirePermission("manage_dev"), testErrorPage);
@@ -94,14 +100,21 @@ router.post("/register/reset-password", resetPasswordValidation, handleReset);
 // Routes.post that requireLogin
 router.post("/register/:id/edit", requireLogin, updateAccountValidation, processEditAccount);
 router.post("/logout", requireLogin, processLogout);
-router.post("/journal/notes/new", requireLogin, submitNewNote);
-router.post("/journal/notes/:id/edit", requireLogin, submitNoteEdit);
-router.post("/journal/notes/:id/delete", requireLogin, deleteNote);
+router.post("/notes/new", requireLogin, submitNewNote);
+router.post("/notes/:id/edit", requireLogin, submitNoteEdit);
+router.post("/notes/:id/delete", requireLogin, deleteNote);
 
 // Routes.post that requirePermissions
 router.post("/register/:id/delete", requireLogin, requirePermission("delete_users"), processDeleteAccount);
 router.post("/register/password-resets/:id/approve", requireLogin, requirePermission("approve_password_resets"), approveRequest);
 router.post("/register/password-resets/:id/deny", requireLogin, requirePermission("approve_password_resets"), denyRequest);
 router.post("/maps/:id/set-main", requireLogin, requirePermission("manage_maps"), setMainMap);
+
+// Routes.post that requireRole
+router.post("/logs/select", requireLogin, requireRole("moderator"), showEditLogForm);
+router.post("/logs/new", requireLogin, requireRole("moderator"), submitNewLog);
+router.post("/logs/:id/edit", requireLogin, requireRole("moderator"), submitLogEdit);
+router.post("/logs/:id/pin", requireLogin, requireRole("moderator"), togglePin);
+router.post("/logs/:id/delete", requireLogin, requireRole("moderator"), deleteLogController);
 
 export default router;

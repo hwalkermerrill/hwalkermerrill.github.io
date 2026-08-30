@@ -4,8 +4,8 @@
 	<h1><%= formMode === "edit" ? "Edit Note" : "Create Note" %></h1>
 
 	<form action="<%= formMode === 'edit'
-      ? '/journal/notes/' + note.id + '/edit'
-      : '/journal/notes/new' %>" method="POST" class="note-form">
+      ? '/notes/' + note.id + '/edit'
+      : '/notes/new' %>" method="POST" class="note-form">
 
 		<!-- Campaign / PC / Category -->
 		<div class="form-row">

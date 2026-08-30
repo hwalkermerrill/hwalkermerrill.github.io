@@ -2,7 +2,7 @@
 	<h2>Your Notes</h2>
 
 	<div class="notes-actions">
-		<a href="/journal/notes/new" class="btn btn-primary">Take Notes</a>
+		<a href="/notes/new" class="btn btn-primary">Take Notes</a>
 	</div>
 
 	<% if (!notes || notes.length === 0) { %>
@@ -40,8 +40,8 @@
 						<% const identity = note.pc_name || note.username; %>
 						<span class="note-badge identity"><%= identity %></span>
 					</div>
-					<a href="/journal/notes/<%= note.id %>/edit" class="btn btn-small">Edit</a>
-					<form action="/journal/notes/<%= note.id %>/delete" method="POST" class="inline-form">
+					<a href="/notes/<%= note.id %>/edit" class="btn btn-small">Edit</a>
+					<form action="/notes/<%= note.id %>/delete" method="POST" class="inline-form">
 						<button type="submit" class="btn btn-small" data-variant="danger">Delete</button>
 					</form>
 				</div>
