@@ -132,6 +132,7 @@ Add delete confirmation modal
 Add auto ellipses and card elements over the current asset flexbox method.
 Add request/confirmation system for moderator changes to be approved by gm_admin
 Fix form css for login, register, dashboard, ect.
+Add user role visibility and management to register model and controller.
 
 ## Roadmap Checklist (Version 3.0)
 

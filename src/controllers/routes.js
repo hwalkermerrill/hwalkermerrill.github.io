@@ -11,7 +11,7 @@ import { charactersPage } from "./pages/characters.js";
 import { processLogin, processLogout, showLoginForm, showDashboard } from "./forms/login.js";
 import { showRegistrationForm, processRegistration, showAllUsers, showEditAccountForm, processEditAccount, processDeleteAccount } from "./forms/registration.js";
 import { showCreateNoteForm, submitNewNote, showEditNoteForm, submitNoteEdit, deleteNote } from "./forms/notes.js";
-import { showLogSelectPage, showCreateLogForm, showEditLogForm, submitNewLog, submitLogEdit, deleteLogController, togglePin } from "./forms/logs.js";
+import { showLogSelectPage, showCreateLogForm, showEditLogForm, submitNewLog, submitLogEdit, deleteLogController, togglePin, handleLogSelect } from "./forms/logs.js";
 // import { showContactForm, handleContactSubmission, showContactResponses } from "./forms/contact.js";
 import { showResetForm, requestReset, handleReset } from "./forms/passwordReset.js";
 import { listRequests, approveRequest, denyRequest } from "./forms/passwordResetAdmin.js";
@@ -111,8 +111,8 @@ router.post("/register/password-resets/:id/deny", requireLogin, requirePermissio
 router.post("/maps/:id/set-main", requireLogin, requirePermission("manage_maps"), setMainMap);
 
 // Routes.post that requireRole
-router.post("/logs/select", requireLogin, requireRole("moderator"), showEditLogForm);
 router.post("/logs/new", requireLogin, requireRole("moderator"), submitNewLog);
+router.post("/logs/select", requireLogin, requireRole("moderator"), handleLogSelect);
 router.post("/logs/:id/edit", requireLogin, requireRole("moderator"), submitLogEdit);
 router.post("/logs/:id/pin", requireLogin, requireRole("moderator"), togglePin);
 router.post("/logs/:id/delete", requireLogin, requireRole("moderator"), deleteLogController);

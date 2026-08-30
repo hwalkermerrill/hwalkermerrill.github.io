@@ -41,7 +41,84 @@ async function loadFormData() {
 	return { campaigns, logTypes };
 }
 
-// Permissions
+// Handle selection of existing logs
+async function handleLogSelect(req, res) {
+	if (!req.session.user || !canEdit(req.session.user)) {
+		return res.redirect("/login");
+	}
+
+	const {
+		campaign_id,
+		log_type,
+		custom_log_type,
+		session_number
+	} = req.body;
+
+	const finalLogType =
+		log_type === "other" ? (custom_log_type || "").trim() : log_type;
+
+	try {
+		const { rows } = await db.query(
+			`
+      SELECT id
+      FROM session_logs
+      WHERE campaign_id = $1
+        AND log_type = $2
+        AND session_number = $3
+      LIMIT 1
+      `,
+			[Number(campaign_id), finalLogType, Number(session_number)]
+		);
+
+		// If found, redirect to edit page. If not found, redirect to page creation.
+		if (rows.length > 0) {
+			return res.redirect(`/logs/${rows[0].id}/edit`);
+		}
+		else {
+			req.flash("info", "No log found for that selection. You can create a new one.");
+			return res.redirect("/logs/new");
+		}
+
+	} catch (err) {
+		console.error(err);
+		req.flash("error", "Failed to load log selection.");
+		return res.redirect("/logs/select");
+	}
+}
+
+// Sanitation and Validation
+function sanitizeParagraphContent(raw = "") {
+	if (!raw) return "";
+
+	// Escape all HTML
+	let safe = raw.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;");
+
+	// Allowed and re-enabled: <b> and <i>
+	safe = safe
+		.replace(/&lt;b&gt;/g, "<b>")
+		.replace(/&lt;\/b&gt;/g, "</b>")
+		.replace(/&lt;i&gt;/g, "<i>")
+		.replace(/&lt;\/i&gt;/g, "</i>");
+
+	// Trim leading/trailing whitespace
+	return safe.trim();
+}
+
+function isValidImageUrl(url) {
+	// Must not contain whitespace
+	if (/\s/.test(url)) return false;
+
+	// Must start with http or https
+	if (!/^https?:\/\//i.test(url)) return false;
+
+	// Must end with a common image extension
+	if (!/\.(png|jpg|jpeg|gif|webp)$/i.test(url)) return false;
+
+	return true;
+}
+
 function canEdit(user) {
 	return hasRole(user, "gm_admin") || hasRole(user, "moderator");
 }
@@ -70,7 +147,9 @@ async function submitNewLog(req, res) {
 		paragraph_text,
 		gallery_url,
 		gallery_alt,
-		gallery_is_main
+		gallery_type,
+		gallery_is_tall,
+		gallery_hover_visible
 	} = req.body;
 
 	// Allow typing custom log type string
@@ -89,29 +168,57 @@ async function submitNewLog(req, res) {
 			pinned: pinned === "true"
 		});
 
-		// Insert paragraphs
+		// Sanitize and insert paragraphs
+		await deleteParagraphsForLog(logId);
 		if (Array.isArray(paragraph_text)) {
-			await deleteParagraphsForLog(logId);
 			for (let i = 0; i < paragraph_text.length; i++) {
-				const text = paragraph_text[i].trim();
+				const raw = paragraph_text[i];
+				const text = sanitizeParagraphContent(raw);
 				if (text.length > 0) {
 					await insertParagraph(logId, i + 1, text, req.session.user.id);
 				}
 			}
 		}
 
-		// Insert gallery images
+		// Sanitize and insert gallery images
+		await deleteGalleryForLog(logId);
 		if (Array.isArray(gallery_url)) {
-			await deleteGalleryForLog(logId);
+			let mainAssigned = false;
+			let hoverAssigned = false;
+
 			for (let i = 0; i < gallery_url.length; i++) {
-				const url = gallery_url[i].trim();
-				if (url.length > 0) {
-					await insertGalleryImage(logId, {
-						imageUrl: url,
-						alt: gallery_alt[i] || "Session Image",
-						isMain: gallery_is_main[i] === "true"
-					});
+				const url = (gallery_url[i] || "").trim();
+
+				// Validate
+				if (!isValidImageUrl(url)) {
+					req.flash("error", `Invalid image URL: "${url}". Must be a valid http/https image link.`);
+					continue; // Skip invalid URL
 				}
+
+				const alt = (gallery_alt && gallery_alt[i]) || "Session Image";
+				const type = gallery_type && gallery_type[i] ? gallery_type[i] : "extra";
+				let isMain = false;
+				let isHover = false;
+
+				if (type === "main" && !mainAssigned) {
+					isMain = true;
+					mainAssigned = true;
+				} else if (type === "hover" && !hoverAssigned) {
+					isHover = true;
+					hoverAssigned = true;
+				}
+
+				const isTall = gallery_is_tall && gallery_is_tall[i] === "true";
+				const hoverVisible = gallery_hover_visible && gallery_hover_visible[i] === "true";
+
+				await insertGalleryImage(logId, {
+					imageUrl: url,
+					alt,
+					isMain,
+					isHover,
+					hoverVisible,
+					isTall
+				});
 			}
 		}
 
@@ -144,7 +251,9 @@ async function submitLogEdit(req, res) {
 		paragraph_text,
 		gallery_url,
 		gallery_alt,
-		gallery_is_main
+		gallery_type,
+		gallery_is_tall,
+		gallery_hover_visible
 	} = req.body;
 
 	// Allow typing custom log type string
@@ -162,29 +271,56 @@ async function submitLogEdit(req, res) {
 			pinned: pinned === "true"
 		});
 
-		// Replace paragraphs
+		// Sanitize and replace paragraphs
 		await deleteParagraphsForLog(logId);
 		if (Array.isArray(paragraph_text)) {
 			for (let i = 0; i < paragraph_text.length; i++) {
-				const text = paragraph_text[i].trim();
+				const raw = paragraph_text[i];
+				const text = sanitizeParagraphContent(raw);
 				if (text.length > 0) {
 					await insertParagraph(logId, i + 1, text, req.session.user.id);
 				}
 			}
 		}
 
-		// Replace gallery
+		// Sanitize and replace gallery
 		await deleteGalleryForLog(logId);
 		if (Array.isArray(gallery_url)) {
+			let mainAssigned = false;
+			let hoverAssigned = false;
+
 			for (let i = 0; i < gallery_url.length; i++) {
-				const url = gallery_url[i].trim();
-				if (url.length > 0) {
-					await insertGalleryImage(logId, {
-						imageUrl: url,
-						alt: gallery_alt[i] || "Session Image",
-						isMain: gallery_is_main[i] === "true"
-					});
+				const url = (gallery_url[i] || "").trim();
+
+				if (!isValidImageUrl(url)) {
+					req.flash("error", `Invalid image URL: "${url}". Must be a valid http/https image link.`);
+					continue; // Skip invalid URL
 				}
+
+				const alt = (gallery_alt && gallery_alt[i]) || "Session Image";
+				const type = gallery_type && gallery_type[i] ? gallery_type[i] : "extra";
+				let isMain = false;
+				let isHover = false;
+
+				if (type === "main" && !mainAssigned) {
+					isMain = true;
+					mainAssigned = true;
+				} else if (type === "hover" && !hoverAssigned) {
+					isHover = true;
+					hoverAssigned = true;
+				}
+
+				const isTall = gallery_is_tall && gallery_is_tall[i] === "true";
+				const hoverVisible = gallery_hover_visible && gallery_hover_visible[i] === "true";
+
+				await insertGalleryImage(logId, {
+					imageUrl: url,
+					alt,
+					isMain,
+					isHover,
+					hoverVisible,
+					isTall
+				});
 			}
 		}
 
@@ -242,10 +378,12 @@ async function showLogSelectPage(req, res) {
 	}
 
 	const { campaigns, logTypes } = await loadFormData();
+	const campaign_id = res.locals.campaign_id;
 
 	res.render("forms/logs/select", {
 		title: "Manage Logs",
 		activePage: "logs",
+		campaign_id,
 		campaigns,
 		logTypes
 	});
@@ -257,11 +395,13 @@ async function showCreateLogForm(req, res) {
 	}
 
 	const { campaigns, logTypes } = await loadFormData();
+	const campaign_id = res.locals.campaign_id;
 
 	res.render("forms/logs/form", {
 		title: "Create Log",
 		activePage: "logs",
 		formMode: "create",
+		campaign_id,
 		log: null,
 		paragraphs: [],
 		gallery: [],
@@ -305,6 +445,7 @@ export {
 	submitNewLog,
 	showEditLogForm,
 	submitLogEdit,
+	handleLogSelect,
 	deleteLogController,
 	togglePin
 };

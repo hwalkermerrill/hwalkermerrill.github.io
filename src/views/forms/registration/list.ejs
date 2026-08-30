@@ -9,27 +9,28 @@
 
 	<!-- Allow gm_admins to view pending password reset requests -->
 	<% if (hasPermission(user, "approve_password_resets")) { %>
-	<p><a href="/register/password-resets">View Password Reset Requests</a></p>
+	<p><a href="/register/password-resets" class="btn btn-small">View Password Reset Requests</a></p>
 	<% } %>
+	<br>
 
-	<div class="users-list">
+	<div class="users-list cards">
 		<% users.forEach(listUser => { %>
 
 		<!-- Show User Cards for all canViewDetails Users -->
-		<div class="user-card">
+		<div class="user-card card">
 			<% if (isOwner(listUser.id) || hasPermission(user, "view_users")) { %>
 			<h3><%= listUser.full_name %></h3>
 			<p><%= listUser.username %></p>
 
 			<div class="user-actions">
 				<% if (isOwner(listUser.id) || hasPermission(user, "edit_users")) { %>
-				<a href="/register/<%= listUser.id %>/edit">Edit</a>
+				<a href="/register/<%= listUser.id %>/edit" class="btn btn-small">Edit</a>
 				<% } %>
 
 				<% if (hasPermission(user, "delete_users") && !isOwner(listUser.id)) { %>
 				<form method="POST" action="/register/<%= listUser.id %>/delete" style="display: inline;">
-					<button type="submit" onclick="return confirm('Are you sure you want to delete this user?')" class="btn">
-						Delete </button>
+					<button type="submit" data-variant="danger" class="btn btn-small"
+						onclick="return confirm('Are you sure you want to delete this user?')"> Delete </button>
 				</form>
 				<% } %>
 			</div>
