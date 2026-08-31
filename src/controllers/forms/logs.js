@@ -82,11 +82,13 @@ async function loadFormData() {
   `);
 
 	// Hard-coded log types with other field for text entry
+	// Session Summary on top, documents | lore | npc spotlight | quests, other on bottom
 	const logTypes = [
 		"session summary",
-		"quest recap",
+		"documents",
+		"lore",
 		"npc spotlight",
-		"lore entry",
+		"quests",
 		"other"
 	];
 
