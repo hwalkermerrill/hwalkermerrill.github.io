@@ -20,8 +20,53 @@ import {
 import { hasRole } from "../../utils/permissions.js";
 import db from "../../models/db.js";
 
+// Sanitation and Validation
+function sanitizeParagraphContent(raw = "") {
+	if (!raw) return "";
+
+	// Escape all HTML
+	let safe = raw.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;");
+
+	// Allowed and re-enabled: <b> and <i>
+	safe = safe
+		.replace(/&lt;b&gt;/g, "<b>")
+		.replace(/&lt;\/b&gt;/g, "</b>")
+		.replace(/&lt;i&gt;/g, "<i>")
+		.replace(/&lt;\/i&gt;/g, "</i>");
+
+	// Trim leading/trailing whitespace
+	return safe.trim();
+}
+
+function normalizeToArray(value) {
+	if (!value) return [];
+	return Array.isArray(value) ? value : [value];
+}
+
+function isValidImageUrl(url) {
+	// Must not contain whitespace
+	if (/\s/.test(url)) return false;
+
+	// Must start with http or https
+	if (!/^https?:\/\//i.test(url)) return false;
+
+	// Must end with a common image extension
+	if (!/\.(png|jpg|jpeg|gif|webp)$/i.test(url)) return false;
+
+	return true;
+}
+
+function canEdit(user) {
+	return hasRole(user, "gm_admin") || hasRole(user, "moderator");
+}
+
+function canDelete(user) {
+	return hasRole(user, "gm_admin");
+}
+
 // Helpers
-// Load campaigns and log types
 async function loadFormData() {
 	const { rows: campaigns } = await db.query(`
     SELECT id, campaign_name
@@ -86,47 +131,92 @@ async function handleLogSelect(req, res) {
 	}
 }
 
-// Sanitation and Validation
-function sanitizeParagraphContent(raw = "") {
-	if (!raw) return "";
+// - Dry Helpers (paragraphs | galleries)
+async function replaceParagraphsForLog(logId, paragraph_text, userId) {
+	await deleteParagraphsForLog(logId);
 
-	// Escape all HTML
-	let safe = raw.replace(/&/g, "&amp;")
-		.replace(/</g, "&lt;")
-		.replace(/>/g, "&gt;");
+	const paragraphs = normalizeToArray(paragraph_text);
 
-	// Allowed and re-enabled: <b> and <i>
-	safe = safe
-		.replace(/&lt;b&gt;/g, "<b>")
-		.replace(/&lt;\/b&gt;/g, "</b>")
-		.replace(/&lt;i&gt;/g, "<i>")
-		.replace(/&lt;\/i&gt;/g, "</i>");
-
-	// Trim leading/trailing whitespace
-	return safe.trim();
+	for (let i = 0; i < paragraphs.length; i++) {
+		const raw = paragraphs[i];
+		const text = sanitizeParagraphContent(raw);
+		if (text.length > 0) {
+			await insertParagraph(logId, i + 1, text, userId);
+		}
+	}
 }
 
-function isValidImageUrl(url) {
-	// Must not contain whitespace
-	if (/\s/.test(url)) return false;
+async function replaceGalleryForLog(req, logId, {
+	gallery_url,
+	gallery_alt,
+	gallery_type,
+	gallery_is_tall,
+	gallery_hover_visible
+}) {
+	await deleteGalleryForLog(logId);
 
-	// Must start with http or https
-	if (!/^https?:\/\//i.test(url)) return false;
+	const galleryUrls = normalizeToArray(gallery_url);
+	const galleryAlts = normalizeToArray(gallery_alt);
+	const galleryTypes = normalizeToArray(gallery_type);
+	const galleryTall = normalizeToArray(gallery_is_tall);
+	const galleryHoverVisible = normalizeToArray(gallery_hover_visible);
 
-	// Must end with a common image extension
-	if (!/\.(png|jpg|jpeg|gif|webp)$/i.test(url)) return false;
+	if (galleryUrls.length === 0) {
+		return; // No gallery rows to insert.
+	}
 
-	return true;
+	let mainAssigned = false;
+	let hoverAssigned = false;
+
+	for (let i = 0; i < galleryUrls.length; i++) {
+		const rawUrl = galleryUrls[i] || "";
+		const url = rawUrl.trim();
+
+		// Server-side URL validation.
+		if (!isValidImageUrl(url)) {
+			req.flash("error", `Invalid image URL: "${rawUrl}". Must be a valid http/https image link.`);
+			continue;
+		}
+
+		const alt = galleryAlts[i] || "Session Image";
+		const type = galleryTypes[i] || "extra";
+
+		let isMain = false;
+		let isHover = false;
+
+		// Enforce only one Main image.
+		if (type === "main") {
+			if (!mainAssigned) {
+				isMain = true;
+				mainAssigned = true;
+			} else {
+				req.flash("error", "Only one image can be Main. Extra images were downgraded to Extra.");
+			}
+		}
+
+		// Enforce only one Hover image.
+		if (type === "hover") {
+			if (!hoverAssigned) {
+				isHover = true;
+				hoverAssigned = true;
+			} else {
+				req.flash("error", "Only one image can be Hover. Extra images were downgraded to Extra.");
+			}
+		}
+
+		const isTall = galleryTall[i] === "true";
+		const hoverVisible = galleryHoverVisible[i] === "true";
+
+		await insertGalleryImage(logId, {
+			imageUrl: url,
+			alt,
+			isMain,
+			isHover,
+			hoverVisible,
+			isTall
+		});
+	}
 }
-
-function canEdit(user) {
-	return hasRole(user, "gm_admin") || hasRole(user, "moderator");
-}
-
-function canDelete(user) {
-	return hasRole(user, "gm_admin");
-}
-
 
 // Controller Functions
 async function submitNewLog(req, res) {
@@ -168,59 +258,9 @@ async function submitNewLog(req, res) {
 			pinned: pinned === "true"
 		});
 
-		// Sanitize and insert paragraphs
-		await deleteParagraphsForLog(logId);
-		if (Array.isArray(paragraph_text)) {
-			for (let i = 0; i < paragraph_text.length; i++) {
-				const raw = paragraph_text[i];
-				const text = sanitizeParagraphContent(raw);
-				if (text.length > 0) {
-					await insertParagraph(logId, i + 1, text, req.session.user.id);
-				}
-			}
-		}
-
-		// Sanitize and insert gallery images
-		await deleteGalleryForLog(logId);
-		if (Array.isArray(gallery_url)) {
-			let mainAssigned = false;
-			let hoverAssigned = false;
-
-			for (let i = 0; i < gallery_url.length; i++) {
-				const url = (gallery_url[i] || "").trim();
-
-				// Validate
-				if (!isValidImageUrl(url)) {
-					req.flash("error", `Invalid image URL: "${url}". Must be a valid http/https image link.`);
-					continue; // Skip invalid URL
-				}
-
-				const alt = (gallery_alt && gallery_alt[i]) || "Session Image";
-				const type = gallery_type && gallery_type[i] ? gallery_type[i] : "extra";
-				let isMain = false;
-				let isHover = false;
-
-				if (type === "main" && !mainAssigned) {
-					isMain = true;
-					mainAssigned = true;
-				} else if (type === "hover" && !hoverAssigned) {
-					isHover = true;
-					hoverAssigned = true;
-				}
-
-				const isTall = gallery_is_tall && gallery_is_tall[i] === "true";
-				const hoverVisible = gallery_hover_visible && gallery_hover_visible[i] === "true";
-
-				await insertGalleryImage(logId, {
-					imageUrl: url,
-					alt,
-					isMain,
-					isHover,
-					hoverVisible,
-					isTall
-				});
-			}
-		}
+		// Use dry helpers for sanitized paragraphs and galleries
+		await replaceParagraphsForLog(logId, paragraph_text, req.session.user.id);
+		await replaceGalleryForLog(req, logId, { gallery_url, gallery_alt, gallery_type, gallery_is_tall, gallery_hover_visible });
 
 		req.flash("success", "Log created successfully!");
 		res.redirect("/journal");
@@ -271,58 +311,9 @@ async function submitLogEdit(req, res) {
 			pinned: pinned === "true"
 		});
 
-		// Sanitize and replace paragraphs
-		await deleteParagraphsForLog(logId);
-		if (Array.isArray(paragraph_text)) {
-			for (let i = 0; i < paragraph_text.length; i++) {
-				const raw = paragraph_text[i];
-				const text = sanitizeParagraphContent(raw);
-				if (text.length > 0) {
-					await insertParagraph(logId, i + 1, text, req.session.user.id);
-				}
-			}
-		}
-
-		// Sanitize and replace gallery
-		await deleteGalleryForLog(logId);
-		if (Array.isArray(gallery_url)) {
-			let mainAssigned = false;
-			let hoverAssigned = false;
-
-			for (let i = 0; i < gallery_url.length; i++) {
-				const url = (gallery_url[i] || "").trim();
-
-				if (!isValidImageUrl(url)) {
-					req.flash("error", `Invalid image URL: "${url}". Must be a valid http/https image link.`);
-					continue; // Skip invalid URL
-				}
-
-				const alt = (gallery_alt && gallery_alt[i]) || "Session Image";
-				const type = gallery_type && gallery_type[i] ? gallery_type[i] : "extra";
-				let isMain = false;
-				let isHover = false;
-
-				if (type === "main" && !mainAssigned) {
-					isMain = true;
-					mainAssigned = true;
-				} else if (type === "hover" && !hoverAssigned) {
-					isHover = true;
-					hoverAssigned = true;
-				}
-
-				const isTall = gallery_is_tall && gallery_is_tall[i] === "true";
-				const hoverVisible = gallery_hover_visible && gallery_hover_visible[i] === "true";
-
-				await insertGalleryImage(logId, {
-					imageUrl: url,
-					alt,
-					isMain,
-					isHover,
-					hoverVisible,
-					isTall
-				});
-			}
-		}
+		// Use dry helpers for sanitized paragraphs and galleries
+		await replaceParagraphsForLog(logId, paragraph_text, req.session.user.id);
+		await replaceGalleryForLog(req, logId, { gallery_url, gallery_alt, gallery_type, gallery_is_tall, gallery_hover_visible });
 
 		req.flash("success", "Log updated successfully!");
 		res.redirect("/journal");
