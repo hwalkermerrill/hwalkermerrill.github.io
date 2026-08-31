@@ -129,7 +129,7 @@ figure.two-three img {
 #session-recap-content * {
 	float: none;
 	width: auto;
-	text-indent: 0;
+	text-indent: var(--spacing-md);
 }
 #session-recap-content picture img {
 	float: right;

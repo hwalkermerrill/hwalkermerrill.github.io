@@ -1,15 +1,15 @@
 <section id="session-log-list">
-  <h2>All Session Logs</h2>
+	<h2>All Session Logs</h2>
 
-  <% Object.keys(logsByBook).forEach(bookKey => { %>
-  <div class="session-log-book" id="<%= bookKey %>">
-    <h3><%= bookKey.replace("book", "Book ") %></h3>
+	<% Object.keys(logsByBook).forEach(bookKey => { %>
+	<div class="session-log-book" id="<%= bookKey %>">
+		<h3><%= bookKey.replace("book", "Book ") %></h3>
 
-    <% logsByBook[bookKey].forEach(session => { %>
-    <ul class="session-log-list-item" data-log-id="<%= session.id %>"
-      data-title="<%- session.title.replace(/"/g, '&quot;') %>" data-time-span="<%- session.time_span || '' %>"
-      data-session-date="<%- session.session_date ? session.session_date.toISOString().slice(0,10) : '' %>"
-      data-paragraphs="<%- JSON.stringify(
+		<% logsByBook[bookKey].forEach(session => { %>
+		<ul class="session-log-list-item" data-log-id="<%= session.id %>"
+			data-title="<%- session.title.replace(/"/g, '&quot;') %>" data-time-span="<%- session.time_span || '' %>"
+			data-session-date="<%- session.session_date ? session.session_date.toISOString().slice(0,10) : '' %>"
+			data-paragraphs="<%- JSON.stringify(
         session.paragraphs.map(p => p.paragraph_text)
       ).replace(/"/g, '&quot;') %>" data-images="<%- JSON.stringify(
         session.images.map(img => ({
@@ -18,9 +18,9 @@
           tall: img.is_tall
         }))
       ).replace(/"/g, '&quot;') %>">
-      <li><b>Click to Read <%= session.title %></b></li>
-    </ul>
-    <% }) %>
-  </div>
-  <% }) %>
+			<li><b>Click to Read Entry #<%= session.session_number %> - <%= session.title %></b></li>
+		</ul>
+		<% }) %>
+	</div>
+	<% }) %>
 </section>

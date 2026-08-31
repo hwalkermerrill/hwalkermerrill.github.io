@@ -88,6 +88,18 @@
 	cursor: not-allowed;
 }
 
+/* Text Utilities */
+.u-indent {
+	text-indent: var(--spacing-md);
+}
+.u-text-mini {
+	font-size: var(--font-size-xs);
+}
+.u-margin-collapse {
+	margin: 0;
+	transform: translateY(-0.5rem);
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.holo-flash,
 	.holo-flash-chromatic {
