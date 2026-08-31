@@ -134,8 +134,8 @@ async function insertGalleryImage(logId, { imageUrl, alt, isMain, isHover, hover
 	await db.query(
 		`
     INSERT INTO session_log_gallery
-      (session_log_id, image_url, alt, is_main, is_Hover, hover_Visible, is_Tall)
-    VALUES ($1, $2, $3, $4, $5, $6, $7,)
+      (session_log_id, image_url, alt, is_main, is_hover, hover_visible, is_tall)
+    VALUES ($1, $2, $3, $4, $5, $6, $7)
     `,
 		[logId, imageUrl, alt, isMain, isHover, hoverVisible, isTall]
 	);
