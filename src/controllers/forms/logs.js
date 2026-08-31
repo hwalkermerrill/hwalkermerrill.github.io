@@ -49,13 +49,20 @@ function isValidImageUrl(url) {
 	// Must not contain whitespace
 	if (/\s/.test(url)) return false;
 
-	// Must start with http or https
-	if (!/^https?:\/\//i.test(url)) return false;
+	// Allow absolute URLs
+	if (/^https?:\/\//i.test(url)) {
+		// Must end with a common image extension
+		return /\.(png|jpg|jpeg|gif|webp)$/i.test(url);
+	}
 
-	// Must end with a common image extension
-	if (!/\.(png|jpg|jpeg|gif|webp)$/i.test(url)) return false;
+	// Allow relative URLs starting with /
+	if (url.startsWith("/")) {
+		// Must end with a common image extension
+		return /\.(png|jpg|jpeg|gif|webp)$/i.test(url);
+	}
 
-	return true;
+	// Everything else is invalid
+	return false;
 }
 
 function canEdit(user) {
