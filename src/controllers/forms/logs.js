@@ -88,7 +88,7 @@ async function loadFormData() {
 		"documents",
 		"lore",
 		"npc spotlight",
-		"quests",
+		// "quests",
 		"other"
 	];
 
