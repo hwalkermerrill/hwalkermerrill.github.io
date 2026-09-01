@@ -1,60 +1,103 @@
-<!-- Fallback text -->
-<% if (!items || !items.length) { %>
+<%
+	// Helper: check if any logs exist across all types
+	const hasAnyLogs =
+		logsByType &&
+		(
+			(logsByType.documents && logsByType.documents.length) ||
+			(logsByType.dreams && logsByType.dreams.length) ||
+			(logsByType.lore && logsByType.lore.length) ||
+			(logsByType.npcSpotlight && logsByType.npcSpotlight.length) ||
+			(logsByType.other && logsByType.other.length)
+		);
+%>
+
+<% if (!hasAnyLogs) { %>
 <section id="found-lore">
 	<h2>Recovered Lore</h2>
-	<p>No documents or lore have been recovered yet.</p>
+	<p>No documents, dreams, lore, or other records have been recovered yet.</p>
 </section>
 <div class="clearfix"></div>
 <% } else { %>
 
-<!-- Group items by type + subtype -->
 <%
-const grouped = {};
-items.forEach(item => {
-  const key = `${item.item_type}:${item.item_subtype}`;
-  if (!grouped[key]) grouped[key] = [];
-  grouped[key].push(item);
-});
+	// Sections in alphabetical order, with display labels
+	const sections = [
+		{ key: "documents", label: "Documents" },
+		{ key: "dreams", label: "Dreams" },
+		{ key: "lore", label: "Lore" },
+		{ key: "npcSpotlight", label: "NPC Spotlights" },
+		{ key: "other", label: "Other Records" }
+	];
 %>
 
-<% Object.keys(grouped).forEach(key => { %>
-<% const [type, subtype] = key.split(":"); %>
+<section id="found-lore">
+	<h2>Recovered Lore & Documents</h2>
 
-<section class="item-section">
-	<h3><%= subtype %>'s</h3>
+	<% sections.forEach(section => { %>
+	<%
+		const list = logsByType[section.key] || [];
+		if (!list.length) return;
+	%>
 
-	<% grouped[key].forEach(item => { %>
-	<ul class="toggleLiVis" style="list-style-type:none;">
-		<li><b>Click to read <%= item.item_name %></b></li>
+	<div class="document-section">
+		<h3><%= section.label %></h3>
 
-		<li style="display:none;">
-			<b><i><%= item.item_name %></i></b>
-		</li>
+		<% list.forEach(log => { %>
+		<ul class="toggleLiVis" style="list-style-type:none;" data-log-id="<%= log.id %>"
+			data-title="<%- log.title.replace(/"/g, '&quot;') %>" data-type="<%= log.log_type %>">
 
-		<% if (item.mainImage) { %>
-		<li style="display:none;">
-			<picture>
-				<source srcset="<%= item.mainImage.image_url %>" type="image/webp">
-				<img class="pointer <%= item.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/placeholder-note.jpg"
-					alt="<%= item.mainImage.alt || item.item_name %>">
-			</picture>
-		</li>
-		<% } %>
+			<!-- List entry (always visible) -->
+			<li>
+				<b>Click to read "<%= log.title %>"</b>
+			</li>
 
-		<%
-      const body = (item.description || '') + '\n' + (item.ability || '');
-      const safeBody = JSON.stringify(body).replace(/"/g, '&quot;');
-    %>
+			<!-- Title (shown when expanded) -->
+			<li style="display:none;">
+				<b><i><%= log.title %></i></b>
+			</li>
 
-		<li class="item-body" style="display:none;" data-body="<%- safeBody %>"> </li>
+			<!-- Main image (if present) -->
+			<% if (log.mainImage) { %>
+			<li style="display:none;">
+				<picture>
+					<source srcset="<%= log.mainImage.image_url %>" type="image/webp">
+					<img class="pointer <%= log.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/placeholder-note.jpg"
+						alt="<%= log.mainImage.alt || log.title %>" loading="lazy">
+				</picture>
+			</li>
+			<% } %>
 
-		<li style="display:none;">
-			<i>~ Click to put <%= item.item_name %> away...</i>
-		</li>
+			<!-- Hover image (optional, if present) -->
+			<% if (log.hoverImage) { %>
+			<li style="display:none;">
+				<picture>
+					<source srcset="<%= log.hoverImage.image_url %>" type="image/webp">
+					<img class="pointer <%= log.hoverImage.is_tall ? 'tooTall' : 'wide' %>"
+						src="/images/core/placeholder-note.jpg" alt="<%= log.hoverImage.alt || (log.title + ' (hover)') %>"
+						loading="lazy">
+				</picture>
+			</li>
+			<% } %>
 
-		<li class="clearfix" style="display:none;"></li>
-	</ul>
+			<!-- Body: paragraphs combined -->
+			<%
+				const bodyText = (log.paragraphs || [])
+					.map(p => p.paragraph_text)
+					.join("\n\n");
+				const safeBody = JSON.stringify(bodyText).replace(/"/g, '&quot;');
+			%>
+			<li class="item-body" style="display:none;" data-body="<%- safeBody %>"></li>
+
+			<!-- Close hint -->
+			<li style="display:none;">
+				<i>~ Click to put "<%= log.title %>" away...</i>
+			</li>
+
+			<li class="clearfix" style="display:none;"></li>
+		</ul>
+		<% }); %>
+	</div>
 	<% }); %>
 </section>
-<% }); %>
+<div class="clearfix"></div>
 <% } %>
