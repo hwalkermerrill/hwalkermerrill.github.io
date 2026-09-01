@@ -8,7 +8,6 @@ async function getSessionLogsForCampaign(campaignId) {
     SELECT *
     FROM session_logs
     WHERE campaign_id = $1
-      AND log_type = 'session summary'
     ORDER BY book_number DESC, session_number DESC, id ASC
     `,
 		[campaignId]
@@ -76,28 +75,28 @@ async function getSessionLogContent(logId) {
 	return { paragraphs, gallery, mainImage };
 }
 
-async function getItemsForCampaign(campaignId) {
-	const { rows } = await db.query(`
-    SELECT *
-    FROM items
-    WHERE campaign_id = $1
-      AND item_type IN ('dream', 'note')
-    ORDER BY item_type, item_subtype, sort_order, item_name
-  `, [campaignId]);
+// async function getItemsForCampaign(campaignId) {
+// 	const { rows } = await db.query(`
+//     SELECT *
+//     FROM items
+//     WHERE campaign_id = $1
+//       AND item_type IN ('dream', 'note')
+//     ORDER BY item_type, item_subtype, sort_order, item_name
+//   `, [campaignId]);
 
-	return rows;
-}
+// 	return rows;
+// }
 
-async function getItemGalleryForItems(itemIds) {
-	if (itemIds.length === 0) return [];
-	const { rows } = await db.query(`
-    SELECT *
-    FROM item_gallery
-    WHERE item_id = ANY($1::int[])
-    ORDER BY is_main DESC, id ASC
-  `, [itemIds]);
-	return rows;
-}
+// async function getItemGalleryForItems(itemIds) {
+// 	if (itemIds.length === 0) return [];
+// 	const { rows } = await db.query(`
+//     SELECT *
+//     FROM item_gallery
+//     WHERE item_id = ANY($1::int[])
+//     ORDER BY is_main DESC, id ASC
+//   `, [itemIds]);
+// 	return rows;
+// }
 
 export {
 	getSessionLogsForCampaign,
@@ -105,6 +104,6 @@ export {
 	getParagraphsForLogs,
 	getGalleryForLogs,
 	getSessionLogContent,
-	getItemsForCampaign,
-	getItemGalleryForItems
+	// getItemsForCampaign,
+	// getItemGalleryForItems
 };

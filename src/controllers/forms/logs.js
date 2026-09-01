@@ -86,6 +86,7 @@ async function loadFormData() {
 	const logTypes = [
 		"session summary",
 		"documents",
+		"dreams",
 		"lore",
 		"npc spotlight",
 		// "quests",
