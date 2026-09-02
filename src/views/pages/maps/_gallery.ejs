@@ -1,30 +1,31 @@
 <div class="gallery">
-  <% if (galleryTall && galleryTall.length) { %>
-  <% galleryTall.forEach(map => { %>
-  <figure data-map-id="<%= map.id %>" data-image-url="<%- map.image_url.replace(/"/g, '&quot;') %>"
-    data-alt="<%- (map.alt || map.item_name).replace(/"/g, '&quot;') %>"
-    data-title="<%- map.item_name.replace(/"/g, '&quot;') %>">
-    <picture>
-      <source srcset="<%= map.image_url %>" type="image/webp">
-      <img src="/images/core/placeholder-note.jpg" alt="<%= map.alt || map.title %>">
-    </picture>
-    <figcaption><%= map.item_name %></figcaption>
-  </figure>
-  <% }); %>
-  <% } %>
+	<% if (galleryTall && galleryTall.length) { %>
+	<% galleryTall.forEach(map => { %>
+	<figure class="u-cursor-point" data-map-id="<%= map.id %>"
+		data-image-url="<%- map.image_url.replace(/"/g, '&quot;') %>"
+		data-alt="<%- (map.alt || map.item_name).replace(/"/g, '&quot;') %>"
+		data-title="<%- map.item_name.replace(/"/g, '&quot;') %>">
+		<picture>
+			<source srcset="<%= map.image_url %>" type="image/webp">
+			<img src="/images/core/placeholder-note.jpg" alt="<%= map.alt || map.title %>">
+		</picture>
+		<figcaption><%= map.item_name %></figcaption>
+	</figure>
+	<% }); %>
+	<% } %>
 </div>
 
 <div class="gallery">
-  <% if (galleryWide && galleryWide.length) { %>
-  <% galleryWide.forEach(map => { %>
-  <figure data-map-id="<%= map.id %>" data-image-url="<%= map.image_url %>" data-alt="<%= map.alt %>"
-    data-title="<%= map.item_name %>">
-    <picture>
-      <source srcset="<%= map.image_url %>" type="image/webp">
-      <img src="/images/core/placeholder-note.jpg" alt="<%= map.alt || map.title %>">
-    </picture>
-    <figcaption><%= map.item_name %></figcaption>
-  </figure>
-  <% }); %>
-  <% } %>
+	<% if (galleryWide && galleryWide.length) { %>
+	<% galleryWide.forEach(map => { %>
+	<figure class="u-cursor-point" data-map-id="<%= map.id %>" data-image-url="<%= map.image_url %>"
+		data-alt="<%= map.alt %>" data-title="<%= map.item_name %>">
+		<picture>
+			<source srcset="<%= map.image_url %>" type="image/webp">
+			<img src="/images/core/placeholder-note.jpg" alt="<%= map.alt || map.title %>">
+		</picture>
+		<figcaption><%= map.item_name %></figcaption>
+	</figure>
+	<% }); %>
+	<% } %>
 </div>

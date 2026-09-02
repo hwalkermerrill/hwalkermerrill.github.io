@@ -64,10 +64,11 @@ const journalPage = async (req, res, next) => {
 			lore: logsWithContent.filter(l => l.log_type === "lore"),
 			npcSpotlight: logsWithContent.filter(l => l.log_type === "npc spotlight"),
 
-			// "other" = anything NOT in definedTypes AND NOT session summary
+			// "other" = anything NOT in definedTypes AND NOT session summary or location spotlight
 			other: logsWithContent.filter(l =>
 				!definedTypes.includes(l.log_type) &&
-				l.log_type !== "session summary"
+				l.log_type !== "session summary" &&
+				l.log_type !== "location spotlight"
 			)
 		};
 

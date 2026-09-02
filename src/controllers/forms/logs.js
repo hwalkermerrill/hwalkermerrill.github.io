@@ -85,6 +85,7 @@ async function loadFormData() {
 	// Session Summary on top, documents | lore | npc spotlight | quests, other on bottom
 	const logTypes = [
 		"session summary",
+		"location spotlight",
 		"documents",
 		"dreams",
 		"lore",
