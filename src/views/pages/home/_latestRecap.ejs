@@ -6,18 +6,15 @@
 	<% } else { %>
 
 	<article id="session-recap-content" data-log-id="<%= latestRecap.id %>">
-
 		<h3><%= latestRecap.title %></h3>
 
 		<% if (latestRecap.time_span) { %>
-		<p><strong>Time Span:</strong> <%= latestRecap.time_span %></p>
+		<p class="u-text-mini u-margin-collapse">&ensp;&ensp;<i>Time Span: <%= latestRecap.time_span %></i></p>
 		<% } %>
 
-		<% if (latestRecap.session_date) { %>
-		<p><strong>Session Date:</strong>
-			<%= latestRecap.session_date.toISOString().slice(0,10) %>
-		</p>
-		<% } %>
+		<!-- <% if (latestRecap.session_date) { %>
+		<p><strong>Session Date:</strong> <%= latestRecap.session_date.toISOString().slice(0,10) %> </p>
+		<% } %> -->
 
 		<% if (latestRecap.mainImage) { %>
 		<picture>
