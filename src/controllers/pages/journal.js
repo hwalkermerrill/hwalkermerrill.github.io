@@ -49,7 +49,7 @@ const journalPage = async (req, res, next) => {
 
 		// Group logs by book_number for listing
 		const logsByBook = {};
-		logsWithContent.forEach(log => {
+		sessionLogs.forEach(log => {
 			const key = `book${log.book_number || 0}`;
 			if (!logsByBook[key]) logsByBook[key] = [];
 			logsByBook[key].push(log);
