@@ -9,7 +9,7 @@ function initSessionRecapSwitcher() {
 		item.addEventListener("click", () => {
 			const title = item.dataset.title;
 			const timeSpan = item.dataset.timeSpan;
-			const sessionDate = item.dataset.sessionDate;
+			// const sessionDate = item.dataset.sessionDate;
 			const paragraphs = JSON.parse(item.dataset.paragraphs || "[]");
 			const images = JSON.parse(item.dataset.images || "[]");
 
@@ -20,23 +20,26 @@ function initSessionRecapSwitcher() {
 			recapContainer.innerHTML = "";
 
 			const h3 = document.createElement("h3");
-			h3.innerHTML = title;  // SECURITY NOTE: This requires the backend to sanitize text to prevent XSS
+			h3.innerHTML = title;  // SECURITY NOTE: Sanitized on the backend to prevent xss
 			recapContainer.appendChild(h3);
 
 			if (timeSpan) {
 				const p = document.createElement("p");
-				p.innerHTML = `<strong>Time Span:</strong> ${timeSpan}`;
+				p.className = "u-text-mini u-margin-collapse";
+				p.innerHTML = `&ensp;&ensp;<i>Time Span: ${timeSpan}</i>`;
 				recapContainer.appendChild(p);
 			}
 
-			if (sessionDate) {
-				const p = document.createElement("p");
-				p.innerHTML = `<strong>Session Date:</strong> ${sessionDate}`;
-				recapContainer.appendChild(p);
-			}
+			// if (sessionDate) {
+			// 	const p = document.createElement("p");
+			// 	p.innerHTML = `<strong>Session Date:</strong> ${sessionDate}`;
+			// 	recapContainer.appendChild(p);
+			// }
 
-			// Render ALL images
+			// Render Images
 			images.forEach(imgData => {
+				const figure = document.createElement("figure");
+				figure.className = "u-text-center";
 				const picture = document.createElement("picture");
 
 				const source = document.createElement("source");
@@ -52,6 +55,15 @@ function initSessionRecapSwitcher() {
 
 				picture.appendChild(source);
 				picture.appendChild(img);
+				figure.appendChild(picture);
+
+				if (imgData.figcaption) {
+					const caption = document.createElement("figcaption");
+					caption.className = "u-text-mini";
+					caption.textContent = imgData.figcaption;
+					figure.appendChild(caption)
+				}
+
 				recapContainer.appendChild(picture);
 			});
 
