@@ -5,7 +5,7 @@
 	<p>No session logs have been recorded yet.</p>
 	<% } else { %>
 	<article id="session-recap-content" data-log-id="<%= latestLog.id %>">
-		<h3>#<%= latestLog.session_number %> - <%= latestLog.title %></h3>
+		<h3><%= latestLog.title %></h3>
 
 		<% if (latestLog.time_span) { %>
 		<p class="u-text-mini u-margin-collapse">&ensp;&ensp;<i>Time Span: <%= latestLog.time_span %></i></p>
