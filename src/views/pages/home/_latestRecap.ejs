@@ -17,11 +17,19 @@
 		<% } %> -->
 
 		<% if (latestRecap.mainImage) { %>
-		<picture>
-			<source srcset="<%= latestRecap.mainImage.image_url %>" type="image/webp">
-			<img class="pointer <%= latestRecap.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/unknown.png"
-				alt="<%= latestRecap.mainImage.alt %>" loading="lazy">
-		</picture>
+		<figure class="u-text-center">
+			<picture>
+				<source srcset="<%= latestRecap.mainImage.image_url %>" type="image/webp">
+				<img class="pointer <%= latestRecap.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/unknown.png"
+					alt="<%= latestRecap.mainImage.alt %>" loading="lazy">
+			</picture>
+
+			<% if (latestRecap.mainImage.figcaption) { %>
+			<figcaption class="u-text-mini">
+				<%= latestRecap.mainImage.figcaption %>
+			</figcaption>
+			<% } %>
+		</figure>
 		<% } %>
 
 		<% latestRecap.paragraphs.forEach(p => { %>

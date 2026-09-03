@@ -16,11 +16,18 @@
 		<% } %> -->
 
 		<% if (latestLog.mainImage) { %>
-		<picture>
-			<source srcset="<%= latestLog.mainImage.image_url %>" type="image/webp">
-			<img class="pointer <%= latestLog.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/unknown.png"
-				alt="<%= latestLog.mainImage.alt %>" loading="lazy">
-		</picture>
+		<figure class="u-text-center">
+			<picture>
+				<source srcset="<%= latestLog.mainImage.image_url %>" type="image/webp">
+				<img class="pointer <%= latestLog.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/unknown.png"
+					alt="<%= latestLog.mainImage.alt %>" loading="lazy">
+			</picture>
+			<% if (latestLog.mainImage.figcaption) { %>
+			<figcaption class="u-text-mini">
+				<%= latestLog.mainImage.figcaption %>
+			</figcaption>
+			<% } %>
+		</figure>
 		<% } %>
 
 		<% latestLog.paragraphs.forEach(p => { %>

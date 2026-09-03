@@ -124,7 +124,8 @@ async function replaceGalleryForLog(req, logId, {
 	gallery_alt,
 	gallery_type,
 	gallery_is_tall,
-	gallery_hover_visible
+	gallery_hover_visible,
+	gallery_figcaption
 }) {
 	await deleteGalleryForLog(logId);
 
@@ -133,6 +134,7 @@ async function replaceGalleryForLog(req, logId, {
 	const galleryTypes = normalizeToArray(gallery_type);
 	const galleryTall = normalizeToArray(gallery_is_tall);
 	const galleryHoverVisible = normalizeToArray(gallery_hover_visible);
+	const galleryFigcaption = normalizeToArray(gallery_figcaption);
 
 	if (galleryUrls.length === 0) {
 		return; // No gallery rows to insert.
@@ -179,6 +181,7 @@ async function replaceGalleryForLog(req, logId, {
 
 		const isTall = galleryTall[i] === "true";
 		const hoverVisible = galleryHoverVisible[i] === "true";
+		const figcaption = galleryFigcaption[i].trim();
 
 		await insertGalleryImage(logId, {
 			imageUrl: url,
@@ -186,7 +189,8 @@ async function replaceGalleryForLog(req, logId, {
 			isMain,
 			isHover,
 			hoverVisible,
-			isTall
+			isTall,
+			figcaption
 		});
 	}
 }
@@ -212,7 +216,8 @@ async function submitNewLog(req, res) {
 		gallery_alt,
 		gallery_type,
 		gallery_is_tall,
-		gallery_hover_visible
+		gallery_hover_visible,
+		gallery_figcaption
 	} = req.body;
 
 	// Allow typing custom log type string
@@ -233,7 +238,7 @@ async function submitNewLog(req, res) {
 
 		// Use dry helpers for paragraphs and galleries
 		await replaceParagraphsForLog(logId, paragraph_text, req.session.user.id);
-		await replaceGalleryForLog(req, logId, { gallery_url, gallery_alt, gallery_type, gallery_is_tall, gallery_hover_visible });
+		await replaceGalleryForLog(req, logId, { gallery_url, gallery_alt, gallery_type, gallery_is_tall, gallery_hover_visible, gallery_figcaption });
 
 		req.flash("success", "Log created successfully!");
 		res.redirect("/journal");
@@ -266,7 +271,8 @@ async function submitLogEdit(req, res) {
 		gallery_alt,
 		gallery_type,
 		gallery_is_tall,
-		gallery_hover_visible
+		gallery_hover_visible,
+		gallery_figcaption
 	} = req.body;
 
 	// Allow typing custom log type string
@@ -286,7 +292,7 @@ async function submitLogEdit(req, res) {
 
 		// Use dry helpers for paragraphs and galleries
 		await replaceParagraphsForLog(logId, paragraph_text, req.session.user.id);
-		await replaceGalleryForLog(req, logId, { gallery_url, gallery_alt, gallery_type, gallery_is_tall, gallery_hover_visible });
+		await replaceGalleryForLog(req, logId, { gallery_url, gallery_alt, gallery_type, gallery_is_tall, gallery_hover_visible, gallery_figcaption });
 
 		req.flash("success", "Log updated successfully!");
 		res.redirect("/journal");

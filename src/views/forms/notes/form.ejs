@@ -65,8 +65,9 @@
 
 		<!-- Formatting Buttons -->
 		<div class="form-formatting">
-			<button type="button" class="btn fmt-btn" data-tag="i"><i>Italic</i></button>
 			<button type="button" class="btn fmt-btn" data-tag="b"><b>Bold</b></button>
+			<button type="button" class="btn fmt-btn" data-tag="i"><i>Italic</i></button>
+			<button type="button" class="btn fmt-btn" data-tag="q"><b>Quote</b></button>
 			<button type="button" class="btn fmt-btn" data-tag="br">New Line</button>
 		</div>
 
@@ -115,7 +116,7 @@
 				return;
 			}
 
-			// Wrap selected text in <i> or <b>
+			// Wrap selected text in <i>, <q>, or <b>
 			const start = textarea.selectionStart;
 			const end = textarea.selectionEnd;
 			const selected = textarea.value.substring(start, end);

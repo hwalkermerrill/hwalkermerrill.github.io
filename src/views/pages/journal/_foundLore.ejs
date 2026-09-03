@@ -59,23 +59,39 @@
 			<!-- Main image (if present) -->
 			<% if (log.mainImage) { %>
 			<li style="display:none;">
-				<picture>
-					<source srcset="<%= log.mainImage.image_url %>" type="image/webp">
-					<img class="pointer <%= log.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/placeholder-note.jpg"
-						alt="<%= log.mainImage.alt || log.title %>" loading="lazy">
-				</picture>
+				<figure class="u-text-center">
+					<picture>
+						<source srcset="<%= log.mainImage.image_url %>" type="image/webp">
+						<img class="pointer <%= log.mainImage.is_tall ? 'tooTall' : 'wide' %>"
+							src="/images/core/placeholder-note.jpg" alt="<%= log.mainImage.alt || log.title %>" loading="lazy">
+					</picture>
+
+					<% if (log.mainImage.figcaption) { %>
+					<figcaption class="u-text-mini">
+						<%= log.mainImage.figcaption %>
+					</figcaption>
+					<% } %>
+				</figure>
 			</li>
 			<% } %>
 
 			<!-- Hover image (optional, if present) -->
 			<% if (log.hoverImage) { %>
 			<li style="display:none;">
-				<picture>
-					<source srcset="<%= log.hoverImage.image_url %>" type="image/webp">
-					<img class="pointer <%= log.hoverImage.is_tall ? 'tooTall' : 'wide' %>"
-						src="/images/core/placeholder-note.jpg" alt="<%= log.hoverImage.alt || (log.title + ' (hover)') %>"
-						loading="lazy">
-				</picture>
+				<figure class="u-text-center">>
+					<picture>
+						<source srcset="<%= log.hoverImage.image_url %>" type="image/webp">
+						<img class="pointer <%= log.hoverImage.is_tall ? 'tooTall' : 'wide' %>"
+							src="/images/core/placeholder-note.jpg" alt="<%= log.hoverImage.alt || (log.title + ' (hover)') %>"
+							loading="lazy">
+					</picture>
+
+					<% if (log.hoverImage.figcaption) { %>
+					<figcaption class="u-text-mini">
+						<%= log.hoverImage.figcaption %>
+					</figcaption>
+					<% } %>
+				</figure>
 			</li>
 			<% } %>
 

@@ -133,14 +133,16 @@ async function insertParagraph(logId, order, text, userId) {
 	);
 }
 
-async function insertGalleryImage(logId, { imageUrl, alt, isMain, isHover, hoverVisible, isTall }) {
+async function insertGalleryImage(logId, { imageUrl, alt, isMain, isHover, hoverVisible, isTall, figcaption }) {
+	const sanitized = figcaption ? sanitizeText(figcaption) : null;
+
 	await db.query(
 		`
     INSERT INTO session_log_gallery
-      (session_log_id, image_url, alt, is_main, is_hover, hover_visible, is_tall)
-    VALUES ($1, $2, $3, $4, $5, $6, $7)
+      (session_log_id, image_url, alt, is_main, is_hover, hover_visible, is_tall, figcaption)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
     `,
-		[logId, imageUrl, alt, isMain, isHover, hoverVisible, isTall]
+		[logId, imageUrl, alt, isMain, isHover, hoverVisible, isTall, sanitized]
 	);
 }
 

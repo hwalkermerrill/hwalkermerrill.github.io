@@ -9,7 +9,7 @@
 			<source srcset="<%= map.image_url %>" type="image/webp">
 			<img src="/images/core/placeholder-note.jpg" alt="<%= map.alt || map.title %>">
 		</picture>
-		<figcaption><%= map.item_name %></figcaption>
+		<figcaption><%= map.figcaption || map.item_name %></figcaption>
 	</figure>
 	<% }); %>
 	<% } %>
@@ -24,7 +24,7 @@
 			<source srcset="<%= map.image_url %>" type="image/webp">
 			<img src="/images/core/placeholder-note.jpg" alt="<%= map.alt || map.title %>">
 		</picture>
-		<figcaption><%= map.item_name %></figcaption>
+		<figcaption><%= map.figcaption || map.item_name %></figcaption>
 	</figure>
 	<% }); %>
 	<% } %>
