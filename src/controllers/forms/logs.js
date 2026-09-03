@@ -147,14 +147,22 @@ async function replaceGalleryForLog(req, logId, {
 		const rawUrl = galleryUrls[i] || "";
 		const url = rawUrl.trim();
 
+		// Prevent thrown errors when deleting final image
+		if (!url) {
+			continue;
+		}
+
 		// Server-side URL validation.
 		if (!validateImgUrl(url)) {
 			req.flash("error", `Invalid image URL: "${rawUrl}". Must be a valid http/https image link.`);
 			continue;
 		}
 
-		const alt = galleryAlts[i] || "Session Image";
-		const type = galleryTypes[i] || "extra";
+		const rawAlt = galleryAlts[i] || "Session Image";
+		const alt = rawAlt.trim() || "Session Image";
+
+		const rawType = galleryTypes[i] || "extra";
+		const type = rawType.trim() || "extra";
 
 		let isMain = false;
 		let isHover = false;
@@ -181,7 +189,8 @@ async function replaceGalleryForLog(req, logId, {
 
 		const isTall = galleryTall[i] === "true";
 		const hoverVisible = galleryHoverVisible[i] === "true";
-		const figcaption = galleryFigcaption[i].trim();
+		const rawFig = galleryFigcaption[i] || "";
+		const figcaption = rawFig.trim();
 
 		await insertGalleryImage(logId, {
 			imageUrl: url,
@@ -190,7 +199,7 @@ async function replaceGalleryForLog(req, logId, {
 			isHover,
 			hoverVisible,
 			isTall,
-			figcaption
+			figcaption: figcaption || null
 		});
 	}
 }
