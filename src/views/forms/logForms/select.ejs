@@ -1,0 +1,74 @@
+<%- include("../../partials/header") %>
+
+<main id="maincontent" class="clearfix">
+	<h1>Manage Logs</h1>
+
+	<form action="/logs/select" method="POST" class="note-form">
+
+		<!-- Campaign / Log Type / Session -->
+		<div class="form-row">
+
+			<!-- Campaign -->
+			<div class="form-field">
+				<label for="campaign_id">Campaign</label>
+				<select id="campaign_id" name="campaign_id" required>
+					<% campaigns.forEach(c => { %>
+					<option value="<%= c.id %>" <%= (campaign_id === c.id) || (!c.id === campaign_id) ? "selected" : "" %>>
+						<%= c.campaign_name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<!-- Log Type -->
+			<div class="form-field">
+				<label for="log_type">Log Type</label>
+				<select id="log_type" name="log_type" required>
+					<% logTypes.forEach(type => { %>
+					<option value="<%= type %>"><%= type %></option>
+					<% }) %>
+				</select>
+
+				<!-- Free-type field for "other" -->
+				<input type="text" id="custom_log_type" name="custom_log_type" placeholder="Enter custom log type..."
+					style="margin-top: 0.5rem;">
+			</div>
+
+			<!-- Session Number -->
+			<div class="form-field">
+				<label for="session_number">Session #</label>
+				<input type="number" id="session_number" name="session_number" min="1" placeholder="Enter session number"
+					required>
+			</div>
+
+		</div>
+
+		<!-- Actions -->
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary"> Load Log </button>
+			<a href="/logs/new" class="btn fmt-btn"> Create New Log </a>
+			<a href="/journal" class="btn fmt-btn"> Cancel </a>
+		</div>
+
+	</form>
+</main>
+
+<script>
+	// Show/hide custom log type field
+	const logTypeSelect = document.getElementById("log_type");
+	const customField = document.getElementById("custom_log_type");
+
+	function toggleCustomField() {
+		if (logTypeSelect.value === "other") {
+			customField.style.display = "block";
+		} else {
+			customField.style.display = "none";
+			customField.value = "";
+		}
+	}
+
+	logTypeSelect.addEventListener("change", toggleCustomField);
+	toggleCustomField();
+</script>
+
+<%- include("../../partials/footer") %>

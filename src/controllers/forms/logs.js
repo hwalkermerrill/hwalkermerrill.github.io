@@ -350,7 +350,7 @@ async function showLogSelectPage(req, res) {
 	const { campaigns, logTypes } = await loadFormData();
 	const campaign_id = res.locals.campaign_id;
 
-	res.render("forms/logs/select", {
+	res.render("forms/logForms/select", {
 		title: "Manage Logs",
 		activePage: "logs",
 		campaign_id,
@@ -367,7 +367,7 @@ async function showCreateLogForm(req, res) {
 	const { campaigns, logTypes } = await loadFormData();
 	const campaign_id = res.locals.campaign_id;
 
-	res.render("forms/logs/form", {
+	res.render("forms/logForms/form", {
 		title: "Create Log",
 		activePage: "logs",
 		formMode: "create",
@@ -396,7 +396,7 @@ async function showEditLogForm(req, res) {
 	const gallery = await getGalleryForLogs([logId]);
 	const { campaigns, logTypes } = await loadFormData();
 
-	res.render("forms/logs/form", {
+	res.render("forms/logForms/form", {
 		title: "Edit Log",
 		activePage: "logs",
 		formMode: "edit",

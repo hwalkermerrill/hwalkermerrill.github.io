@@ -1,0 +1,354 @@
+<%- include("../../partials/header") %>
+
+<main id="maincontent" class="clearfix">
+	<h1><%= formMode === "edit" ? "Edit Log" : "Create Log" %></h1>
+
+	<form action="<%= formMode === 'edit'
+      ? '/logs/' + log.id + '/edit'
+      : '/logs/new' %>" method="POST" class="note-form">
+
+		<!-- Campaign / Log Type -->
+		<div class="form-row">
+
+			<div class="form-field">
+				<label for="campaign_id">Campaign</label>
+				<select id="campaign_id" name="campaign_id" required>
+					<% campaigns.forEach(c => { %>
+					<option value="<%= c.id %>"
+						<%= (log && log.campaign_id === c.id) || (!log && c.id === campaign_id) ? "selected" : "" %>>
+						<%= c.campaign_name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<div class="form-field">
+				<label for="log_type">Log Type</label>
+				<select id="log_type" name="log_type" required>
+					<% logTypes.forEach(type => { %>
+					<option value="<%= type %>" <%= log && log.log_type === type ? "selected" : "" %>>
+						<%= type %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<!-- Custom log type field -->
+			<div class="form-field" id="custom-type-wrapper">
+				<label for="custom_log_type">Custom Type</label>
+				<input type="text" id="custom_log_type" name="custom_log_type" placeholder="Enter custom log type..."
+					value="<%= log && !logTypes.includes(log.log_type) ? log.log_type : '' %>">
+			</div>
+		</div>
+
+		<!-- Book # / Session # / Session Date -->
+		<div class="form-row">
+
+			<div class="form-field">
+				<label for="book_number">Book #</label>
+				<input type="number" id="book_number" name="book_number" min="0" value="<%= log ? log.book_number : '' %>"
+					placeholder="Optional">
+			</div>
+
+			<div class="form-field">
+				<label for="session_number">Session #</label>
+				<input type="number" id="session_number" name="session_number" min="0" required
+					value="<%= log ? log.session_number : '' %>">
+			</div>
+
+			<div class="form-field">
+				<label for="session_date">Session Date</label>
+				<input type="date" id="session_date" name="session_date"
+					value="<%= log && log.session_date ? log.session_date.toISOString().slice(0,10) : '' %>">
+			</div>
+		</div>
+
+		<!-- Title -->
+		<div class="form-field">
+			<label for="title">Title</label>
+			<input type="text" id="title" name="title" maxlength="255" value="<%= log ? log.title : '' %>"
+				placeholder="Enter a title..." required>
+		</div>
+
+		<!-- Paragraphs -->
+		<div class="form-field">
+			<label>Paragraphs</label>
+
+			<div id="paragraph-container">
+				<% if (paragraphs.length > 0) { %>
+				<% paragraphs.forEach((p, idx) => { %>
+				<textarea name="paragraph_text" class="paragraph-box" rows="4"
+					placeholder="Paragraph <%= idx + 1 %>"><%= p.paragraph_text %></textarea>
+				<% }) %>
+
+				<% } else { %>
+				<!-- Default first paragraph -->
+				<textarea name="paragraph_text" class="paragraph-box" rows="4" placeholder="Paragraph 1"></textarea>
+				<% } %>
+			</div>
+
+			<!-- Formatting Buttons -->
+			<div class="form-formatting">
+				<button type="button" class="btn fmt-btn" data-tag="b"><b>Bold</b></button>
+				<button type="button" class="btn fmt-btn" data-tag="i"><i>Italic</i></button>
+				<button type="button" class="btn fmt-btn" data-tag="q"><b>Quote</b></button>
+				<button type="button" class="btn fmt-btn" id="add-paragraph">+ Add Paragraph</button>
+				<button type="button" class="btn fmt-btn" id="remove-paragraph">- Remove Paragraph</button>
+			</div>
+		</div>
+
+		<!-- Gallery -->
+		<div class="form-field">
+			<label>Gallery Images</label>
+
+			<div id="gallery-container">
+				<% gallery.forEach((g, idx) => { %>
+				<div class="gallery-row">
+
+					<!-- URL -->
+					<input type="text" name="gallery_url" placeholder="Image URL" value="<%= g.image_url %>"
+						class="gallery-input">
+
+					<!-- Alt -->
+					<input type="text" name="gallery_alt" placeholder="Alt text" value="<%= g.alt %>" class="gallery-input">
+
+					<!-- Figcaption -->
+					<input type="text" name="gallery_figcaption" placeholder="Caption (optional)"
+						value="<%= g.figcaption || '' %>" class="gallery-input">
+
+					<div class="form-row">
+						<!-- Type -->
+						<select name="gallery_type" class="gallery-input gallery-type">
+							<option value="main" <%= g.is_main ? "selected" : "" %>>Main</option>
+							<option value="hover" <%= g.is_hover ? "selected" : "" %>>Hover</option>
+							<option value="extra" <%= (!g.is_main && !g.is_hover) ? "selected" : "" %>>Extra</option>
+						</select>
+
+						<!-- Hover Visible (only if hover) -->
+						<select name="gallery_hover_visible" class="gallery-input hover-visible"
+							style="<%= g.is_hover ? '' : 'display:none;' %>">
+							<option value="false" <%= !g.hover_visible ? "selected" : "" %>>Hover Hidden</option>
+							<option value="true" <%= g.hover_visible ? "selected" : "" %>>Hover Visible</option>
+						</select>
+
+						<!-- Tall -->
+						<select name="gallery_is_tall" class="gallery-input">
+							<option value="false" <%= !g.is_tall ? "selected" : "" %>>Normal</option>
+							<option value="true" <%= g.is_tall ? "selected" : "" %>>Tall</option>
+						</select>
+					</div>
+				</div>
+				<% }) %>
+			</div>
+
+			<!-- Add/remove gallery buttons -->
+			<button type="button" class="btn fmt-btn" id="add-gallery">+ Add Image</button>
+			<button type="button" class="btn fmt-btn" id="remove-gallery">- Remove Image</button>
+		</div>
+
+		<!-- Time Span / Pinned-->
+		<div class="form-row">
+
+			<div class="form-field">
+				<label for="time_span">Time Span</label>
+				<input type="text" id="time_span" name="time_span" maxlength="255" value="<%= log ? log.time_span : '' %>"
+					placeholder="e.g., '3 days', 'Morning to Evening'">
+			</div>
+
+			<div class="form-field">
+				<label for="pinned">Pinned</label>
+				<select id="pinned" name="pinned">
+					<option value="false" <%= log && !log.pinned ? "selected" : "" %>>Not Pinned</option>
+					<option value="true" <%= log && log.pinned ? "selected" : "" %>>Pinned</option>
+				</select>
+			</div>
+		</div>
+
+		<!-- Submit -->
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">
+				<%= formMode === "edit" ? "Save Changes" : "Create Log" %>
+			</button>
+
+			<!-- GM-only delete -->
+			<% if (formMode === "edit" && hasRole(user, "gm_admin")) { %>
+			<form action="/logs/<%= log.id %>/delete" method="POST" class="inline-form">
+				<button type="submit" class="btn btn-danger">Delete</button>
+			</form>
+			<% } %>
+
+			<a href="/journal" class="btn fmt-btn">Cancel</a>
+		</div>
+
+	</form>
+</main>
+
+<script>
+	document.querySelectorAll(".fmt-btn[data-tag]").forEach(btn => {
+		btn.addEventListener("mousedown", e => e.preventDefault()); // Dont lose focus no click
+		btn.addEventListener("click", () => {
+			const tag = btn.dataset.tag;
+			const textarea = document.activeElement;
+
+			if (!textarea || textarea.tagName !== "TEXTAREA") return;
+
+			const start = textarea.selectionStart;
+			const end = textarea.selectionEnd;
+			const selected = textarea.value.substring(start, end);
+			const wrapped = `<${tag}>${selected}</${tag}>`;
+
+			textarea.value =
+				textarea.value.substring(0, start) +
+				wrapped +
+				textarea.value.substring(end);
+
+			textarea.selectionStart = start;
+			textarea.selectionEnd = start + wrapped.length;
+		});
+	});
+
+	// Show/hide custom log type field
+	const logTypeSelect = document.getElementById("log_type");
+	const customWrapper = document.getElementById("custom-type-wrapper");
+
+	function toggleCustomField() {
+		if (logTypeSelect.value === "other") {
+			customWrapper.style.display = "block";
+		} else {
+			customWrapper.style.display = "none";
+			document.getElementById("custom_log_type").value = "";
+		}
+	}
+
+	logTypeSelect.addEventListener("change", toggleCustomField);
+	toggleCustomField();
+
+	// Paragraph add/remove
+	document.getElementById("add-paragraph").addEventListener("click", () => {
+		const container = document.getElementById("paragraph-container");
+		const textarea = document.createElement("textarea");
+		textarea.name = "paragraph_text";
+		textarea.className = "paragraph-box";
+		textarea.rows = 4;
+		textarea.placeholder = `Paragraph ${container.children.length + 1}`;
+		container.appendChild(textarea);
+	});
+
+	document.getElementById("remove-paragraph").addEventListener("click", () => {
+		const container = document.getElementById("paragraph-container");
+		if (container.children.length > 1) {
+			container.removeChild(container.lastElementChild);
+		}
+	});
+
+	// Gallery add/remove
+	document.getElementById("add-gallery").addEventListener("click", () => {
+		const container = document.getElementById("gallery-container");
+
+		// Show container if hidden
+		container.style.display = "block";
+
+		const row = document.createElement("div");
+		row.className = "gallery-row";
+
+		row.innerHTML = `
+			<input type="text" name="gallery_url" placeholder="Image URL" class="gallery-input">
+			<input type="text" name="gallery_alt" placeholder="Alt text" class="gallery-input">
+			<input type="text" name="gallery_figcaption" placeholder="Caption (optional)" class="gallery-input">
+
+			<div class="form-row">
+				<select name="gallery_type" class="gallery-input gallery-type">
+					<option value="main" selected>Main</option>
+					<option value="hover">Hover</option>
+					<option value="extra">Extra</option>
+				</select>
+
+				<select name="gallery_hover_visible" class="gallery-input hover-visible" style="display:none;">
+					<option value="false" selected>Hover Hidden</option>
+					<option value="true">Hover Visible</option>
+				</select>
+
+				<select name="gallery_is_tall" class="gallery-input">
+					<option value="false" selected>Normal</option>
+					<option value="true">Tall</option>
+				</select>
+			</div>
+		`;
+
+		container.appendChild(row);
+
+		// Ensure only first image defaults to main
+		if (container.children.length > 1) {
+			row.querySelector("[name='gallery_type']").value = "extra";
+		}
+
+		// Add type-change listener
+		setupGalleryTypeListener(row);
+	});
+
+	document.getElementById("remove-gallery").addEventListener("click", () => {
+		const container = document.getElementById("gallery-container");
+		if (container.children.length > 0) {
+			container.removeChild(container.lastElementChild);
+		}
+		if (container.children.length === 0) {
+			container.style.display = "none";
+		}
+	});
+
+	// Gallery Type Logic
+	function setupGalleryTypeListener(row) {
+		const typeSelect = row.querySelector(".gallery-type");
+		const hoverVisible = row.querySelector(".hover-visible");
+
+		typeSelect.addEventListener("change", () => {
+			if (typeSelect.value === "hover") {
+				hoverVisible.style.display = "inline-block";
+			} else {
+				hoverVisible.style.display = "none";
+				hoverVisible.value = "false";
+			}
+		});
+	}
+
+	// Initialize listeners for existing rows
+	document.querySelectorAll(".gallery-row").forEach(setupGalleryTypeListener);
+
+	// Front-end enforcement: max one Main and one Hover
+	function enforceGalleryFlags() {
+		const rows = document.querySelectorAll(".gallery-row");
+		let mainFound = false;
+		let hoverFound = false;
+
+		rows.forEach(row => {
+			const typeSelect = row.querySelector(".gallery-type");
+
+			if (typeSelect.value === "main") {
+				if (mainFound) {
+					// Prevent second main
+					typeSelect.value = "extra";
+					alert("Only one image can be Main.");
+				}
+				mainFound = true;
+			}
+
+			if (typeSelect.value === "hover") {
+				if (hoverFound) {
+					// Prevent second hover
+					typeSelect.value = "extra";
+					alert("Only one image can be Hover.");
+				}
+				hoverFound = true;
+			}
+		});
+	}
+
+	// Run enforcement whenever type changes
+	document.addEventListener("change", e => {
+		if (e.target.classList.contains("gallery-type")) {
+			enforceGalleryFlags();
+		}
+	});
+</script>
+
+<%- include("../../partials/footer") %>
