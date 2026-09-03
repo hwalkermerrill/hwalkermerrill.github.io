@@ -13,7 +13,7 @@
 				<label for="campaign_id">Campaign</label>
 				<select id="campaign_id" name="campaign_id" required>
 					<% campaigns.forEach(c => { %>
-					<option value="<%= c.id %>" <%= (campaign_id === c.id) || (!c.id === campaign_id) ? "selected" : "" %>>
+					<option value="<%= c.id %>" <%= Number(campaign_id) === Number(c.id) ? "selected" : "" %>>
 						<%= c.campaign_name %>
 					</option>
 					<% }) %>
@@ -37,8 +37,8 @@
 			<!-- Session Number -->
 			<div class="form-field">
 				<label for="session_number">Session #</label>
-				<input type="number" id="session_number" name="session_number" min="1" placeholder="Enter session number"
-					required>
+				<input type="number" id="session_number" name="session_number" min="0" step="1"
+					placeholder="Enter session number" required>
 			</div>
 
 		</div>

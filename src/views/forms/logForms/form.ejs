@@ -46,13 +46,13 @@
 
 			<div class="form-field">
 				<label for="book_number">Book #</label>
-				<input type="number" id="book_number" name="book_number" min="0" value="<%= log ? log.book_number : '' %>"
-					placeholder="Optional">
+				<input type="number" id="book_number" name="book_number" min="0" step="1"
+					value="<%= log ? log.book_number : '' %>" placeholder="Optional">
 			</div>
 
 			<div class="form-field">
 				<label for="session_number">Session #</label>
-				<input type="number" id="session_number" name="session_number" min="0" required
+				<input type="number" id="session_number" name="session_number" min="0" step="1" required
 					value="<%= log ? log.session_number : '' %>">
 			</div>
 
@@ -83,7 +83,7 @@
 
 				<% } else { %>
 				<!-- Default first paragraph -->
-				<textarea name="paragraph_text" class="paragraph-box" rows="4" placeholder="Paragraph 1"></textarea>
+				<textarea name="paragraph_text" class="paragraph-box" rows="4" placeholder="Paragraph 1" required></textarea>
 				<% } %>
 			</div>
 
@@ -172,9 +172,7 @@
 
 			<!-- GM-only delete -->
 			<% if (formMode === "edit" && hasRole(user, "gm_admin")) { %>
-			<form action="/logs/<%= log.id %>/delete" method="POST" class="inline-form">
-				<button type="submit" class="btn btn-danger">Delete</button>
-			</form>
+			<button type="submit" class="btn btn-danger" formaction="/logs/<%= log.id %>/delete"> Delete </button>
 			<% } %>
 
 			<a href="/journal" class="btn fmt-btn">Cancel</a>
