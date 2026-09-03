@@ -1,6 +1,5 @@
 // Imports
 import {
-	sanitizeNoteContent,
 	getAllCategories,
 	// getNotesForUserCampaign,
 	// getPublicNotesForCampaign,
@@ -89,15 +88,13 @@ async function submitNewNote(req, res) {
 		return res.redirect("/journal/notes/new");
 	}
 
-	const sanitized = sanitizeNoteContent(note_content);
-
 	await createPlayerNote({
 		userId,
 		campaignId: Number(campaign_id),
 		pcId: pc_id ? Number(pc_id) : null,
 		categoryId: Number(category_id),
 		title: note_title.trim(),
-		content: sanitized,
+		content: note_content,
 		isPublic: is_public === "true"
 	});
 
@@ -177,11 +174,9 @@ async function submitNoteEdit(req, res) {
 		return res.redirect(`/journal/notes/${noteId}/edit`);
 	}
 
-	const sanitized = sanitizeNoteContent(note_content);
-
 	await updatePlayerNote(noteId, {
 		title: note_title.trim(),
-		content: sanitized,
+		content: note_content,
 		categoryId: Number(category_id),
 		pcId: pc_id ? Number(pc_id) : null,
 		isPublic: is_public === "true"

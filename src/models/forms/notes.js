@@ -1,32 +1,6 @@
 // Imports
 import db from "../db.js";
-
-// Security
-/**
- * Sanitizes note content by stripping all HTML except <i>, <b>, <br>.
- * Converts newlines to <br> for display consistency.
- */
-function sanitizeNoteContent(rawContent = "") {
-	if (!rawContent) return "";
-
-	// Escape all HTML first
-	let safe = rawContent
-		.replace(/</g, "&lt;")
-		.replace(/>/g, "&gt;");
-
-	// Re‑enable allowed tags
-	safe = safe
-		.replace(/&lt;i&gt;/g, "<i>")
-		.replace(/&lt;\/i&gt;/g, "</i>")
-		.replace(/&lt;b&gt;/g, "<b>")
-		.replace(/&lt;\/b&gt;/g, "</b>")
-		.replace(/&lt;br&gt;/g, "<br>");
-
-	// Convert newlines to <br>
-	safe = safe.replace(/\n/g, "<br>");
-
-	return safe;
-}
+import { sanitizeText } from "../../utils/validation.js";
 
 // Model Functions
 // Get note categories (dropdowns).
@@ -116,8 +90,8 @@ async function createPlayerNote({
 	content,
 	isPublic = false
 }) {
-	const sanitized = sanitizeNoteContent(content);
-
+	// Constants on Top
+	const sanitized = sanitizeText(content);
 	const { rows } = await db.query(
 		`INSERT INTO player_notes
       (user_id, campaign_id, pc_id, category_id,
@@ -133,7 +107,7 @@ async function updatePlayerNote(
 	noteId,
 	{ title, content, categoryId, pcId = null, isPublic }
 ) {
-	const sanitized = sanitizeNoteContent(content);
+	const sanitized = sanitizeText(content);
 
 	await db.query(
 		`UPDATE player_notes
@@ -160,7 +134,6 @@ async function deletePlayerNote(noteId) {
 
 // Exports
 export {
-	sanitizeNoteContent,
 	getAllCategories,
 	getNotesForUserCampaign,
 	getPublicNotesForCampaign,

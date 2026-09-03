@@ -18,51 +18,13 @@ import {
 } from "../../models/forms/logs.js";
 
 import { hasRole } from "../../utils/permissions.js";
+import { validateImgUrl } from "../../utils/validation.js";
 import db from "../../models/db.js";
 
-// Sanitation and Validation
-function sanitizeParagraphContent(raw = "") {
-	if (!raw) return "";
-
-	// Escape all HTML
-	let safe = raw.replace(/&/g, "&amp;")
-		.replace(/</g, "&lt;")
-		.replace(/>/g, "&gt;");
-
-	// Allowed and re-enabled: <b> and <i>
-	safe = safe
-		.replace(/&lt;b&gt;/g, "<b>")
-		.replace(/&lt;\/b&gt;/g, "</b>")
-		.replace(/&lt;i&gt;/g, "<i>")
-		.replace(/&lt;\/i&gt;/g, "</i>");
-
-	// Trim leading/trailing whitespace
-	return safe.trim();
-}
-
+// Normalization
 function normalizeToArray(value) {
 	if (!value) return [];
 	return Array.isArray(value) ? value : [value];
-}
-
-function isValidImageUrl(url) {
-	// Must not contain whitespace
-	if (/\s/.test(url)) return false;
-
-	// Allow absolute URLs
-	if (/^https?:\/\//i.test(url)) {
-		// Must end with a common image extension
-		return /\.(png|jpg|jpeg|gif|webp)$/i.test(url);
-	}
-
-	// Allow relative URLs starting with /
-	if (url.startsWith("/")) {
-		// Must end with a common image extension
-		return /\.(png|jpg|jpeg|gif|webp)$/i.test(url);
-	}
-
-	// Everything else is invalid
-	return false;
 }
 
 function canEdit(user) {
@@ -149,8 +111,8 @@ async function replaceParagraphsForLog(logId, paragraph_text, userId) {
 	const paragraphs = normalizeToArray(paragraph_text);
 
 	for (let i = 0; i < paragraphs.length; i++) {
-		const raw = paragraphs[i];
-		const text = sanitizeParagraphContent(raw);
+		const rawText = paragraphs[i];
+		const text = rawText.trim();
 		if (text.length > 0) {
 			await insertParagraph(logId, i + 1, text, userId);
 		}
@@ -184,7 +146,7 @@ async function replaceGalleryForLog(req, logId, {
 		const url = rawUrl.trim();
 
 		// Server-side URL validation.
-		if (!isValidImageUrl(url)) {
+		if (!validateImgUrl(url)) {
 			req.flash("error", `Invalid image URL: "${rawUrl}". Must be a valid http/https image link.`);
 			continue;
 		}
@@ -269,7 +231,7 @@ async function submitNewLog(req, res) {
 			pinned: pinned === "true"
 		});
 
-		// Use dry helpers for sanitized paragraphs and galleries
+		// Use dry helpers for paragraphs and galleries
 		await replaceParagraphsForLog(logId, paragraph_text, req.session.user.id);
 		await replaceGalleryForLog(req, logId, { gallery_url, gallery_alt, gallery_type, gallery_is_tall, gallery_hover_visible });
 
@@ -322,7 +284,7 @@ async function submitLogEdit(req, res) {
 			pinned: pinned === "true"
 		});
 
-		// Use dry helpers for sanitized paragraphs and galleries
+		// Use dry helpers for paragraphs and galleries
 		await replaceParagraphsForLog(logId, paragraph_text, req.session.user.id);
 		await replaceGalleryForLog(req, logId, { gallery_url, gallery_alt, gallery_type, gallery_is_tall, gallery_hover_visible });
 

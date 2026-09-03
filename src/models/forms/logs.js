@@ -1,5 +1,6 @@
 // Imports
 import db from "../db.js";
+import { sanitizeText } from "../../utils/validation.js";
 
 // Main Model Functions
 async function getLogById(logId) {
@@ -120,13 +121,15 @@ async function deleteGalleryForLog(logId) {
 
 // Single Insert/ Edit Model Functions
 async function insertParagraph(logId, order, text, userId) {
+	const sanitized = sanitizeText(text)
+
 	await db.query(
 		`
     INSERT INTO session_log_paragraphs
       (session_log_id, user_id, paragraph_order, paragraph_text)
     VALUES ($1, $2, $3, $4)
     `,
-		[logId, userId, order, text]
+		[logId, userId, order, sanitized]
 	);
 }
 
