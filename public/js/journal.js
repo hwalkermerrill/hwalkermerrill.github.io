@@ -70,9 +70,13 @@ function initSessionRecapSwitcher() {
 			// Render paragraphs
 			paragraphs.forEach(text => {
 				const p = document.createElement("p");
-				p.innerHTML = text; // SECURITY NOTE: This requires the backend to sanitize text to prevent XSS
+				p.innerHTML = text; // SECURITY NOTE: Sanitized on backend to prevent XSS
 				recapContainer.appendChild(p);
 			});
+
+			const clearfix = document.createElement("div");
+			clearfix.className = "clearfix";
+			recapContainer.appendChild(clearfix);
 		});
 	});
 }
