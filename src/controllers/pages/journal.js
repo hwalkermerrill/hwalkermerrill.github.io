@@ -10,6 +10,7 @@ import {
 	getNotesForUserCampaign,
 	getPublicNotesForCampaign
 } from "../../models/forms/notes.js";
+import { getQuestsForCampaign } from "../../models/forms/quests.js";
 
 // Controller Function
 const journalPage = async (req, res, next) => {
@@ -18,6 +19,9 @@ const journalPage = async (req, res, next) => {
 		const campaignId = res.locals.campaign_id;
 		const user = req.session.user;
 		const userId = user ? user.id : null;
+
+		// Load Quests
+		const quests = await getQuestsForCampaign(campaignId)
 
 		// Load all logs, map them to log ids, and load their linked table data
 		let logs = await getSessionLogsForCampaign(campaignId);
@@ -102,14 +106,15 @@ const journalPage = async (req, res, next) => {
 		res.render("pages/journal/journal", {
 			title: "Travel Log",
 			activePage: "journal",
+			campaignId: campaignId,
+			isLoggedIn: Boolean(user),
+			quests,
 			latestLog,
 			logsByBook,
 			logsByType,
 			// items: itemsWithImages,
 			publicNotes,
-			userNotes,
-			campaignId: campaignId,
-			isLoggedIn: Boolean(user)
+			userNotes
 		});
 	} catch (err) {
 		next(err); //Defined in global errorHandler.js

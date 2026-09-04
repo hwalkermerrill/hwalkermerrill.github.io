@@ -60,9 +60,9 @@
 					value="<%= quest ? quest.quest_name : '' %>" placeholder="Enter quest title..." required>
 			</div>
 
-			<!-- Deadline (optional free text) -->
+			<!-- Deadline -->
 			<div class="form-field">
-				<label for="deadline">Deadline (optional)</label>
+				<label for="deadline">Deadline</label>
 				<input type="text" id="deadline" name="deadline" maxlength="255"
 					value="<%= quest ? (quest.deadline || '') : '' %>"
 					placeholder="e.g., 'Before next moonrise', 'End of Act II'">
@@ -71,7 +71,7 @@
 
 		<!-- Description -->
 		<div class="form-field">
-			<label for="description">Quest Summary / Description</label>
+			<label for="description">Description</label>
 			<textarea id="description" name="description" rows="4"
 				placeholder="Brief quest summary..."><%= quest ? (quest.description || '') : '' %></textarea>
 		</div>
@@ -80,13 +80,13 @@
 		<div class="form-row">
 
 			<div class="form-field">
-				<label for="session_received">Session Received (optional)</label>
+				<label for="session_received">Session Received</label>
 				<input type="number" id="session_received" name="session_received" min="0" step="1"
 					value="<%= quest && quest.session_received !== null ? quest.session_received : '' %>" placeholder="e.g., 12">
 			</div>
 
 			<div class="form-field">
-				<label for="session_complete">Session Completed (optional)</label>
+				<label for="session_complete">Session Completed</label>
 				<input type="number" id="session_complete" name="session_complete" min="0" step="1"
 					value="<%= quest && quest.session_complete !== null ? quest.session_complete : '' %>" placeholder="e.g., 18">
 			</div>

@@ -1,0 +1,133 @@
+<%- include("../../partials/header") %>
+
+<main id="maincontent" class="clearfix">
+	<h1>Manage Quests</h1>
+
+	<!-- Campaign selector (for context only; current campaign is already active) -->
+	<div class="form-row">
+		<div class="form-field">
+			<label for="campaign_id">Campaign</label>
+			<select id="campaign_id" name="campaign_id" disabled>
+				<% campaigns.forEach(c => { %>
+				<option value="<%= c.id %>" <%= Number(campaign_id) === Number(c.id) ? "selected" : "" %>>
+					<%= c.campaign_name %>
+				</option>
+				<% }) %>
+			</select>
+			<small>This page shows quests for the current campaign.</small>
+		</div>
+
+		<div class="form-field">
+			<a href="/quests/new" class="btn fmt-btn" style="margin-top: 1.8rem;">Create New Quest</a>
+			<a href="/journal" class="btn fmt-btn" style="margin-top: 1.8rem;">Back to Journal</a>
+		</div>
+	</div>
+
+	<!-- Quest list grouped by type -->
+	<section class="quest-list">
+		<% if (quests.length === 0) { %>
+		<p>No quests found for this campaign.</p>
+		<% } else { %>
+
+		<% const grouped = {}; %>
+		<% quests.forEach(q => { %>
+		<% if (!grouped[q.quest_type]) grouped[q.quest_type] = []; %>
+		<% grouped[q.quest_type].push(q); %>
+		<% }) %>
+
+		<% Object.keys(grouped).forEach(type => { %>
+		<h2><%= type.charAt(0).toUpperCase() + type.slice(1) %> Quests</h2>
+
+		<ul class="toggleLiVis quest-type-list">
+			<% grouped[type].forEach(q => { %>
+			<li class="quest-row" data-status="<%= q.active_status_name.toLowerCase() %>"
+				data-pinned="<%= q.pinned ? 'true' : 'false' %>">
+
+				<!-- Collapsed header: title + status-->
+				<div class="quest-header">
+					<strong><%= q.quest_name %></strong>
+					<span class="quest-status">[<%= q.active_status_name %>]</span>
+				</div>
+
+				<!-- Expanded details -->
+				<div class="quest-details">
+					<% if (q.description) { %>
+					<p><%= q.description %></p>
+					<% } %>
+
+					<dl class="quest-meta">
+						<% if (q.deadline) { %>
+						<dt>Deadline:</dt>
+						<dd><%= q.deadline %></dd>
+						<% } %>
+
+						<!-- <% if (q.session_received !== null) { %>
+						<dt>Session Received:</dt>
+						<dd><%= q.session_received %></dd>
+						<% } %>
+
+						<% if (q.session_complete !== null) { %>
+						<dt>Session Completed:</dt>
+						<dd><%= q.session_complete %></dd>
+						<% } %> -->
+					</dl>
+
+					<!-- Quick actions: status, pin, edit, delete -->
+					<div class="form-row quest-actions">
+
+						<!-- Change status -->
+						<form action="/quests/<%= q.id %>/status" method="POST" class="inline-form">
+							<label for="status_<%= q.id %>">Status</label>
+							<select id="status_<%= q.id %>" name="active_status_id">
+								<% activeStatuses.forEach(s => { %>
+								<option value="<%= s.id %>" <%= q.active_status_id === s.id ? "selected" : "" %>>
+									<%= s.active_status_name %>
+								</option>
+								<% }) %>
+							</select>
+							<button type="submit" class="btn fmt-btn">Update</button>
+						</form>
+
+						<!-- Toggle pin -->
+						<form action="/quests/<%= q.id %>/pin" method="POST" class="inline-form">
+							<label for="pin_<%= q.id %>">Pinned</label>
+							<select id="pin_<%= q.id %>" name="pinned">
+								<option value="false" <%= !q.pinned ? "selected" : "" %>>Not Pinned</option>
+								<option value="true" <%= q.pinned ? "selected" : "" %>>Pinned</option>
+							</select>
+							<button type="submit" class="btn fmt-btn">Save</button>
+						</form>
+
+						<!-- Edit / Delete -->
+						<a href="/quests/<%= q.id %>/edit" class="btn fmt-btn">Edit</a>
+						<form action="/quests/<%= q.id %>/delete" method="POST" class="inline-form">
+							<button type="submit" class="btn btn-danger">Delete</button>
+						</form>
+					</div>
+				</div>
+			</li>
+			<% }) %>
+		</ul>
+		<% }) %>
+		<% } %>
+	</section>
+</main>
+
+<script>
+	// Simple toggle behavior for quest rows (using existing toggleLiVis pattern)
+	document.querySelectorAll(".quest-type-list .quest-row").forEach(li => {
+		const header = li.querySelector(".quest-header");
+		const details = li.querySelector(".quest-details");
+
+		if (!header || !details) return;
+
+		details.style.display = "none";
+
+		header.addEventListener("click", () => {
+			const isVisible = details.style.display === "block";
+			details.style.display = isVisible ? "none" : "block";
+		});
+	});
+</script>
+
+<%- include("../../partials/footer") %>

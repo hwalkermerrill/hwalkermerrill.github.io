@@ -1,0 +1,90 @@
+<section class="quest-log">
+	<h2>Quest Log</h2>
+
+	<!-- Toggle buttons -->
+	<div class="form-row">
+		<button type="button" class="btn fmt-btn" id="show-completed">Show Completed</button>
+		<button type="button" class="btn fmt-btn" id="show-failed">Show Failed</button>
+	</div>
+
+	<!-- Active quests grouped by type -->
+	<% const typeOrder = ["main","personal","companion","area","side","radiant","other"]; %>
+	<% const grouped = {}; %>
+	<% quests.forEach(q => { %>
+	<% if (!grouped[q.quest_type]) grouped[q.quest_type] = []; %>
+	<% grouped[q.quest_type].push(q); %>
+	<% }) %>
+
+	<% typeOrder.forEach(type => { %>
+	<% const list = grouped[type] || []; %>
+	<% const activeList = list.filter(q => q.active_status_name === "Active" || q.active_status_id === 2); %>
+	<% if (activeList.length === 0) return; %>
+
+	<h3><%= type.charAt(0).toUpperCase() + type.slice(1) %> Quests</h3>
+	<ul class="toggleLiVis quest-type-list">
+		<% activeList.forEach(q => { %>
+		<li class="quest-row <%= q.pinned ? 'quest-pinned' : '' %>">
+			<div class="quest-header">
+				<strong><%= q.quest_name %></strong>
+				<% if (q.pinned) { %><span class="quest-pinned-icon">📌</span><% } %>
+			</div>
+
+			<div class="quest-details">
+				<% if (q.description) { %><p><%= q.description %></p><% } %>
+
+				<dl class="quest-meta">
+					<% if (q.deadline) { %>
+					<dt>Deadline:</dt>
+					<dd><%= q.deadline %></dd>
+					<% } %>
+					<% if (q.session_received !== null) { %>
+					<dt>Received:</dt>
+					<dd>Session <%= q.session_received %></dd>
+					<% } %>
+				</dl>
+
+				<!-- Linked NPCs / Factions / Items as links -->
+				<!-- These will use existing search routes, e.g. /characters?search=Name -->
+			</div>
+		</li>
+		<% }) %>
+	</ul>
+	<% }) %>
+
+	<!-- Completed / Failed sections (hidden by default, toggled via JS) -->
+	<section id="completed-quests" style="display:none;">
+		<h3>Completed Quests</h3>
+		<!-- similar structure, filtered where status = Completed -->
+	</section>
+
+	<section id="failed-quests" style="display:none;">
+		<h3>Failed Quests</h3>
+		<!-- similar structure, filtered where status = Failed -->
+	</section>
+</section>
+
+<script>
+	// Toggle completed/failed sections
+	document.getElementById("show-completed")?.addEventListener("click", () => {
+		const section = document.getElementById("completed-quests");
+		if (!section) return;
+		section.style.display = section.style.display === "none" ? "block" : "none";
+	});
+
+	document.getElementById("show-failed")?.addEventListener("click", () => {
+		const section = document.getElementById("failed-quests");
+		if (!section) return;
+		section.style.display = section.style.display === "none" ? "block" : "none";
+	});
+
+	// Collapse/expand quest rows (reuse toggleLiVis behavior)
+	document.querySelectorAll(".quest-type-list .quest-row").forEach(li => {
+		const header = li.querySelector(".quest-header");
+		const details = li.querySelector(".quest-details");
+		if (!header || !details) return;
+		details.style.display = "none";
+		header.addEventListener("click", () => {
+			details.style.display = details.style.display === "block" ? "none" : "block";
+		});
+	});
+</script>

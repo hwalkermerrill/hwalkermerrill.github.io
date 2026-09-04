@@ -217,7 +217,7 @@ async function submitNewQuest(req, res) {
 		await replaceQuestLinks(questId, npc_ids, faction_ids, item_ids);
 
 		req.flash("success", "Quest created successfully!");
-		res.redirect("/journal");
+		res.redirect("/quests/manage");
 	} catch (err) {
 		console.error(err);
 		req.flash("error", "Failed to create quest.");
@@ -322,7 +322,7 @@ async function submitQuestEdit(req, res) {
 		await replaceQuestLinks(questId, npc_ids, faction_ids, item_ids);
 
 		req.flash("success", "Quest updated successfully!");
-		res.redirect("/journal");
+		res.redirect("/quests/manage");
 	} catch (err) {
 		console.error(err);
 		req.flash("error", "Failed to update quest.");
@@ -350,11 +350,11 @@ async function toggleQuestPin(req, res) {
 		);
 
 		req.flash("success", pinned === "true" ? "Quest pinned!" : "Quest unpinned!");
-		res.redirect("/journal");
+		res.redirect("/quests/manage");
 	} catch (err) {
 		console.error(err);
 		req.flash("error", "Failed to update pin status.");
-		res.redirect("/journal");
+		res.redirect("/quests/manage");
 	}
 }
 
@@ -378,11 +378,11 @@ async function updateQuestStatus(req, res) {
 		);
 
 		req.flash("success", "Quest status updated.");
-		res.redirect("/journal");
+		res.redirect("/quests/manage");
 	} catch (err) {
 		console.error(err);
 		req.flash("error", "Failed to update quest status.");
-		res.redirect("/journal");
+		res.redirect("/quests/manage");
 	}
 }
 
@@ -401,11 +401,11 @@ async function deleteQuestController(req, res) {
 		await deleteQuest(questId);
 
 		req.flash("success", "Quest deleted.");
-		res.redirect("/journal");
+		res.redirect("/quests/manage");
 	} catch (err) {
 		console.error(err);
 		req.flash("error", "Failed to delete quest.");
-		res.redirect("/journal");
+		res.redirect("/quests/manage");
 	}
 }
 

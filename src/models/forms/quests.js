@@ -174,9 +174,29 @@ async function attachItemToQuest(itemId, questId) {
 	);
 }
 
+// Display log to Journal
+async function getQuestsForCampaign(campaignId) {
+	const { rows } = await db.query(
+		`
+    SELECT q.*, a.active_status_name
+    FROM quests AS q
+    JOIN active_status AS a
+      ON a.id = q.active_status_id
+    WHERE q.campaign_id = $1
+    ORDER BY
+      q.quest_type ASC,
+      q.pinned DESC,
+      q.quest_name ASC
+    `,
+		[campaignId]
+	);
+	return rows;
+}
+
 // Exports
 export {
 	getQuestById,
+	getQuestsForCampaign,
 	createQuest,
 	updateQuest,
 	deleteQuest,

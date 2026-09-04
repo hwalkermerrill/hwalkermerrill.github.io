@@ -37,7 +37,7 @@
 			<% if (hasRole(user, "moderator") || hasRole(user, "gm_admin")) { %>
 			<ul>
 				<!-- Create Character Manager -->
-				<li><a href="/logs/new">Create Log</a></li>
+				<!-- <li><a href="/logs/new">Create Log</a></li> -->
 				<li><a href="/logs/select">Manage Logs</a></li>
 			</ul>
 			<% } %>
@@ -45,6 +45,7 @@
 			<!-- GM Tools -->
 			<% if (hasRole(user, "gm_admin")) { %>
 			<ul>
+				<li><a href="/quests/manage">Manage Quests</a></li>
 				<li><a href="/register/account">Manage Users</a></li>
 				<li><a href="/register/password-resets">Password Reset Requests</a></li>
 			</ul>
