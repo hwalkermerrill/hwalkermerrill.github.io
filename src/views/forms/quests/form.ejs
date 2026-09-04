@@ -1,0 +1,264 @@
+<%- include("../../partials/header") %>
+
+<main id="maincontent" class="clearfix">
+	<h1><%= formMode === "edit" ? "Edit Quest" : "Create Quest" %></h1>
+
+	<form action="<%= formMode === 'edit'
+      ? '/quests/' + quest.id + '/edit'
+      : '/quests/new' %>" method="POST" class="note-form">
+
+		<!-- Campaign / Status / Type -->
+		<div class="form-row">
+
+			<!-- Campaign -->
+			<div class="form-field">
+				<label for="campaign_id">Campaign</label>
+				<select id="campaign_id" name="campaign_id" required>
+					<% campaigns.forEach(c => { %>
+					<option value="<%= c.id %>"
+						<%= (quest && quest.campaign_id === c.id) || (!quest && c.id === campaign_id) ? "selected" : "" %>>
+						<%= c.campaign_name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<!-- Active Status -->
+			<div class="form-field">
+				<label for="active_status_id">Status</label>
+				<select id="active_status_id" name="active_status_id" required>
+					<% activeStatuses.forEach(s => { %>
+					<option value="<%= s.id %>"
+						<%= quest ? (quest.active_status_id === s.id ? "selected" : "") : (s.id === 1 ? "selected" : "") %>>
+						<%= s.active_status_name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<!-- Quest Type -->
+			<div class="form-field">
+				<label for="quest_type">Quest Type</label>
+				<select id="quest_type" name="quest_type" required>
+					<% questTypes.forEach(type => { %>
+					<option value="<%= type %>"
+						<%= quest ? (quest.quest_type === type ? "selected" : "") : (type === "other" ? "selected" : "") %>>
+						<%= type %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+
+		<!-- Name / Deadline -->
+		<div class="form-row">
+
+			<!-- Quest Name -->
+			<div class="form-field">
+				<label for="quest_name">Quest Title</label>
+				<input type="text" id="quest_name" name="quest_name" maxlength="255"
+					value="<%= quest ? quest.quest_name : '' %>" placeholder="Enter quest title..." required>
+			</div>
+
+			<!-- Deadline (optional free text) -->
+			<div class="form-field">
+				<label for="deadline">Deadline (optional)</label>
+				<input type="text" id="deadline" name="deadline" maxlength="255"
+					value="<%= quest ? (quest.deadline || '') : '' %>"
+					placeholder="e.g., 'Before next moonrise', 'End of Act II'">
+			</div>
+		</div>
+
+		<!-- Description -->
+		<div class="form-field">
+			<label for="description">Quest Summary / Description</label>
+			<textarea id="description" name="description" rows="4"
+				placeholder="Brief quest summary..."><%= quest ? (quest.description || '') : '' %></textarea>
+		</div>
+
+		<!-- Session Received / Completed / Pinned -->
+		<div class="form-row">
+
+			<div class="form-field">
+				<label for="session_received">Session Received (optional)</label>
+				<input type="number" id="session_received" name="session_received" min="0" step="1"
+					value="<%= quest && quest.session_received !== null ? quest.session_received : '' %>" placeholder="e.g., 12">
+			</div>
+
+			<div class="form-field">
+				<label for="session_complete">Session Completed (optional)</label>
+				<input type="number" id="session_complete" name="session_complete" min="0" step="1"
+					value="<%= quest && quest.session_complete !== null ? quest.session_complete : '' %>" placeholder="e.g., 18">
+			</div>
+
+			<!-- Pinned -->
+			<div class="form-field">
+				<label for="pinned">Pinned</label>
+				<select id="pinned" name="pinned">
+					<option value="false" <%= quest && !quest.pinned ? "selected" : (!quest ? "selected" : "") %>> Not Pinned
+					</option>
+					<option value="true" <%= quest && quest.pinned ? "selected" : "" %>> Pinned </option>
+				</select>
+			</div>
+		</div>
+
+		<!-- Linked NPCs / Factions / Items -->
+		<div class="form-row">
+
+			<!-- NPCs -->
+			<div class="form-field">
+				<label>Linked NPCs</label>
+				<div id="npc-container">
+					<% if (npcLinks && npcLinks.length > 0) { %>
+					<% npcLinks.forEach(id => { %>
+					<select name="npc_ids" class="npc-select">
+						<option value="">None</option>
+						<% npcs.forEach(npc => { %>
+						<option value="<%= npc.id %>" <%= npc.id === id ? "selected" : "" %>>
+							<%= npc.npc_name %>
+						</option>
+						<% }) %>
+					</select>
+					<% }) %>
+					<% } else { %>
+					<select name="npc_ids" class="npc-select">
+						<option value="">None</option>
+						<% npcs.forEach(npc => { %>
+						<option value="<%= npc.id %>"><%= npc.npc_name %></option>
+						<% }) %>
+					</select>
+					<% } %>
+				</div>
+				<button type="button" class="btn fmt-btn" id="add-npc">+ Add NPC</button>
+				<button type="button" class="btn fmt-btn" id="remove-npc">- Remove NPC</button>
+			</div>
+
+			<!-- Factions -->
+			<div class="form-field">
+				<label>Linked Factions</label>
+				<div id="faction-container">
+					<% if (factionLinks && factionLinks.length > 0) { %>
+					<% factionLinks.forEach(id => { %>
+					<select name="faction_ids" class="faction-select">
+						<option value="">None</option>
+						<% factions.forEach(faction => { %>
+						<option value="<%= faction.id %>" <%= faction.id === id ? "selected" : "" %>>
+							<%= faction.faction_name %>
+						</option>
+						<% }) %>
+					</select>
+					<% }) %>
+					<% } else { %>
+					<select name="faction_ids" class="faction-select">
+						<option value="">None</option>
+						<% factions.forEach(faction => { %>
+						<option value="<%= faction.id %>"><%= faction.faction_name %></option>
+						<% }) %>
+					</select>
+					<% } %>
+				</div>
+				<button type="button" class="btn fmt-btn" id="add-faction">+ Add Faction</button>
+				<button type="button" class="btn fmt-btn" id="remove-faction">- Remove Faction</button>
+			</div>
+
+			<!-- Items -->
+			<div class="form-field">
+				<label>Linked Items</label>
+				<div id="item-container">
+					<% if (itemLinks && itemLinks.length > 0) { %>
+					<% itemLinks.forEach(id => { %>
+					<select name="item_ids" class="item-select">
+						<option value="">None</option>
+						<% items.forEach(item => { %>
+						<option value="<%= item.id %>" <%= item.id === id ? "selected" : "" %>>
+							<%= item.item_name %>
+						</option>
+						<% }) %>
+					</select>
+					<% }) %>
+					<% } else { %>
+					<select name="item_ids" class="item-select">
+						<option value="">None</option>
+						<% items.forEach(item => { %>
+						<option value="<%= item.id %>"><%= item.item_name %></option>
+						<% }) %>
+					</select>
+					<% } %>
+				</div>
+				<button type="button" class="btn fmt-btn" id="add-item">+ Add Item</button>
+				<button type="button" class="btn fmt-btn" id="remove-item">- Remove Item</button>
+			</div>
+		</div>
+
+		<!-- Submit -->
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">
+				<%= formMode === "edit" ? "Save Changes" : "Create Quest" %>
+			</button>
+
+			<!-- Delete -->
+			<% if (formMode === "edit") { %>
+			<button type="submit" class="btn btn-danger" formaction="/quests/<%= quest.id %>/delete">
+				Delete
+			</button>
+			<% } %>
+
+			<a href="/journal" class="btn fmt-btn">Cancel</a>
+		</div>
+
+	</form>
+</main>
+
+<script>
+	function addSelect(containerId) {
+		const container = document.getElementById(containerId);
+		if (!container) return;
+
+		const firstSelect = container.querySelector("select");
+		if (!firstSelect) return;
+
+		const clone = firstSelect.cloneNode(true);
+		// Reset to "None"
+		clone.value = "";
+		container.appendChild(clone);
+	}
+
+	function removeSelect(containerId) {
+		const container = document.getElementById(containerId);
+		if (!container) return;
+
+		const selects = container.querySelectorAll("select");
+		if (selects.length > 1) {
+			container.removeChild(selects[selects.length - 1]);
+		}
+	}
+
+	// NPC buttons
+	document.getElementById("add-npc")?.addEventListener("click", () => {
+		addSelect("npc-container");
+	});
+
+	document.getElementById("remove-npc")?.addEventListener("click", () => {
+		removeSelect("npc-container");
+	});
+
+	// Faction buttons
+	document.getElementById("add-faction")?.addEventListener("click", () => {
+		addSelect("faction-container");
+	});
+
+	document.getElementById("remove-faction")?.addEventListener("click", () => {
+		removeSelect("faction-container");
+	});
+
+	// Item buttons
+	document.getElementById("add-item")?.addEventListener("click", () => {
+		addSelect("item-container");
+	});
+
+	document.getElementById("remove-item")?.addEventListener("click", () => {
+		removeSelect("item-container");
+	});
+</script>
+
+<%- include("../../partials/footer") %>

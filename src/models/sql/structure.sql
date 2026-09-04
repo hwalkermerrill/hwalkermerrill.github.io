@@ -50,13 +50,17 @@ CREATE TABLE IF NOT EXISTS quests (
   campaign_id INTEGER NOT NULL
     REFERENCES campaigns (id)
     ON DELETE CASCADE,
+	active_status_id INTEGER NOT NULL
+		REFERENCES active_status (id)
+		ON DELETE restrict,
+	quest_type VARCHAR(50) NOT NULL DEFAULT 'other', -- main, personal, companion, area, side, radiant, other
   quest_name VARCHAR(255) NOT NULL,
+	deadline VARCHAR(255),
   description TEXT,
-  active BOOLEAN NOT NULL DEFAULT TRUE,
-  completed BOOLEAN NOT NULL DEFAULT FALSE,
-  CHECK (NOT (active AND completed)),
-  UNIQUE (campaign_id, quest_name),
-  session_received INTEGER NOT NULL DEFAULT 1
+	session_received INTEGER,
+	session_complete INTEGER,
+	pinned BOOLEAN NOT NULL DEFAULT FALSE,
+	UNIQUE (campaign_id, quest_name)
 );
 
 -- START GLOBAL LOOKUP TABLES BLOCK for references, one-to-many.

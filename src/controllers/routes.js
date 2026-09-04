@@ -12,6 +12,7 @@ import { processLogin, processLogout, showLoginForm, showDashboard } from "./for
 import { showRegistrationForm, processRegistration, showAllUsers, showEditAccountForm, processEditAccount, processDeleteAccount } from "./forms/registration.js";
 import { showCreateNoteForm, submitNewNote, showEditNoteForm, submitNoteEdit, deleteNote } from "./forms/notes.js";
 import { showLogSelectPage, showCreateLogForm, showEditLogForm, submitNewLog, submitLogEdit, deleteLogController, togglePin, handleLogSelect } from "./forms/logs.js";
+import { showQuestListPage, showCreateQuestForm, showEditQuestForm, submitNewQuest, submitQuestEdit, toggleQuestPin, updateQuestStatus, deleteQuestController } from "./forms/quests.js";
 // import { showContactForm, handleContactSubmission, showContactResponses } from "./forms/contact.js";
 import { showResetForm, requestReset, handleReset } from "./forms/passwordReset.js";
 import { listRequests, approveRequest, denyRequest } from "./forms/passwordResetAdmin.js";
@@ -81,6 +82,9 @@ router.get("/register/password-resets", requireLogin, listRequests);
 router.get("/logs/new", requireLogin, requireRole("moderator"), showCreateLogForm);
 router.get("/logs/select", requireLogin, requireRole("moderator"), showLogSelectPage);
 router.get("/logs/:id/edit", requireLogin, requireRole("moderator"), showEditLogForm);
+router.get("/quests/new", requireLogin, requireRole("gm_admin"), showCreateQuestForm);
+router.get("/quests/manage", requireLogin, requireRole("gm_admin"), showQuestListPage);
+router.get("/quests/:id/edit", requireLogin, requireRole("gm_admin"), showEditQuestForm);
 
 // Development Only Get Routes
 if (process.env.NODE_ENV === "development") {
@@ -116,5 +120,10 @@ router.post("/logs/select", requireLogin, requireRole("moderator"), handleLogSel
 router.post("/logs/:id/edit", requireLogin, requireRole("moderator"), submitLogEdit);
 router.post("/logs/:id/pin", requireLogin, requireRole("moderator"), togglePin);
 router.post("/logs/:id/delete", requireLogin, requireRole("moderator"), deleteLogController);
+router.post("/quests/new", requireLogin, requireRole("gm_admin"), submitNewQuest);
+router.post("/quests/:id/edit", requireLogin, requireRole("gm_admin"), submitQuestEdit);
+router.post("/quests/:id/pin", requireLogin, requireRole("gm_admin"), toggleQuestPin);
+router.post("/quests/:id/status", requireLogin, requireRole("gm_admin"), updateQuestStatus);
+router.post("/quests/:id/delete", requireLogin, requireRole("gm_admin"), deleteQuestController);
 
 export default router;
