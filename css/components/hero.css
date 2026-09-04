@@ -56,6 +56,10 @@
 	}
 }
 
+aside img {
+	width: 100%;
+}
+
 aside figcaption {
 	padding: var(--spacing-sm);
 	text-align: center;
@@ -65,14 +69,21 @@ aside figcaption {
 }
 
 @media (min-width: 45rem) {
-	.hero-aside aside:first-child {
-		float: left;
-		width: 48%;
-		padding: 2% 2% 0 2%;
+	.hero-aside aside {
+		padding: var(--spacing-sm);
+		figure {
+			float: left;
+			width: 48%;
+			margin: 0 2% 0 0;
+			&.tooTall {
+				width: 29%;
+			}
+		}
 	}
 
-	.hero-aside aside:nth-child(2) {
-		padding: 2% 2% 0 2%;
+	.hero-aside aside:nth-child(2) figure {
+		float: left;
+		margin: 0 0 0 2%;
 	}
 
 	.hero-aside::after {
