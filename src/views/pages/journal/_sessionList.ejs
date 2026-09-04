@@ -16,7 +16,8 @@
         session.images.map(img => ({
           url: img.image_url,
           alt: img.alt,
-          tall: img.is_tall
+          tall: img.is_tall,
+					figcaption: img.figcaption
         }))
       ).replace(/"/g, '&quot;') %>">
 			<li><b>Click to Read Entry #<%= session.session_number %> - <%= session.title %></b></li>

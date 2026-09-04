@@ -17,11 +17,10 @@
 		<% } %> -->
 
 		<% if (latestRecap.mainImage) { %>
-		<figure class="u-text-center">
+		<figure class="u-text-center <%= latestRecap.mainImage.is_tall ? 'tooTall' : 'wide' %>">
 			<picture>
 				<source srcset="<%= latestRecap.mainImage.image_url %>" type="image/webp">
-				<img class="pointer <%= latestRecap.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/unknown.png"
-					alt="<%= latestRecap.mainImage.alt %>" loading="lazy">
+				<img class="pointer" src="/images/core/unknown.png" alt="<%= latestRecap.mainImage.alt %>" loading="lazy">
 			</picture>
 
 			<% if (latestRecap.mainImage.figcaption) { %>

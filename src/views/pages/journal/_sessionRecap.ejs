@@ -16,11 +16,10 @@
 		<% } %> -->
 
 		<% if (latestLog.mainImage) { %>
-		<figure class="u-text-center">
+		<figure class="u-text-center <%= latestLog.mainImage.is_tall ? 'tooTall' : 'wide' %>">
 			<picture>
 				<source srcset="<%= latestLog.mainImage.image_url %>" type="image/webp">
-				<img class="pointer <%= latestLog.mainImage.is_tall ? 'tooTall' : 'wide' %>" src="/images/core/unknown.png"
-					alt="<%= latestLog.mainImage.alt %>" loading="lazy">
+				<img class="pointer" src="/images/core/unknown.png" alt="<%= latestLog.mainImage.alt %>" loading="lazy">
 			</picture>
 			<% if (latestLog.mainImage.figcaption) { %>
 			<figcaption class="u-text-mini">

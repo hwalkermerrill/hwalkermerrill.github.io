@@ -39,7 +39,7 @@ function initSessionRecapSwitcher() {
 			// Render Images
 			images.forEach(imgData => {
 				const figure = document.createElement("figure");
-				figure.className = "u-text-center";
+				figure.className = `u-text-center ${imgData.tall ? "tooTall" : "wide"}`;
 				const picture = document.createElement("picture");
 
 				const source = document.createElement("source");
@@ -50,7 +50,7 @@ function initSessionRecapSwitcher() {
 				img.src = "/images/core/unknown.png";
 				img.dataset.src = imgData.url;
 				img.alt = imgData.alt || "Session Image";
-				img.className = `pointer ${imgData.tall ? "tooTall" : "wide"}`;
+				img.className = `pointer`;
 				img.loading = "lazy";
 
 				picture.appendChild(source);
@@ -64,7 +64,7 @@ function initSessionRecapSwitcher() {
 					figure.appendChild(caption)
 				}
 
-				recapContainer.appendChild(picture);
+				recapContainer.appendChild(figure);
 			});
 
 			// Render paragraphs

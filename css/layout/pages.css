@@ -131,12 +131,25 @@ figure.two-three img {
 	width: auto;
 	text-indent: var(--spacing-md);
 }
-#session-recap-content picture img {
+#session-recap-content figure {
 	float: right;
 	width: 48%;
-	padding: 2% 2% 1rem 1rem;
+	margin: 0 0 1rem 1rem;
+
+	picture img {
+		width: 100%%;
+		padding: 0;
+	}
+
+	figcaption {
+		padding: var(--spacing-sm);
+		text-align: center;
+		font-size: var(--font-size-caption);
+		color: var(--color-text-muted);
+		background-color: var(--color-surface);
+	}
 }
-#session-recap-content picture img.tooTall {
+#session-recap-content figure.tooTall {
 	width: 29%;
 }
 .session-log-list-item {
