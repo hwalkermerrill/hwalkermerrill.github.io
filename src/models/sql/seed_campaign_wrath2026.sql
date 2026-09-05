@@ -590,5 +590,5 @@ VALUES
 
 	-- Stark
   (2, '/images/pc/pc-stark.webp',
-      'Serenity Character Portrait',
+      'Stark Character Portrait',
       TRUE, FALSE, FALSE, TRUE);
