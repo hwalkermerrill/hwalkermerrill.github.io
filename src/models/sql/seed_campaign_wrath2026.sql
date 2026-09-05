@@ -593,7 +593,12 @@ VALUES
       'Stark Character Portrait',
       TRUE, FALSE, FALSE, TRUE),
 
-	-- Ravamir
+	-- Dorian
   (1, '/images/pc/pc-ravamir-briarstride.webp',
       'Ravamir Character Portrait',
+      TRUE, FALSE, FALSE, TRUE),
+
+	-- Ravamir
+  (5, '/images/pc/pc-dorian-kalder.webp',
+      'Dorian Character Portrait',
       TRUE, FALSE, FALSE, TRUE);
