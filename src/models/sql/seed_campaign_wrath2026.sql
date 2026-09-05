@@ -586,4 +586,9 @@ VALUES
   -- Serenity Dragomir
   (7, '/images/pc/pc-serenity-dragomir.webp',
       'Serenity Character Portrait',
+      TRUE, FALSE, FALSE, TRUE),
+
+	-- Stark
+  (2, '/images/pc/pc-stark.webp',
+      'Serenity Character Portrait',
       TRUE, FALSE, FALSE, TRUE);
