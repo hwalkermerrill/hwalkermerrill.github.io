@@ -524,3 +524,27 @@ VALUES
 ON CONFLICT DO NOTHING;
 
 -- End NPC Seed
+
+-- ============================================
+-- PC SEED DATA FOR CAMPAIGN 18
+-- ============================================
+
+INSERT INTO pc_main (
+  user_id,
+  campaign_id,
+  active_status_id,
+  race_id,
+  pc_name,
+  is_identified,
+  is_female,
+  campaign_trait
+)
+VALUES
+  (2, 18, 2, 7,  'Ravamir',            TRUE, FALSE, 'Stolen Fury'),
+  (3, 18, 2, 2,  'Stark',              TRUE, FALSE, 'Change Encounter'),
+  (4, 18, 2, 2,  'Syre',               TRUE, FALSE, 'Riftwarden Orphan'),
+  (5, 18, 2, 20, 'Palamedes',          TRUE, FALSE, 'Chance Encounter'),
+  (6, 18, 2, 2,  'Dorian',             TRUE, FALSE, 'Touched by Divinity'),
+  (7, 18, 2, 38, 'Bukka',              TRUE, FALSE, 'Touched by Divinity'),
+  (8, 18, 2, 27, 'Serenity Dragomir',  TRUE, TRUE,  'Child of the Crusades')
+ON CONFLICT (user_id, campaign_id, pc_name) DO NOTHING;
