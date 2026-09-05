@@ -591,4 +591,9 @@ VALUES
 	-- Stark
   (2, '/images/pc/pc-stark.webp',
       'Stark Character Portrait',
+      TRUE, FALSE, FALSE, TRUE),
+
+	-- Ravamir
+  (1, '/images/pc/pc-ravamir-briarstride.webp',
+      'Ravamir Character Portrait',
       TRUE, FALSE, FALSE, TRUE);
