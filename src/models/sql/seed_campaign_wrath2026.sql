@@ -548,3 +548,42 @@ VALUES
   (7, 18, 2, 38, 'Bukka',              TRUE, FALSE, 'Touched by Divinity'),
   (8, 18, 2, 27, 'Serenity Dragomir',  TRUE, TRUE,  'Child of the Crusades')
 ON CONFLICT (user_id, campaign_id, pc_name) DO NOTHING;
+
+-- ============================================
+-- PC GALLERY SEED DATA
+-- ============================================
+
+INSERT INTO pc_gallery (
+  pc_id,
+  image_url,
+  alt,
+  is_main,
+  is_hover,
+  hover_visible,
+  is_tall
+)
+VALUES
+  -- Syre
+  (3, '/images/pc/pc-syre-forvirre.webp',
+      'Syre Character Portrait',
+      TRUE, FALSE, FALSE, TRUE),
+
+  -- Palamedes (main)
+  (4, '/images/pc/pc-palamedes.webp',
+      'Palamedes Character Portrait',
+      TRUE, FALSE, FALSE, TRUE),
+
+  -- Palamedes (hover)
+  (4, '/images/pc/pc-palamedes-combat-stance.webp',
+      'Palamedes Combat Stance',
+      FALSE, TRUE, TRUE, TRUE),
+
+  -- Bukka
+  (6, '/images/pc/pc-bukka.webp',
+      'Bukka Character Portrait',
+      TRUE, FALSE, FALSE, TRUE),
+
+  -- Serenity Dragomir
+  (7, '/images/pc/pc-serenity-dragomir.webp',
+      'Serenity Character Portrait',
+      TRUE, FALSE, FALSE, TRUE);
