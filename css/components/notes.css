@@ -83,10 +83,12 @@
 
 /* Remove underline on links */
 .note-card-footer a,
+.note-row-actions a,
 .notes-actions a {
 	text-decoration: none;
 }
 .note-card-footer a:hover,
+.note-row-actions a:hover,
 .notes-actions a:hover {
 	text-decoration: none;
 }
