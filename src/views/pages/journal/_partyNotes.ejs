@@ -35,10 +35,13 @@
 					<p class="note-content note-collapsible"><%- note.note_content %></p>
 				</label>
 
-				<!-- Metadata -->
-				<div class="note-meta">
-					<% const identity = note.pc_name || note.username; %>
-					<span class="note-badge identity"><%= identity %></span>
+				<!-- Actions and Metadata -->
+				<div class="note-card-footer">
+					<div class="note-meta">
+						<% const identity = note.pc_name || note.username; %>
+						<span class="note-badge identity"><%= identity %></span>
+					</div>
+					<a href="/notes/<%= note.id %>/edit" class="btn btn-small"> Edit </a>
 				</div>
 
 			</li>
