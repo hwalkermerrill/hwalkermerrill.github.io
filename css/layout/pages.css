@@ -34,7 +34,7 @@ main .hostile h3 {
 } */
 :is(.helpful, .friendly, .indifferent, .unfriendly, .hostile, .locked, .asset)
 	h3 {
-	text-shadow: var(--shadow-md);
+	text-shadow: var(--shadow-legible);
 }
 
 /* Figure Aspect Ratio */
