@@ -36,12 +36,12 @@ img {
 /* Headings */
 h1 {
 	font-size: var(--font-size-display);
-	text-shadow: var(--shadow-lg);
+	/* text-shadow: var(--shadow-lg); */
 }
 
 h2 {
 	font-size: var(--font-size-heading-lg);
-	text-shadow: var(--shadow-md);
+	/* text-shadow: var(--shadow-md); */
 }
 
 :where(h1, h2) {
@@ -50,6 +50,7 @@ h2 {
 	margin-bottom: var(--spacing-sm);
 	padding-block: var(--spacing-xs);
 	font-family: var(--font-family-head);
+	text-shadow: var(--shadow-heading);
 	color: var(--color-primary);
 	text-wrap: balance;
 }
@@ -58,7 +59,7 @@ h2 {
 	font-family: var(--font-family-serif);
 	line-height: var(--line-height);
 	color: var(--color-primary);
-	text-shadow: var(--shadow-sm);
+	text-shadow: var(--shadow-heading);
 	text-wrap: balance;
 }
 
