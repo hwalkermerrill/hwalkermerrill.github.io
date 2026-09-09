@@ -14,8 +14,11 @@ main .unfriendly {
 }
 main .hostile {
 	background-color: var(--color-hostile);
-	color: var(--color-unfriendly);
+	/* color: var(--color-unfriendly); */
 	border-color: var(--color-primary);
+	h3 {
+		color: var(--color-text);
+	}
 }
 main .locked {
 	background-color: var(--color-locked);
