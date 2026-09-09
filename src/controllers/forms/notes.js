@@ -111,6 +111,7 @@ async function showNoteManager(req, res) {
 	const userId = user.id;
 	const campaignId = res.locals.campaign_id;
 	const isGM = hasRole(user, "gm_admin");
+	let allUserNotes = [];
 
 	// Private notes for this user
 	const { rows: userNotes } = await db.query(
@@ -139,11 +140,31 @@ async function showNoteManager(req, res) {
 		[campaignId]
 	);
 
+	// GM's can view all user notes for world-building purposes
+	if (isGM) {
+		const { rows } = await db.query(
+			`SELECT n.*, cat.category_name, u.username, p.pc_name
+			FROM player_notes n
+			JOIN player_note_categories cat
+				ON n.category_id = cat.id
+			LEFT JOIN pc_main p
+				ON n.pc_id = p.id
+			LEFT JOIN users u
+				ON n.user_id = u.id
+			WHERE n.campaign_id = $1
+				AND n.is_public = FALSE
+			ORDER BY u.username ASC, n.updated_at DESC`,
+			[campaignId]
+		);
+		allUserNotes = rows;
+	}
+
 	res.render("forms/notes/list", {
 		title: "Manage Notes",
 		activePage: "notes",
 		userNotes,
 		publicNotes,
+		allUserNotes,
 		isGM,
 		userId,
 		campaign_id: campaignId

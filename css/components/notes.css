@@ -94,7 +94,7 @@
 /* Truncated targeted note content */
 .note-snippet {
 	display: -webkit-box;
-	-webkit-line-clamp: 1;
+	-webkit-line-clamp: 2; /* Set truncated view to max of two lines */
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	white-space: normal;
