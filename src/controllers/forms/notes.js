@@ -116,7 +116,7 @@ async function showNoteManager(req, res) {
 	const { rows: userNotes } = await db.query(
 		`SELECT n.*, c.category_name, u.username, p.pc_name
      FROM player_notes n
-     JOIN note_categories c ON c.id = n.category_id
+     JOIN player_note_categories c ON c.id = n.category_id
      JOIN users u ON u.id = n.user_id
      LEFT JOIN pc_main p ON p.id = n.pc_id
      WHERE n.campaign_id = $1
@@ -130,7 +130,7 @@ async function showNoteManager(req, res) {
 	const { rows: publicNotes } = await db.query(
 		`SELECT n.*, c.category_name, u.username, p.pc_name
      FROM player_notes n
-     JOIN note_categories c ON c.id = n.category_id
+     JOIN player_note_categories c ON c.id = n.category_id
      JOIN users u ON u.id = n.user_id
      LEFT JOIN pc_main p ON p.id = n.pc_id
      WHERE n.campaign_id = $1
