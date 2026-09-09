@@ -24,13 +24,15 @@
 	<div class="note-category-group">
 		<h2><%= category %></h2>
 
-		<div class="note-category-cards">
+		<ul class="note-type-list">
 			<% list.forEach(note => { %>
-			<div class="note-card"
+			<li class="note-row"
 				data-search="<%= note.note_title %> <%= note.note_content %> <%= note.category_name %> <%= note.pc_id || '' %>">
 
-				<!-- Title -->
-				<h3><%= note.note_title %></h3>
+				<!-- Note Header -->
+				<div class="note-row-header">
+					<h3><%= note.note_title %></h3>
+				</div>
 
 				<!-- Content -->
 				<label class="note-expand">
@@ -51,9 +53,9 @@
 					</form>
 				</div>
 
-			</div>
+			</li>
 			<% }) %>
-		</div>
+		</ul>
 	</div>
 
 	<% } %>
