@@ -87,7 +87,10 @@
 				</div>
 
 				<!-- Truncated content -->
-				<p class="note-snippet"><%- note.note_content %></p>
+				<label class="note-expand">
+					<input type="checkbox" class="note-toggle">
+					<p class="note-snippet note-collapsible"><%- note.note_content %></p>
+				</label>
 
 				<!-- Actions -->
 				<div class="note-row-actions">
@@ -134,7 +137,11 @@
 					<span class="note-badge visibility private">Private</span>
 				</div>
 
-				<p class="note-snippet"><%- note.note_content %></p>
+				<!-- Truncated content -->
+				<label class="note-expand">
+					<input type="checkbox" class="note-toggle">
+					<p class="note-snippet note-collapsible"><%- note.note_content %></p>
+				</label>
 
 				<div class="note-row-actions">
 					<a href="/notes/<%= note.id %>/edit" class="btn btn-small">Edit</a>
