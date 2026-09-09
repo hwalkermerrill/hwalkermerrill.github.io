@@ -131,10 +131,7 @@ Optimize performance of db queries
 Add auto ellipses and card elements over the current asset flexbox method.
 Add request/confirmation system for moderator changes to be approved by gm_admin
 Add user role visibility and management to register model and controller.
-update journal rendering for session recaps (and presumably, for documents and quests too)
 centralize all auth to authorization utility
-format css of figcaption on session logs
-fix nav menu bar on mobile
 
 ## Roadmap Checklist (Version 3.0)
 
