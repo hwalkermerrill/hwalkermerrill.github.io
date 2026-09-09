@@ -2,7 +2,16 @@
 
 // This creates a dropdown hamburger menu
 function toggleMenu() { // eslint-disable-line no-unused-vars
-	document.getElementById("primaryNav").classList.toggle("hide");
+	const primary = document.getElementById("primaryNav");
+	const secondary = document.getElementById("secondaryNav");
+
+	if (primary) {
+		primary.classList.toggle("hide");
+	}
+
+	if (secondary) {
+		secondary.classList.toggle("hide");
+	}
 }
 
 // This allows the user to hide all elements of a specific class (like 'locked')

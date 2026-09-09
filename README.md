@@ -136,8 +136,6 @@ centralize all auth to authorization utility
 format css of figcaption on session logs
 fix nav menu bar on mobile
 
-<!-- improve visibility of colored purple text on colored character backgrounds -->
-
 ## Roadmap Checklist (Version 3.0)
 
 Backend & Database

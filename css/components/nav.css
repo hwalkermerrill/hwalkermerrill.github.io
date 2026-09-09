@@ -127,6 +127,32 @@
 }
 
 /* Media Querries */
+
+/* Mobile navigation: stack links vertically */
+@media (max-width: 45rem) {
+	.site-nav {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.site-nav-group {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.site-nav-group ul {
+		flex-direction: column;
+		align-items: stretch;
+		width: 100%;
+	}
+
+	.site-nav-group ul li a {
+		display: block;
+		width: 100%;
+		max-width: none;
+	}
+}
+
 @media (min-width: 45rem) {
 	.site-nav {
 		ul {
