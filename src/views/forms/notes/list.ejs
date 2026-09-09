@@ -1,0 +1,156 @@
+<%- include("../../partials/header") %>
+
+<main id="maincontent" class="clearfix">
+	<h1>Manage Notes</h1>
+
+	<div class="form-row">
+		<div class="form-field">
+			<label for="campaign_id">Campaign</label>
+			<select id="campaign_id" name="campaign_id" disabled>
+				<option value="<%= campaign_id %>">Current Campaign</option>
+			</select>
+			<small>This page shows notes for the current campaign.</small>
+		</div>
+
+		<div class="form-field">
+			<a href="/notes/new" class="btn fmt-btn" style="margin-top: 1.8rem;">Take Notes</a>
+			<a href="/journal" class="btn fmt-btn" style="margin-top: 1.8rem;">Back to Journal</a>
+		</div>
+	</div>
+
+	<section class="note-list-section">
+
+		<!-- Check if notes exist -->
+		<% if (!publicNotes.length && !userNotes.length) { %>
+		<p>No notes found for this campaign.</p>
+		<% } else { %>
+
+		<!-- Party Notes -->
+		<h2>Party Notes</h2>
+
+		<% if (!publicNotes.length) { %>
+		<p>No public notes have been shared yet.</p>
+		<% } else { %>
+
+		<ul class="toggleLiVis note-type-list">
+			<% publicNotes.forEach(note => { %>
+			<li class="note-row">
+
+				<!-- Row Header -->
+				<div class="note-row-header">
+					<strong><%= note.note_title %></strong>
+					<span class="note-category">[<%= note.category_name %>]</span>
+					<span class="note-badge identity"><%= note.pc_name || note.username %></span>
+				</div>
+
+				<!-- Truncated content -->
+				<p class="note-snippet"><%- note.note_content %></p>
+
+				<!-- Actions -->
+				<div class="note-row-actions">
+					<!-- Any logged-in user can edit public notes -->
+					<a href="/notes/<%= note.id %>/edit" class="btn btn-small">Edit</a>
+
+					<!-- Only owner or GM can delete -->
+					<% if (note.user_id === userId || isGM) { %>
+					<form action="/notes/<%= note.id %>/delete" method="POST" class="inline-form">
+						<button type="submit" class="btn btn-small btn-danger"
+							onclick="return confirm('Delete this note?')">Delete</button>
+					</form>
+					<% } %>
+				</div>
+
+			</li>
+			<% }) %>
+		</ul>
+
+		<% } %>
+
+		<!-- User Notes -->
+		<h2>Your Private Notes</h2>
+
+		<% if (!userNotes.length) { %>
+		<p>You have no private notes.</p>
+		<% } else { %>
+
+		<ul class="toggleLiVis note-type-list">
+			<% userNotes.forEach(note => { %>
+			<li class="note-row">
+
+				<!-- Row Header -->
+				<div class="note-row-header">
+					<strong><%= note.note_title %></strong>
+					<span class="note-category">[<%= note.category_name %>]</span>
+				</div>
+
+				<!-- Truncated content -->
+				<p class="note-snippet"><%- note.note_content %></p>
+
+				<!-- Actions -->
+				<div class="note-row-actions">
+					<a href="/notes/<%= note.id %>/edit" class="btn btn-small">Edit</a>
+
+					<!-- Only owner or GM can delete -->
+					<% if (note.user_id === userId || isGM) { %>
+					<form action="/notes/<%= note.id %>/delete" method="POST" class="inline-form">
+						<button type="submit" class="btn btn-small btn-danger"
+							onclick="return confirm('Delete this note?')">Delete</button>
+					</form>
+					<% } %>
+				</div>
+
+			</li>
+			<% }) %>
+		</ul>
+
+		<% } %>
+
+		<!-- GM view of all player notes -->
+		<% if (isGM) { %>
+		<h2>Notes by user</h2>
+
+		<% 
+			const groupedByUser = {};
+			userNotes.forEach(n => {
+				const owner = n.pc_name || n.username;
+				if (!groupedByUser[owner]) groupedByUser[owner] = [];
+				groupedByUser[owner].push(n);
+			});
+		%>
+
+		<% Object.keys(groupedByUser).forEach(owner => { %>
+		<h3><%= owner %></h3>
+
+		<ul class="toggleLiVis note-type-list">
+			<% groupedByUser[owner].forEach(note => { %>
+			<li class="note-row">
+
+				<div class="note-row-header">
+					<strong><%= note.note_title %></strong>
+					<span class="note-category">[<%= note.category_name %>]</span>
+					<span class="note-badge visibility private">Private</span>
+				</div>
+
+				<p class="note-snippet"><%- note.note_content %></p>
+
+				<div class="note-row-actions">
+					<a href="/notes/<%= note.id %>/edit" class="btn btn-small">Edit</a>
+
+					<form action="/notes/<%= note.id %>/delete" method="POST" class="inline-form">
+						<button type="submit" class="btn btn-small btn-danger"
+							onclick="return confirm('Delete this note?')">Delete</button>
+					</form>
+				</div>
+
+			</li>
+			<% }) %>
+		</ul>
+		<% }) %>
+		<% } %>
+
+		<% } %>
+
+	</section>
+</main>
+
+<%- include("../../partials/footer") %>

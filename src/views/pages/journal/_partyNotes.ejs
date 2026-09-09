@@ -28,7 +28,10 @@
 				<h3><%= note.note_title %></h3>
 
 				<!-- Content -->
-				<p class="note-content"><%- note.note_content %></p>
+				<label class="note-expand">
+					<input type="checkbox" class="note-toggle">
+					<p class="note-content note-collapsible"><%- note.note_content %></p>
+				</label>
 
 				<!-- Metadata -->
 				<div class="note-meta">

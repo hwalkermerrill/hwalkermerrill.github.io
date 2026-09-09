@@ -90,3 +90,72 @@
 .notes-actions a:hover {
 	text-decoration: none;
 }
+
+/* Truncated targeted note content */
+.note-snippet {
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	white-space: normal;
+	line-height: var(--line-height-base);
+	color: var(--color-text-muted);
+}
+
+/* Note Rows for multi-note management*/
+.note-row {
+	display: block;
+	padding: var(--spacing-md);
+	margin-bottom: var(--spacing-md);
+	background-color: var(--header-text);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-sm);
+	transition: background-color 0.2s ease;
+}
+
+.note-row:hover {
+	background-color: var(--color-bg);
+}
+
+.note-row-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--spacing-sm);
+	margin-bottom: var(--spacing-sm);
+}
+
+.note-row-header strong {
+	font-family: var(--font-family-serif);
+	color: var(--color-primary);
+	font-size: var(--font-size-lg);
+}
+
+.note-row-header .note-category {
+	font-size: var(--font-size-sm);
+	color: var(--color-text-muted);
+}
+
+.note-row-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: var(--spacing-md);
+	margin-top: var(--spacing-sm);
+}
+
+/* Modal view checkbox */
+.note-toggle {
+	display: none;
+}
+
+.note-collapsible {
+	display: -webkit-box;
+	-webkit-line-clamp: 2; /* two lines for journal view */
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.note-toggle:checked + .note-collapsible {
+	-webkit-line-clamp: unset;
+	max-height: none;
+}

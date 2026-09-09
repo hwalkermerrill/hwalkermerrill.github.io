@@ -1,8 +1,6 @@
 // Imports
 import {
 	getAllCategories,
-	// getNotesForUserCampaign,
-	// getPublicNotesForCampaign,
 	getNoteById,
 	createPlayerNote,
 	updatePlayerNote,
@@ -80,12 +78,12 @@ async function submitNewNote(req, res) {
 	// Validation
 	if (!note_title || !note_title.trim()) {
 		req.flash("error", "Note title cannot be empty.");
-		return res.redirect("/journal/notes/new");
+		return res.redirect("/notes/new");
 	}
 
 	if (!note_content || !note_content.trim()) {
 		req.flash("error", "Note content cannot be empty.");
-		return res.redirect("/journal/notes/new");
+		return res.redirect("/notes/new");
 	}
 
 	await createPlayerNote({
@@ -100,9 +98,57 @@ async function submitNewNote(req, res) {
 
 	// Flash and redirect
 	req.flash("success", "You have taken note...");
-	res.redirect("/journal#journal-tab-notes");
+	res.redirect("/notes/manage");
 }
 
+// *Read
+async function showNoteManager(req, res) {
+	if (!req.session.user) {
+		return res.redirect("/login");
+	}
+
+	const user = req.session.user;
+	const userId = user.id;
+	const campaignId = res.locals.campaign_id;
+	const isGM = hasRole(user, "gm_admin");
+
+	// Private notes for this user
+	const { rows: userNotes } = await db.query(
+		`SELECT n.*, c.category_name, u.username, p.pc_name
+     FROM player_notes n
+     JOIN note_categories c ON c.id = n.category_id
+     JOIN users u ON u.id = n.user_id
+     LEFT JOIN pc_main p ON p.id = n.pc_id
+     WHERE n.campaign_id = $1
+       AND n.user_id = $2
+       AND n.is_public = FALSE
+     ORDER BY n.updated_at DESC`,
+		[campaignId, userId]
+	);
+
+	// Public notes (party notes)
+	const { rows: publicNotes } = await db.query(
+		`SELECT n.*, c.category_name, u.username, p.pc_name
+     FROM player_notes n
+     JOIN note_categories c ON c.id = n.category_id
+     JOIN users u ON u.id = n.user_id
+     LEFT JOIN pc_main p ON p.id = n.pc_id
+     WHERE n.campaign_id = $1
+       AND n.is_public = TRUE
+     ORDER BY u.username ASC, n.updated_at DESC`,
+		[campaignId]
+	);
+
+	res.render("forms/notes/list", {
+		title: "Manage Notes",
+		activePage: "notes",
+		userNotes,
+		publicNotes,
+		isGM,
+		userId,
+		campaign_id: campaignId
+	});
+}
 
 // *Update
 async function showEditNoteForm(req, res) {
@@ -118,9 +164,12 @@ async function showEditNoteForm(req, res) {
 		return res.status(404).send("Note not found.");
 	}
 
-	// Only the author or GM can edit
+	// Edit Permissions: Must be GM, Owner, or a public note
 	const isGM = hasRole(req.session.user, "gm_admin");
-	if (note.user_id !== userId && !isGM) {
+	const isOwner = note.user_id === userId;
+	const canEdit = note.is_public ? true : (isOwner || isGM)
+
+	if (!canEdit) {
 		return res.status(403).send("Forbidden.");
 	}
 
@@ -144,13 +193,17 @@ async function submitNoteEdit(req, res) {
 	const userId = req.session.user.id;
 	const noteId = Number(req.params.id);
 
-	const existing = await getNoteById(noteId);
-	if (!existing) {
+	const note = await getNoteById(noteId);
+	if (!note) {
 		return res.status(404).send("Note not found.");
 	}
 
+	// Edit Permissions: Must be GM, Owner, or a public note
 	const isGM = hasRole(req.session.user, "gm_admin");
-	if (existing.user_id !== userId && !isGM) {
+	const isOwner = note.user_id === userId;
+	const canEdit = note.is_public ? true : (isOwner || isGM)
+
+	if (!canEdit) {
 		return res.status(403).send("Forbidden.");
 	}
 
@@ -166,12 +219,12 @@ async function submitNoteEdit(req, res) {
 	// Validation
 	if (!note_title || !note_title.trim()) {
 		req.flash("error", "Note title cannot be empty.");
-		return res.redirect(`/journal/notes/${noteId}/edit`);
+		return res.redirect(`/notes/${noteId}/edit`);
 	}
 
 	if (!note_content || !note_content.trim()) {
 		req.flash("error", "Note content cannot be empty.");
-		return res.redirect(`/journal/notes/${noteId}/edit`);
+		return res.redirect(`/notes/${noteId}/edit`);
 	}
 
 	await updatePlayerNote(noteId, {
@@ -184,7 +237,7 @@ async function submitNoteEdit(req, res) {
 
 	// Flash and redirect
 	req.flash("success", "You adjusted your view of the taken note...");
-	res.redirect("/journal#journal-tab-notes");
+	res.redirect("/notes/manage");
 }
 
 // *Delete
@@ -196,15 +249,15 @@ async function deleteNote(req, res) {
 	const userId = req.session.user.id;
 	const noteId = Number(req.params.id);
 
-	const existing = await getNoteById(noteId);
-	if (!existing) {
+	const note = await getNoteById(noteId);
+	if (!note) {
 		return res.status(404).send("Note not found.");
 	}
 
 	const isGM = hasRole(req.session.user, "gm_admin");
 
-	// Author OR GM can delete
-	if (existing.user_id !== userId && !isGM) {
+	// Only author OR GM can delete
+	if (note.user_id !== userId && !isGM) {
 		return res.status(403).send("Forbidden.");
 	}
 
@@ -212,14 +265,15 @@ async function deleteNote(req, res) {
 
 	// Flash and redirect
 	req.flash("success", "You have forgotten...");
-	res.redirect("/journal#journal-tab-notes");
+	res.redirect("/notes/manage");
 }
 
 // Exports
 export {
+	showNoteManager,
 	showCreateNoteForm,
-	submitNewNote,
 	showEditNoteForm,
+	submitNewNote,
 	submitNoteEdit,
 	deleteNote
 };
