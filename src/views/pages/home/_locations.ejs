@@ -17,7 +17,7 @@
 		</figure>
 		<% } %>
 		<% (currentLocation.paragraphs || []).forEach(p => { %>
-		<p><%= p %></p>
+		<p><%- p %></p>
 		<% }); %>
 	</section>
 </div>
@@ -44,7 +44,7 @@
 		<% } %>
 
 		<% (overviewLocation.paragraphs || []).forEach(p => { %>
-		<p><%= p %></p>
+		<p><%- p %></p>
 		<% }); %>
 	</section>
 </div>
