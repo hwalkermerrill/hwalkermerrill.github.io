@@ -8,7 +8,7 @@ function sanitizeText(raw = "") {
 		.replace(/</g, "&lt;")
 		.replace(/>/g, "&gt;");
 
-	// Allow <b>, <i>, <br>, <q>
+	// Allow <b>, <i>, <br>, <q>, <sup>, <sub>, <u>, <blockquote>, <figure> and <figcaption>
 	safe = safe
 		.replace(/&lt;b&gt;/g, "<b>")
 		.replace(/&lt;\/b&gt;/g, "</b>")
@@ -16,7 +16,19 @@ function sanitizeText(raw = "") {
 		.replace(/&lt;\/i&gt;/g, "</i>")
 		.replace(/&lt;q&gt;/g, "<q>")
 		.replace(/&lt;\/q&gt;/g, "</q>")
-		.replace(/&lt;br&gt;/g, "<br>");
+		.replace(/&lt;br&gt;/g, "<br>")
+		.replace(/&lt;sup&gt;/g, "<sup>")
+		.replace(/&lt;\/sup&gt;/g, "</sup>")
+		.replace(/&lt;sub&gt;/g, "<sub>")
+		.replace(/&lt;\/sub&gt;/g, "</sub>")
+		.replace(/&lt;u&gt;/g, "<u>")
+		.replace(/&lt;\/u&gt;/g, "</u>")
+		.replace(/&lt;blockquote&gt;/g, "<blockquote>")
+		.replace(/&lt;\/blockquote&gt;/g, "</blockquote>")
+		.replace(/&lt;figure&gt;/g, "<figure>")
+		.replace(/&lt;\/figure&gt;/g, "</figure>")
+		.replace(/&lt;figcaption&gt;/g, "<figcaption>")
+		.replace(/&lt;\/figcaption&gt;/g, "</figcaption>");
 
 	// Convert newlines to <br>
 	safe = safe.replace(/\n/g, "<br>");
