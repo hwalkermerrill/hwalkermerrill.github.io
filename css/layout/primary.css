@@ -78,6 +78,12 @@ main > section {
 	}
 }
 
+/* blockquotes */
+blockquote {
+	font-style: italic;
+	border-radius: var(--radius-sm);
+}
+
 /* row */
 .row {
 	display: block;

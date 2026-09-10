@@ -106,6 +106,16 @@
 	overflow: hidden;
 }
 
+.u-blockquote {
+	margin: 1.5rem 0;
+	padding: 1rem 1.25rem;
+	border-left: 4px solid var(--color-primary);
+	background: var(--color-surface);
+	font-style: italic;
+	color: var(--color-disabled);
+	border-radius: var(--radius-sm);
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.holo-flash,
 	.holo-flash-chromatic {
