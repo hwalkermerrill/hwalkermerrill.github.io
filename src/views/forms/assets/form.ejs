@@ -1,7 +1,7 @@
 <%- include("../../partials/header") %>
 
 <main id="maincontent" class="clearfix">
-	<h1><%= formMode === "edit" ? "Edit Item / Map" : "Create Item / Map" %></h1>
+	<h1><%= formMode === "edit" ? "Edit Item / Map" : "Forge Item / Map" %></h1>
 
 	<form action="<%= formMode === 'edit'
       ? '/builder/item/' + item.id + '/edit'
@@ -41,7 +41,7 @@
 			</div>
 		</div>
 
-		<!-- Name / Status / Identified -->
+		<!-- Name / CL -->
 		<div class="form-row">
 
 			<div class="form-field">
@@ -49,6 +49,105 @@
 				<input type="text" id="item_name" name="item_name" maxlength="255" value="<%= item ? item.item_name : '' %>"
 					placeholder="Enter item name..." required>
 			</div>
+
+			<div class="form-field">
+				<label for="caster_level">Caster Level</label>
+				<input type="number" id="caster_level" name="caster_level" min="1" max="20"
+					value="<%= item && item.caster_level ? item.caster_level : '' %>" placeholder="Optional (1–20)">
+			</div>
+
+		</div>
+
+		<!-- Formatting Buttons -->
+		<div class="form-formatting">
+			<button type="button" class="btn fmt-btn" data-tag="b"><b>Bold</b></button>
+			<button type="button" class="btn fmt-btn" data-tag="i"><i>Italic</i></button>
+			<button type="button" class="btn fmt-btn" data-tag="q"><b>Quote</b></button>
+			<button type="button" class="btn fmt-btn" data-tag="sup">Sup</button>
+			<button type="button" class="btn fmt-btn" data-tag="sub">Sub</button>
+		</div>
+
+		<!-- Description / Abilities / Secrets -->
+		<div class="form-field">
+			<label for="description">Description</label>
+			<textarea id="description" name="description" rows="4"
+				placeholder="Narrative description of the item..."><%= item && item.description ? item.description : '' %></textarea>
+		</div>
+
+		<div class="form-field">
+			<label for="abilities">Abilities / Effects</label>
+			<textarea id="abilities" name="abilities" rows="4"
+				placeholder="Mechanical abilities, bonuses, or effects..."><%= item && item.abilities ? item.abilities : '' %></textarea>
+		</div>
+
+		<div class="form-field">
+			<label for="secrets">Secrets (GM Only)</label>
+			<textarea id="secrets" name="secrets" rows="4"
+				placeholder="GM-only notes..."><%= item && item.secrets ? item.secrets : '' %></textarea>
+		</div>
+
+		<!-- Limited sections (Artifacts and Relics) -->
+		<div id="artifact-section" style="<%= item && item.item_type === 'artifact' ? '' : 'display:none;' %>">
+
+			<div class="form-field">
+				<label for="unique_destruction">Unique Destruction</label>
+				<select id="unique_destruction" name="unique_destruction">
+					<option value="false" <%= item && !item.unique_destruction ? "selected" : "" %>>False</option>
+					<option value="true" <%= item && item.unique_destruction ? "selected" : "" %>>True</option>
+				</select>
+			</div>
+
+			<div class="form-field" id="destruction-method-wrapper"
+				style="<%= item && item.unique_destruction ? '' : 'display:none;' %>">
+				<label for="destruction_method">Destruction Method</label>
+				<textarea id="destruction_method" name="destruction_method" rows="3"
+					placeholder="How the artifact can be destroyed..."><%= item && item.destruction_method ? item.destruction_method : '' %></textarea>
+			</div>
+		</div>
+
+		<!-- Boons / Visibility (for artifacts / relics) -->
+		<div id="boon-section" style="<%= item && item.unlocked_boons ? '' : 'display:none;' %>">
+
+			<div class="form-field">
+				<label for="unlocked_boons">Unlocked Boons</label>
+				<textarea id="unlocked_boons" name="unlocked_boons" rows="3"
+					placeholder="Describe unlocked boons..."><%= item && item.unlocked_boons ? item.unlocked_boons : '' %></textarea>
+			</div>
+
+			<div class="form-field">
+				<label for="unlock_method">Unlock Method</label>
+				<textarea id="unlock_method" name="unlock_method" rows="3"
+					placeholder="How the boon is unlocked..."><%= item && item.unlock_method ? item.unlock_method : '' %></textarea>
+			</div>
+
+			<div class="form-row">
+				<div class="form-field">
+					<label for="boons_visible">Boons Visible</label>
+					<select id="boons_visible" name="boons_visible">
+						<option value="false" <%= item && !item.boons_visible ? "selected" : "" %>>Hidden</option>
+						<option value="true" <%= item && item.boons_visible ? "selected" : "" %>>Visible</option>
+					</select>
+				</div>
+
+				<div class="form-field">
+					<label for="unlock_visible">Unlock Visible</label>
+					<select id="unlock_visible" name="unlock_visible">
+						<option value="false" <%= item && !item.unlock_visible ? "selected" : "" %>>Hidden</option>
+						<option value="true" <%= item && item.unlock_visible ? "selected" : "" %>>Visible</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-field">
+			<button type="button" class="btn fmt-btn" id="add-boon"
+				style="<%= item && item.unlocked_boons ? 'display:none;' : '' %>">+ Add Boon</button>
+			<button type="button" class="btn fmt-btn" id="remove-boon"
+				style="<%= item && item.unlocked_boons ? '' : 'display:none;' %>">- Remove Boon</button>
+		</div>
+
+		<!-- Status/ Identification -->
+		<div class="form-row">
 
 			<div class="form-field">
 				<label for="active_status_id">Status</label>
@@ -70,68 +169,81 @@
 			</div>
 		</div>
 
-		<!-- Boons / Visibility (for artifacts / relics) -->
-		<div class="form-row">
-			<div class="form-field">
-				<label for="unlocked_boons">Unlocked Boons</label>
-				<textarea id="unlocked_boons" name="unlocked_boons" rows="3"
-					placeholder="Describe unlocked boons (optional)"><%= item && item.unlocked_boons ? item.unlocked_boons : '' %></textarea>
-			</div>
-
-			<div class="form-field">
-				<label for="boons_visible">Boons Visible</label>
-				<select id="boons_visible" name="boons_visible">
-					<option value="false" <%= item && !item.boons_visible ? "selected" : "" %>>Hidden</option>
-					<option value="true" <%= item && item.boons_visible ? "selected" : "" %>>Visible</option>
-				</select>
-				<small>Primarily used for artifacts and relics.</small>
-			</div>
-		</div>
-
 		<!-- Owner (PC / Companion / NPC / Faction) -->
 		<div class="form-row">
+
 			<div class="form-field">
-				<label for="owner_pc_id">Owner (PC)</label>
-				<select id="owner_pc_id" name="pc_id">
+				<label for="owner_type">Owner Type</label>
+				<select id="owner_type" name="owner_type">
+					<option value="none"
+						<%= (!item || (!item.owner_pc_id && !item.owner_companion_id && !item.owner_npc_id && !item.owner_faction_id)) ? "selected" : "" %>>
+						Unassigned
+					</option>
+					<option value="pc" <%= item && item.owner_pc_id ? "selected" : "" %>>PC</option>
+					<option value="companion" <%= item && item.owner_companion_id ? "selected" : "" %>>Companion</option>
+					<option value="npc" <%= item && item.owner_npc_id ? "selected" : "" %>>NPC</option>
+					<option value="faction" <%= item && item.owner_faction_id ? "selected" : "" %>>Faction</option>
+				</select>
+			</div>
+
+			<!-- Placeholder dropdown field -->
+			<div class="form-field owner-field" id="owner-placeholder"
+				style="<%= (!item || (!item.owner_pc_id && !item.owner_companion_id && !item.owner_npc_id && !item.owner_faction_id)) ? '' : 'display:none;' %>">
+				<label style="visibility:hidden;">Owner</label>
+				<select disabled>
+					<option>Unassigned</option>
+				</select>
+			</div>
+
+			<!-- PC -->
+			<div class="form-field owner-field" id="owner-pc" style="<%= item && item.owner_pc_id ? '' : 'display:none;' %>">
+				<label for="owner_pc_id">PC</label>
+				<select id="owner_pc_id" name="owner_pc_id">
 					<option value="">Unassigned</option>
-					<% pcs && pcs.forEach(pc => { %>
-					<option value="<%= pc.id %>" <%= owners && owners.pc_id === pc.id ? "selected" : "" %>>
+					<% pcs.forEach(pc => { %>
+					<option value="<%= pc.id %>" <%= item && item.owner_pc_id === pc.id ? "selected" : "" %>>
 						<%= pc.name %>
 					</option>
 					<% }) %>
 				</select>
 			</div>
 
-			<div class="form-field">
-				<label for="owner_companion_id">Owner (Companion)</label>
-				<select id="owner_companion_id" name="companion_id">
+			<!-- Companion -->
+			<div class="form-field owner-field" id="owner-companion"
+				style="<%= item && item.owner_companion_id ? '' : 'display:none;' %>">
+				<label for="owner_companion_id">Companion</label>
+				<select id="owner_companion_id" name="owner_companion_id">
 					<option value="">Unassigned</option>
-					<% companions && companions.forEach(c => { %>
-					<option value="<%= c.id %>" <%= owners && owners.companion_id === c.id ? "selected" : "" %>>
+					<% companions.forEach(c => { %>
+					<option value="<%= c.id %>" <%= item && item.owner_companion_id === c.id ? "selected" : "" %>>
 						<%= c.name %>
 					</option>
 					<% }) %>
 				</select>
 			</div>
 
-			<div class="form-field">
-				<label for="owner_npc_id">Owner (NPC)</label>
-				<select id="owner_npc_id" name="npc_id">
+			<!-- NPC -->
+			<div class="form-field owner-field" id="owner-npc"
+				style="<%= item && item.owner_npc_id ? '' : 'display:none;' %>">
+				<label for="owner_npc_id">NPC</label>
+				<select id="owner_npc_id" name="owner_npc_id">
 					<option value="">Unassigned</option>
-					<% npcs && npcs.forEach(n => { %>
-					<option value="<%= n.id %>" <%= owners && owners.npc_id === n.id ? "selected" : "" %>>
+					<% npcs.forEach(n => { %>
+					<option value="<%= n.id %>" <%= item && item.owner_npc_id === n.id ? "selected" : "" %>>
 						<%= n.name %>
 					</option>
 					<% }) %>
 				</select>
 			</div>
 
-			<div class="form-field">
-				<label for="owner_faction_id">Owner (Faction)</label>
-				<select id="owner_faction_id" name="faction_id">
+			<!-- Faction -->
+			<div class="form-field owner-field" id="owner-faction"
+				style="<%= item && item.owner_faction_id ? '' : 'display:none;' %>">
+				<label for="owner_faction_id">Faction</label>
+				<select id="owner_faction_id" name="owner_faction_id">
 					<option value="">Unassigned</option>
-					<% factions && factions.forEach(f => { %>
-					<option value="<%= f.id %>" <%= owners && owners.faction_id === f.id ? "selected" : "" %>>
+					<% factions.forEach(f => { %>
+					<option value="<%= f.id %>" <%= item && item.owner_faction_id === f.id ? "selected" : "" %>>
 						<%= f.name %>
 					</option>
 					<% }) %>
@@ -139,55 +251,35 @@
 			</div>
 		</div>
 
-		<!-- Description / Abilities -->
-		<div class="form-field">
-			<label for="description">Description</label>
-			<textarea id="description" name="description" rows="4"
-				placeholder="Narrative description of the item..."><%= item && item.description ? item.description : '' %></textarea>
-		</div>
-
-		<div class="form-field">
-			<label for="abilities">Abilities / Effects</label>
-			<textarea id="abilities" name="abilities" rows="4"
-				placeholder="Mechanical abilities, bonuses, or effects..."><%= item && item.abilities ? item.abilities : '' %></textarea>
-		</div>
-
 		<!-- Gallery -->
 		<div class="form-field">
 			<label>Gallery Images</label>
 
-			<div id="gallery-container">
-				<% if (gallery && gallery.length > 0) { %>
+			<div id="gallery-container" style="<%= gallery.length ? '' : 'display:none;' %>">
 				<% gallery.forEach((g, idx) => { %>
 				<div class="gallery-row">
 
-					<!-- URL -->
 					<input type="text" name="gallery_url" placeholder="Image URL" value="<%= g.image_url %>"
 						class="gallery-input">
 
-					<!-- Alt -->
 					<input type="text" name="gallery_alt" placeholder="Alt text" value="<%= g.alt %>" class="gallery-input">
 
-					<!-- Figcaption -->
 					<input type="text" name="gallery_figcaption" placeholder="Caption (optional)"
 						value="<%= g.figcaption || '' %>" class="gallery-input">
 
 					<div class="form-row">
-						<!-- Type -->
 						<select name="gallery_type" class="gallery-input gallery-type">
 							<option value="main" <%= g.is_main ? "selected" : "" %>>Main</option>
 							<option value="hover" <%= g.is_hover ? "selected" : "" %>>Hover</option>
 							<option value="extra" <%= (!g.is_main && !g.is_hover) ? "selected" : "" %>>Extra</option>
 						</select>
 
-						<!-- Hover Visible (only if hover) -->
 						<select name="gallery_hover_visible" class="gallery-input hover-visible"
 							style="<%= g.is_hover ? '' : 'display:none;' %>">
 							<option value="false" <%= !g.hover_visible ? "selected" : "" %>>Hover Hidden</option>
 							<option value="true" <%= g.hover_visible ? "selected" : "" %>>Hover Visible</option>
 						</select>
 
-						<!-- Tall -->
 						<select name="gallery_is_tall" class="gallery-input">
 							<option value="false" <%= !g.is_tall ? "selected" : "" %>>Normal</option>
 							<option value="true" <%= g.is_tall ? "selected" : "" %>>Tall</option>
@@ -195,29 +287,6 @@
 					</div>
 				</div>
 				<% }) %>
-				<% } else { %>
-				<!-- Default first gallery row -->
-				<div class="gallery-row">
-					<input type="text" name="gallery_url" placeholder="Image URL" class="gallery-input">
-					<input type="text" name="gallery_alt" placeholder="Alt text" class="gallery-input">
-					<input type="text" name="gallery_figcaption" placeholder="Caption (optional)" class="gallery-input">
-					<div class="form-row">
-						<select name="gallery_type" class="gallery-input gallery-type">
-							<option value="main">Main</option>
-							<option value="hover">Hover</option>
-							<option value="extra">Extra</option>
-						</select>
-						<select name="gallery_hover_visible" class="gallery-input hover-visible" style="display:none;">
-							<option value="false">Hover Hidden</option>
-							<option value="true">Hover Visible</option>
-						</select>
-						<select name="gallery_is_tall" class="gallery-input">
-							<option value="false">Normal</option>
-							<option value="true">Tall</option>
-						</select>
-					</div>
-				</div>
-				<% } %>
 			</div>
 
 			<!-- Add/remove gallery buttons -->
@@ -228,7 +297,7 @@
 		<!-- Submit -->
 		<div class="form-actions">
 			<button type="submit" class="btn btn-primary">
-				<%= formMode === "edit" ? "Save Changes" : "Create Item / Map" %>
+				<%= formMode === "edit" ? "Save Changes" : "Forge Item / Map" %>
 			</button>
 
 			<% if (formMode === "edit" && hasRole(user, "gm_admin")) { %>
@@ -244,11 +313,33 @@
 </main>
 
 <script>
-	// --- Gallery add/remove (same pattern as logs) ---
+	// Formatting Buttons (Bold, Italic, etc.)
+	document.querySelectorAll(".fmt-btn[data-tag]").forEach(btn => {
+		btn.addEventListener("mousedown", e => e.preventDefault());
+		btn.addEventListener("click", () => {
+			const tag = btn.dataset.tag;
+			const textarea = document.activeElement;
+
+			if (!textarea || textarea.tagName !== "TEXTAREA") return;
+
+			const start = textarea.selectionStart;
+			const end = textarea.selectionEnd;
+			const selected = textarea.value.substring(start, end);
+			const wrapped = `<${tag}>${selected}</${tag}>`;
+
+			textarea.value =
+				textarea.value.substring(0, start) +
+				wrapped +
+				textarea.value.substring(end);
+
+			textarea.selectionStart = start;
+			textarea.selectionEnd = start + wrapped.length;
+		});
+	});
+
+	// Gallery add/remove logic
 	document.getElementById("add-gallery").addEventListener("click", () => {
 		const container = document.getElementById("gallery-container");
-
-		// Show container if hidden
 		container.style.display = "block";
 
 		const row = document.createElement("div");
@@ -280,12 +371,10 @@
 
 		container.appendChild(row);
 
-		// Ensure only first image defaults to main
 		if (container.children.length > 1) {
 			row.querySelector("[name='gallery_type']").value = "extra";
 		}
 
-		// Add type-change listener
 		setupGalleryTypeListener(row);
 	});
 
@@ -299,7 +388,6 @@
 		}
 	});
 
-	// --- Gallery Type Logic (hover visibility toggle) ---
 	function setupGalleryTypeListener(row) {
 		const typeSelect = row.querySelector(".gallery-type");
 		const hoverVisible = row.querySelector(".hover-visible");
@@ -314,10 +402,8 @@
 		});
 	}
 
-	// Initialize listeners for existing rows
 	document.querySelectorAll(".gallery-row").forEach(setupGalleryTypeListener);
 
-	// --- Front-end enforcement: max one Main and one Hover ---
 	function enforceGalleryFlags() {
 		const rows = document.querySelectorAll(".gallery-row");
 		let mainFound = false;
@@ -350,16 +436,113 @@
 		}
 	});
 
-	// --- Boons visibility: optional UX tweak ---
+	// Owner Type Selector
+	const ownerType = document.getElementById("owner_type");
+	const ownerPC = document.getElementById("owner-pc");
+	const ownerCompanion = document.getElementById("owner-companion");
+	const ownerNPC = document.getElementById("owner-npc");
+	const ownerFaction = document.getElementById("owner-faction");
+	const ownerPlaceholder = document.getElementById("owner-placeholder");
+
+	const ownerGroups = {
+		pc: ownerPC,
+		companion: ownerCompanion,
+		npc: ownerNPC,
+		faction: ownerFaction
+	};
+
+	function updateOwnerFields() {
+		const type = ownerType.value;
+
+		// Hide all owner dropdowns
+		Object.values(ownerGroups).forEach(el => {
+			el.style.display = "none";
+			const select = el.querySelector("select");
+			if (select) select.value = "";
+		});
+
+		// Show placeholder when unassigned
+		if (type === "none") {
+			ownerPlaceholder.style.display = "block";
+			return;
+		}
+
+		// Show selected owner dropdown
+		if (ownerGroups[type]) {
+			ownerGroups[type].style.display = "block";
+			ownerPlaceholder.style.display = "none";
+		}
+	}
+
+	ownerType.addEventListener("change", updateOwnerFields);
+	updateOwnerFields(); // initialize
+
+	// Artifact-only destruction method
 	const itemTypeSelect = document.getElementById("item_type");
+	const artifactSection = document.getElementById("artifact-section");
+	const uniqueDestruction = document.getElementById("unique_destruction");
+	const destructionWrapper = document.getElementById("destruction-method-wrapper");
+
+	function updateArtifactFields() {
+		const type = itemTypeSelect.value;
+
+		if (type === "artifact") {
+			artifactSection.style.display = "block";
+		} else {
+			artifactSection.style.display = "none";
+			uniqueDestruction.value = "false";
+			destructionWrapper.style.display = "none";
+		}
+	}
+
+	function updateDestructionMethod() {
+		if (uniqueDestruction.value === "true") {
+			destructionWrapper.style.display = "block";
+		} else {
+			destructionWrapper.style.display = "none";
+		}
+	}
+
+	itemTypeSelect.addEventListener("change", updateArtifactFields);
+	uniqueDestruction.addEventListener("change", updateDestructionMethod);
+
+	updateArtifactFields();
+	updateDestructionMethod();
+
+	// Single Boon Add/Remove Toggle
+	const boonSection = document.getElementById("boon-section");
+	const addBoonBtn = document.getElementById("add-boon");
+	const removeBoonBtn = document.getElementById("remove-boon");
+
+	addBoonBtn.addEventListener("click", () => {
+		boonSection.style.display = "block";
+		addBoonBtn.style.display = "none";
+		removeBoonBtn.style.display = "inline-block";
+		toggleBoonsVisibilityField();
+	});
+
+	removeBoonBtn.addEventListener("click", () => {
+		boonSection.style.display = "none";
+		removeBoonBtn.style.display = "none";
+		addBoonBtn.style.display = "inline-block";
+
+		// Clear boon fields
+		document.getElementById("unlocked_boons").value = "";
+		document.getElementById("unlock_method").value = "";
+		document.getElementById("boons_visible").value = "false";
+		document.getElementById("unlock_visible").value = "false";
+
+		toggleBoonsVisibilityField();
+	});
+
+	// Boons visibility logic (updated)
 	const boonsVisibleField = document.getElementById("boons_visible");
 	const unlockedBoonsField = document.getElementById("unlocked_boons");
 
 	function toggleBoonsVisibilityField() {
 		const type = itemTypeSelect.value;
-		const hasText = unlockedBoonsField.value.trim().length > 0;
 
-		if ((type === "artifact" || type === "relic") && hasText) {
+		if ((type === "artifact" || type === "relic") && boonSection.style.display !== "none") {
 			boonsVisibleField.parentElement.style.display = "block";
 		} else {
 			boonsVisibleField.parentElement.style.display = "none";
@@ -367,32 +550,10 @@
 		}
 	}
 
-	if (itemTypeSelect && boonsVisibleField && unlockedBoonsField) {
-		itemTypeSelect.addEventListener("change", toggleBoonsVisibilityField);
-		unlockedBoonsField.addEventListener("input", toggleBoonsVisibilityField);
-		toggleBoonsVisibilityField();
-	}
-
-	// --- Owner exclusivity (optional front-end hint) ---
-	const ownerFields = [
-		document.getElementById("owner_pc_id"),
-		document.getElementById("owner_companion_id"),
-		document.getElementById("owner_npc_id"),
-		document.getElementById("owner_faction_id")
-	].filter(Boolean);
-
-	function enforceSingleOwner(e) {
-		const changed = e.target;
-		if (!ownerFields.includes(changed)) return;
-
-		if (changed.value) {
-			ownerFields.forEach(sel => {
-				if (sel !== changed) sel.value = "";
-			});
-		}
-	}
-
-	document.addEventListener("change", enforceSingleOwner);
+	itemTypeSelect.addEventListener("change", toggleBoonsVisibilityField);
+	addBoonBtn.addEventListener("click", toggleBoonsVisibilityField);
+	removeBoonBtn.addEventListener("click", toggleBoonsVisibilityField);
+	toggleBoonsVisibilityField();
 </script>
 
 <%- include("../../partials/footer") %>

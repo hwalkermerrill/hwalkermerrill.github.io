@@ -53,6 +53,7 @@ async function showItemDashboard(req, res) {
 	const active_status = await getActiveStatus();
 	const items = await getAssetsForCampaign(campaignId);
 	const maps = await getMapsForCampaign(campaignId);
+
 	const formData = await loadFormData(campaignId);
 
 	res.render("forms/assets/list", {
@@ -108,7 +109,18 @@ async function showEditItemForm(req, res) {
 	const campaigns = await loadCampaigns();
 	const formData = await loadFormData(item.campaign_id);
 	const gallery = await getGalleryForItem(itemId);
+
 	const owners = await getOwnersForItem(itemId);
+	item.owner_pc_id = owners.pc_id;
+	item.owner_companion_id = owners.companion_id;
+	item.owner_npc_id = owners.npc_id;
+	item.owner_faction_id = owners.faction_id;
+
+	let ownerType = "none";
+	if (owners.pc_id) ownerType = "pc";
+	else if (owners.companion_id) ownerType = "companion";
+	else if (owners.npc_id) ownerType = "npc";
+	else if (owners.faction_id) ownerType = "faction";
 
 	res.render("forms/assets/form", {
 		title: `Edit Item: ${item.item_name}`,
@@ -117,7 +129,8 @@ async function showEditItemForm(req, res) {
 		item,
 		gallery,
 		active_status,
-		owners,
+		ownerType,
+		// owners,
 		campaigns,
 		...formData
 	});

@@ -1,6 +1,6 @@
 // Imports
 import db from "../db.js";
-import { sanitizeText } from "../../utils/validation.js";
+import { sanitizeText, validateImgUrl } from "../../utils/validation.js";
 import { normalizeToArray } from "../../utils/normalization.js";
 
 // Quick Update Helpers
@@ -267,7 +267,7 @@ const replaceGalleryForItem = async (itemId, data) => {
       VALUES ($1, $2, $3, $4, $5, $6)
     `, [
 			itemId,
-			url,
+			validateImgUrl(url),
 			sanitizeText(alts[i] || "Item Image"),
 			i === 0,
 			talls[i] === "true",
@@ -298,10 +298,10 @@ const replaceOwnersForItem = async (itemId, data) => {
     VALUES ($1, $2, $3, $4, $5)
   `, [
 		itemId,
-		data.pc_id || null,
-		data.companion_id || null,
-		data.npc_id || null,
-		data.faction_id || null
+		data.owner_pc_id || null,
+		data.owner_companion_id || null,
+		data.owner_npc_id || null,
+		data.owner_faction_id || null
 	]);
 };
 
