@@ -18,8 +18,8 @@
 
 	<!-- GM Only Inclusions -->
 	<% if (hasRole(user, "gm_admin")) { %>
-	<%- include("./_pending") %>
-	<%- include("./_lost") %>
+	<%- include("./_statusPending") %>
+	<%- include("./_statusLost") %>
 	<% } %>
 </main>
 
