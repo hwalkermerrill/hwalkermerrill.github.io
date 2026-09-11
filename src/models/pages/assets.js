@@ -261,13 +261,14 @@ const replaceGalleryForItem = async (itemId, data) => {
 	for (let i = 0; i < urls.length; i++) {
 		const url = urls[i]?.trim();
 		if (!url) continue;
+		if (!validateImgUrl(url)) { continue; }
 
 		await db.query(`
       INSERT INTO item_gallery (item_id, image_url, alt, is_main, is_tall, figcaption)
       VALUES ($1, $2, $3, $4, $5, $6)
     `, [
 			itemId,
-			validateImgUrl(url),
+			url,
 			sanitizeText(alts[i] || "Item Image"),
 			i === 0,
 			talls[i] === "true",

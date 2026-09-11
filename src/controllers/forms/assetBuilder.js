@@ -10,6 +10,7 @@ import {
 import { getCampaigns, getActiveStatus, getPcByCampaign, getCompanionByCampaign, getNpcByCampaign, getFactionByCampaign } from "../../models/helpers/select.js";
 import { getMapsForCampaign } from "../../models/pages/maps.js";
 import { hasRole } from "../../utils/permissions.js";
+import { validateImgUrl } from "../../utils/validation.js";
 
 // --- Permissions ---
 function limitedPermission(user) {
@@ -38,6 +39,34 @@ async function loadFormData(campaignId) {
 		npcs,
 		factions
 	};
+}
+
+function validateGalleryUrls(req) {
+	const raw = req.body.gallery_url;
+
+	// Single value
+	if (typeof raw === "string") {
+		const trimmed = raw.trim();
+		if (!trimmed) return;
+
+		if (!validateImgUrl(trimmed)) {
+			req.flash("error", `Invalid image URL: "${raw}". Must be a valid http/https image link ending in .png/.jpg/.jpeg/.gif/.webp.`);
+		}
+
+		return;
+	}
+
+	// Multiple values (array)
+	if (Array.isArray(raw)) {
+		raw.forEach((value) => {
+			const trimmed = (value || "").trim();
+			if (!trimmed) return;
+
+			if (!validateImgUrl(trimmed)) {
+				req.flash("error", `Invalid image URL: "${value}". Must be a valid http/https image link ending in .png/.jpg/.jpeg/.gif/.webp.`);
+			}
+		});
+	}
 }
 
 // Controller Functions
@@ -148,6 +177,8 @@ async function submitNewItem(req, res) {
 	}
 
 	try {
+		validateGalleryUrls(req);
+
 		const itemId = await createItem(req.body);
 		await replaceGalleryForItem(itemId, req.body);
 		await replaceOwnersForItem(itemId, req.body);
@@ -171,6 +202,8 @@ async function submitItemEdit(req, res) {
 	const itemId = Number(req.params.id);
 
 	try {
+		validateGalleryUrls(req);
+
 		await updateItem(itemId, req.body);
 		await replaceGalleryForItem(itemId, req.body);
 		await replaceOwnersForItem(itemId, req.body);
