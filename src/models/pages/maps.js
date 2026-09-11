@@ -11,7 +11,9 @@ const getMapsForCampaign = async (campaignId) => {
       i.item_subtype,
       g.image_url,
       g.alt,
-      g.is_tall
+      g.is_tall,
+			i.active_status_id,
+			i.is_identified
     FROM items i
     JOIN item_gallery g
       ON g.item_id = i.id

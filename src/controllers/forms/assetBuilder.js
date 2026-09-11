@@ -7,7 +7,7 @@ import {
 	deleteItem,
 	replaceGalleryForItem, replaceOwnersForItem
 } from "../../models/pages/assets.js";
-import { getCampaigns, getPcByCampaign, getCompanionByCampaign, getNpcByCampaign, getFactionByCampaign } from "../../models/helpers/select.js";
+import { getCampaigns, getActiveStatus, getPcByCampaign, getCompanionByCampaign, getNpcByCampaign, getFactionByCampaign } from "../../models/helpers/select.js";
 import { getMapsForCampaign } from "../../models/pages/maps.js";
 import { hasRole } from "../../utils/permissions.js";
 
@@ -50,8 +50,10 @@ async function showItemDashboard(req, res) {
 	const campaignId = res.locals.campaign_id;
 
 	const campaigns = await loadCampaigns();
+	const active_status = await getActiveStatus();
 	const items = await getAssetsForCampaign(campaignId);
 	const maps = await getMapsForCampaign(campaignId);
+	const formData = await loadFormData(campaignId);
 
 	res.render("forms/assets/list", {
 		title: "Manage Items & Maps",
@@ -59,7 +61,9 @@ async function showItemDashboard(req, res) {
 		campaigns,
 		campaign_id: campaignId,
 		items,
-		maps
+		maps,
+		active_status,
+		...formData
 	});
 }
 
@@ -70,7 +74,7 @@ async function showCreateItemForm(req, res) {
 	}
 
 	const campaignId = res.locals.campaign_id;
-
+	const active_status = await getActiveStatus();
 	const campaigns = await loadCampaigns();
 	const formData = await loadFormData(campaignId);
 
@@ -79,6 +83,7 @@ async function showCreateItemForm(req, res) {
 		activePage: "assets",
 		formMode: "create",
 		item: null,
+		active_status,
 		gallery: [],
 		owners: null,
 		campaigns,
@@ -99,11 +104,11 @@ async function showEditItemForm(req, res) {
 		return res.status(404).send("Item not found.");
 	}
 
-	const gallery = await getGalleryForItem(itemId);
-	const owners = await getOwnersForItem(itemId);
-
+	const active_status = await getActiveStatus();
 	const campaigns = await loadCampaigns();
 	const formData = await loadFormData(item.campaign_id);
+	const gallery = await getGalleryForItem(itemId);
+	const owners = await getOwnersForItem(itemId);
 
 	res.render("forms/assets/form", {
 		title: `Edit Item: ${item.item_name}`,
@@ -111,6 +116,7 @@ async function showEditItemForm(req, res) {
 		formMode: "edit",
 		item,
 		gallery,
+		active_status,
 		owners,
 		campaigns,
 		...formData

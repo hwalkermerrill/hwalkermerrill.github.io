@@ -11,6 +11,16 @@ const getCampaigns = async () => {
 	return rows;
 };
 
+// Get core data
+const getActiveStatus = async () => {
+	const { rows } = await db.query(`
+    SELECT id, active_status_name
+    FROM active_status
+    ORDER BY id ASC
+  `);
+	return rows;
+};
+
 // Get by campaign
 const getPcByCampaign = async (campaignId) => {
 	const { rows } = await db.query(`
@@ -55,6 +65,7 @@ const getFactionByCampaign = async (campaignId) => {
 // Exports
 export {
 	getCampaigns,
+	getActiveStatus,
 	getPcByCampaign,
 	getCompanionByCampaign,
 	getNpcByCampaign,

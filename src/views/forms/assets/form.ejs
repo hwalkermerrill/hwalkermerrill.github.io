@@ -53,7 +53,7 @@
 			<div class="form-field">
 				<label for="active_status_id">Status</label>
 				<select id="active_status_id" name="active_status_id" required>
-					<% activeStatuses && activeStatuses.forEach(s => { %>
+					<% active_status && active_status.forEach(s => { %>
 					<option value="<%= s.id %>" <%= item && item.active_status_id === s.id ? "selected" : "" %>>
 						<%= s.active_status_name %>
 					</option>
