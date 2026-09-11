@@ -154,6 +154,23 @@ figure.multiImage {
 	margin: 0 -100% 0 0;
 }
 
+/* ----- Spoilers ----- */
+.spoiler-text {
+	background-color: var(--color-text-muted);
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.25rem;
+}
+
+.spoiler-text span {
+	filter: blur(0.35rem);
+	transition: filter 0.25s ease;
+	cursor: pointer;
+}
+
+.spoiler-text:hover span {
+	filter: blur(0);
+}
+
 /* --- Media Queries --- */
 @media (prefers-reduced-motion: reduce) {
 	#glass,

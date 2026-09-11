@@ -32,133 +32,135 @@
 %>
 
 <section class="character-card <%= type %> <%= item.attitude_class || '' %>" data-type="<%= type %>"
-  data-name="<%= displayName %>" data-search="<%- searchString %>">
+	data-name="<%= displayName %>" data-search="<%- searchString %>">
 
-  <!-- ========================= -->
-  <!--        NAME BLOCK         -->
-  <!-- ========================= -->
-  <h3>
+	<!-- ========================= -->
+	<!--        NAME BLOCK         -->
+	<!-- ========================= -->
+	<h3>
 
-    <%= displayName %>
+		<%= displayName %>
 
-    <% if (secretName) { %>
-    <br>
-    <i>
-      <span class="secret-name" style="<%= item.secret_color ? `color:${item.secret_color}` : '' %>">
-        <%= secretName %>
-      </span>
-    </i>
-    <% } %>
-  </h3>
+		<% if (secretName) { %>
+		<br>
+		<i>
+			<span class="secret-name" style="<%= item.secret_color ? `color:${item.secret_color}` : '' %>">
+				<%= secretName %>
+			</span>
+		</i>
+		<% } %>
+	</h3>
 
-  <!-- ========================= -->
-  <!--         SUBTITLES         -->
-  <!-- ========================= -->
-  <% if (item.subtitles && item.subtitles.length > 0) { %>
-  <% item.subtitles.forEach(sub => { %>
-  <strong><%= sub %></strong><br>
-  <% }) %>
-  <br>
-  <% } %>
+	<!-- ========================= -->
+	<!--         SUBTITLES         -->
+	<!-- ========================= -->
+	<% if (item.subtitles && item.subtitles.length > 0) { %>
+	<% item.subtitles.forEach(sub => { %>
+	<strong><%= sub %></strong><br>
+	<% }) %>
+	<br>
+	<% } %>
 
-  <!-- ========================= -->
-  <!--       MERCHANT TAG        -->
-  <!-- ========================= -->
-  <% if (item.merchant && item.merchant.merchant_id) { %>
-  <p class="merchant-tag">
-    🛒
-    <strong>
-      <%= item.merchant.shop_name || "Merchant" %>
-    </strong>
-    <% if (item.merchant.merchant_type) { %>
-    &mdash; <%= item.merchant.merchant_type %>
-    <% } %>
-  </p>
-  <% } %>
+	<!-- ========================= -->
+	<!--       MERCHANT TAG        -->
+	<!-- ========================= -->
+	<% if (item.merchant && item.merchant.merchant_id) { %>
+	<p class="merchant-tag">
+		🛒
+		<strong>
+			<%= item.merchant.shop_name || "Merchant" %>
+		</strong>
+		<% if (item.merchant.merchant_type) { %>
+		&mdash; <%= item.merchant.merchant_type %>
+		<% } %>
+	</p>
+	<% } %>
 
-  <!-- ========================= -->
-  <!--       IMAGE BLOCK         -->
-  <!-- ========================= -->
-  <%
+	<!-- ========================= -->
+	<!--       IMAGE BLOCK         -->
+	<!-- ========================= -->
+	<%
     const mainImg = item.main_image;
     const hoverImg = item.hover_image;
   %>
 
-  <figure class="<%= mainImg.is_tall ? 'two-three' : 'one-one' %> <%= hoverImg ? 'multiImage' : '' %>">
-    <picture>
-      <source srcset="<%= mainImg.image_url %>" type="image/webp">
-      <img class="fadeOnHover" src="<%= mainImg.image_url %>" alt="<%= mainImg.alt || displayName %>">
-    </picture>
+	<figure class="<%= mainImg.is_tall ? 'two-three' : 'one-one' %> <%= hoverImg ? 'multiImage' : '' %>">
+		<picture>
+			<source srcset="<%= mainImg.image_url %>" type="image/webp">
+			<img class="fadeOnHover" src="<%= mainImg.image_url %>" alt="<%= mainImg.alt || displayName %>">
+		</picture>
 
-    <% if (hoverImg) { %>
-    <picture>
-      <source srcset="<%= hoverImg.image_url %>" type="image/webp">
-      <img class="appearOnHover" src="<%= hoverImg.image_url %>" alt="<%= hoverImg.alt || displayName %>">
-    </picture>
-    <% } %>
-  </figure>
+		<% if (hoverImg) { %>
+		<picture>
+			<source srcset="<%= hoverImg.image_url %>" type="image/webp">
+			<img class="appearOnHover" src="<%= hoverImg.image_url %>" alt="<%= hoverImg.alt || displayName %>">
+		</picture>
+		<% } %>
+	</figure>
 
-  <!-- ========================= -->
-  <!--     RETIRED / DEAD        -->
-  <!-- ========================= -->
-  <% if (item.active_status_id === 3 && item.retired_reason) { %>
-  <p><strong>Retired:</strong> <%- item.retired_reason %></p>
-  <% } %>
+	<!-- ========================= -->
+	<!--     RETIRED / DEAD        -->
+	<!-- ========================= -->
+	<% if (item.active_status_id === 3 && item.retired_reason) { %>
+	<p><strong>Retired:</strong> <%- item.retired_reason %></p>
+	<% } %>
 
-  <% if (item.active_status_id === 4 && item.death_cause) { %>
-  <p><strong>Cause of Death:</strong> <%- item.death_cause %></p>
-  <% } %>
+	<% if (item.active_status_id === 4 && item.death_cause) { %>
+	<p><strong>Cause of Death:</strong> <%- item.death_cause %></p>
+	<% } %>
 
-  <!-- ========================= -->
-  <!--         DETAILS           -->
-  <!-- ========================= -->
-  <% if (item.appearance) { %>
-  <p><strong>Appearance:</strong> <%- item.appearance %></p>
-  <% } %>
+	<!-- ========================= -->
+	<!--         DETAILS           -->
+	<!-- ========================= -->
+	<% if (item.appearance) { %>
+	<p><strong>Appearance:</strong> <%- item.appearance %></p>
+	<% } %>
 
-  <% if (item.background && item.is_identified) { %>
-  <p><strong>Background:</strong> <%- item.background %></p>
-  <% } %>
+	<% if (item.background && item.is_identified) { %>
+	<p><strong>Background:</strong> <%- item.background %></p>
+	<% } %>
 
-  <% if (item.extra_details) { %>
-  <p><%- item.extra_details %></p>
-  <% } %>
+	<% if (item.extra_details) { %>
+	<p><%- item.extra_details %></p>
+	<% } %>
 
-  <!-- ========================= -->
-  <!--      HIDDEN DETAILS       -->
-  <!-- ========================= -->
-  <% if (item.hidden_details) { %>
-  <% if (item.reveal_hidden_details) { %>
-  <p><%- item.hidden_details %></p>
-  <% } else if (isGM) { %>
-  <p><strong>Hidden Text:</strong> <%- item.hidden_details %></p>
-  <% } %>
-  <% } %>
+	<!-- ========================= -->
+	<!--      HIDDEN DETAILS       -->
+	<!-- ========================= -->
+	<% if (item.hidden_details) { %>
+	<% if (item.reveal_hidden_details) { %>
+	<p><%- item.hidden_details %></p>
+	<% } else if (isGM) { %>
+	<p><strong>Hidden Text:</strong> <%- item.hidden_details %></p>
+	<% } %>
+	<% } %>
 
-  <!-- ========================= -->
-  <!--      SOCIAL PROFILE       -->
-  <!-- ========================= -->
-  <% if (item.social_profile?.length > 0 && item.active_status_id < 3) { %>
-  <ul>
-    <li style="list-style-type:none;"><b>Social Profile:</b></li>
-    <% item.social_profile.forEach(line => { %>
-    <li><%= line %></li>
-    <% }) %>
-  </ul>
-  <% } %>
+	<!-- ========================= -->
+	<!--      SOCIAL PROFILE       -->
+	<!-- ========================= -->
+	<% if (item.social_profile?.length > 0 && item.active_status_id < 3) { %>
+	<ul>
+		<li style="list-style-type:none;"><b>Social Profile:</b></li>
+		<% item.social_profile.forEach(line => { %>
+		<li><%= line %></li>
+		<% }) %>
+	</ul>
+	<% } %>
 
-  <!-- ========================= -->
-  <!--          BOONS            -->
-  <!-- ========================= -->
-  <% if (item.boons_visible && item.unlocked_boons) { %>
-  <p><strong>Boons:</strong> <%- item.unlocked_boons %></p>
-  <% } %>
+	<!-- ========================= -->
+	<!--          BOONS            -->
+	<!-- ========================= -->
+	<% if (item.boons_visible && item.unlocked_boons) { %>
+	<p><strong>Boons:</strong> <%- item.unlocked_boons %></p>
+	<% } %>
 
-  <!-- ========================= -->
-  <!--       GM-ONLY SECRETS     -->
-  <!-- ========================= -->
-  <% if (isGM && item.secrets) { %>
-  <p><strong>GM Secrets:</strong> <%- item.secrets %></p>
-  <% } %>
+	<!-- ========================= -->
+	<!--       GM-ONLY SECRETS     -->
+	<!-- ========================= -->
+	<% if (isGM && item.secrets) { %>
+	<p class="spoiler-text">
+		<strong>Secrets:</strong> <span><%- item.secrets %></span>
+	</p>
+	<% } %>
 
 </section>
