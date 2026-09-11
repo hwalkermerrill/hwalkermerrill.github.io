@@ -58,7 +58,7 @@ async function showItemDashboard(req, res) {
 
 	res.render("forms/assets/list", {
 		title: "Manage Items & Maps",
-		activePage: "assets",
+		activePage: "dashboard",
 		campaigns,
 		campaign_id: campaignId,
 		items,
@@ -81,7 +81,7 @@ async function showCreateItemForm(req, res) {
 
 	res.render("forms/assets/form", {
 		title: "Create Item",
-		activePage: "assets",
+		activePage: "dashboard",
 		formMode: "create",
 		item: null,
 		active_status,
@@ -127,7 +127,7 @@ async function showEditItemForm(req, res) {
 
 	res.render("forms/assets/form", {
 		title: `Edit Item: ${item.item_name}`,
-		activePage: "assets",
+		activePage: "dashboard",
 		formMode: "edit",
 		item,
 		gallery,
