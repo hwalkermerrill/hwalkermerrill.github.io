@@ -111,16 +111,19 @@ async function showEditItemForm(req, res) {
 	const gallery = await getGalleryForItem(itemId);
 
 	const owners = await getOwnersForItem(itemId);
-	item.owner_pc_id = owners.pc_id;
-	item.owner_companion_id = owners.companion_id;
-	item.owner_npc_id = owners.npc_id;
-	item.owner_faction_id = owners.faction_id;
+	//if owners is null, set all fields to null
+	item.owner_pc_id = owners ? owners.pc_id : null;
+	item.owner_companion_id = owners ? owners.companion_id : null;
+	item.owner_npc_id = owners ? owners.npc_id : null;
+	item.owner_faction_id = owners ? owners.faction_id : null;
 
 	let ownerType = "none";
-	if (owners.pc_id) ownerType = "pc";
-	else if (owners.companion_id) ownerType = "companion";
-	else if (owners.npc_id) ownerType = "npc";
-	else if (owners.faction_id) ownerType = "faction";
+	if (owners) {
+		if (owners.pc_id) ownerType = "pc";
+		else if (owners.companion_id) ownerType = "companion";
+		else if (owners.npc_id) ownerType = "npc";
+		else if (owners.faction_id) ownerType = "faction";
+	}
 
 	res.render("forms/assets/form", {
 		title: `Edit Item: ${item.item_name}`,
