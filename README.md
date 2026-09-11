@@ -133,6 +133,7 @@ Add request/confirmation system for moderator changes to be approved by gm_admin
 Add user role visibility and management to register model and controller.
 centralize all auth to authorization utility
 Visual bug on adding assets manager, where the assigned owner field is slightly higher than the owner type field on widescreen computers
+br cascade bug on editing items containing new lines
 
 ## Roadmap Checklist (Version 3.0)
 
