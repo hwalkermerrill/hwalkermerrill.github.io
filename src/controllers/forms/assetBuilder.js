@@ -153,7 +153,7 @@ async function submitNewItem(req, res) {
 		await replaceOwnersForItem(itemId, req.body);
 
 		req.flash("success", "Item created successfully!");
-		return res.redirect(`/builder/item/${itemId}`);
+		return res.redirect("/builder/item/");
 	} catch (err) {
 		console.error("Error creating item:", err);
 		req.flash("error", "Failed to create item.");
@@ -176,7 +176,7 @@ async function submitItemEdit(req, res) {
 		await replaceOwnersForItem(itemId, req.body);
 
 		req.flash("success", "Item updated successfully!");
-		return res.redirect(`/builder/item/${itemId}`);
+		return res.redirect("/builder/item/");
 	} catch (err) {
 		console.error("Error updating item:", err);
 		req.flash("error", "Failed to update item.");
