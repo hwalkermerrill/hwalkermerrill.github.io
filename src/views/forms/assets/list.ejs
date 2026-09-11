@@ -1,0 +1,204 @@
+<%- include("../../partials/header") %>
+
+<main id="maincontent" class="clearfix">
+	<h1>Manage Items & Maps</h1>
+
+	<!-- Campaign selector (context only; current campaign is already active) -->
+	<div class="form-row">
+		<div class="form-field">
+			<label for="campaign_id">Campaign</label>
+			<select id="campaign_id" name="campaign_id" disabled>
+				<% campaigns.forEach(c => { %>
+				<option value="<%= c.id %>" <%= Number(campaign_id) === Number(c.id) ? "selected" : "" %>>
+					<%= c.campaign_name %>
+				</option>
+				<% }) %>
+			</select>
+			<small>This page shows items and maps for the current campaign.</small>
+		</div>
+
+		<div class="form-field">
+			<a href="/builder/item/new" class="btn fmt-btn" style="margin-top: 1.8rem;">Create New Item / Map</a>
+			<a href="/assets" class="btn fmt-btn" style="margin-top: 1.8rem;">Back to Assets</a>
+			<a href="/maps" class="btn fmt-btn" style="margin-top: 1.8rem;">Back to Maps</a>
+		</div>
+	</div>
+
+	<!-- Item list grouped by type -->
+	<section class="quest-list">
+		<% if (!items || items.length === 0) { %>
+		<p>No items found for this campaign.</p>
+		<% } else { %>
+		<% const groupedItems = {}; %>
+		<% items.forEach(i => { %>
+		<% if (!groupedItems[i.item_type]) groupedItems[i.item_type] = []; %>
+		<% groupedItems[i.item_type].push(i); %>
+		<% }) %>
+
+		<% Object.keys(groupedItems).forEach(type => { %>
+		<h2><%= type.charAt(0).toUpperCase() + type.slice(1) %> Items</h2>
+
+		<ul class="toggleLiVis quest-type-list">
+			<% groupedItems[type].forEach(i => { %>
+			<li class="quest-row" data-type="<%= i.item_type %>">
+				<!-- Collapsed header: name + type -->
+				<div class="quest-header">
+					<strong><%= i.item_name %></strong>
+					<span class="quest-status">[<%= i.item_type %>]</span>
+				</div>
+
+				<!-- Expanded details -->
+				<div class="quest-details">
+					<dl class="quest-meta">
+						<% if (i.item_subtype) { %>
+						<dt>Subtype:</dt>
+						<dd><%= i.item_subtype %></dd>
+						<% } %>
+					</dl>
+
+					<!-- Quick actions: status, identified, boons_visible, owner, edit, delete -->
+					<div class="form-row quest-actions">
+
+						<!-- Change status -->
+						<form action="/builder/item/<%= i.id %>/status" method="POST" class="inline-form">
+							<label for="status_<%= i.id %>">Status</label>
+							<select id="status_<%= i.id %>" name="active_status_id">
+								<% activeStatuses && activeStatuses.forEach(s => { %>
+								<option value="<%= s.id %>" <%= i.active_status_id === s.id ? "selected" : "" %>>
+									<%= s.active_status_name %>
+								</option>
+								<% }) %>
+							</select>
+							<button type="submit" class="btn fmt-btn">Update</button>
+						</form>
+
+						<!-- Identified flag -->
+						<form action="/builder/item/<%= i.id %>/identified" method="POST" class="inline-form">
+							<label for="identified_<%= i.id %>">Identified</label>
+							<select id="identified_<%= i.id %>" name="is_identified">
+								<option value="false" <%= !i.is_identified ? "selected" : "" %>>Unidentified</option>
+								<option value="true" <%= i.is_identified ? "selected" : "" %>>Identified</option>
+							</select>
+							<button type="submit" class="btn fmt-btn">Save</button>
+						</form>
+
+						<!-- Boons visible (artifacts / relics with unlocked boons) -->
+						<% if ((i.item_type === "artifact" || i.item_type === "relic") && i.unlocked_boons) { %>
+						<form action="/builder/item/<%= i.id %>/boons" method="POST" class="inline-form">
+							<label for="boons_<%= i.id %>">Boons Visible</label>
+							<select id="boons_<%= i.id %>" name="boons_visible">
+								<option value="false" <%= !i.boons_visible ? "selected" : "" %>>Hidden</option>
+								<option value="true" <%= i.boons_visible ? "selected" : "" %>>Visible</option>
+							</select>
+							<button type="submit" class="btn fmt-btn">Save</button>
+						</form>
+						<% } %>
+
+						<!-- Owner (PC only) -->
+						<form action="/builder/item/<%= i.id %>/owner" method="POST" class="inline-form">
+							<label for="owner_<%= i.id %>">Owner (PC)</label>
+							<select id="owner_<%= i.id %>" name="pc_id">
+								<option value="">Unassigned</option>
+								<% pcs && pcs.forEach(pc => { %>
+								<option value="<%= pc.id %>" <%= i.owner_pc_id === pc.id ? "selected" : "" %>>
+									<%= pc.name %>
+								</option>
+								<% }) %>
+							</select>
+							<button type="submit" class="btn fmt-btn">Update</button>
+						</form>
+
+						<!-- Edit / Delete -->
+						<a href="/builder/item/<%= i.id %>/edit" class="btn fmt-btn">Edit</a>
+						<form action="/builder/item/<%= i.id %>/delete" method="POST" class="inline-form">
+							<button type="submit" class="btn btn-danger">Delete</button>
+						</form>
+					</div>
+				</div>
+			</li>
+			<% }) %>
+		</ul>
+		<% }) %>
+		<% } %>
+	</section>
+
+	<!-- Maps section -->
+	<section class="quest-list">
+		<h2>Maps</h2>
+
+		<% if (!maps || maps.length === 0) { %>
+		<p>No maps found for this campaign.</p>
+		<% } else { %>
+		<ul class="toggleLiVis quest-type-list">
+			<% maps.forEach(m => { %>
+			<li class="quest-row" data-type="map">
+				<!-- Collapsed header: name + subtype -->
+				<div class="quest-header">
+					<strong><%= m.item_name %></strong>
+					<% if (m.item_subtype) { %>
+					<span class="quest-status">[<%= m.item_subtype %>]</span>
+					<% } else { %>
+					<span class="quest-status">[Map]</span>
+					<% } %>
+				</div>
+
+				<!-- Expanded details -->
+				<div class="quest-details">
+					<!-- Quick actions: status, identified, edit, delete -->
+					<div class="form-row quest-actions">
+
+						<!-- Change status -->
+						<form action="/builder/item/<%= m.id %>/status" method="POST" class="inline-form">
+							<label for="status_map_<%= m.id %>">Status</label>
+							<select id="status_map_<%= m.id %>" name="active_status_id">
+								<% activeStatuses && activeStatuses.forEach(s => { %>
+								<option value="<%= s.id %>" <%= m.active_status_id === s.id ? "selected" : "" %>>
+									<%= s.active_status_name %>
+								</option>
+								<% }) %>
+							</select>
+							<button type="submit" class="btn fmt-btn">Update</button>
+						</form>
+
+						<!-- Identified flag -->
+						<form action="/builder/item/<%= m.id %>/identified" method="POST" class="inline-form">
+							<label for="identified_map_<%= m.id %>">Identified</label>
+							<select id="identified_map_<%= m.id %>" name="is_identified">
+								<option value="false" <%= !m.is_identified ? "selected" : "" %>>Unidentified</option>
+								<option value="true" <%= m.is_identified ? "selected" : "" %>>Identified</option>
+							</select>
+							<button type="submit" class="btn fmt-btn">Save</button>
+						</form>
+
+						<!-- Edit / Delete -->
+						<a href="/builder/item/<%= m.id %>/edit" class="btn fmt-btn">Edit</a>
+						<form action="/builder/item/<%= m.id %>/delete" method="POST" class="inline-form">
+							<button type="submit" class="btn btn-danger">Delete</button>
+						</form>
+					</div>
+				</div>
+			</li>
+			<% }) %>
+		</ul>
+		<% } %>
+	</section>
+</main>
+
+<script>
+	// Toggle behavior for rows (mirrors quest list)
+	document.querySelectorAll(".quest-type-list .quest-row").forEach(li => {
+		const header = li.querySelector(".quest-header");
+		const details = li.querySelector(".quest-details");
+
+		if (!header || !details) return;
+
+		details.style.display = "none";
+
+		header.addEventListener("click", () => {
+			const isVisible = details.style.display === "block";
+			details.style.display = isVisible ? "none" : "block";
+		});
+	});
+</script>
+
+<%- include("../../partials/footer") %>

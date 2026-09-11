@@ -1,0 +1,398 @@
+<%- include("../../partials/header") %>
+
+<main id="maincontent" class="clearfix">
+	<h1><%= formMode === "edit" ? "Edit Item / Map" : "Create Item / Map" %></h1>
+
+	<form action="<%= formMode === 'edit'
+      ? '/builder/item/' + item.id + '/edit'
+      : '/builder/item/new' %>" method="POST" class="note-form">
+
+		<!-- Campaign / Item Type -->
+		<div class="form-row">
+
+			<div class="form-field">
+				<label for="campaign_id">Campaign</label>
+				<select id="campaign_id" name="campaign_id" required>
+					<% campaigns.forEach(c => { %>
+					<option value="<%= c.id %>"
+						<%= (item && item.campaign_id === c.id) || (!item && c.id === campaign_id) ? "selected" : "" %>>
+						<%= c.campaign_name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<div class="form-field">
+				<label for="item_type">Item Type</label>
+				<select id="item_type" name="item_type" required>
+					<% const types = ["artifact", "relic", "major", "minor", "special", "favor", "map"]; %>
+					<% types.forEach(t => { %>
+					<option value="<%= t %>" <%= item && item.item_type === t ? "selected" : "" %>>
+						<%= t.charAt(0).toUpperCase() + t.slice(1) %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<div class="form-field">
+				<label for="item_subtype">Subtype</label>
+				<input type="text" id="item_subtype" name="item_subtype" maxlength="255"
+					value="<%= item ? (item.item_subtype || '') : '' %>" placeholder="Optional subtype (e.g., 'Ring', 'Scroll')">
+			</div>
+		</div>
+
+		<!-- Name / Status / Identified -->
+		<div class="form-row">
+
+			<div class="form-field">
+				<label for="item_name">Name</label>
+				<input type="text" id="item_name" name="item_name" maxlength="255" value="<%= item ? item.item_name : '' %>"
+					placeholder="Enter item name..." required>
+			</div>
+
+			<div class="form-field">
+				<label for="active_status_id">Status</label>
+				<select id="active_status_id" name="active_status_id" required>
+					<% activeStatuses && activeStatuses.forEach(s => { %>
+					<option value="<%= s.id %>" <%= item && item.active_status_id === s.id ? "selected" : "" %>>
+						<%= s.active_status_name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<div class="form-field">
+				<label for="is_identified">Identified</label>
+				<select id="is_identified" name="is_identified">
+					<option value="false" <%= item && !item.is_identified ? "selected" : "" %>>Unidentified</option>
+					<option value="true" <%= item && item.is_identified ? "selected" : "" %>>Identified</option>
+				</select>
+			</div>
+		</div>
+
+		<!-- Boons / Visibility (for artifacts / relics) -->
+		<div class="form-row">
+			<div class="form-field">
+				<label for="unlocked_boons">Unlocked Boons</label>
+				<textarea id="unlocked_boons" name="unlocked_boons" rows="3"
+					placeholder="Describe unlocked boons (optional)"><%= item && item.unlocked_boons ? item.unlocked_boons : '' %></textarea>
+			</div>
+
+			<div class="form-field">
+				<label for="boons_visible">Boons Visible</label>
+				<select id="boons_visible" name="boons_visible">
+					<option value="false" <%= item && !item.boons_visible ? "selected" : "" %>>Hidden</option>
+					<option value="true" <%= item && item.boons_visible ? "selected" : "" %>>Visible</option>
+				</select>
+				<small>Primarily used for artifacts and relics.</small>
+			</div>
+		</div>
+
+		<!-- Owner (PC / Companion / NPC / Faction) -->
+		<div class="form-row">
+			<div class="form-field">
+				<label for="owner_pc_id">Owner (PC)</label>
+				<select id="owner_pc_id" name="pc_id">
+					<option value="">Unassigned</option>
+					<% pcs && pcs.forEach(pc => { %>
+					<option value="<%= pc.id %>" <%= owners && owners.pc_id === pc.id ? "selected" : "" %>>
+						<%= pc.name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<div class="form-field">
+				<label for="owner_companion_id">Owner (Companion)</label>
+				<select id="owner_companion_id" name="companion_id">
+					<option value="">Unassigned</option>
+					<% companions && companions.forEach(c => { %>
+					<option value="<%= c.id %>" <%= owners && owners.companion_id === c.id ? "selected" : "" %>>
+						<%= c.name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<div class="form-field">
+				<label for="owner_npc_id">Owner (NPC)</label>
+				<select id="owner_npc_id" name="npc_id">
+					<option value="">Unassigned</option>
+					<% npcs && npcs.forEach(n => { %>
+					<option value="<%= n.id %>" <%= owners && owners.npc_id === n.id ? "selected" : "" %>>
+						<%= n.name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+
+			<div class="form-field">
+				<label for="owner_faction_id">Owner (Faction)</label>
+				<select id="owner_faction_id" name="faction_id">
+					<option value="">Unassigned</option>
+					<% factions && factions.forEach(f => { %>
+					<option value="<%= f.id %>" <%= owners && owners.faction_id === f.id ? "selected" : "" %>>
+						<%= f.name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
+		</div>
+
+		<!-- Description / Abilities -->
+		<div class="form-field">
+			<label for="description">Description</label>
+			<textarea id="description" name="description" rows="4"
+				placeholder="Narrative description of the item..."><%= item && item.description ? item.description : '' %></textarea>
+		</div>
+
+		<div class="form-field">
+			<label for="abilities">Abilities / Effects</label>
+			<textarea id="abilities" name="abilities" rows="4"
+				placeholder="Mechanical abilities, bonuses, or effects..."><%= item && item.abilities ? item.abilities : '' %></textarea>
+		</div>
+
+		<!-- Gallery -->
+		<div class="form-field">
+			<label>Gallery Images</label>
+
+			<div id="gallery-container">
+				<% if (gallery && gallery.length > 0) { %>
+				<% gallery.forEach((g, idx) => { %>
+				<div class="gallery-row">
+
+					<!-- URL -->
+					<input type="text" name="gallery_url" placeholder="Image URL" value="<%= g.image_url %>"
+						class="gallery-input">
+
+					<!-- Alt -->
+					<input type="text" name="gallery_alt" placeholder="Alt text" value="<%= g.alt %>" class="gallery-input">
+
+					<!-- Figcaption -->
+					<input type="text" name="gallery_figcaption" placeholder="Caption (optional)"
+						value="<%= g.figcaption || '' %>" class="gallery-input">
+
+					<div class="form-row">
+						<!-- Type -->
+						<select name="gallery_type" class="gallery-input gallery-type">
+							<option value="main" <%= g.is_main ? "selected" : "" %>>Main</option>
+							<option value="hover" <%= g.is_hover ? "selected" : "" %>>Hover</option>
+							<option value="extra" <%= (!g.is_main && !g.is_hover) ? "selected" : "" %>>Extra</option>
+						</select>
+
+						<!-- Hover Visible (only if hover) -->
+						<select name="gallery_hover_visible" class="gallery-input hover-visible"
+							style="<%= g.is_hover ? '' : 'display:none;' %>">
+							<option value="false" <%= !g.hover_visible ? "selected" : "" %>>Hover Hidden</option>
+							<option value="true" <%= g.hover_visible ? "selected" : "" %>>Hover Visible</option>
+						</select>
+
+						<!-- Tall -->
+						<select name="gallery_is_tall" class="gallery-input">
+							<option value="false" <%= !g.is_tall ? "selected" : "" %>>Normal</option>
+							<option value="true" <%= g.is_tall ? "selected" : "" %>>Tall</option>
+						</select>
+					</div>
+				</div>
+				<% }) %>
+				<% } else { %>
+				<!-- Default first gallery row -->
+				<div class="gallery-row">
+					<input type="text" name="gallery_url" placeholder="Image URL" class="gallery-input">
+					<input type="text" name="gallery_alt" placeholder="Alt text" class="gallery-input">
+					<input type="text" name="gallery_figcaption" placeholder="Caption (optional)" class="gallery-input">
+					<div class="form-row">
+						<select name="gallery_type" class="gallery-input gallery-type">
+							<option value="main">Main</option>
+							<option value="hover">Hover</option>
+							<option value="extra">Extra</option>
+						</select>
+						<select name="gallery_hover_visible" class="gallery-input hover-visible" style="display:none;">
+							<option value="false">Hover Hidden</option>
+							<option value="true">Hover Visible</option>
+						</select>
+						<select name="gallery_is_tall" class="gallery-input">
+							<option value="false">Normal</option>
+							<option value="true">Tall</option>
+						</select>
+					</div>
+				</div>
+				<% } %>
+			</div>
+
+			<!-- Add/remove gallery buttons -->
+			<button type="button" class="btn fmt-btn" id="add-gallery">+ Add Image</button>
+			<button type="button" class="btn fmt-btn" id="remove-gallery">- Remove Image</button>
+		</div>
+
+		<!-- Submit -->
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">
+				<%= formMode === "edit" ? "Save Changes" : "Create Item / Map" %>
+			</button>
+
+			<% if (formMode === "edit" && hasRole(user, "gm_admin")) { %>
+			<button type="submit" class="btn btn-danger" formaction="/builder/item/<%= item.id %>/delete">
+				Delete
+			</button>
+			<% } %>
+
+			<a href="/builder/item" class="btn fmt-btn">Cancel</a>
+		</div>
+
+	</form>
+</main>
+
+<script>
+	// --- Gallery add/remove (same pattern as logs) ---
+	document.getElementById("add-gallery").addEventListener("click", () => {
+		const container = document.getElementById("gallery-container");
+
+		// Show container if hidden
+		container.style.display = "block";
+
+		const row = document.createElement("div");
+		row.className = "gallery-row";
+
+		row.innerHTML = `
+      <input type="text" name="gallery_url" placeholder="Image URL" class="gallery-input">
+      <input type="text" name="gallery_alt" placeholder="Alt text" class="gallery-input">
+      <input type="text" name="gallery_figcaption" placeholder="Caption (optional)" class="gallery-input">
+
+      <div class="form-row">
+        <select name="gallery_type" class="gallery-input gallery-type">
+          <option value="main" selected>Main</option>
+          <option value="hover">Hover</option>
+          <option value="extra">Extra</option>
+        </select>
+
+        <select name="gallery_hover_visible" class="gallery-input hover-visible" style="display:none;">
+          <option value="false" selected>Hover Hidden</option>
+          <option value="true">Hover Visible</option>
+        </select>
+
+        <select name="gallery_is_tall" class="gallery-input">
+          <option value="false" selected>Normal</option>
+          <option value="true">Tall</option>
+        </select>
+      </div>
+    `;
+
+		container.appendChild(row);
+
+		// Ensure only first image defaults to main
+		if (container.children.length > 1) {
+			row.querySelector("[name='gallery_type']").value = "extra";
+		}
+
+		// Add type-change listener
+		setupGalleryTypeListener(row);
+	});
+
+	document.getElementById("remove-gallery").addEventListener("click", () => {
+		const container = document.getElementById("gallery-container");
+		if (container.children.length > 0) {
+			container.removeChild(container.lastElementChild);
+		}
+		if (container.children.length === 0) {
+			container.style.display = "none";
+		}
+	});
+
+	// --- Gallery Type Logic (hover visibility toggle) ---
+	function setupGalleryTypeListener(row) {
+		const typeSelect = row.querySelector(".gallery-type");
+		const hoverVisible = row.querySelector(".hover-visible");
+
+		typeSelect.addEventListener("change", () => {
+			if (typeSelect.value === "hover") {
+				hoverVisible.style.display = "inline-block";
+			} else {
+				hoverVisible.style.display = "none";
+				hoverVisible.value = "false";
+			}
+		});
+	}
+
+	// Initialize listeners for existing rows
+	document.querySelectorAll(".gallery-row").forEach(setupGalleryTypeListener);
+
+	// --- Front-end enforcement: max one Main and one Hover ---
+	function enforceGalleryFlags() {
+		const rows = document.querySelectorAll(".gallery-row");
+		let mainFound = false;
+		let hoverFound = false;
+
+		rows.forEach(row => {
+			const typeSelect = row.querySelector(".gallery-type");
+
+			if (typeSelect.value === "main") {
+				if (mainFound) {
+					typeSelect.value = "extra";
+					alert("Only one image can be Main.");
+				}
+				mainFound = true;
+			}
+
+			if (typeSelect.value === "hover") {
+				if (hoverFound) {
+					typeSelect.value = "extra";
+					alert("Only one image can be Hover.");
+				}
+				hoverFound = true;
+			}
+		});
+	}
+
+	document.addEventListener("change", e => {
+		if (e.target.classList.contains("gallery-type")) {
+			enforceGalleryFlags();
+		}
+	});
+
+	// --- Boons visibility: optional UX tweak ---
+	const itemTypeSelect = document.getElementById("item_type");
+	const boonsVisibleField = document.getElementById("boons_visible");
+	const unlockedBoonsField = document.getElementById("unlocked_boons");
+
+	function toggleBoonsVisibilityField() {
+		const type = itemTypeSelect.value;
+		const hasText = unlockedBoonsField.value.trim().length > 0;
+
+		if ((type === "artifact" || type === "relic") && hasText) {
+			boonsVisibleField.parentElement.style.display = "block";
+		} else {
+			boonsVisibleField.parentElement.style.display = "none";
+			boonsVisibleField.value = "false";
+		}
+	}
+
+	if (itemTypeSelect && boonsVisibleField && unlockedBoonsField) {
+		itemTypeSelect.addEventListener("change", toggleBoonsVisibilityField);
+		unlockedBoonsField.addEventListener("input", toggleBoonsVisibilityField);
+		toggleBoonsVisibilityField();
+	}
+
+	// --- Owner exclusivity (optional front-end hint) ---
+	const ownerFields = [
+		document.getElementById("owner_pc_id"),
+		document.getElementById("owner_companion_id"),
+		document.getElementById("owner_npc_id"),
+		document.getElementById("owner_faction_id")
+	].filter(Boolean);
+
+	function enforceSingleOwner(e) {
+		const changed = e.target;
+		if (!ownerFields.includes(changed)) return;
+
+		if (changed.value) {
+			ownerFields.forEach(sel => {
+				if (sel !== changed) sel.value = "";
+			});
+		}
+	}
+
+	document.addEventListener("change", enforceSingleOwner);
+</script>
+
+<%- include("../../partials/footer") %>
