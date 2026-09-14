@@ -16,7 +16,7 @@ import { showQuestListPage, showCreateQuestForm, showEditQuestForm, submitNewQue
 import {
 	showItemDashboard, showCreateItemForm, showEditItemForm, submitNewItem, submitItemEdit, deleteItemController,
 	updateItemStatusController, updateItemIdentifiedController, updateItemOwnerController, updateItemBoonsVisibleController
-} from "./forms/assetBuilder.js";
+} from "./builders/assetBuilder.js";
 // import { showContactForm, handleContactSubmission, showContactResponses } from "./forms/contact.js";
 import { showResetForm, requestReset, handleReset } from "./forms/passwordReset.js";
 import { listRequests, approveRequest, denyRequest } from "./forms/passwordResetAdmin.js";
