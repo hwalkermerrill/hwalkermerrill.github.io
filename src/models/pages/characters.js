@@ -1,5 +1,7 @@
 // Imports
 import db from "../db.js";
+import { sanitizeText, validateImgUrl } from "../../utils/validation.js";
+import { normalizeToArray } from "../../utils/normalization.js";
 
 // Helpers - JOIN
 const SOCIAL_JOIN = (type) => `
@@ -59,6 +61,22 @@ const MERCHANT_JOIN = (type) => `
   LEFT JOIN merchant_details md
     ON md.merchant_id = m.id
 `;
+
+// Helpers - Group By
+const SOCIAL_GROUP_BY = (type) => {
+	switch (type) {
+		case "pc":
+			return "soc.appearance, soc.background, soc.associates, soc.rumors, soc.aspirations, soc.anathema, soc.phobias, soc.quirks, soc.flaws, soc.secrets";
+		case "companion":
+			return "soc.appearance, soc.background, soc.extra_details, soc.secrets";
+		case "npc":
+			return "soc.appearance, soc.background, soc.extra_details, soc.hidden_details, soc.reveal_hidden_details, soc.secrets";
+		case "faction":
+			return "soc.appearance, soc.background, soc.extra_details, soc.hidden_details, soc.reveal_hidden_details, soc.secrets";
+		default:
+			return "soc.appearance, soc.background, soc.extra_details, soc.secrets";
+	}
+};
 
 // Helpers - SELECT
 const SELECT_GALLERY_AGG = `
@@ -234,28 +252,6 @@ function buildWhereClause({ campaignId, userId, type }) {
 	return { whereClause, params };
 }
 
-// Helpers - Group By
-const SOCIAL_GROUP_BY = (type) => {
-	switch (type) {
-		case "pc":
-			return `
-        soc.appearance, soc.background, soc.associates, soc.rumors,
-        soc.aspirations, soc.anathema, soc.phobias, soc.quirks,
-        soc.flaws, soc.secrets
-      `;
-		case "companion":
-			return `
-        soc.appearance, soc.background, soc.extra_details, soc.secrets
-      `;
-		case "npc":
-		case "faction":
-			return `
-        soc.appearance, soc.background, soc.extra_details,
-        soc.hidden_details, soc.reveal_hidden_details, soc.secrets
-      `;
-	}
-};
-
 // Core Query Builder
 function buildCharacterQuery({ type, whereClause }) {
 	return `
@@ -328,4 +324,9 @@ const getFactions = async ({ campaignId = null } = {}) => {
 };
 
 // Exports
-export { getPCs, getCompanions, getNPCs, getFactions };
+export {
+	getPCs,
+	getCompanions,
+	getNPCs,
+	getFactions
+};
