@@ -2,6 +2,7 @@
 import db from "../db.js";
 import { sanitizeText, validateImgUrl } from "../../utils/validation.js";
 import { normalizeToArray } from "../../utils/normalization.js";
+import { getGalleryEntries, addGalleryEntry, deleteGalleryEntries, updateGalleryEntries } from "../helpers/gallery.js";
 
 // Quick Update Helpers
 const updateCharacterStatus = async (
@@ -379,6 +380,19 @@ function getMainTable(type) {
 	}
 }
 
+function getCharacterIdColumn(type) {
+	switch (type) {
+		case "pc":
+			return "pc_id";
+		case "companion":
+			return "companion_id";
+		case "npc":
+			return "npc_id";
+		case "faction":
+			return "faction_id";
+	}
+}
+
 const getPCs = async ({ campaignId = null, userId = null } = {}) => {
 	const { whereClause, params } = buildWhereClause({ campaignId, userId, type: "pc" });
 	const query = buildCharacterQuery({ type: "pc", whereClause });
@@ -420,13 +434,931 @@ const getFactionById = async (id) =>
 	getSingleCharacter({ type: "faction", id });
 
 // Cross-Character Updaters
+const updateCharacterReligion = async (
+	type,
+	characterId,
+	{
+		religion_id,
+		notes,
+		secrets
+	}
+) => {
+	const table = `${type}_religion`;
+	const column = `${type}_id`;
 
+	await db.query(`
+		DELETE FROM ${table}
+		WHERE ${column} = $1
+	`, [characterId]);
+
+	await db.query(`
+		INSERT INTO ${table} (
+			${column},
+			religion_id,
+			notes,
+			secrets
+		)
+		VALUES (
+			$1,$2,$3,$4
+		)
+	`, [
+		characterId,
+		religion_id,
+		sanitizeText(notes),
+		sanitizeText(secrets)
+	]);
+};
+
+const addCharacterLanguage = async (
+	type,
+	characterId,
+	languageId
+) => {
+	await db.query(`
+		INSERT INTO ${type}_language (
+			${type}_id,
+			language_id
+		)
+		VALUES ($1,$2)
+		ON CONFLICT DO NOTHING
+	`, [
+		characterId,
+		languageId
+	]);
+};
+
+const removeCharacterLanguage = async (
+	type,
+	characterId,
+	languageId
+) => {
+	await db.query(`
+		DELETE FROM ${type}_language
+		WHERE ${type}_id = $1
+			AND language_id = $2
+	`, [
+		characterId,
+		languageId
+	]);
+};
+
+const addCharacterTitle = async (
+	type,
+	characterId,
+	data
+) => {
+	await db.query(`
+		INSERT INTO ${type}_titles (
+			${type}_id,
+			title_id,
+			title_location,
+			adjust_ranking,
+			adjust_value,
+			has_location,
+			use_honorific,
+			received_session
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,$6,$7,$8
+		)
+	`, [
+		characterId,
+		data.title_id,
+		data.title_location || null,
+		data.adjust_ranking || null,
+		data.adjust_value || null,
+		data.has_location || false,
+		data.use_honorific !== false,
+		data.received_session || 1
+	]);
+};
+
+const removeCharacterTitle = async (
+	type,
+	titleRowId
+) => {
+	await db.query(`
+		DELETE FROM ${type}_titles
+		WHERE id = $1
+	`, [titleRowId]);
+};
+
+const addCharacterAchievement = async (
+	type,
+	characterId,
+	achievementId,
+	isKillingBlow = false
+) => {
+	await db.query(`
+		INSERT INTO ${type}_achievements (
+			${type}_id,
+			achievement_id,
+			is_killing_blow
+		)
+		VALUES ($1,$2,$3)
+		ON CONFLICT DO NOTHING
+	`, [
+		characterId,
+		achievementId,
+		isKillingBlow
+	]);
+};
+
+const removeCharacterAchievement = async (
+	type,
+	characterId,
+	achievementId
+) => {
+	await db.query(`
+		DELETE FROM ${type}_achievements
+		WHERE ${type}_id = $1
+			AND achievement_id = $2
+	`, [
+		characterId,
+		achievementId
+	]);
+};
+
+const addCharacterScar = async (
+	type,
+	characterId,
+	{
+		scar_cause,
+		scar_description,
+		session_received
+	}
+) => {
+	await db.query(`
+		INSERT INTO ${type}_scars (
+			${type}_id,
+			scar_cause,
+			scar_description,
+			session_received
+		)
+		VALUES ($1,$2,$3,$4)
+	`, [
+		characterId,
+		sanitizeText(scar_cause),
+		sanitizeText(scar_description),
+		session_received || 1
+	]);
+};
+
+const removeCharacterScar = async (
+	type,
+	scarId
+) => {
+	await db.query(`
+		DELETE FROM ${type}_scars
+		WHERE id = $1
+	`, [scarId]);
+};
 
 // PC Builder Functions
+const createPc = async (data) => {
+	const {
+		user_id,
+		campaign_id,
+		active_status_id,
+		race_id,
+		pc_name,
+		unknown_name,
+		is_identified,
+		secret_name,
+		show_secret_name,
+		secret_color,
+		is_gendered,
+		is_female,
+		description,
+		race_traits,
+		retired_reason,
+		death_cause,
+		end_session
+	} = data;
 
+	const { rows } = await db.query(`
+		INSERT INTO pc_main (
+			user_id,
+			campaign_id,
+			active_status_id,
+			race_id,
+			pc_name,
+			unknown_name,
+			is_identified,
+			secret_name,
+			show_secret_name,
+			secret_color,
+			is_gendered,
+			is_female,
+			description,
+			race_traits,
+			retired_reason,
+			death_cause,
+			end_session
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,$6,$7,$8,
+			$9,$10,$11,$12,$13,$14,$15,$16,$17
+		)
+		RETURNING id
+	`, [
+		user_id,
+		campaign_id,
+		active_status_id || 1,
+		race_id || 1,
+		pc_name.trim(),
+		unknown_name || "Unknown",
+		is_identified === true,
+		sanitizeText(secret_name),
+		show_secret_name === true,
+		secret_color || null,
+		is_gendered !== false,
+		is_female === true,
+		sanitizeText(description),
+		sanitizeText(race_traits),
+		sanitizeText(retired_reason),
+		sanitizeText(death_cause),
+		end_session || null
+	]);
+	return rows[0].id;
+};
+
+const updatePcMain = async (
+	pcId,
+	data
+) => {
+	const {
+		active_status_id,
+		race_id,
+		pc_name,
+		unknown_name,
+		is_identified,
+		secret_name,
+		show_secret_name,
+		secret_color,
+		is_gendered,
+		is_female,
+		description,
+		race_traits,
+		retired_reason,
+		death_cause,
+		end_session
+	} = data;
+
+	await db.query(`
+		UPDATE pc_main
+		SET
+			active_status_id = $1,
+			race_id = $2,
+			pc_name = $3,
+			unknown_name = $4,
+			is_identified = $5,
+			secret_name = $6,
+			show_secret_name = $7,
+			secret_color = $8,
+			is_gendered = $9,
+			is_female = $10,
+			description = $11,
+			race_traits = $12,
+			retired_reason = $13,
+			death_cause = $14,
+			end_session = $15
+		WHERE id = $16
+	`, [
+		active_status_id,
+		race_id,
+		pc_name.trim(),
+		unknown_name,
+		is_identified,
+		sanitizeText(secret_name),
+		show_secret_name,
+		secret_color,
+		is_gendered,
+		is_female,
+		sanitizeText(description),
+		sanitizeText(race_traits),
+		sanitizeText(retired_reason),
+		sanitizeText(death_cause),
+		end_session,
+		pcId
+	]);
+};
+
+const updatePcSocial = async (
+	pcId,
+	data
+) => {
+	await db.query(`
+		DELETE FROM pc_social
+		WHERE pc_id = $1
+	`, [pcId]);
+
+	await db.query(`
+		INSERT INTO pc_social (
+			pc_id,
+			appearance,
+			background,
+			associates,
+			rumors,
+			aspirations,
+			anathema,
+			phobias,
+			quirks,
+			flaws,
+			secrets
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,$6,
+			$7,$8,$9,$10,$11
+		)
+	`, [
+		pcId,
+		sanitizeText(data.appearance),
+		sanitizeText(data.background),
+		sanitizeText(data.associates),
+		sanitizeText(data.rumors),
+		sanitizeText(data.aspirations),
+		sanitizeText(data.anathema),
+		sanitizeText(data.phobias),
+		sanitizeText(data.quirks),
+		sanitizeText(data.flaws),
+		sanitizeText(data.secrets)
+	]);
+};
+
+const updatePcGallery = async (
+	pcId,
+	data
+) => {
+	await updateGalleryEntries(
+		"pc_gallery",
+		"pc_id",
+		pcId,
+		data
+	);
+};
+
+const updatePcMechanics = async (
+	pcId,
+	{
+		attributes = {},
+		stats = {},
+		skills = {},
+		speeds = []
+	}
+) => {
+
+	// Attributes
+	await db.query(`
+		DELETE FROM pc_attributes
+		WHERE pc_id = $1
+	`, [pcId]);
+
+	await db.query(`
+		INSERT INTO pc_attributes (
+			pc_id,
+			alignment,
+			strength,
+			dexterity,
+			constitution,
+			intelligence,
+			wisdom,
+			charisma,
+			notes
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,
+			$6,$7,$8,$9
+		)
+	`, [
+		pcId,
+		attributes.alignment || "Neutral",
+		Number(attributes.strength) || 10,
+		Number(attributes.dexterity) || 10,
+		Number(attributes.constitution) || 10,
+		Number(attributes.intelligence) || 10,
+		Number(attributes.wisdom) || 10,
+		Number(attributes.charisma) || 10,
+		sanitizeText(attributes.notes)
+	]);
+
+	// Stats
+	await db.query(`
+		DELETE FROM pc_stats
+		WHERE pc_id = $1
+	`, [pcId]);
+
+	await db.query(`
+		INSERT INTO pc_stats (
+			pc_id,
+			main_ac,
+			flat_ac,
+			touch_ac,
+			cmd,
+			max_hp,
+			notes
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,$6,$7
+		)
+	`, [
+		pcId,
+		Number(stats.main_ac) || 10,
+		Number(stats.flat_ac) || 10,
+		Number(stats.touch_ac) || 10,
+		Number(stats.cmd) || 10,
+		Number(stats.max_hp) || 10,
+		sanitizeText(stats.notes)
+	]);
+
+	// Skills
+	await db.query(`
+		DELETE FROM pc_skills
+		WHERE pc_id = $1
+	`, [pcId]);
+
+	await db.query(`
+		INSERT INTO pc_skills (
+			pc_id,
+			initiative,
+			perception,
+			sense_motive,
+			disguise,
+			stealth,
+			disable_device,
+			reflex,
+			fortitude,
+			will,
+			rerolls,
+			notes
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,$6,
+			$7,$8,$9,$10,$11,$12
+		)
+	`, [
+		pcId,
+		Number(skills.initiative) || 0,
+		Number(skills.perception) || 0,
+		Number(skills.sense_motive) || 0,
+		Number(skills.disguise) || 0,
+		Number(skills.stealth) || 0,
+		Number(skills.disable_device) || 0,
+		Number(skills.reflex) || 0,
+		Number(skills.fortitude) || 0,
+		Number(skills.will) || 0,
+		sanitizeText(skills.rerolls),
+		sanitizeText(skills.notes)
+	]);
+
+	// Speeds
+	await db.query(`
+		DELETE FROM pc_speed
+		WHERE pc_id = $1
+	`, [pcId]);
+
+	for (const speed of normalizeToArray(speeds)) {
+
+		await db.query(`
+			INSERT INTO pc_speed (
+				pc_id,
+				speed_id,
+				speed_value
+			)
+			VALUES (
+				$1,$2,$3
+			)
+		`, [
+			pcId,
+			Number(speed.speed_id) || 1,
+			Number(speed.speed_value) || 30
+		]);
+	}
+};
+
+const updatePcClasses = async (
+	pcId,
+	classes
+) => {
+
+	await db.query(`
+		DELETE FROM pc_class_archetype
+		WHERE pc_class_id IN (
+			SELECT id
+			FROM pc_class
+			WHERE pc_id = $1
+		)
+	`, [pcId]);
+
+	await db.query(`
+		DELETE FROM pc_class
+		WHERE pc_id = $1
+	`, [pcId]);
+
+	for (const cls of normalizeToArray(classes)) {
+
+		const { rows } = await db.query(`
+			INSERT INTO pc_class (
+				pc_id,
+				class_id,
+				unknown_name,
+				class_level
+			)
+			VALUES (
+				$1,$2,$3,$4
+			)
+			RETURNING id
+		`, [
+			pcId,
+			Number(cls.class_id) || 1,
+			cls.unknown_name || "Unknown",
+			Number(cls.class_level) || 1
+		]);
+
+		const pcClassId = rows[0].id;
+
+		for (const archetype of normalizeToArray(cls.archetypes)) {
+
+			if (!archetype) continue;
+
+			await db.query(`
+				INSERT INTO pc_class_archetype (
+					pc_class_id,
+					archetype_name
+				)
+				VALUES (
+					$1,$2
+				)
+			`, [
+				pcClassId,
+				sanitizeText(archetype)
+			]);
+		}
+	}
+};
 
 // Companion Builder Functions
+const createCompanion = async (data) => {
+	const {
+		user_id,
+		pc_id,
+		campaign_id,
+		active_status_id,
+		race_id,
+		companion_name,
+		secret_name,
+		show_secret_name,
+		secret_color,
+		is_gendered,
+		is_female,
+		description,
+		race_traits,
+		death_cause,
+		end_session
+	} = data;
 
+	const { rows } = await db.query(`
+		INSERT INTO companion_main (
+			user_id,
+			pc_id,
+			campaign_id,
+			active_status_id,
+			race_id,
+			companion_name,
+			secret_name,
+			show_secret_name,
+			secret_color,
+			is_gendered,
+			is_female,
+			description,
+			race_traits,
+			death_cause,
+			end_session
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,
+			$6,$7,$8,$9,
+			$10,$11,$12,$13,
+			$14,$15
+		)
+		RETURNING id
+	`, [
+		user_id,
+		pc_id || null,
+		campaign_id,
+		active_status_id || 1,
+		race_id || 1,
+		companion_name.trim(),
+		sanitizeText(secret_name),
+		show_secret_name === true,
+		secret_color || null,
+		is_gendered !== false,
+		is_female === true,
+		sanitizeText(description),
+		sanitizeText(race_traits),
+		sanitizeText(death_cause),
+		end_session || null
+	]);
+
+	return rows[0].id;
+};
+
+const updateCompanionMain = async (
+	companionId,
+	data
+) => {
+	const {
+		pc_id,
+		active_status_id,
+		race_id,
+		companion_name,
+		secret_name,
+		show_secret_name,
+		secret_color,
+		is_gendered,
+		is_female,
+		description,
+		race_traits,
+		death_cause,
+		end_session
+	} = data;
+
+	await db.query(`
+		UPDATE companion_main
+		SET
+			pc_id = $1,
+			active_status_id = $2,
+			race_id = $3,
+			companion_name = $4,
+			secret_name = $5,
+			show_secret_name = $6,
+			secret_color = $7,
+			is_gendered = $8,
+			is_female = $9,
+			description = $10,
+			race_traits = $11,
+			death_cause = $12,
+			end_session = $13
+		WHERE id = $14
+	`, [
+		pc_id || null,
+		active_status_id,
+		race_id,
+		companion_name.trim(),
+		sanitizeText(secret_name),
+		show_secret_name,
+		secret_color,
+		is_gendered,
+		is_female,
+		sanitizeText(description),
+		sanitizeText(race_traits),
+		sanitizeText(death_cause),
+		end_session,
+		companionId
+	]);
+};
+
+const updateCompanionSocial = async (
+	companionId,
+	data
+) => {
+
+	await db.query(`
+		DELETE FROM companion_social
+		WHERE companion_id = $1
+	`, [companionId]);
+
+	await db.query(`
+		INSERT INTO companion_social (
+			companion_id,
+			appearance,
+			background,
+			extra_details,
+			secrets
+		)
+		VALUES (
+			$1,$2,$3,$4,$5
+		)
+	`, [
+		companionId,
+		sanitizeText(data.appearance),
+		sanitizeText(data.background),
+		sanitizeText(data.extra_details),
+		sanitizeText(data.secrets)
+	]);
+};
+
+const updateCompanionGallery = async (
+	companionId,
+	data
+) => {
+
+	await updateGalleryEntries(
+		"companion_gallery",
+		"companion_id",
+		companionId,
+		data
+	);
+};
+
+const updateCompanionMechanics = async (
+	companionId,
+	{
+		attributes = {},
+		stats = {},
+		skills = {},
+		speeds = []
+	}
+) => {
+
+	// Attributes
+	await db.query(`
+		DELETE FROM companion_attributes
+		WHERE companion_id = $1
+	`, [companionId]);
+
+	await db.query(`
+		INSERT INTO companion_attributes (
+			companion_id,
+			alignment,
+			strength,
+			dexterity,
+			constitution,
+			intelligence,
+			wisdom,
+			charisma,
+			notes
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,
+			$6,$7,$8,$9
+		)
+	`, [
+		companionId,
+		attributes.alignment || "Neutral",
+		Number(attributes.strength) || 10,
+		Number(attributes.dexterity) || 10,
+		Number(attributes.constitution) || 10,
+		Number(attributes.intelligence) || 10,
+		Number(attributes.wisdom) || 10,
+		Number(attributes.charisma) || 10,
+		sanitizeText(attributes.notes)
+	]);
+
+	// Stats
+	await db.query(`
+		DELETE FROM companion_stats
+		WHERE companion_id = $1
+	`, [companionId]);
+
+	await db.query(`
+		INSERT INTO companion_stats (
+			companion_id,
+			main_ac,
+			flat_ac,
+			touch_ac,
+			cmd,
+			max_hp,
+			notes
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,$6,$7
+		)
+	`, [
+		companionId,
+		Number(stats.main_ac) || 10,
+		Number(stats.flat_ac) || 10,
+		Number(stats.touch_ac) || 10,
+		Number(stats.cmd) || 10,
+		Number(stats.max_hp) || 10,
+		sanitizeText(stats.notes)
+	]);
+
+	// Skills
+	await db.query(`
+		DELETE FROM companion_skills
+		WHERE companion_id = $1
+	`, [companionId]);
+
+	await db.query(`
+		INSERT INTO companion_skills (
+			companion_id,
+			initiative,
+			perception,
+			sense_motive,
+			disguise,
+			stealth,
+			disable_device,
+			reflex,
+			fortitude,
+			will,
+			rerolls,
+			notes
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,$6,
+			$7,$8,$9,$10,$11,$12
+		)
+	`, [
+		companionId,
+		Number(skills.initiative) || 0,
+		Number(skills.perception) || 0,
+		Number(skills.sense_motive) || 0,
+		Number(skills.disguise) || 0,
+		Number(skills.stealth) || 0,
+		Number(skills.disable_device) || 0,
+		Number(skills.reflex) || 0,
+		Number(skills.fortitude) || 0,
+		Number(skills.will) || 0,
+		sanitizeText(skills.rerolls),
+		sanitizeText(skills.notes)
+	]);
+
+	// Speeds
+	await db.query(`
+		DELETE FROM companion_speed
+		WHERE companion_id = $1
+	`, [companionId]);
+
+	for (const speed of normalizeToArray(speeds)) {
+
+		await db.query(`
+			INSERT INTO companion_speed (
+				companion_id,
+				speed_id,
+				speed_value
+			)
+			VALUES (
+				$1,$2,$3
+			)
+		`, [
+			companionId,
+			Number(speed.speed_id) || 1,
+			Number(speed.speed_value) || 30
+		]);
+	}
+};
+
+const updateCompanionClasses = async (
+	companionId,
+	classes
+) => {
+
+	await db.query(`
+		DELETE FROM companion_class_archetype
+		WHERE companion_class_id IN (
+			SELECT id
+			FROM companion_class
+			WHERE companion_id = $1
+		)
+	`, [companionId]);
+
+	await db.query(`
+		DELETE FROM companion_class
+		WHERE companion_id = $1
+	`, [companionId]);
+
+	for (const cls of normalizeToArray(classes)) {
+
+		const { rows } = await db.query(`
+			INSERT INTO companion_class (
+				companion_id,
+				class_id,
+				unknown_name,
+				class_level
+			)
+			VALUES (
+				$1,$2,$3,$4
+			)
+			RETURNING id
+		`, [
+			companionId,
+			Number(cls.class_id) || 1,
+			cls.unknown_name || "Unknown",
+			Number(cls.class_level) || 1
+		]);
+
+		const companionClassId = rows[0].id;
+
+		for (const archetype of normalizeToArray(cls.archetypes)) {
+
+			if (!archetype) continue;
+
+			await db.query(`
+				INSERT INTO companion_class_archetype (
+					companion_class_id,
+					archetype_name
+				)
+				VALUES (
+					$1,$2
+				)
+			`, [
+				companionClassId,
+				sanitizeText(archetype)
+			]);
+		}
+	}
+};
 
 // NPC Builder Functions
 
@@ -438,5 +1370,9 @@ const getFactionById = async (id) =>
 export {
 	getPCs, getCompanions, getNPCs, getFactions,
 	getPcById, getCompanionById, getNpcById, getFactionById,
-	updateCharacterCampaign, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterStatus
+	updateCharacterCampaign, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterStatus, updateCharacterReligion,
+	addCharacterAchievement, addCharacterLanguage, addCharacterScar, addCharacterTitle,
+	removeCharacterAchievement, removeCharacterLanguage, removeCharacterScar, removeCharacterTitle,
+	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses,
+	createCompanion, updateCompanionMain, updateCompanionSocial, updateCompanionGallery, updateCompanionMechanics, updateCompanionClasses
 };
