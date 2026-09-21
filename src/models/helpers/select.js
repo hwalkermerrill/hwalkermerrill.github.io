@@ -62,12 +62,72 @@ const getFactionByCampaign = async (campaignId) => {
 	return rows;
 };
 
+// Get character info table data
+const getRaces = async () => {
+	const { rows } = await db.query(`
+    SELECT id, race_name AS name
+    FROM race
+    ORDER BY race_name ASC
+  `);
+	return rows;
+};
+
+const getClasses = async () => {
+	const { rows } = await db.query(`
+    SELECT id, class_name AS name
+    FROM classes
+    ORDER BY class_name ASC
+  `);
+	return rows;
+};
+
+const getReligions = async () => {
+	const { rows } = await db.query(`
+    SELECT id, religion_name AS name
+    FROM religions
+    ORDER BY religion_name ASC
+  `);
+	return rows;
+};
+
+const getLanguages = async () => {
+	const { rows } = await db.query(`
+    SELECT id, language_name AS name
+    FROM languages
+    ORDER BY language_name ASC
+  `);
+	return rows;
+};
+
+const getTitles = async () => {
+	const { rows } = await db.query(`
+    SELECT
+      t.id,
+      t.title_name,
+      tr.rank_name,
+      tr.sort_order
+    FROM titles t
+    LEFT JOIN title_ranks tr
+      ON tr.id = t.rank_id
+    ORDER BY tr.sort_order ASC, t.title_name ASC
+  `);
+	return rows;
+};
+
+const getAchievements = async () => {
+	const { rows } = await db.query(`
+    SELECT id, achievement_name
+    FROM achievements
+    ORDER BY achievement_name ASC
+  `);
+	return rows;
+};
+
+
 // Exports
 export {
 	getCampaigns,
 	getActiveStatus,
-	getPcByCampaign,
-	getCompanionByCampaign,
-	getNpcByCampaign,
-	getFactionByCampaign
+	getPcByCampaign, getCompanionByCampaign, getNpcByCampaign, getFactionByCampaign,
+	getRaces, getClasses, getReligions, getLanguages, getTitles, getAchievements
 }

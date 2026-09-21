@@ -3,6 +3,67 @@ import db from "../db.js";
 import { sanitizeText, validateImgUrl } from "../../utils/validation.js";
 import { normalizeToArray } from "../../utils/normalization.js";
 
+// Quick Update Helpers
+const updateCharacterStatus = async (
+	type,
+	id,
+	activeStatusId
+) => {
+	await db.query(`
+		UPDATE ${getMainTable(type)}
+		SET active_status_id = $1
+		WHERE id = $2
+	`, [
+		activeStatusId,
+		id
+	]);
+};
+
+const updateCharacterIdentified = async (
+	type,
+	id,
+	isIdentified
+) => {
+	await db.query(`
+		UPDATE ${getMainTable(type)}
+		SET is_identified = $1
+		WHERE id = $2
+	`, [
+		isIdentified,
+		id
+	]);
+};
+
+const updateCharacterSecretVisibility = async (
+	type,
+	id,
+	showSecretName
+) => {
+	await db.query(`
+		UPDATE ${getMainTable(type)}
+		SET show_secret_name = $1
+		WHERE id = $2
+	`, [
+		showSecretName,
+		id
+	]);
+};
+
+const updateCharacterCampaign = async (
+	type,
+	id,
+	campaignId
+) => {
+	await db.query(`
+		UPDATE ${getMainTable(type)}
+		SET campaign_id = $1
+		WHERE id = $2
+	`, [
+		campaignId,
+		id
+	]);
+};
+
 // Helpers - JOIN
 const SOCIAL_JOIN = (type) => `
   LEFT JOIN ${type}_social soc
@@ -294,7 +355,30 @@ function buildCharacterQuery({ type, whereClause }) {
   `;
 }
 
-// Model Functions
+// Read Model Functions
+async function getSingleCharacter({ type, id }) {
+	const query = buildCharacterQuery({
+		type,
+		whereClause: `WHERE character.id = $1`
+	});
+
+	const { rows } = await db.query(query, [id]);
+	return rows[0] || null;
+}
+
+function getMainTable(type) {
+	switch (type) {
+		case "pc":
+			return "pc_main";
+		case "companion":
+			return "companion_main";
+		case "npc":
+			return "npc_main";
+		case "faction":
+			return "factions";
+	}
+}
+
 const getPCs = async ({ campaignId = null, userId = null } = {}) => {
 	const { whereClause, params } = buildWhereClause({ campaignId, userId, type: "pc" });
 	const query = buildCharacterQuery({ type: "pc", whereClause });
@@ -323,10 +407,36 @@ const getFactions = async ({ campaignId = null } = {}) => {
 	return rows;
 };
 
+const getPcById = async (id) =>
+	getSingleCharacter({ type: "pc", id });
+
+const getCompanionById = async (id) =>
+	getSingleCharacter({ type: "companion", id });
+
+const getNpcById = async (id) =>
+	getSingleCharacter({ type: "npc", id });
+
+const getFactionById = async (id) =>
+	getSingleCharacter({ type: "faction", id });
+
+// Cross-Character Updaters
+
+
+// PC Builder Functions
+
+
+// Companion Builder Functions
+
+
+// NPC Builder Functions
+
+
+// Faction Builder Functions
+
+
 // Exports
 export {
-	getPCs,
-	getCompanions,
-	getNPCs,
-	getFactions
+	getPCs, getCompanions, getNPCs, getFactions,
+	getPcById, getCompanionById, getNpcById, getFactionById,
+	updateCharacterCampaign, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterStatus
 };

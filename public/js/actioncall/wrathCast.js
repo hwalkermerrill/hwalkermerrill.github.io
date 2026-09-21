@@ -31,7 +31,7 @@ const castGroups = [
 		]
 	},
 	{
-		label: "Nick Inglss",
+		label: "Nick Inglis",
 		entries: [
 			{ label: "Syre Forvirre (Lv 1 → ?)" }
 		]
