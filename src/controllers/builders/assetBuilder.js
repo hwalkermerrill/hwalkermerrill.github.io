@@ -1,5 +1,4 @@
 // --- Imports ---
-// Reuse existing page models where possible
 import {
 	getAssetsForCampaign, getItemById, getGalleryForItem, getOwnersForItem,
 	createItem,

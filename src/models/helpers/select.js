@@ -126,8 +126,7 @@ const getAchievements = async () => {
 
 // Exports
 export {
-	getCampaigns,
-	getActiveStatus,
+	getCampaigns, getActiveStatus,
 	getPcByCampaign, getCompanionByCampaign, getNpcByCampaign, getFactionByCampaign,
 	getRaces, getClasses, getReligions, getLanguages, getTitles, getAchievements
 }

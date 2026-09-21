@@ -1,400 +1,336 @@
 // --- Imports ---
 import {
-	getPCs, getCompanions,
-	createPcMain,
-	updatePcMain,
-	deletePcMain,
-	replacePcSocial, replacePcAttributes, replacePcStats, replacePcSkills, replacePcClasses, replacePcLanguages, replacePcReligion, replacePcTitles, replacePcAchievements, replacePcScars, replacePcGallery
-} from "../../models/pages/characters.js";
-import { getActiveStatus, getRaces, getClasses, getReligions, getLanguages, getSpeeds, getTitles, getAchievements } from "../../models/pages/select.js";
-import { sanitizeText, validateImgUrl } from "../../utils/validation.js";
-import { normalizeToArray } from "../../utils/normalization.js";
+	getPCs, getCompanions, getPcById, getCompanionById,
+	updateCharacterStatus, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterCampaign, updateCharacterReligion,
+	addCharacterLanguage, addCharacterTitle, addCharacterAchievement, addCharacterScar,
+	removeCharacterLanguage, removeCharacterTitle, removeCharacterAchievement, removeCharacterScar,
+	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses,
+	createCompanion, updateCompanionMain, updateCompanionSocial, updateCompanionGallery, updateCompanionMechanics, updateCompanionClasses
+} from "../../models/forms/characters.js";
+import {
+	getCampaigns, getActiveStatus,
+	getPcByCampaign, getCompanionByCampaign,
+	getRaces, getClasses, getReligions, getLanguages, getTitles, getAchievements
+} from "../../models/helpers/select.js";
 import { hasRole } from "../../utils/permissions.js";
+import { validateImgUrl } from "../../utils/validation.js";
 
-// --- Helper Functions ---
-/**
- * Check if the current user can edit a given PC.
- * - Owner can edit their own PCs.
- * - gm_admin can edit all PCs.
- */
-const canEditPc = (user, pc) => {
-	if (!user) return false;
-	if (hasRole(user, "gm_admin")) return true;
-	return pc.user_id && pc.user_id === user.id;
-};
+// --- Permissions ---
+function ownsCharacter(user, character) {
+	if (!user || !character) {
+		return false;
+	}
 
-/**
- * Load shared dropdown data for PC builder forms.
- * Used by both /new and /:id/edit routes.
- */
-const loadPcDropdowns = async () => {
-	const [
-		activeStatus,
-		races,
-		classes,
-		religions,
-		languages,
-		speeds,
-		titles,
-		achievements
-	] = await Promise.all([
-		getActiveStatus(),
-		getRaces(),
-		getClasses(),
-		getReligions(),
-		getLanguages(),
-		getSpeeds(),
-		getTitles(),
-		getAchievements()
-	]);
+	return Number(character.user_id) === Number(user.id);
+}
+
+function limitedPermission(user) {
+	return hasRole(user, "gm_admin") || hasRole(user, "moderator");
+}
+
+function fullPermission(user) {
+	return hasRole(user, "gm_admin");
+}
+
+function editPermissionCheck(user, character) {
+	return (fullPermission(user) || ownsCharacter(user, character))
+}
+
+// --- Helpers ---
+async function loadCampaigns() {
+	const campaigns = await getCampaigns();
+	return campaigns;
+}
+
+async function loadFormData(campaignId) {
+
+	const pcs = await getPcByCampaign(campaignId);
+	const companions = await getCompanionByCampaign(campaignId);
+	const active_status = await getActiveStatus();
+	const races = await getRaces();
+	const classes = await getClasses();
+	const religions = await getReligions();
+	const languages = await getLanguages();
+	const titles = await getTitles();
+	const achievements = await getAchievements();
 
 	return {
-		activeStatus,
+		pcs,
+		companions,
+		active_status,
 		races,
 		classes,
 		religions,
 		languages,
-		speeds,
 		titles,
 		achievements
 	};
-};
+}
 
-// --- Controller Functions ---
+function validateGalleryUrls(req) {
+	const raw = req.body.gallery_url;
 
-/**
- * PC + Companion Builder Dashboard
- * Route: GET /builder/pc
- *
- * - Shows user's PCs and companions.
- * - GM/Admin sees all PCs/companions for the campaign.
- * - Provides entry points to /builder/pc/new and /builder/pc/:id/edit.
- */
-const pcBuilderDashboard = async (req, res) => {
+	// Single value
+	if (typeof raw === "string") {
+		const trimmed = raw.trim();
+		if (!trimmed) return;
+
+		if (!validateImgUrl(trimmed)) {
+			req.flash("error", `Invalid image URL: "${raw}". Must be a valid http/https image link ending in .png/.jpg/.jpeg/.gif/.webp.`);
+		}
+
+		return;
+	}
+
+	// Multiple values (array)
+	if (Array.isArray(raw)) {
+		raw.forEach((value) => {
+			const trimmed = (value || "").trim();
+			if (!trimmed) return;
+
+			if (!validateImgUrl(trimmed)) {
+				req.flash("error", `Invalid image URL: "${value}". Must be a valid http/https image link ending in .png/.jpg/.jpeg/.gif/.webp.`);
+			}
+		});
+	}
+}
+
+// --- Dashboard Controller Function ---
+async function showCharacterDashboard(req, res) {
+
 	const user = req.session.user;
+
+	if (!user || !limitedPermission(user)) {
+		return res.redirect("/login");
+	}
+
 	const campaignId = res.locals.campaign_id;
 
 	try {
-		// TODO: Implement getPCs/getCompanions filters:
-		// - If gm_admin: load all PCs/companions for campaign.
-		// - Else: load PCs/companions owned by user (optionally filtered by campaign).
-		const pcs = await getPCs(campaignId, user);
-		const companions = await getCompanions(campaignId, user);
+		const campaigns = await loadCampaigns();
+		const active_status = await getActiveStatus();
+		const pcs = await getPCs({ campaignId });
+		const companions = await getCompanions({ campaignId });
 
-		const dropdowns = await loadPcDropdowns();
-
-		res.render("builder/pc/dashboard", {
-			title: "PC & Companion Builder",
+		res.render("forms/characters/list", {
+			title: "Manage PCs & Companions",
+			activePage: "dashboard",
+			campaigns,
+			campaign_id: campaignId,
+			active_status,
 			pcs,
-			companions,
-			dropdowns
+			companions
 		});
-	} catch (error) {
-		console.error("Error loading PC builder dashboard:", error);
-		req.flash("error", "Failed to load PC builder dashboard.");
-		res.redirect("/home");
 	}
-};
+	catch (err) {
+		console.error("Error loading character dashboard:", err);
+		req.flash("error", "Failed to load character dashboard.");
+		return res.redirect("/");
+	}
+}
 
-/**
- * New PC Form
- * Route: GET /builder/pc/new
- *
- * - Shows the initial PC creation form (Identity & Basics).
- */
-const pcNewForm = async (req, res) => {
+// --- Dashboard Quick-Update Functions --
+async function updateCharacterStatusController(req, res) {
+
 	const user = req.session.user;
-	const campaignId = res.locals.campaign_id;
 
-	if (!user) {
-		req.flash("error", "You must be logged in to create a PC.");
+	if (!user || !limitedPermission(user)) {
 		return res.redirect("/login");
 	}
 
+	const { character_type, active_status_id } = req.body;
+	const characterId = Number(req.params.id);
+
 	try {
-		const dropdowns = await loadPcDropdowns();
-
-		res.render("builder/pc/new", {
-			title: "Create New PC",
-			campaignId,
-			dropdowns
-		});
-	} catch (error) {
-		console.error("Error loading new PC form:", error);
-		req.flash("error", "Failed to load PC creation form.");
-		res.redirect("/builder/pc");
+		await updateCharacterStatus(character_type, characterId, Number(active_status_id));
+		req.flash("success", "Character status updated.");
 	}
-};
+	catch (err) {
+		console.error("Error updating character status:", err);
+		req.flash("error", "Failed to update character status.");
+	}
 
-/**
- * Handle New PC Submission
- * Route: POST /builder/pc/new
- *
- * - Validates Identity & Basics.
- * - Creates pc_main row.
- * - Redirects to /builder/pc/:id/edit for further sections.
- */
-const submitNewPc = async (req, res) => {
+	return res.redirect("/builder/character");
+}
+
+async function updateCharacterIdentifiedController(req, res) {
+
 	const user = req.session.user;
-	const campaignId = res.locals.campaign_id;
 
-	if (!user) {
-		req.flash("error", "You must be logged in to create a PC.");
+	if (!user || !limitedPermission(user)) {
 		return res.redirect("/login");
 	}
 
-	// Extract basic fields from the form
-	const {
-		pc_name,
-		race_id,
-		is_gendered,
-		is_female,
-		description,
-		race_traits,
-		secret_name,
-		show_secret_name,
-		secret_color
-	} = req.body;
-
-	// TODO: Add validation similar to Asset Builder:
-	// - Required fields (pc_name, race_id).
-	// - Sanitize text fields.
-	// - Handle boolean flags.
+	const { character_type, is_identified } = req.body;
+	const characterId = Number(req.params.id);
 
 	try {
-		// Start transaction
-		// await db.query("BEGIN");
-
-		// const pcData = {
-		// 	user_id: user.id,
-		// 	campaign_id: campaignId,
-		// 	pc_name,
-		// 	race_id,
-		// 	is_gendered: is_gendered === "true",
-		// 	is_female: is_female === "true",
-		// 	description: sanitizeText(description),
-		// 	race_traits: sanitizeText(race_traits),
-		// 	secret_name: sanitizeText(secret_name),
-		// 	show_secret_name: show_secret_name === "true",
-		// 	secret_color
-		// };
-
-		const pc = await createPcMain(pcData);
-
-		// await db.query("COMMIT");
-
-		req.flash("success", "PC created successfully. Continue filling out the details.");
-		res.redirect(`/builder/pc/${pc.id}/edit`);
-	} catch (error) {
-		console.error("Error creating new PC:", error);
-		// await db.query("ROLLBACK");
-		req.flash("error", "Failed to create PC. Please fix the errors and try again.");
-		res.redirect("/builder/pc/new");
+		await updateCharacterIdentified(character_type, characterId, is_identified === "true");
+		req.flash("success", "Identification updated.");
 	}
-};
+	catch (err) {
+		console.error("Error updating identification:", err);
+		req.flash("error", "Failed to update identification.");
+	}
 
-/**
- * PC Edit Form (All Sections)
- * Route: GET /builder/pc/:id/edit
- *
- * - Loads full PC data.
- * - Renders builder page with tabs/sections.
- * - Uses ?section= query param to focus a specific section (optional).
- */
-const pcEditForm = async (req, res) => {
+	return res.redirect("/builder/character");
+}
+
+async function updateCharacterSecretVisibilityController(req, res) {
+
 	const user = req.session.user;
-	const campaignId = res.locals.campaign_id;
-	const pcId = parseInt(req.params.id, 10);
-	const section = req.query.section || "identity";
+
+	if (!user || !limitedPermission(user)) {
+		return res.redirect("/login");
+	}
+
+	const { character_type, show_secret_name } = req.body;
+	const characterId = Number(req.params.id);
 
 	try {
-		// TODO: Implement a getPcById(pcId) in characters model
-		const pc = await getPCs(campaignId, user, { pcId });
-
-		if (!pc) {
-			req.flash("error", "PC not found.");
-			return res.redirect("/builder/pc");
-		}
-
-		if (!canEditPc(user, pc)) {
-			req.flash("error", "You do not have permission to edit this PC.");
-			return res.redirect("/builder/pc");
-		}
-
-		const dropdowns = await loadPcDropdowns();
-
-		// TODO: Load related tables (social, attributes, stats, skills, etc.)
-		// via characters model helpers, similar to Asset Builder's data loading.
-
-		res.render("builder/pc/edit", {
-			title: `Edit PC: ${pc.pc_name}`,
-			pc,
-			dropdowns,
-			section
-		});
-	} catch (error) {
-		console.error("Error loading PC edit form:", error);
-		req.flash("error", "Failed to load PC edit form.");
-		res.redirect("/builder/pc");
+		await updateCharacterSecretVisibility(character_type, characterId, show_secret_name === "true");
+		req.flash("success", "Secret visibility updated.");
 	}
-};
+	catch (err) {
+		console.error("Error updating secret visibility:", err);
+		req.flash("error", "Failed to update secret visibility.");
+	}
 
-/**
- * Section Update Handlers
- *
- * Each section will have its own POST route, similar to Asset Builder:
- * - /builder/pc/:id/edit/identity
- * - /builder/pc/:id/edit/social
- * - /builder/pc/:id/edit/attributes
- * - /builder/pc/:id/edit/stats
- * - /builder/pc/:id/edit/skills
- * - /builder/pc/:id/edit/classes
- * - /builder/pc/:id/edit/languages
- * - /builder/pc/:id/edit/religion
- * - /builder/pc/:id/edit/titles
- * - /builder/pc/:id/edit/achievements
- * - /builder/pc/:id/edit/scars
- * - /builder/pc/:id/edit/gallery
- */
+	return res.redirect("/builder/character");
+}
 
-// Identity & Basics
-const submitPcIdentity = async (req, res) => {
+async function updateCharacterCampaignController(req, res) {
+
 	const user = req.session.user;
+
+	if (!user || !limitedPermission(user)) {
+		return res.redirect("/login");
+	}
+
+	const { character_type, campaign_id } = req.body;
+	const characterId = Number(req.params.id);
+
+	try {
+		await updateCharacterCampaign(character_type, characterId, campaign_id ? Number(campaign_id) : null);
+		req.flash("success", "Campaign updated.");
+	}
+	catch (err) {
+		console.error("Error updating campaign:", err);
+		req.flash("error", "Failed to update campaign.");
+	}
+
+	return res.redirect("/builder/character");
+}
+
+// --- Main Builder Form Functions ---
+async function showCreatePcForm(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
 	const campaignId = res.locals.campaign_id;
-	const pcId = parseInt(req.params.id, 10);
+	const campaigns = await loadCampaigns();
+	const formData = await loadFormData(campaignId);
 
-	// TODO: Load PC, check canEditPc, validate fields, call updatePcMain in a transaction.
+	res.render("forms/characters/pcForm", {
+		title: "Create PC",
+		activePage: "dashboard",
+		formMode: "create",
+		pc: null,
+		campaigns,
+		...formData
+	});
+}
 
-	res.redirect(`/builder/pc/${pcId}/edit?section=identity`);
-};
+async function showCreateCompanionForm(req, res) {
 
-// Social Profile
-const submitPcSocial = async (req, res) => {
 	const user = req.session.user;
-	const pcId = parseInt(req.params.id, 10);
 
-	// TODO: Extract social fields, sanitize, call replacePcSocial in a transaction.
+	if (!user) {
+		return res.redirect("/login");
+	}
 
-	res.redirect(`/builder/pc/${pcId}/edit?section=social`);
-};
+	const campaignId = res.locals.campaign_id;
+	const campaigns = await loadCampaigns();
+	const formData = await loadFormData(campaignId);
 
-// Attributes
-const submitPcAttributes = async (req, res) => {
+	res.render("forms/characters/companionForm", {
+		title: "Create Companion",
+		activePage: "dashboard",
+		formMode: "create",
+		companion: null,
+		campaigns,
+		...formData
+	});
+}
+
+async function showEditPcForm(req, res) {
+
 	const user = req.session.user;
-	const pcId = parseInt(req.params.id, 10);
 
-	// TODO: Extract attributes, validate numbers, call replacePcAttributes.
+	if (!user) {
+		return res.redirect("/login");
+	}
 
-	res.redirect(`/builder/pc/${pcId}/edit?section=attributes`);
-};
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
 
-// Stats
-const submitPcStats = async (req, res) => {
+	if (!pc) {
+		return res.status(404).send("PC not found.");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		return res.status(403).send("Forbidden.");
+	}
+
+	const campaigns = await loadCampaigns();
+	const formData = await loadFormData(pc.campaign_id);
+
+	res.render("forms/characters/pcForm", {
+		title: `Edit PC: ${pc.pc_name}`,
+		activePage: "dashboard",
+		formMode: "edit",
+		pc,
+		campaigns,
+		...formData
+	});
+}
+
+async function showEditCompanionForm(req, res) {
+
 	const user = req.session.user;
-	const pcId = parseInt(req.params.id, 10);
 
-	// TODO: Extract stats, validate, call replacePcStats.
+	if (!user) {
+		return res.redirect("/login");
+	}
 
-	res.redirect(`/builder/pc/${pcId}/edit?section=stats`);
-};
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
 
-// Skills
-const submitPcSkills = async (req, res) => {
-	const user = req.session.user;
-	const pcId = parseInt(req.params.id, 10);
+	if (!companion) {
+		return res.status(404).send("Companion not found.");
+	}
 
-	// TODO: Extract skills, validate, call replacePcSkills.
+	if (!editPermissionCheck(user, companion)) {
+		return res.status(403).send("Forbidden.");
+	}
 
-	res.redirect(`/builder/pc/${pcId}/edit?section=skills`);
-};
+	const campaigns = await loadCampaigns();
+	const formData = await loadFormData(companion.campaign_id);
 
-// Classes & Archetypes
-const submitPcClasses = async (req, res) => {
-	const user = req.session.user;
-	const pcId = parseInt(req.params.id, 10);
-
-	// TODO: Normalize class array, validate, call replacePcClasses.
-
-	res.redirect(`/builder/pc/${pcId}/edit?section=classes`);
-};
-
-// Languages
-const submitPcLanguages = async (req, res) => {
-	const user = req.session.user;
-	const pcId = parseInt(req.params.id, 10);
-
-	// TODO: Normalize language array, call replacePcLanguages.
-
-	res.redirect(`/builder/pc/${pcId}/edit?section=languages`);
-};
-
-// Religion
-const submitPcReligion = async (req, res) => {
-	const user = req.session.user;
-	const pcId = parseInt(req.params.id, 10);
-
-	// TODO: Extract religion fields, sanitize, call replacePcReligion.
-
-	res.redirect(`/builder/pc/${pcId}/edit?section=religion`);
-};
-
-// Titles
-const submitPcTitles = async (req, res) => {
-	const user = req.session.user;
-	const pcId = parseInt(req.params.id, 10);
-
-	// TODO: Normalize titles array, call replacePcTitles.
-
-	res.redirect(`/builder/pc/${pcId}/edit?section=titles`);
-};
-
-// Achievements
-const submitPcAchievements = async (req, res) => {
-	const user = req.session.user;
-	const pcId = parseInt(req.params.id, 10);
-
-	// TODO: Normalize achievements array, call replacePcAchievements.
-
-	res.redirect(`/builder/pc/${pcId}/edit?section=achievements`);
-};
-
-// Scars
-const submitPcScars = async (req, res) => {
-	const user = req.session.user;
-	const pcId = parseInt(req.params.id, 10);
-
-	// TODO: Normalize scars array, call replacePcScars.
-
-	res.redirect(`/builder/pc/${pcId}/edit?section=scars`);
-};
-
-// Gallery
-const submitPcGallery = async (req, res) => {
-	const user = req.session.user;
-	const pcId = parseInt(req.params.id, 10);
-
-	// TODO: Validate URLs (controller), normalize gallery array, call replacePcGallery.
-
-	res.redirect(`/builder/pc/${pcId}/edit?section=gallery`);
-};
+	res.render("forms/characters/companionForm", {
+		title: `Edit Companion: ${companion.companion_name}`,
+		activePage: "dashboard",
+		formMode: "edit",
+		companion,
+		campaigns,
+		...formData
+	});
+}
 
 // --- Exports ---
-
 export {
-	pcBuilderDashboard,
-	pcNewForm,
-	submitNewPc,
-	pcEditForm,
-	submitPcIdentity,
-	submitPcSocial,
-	submitPcAttributes,
-	submitPcStats,
-	submitPcSkills,
-	submitPcClasses,
-	submitPcLanguages,
-	submitPcReligion,
-	submitPcTitles,
-	submitPcAchievements,
-	submitPcScars,
-	submitPcGallery
 };

@@ -143,6 +143,11 @@ const LANGUAGES_JOIN = (type) => `
     ON lang.${type}_id = character.id
 `;
 
+const RELIGION_JOIN = (type) => `
+	LEFT JOIN ${type}_religions rel
+    ON rel.${type}_id = character.id
+`;
+
 const MERCHANT_JOIN = (type) => `
   LEFT JOIN merchants m
     ON m.${type}_id = character.id
@@ -231,6 +236,10 @@ const SELECT_QUESTS_AGG = `
 
 const SELECT_LANGUAGES_AGG = `
   json_agg(lang.language_id) FILTER (WHERE lang.language_id IS NOT NULL) AS languages
+`;
+
+const SELECT_RELIGIONS_AGG = `
+  json_agg(rel.religions_id) FILTER (WHERE rel.religions_id IS NOT NULL) AS religions
 `;
 
 const SELECT_ATTITUDE_OBJECT = `
@@ -351,12 +360,13 @@ function buildCharacterQuery({ type, whereClause }) {
       ${SELECT_GALLERY_AGG},
 
       ${type === "pc" || type === "companion" || type === "npc" ? SELECT_TITLES_AGG : "NULL AS titles"},
+      ${type === "pc" || type === "companion" || type === "npc" ? SELECT_LANGUAGES_AGG : "NULL AS languages"},
+      ${type === "pc" || type === "companion" || type === "npc" ? SELECT_RELIGIONS_AGG : "NULL AS religions"},
       ${type === "pc" || type === "companion" ? SELECT_CLASSES_AGG : "NULL AS classes"},
       ${type === "pc" || type === "companion" ? SELECT_SCARS_AGG : "NULL AS scars"},
       ${type === "pc" || type === "companion" ? SELECT_ACHIEVEMENTS_AGG : "NULL AS achievements"},
       ${type === "npc" || type === "faction" ? SELECT_ATTITUDE_OBJECT : "NULL AS attitude"},
       ${type === "npc" || type === "faction" ? SELECT_QUESTS_AGG : "NULL AS quests"},
-      ${type === "npc" ? SELECT_LANGUAGES_AGG : "NULL AS languages"},
       ${type === "npc" || type === "faction" ? SELECT_MERCHANT_AGG : "NULL AS merchant"}
 
     FROM ${type === "faction" ? "factions" : `${type}_main`} character
@@ -365,12 +375,13 @@ function buildCharacterQuery({ type, whereClause }) {
     ${GALLERY_JOIN(type)}
     
     ${type === "pc" || type === "companion" || type === "npc" ? TITLES_JOIN(type) : ""}
+    ${type === "pc" || type === "companion" || type === "npc" ? LANGUAGES_JOIN(type) : ""}
+    ${type === "pc" || type === "companion" || type === "npc" ? RELIGION_JOIN(type) : ""}
     ${type === "pc" || type === "companion" ? CLASSES_JOIN(type) : ""}
     ${type === "pc" || type === "companion" ? ACHIEVEMENTS_JOIN(type) : ""}
     ${type === "pc" || type === "companion" ? SCARS_JOIN(type) : ""}
     ${type === "npc" || type === "faction" ? ATTITUDE_JOIN(type) : ""}
     ${type === "npc" || type === "faction" ? QUESTS_JOIN(type) : ""}
-    ${type === "npc" ? LANGUAGES_JOIN(type) : ""}
     ${type === "npc" || type === "faction" ? MERCHANT_JOIN(type) : ""}
 
     ${whereClause}
