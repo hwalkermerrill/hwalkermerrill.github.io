@@ -65,20 +65,30 @@ const updateCharacterCampaign = async (
 	]);
 };
 
-const updateNpcAttitudeId = async (
-	npcId,
+const updateCharacterAttitudeId = async (
+	type,
+	id,
 	attitudeId
 ) => {
 
+	const table =
+		type === "npc"
+			? "npc_attitude"
+			: "faction_attitude";
+
+	const column =
+		type === "npc"
+			? "npc_id"
+			: "faction_id";
+
 	await db.query(`
-		UPDATE npc_attitude
+		UPDATE ${table}
 		SET attitude_id = $1
-		WHERE npc_id = $2
+		WHERE ${column} = $2
 	`, [
 		attitudeId,
-		npcId
+		id
 	]);
-
 };
 
 // Helpers - JOIN
@@ -1651,50 +1661,30 @@ const updateNpcAttitude = async (
 		INSERT INTO npc_attitude (
 			npc_id,
 			attitude_id,
-
 			favored_pc,
-
 			allies,
 			allies_visible,
-
 			enemies,
 			enemies_visible,
-
 			influence_skills,
 			skills_visible,
-
 			influence_notes,
 			notes_visible,
-
 			progress_made,
 			progress_threshold,
-
 			hostile_boon,
 			unfriendly_boon,
+			neutral_boon,
 			friendly_boon,
 			helpful_boon,
-
 			notes,
 			secrets
 		)
 		VALUES (
-			$1,$2,
-
-			$3,
-
-			$4,$5,
-
-			$6,$7,
-
-			$8,$9,
-
-			$10,$11,
-
-			$12,$13,
-
-			$14,$15,$16,$17,
-
-			$18,$19
+			$1,$2,$3,$4,$5,
+			$6,$7,$8,$9,$10,
+			$11,$12,$13,$14,$15,
+			$16,$17,$18,$19, $20
 		)
 	`, [
 		npcId,
@@ -1719,6 +1709,7 @@ const updateNpcAttitude = async (
 
 		sanitizeText(data.hostile_boon),
 		sanitizeText(data.unfriendly_boon),
+		sanitizeText(data.neutral_boon),
 		sanitizeText(data.friendly_boon),
 		sanitizeText(data.helpful_boon),
 
@@ -1729,16 +1720,450 @@ const updateNpcAttitude = async (
 };
 
 // Faction Builder Functions
+const createFaction = async (data) => {
+	const {
+		campaign_id,
+		active_status_id,
+		faction_name,
+		unknown_name,
+		is_identified,
+		secret_name,
+		show_secret_name,
+		secret_color,
 
+		faction_type,
+
+		description,
+		secrets,
+
+		pinned,
+
+		progress_able,
+		progress_made,
+		progress_threshold,
+
+		death_cause,
+		retired_reason,
+
+		start_session,
+		end_session
+	} = data;
+
+	const { rows } = await db.query(`
+		INSERT INTO factions (
+			campaign_id,
+			active_status_id,
+
+			faction_name,
+			unknown_name,
+
+			is_identified,
+
+			secret_name,
+			show_secret_name,
+			secret_color,
+
+			faction_type,
+
+			description,
+			secrets,
+
+			pinned,
+
+			progress_able,
+			progress_made,
+			progress_threshold,
+
+			death_cause,
+			retired_reason,
+
+			start_session,
+			end_session
+		)
+		VALUES (
+			$1,$2,
+
+			$3,$4,
+
+			$5,
+
+			$6,$7,$8,
+
+			$9,
+
+			$10,$11,
+
+			$12,
+
+			$13,$14,$15,
+
+			$16,$17,
+
+			$18,$19
+		)
+		RETURNING id
+	`, [
+		campaign_id,
+		active_status_id || 1,
+
+		faction_name.trim(),
+		unknown_name || "Unknown",
+
+		is_identified === true,
+
+		sanitizeText(secret_name),
+		show_secret_name === true,
+		secret_color || null,
+
+		faction_type,
+
+		sanitizeText(description),
+		sanitizeText(secrets),
+
+		pinned === true,
+
+		progress_able === true,
+		Number(progress_made) || 0,
+		Number(progress_threshold) || 10,
+
+		sanitizeText(death_cause),
+		sanitizeText(retired_reason),
+
+		Number(start_session) || 1,
+		end_session || null
+	]);
+
+	return rows[0].id;
+};
+
+const updateFactionMain = async (
+	factionId,
+	data
+) => {
+
+	const {
+		active_status_id,
+
+		faction_name,
+		unknown_name,
+
+		is_identified,
+
+		secret_name,
+		show_secret_name,
+		secret_color,
+
+		faction_type,
+
+		description,
+		secrets,
+
+		pinned,
+
+		progress_able,
+		progress_made,
+		progress_threshold,
+
+		death_cause,
+		retired_reason,
+
+		start_session,
+		end_session
+	} = data;
+
+	await db.query(`
+		UPDATE factions
+		SET
+			active_status_id = $1,
+
+			faction_name = $2,
+			unknown_name = $3,
+
+			is_identified = $4,
+
+			secret_name = $5,
+			show_secret_name = $6,
+			secret_color = $7,
+
+			faction_type = $8,
+
+			description = $9,
+			secrets = $10,
+
+			pinned = $11,
+
+			progress_able = $12,
+			progress_made = $13,
+			progress_threshold = $14,
+
+			death_cause = $15,
+			retired_reason = $16,
+
+			start_session = $17,
+			end_session = $18
+
+		WHERE id = $19
+	`, [
+		active_status_id,
+
+		faction_name.trim(),
+		unknown_name,
+
+		is_identified,
+
+		sanitizeText(secret_name),
+		show_secret_name,
+		secret_color,
+
+		faction_type,
+
+		sanitizeText(description),
+		sanitizeText(secrets),
+
+		pinned,
+
+		progress_able,
+		Number(progress_made) || 0,
+		Number(progress_threshold) || 10,
+
+		sanitizeText(death_cause),
+		sanitizeText(retired_reason),
+
+		Number(start_session) || 1,
+		end_session,
+
+		factionId
+	]);
+};
+
+const updateFactionSocial = async (
+	factionId,
+	data
+) => {
+
+	await db.query(`
+		DELETE FROM faction_social
+		WHERE faction_id = $1
+	`, [factionId]);
+
+	await db.query(`
+		INSERT INTO faction_social (
+			faction_id,
+
+			appearance,
+			background,
+
+			extra_details,
+			hidden_details,
+
+			reveal_hidden_details,
+
+			secrets
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,$6,$7
+		)
+	`, [
+		factionId,
+
+		sanitizeText(data.appearance),
+		sanitizeText(data.background),
+
+		sanitizeText(data.extra_details),
+		sanitizeText(data.hidden_details),
+
+		Boolean(data.reveal_hidden_details),
+
+		sanitizeText(data.secrets)
+	]);
+};
+
+const updateFactionGallery = async (
+	factionId,
+	data
+) => {
+
+	await updateGalleryEntries(
+		"faction_gallery",
+		"faction_id",
+		factionId,
+		data
+	);
+};
+
+const updateFactionAttitude = async (
+	factionId,
+	data
+) => {
+
+	await db.query(`
+		DELETE FROM faction_attitude
+		WHERE faction_id = $1
+	`, [factionId]);
+
+	await db.query(`
+		INSERT INTO faction_attitude (
+			faction_id,
+			attitude_id,
+
+			favored_pc,
+
+			allies,
+			allies_visible,
+
+			enemies,
+			enemies_visible,
+
+			influence_skills,
+			skills_visible,
+
+			influence_notes,
+			notes_visible,
+
+			progress_made,
+			progress_threshold,
+
+			hostile_boon,
+			unfriendly_boon,
+			neutral_boon,
+			friendly_boon,
+			helpful_boon,
+
+			notes,
+			secrets
+		)
+		VALUES (
+			$1,$2,
+
+			$3,
+
+			$4,$5,
+
+			$6,$7,
+
+			$8,$9,
+
+			$10,$11,
+
+			$12,$13,
+
+			$14,$15,$16,$17,$18,
+
+			$19,$20
+		)
+	`, [
+		factionId,
+		Number(data.attitude_id) || 3,
+
+		data.favored_pc || null,
+
+		sanitizeText(data.allies),
+		Boolean(data.allies_visible),
+
+		sanitizeText(data.enemies),
+		Boolean(data.enemies_visible),
+
+		sanitizeText(data.influence_skills),
+		Boolean(data.skills_visible),
+
+		sanitizeText(data.influence_notes),
+		Boolean(data.notes_visible),
+
+		Number(data.progress_made) || 0,
+		Number(data.progress_threshold) || 10,
+
+		sanitizeText(data.hostile_boon),
+		sanitizeText(data.unfriendly_boon),
+		sanitizeText(data.neutral_boon),
+		sanitizeText(data.friendly_boon),
+		sanitizeText(data.helpful_boon),
+
+		sanitizeText(data.notes),
+		sanitizeText(data.secrets)
+	]);
+
+};
+
+const addFactionMember = async (
+	type,
+	factionId,
+	memberId,
+	associationType = null,
+	associationRank = null
+) => {
+
+	const table =
+		type === "npc"
+			? "faction_npcs"
+			: type === "pc"
+				? "faction_pcs"
+				: "faction_companions";
+
+	const column =
+		type === "npc"
+			? "npc_id"
+			: type === "pc"
+				? "pc_id"
+				: "companion_id";
+
+	await db.query(`
+		INSERT INTO ${table} (
+			faction_id,
+			${column},
+			association_type,
+			association_rank
+		)
+		VALUES (
+			$1,$2,$3,$4
+		)
+		ON CONFLICT DO NOTHING
+	`, [
+		factionId,
+		memberId,
+		associationType,
+		associationRank
+	]);
+};
+
+const removeFactionMember = async (
+	type,
+	factionId,
+	memberId
+) => {
+
+	const table =
+		type === "npc"
+			? "faction_npcs"
+			: type === "pc"
+				? "faction_pcs"
+				: "faction_companions";
+
+	const column =
+		type === "npc"
+			? "npc_id"
+			: type === "pc"
+				? "pc_id"
+				: "companion_id";
+
+	await db.query(`
+		DELETE FROM ${table}
+		WHERE faction_id = $1
+			AND ${column} = $2
+	`, [
+		factionId,
+		memberId
+	]);
+};
 
 // Exports
 export {
 	getPCs, getCompanions, getNPCs, getFactions,
 	getPcById, getCompanionById, getNpcById, getFactionById,
-	updateCharacterCampaign, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterStatus, updateCharacterReligion, updateNpcAttitudeId,
+	updateCharacterCampaign, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterStatus, updateCharacterReligion, updateCharacterAttitudeId,
 	addCharacterAchievement, addCharacterLanguage, addCharacterScar, addCharacterTitle,
 	removeCharacterAchievement, removeCharacterLanguage, removeCharacterScar, removeCharacterTitle,
 	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses,
 	createCompanion, updateCompanionMain, updateCompanionSocial, updateCompanionGallery, updateCompanionMechanics, updateCompanionClasses,
-	createNpc, updateNpcMain, updateNpcSocial, updateNpcGallery, updateNpcMechanics, updateNpcAttitude
+	createNpc, updateNpcMain, updateNpcSocial, updateNpcGallery, updateNpcMechanics, updateNpcAttitude,
+	createFaction, updateFactionMain, updateFactionSocial, updateFactionGallery, updateFactionAttitude, addFactionMember, removeFactionMember
 };

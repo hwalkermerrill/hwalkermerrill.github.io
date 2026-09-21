@@ -633,6 +633,7 @@ CREATE TABLE IF NOT EXISTS npc_attitude (
   progress_threshold INTEGER NOT NULL DEFAULT 10,
   hostile_boon TEXT,
   unfriendly_boon TEXT,
+  neutral_boon TEXT,
   friendly_boon TEXT,
   helpful_boon TEXT,
   notes TEXT,
