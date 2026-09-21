@@ -250,6 +250,7 @@ const SELECT_ATTITUDE_OBJECT = `
       'progress_threshold', att.progress_threshold,
       'hostile_boon', att.hostile_boon,
       'unfriendly_boon', att.unfriendly_boon,
+			'neutral_boon', att.neutral_boon,
       'friendly_boon', att.friendly_boon,
       'helpful_boon', att.helpful_boon,
       'notes', att.notes,
