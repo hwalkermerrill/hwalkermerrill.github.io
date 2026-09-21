@@ -564,6 +564,7 @@ CREATE TABLE IF NOT EXISTS npc_main (
     ON DELETE RESTRICT,
   npc_name VARCHAR(255) NOT NULL,
   unknown_name VARCHAR(255) DEFAULT 'Unknown',
+	npc_group VARCHAR(255) DEFAULT NULL, -- Grouping names
   is_identified BOOLEAN NOT NULL DEFAULT FALSE,
   secret_name VARCHAR (255),
   show_secret_name BOOLEAN NOT NULL DEFAULT FALSE,

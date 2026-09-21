@@ -65,6 +65,22 @@ const updateCharacterCampaign = async (
 	]);
 };
 
+const updateNpcAttitudeId = async (
+	npcId,
+	attitudeId
+) => {
+
+	await db.query(`
+		UPDATE npc_attitude
+		SET attitude_id = $1
+		WHERE npc_id = $2
+	`, [
+		attitudeId,
+		npcId
+	]);
+
+};
+
 // Helpers - JOIN
 const SOCIAL_JOIN = (type) => `
   LEFT JOIN ${type}_social soc
@@ -1361,7 +1377,356 @@ const updateCompanionClasses = async (
 };
 
 // NPC Builder Functions
+const createNpc = async (data) => {
+	const {
+		campaign_id,
+		active_status_id,
+		race_id,
+		npc_name,
+		unknown_name,
+		is_identified,
+		secret_name,
+		show_secret_name,
+		secret_color,
+		is_gendered,
+		is_female,
+		description,
+		secrets,
+		race_traits,
+		retired_reason,
+		death_cause,
+		end_session,
+		pinned,
+		npc_group
+	} = data;
 
+	const { rows } = await db.query(`
+		INSERT INTO npc_main (
+			campaign_id,
+			active_status_id,
+			race_id,
+			npc_name,
+			unknown_name,
+			is_identified,
+			secret_name,
+			show_secret_name,
+			secret_color,
+			is_gendered,
+			is_female,
+			description,
+			secrets,
+			race_traits,
+			retired_reason,
+			death_cause,
+			end_session,
+			pinned,
+			npc_group
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,$6,$7,$8,
+			$9,$10,$11,$12,$13,$14,
+			$15,$16,$17,$18,$19
+		)
+		RETURNING id
+	`, [
+		campaign_id,
+		active_status_id || 1,
+		race_id || 1,
+		npc_name.trim(),
+		unknown_name || "Unknown",
+		is_identified === true,
+		sanitizeText(secret_name),
+		show_secret_name === true,
+		secret_color || null,
+		is_gendered !== false,
+		is_female === true,
+		sanitizeText(description),
+		sanitizeText(secrets),
+		sanitizeText(race_traits),
+		sanitizeText(retired_reason),
+		sanitizeText(death_cause),
+		end_session || null,
+		pinned === true,
+		npc_group || null
+	]);
+
+	return rows[0].id;
+};
+
+const updateNpcMain = async (
+	npcId,
+	data
+) => {
+	const {
+		active_status_id,
+		race_id,
+		npc_name,
+		unknown_name,
+		is_identified,
+		secret_name,
+		show_secret_name,
+		secret_color,
+		is_gendered,
+		is_female,
+		description,
+		secrets,
+		race_traits,
+		retired_reason,
+		death_cause,
+		end_session,
+		pinned,
+		npc_group
+	} = data;
+
+	await db.query(`
+		UPDATE npc_main
+		SET
+			active_status_id = $1,
+			race_id = $2,
+			npc_name = $3,
+			unknown_name = $4,
+			is_identified = $5,
+			secret_name = $6,
+			show_secret_name = $7,
+			secret_color = $8,
+			is_gendered = $9,
+			is_female = $10,
+			description = $11,
+			secrets = $12,
+			race_traits = $13,
+			retired_reason = $14,
+			death_cause = $15,
+			end_session = $16,
+			pinned = $17,
+			npc_group = $18
+		WHERE id = $19
+	`, [
+		active_status_id,
+		race_id,
+		npc_name.trim(),
+		unknown_name,
+		is_identified,
+		sanitizeText(secret_name),
+		show_secret_name,
+		secret_color,
+		is_gendered,
+		is_female,
+		sanitizeText(description),
+		sanitizeText(secrets),
+		sanitizeText(race_traits),
+		sanitizeText(retired_reason),
+		sanitizeText(death_cause),
+		end_session,
+		pinned,
+		npc_group || null,
+		npcId
+	]);
+};
+
+const updateNpcSocial = async (
+	npcId,
+	data
+) => {
+
+	await db.query(`
+		DELETE FROM npc_social
+		WHERE npc_id = $1
+	`, [npcId]);
+
+	await db.query(`
+		INSERT INTO npc_social (
+			npc_id,
+			appearance,
+			background,
+			extra_details,
+			hidden_details,
+			reveal_hidden_details,
+			secrets
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,$6,$7
+		)
+	`, [
+		npcId,
+		sanitizeText(data.appearance),
+		sanitizeText(data.background),
+		sanitizeText(data.extra_details),
+		sanitizeText(data.hidden_details),
+		Boolean(data.reveal_hidden_details),
+		sanitizeText(data.secrets)
+	]);
+
+};
+
+const updateNpcGallery = async (
+	npcId,
+	data
+) => {
+
+	await updateGalleryEntries(
+		"npc_gallery",
+		"npc_id",
+		npcId,
+		data
+	);
+
+};
+
+const updateNpcMechanics = async (
+	npcId,
+	{
+		stats = {},
+		languages = []
+	}
+) => {
+
+	// Stats
+	await db.query(`
+		DELETE FROM npc_stats
+		WHERE npc_id = $1
+	`, [npcId]);
+
+	await db.query(`
+		INSERT INTO npc_stats (
+			npc_id,
+			main_ac,
+			max_hp,
+			perception,
+			sense_motive,
+			will,
+			reflex,
+			fortitude,
+			notes
+		)
+		VALUES (
+			$1,$2,$3,$4,$5,$6,$7,$8,$9
+		)
+	`, [
+		npcId,
+		Number(stats.main_ac) || 10,
+		Number(stats.max_hp) || 10,
+		Number(stats.perception) || 0,
+		Number(stats.sense_motive) || 0,
+		Number(stats.will) || 0,
+		Number(stats.reflex) || 0,
+		Number(stats.fortitude) || 0,
+		sanitizeText(stats.notes)
+	]);
+
+	// Languages
+	await db.query(`
+		DELETE FROM npc_language
+		WHERE npc_id = $1
+	`, [npcId]);
+
+	for (const languageId of normalizeToArray(languages)) {
+
+		await db.query(`
+			INSERT INTO npc_language (
+				npc_id,
+				language_id
+			)
+			VALUES ($1,$2)
+			ON CONFLICT DO NOTHING
+		`, [
+			npcId,
+			Number(languageId)
+		]);
+
+	}
+
+};
+
+const updateNpcAttitude = async (
+	npcId,
+	data
+) => {
+
+	await db.query(`
+		DELETE FROM npc_attitude
+		WHERE npc_id = $1
+	`, [npcId]);
+
+	await db.query(`
+		INSERT INTO npc_attitude (
+			npc_id,
+			attitude_id,
+
+			favored_pc,
+
+			allies,
+			allies_visible,
+
+			enemies,
+			enemies_visible,
+
+			influence_skills,
+			skills_visible,
+
+			influence_notes,
+			notes_visible,
+
+			progress_made,
+			progress_threshold,
+
+			hostile_boon,
+			unfriendly_boon,
+			friendly_boon,
+			helpful_boon,
+
+			notes,
+			secrets
+		)
+		VALUES (
+			$1,$2,
+
+			$3,
+
+			$4,$5,
+
+			$6,$7,
+
+			$8,$9,
+
+			$10,$11,
+
+			$12,$13,
+
+			$14,$15,$16,$17,
+
+			$18,$19
+		)
+	`, [
+		npcId,
+		Number(data.attitude_id) || 3,
+
+		data.favored_pc || null,
+
+		sanitizeText(data.allies),
+		Boolean(data.allies_visible),
+
+		sanitizeText(data.enemies),
+		Boolean(data.enemies_visible),
+
+		sanitizeText(data.influence_skills),
+		Boolean(data.skills_visible),
+
+		sanitizeText(data.influence_notes),
+		Boolean(data.notes_visible),
+
+		Number(data.progress_made) || 0,
+		Number(data.progress_threshold) || 10,
+
+		sanitizeText(data.hostile_boon),
+		sanitizeText(data.unfriendly_boon),
+		sanitizeText(data.friendly_boon),
+		sanitizeText(data.helpful_boon),
+
+		sanitizeText(data.notes),
+		sanitizeText(data.secrets)
+	]);
+
+};
 
 // Faction Builder Functions
 
@@ -1370,9 +1735,10 @@ const updateCompanionClasses = async (
 export {
 	getPCs, getCompanions, getNPCs, getFactions,
 	getPcById, getCompanionById, getNpcById, getFactionById,
-	updateCharacterCampaign, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterStatus, updateCharacterReligion,
+	updateCharacterCampaign, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterStatus, updateCharacterReligion, updateNpcAttitudeId,
 	addCharacterAchievement, addCharacterLanguage, addCharacterScar, addCharacterTitle,
 	removeCharacterAchievement, removeCharacterLanguage, removeCharacterScar, removeCharacterTitle,
 	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses,
-	createCompanion, updateCompanionMain, updateCompanionSocial, updateCompanionGallery, updateCompanionMechanics, updateCompanionClasses
+	createCompanion, updateCompanionMain, updateCompanionSocial, updateCompanionGallery, updateCompanionMechanics, updateCompanionClasses,
+	createNpc, updateNpcMain, updateNpcSocial, updateNpcGallery, updateNpcMechanics, updateNpcAttitude
 };
