@@ -1,7 +1,7 @@
 // --- Imports ---
 import {
 	getPCs, getCompanions, getPcById, getCompanionById,
-	updateCharacterStatus, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterCampaign, updateCharacterReligion,
+	updateCharacterStatus, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterCampaign, updateCharacterReligion, updateCharacterRace,
 	addCharacterLanguage, addCharacterTitle, addCharacterAchievement, addCharacterScar,
 	removeCharacterLanguage, removeCharacterTitle, removeCharacterAchievement, removeCharacterScar,
 	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses,
@@ -67,6 +67,8 @@ async function loadFormData(campaignId) {
 	};
 }
 
+// --- Validation and Normalization ---
+
 function validateGalleryUrls(req) {
 	const raw = req.body.gallery_url;
 
@@ -95,22 +97,41 @@ function validateGalleryUrls(req) {
 	}
 }
 
+function normalizeToArray(value) {
+
+	if (!value) {
+		return [];
+	}
+
+	return Array.isArray(value)
+		? value : [value];
+}
+
 // --- Dashboard Controller Function ---
 async function showCharacterDashboard(req, res) {
 
 	const user = req.session.user;
 
-	if (!user || !limitedPermission(user)) {
+	if (!user) {
 		return res.redirect("/login");
 	}
 
 	const campaignId = res.locals.campaign_id;
 
+
 	try {
 		const campaigns = await loadCampaigns();
 		const active_status = await getActiveStatus();
-		const pcs = await getPCs({ campaignId });
-		const companions = await getCompanions({ campaignId });
+		let pcs;
+		let companions;
+
+		if (limitedPermission(user)) {
+			pcs = await getPCs({ campaignId });
+			companions = await getCompanions({ campaignId });
+		} else {
+			pcs = await getPCs({ campaignId, userId: user.id });
+			companions = await getCompanions({ campaignId, userId: user.id });
+		}
 
 		res.render("forms/characters/list", {
 			title: "Manage PCs & Companions",
@@ -134,12 +155,30 @@ async function updateCharacterStatusController(req, res) {
 
 	const user = req.session.user;
 
-	if (!user || !limitedPermission(user)) {
+	if (!user) {
 		return res.redirect("/login");
 	}
 
 	const { character_type, active_status_id } = req.body;
 	const characterId = Number(req.params.id);
+	let character = null;
+
+	if (character_type === "pc") {
+		character = await getPcById(characterId)
+	}
+	else if (character_type === "companion") {
+		character = await getCompanionById(characterId)
+	}
+
+	if (!character) {
+		req.flash("error", "Character not found.");
+		return res.redirect("/builder/character");
+	}
+
+	if (!(limitedPermission(user) || ownsCharacter(user, character))) {
+		req.flash("error", "You do not have permission to modify that character.");
+		return res.redirect("/builder/character");
+	}
 
 	try {
 		await updateCharacterStatus(character_type, characterId, Number(active_status_id));
@@ -157,12 +196,30 @@ async function updateCharacterIdentifiedController(req, res) {
 
 	const user = req.session.user;
 
-	if (!user || !limitedPermission(user)) {
+	if (!user) {
 		return res.redirect("/login");
 	}
 
 	const { character_type, is_identified } = req.body;
 	const characterId = Number(req.params.id);
+	let character = null;
+
+	if (character_type === "pc") {
+		character = await getPcById(characterId)
+	}
+	else if (character_type === "companion") {
+		character = await getCompanionById(characterId)
+	}
+
+	if (!character) {
+		req.flash("error", "Character not found.");
+		return res.redirect("/builder/character");
+	}
+
+	if (!(limitedPermission(user) || ownsCharacter(user, character))) {
+		req.flash("error", "You do not have permission to modify that character.");
+		return res.redirect("/builder/character");
+	}
 
 	try {
 		await updateCharacterIdentified(character_type, characterId, is_identified === "true");
@@ -180,12 +237,30 @@ async function updateCharacterSecretVisibilityController(req, res) {
 
 	const user = req.session.user;
 
-	if (!user || !limitedPermission(user)) {
+	if (!user) {
 		return res.redirect("/login");
 	}
 
 	const { character_type, show_secret_name } = req.body;
 	const characterId = Number(req.params.id);
+	let character = null;
+
+	if (character_type === "pc") {
+		character = await getPcById(characterId)
+	}
+	else if (character_type === "companion") {
+		character = await getCompanionById(characterId)
+	}
+
+	if (!character) {
+		req.flash("error", "Character not found.");
+		return res.redirect("/builder/character");
+	}
+
+	if (!(limitedPermission(user) || ownsCharacter(user, character))) {
+		req.flash("error", "You do not have permission to modify that character.");
+		return res.redirect("/builder/character");
+	}
 
 	try {
 		await updateCharacterSecretVisibility(character_type, characterId, show_secret_name === "true");
@@ -203,12 +278,30 @@ async function updateCharacterCampaignController(req, res) {
 
 	const user = req.session.user;
 
-	if (!user || !limitedPermission(user)) {
+	if (!user) {
 		return res.redirect("/login");
 	}
 
 	const { character_type, campaign_id } = req.body;
 	const characterId = Number(req.params.id);
+	let character = null;
+
+	if (character_type === "pc") {
+		character = await getPcById(characterId)
+	}
+	else if (character_type === "companion") {
+		character = await getCompanionById(characterId)
+	}
+
+	if (!character) {
+		req.flash("error", "Character not found.");
+		return res.redirect("/builder/character");
+	}
+
+	if (!(limitedPermission(user) || ownsCharacter(user, character))) {
+		req.flash("error", "You do not have permission to modify that character.");
+		return res.redirect("/builder/character");
+	}
 
 	try {
 		await updateCharacterCampaign(character_type, characterId, campaign_id ? Number(campaign_id) : null);
@@ -331,6 +424,63 @@ async function showEditCompanionForm(req, res) {
 	});
 }
 
+// --- PC Builder Functions ---
+async function submitNewPc(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const {
+		pc_name,
+		campaign_id,
+		active_status_id,
+		unknown_name,
+		is_identified,
+		secret_name,
+		show_secret_name,
+		secret_color,
+		is_gendered,
+		is_female,
+		description
+	} = req.body;
+
+	try {
+		if (!pc_name || !pc_name.trim()) {
+			req.flash("error", "Character name is required.");
+			return res.redirect("/builder/pc/new");
+		}
+
+		const pcId = await createPc({
+			user_id: user.id,
+			campaign_id: Number(campaign_id),
+			active_status_id: Number(active_status_id || 1),
+			pc_name: pc_name.trim(),
+			unknown_name: unknown_name || "Unknown",
+			is_identified: is_identified === "true",
+			secret_name: secret_name || null,
+			show_secret_name: show_secret_name === "true",
+			secret_color: secret_color || null,
+			is_gendered: is_gendered !== "false",
+			is_female: is_female === "true",
+			description: description || null
+		});
+
+		req.flash("success", "Character created successfully.");
+		return res.redirect(`/builder/pc/${pcId}/social`);
+	}
+	catch (err) {
+		console.error("Error creating character:", err);
+		req.flash("error", "Failed to create character.");
+		return res.redirect("/builder/pc/new");
+	}
+}
+
 // --- Exports ---
 export {
+	showCharacterDashboard,
+	updateCharacterCampaignController, updateCharacterIdentifiedController, updateCharacterSecretVisibilityController, updateCharacterStatusController,
+	showCreatePcForm, showCreateCompanionForm, showEditPcForm, showEditCompanionForm
 };

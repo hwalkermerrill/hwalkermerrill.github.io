@@ -472,15 +472,7 @@ const getFactionById = async (id) =>
 	getSingleCharacter({ type: "faction", id });
 
 // Cross-Character Updaters
-const updateCharacterReligion = async (
-	type,
-	characterId,
-	{
-		religion_id,
-		notes,
-		secrets
-	}
-) => {
+const updateCharacterReligion = async (type, characterId, { religion_id, notes, secrets }) => {
 	const table = `${type}_religion`;
 	const column = `${type}_id`;
 
@@ -507,11 +499,24 @@ const updateCharacterReligion = async (
 	]);
 };
 
-const addCharacterLanguage = async (
-	type,
-	characterId,
-	languageId
-) => {
+const updateCharacterRace = async (type, characterId, { race_id, race_traits }) => {
+
+	const table = `${type}_main`;
+
+	await db.query(`
+		UPDATE ${table}
+		SET
+			race_id = $1,
+			race_traits = $2
+		WHERE id = $3
+	`, [
+		Number(race_id),
+		sanitizeText(race_traits),
+		characterId
+	]);
+};
+
+const addCharacterLanguage = async (type, characterId, languageId) => {
 	await db.query(`
 		INSERT INTO ${type}_language (
 			${type}_id,
@@ -525,11 +530,7 @@ const addCharacterLanguage = async (
 	]);
 };
 
-const removeCharacterLanguage = async (
-	type,
-	characterId,
-	languageId
-) => {
+const removeCharacterLanguage = async (type, characterId, languageId) => {
 	await db.query(`
 		DELETE FROM ${type}_language
 		WHERE ${type}_id = $1
@@ -540,11 +541,7 @@ const removeCharacterLanguage = async (
 	]);
 };
 
-const addCharacterTitle = async (
-	type,
-	characterId,
-	data
-) => {
+const addCharacterTitle = async (type, characterId, data) => {
 	await db.query(`
 		INSERT INTO ${type}_titles (
 			${type}_id,
@@ -571,22 +568,14 @@ const addCharacterTitle = async (
 	]);
 };
 
-const removeCharacterTitle = async (
-	type,
-	titleRowId
-) => {
+const removeCharacterTitle = async (type, titleRowId) => {
 	await db.query(`
 		DELETE FROM ${type}_titles
 		WHERE id = $1
 	`, [titleRowId]);
 };
 
-const addCharacterAchievement = async (
-	type,
-	characterId,
-	achievementId,
-	isKillingBlow = false
-) => {
+const addCharacterAchievement = async (type, characterId, achievementId, isKillingBlow = false) => {
 	await db.query(`
 		INSERT INTO ${type}_achievements (
 			${type}_id,
@@ -602,11 +591,7 @@ const addCharacterAchievement = async (
 	]);
 };
 
-const removeCharacterAchievement = async (
-	type,
-	characterId,
-	achievementId
-) => {
+const removeCharacterAchievement = async (type, characterId, achievementId) => {
 	await db.query(`
 		DELETE FROM ${type}_achievements
 		WHERE ${type}_id = $1
@@ -617,15 +602,7 @@ const removeCharacterAchievement = async (
 	]);
 };
 
-const addCharacterScar = async (
-	type,
-	characterId,
-	{
-		scar_cause,
-		scar_description,
-		session_received
-	}
-) => {
+const addCharacterScar = async (type, characterId, { scar_cause, scar_description, session_received }) => {
 	await db.query(`
 		INSERT INTO ${type}_scars (
 			${type}_id,
@@ -642,10 +619,7 @@ const addCharacterScar = async (
 	]);
 };
 
-const removeCharacterScar = async (
-	type,
-	scarId
-) => {
+const removeCharacterScar = async (type, scarId) => {
 	await db.query(`
 		DELETE FROM ${type}_scars
 		WHERE id = $1
@@ -668,7 +642,6 @@ const createPc = async (data) => {
 		is_gendered,
 		is_female,
 		description,
-		race_traits,
 		retired_reason,
 		death_cause,
 		end_session
@@ -689,14 +662,14 @@ const createPc = async (data) => {
 			is_gendered,
 			is_female,
 			description,
-			race_traits,
 			retired_reason,
 			death_cause,
 			end_session
 		)
 		VALUES (
-			$1,$2,$3,$4,$5,$6,$7,$8,
-			$9,$10,$11,$12,$13,$14,$15,$16,$17
+			$1,$2,$3,$4,$5,
+			$6,$7,$8,$9,$10,
+			$11,$12,$13,$14,$15,$16
 		)
 		RETURNING id
 	`, [
@@ -713,7 +686,6 @@ const createPc = async (data) => {
 		is_gendered !== false,
 		is_female === true,
 		sanitizeText(description),
-		sanitizeText(race_traits),
 		sanitizeText(retired_reason),
 		sanitizeText(death_cause),
 		end_session || null
@@ -721,13 +693,9 @@ const createPc = async (data) => {
 	return rows[0].id;
 };
 
-const updatePcMain = async (
-	pcId,
-	data
-) => {
+const updatePcMain = async (pcId, data) => {
 	const {
 		active_status_id,
-		race_id,
 		pc_name,
 		unknown_name,
 		is_identified,
@@ -737,7 +705,6 @@ const updatePcMain = async (
 		is_gendered,
 		is_female,
 		description,
-		race_traits,
 		retired_reason,
 		death_cause,
 		end_session
@@ -747,24 +714,21 @@ const updatePcMain = async (
 		UPDATE pc_main
 		SET
 			active_status_id = $1,
-			race_id = $2,
-			pc_name = $3,
-			unknown_name = $4,
-			is_identified = $5,
-			secret_name = $6,
-			show_secret_name = $7,
-			secret_color = $8,
-			is_gendered = $9,
-			is_female = $10,
-			description = $11,
-			race_traits = $12,
-			retired_reason = $13,
-			death_cause = $14,
-			end_session = $15
-		WHERE id = $16
+			pc_name = $2,
+			unknown_name = $3,
+			is_identified = $4,
+			secret_name = $5,
+			show_secret_name = $6,
+			secret_color = $7,
+			is_gendered = $8,
+			is_female = $9,
+			description = $10,
+			retired_reason = $11,
+			death_cause = $12,
+			end_session = $13
+		WHERE id = $14
 	`, [
 		active_status_id,
-		race_id,
 		pc_name.trim(),
 		unknown_name,
 		is_identified,
@@ -774,7 +738,6 @@ const updatePcMain = async (
 		is_gendered,
 		is_female,
 		sanitizeText(description),
-		sanitizeText(race_traits),
 		sanitizeText(retired_reason),
 		sanitizeText(death_cause),
 		end_session,
@@ -782,10 +745,7 @@ const updatePcMain = async (
 	]);
 };
 
-const updatePcSocial = async (
-	pcId,
-	data
-) => {
+const updatePcSocial = async (pcId, data) => {
 	await db.query(`
 		DELETE FROM pc_social
 		WHERE pc_id = $1
@@ -824,10 +784,7 @@ const updatePcSocial = async (
 	]);
 };
 
-const updatePcGallery = async (
-	pcId,
-	data
-) => {
+const updatePcGallery = async (pcId, data) => {
 	await updateGalleryEntries(
 		"pc_gallery",
 		"pc_id",
@@ -836,15 +793,7 @@ const updatePcGallery = async (
 	);
 };
 
-const updatePcMechanics = async (
-	pcId,
-	{
-		attributes = {},
-		stats = {},
-		skills = {},
-		speeds = []
-	}
-) => {
+const updatePcMechanics = async (pcId, { attributes = {}, stats = {}, skills = {}, speeds = [] }) => {
 
 	// Attributes
 	await db.query(`
@@ -974,11 +923,7 @@ const updatePcMechanics = async (
 	}
 };
 
-const updatePcClasses = async (
-	pcId,
-	classes
-) => {
-
+const updatePcClasses = async (pcId, classes) => {
 	await db.query(`
 		DELETE FROM pc_class_archetype
 		WHERE pc_class_id IN (
@@ -994,7 +939,6 @@ const updatePcClasses = async (
 	`, [pcId]);
 
 	for (const cls of normalizeToArray(classes)) {
-
 		const { rows } = await db.query(`
 			INSERT INTO pc_class (
 				pc_id,
@@ -1050,7 +994,6 @@ const createCompanion = async (data) => {
 		is_gendered,
 		is_female,
 		description,
-		race_traits,
 		death_cause,
 		end_session
 	} = data;
@@ -1069,15 +1012,13 @@ const createCompanion = async (data) => {
 			is_gendered,
 			is_female,
 			description,
-			race_traits,
 			death_cause,
 			end_session
 		)
 		VALUES (
 			$1,$2,$3,$4,$5,
-			$6,$7,$8,$9,
-			$10,$11,$12,$13,
-			$14,$15
+			$6,$7,$8,$9,$10,
+			$11,$12,$13,$14
 		)
 		RETURNING id
 	`, [
@@ -1093,7 +1034,6 @@ const createCompanion = async (data) => {
 		is_gendered !== false,
 		is_female === true,
 		sanitizeText(description),
-		sanitizeText(race_traits),
 		sanitizeText(death_cause),
 		end_session || null
 	]);
@@ -1101,14 +1041,10 @@ const createCompanion = async (data) => {
 	return rows[0].id;
 };
 
-const updateCompanionMain = async (
-	companionId,
-	data
-) => {
+const updateCompanionMain = async (companionId, data) => {
 	const {
 		pc_id,
 		active_status_id,
-		race_id,
 		companion_name,
 		secret_name,
 		show_secret_name,
@@ -1116,7 +1052,6 @@ const updateCompanionMain = async (
 		is_gendered,
 		is_female,
 		description,
-		race_traits,
 		death_cause,
 		end_session
 	} = data;
@@ -1126,22 +1061,19 @@ const updateCompanionMain = async (
 		SET
 			pc_id = $1,
 			active_status_id = $2,
-			race_id = $3,
-			companion_name = $4,
-			secret_name = $5,
-			show_secret_name = $6,
-			secret_color = $7,
-			is_gendered = $8,
-			is_female = $9,
-			description = $10,
-			race_traits = $11,
-			death_cause = $12,
-			end_session = $13
-		WHERE id = $14
+			companion_name = $3,
+			secret_name = $4,
+			show_secret_name = $5,
+			secret_color = $6,
+			is_gendered = $7,
+			is_female = $8,
+			description = $9,
+			death_cause = $10,
+			end_session = $11
+		WHERE id = $12
 	`, [
 		pc_id || null,
 		active_status_id,
-		race_id,
 		companion_name.trim(),
 		sanitizeText(secret_name),
 		show_secret_name,
@@ -1149,17 +1081,13 @@ const updateCompanionMain = async (
 		is_gendered,
 		is_female,
 		sanitizeText(description),
-		sanitizeText(race_traits),
 		sanitizeText(death_cause),
 		end_session,
 		companionId
 	]);
 };
 
-const updateCompanionSocial = async (
-	companionId,
-	data
-) => {
+const updateCompanionSocial = async (companionId, data) => {
 
 	await db.query(`
 		DELETE FROM companion_social
@@ -1186,11 +1114,7 @@ const updateCompanionSocial = async (
 	]);
 };
 
-const updateCompanionGallery = async (
-	companionId,
-	data
-) => {
-
+const updateCompanionGallery = async (companionId, data) => {
 	await updateGalleryEntries(
 		"companion_gallery",
 		"companion_id",
@@ -1199,15 +1123,7 @@ const updateCompanionGallery = async (
 	);
 };
 
-const updateCompanionMechanics = async (
-	companionId,
-	{
-		attributes = {},
-		stats = {},
-		skills = {},
-		speeds = []
-	}
-) => {
+const updateCompanionMechanics = async (companionId, { attributes = {}, stats = {}, skills = {}, speeds = [] }) => {
 
 	// Attributes
 	await db.query(`
@@ -1337,10 +1253,7 @@ const updateCompanionMechanics = async (
 	}
 };
 
-const updateCompanionClasses = async (
-	companionId,
-	classes
-) => {
+const updateCompanionClasses = async (companionId, classes) => {
 
 	await db.query(`
 		DELETE FROM companion_class_archetype
@@ -1414,7 +1327,6 @@ const createNpc = async (data) => {
 		is_female,
 		description,
 		secrets,
-		race_traits,
 		retired_reason,
 		death_cause,
 		end_session,
@@ -1437,7 +1349,6 @@ const createNpc = async (data) => {
 			is_female,
 			description,
 			secrets,
-			race_traits,
 			retired_reason,
 			death_cause,
 			end_session,
@@ -1447,7 +1358,7 @@ const createNpc = async (data) => {
 		VALUES (
 			$1,$2,$3,$4,$5,$6,$7,$8,
 			$9,$10,$11,$12,$13,$14,
-			$15,$16,$17,$18,$19
+			$15,$16,$17,$18
 		)
 		RETURNING id
 	`, [
@@ -1464,7 +1375,6 @@ const createNpc = async (data) => {
 		is_female === true,
 		sanitizeText(description),
 		sanitizeText(secrets),
-		sanitizeText(race_traits),
 		sanitizeText(retired_reason),
 		sanitizeText(death_cause),
 		end_session || null,
@@ -1475,13 +1385,9 @@ const createNpc = async (data) => {
 	return rows[0].id;
 };
 
-const updateNpcMain = async (
-	npcId,
-	data
-) => {
+const updateNpcMain = async (npcId, data) => {
 	const {
 		active_status_id,
-		race_id,
 		npc_name,
 		unknown_name,
 		is_identified,
@@ -1492,7 +1398,6 @@ const updateNpcMain = async (
 		is_female,
 		description,
 		secrets,
-		race_traits,
 		retired_reason,
 		death_cause,
 		end_session,
@@ -1504,27 +1409,24 @@ const updateNpcMain = async (
 		UPDATE npc_main
 		SET
 			active_status_id = $1,
-			race_id = $2,
-			npc_name = $3,
-			unknown_name = $4,
-			is_identified = $5,
-			secret_name = $6,
-			show_secret_name = $7,
-			secret_color = $8,
-			is_gendered = $9,
-			is_female = $10,
-			description = $11,
-			secrets = $12,
-			race_traits = $13,
-			retired_reason = $14,
-			death_cause = $15,
-			end_session = $16,
-			pinned = $17,
-			npc_group = $18
-		WHERE id = $19
+			npc_name = $2,
+			unknown_name = $3,
+			is_identified = $4,
+			secret_name = $5,
+			show_secret_name = $6,
+			secret_color = $7,
+			is_gendered = $8,
+			is_female = $9,
+			description = $10,
+			secrets = $11,
+			retired_reason = $12,
+			death_cause = $13,
+			end_session = $14,
+			pinned = $15,
+			npc_group = $16
+		WHERE id = $17
 	`, [
 		active_status_id,
-		race_id,
 		npc_name.trim(),
 		unknown_name,
 		is_identified,
@@ -1535,7 +1437,6 @@ const updateNpcMain = async (
 		is_female,
 		sanitizeText(description),
 		sanitizeText(secrets),
-		sanitizeText(race_traits),
 		sanitizeText(retired_reason),
 		sanitizeText(death_cause),
 		end_session,
@@ -1545,10 +1446,7 @@ const updateNpcMain = async (
 	]);
 };
 
-const updateNpcSocial = async (
-	npcId,
-	data
-) => {
+const updateNpcSocial = async (npcId, data) => {
 
 	await db.query(`
 		DELETE FROM npc_social
@@ -1580,27 +1478,16 @@ const updateNpcSocial = async (
 
 };
 
-const updateNpcGallery = async (
-	npcId,
-	data
-) => {
-
+const updateNpcGallery = async (npcId, data) => {
 	await updateGalleryEntries(
 		"npc_gallery",
 		"npc_id",
 		npcId,
 		data
 	);
-
 };
 
-const updateNpcMechanics = async (
-	npcId,
-	{
-		stats = {},
-		languages = []
-	}
-) => {
+const updateNpcMechanics = async (npcId, { stats = {}, languages = [] }) => {
 
 	// Stats
 	await db.query(`
@@ -1654,16 +1541,10 @@ const updateNpcMechanics = async (
 			npcId,
 			Number(languageId)
 		]);
-
 	}
-
 };
 
-const updateNpcAttitude = async (
-	npcId,
-	data
-) => {
-
+const updateNpcAttitude = async (npcId, data) => {
 	await db.query(`
 		DELETE FROM npc_attitude
 		WHERE npc_id = $1
@@ -1728,7 +1609,6 @@ const updateNpcAttitude = async (
 		sanitizeText(data.notes),
 		sanitizeText(data.secrets)
 	]);
-
 };
 
 // Faction Builder Functions
@@ -1793,25 +1673,10 @@ const createFaction = async (data) => {
 			end_session
 		)
 		VALUES (
-			$1,$2,
-
-			$3,$4,
-
-			$5,
-
-			$6,$7,$8,
-
-			$9,
-
-			$10,$11,
-
-			$12,
-
-			$13,$14,$15,
-
-			$16,$17,
-
-			$18,$19
+			$1,$2,$3,$4,$5,
+			$6,$7,$8,$9,$10,
+			$11,$12,$13,$14,$15,
+			$16,$17,$18,$19
 		)
 		RETURNING id
 	`, [
@@ -1848,10 +1713,7 @@ const createFaction = async (data) => {
 	return rows[0].id;
 };
 
-const updateFactionMain = async (
-	factionId,
-	data
-) => {
+const updateFactionMain = async (factionId, data) => {
 
 	const {
 		active_status_id,
@@ -1948,10 +1810,7 @@ const updateFactionMain = async (
 	]);
 };
 
-const updateFactionSocial = async (
-	factionId,
-	data
-) => {
+const updateFactionSocial = async (factionId, data) => {
 
 	await db.query(`
 		DELETE FROM faction_social
@@ -1990,10 +1849,7 @@ const updateFactionSocial = async (
 	]);
 };
 
-const updateFactionGallery = async (
-	factionId,
-	data
-) => {
+const updateFactionGallery = async (factionId, data) => {
 
 	await updateGalleryEntries(
 		"faction_gallery",
@@ -2003,10 +1859,7 @@ const updateFactionGallery = async (
 	);
 };
 
-const updateFactionAttitude = async (
-	factionId,
-	data
-) => {
+const updateFactionAttitude = async (factionId, data) => {
 
 	await db.query(`
 		DELETE FROM faction_attitude
@@ -2045,23 +1898,10 @@ const updateFactionAttitude = async (
 			secrets
 		)
 		VALUES (
-			$1,$2,
-
-			$3,
-
-			$4,$5,
-
-			$6,$7,
-
-			$8,$9,
-
-			$10,$11,
-
-			$12,$13,
-
-			$14,$15,$16,$17,$18,
-
-			$19,$20
+			$1,$2,$3,$4,$5,
+			$6,$7,$8,$9,$10,
+			$11,$12,$13,$14,$15,
+			$16,$17,$18,$19,$20
 		)
 	`, [
 		factionId,
@@ -2096,13 +1936,7 @@ const updateFactionAttitude = async (
 
 };
 
-const addFactionMember = async (
-	type,
-	factionId,
-	memberId,
-	associationType = null,
-	associationRank = null
-) => {
+const addFactionMember = async (type, factionId, memberId, associationType = null, associationRank = null) => {
 
 	const table =
 		type === "npc"
@@ -2137,11 +1971,7 @@ const addFactionMember = async (
 	]);
 };
 
-const removeFactionMember = async (
-	type,
-	factionId,
-	memberId
-) => {
+const removeFactionMember = async (type, factionId, memberId) => {
 
 	const table =
 		type === "npc"
@@ -2171,7 +2001,7 @@ const removeFactionMember = async (
 export {
 	getPCs, getCompanions, getNPCs, getFactions,
 	getPcById, getCompanionById, getNpcById, getFactionById,
-	updateCharacterCampaign, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterStatus, updateCharacterReligion, updateCharacterAttitudeId,
+	updateCharacterCampaign, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterStatus, updateCharacterAttitudeId, updateCharacterReligion, updateCharacterRace,
 	addCharacterAchievement, addCharacterLanguage, addCharacterScar, addCharacterTitle,
 	removeCharacterAchievement, removeCharacterLanguage, removeCharacterScar, removeCharacterTitle,
 	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses,

@@ -572,6 +572,7 @@ CREATE TABLE IF NOT EXISTS npc_main (
   is_gendered BOOLEAN NOT NULL DEFAULT TRUE,
   is_female BOOLEAN NOT NULL DEFAULT FALSE,
   description TEXT,
+  race_traits TEXT,
   secrets TEXT,
   pinned BOOLEAN NOT NULL DEFAULT FALSE,
   death_cause TEXT,
