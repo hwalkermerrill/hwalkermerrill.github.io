@@ -13,6 +13,7 @@ import {
 	getPcByCampaign, getCompanionByCampaign,
 	getRaces, getClasses, getReligions, getLanguages, getTitles, getAchievements
 } from "../../models/helpers/select.js";
+import { getGalleryEntries, addGalleryEntry, updateGalleryEntry, deleteGalleryEntry } from "../../models/helpers/gallery.js";
 import { hasRole } from "../../utils/permissions.js";
 import { validateImgUrl } from "../../utils/validation.js";
 
@@ -621,9 +622,328 @@ async function submitPcMechanicsEdit(req, res) {
 	}
 }
 
+// --- PC Mini-builder functions ---
+async function addPcTitleController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await addCharacterTitle("pc", pcId, req.body);
+		req.flash("success", "Title added.");
+	}
+	catch (err) {
+		console.error("Error adding title:", err);
+		req.flash("error", "Failed to add title.");
+	}
+
+	return res.redirect(
+		`/builder/pc/${pcId}/edit?tab=background`
+	);
+}
+
+async function removePcTitleController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await removeCharacterTitle("pc", pcId, req.body);
+		req.flash("success", "Title removed.");
+	}
+	catch (err) {
+		console.error("Error removing title:", err);
+		req.flash("error", "Failed to remove title.");
+	}
+
+	return res.redirect(
+		`/builder/pc/${pcId}/edit?tab=background`
+	);
+}
+
+async function addPcAchievementController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await addCharacterAchievement("pc", pcId, req.body);
+		req.flash("success", "Achievement added.");
+	}
+	catch (err) {
+		console.error("Error adding achievement:", err);
+		req.flash("error", "Failed to add achievement.");
+	}
+
+	return res.redirect(
+		`/builder/pc/${pcId}/edit?tab=background`
+	);
+}
+
+async function removePcAchievementController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await removeCharacterAchievement("pc", pcId, req.body);
+		req.flash("success", "Achievement removed.");
+	}
+	catch (err) {
+		console.error("Error removing achievement:", err);
+		req.flash("error", "Failed to remove achievement.");
+	}
+
+	return res.redirect(
+		`/builder/pc/${pcId}/edit?tab=background`
+	);
+}
+
+async function addPcScarController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await addCharacterScar("pc", pcId, req.body);
+		req.flash("success", "Scar added.");
+	}
+	catch (err) {
+		console.error("Error adding scar:", err);
+		req.flash("error", "Failed to add scar.");
+	}
+
+	return res.redirect(
+		`/builder/pc/${pcId}/edit?tab=background`
+	);
+}
+
+async function removePcScarController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await removeCharacterScar("pc", pcId, req.body);
+		req.flash("success", "Scar removed.");
+	}
+	catch (err) {
+		console.error("Error removing scar:", err);
+		req.flash("error", "Failed to remove scar.");
+	}
+
+	return res.redirect(
+		`/builder/pc/${pcId}/edit?tab=background`
+	);
+}
+
+async function addPcGalleryController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await addGalleryEntry("pc_gallery", "pc_id", pcId, req.body);
+		req.flash("success", "Gallery image added.");
+	}
+	catch (err) {
+		console.error("Error adding gallery image:", err);
+		req.flash("error", "Failed to add gallery image.");
+	}
+
+	return res.redirect(
+		`/builder/pc/${pcId}/edit?tab=background`
+	);
+}
+
+async function updatePcGalleryController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await updateGalleryEntry("pc_gallery", Number(req.params.galleryId), req.body);
+		req.flash("success", "Gallery image updated.");
+	}
+	catch (err) {
+		console.error("Error updating gallery image:", err);
+		req.flash("error", "Failed to update gallery image.");
+	}
+
+	return res.redirect(
+		`/builder/pc/${pcId}/edit?tab=background`
+	);
+}
+
+async function removePcGalleryController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await deleteGalleryEntry("pc_gallery", Number(req.params.galleryId));
+		req.flash("success", "Gallery image removed.");
+	}
+	catch (err) {
+		console.error("Error removing gallery image:", err);
+		req.flash("error", "Failed to remove gallery image.");
+	}
+
+	return res.redirect(
+		`/builder/pc/${pcId}/edit?tab=background`
+	);
+}
+
 // --- Exports ---
 export {
 	showCharacterDashboard,
 	updateCharacterCampaignController, updateCharacterIdentifiedController, updateCharacterSecretVisibilityController, updateCharacterStatusController,
-	showCreatePcForm, showCreateCompanionForm, showEditPcForm, showEditCompanionForm
+	showCreatePcForm, showCreateCompanionForm, showEditPcForm, showEditCompanionForm,
+	submitNewPc, submitPcMainEdit, submitPcSocialEdit, submitPcCharacterEdit, submitPcMechanicsEdit,
+	addPcAchievementController, addPcTitleController, addPcScarController, addPcGalleryController,
+	removePcAchievementController, removePcTitleController, removePcScarController, removePcGalleryController
 };
