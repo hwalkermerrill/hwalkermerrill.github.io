@@ -135,7 +135,7 @@ async function showCharacterDashboard(req, res) {
 			companions = await getCompanions({ campaignId, userId: user.id });
 		}
 
-		res.render("forms/characters/list", {
+		res.render("/characters/playerList", {
 			title: "Manage PCs & Companions",
 			activePage: "dashboard",
 			campaigns,
@@ -330,7 +330,7 @@ async function showCreatePcForm(req, res) {
 	const campaigns = await loadCampaigns();
 	const formData = await loadFormData(campaignId);
 
-	res.render("forms/characters/pcForm", {
+	res.render("/characters/pc/form", {
 		title: "Create PC",
 		activePage: "dashboard",
 		formMode: "create",
@@ -352,7 +352,7 @@ async function showCreateCompanionForm(req, res) {
 	const campaigns = await loadCampaigns();
 	const formData = await loadFormData(campaignId);
 
-	res.render("forms/characters/companionForm", {
+	res.render("characters/companion/form", {
 		title: "Create Companion",
 		activePage: "dashboard",
 		formMode: "create",
@@ -384,7 +384,7 @@ async function showEditPcForm(req, res) {
 	const campaigns = await loadCampaigns();
 	const formData = await loadFormData(pc.campaign_id);
 
-	res.render("forms/characters/pcForm", {
+	res.render("characters/pc/form", {
 		title: `Edit PC: ${pc.pc_name}`,
 		activePage: "dashboard",
 		formMode: "edit",
@@ -416,7 +416,7 @@ async function showEditCompanionForm(req, res) {
 	const campaigns = await loadCampaigns();
 	const formData = await loadFormData(companion.campaign_id);
 
-	res.render("forms/characters/companionForm", {
+	res.render("characters/companion/form", {
 		title: `Edit Companion: ${companion.companion_name}`,
 		activePage: "dashboard",
 		formMode: "edit",
