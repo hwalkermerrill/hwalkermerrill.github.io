@@ -938,6 +938,516 @@ async function removePcGalleryController(req, res) {
 	);
 }
 
+// --- Companion Builder Functions ---
+async function submitNewCompanion(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const {
+		pc_id,
+		companion_name,
+		campaign_id,
+		active_status_id,
+		secret_name,
+		show_secret_name,
+		secret_color,
+		is_gendered,
+		is_female,
+		description
+	} = req.body;
+
+	try {
+		if (!companion_name || !companion_name.trim()) {
+			req.flash("error", "Character name is required.");
+			return res.redirect("/builder/companion/new");
+		}
+
+		const companionId = await createCompanion({
+			user_id: user.id,
+			pc_id: pc_id ? Number(pc_id) : null,
+			campaign_id: Number(campaign_id),
+			active_status_id: Number(active_status_id || 1),
+			companion_name: companion_name.trim(),
+			secret_name: secret_name || null,
+			show_secret_name: show_secret_name === "true",
+			secret_color: secret_color || null,
+			is_gendered: is_gendered !== "false",
+			is_female: is_female === "true",
+			description: description || null
+		});
+
+		req.flash("success", "Character created successfully.");
+		return res.redirect(`/builder/companion/${companionId}/edit?tab=social`);
+	}
+	catch (err) {
+		console.error("Error creating character:", err);
+		req.flash("error", "Failed to create character.");
+		return res.redirect("/builder/companion/new");
+	}
+}
+
+async function submitCompanionMainEdit(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await updateCompanionMain(companionId, req.body);
+		req.flash("success", "Main character information saved.");
+		return res.redirect(`/builder/companion/${companionId}/edit?tab=social`);
+	}
+	catch (err) {
+		console.error("Error updating Companion:", err);
+		req.flash("error", "Failed to save character.");
+		return res.redirect(`/builder/companion/${companionId}/edit?tab=main`);
+	}
+}
+
+async function submitCompanionSocialEdit(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await updateCompanionSocial(companionId, req.body);
+		req.flash("success", "Social profile saved.");
+		return res.redirect(`/builder/companion/${companionId}/edit?tab=character`);
+	}
+	catch (err) {
+		console.error("Error updating social profile:", err);
+		req.flash("error", "Failed to save social profile.");
+		return res.redirect(`/builder/companion/${companionId}/edit?tab=social`);
+	}
+}
+async function submitCompanionCharacterEdit(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (
+		!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await updateCharacterRace("companion", companionId, {
+			race_id: req.body.race_id,
+			race_traits: req.body.race_traits
+		});
+		await updateCharacterReligion("companion", companionId, {
+			religion_id: req.body.religion_id,
+			notes: req.body.religion_notes,
+			secrets: req.body.religion_secrets
+		});
+		await updateCompanionClasses(companionId, req.body.classes || []);
+		await updateCharacterLanguage("companion", companionId, normalizeToArray(req.body.language_ids));
+		req.flash("success", "Character information saved.");
+		return res.redirect(`/builder/companion/${companionId}/edit?tab=mechanics`);
+	}
+	catch (err) {
+		console.error("Error updating character information:", err);
+		req.flash("error", "Failed to save character information.");
+		return res.redirect(`/builder/companion/${companionId}/edit?tab=character`);
+	}
+}
+
+async function submitCompanionMechanicsEdit(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await updateCompanionMechanics(companionId, req.body);
+		req.flash("success", "Character mechanics saved.");
+		return res.redirect(`/builder/companion/${companionId}/edit?tab=background`);
+	}
+	catch (err) {
+		console.error("Error updating character mechanics:", err);
+		req.flash("error", "Failed to save character mechanics.");
+		return res.redirect(`/builder/companion/${companionId}/edit?tab=mechanics`);
+	}
+}
+
+// --- Companion Mini-builder functions ---
+async function addCompanionTitleController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await addCharacterTitle("companion", companionId, req.body);
+		req.flash("success", "Title added.");
+	}
+	catch (err) {
+		console.error("Error adding title:", err);
+		req.flash("error", "Failed to add title.");
+	}
+
+	return res.redirect(
+		`/builder/companion/${companionId}/edit?tab=background`
+	);
+}
+
+async function removeCompanionTitleController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await removeCharacterTitle("companion", companionId, req.body);
+		req.flash("success", "Title removed.");
+	}
+	catch (err) {
+		console.error("Error removing title:", err);
+		req.flash("error", "Failed to remove title.");
+	}
+
+	return res.redirect(
+		`/builder/companion/${companionId}/edit?tab=background`
+	);
+}
+
+async function addCompanionAchievementController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await addCharacterAchievement("companion", companionId, req.body);
+		req.flash("success", "Achievement added.");
+	}
+	catch (err) {
+		console.error("Error adding achievement:", err);
+		req.flash("error", "Failed to add achievement.");
+	}
+
+	return res.redirect(
+		`/builder/companion/${companionId}/edit?tab=background`
+	);
+}
+
+async function removeCompanionAchievementController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await removeCharacterAchievement("companion", companionId, req.body);
+		req.flash("success", "Achievement removed.");
+	}
+	catch (err) {
+		console.error("Error removing achievement:", err);
+		req.flash("error", "Failed to remove achievement.");
+	}
+
+	return res.redirect(
+		`/builder/companion/${companionId}/edit?tab=background`
+	);
+}
+
+async function addCompanionScarController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await addCharacterScar("companion", companionId, req.body);
+		req.flash("success", "Scar added.");
+	}
+	catch (err) {
+		console.error("Error adding scar:", err);
+		req.flash("error", "Failed to add scar.");
+	}
+
+	return res.redirect(
+		`/builder/companion/${companionId}/edit?tab=background`
+	);
+}
+
+async function removeCompanionScarController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await removeCharacterScar("companion", companionId, req.body);
+		req.flash("success", "Scar removed.");
+	}
+	catch (err) {
+		console.error("Error removing scar:", err);
+		req.flash("error", "Failed to remove scar.");
+	}
+
+	return res.redirect(
+		`/builder/companion/${companionId}/edit?tab=background`
+	);
+}
+
+async function addCompanionGalleryController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await addGalleryEntry("companion_gallery", "companion_id", companionId, req.body);
+		req.flash("success", "Gallery image added.");
+	}
+	catch (err) {
+		console.error("Error adding gallery image:", err);
+		req.flash("error", "Failed to add gallery image.");
+	}
+
+	return res.redirect(
+		`/builder/companion/${companionId}/edit?tab=background`
+	);
+}
+
+async function updateCompanionGalleryController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await updateGalleryEntry("companion_gallery", Number(req.params.galleryId), req.body);
+		req.flash("success", "Gallery image updated.");
+	}
+	catch (err) {
+		console.error("Error updating gallery image:", err);
+		req.flash("error", "Failed to update gallery image.");
+	}
+
+	return res.redirect(
+		`/builder/companion/${companionId}/edit?tab=background`
+	);
+}
+
+async function removeCompanionGalleryController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await deleteGalleryEntry("companion_gallery", Number(req.params.galleryId));
+		req.flash("success", "Gallery image removed.");
+	}
+	catch (err) {
+		console.error("Error removing gallery image:", err);
+		req.flash("error", "Failed to remove gallery image.");
+	}
+
+	return res.redirect(
+		`/builder/companion/${companionId}/edit?tab=background`
+	);
+}
+
 // --- Exports ---
 export {
 	showCharacterDashboard,
@@ -945,5 +1455,8 @@ export {
 	showCreatePcForm, showCreateCompanionForm, showEditPcForm, showEditCompanionForm,
 	submitNewPc, submitPcMainEdit, submitPcSocialEdit, submitPcCharacterEdit, submitPcMechanicsEdit,
 	addPcAchievementController, addPcTitleController, addPcScarController, addPcGalleryController,
-	removePcAchievementController, removePcTitleController, removePcScarController, removePcGalleryController
+	removePcAchievementController, removePcTitleController, removePcScarController, removePcGalleryController,
+	submitNewCompanion, submitCompanionMainEdit, submitCompanionSocialEdit, submitCompanionCharacterEdit, submitCompanionMechanicsEdit,
+	addCompanionAchievementController, addCompanionTitleController, addCompanionScarController, addCompanionGalleryController,
+	removeCompanionAchievementController, removeCompanionTitleController, removeCompanionScarController, removeCompanionGalleryController
 };
