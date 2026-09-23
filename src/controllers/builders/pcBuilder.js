@@ -1,7 +1,8 @@
 // --- Imports ---
 import {
 	getPCs, getCompanions, getPcById, getCompanionById,
-	updateCharacterStatus, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterCampaign, updateCharacterReligion, updateCharacterRace,
+	updateCharacterStatus, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterCampaign,
+	updateCharacterReligion, updateCharacterRace, updateCharacterLanguage,
 	addCharacterLanguage, addCharacterTitle, addCharacterAchievement, addCharacterScar,
 	removeCharacterLanguage, removeCharacterTitle, removeCharacterAchievement, removeCharacterScar,
 	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses,
@@ -469,12 +470,154 @@ async function submitNewPc(req, res) {
 		});
 
 		req.flash("success", "Character created successfully.");
-		return res.redirect(`/builder/pc/${pcId}/social`);
+		return res.redirect(`/builder/pc/${pcId}/edit?tab=social`);
 	}
 	catch (err) {
 		console.error("Error creating character:", err);
 		req.flash("error", "Failed to create character.");
 		return res.redirect("/builder/pc/new");
+	}
+}
+
+async function submitPcMainEdit(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await updatePcMain(pcId, req.body);
+		req.flash("success", "Main character information saved.");
+		return res.redirect(`/builder/pc/${pcId}/edit?tab=social`);
+	}
+	catch (err) {
+		console.error("Error updating PC:", err);
+		req.flash("error", "Failed to save character.");
+		return res.redirect(`/builder/pc/${pcId}/edit?tab=main`);
+	}
+}
+
+async function submitPcSocialEdit(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await updatePcSocial(pcId, req.body);
+		req.flash("success", "Social profile saved.");
+		return res.redirect(`/builder/pc/${pcId}/edit?tab=character`);
+	}
+	catch (err) {
+		console.error("Error updating social profile:", err);
+		req.flash("error", "Failed to save social profile.");
+		return res.redirect(`/builder/pc/${pcId}/edit?tab=social`);
+	}
+}
+async function submitPcCharacterEdit(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (
+		!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await updateCharacterRace("pc", pcId, {
+			race_id: req.body.race_id,
+			race_traits: req.body.race_traits
+		});
+		await updateCharacterReligion("pc", pcId, {
+			religion_id: req.body.religion_id,
+			notes: req.body.religion_notes,
+			secrets: req.body.religion_secrets
+		});
+		await updatePcClasses(pcId, req.body.classes || []);
+		await updateCharacterLanguage("pc", pcId, normalizeToArray(req.body.language_ids));
+		req.flash("success", "Character information saved.");
+		return res.redirect(`/builder/pc/${pcId}/edit?tab=mechanics`);
+	}
+	catch (err) {
+		console.error("Error updating character information:", err);
+		req.flash("error", "Failed to save character information.");
+		return res.redirect(`/builder/pc/${pcId}/edit?tab=character`);
+	}
+}
+
+async function submitPcMechanicsEdit(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await updatePcMechanics(pcId, req.body);
+		req.flash("success", "Character mechanics saved.");
+		return res.redirect(`/builder/pc/${pcId}/edit?tab=background`);
+	}
+	catch (err) {
+		console.error("Error updating character mechanics:", err);
+		req.flash("error", "Failed to save character mechanics.");
+		return res.redirect(`/builder/pc/${pcId}/edit?tab=mechanics`);
 	}
 }
 

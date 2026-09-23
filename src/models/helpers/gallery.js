@@ -4,11 +4,7 @@ import { sanitizeText, validateImgUrl } from "../../utils/validation.js";
 import { normalizeToArray } from "../../utils/normalization.js";
 
 // Get existing gallery entries
-const getGalleryEntries = async (
-	tableName,
-	parentColumn,
-	parentId
-) => {
+const getGalleryEntries = async (tableName, parentColumn, parentId) => {
 	const { rows } = await db.query(`
 		SELECT *
 		FROM ${tableName}
@@ -20,10 +16,7 @@ const getGalleryEntries = async (
 };
 
 // Add a single gallery image
-const addGalleryEntry = async (
-	tableName,
-	parentColumn,
-	parentId,
+const addGalleryEntry = async (tableName, parentColumn, parentId,
 	{
 		image_url,
 		alt,
@@ -33,15 +26,12 @@ const addGalleryEntry = async (
 		hover_visible = false,
 		is_tall = false,
 		figcaption = null
-	}
-) => {
+	}) => {
+
 	const url = image_url?.trim();
 
 	if (!url) return;
-
-	if (!validateImgUrl(url)) {
-		return;
-	}
+	if (!validateImgUrl(url)) { return; }
 
 	await db.query(`
 		INSERT INTO ${tableName} (
@@ -71,12 +61,20 @@ const addGalleryEntry = async (
 	]);
 };
 
+// Delete single gallery entry
+const deleteGalleryEntry = async (tableName, galleryId) => {
+
+	await db.query(`
+    DELETE
+    FROM ${tableName}
+    WHERE id = $1
+  `, [
+		galleryId
+	]);
+};
+
 // Delete all gallery entries
-const deleteGalleryEntries = async (
-	tableName,
-	parentColumn,
-	parentId
-) => {
+const deleteGalleryEntries = async (tableName, parentColumn, parentId) => {
 	await db.query(`
 		DELETE
 		FROM ${tableName}
@@ -84,13 +82,53 @@ const deleteGalleryEntries = async (
 	`, [parentId]);
 };
 
-// Replace/update gallery
-const updateGalleryEntries = async (
-	tableName,
-	parentColumn,
-	parentId,
-	data
-) => {
+// Update single gallery entry
+const updateGalleryEntry = async (tableName, galleryId,
+	{
+		image_url,
+		alt,
+		is_imported = false,
+		is_main = false,
+		is_hover = false,
+		hover_visible = false,
+		is_tall = false,
+		figcaption = null
+	}) => {
+
+	const url = image_url?.trim();
+
+	if (!url) { return; }
+	if (!validateImgUrl(url)) { return; }
+
+	await db.query(`
+    UPDATE ${tableName}
+    SET
+      image_url = $1,
+      alt = $2,
+      is_imported = $3,
+      is_main = $4,
+      is_hover = $5,
+      hover_visible = $6,
+      is_tall = $7,
+      figcaption = $8
+    WHERE id = $9
+  `, [
+		url,
+		sanitizeText(
+			alt || "Gallery Image"
+		),
+		Boolean(is_imported),
+		Boolean(is_main),
+		Boolean(is_hover),
+		Boolean(hover_visible),
+		Boolean(is_tall),
+		sanitizeText(figcaption),
+		galleryId
+	]);
+};
+
+// Replace entire gallery
+const updateGalleryEntries = async (tableName, parentColumn, parentId, data) => {
 	const urls = normalizeToArray(data.gallery_url);
 	const alts = normalizeToArray(data.gallery_alt);
 	const talls = normalizeToArray(data.gallery_is_tall);
@@ -98,11 +136,7 @@ const updateGalleryEntries = async (
 	const hoverVisible = normalizeToArray(data.gallery_hover_visible);
 	const imageTypes = normalizeToArray(data.gallery_type);
 
-	await deleteGalleryEntries(
-		tableName,
-		parentColumn,
-		parentId
-	);
+	await deleteGalleryEntries(tableName, parentColumn, parentId);
 
 	let mainAssigned = false;
 	let hoverAssigned = false;
@@ -123,26 +157,21 @@ const updateGalleryEntries = async (
 			hoverAssigned = true;
 		}
 
-		await addGalleryEntry(
-			tableName,
-			parentColumn,
-			parentId,
-			{
-				image_url: urls[i],
-				alt: alts[i],
-				is_main,
-				is_hover,
-				hover_visible: hoverVisible[i] === "true",
-				is_tall: talls[i] === "true",
-				figcaption: captions[i]
-			}
-		);
+		await addGalleryEntry(tableName, parentColumn, parentId, {
+			image_url: urls[i],
+			alt: alts[i],
+			is_main,
+			is_hover,
+			hover_visible: hoverVisible[i] === "true",
+			is_tall: talls[i] === "true",
+			figcaption: captions[i]
+		});
 	}
 };
 
 export {
 	getGalleryEntries,
 	addGalleryEntry,
-	deleteGalleryEntries,
-	updateGalleryEntries
+	deleteGalleryEntry, deleteGalleryEntries,
+	updateGalleryEntry, updateGalleryEntries
 };

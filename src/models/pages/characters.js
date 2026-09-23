@@ -517,6 +517,29 @@ const updateCharacterRace = async (type, characterId, { race_id, race_traits }) 
 	]);
 };
 
+const updateCharacterLanguage = async (type, characterId, languageIds) => {
+
+	await db.query(`
+		DELETE FROM ${type}_language
+		WHERE ${type}_id = $1
+	`, [characterId]);
+
+	for (const languageId of normalizeToArray(languageIds)) {
+
+		await db.query(`
+			INSERT INTO ${type}_language (
+				${type}_id,
+				language_id
+			)
+			VALUES ($1,$2)
+			ON CONFLICT DO NOTHING
+		`, [
+			characterId,
+			Number(languageId)
+		]);
+	}
+};
+
 const addCharacterLanguage = async (type, characterId, languageId) => {
 	await db.query(`
 		INSERT INTO ${type}_language (
@@ -2002,7 +2025,8 @@ const removeFactionMember = async (type, factionId, memberId) => {
 export {
 	getPCs, getCompanions, getNPCs, getFactions,
 	getPcById, getCompanionById, getNpcById, getFactionById,
-	updateCharacterCampaign, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterStatus, updateCharacterAttitudeId, updateCharacterReligion, updateCharacterRace,
+	updateCharacterCampaign, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterStatus, updateCharacterAttitudeId,
+	updateCharacterReligion, updateCharacterRace, updateCharacterLanguage,
 	addCharacterAchievement, addCharacterLanguage, addCharacterScar, addCharacterTitle,
 	removeCharacterAchievement, removeCharacterLanguage, removeCharacterScar, removeCharacterTitle,
 	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses,
