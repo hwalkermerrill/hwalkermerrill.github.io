@@ -473,6 +473,7 @@ const getFactionById = async (id) =>
 
 // Cross-Character Updaters
 const updateCharacterReligion = async (type, characterId, { religion_id, notes, secrets }) => {
+
 	const table = `${type}_religion`;
 	const column = `${type}_id`;
 
