@@ -2,7 +2,7 @@
 import {
 	getPCs, getCompanions, getPcById, getCompanionById,
 	updateCharacterStatus, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterCampaign,
-	updateCharacterReligion, updateCharacterRace, updateCharacterLanguage,
+	updateCharacterReligion, updateCharacterRace, updateCharacterLanguage, deleteCharacter,
 	addCharacterLanguage, addCharacterTitle, addCharacterAchievement, addCharacterScar,
 	removeCharacterLanguage, removeCharacterTitle, removeCharacterAchievement, removeCharacterScar,
 	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses,
@@ -1448,15 +1448,83 @@ async function removeCompanionGalleryController(req, res) {
 	);
 }
 
+// --- Delete Controllers ---
+async function deletePcController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const pcId = Number(req.params.id);
+	const pc = await getPcById(pcId);
+
+	if (!pc) {
+		req.flash("error", "PC not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, pc)) {
+		req.flash("error", "You do not have permission to delete that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await deleteCharacter("pc", pcId);
+		req.flash("success", "Character deleted.");
+		return res.redirect("/builder/characters");
+	}
+	catch (err) {
+		console.error("Error deleting character:", err);
+		req.flash("error", "Failed to delete character.");
+		return res.redirect("/builder/characters");
+	}
+}
+
+async function deleteCompanionController(req, res) {
+
+	const user = req.session.user;
+
+	if (!user) {
+		return res.redirect("/login");
+	}
+
+	const companionId = Number(req.params.id);
+	const companion = await getCompanionById(companionId);
+
+	if (!companion) {
+		req.flash("error", "Companion not found.");
+		return res.redirect("/builder/pc");
+	}
+
+	if (!editPermissionCheck(user, companion)) {
+		req.flash("error", "You do not have permission to edit that character.");
+		return res.redirect("/builder/pc");
+	}
+
+	try {
+		await deleteCharacter("companion", companionId);
+		req.flash("success", "Companion deleted.");
+		return res.redirect("/builder/characters");
+	}
+	catch (err) {
+
+		console.error("Error deleting companion:", err);
+		req.flash("error", "Failed to delete companion.");
+		return res.redirect("/builder/characters");
+	}
+}
+
 // --- Exports ---
 export {
 	showCharacterDashboard,
 	updateCharacterCampaignController, updateCharacterIdentifiedController, updateCharacterSecretVisibilityController, updateCharacterStatusController,
 	showCreatePcForm, showCreateCompanionForm, showEditPcForm, showEditCompanionForm,
 	submitNewPc, submitPcMainEdit, submitPcSocialEdit, submitPcCharacterEdit, submitPcMechanicsEdit,
-	addPcAchievementController, addPcTitleController, addPcScarController, addPcGalleryController,
-	removePcAchievementController, removePcTitleController, removePcScarController, removePcGalleryController,
+	addPcAchievementController, addPcTitleController, addPcScarController, addPcGalleryController, updatePcGalleryController,
+	removePcAchievementController, removePcTitleController, removePcScarController, removePcGalleryController, deletePcController,
 	submitNewCompanion, submitCompanionMainEdit, submitCompanionSocialEdit, submitCompanionCharacterEdit, submitCompanionMechanicsEdit,
-	addCompanionAchievementController, addCompanionTitleController, addCompanionScarController, addCompanionGalleryController,
-	removeCompanionAchievementController, removeCompanionTitleController, removeCompanionScarController, removeCompanionGalleryController
+	addCompanionAchievementController, addCompanionTitleController, addCompanionScarController, addCompanionGalleryController, updateCompanionGalleryController,
+	removeCompanionAchievementController, removeCompanionTitleController, removeCompanionScarController, removeCompanionGalleryController, deleteCompanionController
 };

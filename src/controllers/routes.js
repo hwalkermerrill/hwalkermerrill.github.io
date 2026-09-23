@@ -1,7 +1,8 @@
-// Imports (Core-Middleware-Routes)
+// Imports (Core-Middleware-SubRouters-Routes)
 import { Router } from "express";
 import { requireLogin, requireRole, requirePermission } from "../middleware/auth.js";
 import { registrationValidation, loginValidation, updateAccountValidation, contactValidation, resetRequestValidation, resetPasswordValidation } from "../middleware/validation/forms.js";
+import builderSubRouter from "./builderRoutes.js";
 import { creationPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError } from "./index.js";
 import { homePage } from "./pages/home.js";
 import { journalPage } from "./pages/journal.js";
@@ -13,16 +14,15 @@ import { showRegistrationForm, processRegistration, showAllUsers, showEditAccoun
 import { showNoteManager, showCreateNoteForm, showEditNoteForm, submitNewNote, submitNoteEdit, deleteNote } from "./forms/notes.js";
 import { showLogSelectPage, showCreateLogForm, showEditLogForm, submitNewLog, submitLogEdit, deleteLogController, togglePin, handleLogSelect } from "./forms/logs.js";
 import { showQuestListPage, showCreateQuestForm, showEditQuestForm, submitNewQuest, submitQuestEdit, toggleQuestPin, updateQuestStatus, deleteQuestController } from "./forms/quests.js";
-import {
-	showItemDashboard, showCreateItemForm, showEditItemForm, submitNewItem, submitItemEdit, deleteItemController,
-	updateItemStatusController, updateItemIdentifiedController, updateItemOwnerController, updateItemBoonsVisibleController
-} from "./builders/assetBuilder.js";
 // import { showContactForm, handleContactSubmission, showContactResponses } from "./forms/contact.js";
 import { showResetForm, requestReset, handleReset } from "./forms/passwordReset.js";
 import { listRequests, approveRequest, denyRequest } from "./forms/passwordResetAdmin.js";
 
 // Constants
 const router = Router();
+
+// Mount sub-routers
+router.use("/builder", builderSubRouter);
 
 // Router-level CSS Middleware
 // router.use("/login", (req, res, next) => {
@@ -87,14 +87,11 @@ router.get("/register/password-resets", requireLogin, listRequests);
 router.get("/logs/new", requireLogin, requireRole("moderator"), showCreateLogForm);
 router.get("/logs/select", requireLogin, requireRole("moderator"), showLogSelectPage);
 router.get("/logs/:id/edit", requireLogin, requireRole("moderator"), showEditLogForm);
-router.get("/builder/item", requireLogin, requireRole("moderator"), showItemDashboard);
 
 // Routes.get that requireRole (gm_admin)
 router.get("/quests/new", requireLogin, requireRole("gm_admin"), showCreateQuestForm);
 router.get("/quests/manage", requireLogin, requireRole("gm_admin"), showQuestListPage);
 router.get("/quests/:id/edit", requireLogin, requireRole("gm_admin"), showEditQuestForm);
-router.get("/builder/item/new", requireLogin, requireRole("gm_admin"), showCreateItemForm);
-router.get("/builder/item/:id/edit", requireLogin, requireRole("gm_admin"), showEditItemForm);
 
 // Development Only Get Routes
 if (process.env.NODE_ENV === "development") {
@@ -130,19 +127,12 @@ router.post("/logs/select", requireLogin, requireRole("moderator"), handleLogSel
 router.post("/logs/:id/edit", requireLogin, requireRole("moderator"), submitLogEdit);
 router.post("/logs/:id/pin", requireLogin, requireRole("moderator"), togglePin);
 router.post("/logs/:id/delete", requireLogin, requireRole("moderator"), deleteLogController);
-router.post("/builder/item/:id/status", requireLogin, requireRole("moderator"), updateItemStatusController);
-router.post("/builder/item/:id/identified", requireLogin, requireRole("moderator"), updateItemIdentifiedController);
-router.post("/builder/item/:id/boons", requireLogin, requireRole("moderator"), updateItemBoonsVisibleController);
-router.post("/builder/item/:id/owner", requireLogin, requireRole("moderator"), updateItemOwnerController);
 
-// Routes.get that requireRole (gm_admin)
+// Routes.post that requireRole (gm_admin)
 router.post("/quests/new", requireLogin, requireRole("gm_admin"), submitNewQuest);
 router.post("/quests/:id/edit", requireLogin, requireRole("gm_admin"), submitQuestEdit);
 router.post("/quests/:id/pin", requireLogin, requireRole("gm_admin"), toggleQuestPin);
 router.post("/quests/:id/status", requireLogin, requireRole("gm_admin"), updateQuestStatus);
 router.post("/quests/:id/delete", requireLogin, requireRole("gm_admin"), deleteQuestController);
-router.post("/builder/item/new", requireLogin, requireRole("gm_admin"), submitNewItem);
-router.post("/builder/item/:id/edit", requireLogin, requireRole("gm_admin"), submitItemEdit);
-router.post("/builder/item/:id/delete", requireLogin, requireRole("gm_admin"), deleteItemController);
 
 export default router;
