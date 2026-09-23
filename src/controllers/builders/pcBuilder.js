@@ -7,7 +7,7 @@ import {
 	removeCharacterLanguage, removeCharacterTitle, removeCharacterAchievement, removeCharacterScar,
 	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses,
 	createCompanion, updateCompanionMain, updateCompanionSocial, updateCompanionGallery, updateCompanionMechanics, updateCompanionClasses
-} from "../../models/forms/characters.js";
+} from "../../models/pages/characters.js";
 import {
 	getCampaigns, getActiveStatus,
 	getPcByCampaign, getCompanionByCampaign,
