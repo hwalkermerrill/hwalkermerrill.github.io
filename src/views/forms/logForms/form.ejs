@@ -91,6 +91,7 @@
 			<div class="form-formatting">
 				<button type="button" class="btn fmt-btn" data-tag="b"><b>Bold</b></button>
 				<button type="button" class="btn fmt-btn" data-tag="i"><i>Italic</i></button>
+				<button type="button" class="btn fmt-btn" data-tag="p"><b>P-break</b></button>
 				<button type="button" class="btn fmt-btn" data-tag="q"><b>Quote</b></button>
 				<button type="button" class="btn fmt-btn" data-tag="u"><u>Underline</u></button>
 				<button type="button" class="btn fmt-btn" data-tag="blockquote">Block</button>
@@ -199,7 +200,13 @@
 			const start = textarea.selectionStart;
 			const end = textarea.selectionEnd;
 			const selected = textarea.value.substring(start, end);
-			const wrapped = `<${tag}>${selected}</${tag}>`;
+			let wrapped;
+
+			if (tag === "p") {
+				wrapped = `</p><p>${selected}`;
+			} else {
+				wrapped = `<${tag}>${selected}</${tag}>`;
+			}
 
 			textarea.value =
 				textarea.value.substring(0, start) +
