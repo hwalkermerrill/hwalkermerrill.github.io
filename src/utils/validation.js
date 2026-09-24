@@ -8,12 +8,14 @@ function sanitizeText(raw = "") {
 		.replace(/</g, "&lt;")
 		.replace(/>/g, "&gt;");
 
-	// Allow <b>, <i>, <br>, <q>, <sup>, <sub>, <u>, <blockquote>, <figure> and <figcaption>
+	// Allow <b>, <i>, <br>, <p>, <q>, <sup>, <sub>, <u>, <blockquote>, <figure> and <figcaption>
 	safe = safe
 		.replace(/&lt;b&gt;/g, "<b>")
 		.replace(/&lt;\/b&gt;/g, "</b>")
 		.replace(/&lt;i&gt;/g, "<i>")
 		.replace(/&lt;\/i&gt;/g, "</i>")
+		.replace(/&lt;p&gt;/g, "<p>")
+		.replace(/&lt;\/p&gt;/g, "</p>")
 		.replace(/&lt;q&gt;/g, "<q>")
 		.replace(/&lt;\/q&gt;/g, "</q>")
 		.replace(/&lt;br&gt;/g, "<br>")
