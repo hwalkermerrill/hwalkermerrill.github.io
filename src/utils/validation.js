@@ -25,6 +25,8 @@ function sanitizeText(raw = "") {
 		.replace(/&lt;\/sub&gt;/g, "</sub>")
 		.replace(/&lt;u&gt;/g, "<u>")
 		.replace(/&lt;\/u&gt;/g, "</u>")
+		.replace(/&lt;aside&gt;/g, "<aside>")
+		.replace(/&lt;\/aside&gt;/g, "</aside>")
 		.replace(/&lt;blockquote&gt;/g, "<blockquote>")
 		.replace(/&lt;\/blockquote&gt;/g, "</blockquote>")
 		.replace(/&lt;figure&gt;/g, "<figure>")
