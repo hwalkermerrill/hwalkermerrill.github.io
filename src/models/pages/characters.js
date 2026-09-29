@@ -144,7 +144,7 @@ const LANGUAGES_JOIN = (type) => `
 `;
 
 const RELIGION_JOIN = (type) => `
-	LEFT JOIN ${type}_religions rel
+	LEFT JOIN ${type}_religion rel
     ON rel.${type}_id = character.id
 `;
 
@@ -239,7 +239,7 @@ const SELECT_LANGUAGES_AGG = `
 `;
 
 const SELECT_RELIGIONS_AGG = `
-  json_agg(rel.religions_id) FILTER (WHERE rel.religions_id IS NOT NULL) AS religions
+  json_agg(rel.religion_id) FILTER (WHERE rel.religion_id IS NOT NULL) AS religions
 `;
 
 const SELECT_ATTITUDE_OBJECT = `
