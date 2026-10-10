@@ -1,7 +1,7 @@
 <div class="gallery">
 	<% if (galleryTall && galleryTall.length) { %>
 	<% galleryTall.forEach(map => { %>
-	<figure class="u-cursor-point" data-map-id="<%= map.id %>"
+	<figure class="gallery u-cursor-point" data-map-id="<%= map.id %>"
 		data-image-url="<%- map.image_url.replace(/"/g, '&quot;') %>"
 		data-alt="<%- (map.alt || map.item_name).replace(/"/g, '&quot;') %>"
 		data-title="<%- map.item_name.replace(/"/g, '&quot;') %>">
@@ -18,7 +18,7 @@
 <div class="gallery">
 	<% if (galleryWide && galleryWide.length) { %>
 	<% galleryWide.forEach(map => { %>
-	<figure class="u-cursor-point" data-map-id="<%= map.id %>" data-image-url="<%= map.image_url %>"
+	<figure class="gallery u-cursor-point" data-map-id="<%= map.id %>" data-image-url="<%= map.image_url %>"
 		data-alt="<%= map.alt %>" data-title="<%= map.item_name %>">
 		<picture>
 			<source srcset="<%= map.image_url %>" type="image/webp">
