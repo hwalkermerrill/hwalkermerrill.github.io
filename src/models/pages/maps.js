@@ -20,6 +20,7 @@ const getMapsForCampaign = async (campaignId) => {
      AND g.is_main = TRUE
     WHERE i.campaign_id = $1
       AND i.item_type = 'map'
+			AND i.active_status_id = 2
     ORDER BY i.sort_order NULLS LAST, i.item_name;
   `;
 	const { rows } = await db.query(query, [campaignId]);
