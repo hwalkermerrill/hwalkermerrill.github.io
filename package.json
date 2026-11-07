@@ -1,7 +1,7 @@
 {
 	"name": "hwalkermerrill.github.io",
-	"version": "1.0.0",
-	"description": "",
+	"version": "3.1.26",
+	"description": "This repository is the home of my long-running tabletop RPG campaign manager — a passion project I've been building, refining, and expanding for over seven years.",
 	"main": "index.js",
 	"type": "module",
 	"scripts": {

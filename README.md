@@ -19,7 +19,7 @@ ORC License
 
 ## Main Overview
 
-This repository is the home of my long‑running tabletop RPG campaign manager — a passion project I’ve been building, refining, and expanding for over seven years.  
+This repository is the home of my long-running tabletop RPG campaign manager — a passion project I've been building, refining, and expanding for over seven years.  
 It began as a static GitHub Pages site and has evolved into a full‑stack, database‑driven application that supports:
 
 - Player and NPC character profiles
