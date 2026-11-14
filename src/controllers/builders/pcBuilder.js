@@ -135,7 +135,7 @@ async function showCharacterDashboard(req, res) {
 			companions = await getCompanions({ campaignId, userId: user.id });
 		}
 
-		res.render("/characters/playerList", {
+		res.render("characters/playerList", {
 			title: "Manage PCs & Companions",
 			activePage: "dashboard",
 			campaigns,
@@ -174,12 +174,12 @@ async function updateCharacterStatusController(req, res) {
 
 	if (!character) {
 		req.flash("error", "Character not found.");
-		return res.redirect("/builder/character");
+		return res.redirect("/builder/characters");
 	}
 
 	if (!(limitedPermission(user) || ownsCharacter(user, character))) {
 		req.flash("error", "You do not have permission to modify that character.");
-		return res.redirect("/builder/character");
+		return res.redirect("/builder/characters");
 	}
 
 	try {
@@ -191,7 +191,7 @@ async function updateCharacterStatusController(req, res) {
 		req.flash("error", "Failed to update character status.");
 	}
 
-	return res.redirect("/builder/character");
+	return res.redirect("/builder/characters");
 }
 
 async function updateCharacterIdentifiedController(req, res) {
@@ -215,12 +215,12 @@ async function updateCharacterIdentifiedController(req, res) {
 
 	if (!character) {
 		req.flash("error", "Character not found.");
-		return res.redirect("/builder/character");
+		return res.redirect("/builder/characters");
 	}
 
 	if (!(limitedPermission(user) || ownsCharacter(user, character))) {
 		req.flash("error", "You do not have permission to modify that character.");
-		return res.redirect("/builder/character");
+		return res.redirect("/builder/characters");
 	}
 
 	try {
@@ -232,7 +232,7 @@ async function updateCharacterIdentifiedController(req, res) {
 		req.flash("error", "Failed to update identification.");
 	}
 
-	return res.redirect("/builder/character");
+	return res.redirect("/builder/characters");
 }
 
 async function updateCharacterSecretVisibilityController(req, res) {
@@ -256,12 +256,12 @@ async function updateCharacterSecretVisibilityController(req, res) {
 
 	if (!character) {
 		req.flash("error", "Character not found.");
-		return res.redirect("/builder/character");
+		return res.redirect("/builder/characters");
 	}
 
 	if (!(limitedPermission(user) || ownsCharacter(user, character))) {
 		req.flash("error", "You do not have permission to modify that character.");
-		return res.redirect("/builder/character");
+		return res.redirect("/builder/characters");
 	}
 
 	try {
@@ -273,7 +273,7 @@ async function updateCharacterSecretVisibilityController(req, res) {
 		req.flash("error", "Failed to update secret visibility.");
 	}
 
-	return res.redirect("/builder/character");
+	return res.redirect("/builder/characters");
 }
 
 async function updateCharacterCampaignController(req, res) {
@@ -297,12 +297,12 @@ async function updateCharacterCampaignController(req, res) {
 
 	if (!character) {
 		req.flash("error", "Character not found.");
-		return res.redirect("/builder/character");
+		return res.redirect("/builder/characters");
 	}
 
 	if (!(limitedPermission(user) || ownsCharacter(user, character))) {
 		req.flash("error", "You do not have permission to modify that character.");
-		return res.redirect("/builder/character");
+		return res.redirect("/builder/characters");
 	}
 
 	try {
@@ -314,7 +314,7 @@ async function updateCharacterCampaignController(req, res) {
 		req.flash("error", "Failed to update campaign.");
 	}
 
-	return res.redirect("/builder/character");
+	return res.redirect("/builder/characters");
 }
 
 // --- Main Builder Form Functions ---
@@ -330,7 +330,7 @@ async function showCreatePcForm(req, res) {
 	const campaigns = await loadCampaigns();
 	const formData = await loadFormData(campaignId);
 
-	res.render("/characters/pc/form", {
+	res.render("characters/pc/form", {
 		title: "Create PC",
 		activePage: "dashboard",
 		formMode: "create",
