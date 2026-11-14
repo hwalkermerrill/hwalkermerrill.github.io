@@ -1,0 +1,316 @@
+<%- include("../partials/header") %>
+
+<main id="maincontent" class="clearfix">
+
+	<h1>Manage PCs & Companions</h1>
+
+	<!-- Grouping Category Helper -->
+	<%
+		const pcPending = pcs.filter(pc => pc.active_status_id === 1);
+		const pcActive = pcs.filter(pc => pc.active_status_id === 2);
+		const pcFormer = pcs.filter(pc =>
+			pc.active_status_id === 3 ||
+			pc.active_status_id === 4
+		);
+		
+		const companionPending = companions.filter(c => c.active_status_id === 1);
+		const companionActive = companions.filter(c => c.active_status_id === 2);
+		const companionFormer = companions.filter(c =>
+			c.active_status_id === 3 ||
+			c.active_status_id === 4
+		);
+	%>
+
+	<!-- Campaign Display -->
+	<div class="form-row">
+
+		<div class="form-field">
+			<label for="campaign_id">Campaign</label>
+
+			<select id="campaign_id" disabled>
+				<% campaigns.forEach(c => { %>
+				<option value="<%= c.id %>" <%= Number(campaign_id) === Number(c.id) ? "selected" : "" %>>
+					<%= c.campaign_name %>
+				</option>
+				<% }) %>
+			</select>
+
+			<small>
+				This page manages characters for the current campaign.
+			</small>
+		</div>
+
+		<div class="form-field">
+			<a href="/builder/pc/new" class="btn fmt-btn" style="margin-top:1.8rem;">
+				Create New PC
+			</a>
+
+			<a href="/builder/companion/new" class="btn fmt-btn" style="margin-top:1.8rem;">
+				Create New Companion
+			</a>
+		</div>
+
+	</div>
+
+	<!-- PCs -->
+
+	<section class="quest-list">
+
+		<h2>Player Characters</h2>
+
+		<% if (!pcs || pcs.length === 0) { %>
+
+		<p>No player characters found.</p>
+
+		<% } else { %>
+		<%
+		const pcGroups = [
+			{ title: "Active PCs", list: pcActive },
+			{ title: "Retired & Dead PCs", list: pcFormer },
+			{ title: "Pending PCs", list: pcPending }
+		];
+		%>
+
+		<% pcGroups.forEach(group => { %>
+		<% if (group.list.length > 0) { %>
+
+		<h3><%= group.title %></h3>
+
+		<ul class="toggleLiVis quest-type-list">
+
+			<% group.list.forEach(pc => { %>
+
+			<li class="quest-row">
+
+				<div class="quest-header">
+					<strong><%= pc.pc_name %></strong>
+
+					<% if (pc.secret_name) { %>
+					<span class="quest-status">
+						[<%= pc.secret_name %>]
+					</span>
+					<% } %>
+
+				</div>
+
+				<div class="quest-details">
+
+					<div class="form-row quest-actions">
+
+						<!-- Campaign -->
+
+						<form action="/builder/character/<%= pc.id %>/campaign" method="POST" class="inline-form">
+
+							<input type="hidden" name="character_type" value="pc">
+
+							<label>Campaign</label>
+
+							<select name="campaign_id">
+
+								<% campaigns.forEach(c => { %>
+
+								<option value="<%= c.id %>" <%= Number(pc.campaign_id) === Number(c.id)
+                        ? "selected"
+                        : "" %>>
+									<%= c.campaign_name %>
+								</option>
+
+								<% }) %>
+
+							</select>
+
+							<button type="submit" class="btn fmt-btn">
+								Update
+							</button>
+
+						</form>
+
+						<!-- Status -->
+
+						<form action="/builder/character/<%= pc.id %>/status" method="POST" class="inline-form">
+
+							<input type="hidden" name="character_type" value="pc">
+
+							<label>Status</label>
+
+							<select name="active_status_id">
+
+								<% active_status.forEach(s => { %>
+
+								<option value="<%= s.id %>" <%= Number(pc.active_status_id) === Number(s.id)
+                        ? "selected"
+                        : "" %>>
+									<%= s.active_status_name %>
+								</option>
+
+								<% }) %>
+
+							</select>
+
+							<button type="submit" class="btn fmt-btn">
+								Save
+							</button>
+
+						</form>
+
+						<!-- Identified -->
+
+						<form action="/builder/character/<%= pc.id %>/identified" method="POST" class="inline-form">
+
+							<input type="hidden" name="character_type" value="pc">
+
+							<label>Identified</label>
+
+							<select name="is_identified">
+
+								<option value="false" <%= !pc.is_identified ? "selected" : "" %>>
+									Hidden
+								</option>
+
+								<option value="true" <%= pc.is_identified ? "selected" : "" %>>
+									Visible
+								</option>
+
+							</select>
+
+							<button type="submit" class="btn fmt-btn">
+								Save
+							</button>
+
+						</form>
+
+						<!-- Secret Name -->
+
+						<form action="/builder/character/<%= pc.id %>/secret" method="POST" class="inline-form">
+
+							<input type="hidden" name="character_type" value="pc">
+
+							<label>Secret Name</label>
+
+							<select name="show_secret_name">
+
+								<option value="false" <%= !pc.show_secret_name ? "selected" : "" %>>
+									Hidden
+								</option>
+
+								<option value="true" <%= pc.show_secret_name ? "selected" : "" %>>
+									Visible
+								</option>
+
+							</select>
+
+							<button type="submit" class="btn fmt-btn">
+								Save
+							</button>
+
+						</form>
+
+						<a href="/builder/pc/<%= pc.id %>/edit" class="btn fmt-btn">
+							Edit
+						</a>
+
+						<form action="/builder/pc/<%= pc.id %>/delete" method="POST" class="inline-form">
+
+							<button type="submit" class="btn btn-danger">
+								Delete
+							</button>
+
+						</form>
+
+					</div>
+
+				</div>
+
+			</li>
+
+			<% }) %>
+
+		</ul>
+
+		<% }})} %>
+
+	</section>
+
+	<!-- Companions -->
+
+	<section class="quest-list">
+
+		<h2>Companions</h2>
+
+		<% if (!companions || companions.length === 0) { %>
+
+		<p>No companions found.</p>
+
+		<% } else { %>
+		<%
+		const companionGroups = [
+			{ title: "Active Companions", list: companionActive },
+			{ title: "Retired & Dead Companions", list: companionFormer },
+			{ title: "Pending Companions", list: companionPending }
+		];
+		%>
+
+		<% ccompanionGroups.forEach(group => { %>
+		<% if (group.list.length > 0) { %>
+
+		<h3><%= group.title %></h3>
+
+		<ul class="toggleLiVis quest-type-list">
+
+			<% group.list.forEach(companion => { %>
+
+			<li class="quest-row">
+
+				<div class="quest-header">
+
+					<strong>
+						<%= companion.companion_name %>
+					</strong>
+
+				</div>
+
+				<div class="quest-details">
+
+					<a href="/builder/companion/<%= companion.id %>/edit" class="btn fmt-btn">
+						Edit Companion
+					</a>
+
+				</div>
+
+			</li>
+
+			<% }) %>
+
+		</ul>
+
+		<% }})} %>
+
+	</section>
+
+</main>
+
+<script>
+
+	document.querySelectorAll(".quest-type-list .quest-row")
+		.forEach(li => {
+
+			const header = li.querySelector(".quest-header");
+			const details = li.querySelector(".quest-details");
+
+			if (!header || !details) return;
+
+			details.style.display = "none";
+
+			header.addEventListener("click", () => {
+
+				const isVisible =
+					details.style.display === "block";
+
+				details.style.display =
+					isVisible ? "none" : "block";
+			});
+		});
+
+</script>
+
+<%- include("../partials/footer") %>
