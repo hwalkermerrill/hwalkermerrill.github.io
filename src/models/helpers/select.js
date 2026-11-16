@@ -99,12 +99,21 @@ const getLanguages = async () => {
 	return rows;
 };
 
+const getSpeeds = async () => {
+	const { rows } = await db.query(`
+    SELECT id, speed_name AS name
+    FROM speed
+    ORDER BY id ASC
+  `);
+	return rows;
+};
+
 const getTitles = async () => {
 	const { rows } = await db.query(`
     SELECT
       t.id,
       t.title_name,
-      tr.rank_name,
+      tr.title_rank_name,
       tr.sort_order
     FROM titles t
     LEFT JOIN title_ranks tr
@@ -128,5 +137,5 @@ const getAchievements = async () => {
 export {
 	getCampaigns, getActiveStatus,
 	getPcByCampaign, getCompanionByCampaign, getNpcByCampaign, getFactionByCampaign,
-	getRaces, getClasses, getReligions, getLanguages, getTitles, getAchievements
+	getRaces, getClasses, getReligions, getLanguages, getSpeeds, getTitles, getAchievements
 }

@@ -1,0 +1,173 @@
+<form action="/builder/pc/<%= pc.id %>/edit/character" method="POST" class="note-form">
+
+	<!-- Race -->
+	<div class="form-row">
+
+		<div class="form-field">
+			<label for="race_id"> Race </label>
+			<select id="race_id" name="race_id">
+
+				<option value=""> Select Race </option>
+
+				<% races.forEach(race => { %>
+				<option value="<%= race.id %>" <%= pc && Number(pc.race_id) === Number(race.id)
+              ? "selected"
+              : "" %>>
+					<%= race.name %>
+				</option>
+				<% }) %>
+
+			</select>
+		</div>
+
+		<div class="form-field">
+			<label for="race_traits"> Racial Traits </label>
+			<textarea id="race_traits" name="race_traits" rows="5"><%= pc?.race_traits || '' %></textarea>
+		</div>
+
+	</div>
+
+	<!-- Religion -->
+	<div class="form-row">
+
+		<div class="form-field">
+			<label for="religion_id"> Religion </label>
+			<select id="religion_id" name="religion_id">
+
+				<option value=""> Select Religion </option>
+
+				<% religions.forEach(religion => { %>
+				<option value="<%= religion.id %>" <%= (pc?.religions || []).includes(religion.id)
+              ? "selected"
+              : "" %>>
+					<%= religion.name %>
+				</option>
+				<% }) %>
+
+			</select>
+		</div>
+
+		<div class="form-field">
+			<label for="religion_notes"> Religion Notes </label>
+			<textarea id="religion_notes" name="religion_notes" rows="4"></textarea>
+		</div>
+
+	</div>
+
+	<div class="form-field">
+		<label for="religion_secrets"> Religion Secrets </label>
+		<textarea id="religion_secrets" name="religion_secrets" rows="4"></textarea>
+	</div>
+
+	<!-- Future Feature: Secret Religion -->
+	<!-- <div class="form-field">
+
+		<button type="button" class="btn fmt-btn" id="add-secret-religion">
+			+ Add Secret Religion
+		</button>
+
+		<button type="button" class="btn fmt-btn" id="remove-secret-religion" style="display:none;">
+			- Remove Secret Religion
+		</button>
+
+	</div>
+
+	<div id="secret-religion-container" style="display:none;">
+		<div class="form-row">
+
+			<div class="form-field">
+				<label for="religion_secret_id"> Secret Religion </label>
+				<select id="religion_secret_id" name="religion_secret_id">
+
+					<option value=""> Select Secret Religion </option>
+
+					<% religions.forEach(religion => { %>
+					<option value="<%= religion.id %>"> <%= religion.name %> </option>
+					<% }) %>
+
+				</select>
+			</div>
+
+			<div class="form-field">
+				<label for="religion_secrets"> Secret Religion Notes </label>
+				<textarea id="religion_secrets" name="religion_secrets" rows="4"></textarea>
+			</div>
+
+		</div>
+	</div> -->
+
+	<!-- Languages -->
+	<div id="language-container">
+		<% if (pc.languages && pc.languages.length) { %>
+		<% pc.languages.forEach(languageId => { %>
+
+		<div class="language-row">
+			<select name="language_ids">
+				<% languages.forEach(language => { %>
+				<option value="<%= language.id %>" <%= Number(language.id) === Number(languageId)
+                  ? "selected"
+                  : "" %>>
+					<%= language.name %>
+				</option>
+				<% }) %>
+			</select>
+		</div>
+
+		<% }) %>
+		<%} else { %>
+
+		<div class="language-row">
+			<!-- Intentionally empty, populated via script -->
+		</div>
+		<% } %>
+
+	</div>
+
+	<!-- Language Buttons -->
+	<button type="button" class="btn fmt-btn" id="add-language">
+		+ Add Language
+	</button>
+
+	<button type="button" class="btn fmt-btn" id="remove-language">
+		- Remove Language
+	</button>
+
+	<!-- Classes -->
+	<div id="class-container">
+		<div class="class-row">
+			<!-- Intentionally empty, populated via script -->
+		</div>
+	</div>
+
+	<!-- Class Buttons -->
+	<button type="button" class="btn fmt-btn" id="add-class">
+		+ Add Class
+	</button>
+
+	<button type="button" class="btn fmt-btn" id="remove-class">
+		- Remove Class
+	</button>
+
+	<!-- Formatting Buttons -->
+	<div class="form-formatting">
+		<button type="button" class="btn fmt-btn" data-tag="b"><b>Bold</b></button>
+		<button type="button" class="btn fmt-btn" data-tag="i"><i>Italic</i></button>
+		<button type="button" class="btn fmt-btn" data-tag="q"><b>Quote</b></button>
+		<button type="button" class="btn fmt-btn" data-tag="sup">Sup</button>
+		<button type="button" class="btn fmt-btn" data-tag="sub">Sub</button>
+	</div>
+
+	<!-- Actions -->
+	<div class="form-actions">
+
+		<button type="submit" class="btn btn-primary">
+			Save Character Information
+		</button>
+
+		<a href="/builder/pc/<%= pc.id %>/edit?tab=social" class="btn fmt-btn">
+			Back
+		</a>
+
+	</div>
+
+</form>

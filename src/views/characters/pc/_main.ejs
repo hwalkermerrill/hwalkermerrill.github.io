@@ -1,0 +1,186 @@
+<form action="<%= formMode === 'edit'
+    ? '/builder/pc/' + pc.id + '/edit/main'
+    : '/builder/pc/new' %>" method="POST" class="note-form">
+
+	<!-- Campaign & Status -->
+	<div class="form-row">
+
+		<div class="form-field">
+			<label for="campaign_id">Campaign</label>
+			<select id="campaign_id" name="campaign_id" required>
+				<% campaigns.forEach(c => { %>
+				<option value="<%= c.id %>"
+					<%= ((pc && Number(pc.campaign_id) === Number(c.id) ) || (!pc && Number(campaign_id) === Number(c.id) )) ? "selected" : "" %>>
+					<%= c.campaign_name %>
+				</option>
+				<% }) %>
+			</select>
+		</div>
+
+		<div class="form-field">
+			<label for="active_status_id">Status</label>
+			<select id="active_status_id" name="active_status_id" required>
+				<% active_status.forEach(s => { %>
+				<option value="<%= s.id %>" <%= pc && Number(pc.active_status_id) === Number(s.id)
+              ? "selected"
+              : "" %>>
+					<%= s.active_status_name %>
+				</option>
+				<% }) %>
+			</select>
+		</div>
+
+	</div>
+
+	<!-- Names -->
+	<div class="form-row">
+
+		<div class="form-field">
+			<label for="pc_name">Character Name</label>
+			<input type="text" id="pc_name" name="pc_name" maxlength="255" required value="<%= pc ? pc.pc_name : '' %>">
+		</div>
+
+		<div class="form-field">
+			<label for="unknown_name">Unknown Name</label>
+			<input type="text" id="unknown_name" name="unknown_name" maxlength="255"
+				value="<%= pc ? (pc.unknown_name || '') : 'Unknown' %>">
+		</div>
+
+	</div>
+
+	<!-- Identified -->
+	<div class="form-row">
+		<div class="form-field">
+			<label for="is_identified">Identified</label>
+			<select id="is_identified" name="is_identified">
+
+				<option value="false" <%= pc && !pc.is_identified ? "selected" : "" %>>
+					Unidentified
+				</option>
+
+				<option value="true" <%= pc && pc.is_identified ? "selected" : "" %>>
+					Identified
+				</option>
+
+			</select>
+		</div>
+	</div>
+
+	<!-- Secret Identity -->
+	<div class="form-row">
+
+		<div class="form-field">
+			<label for="secret_name">Secret Name</label>
+			<input type="text" id="secret_name" name="secret_name" maxlength="255"
+				value="<%= pc ? (pc.secret_name || '') : '' %>">
+		</div>
+
+		<div class="form-field">
+			<label for="secret_color">Secret Color (Hex#)</label>
+			<input type="text" id="secret_color" name="secret_color" maxlength="64"
+				value="<%= pc ? (pc.secret_color || '') : '' %>">
+		</div>
+
+		<div class="form-field">
+			<label for="show_secret_name">Reveal Secret Name</label>
+			<select id="show_secret_name" name="show_secret_name">
+
+				<option value="false" <%= pc && !pc.show_secret_name ? "selected" : "" %>>
+					Hidden
+				</option>
+
+				<option value="true" <%= pc && pc.show_secret_name ? "selected" : "" %>>
+					Visible
+				</option>
+
+			</select>
+		</div>
+
+	</div>
+
+	<!-- Gender -->
+	<div class="form-row">
+
+		<div class="form-field">
+			<label for="is_gendered">Gendered</label>
+			<select id="is_gendered" name="is_gendered">
+
+				<option value="true" <%= !pc || pc.is_gendered ? "selected" : "" %>>
+					Yes
+				</option>
+
+				<option value="false" <%= pc && !pc.is_gendered ? "selected" : "" %>>
+					No
+				</option>
+			</select>
+		</div>
+
+		<div class="form-field">
+			<label for="is_female">Female</label>
+			<select id="is_female" name="is_female">
+
+				<option value="false" <%= !pc || !pc.is_female ? "selected" : "" %>>
+					No
+				</option>
+
+				<option value="true" <%= pc && pc.is_female ? "selected" : "" %>>
+					Yes
+				</option>
+			</select>
+		</div>
+
+	</div>
+
+	<!-- Description -->
+	<div class="form-field">
+		<label for="description">Description</label>
+		<textarea id="description" name="description" rows="6"><%= pc && pc.description ? pc.description : '' %></textarea>
+	</div>
+
+	<!-- Edit Only Fields -->
+	<% if (formMode === "edit") { %>
+
+	<div class="form-row">
+
+		<div class="form-field">
+			<label for="retired_reason">Retired Reason</label>
+			<textarea id="retired_reason" name="retired_reason" rows="4"><%= pc.retired_reason || '' %></textarea>
+		</div>
+
+		<div class="form-field">
+			<label for="death_cause">Death Cause</label>
+			<textarea id="death_cause" name="death_cause" rows="4"><%= pc.death_cause || '' %></textarea>
+		</div>
+
+		<div class="form-field">
+			<label for="end_session">End Session</label>
+			<input type="number" id="end_session" name="end_session" min="1" value="<%= pc.end_session || '' %>">
+		</div>
+
+	</div>
+
+	<% } %>
+
+	<!-- Formatting Buttons -->
+	<div class="form-formatting">
+		<button type="button" class="btn fmt-btn" data-tag="b"><b>Bold</b></button>
+		<button type="button" class="btn fmt-btn" data-tag="i"><i>Italic</i></button>
+		<button type="button" class="btn fmt-btn" data-tag="q"><b>Quote</b></button>
+		<button type="button" class="btn fmt-btn" data-tag="sup">Sup</button>
+		<button type="button" class="btn fmt-btn" data-tag="sub">Sub</button>
+	</div>
+
+	<!-- Actions -->
+	<div class="form-actions">
+
+		<button type="submit" class="btn btn-primary">
+			<%= formMode === "edit" ? "Save Main Information" : "Create Character" %>
+		</button>
+
+		<a href="/builder/characters" class="btn fmt-btn">
+			Cancel
+		</a>
+
+	</div>
+
+</form>

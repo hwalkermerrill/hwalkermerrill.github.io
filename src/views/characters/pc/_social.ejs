@@ -1,0 +1,91 @@
+<form action="/builder/pc/<%= pc.id %>/edit/social" method="POST" class="note-form">
+
+	<!-- Appearance -->
+	<div class="form-field">
+		<label for="appearance"> Appearance </label>
+		<textarea id="appearance" name="appearance" rows="6"><%= pc?.social?.appearance || '' %></textarea>
+	</div>
+
+	<!-- Background -->
+	<div class="form-field">
+		<label for="background"> Background </label>
+		<textarea id="background" name="background" rows="8"><%= pc?.social?.background || '' %></textarea>
+	</div>
+
+	<!-- Associates -->
+	<div class="form-field">
+		<label for="associates"> Associates </label>
+		<textarea id="associates" name="associates" rows="4"><%= pc?.social?.associates || '' %></textarea>
+	</div>
+
+	<!-- Rumors -->
+	<div class="form-field">
+		<label for="rumors"> Rumors </label>
+		<textarea id="rumors" name="rumors" rows="4"><%= pc?.social?.rumors || '' %></textarea>
+	</div>
+
+	<!-- Aspirations -->
+	<div class="form-field">
+		<label for="aspirations"> Aspirations </label>
+		<textarea id="aspirations" name="aspirations" rows="4"><%= pc?.social?.aspirations || '' %></textarea>
+	</div>
+
+	<!-- Anathema / Phobias -->
+	<div class="form-row">
+
+		<div class="form-field">
+			<label for="anathema"> Anathema </label>
+			<textarea id="anathema" name="anathema" rows="4"><%= pc?.social?.anathema || '' %></textarea>
+		</div>
+
+		<div class="form-field">
+			<label for="phobias"> Phobias </label>
+			<textarea id="phobias" name="phobias" rows="4"><%= pc?.social?.phobias || '' %></textarea>
+		</div>
+
+	</div>
+
+	<!-- Quirks / Flaws -->
+	<div class="form-row">
+
+		<div class="form-field">
+			<label for="quirks"> Quirks </label>
+			<textarea id="quirks" name="quirks" rows="4"><%= pc?.social?.quirks || '' %></textarea>
+		</div>
+
+		<div class="form-field">
+			<label for="flaws"> Flaws </label>
+			<textarea id="flaws" name="flaws" rows="4"><%= pc?.social?.flaws || '' %></textarea>
+		</div>
+
+	</div>
+
+	<!-- Secrets -->
+	<div class="form-field">
+		<label for="secrets"> Secrets </label>
+		<textarea id="secrets" name="secrets" rows="6"><%= pc?.social?.secrets || '' %></textarea>
+	</div>
+
+	<!-- Formatting Buttons -->
+	<div class="form-formatting">
+		<button type="button" class="btn fmt-btn" data-tag="b"><b>Bold</b></button>
+		<button type="button" class="btn fmt-btn" data-tag="i"><i>Italic</i></button>
+		<button type="button" class="btn fmt-btn" data-tag="q"><b>Quote</b></button>
+		<button type="button" class="btn fmt-btn" data-tag="sup">Sup</button>
+		<button type="button" class="btn fmt-btn" data-tag="sub">Sub</button>
+	</div>
+
+	<!-- Actions -->
+	<div class="form-actions">
+
+		<button type="submit" class="btn btn-primary">
+			Save Social Profile
+		</button>
+
+		<a href="/builder/pc/<%= pc.id %>/edit?tab=main" class="btn fmt-btn">
+			Back
+		</a>
+
+	</div>
+
+</form>

@@ -11,7 +11,7 @@ import {
 import {
 	getCampaigns, getActiveStatus,
 	getPcByCampaign, getCompanionByCampaign,
-	getRaces, getClasses, getReligions, getLanguages, getTitles, getAchievements
+	getRaces, getClasses, getReligions, getLanguages, getSpeeds, getTitles, getAchievements
 } from "../../models/helpers/select.js";
 import { getGalleryEntries, addGalleryEntry, updateGalleryEntry, deleteGalleryEntry } from "../../models/helpers/gallery.js";
 import { hasRole } from "../../utils/permissions.js";
@@ -53,6 +53,7 @@ async function loadFormData(campaignId) {
 	const classes = await getClasses();
 	const religions = await getReligions();
 	const languages = await getLanguages();
+	const speeds = await getSpeeds();
 	const titles = await getTitles();
 	const achievements = await getAchievements();
 
@@ -64,6 +65,7 @@ async function loadFormData(campaignId) {
 		classes,
 		religions,
 		languages,
+		speeds,
 		titles,
 		achievements
 	};
@@ -334,6 +336,7 @@ async function showCreatePcForm(req, res) {
 		title: "Create PC",
 		activePage: "dashboard",
 		formMode: "create",
+		activeTab: req.query.tab || "main",
 		pc: null,
 		campaigns,
 		...formData
@@ -356,6 +359,7 @@ async function showCreateCompanionForm(req, res) {
 		title: "Create Companion",
 		activePage: "dashboard",
 		formMode: "create",
+		activeTab: req.query.tab || "main",
 		companion: null,
 		campaigns,
 		...formData
@@ -388,6 +392,7 @@ async function showEditPcForm(req, res) {
 		title: `Edit PC: ${pc.pc_name}`,
 		activePage: "dashboard",
 		formMode: "edit",
+		activeTab: req.query.tab || "main",
 		pc,
 		campaigns,
 		...formData
@@ -420,6 +425,7 @@ async function showEditCompanionForm(req, res) {
 		title: `Edit Companion: ${companion.companion_name}`,
 		activePage: "dashboard",
 		formMode: "edit",
+		activeTab: req.query.tab || "main",
 		companion,
 		campaigns,
 		...formData

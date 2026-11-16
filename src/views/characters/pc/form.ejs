@@ -1,0 +1,235 @@
+<%- include("../../partials/header") %>
+<% const isEdit = formMode === "edit"; %>
+
+<main id="maincontent" class="clearfix">
+
+	<h1><%= isEdit ? `Edit PC: ${pc.pc_name}` : "Create Player Character" %></h1>
+
+	<!-- Tabs -->
+	<%- include("./_tabs") %>
+
+	<!-- Main -->
+	<div class="character-section" data-section="main" style="<%= activeTab !== "main" ? 'display:none;' : "" %>">
+		<%- include("./_main") %>
+	</div>
+
+	<!-- Only render remaining tabs after character object has been created -->
+	<% if (isEdit && pc) { %>
+
+	<!-- Social -->
+	<div class="character-section" data-section="social" style="<%= activeTab !== "social" ? 'display:none;' : "" %>">
+		<%- include("./_social") %>
+	</div>
+
+	<!-- Character -->
+	<div class="character-section" data-section="character"
+		style="<%= activeTab !== "character" ? 'display:none;' : "" %>">
+		<%- include("./_character") %>
+	</div>
+
+	<!-- Mechanics -->
+	<div class="character-section" data-section="mechanics"
+		style="<%= activeTab !== "mechanics" ? 'display:none;' : "" %>">
+		<%- include("./_mechanics") %>
+	</div>
+
+	<!-- Background -->
+	<div class="character-section" data-section="background"
+		style="<%= activeTab !== "background" ? 'display:none;' : "" %>">
+		<%- include("./_background") %>
+	</div>
+	<% } %>
+
+</main>
+
+<script>
+	// Force script to wait until dom has loaded.
+	document.addEventListener("DOMContentLoaded", function () {
+		clickLoad("section");
+	});
+
+	document.addEventListener("DOMContentLoaded", () => {
+
+		// Languages
+		const addLanguage = document.getElementById("add-language");
+		const removeLanguage = document.getElementById("remove-language");
+		const languageContainer =
+			document.getElementById("language-container");
+
+		// Classes
+		const addClass = document.getElementById("add-class");
+		const removeClass = document.getElementById("remove-class");
+		const classContainer = document.getElementById("class-container");
+
+		// Speed
+		const addMovement = document.getElementById("add-movement");
+		const removeMovement = document.getElementById("remove-movement");
+		const movementContainer = document.getElementById("movement-container");
+
+		// Event Listeners
+		addLanguage.addEventListener("click", () => {
+			const row = document.createElement("div");
+			row.className = "language-row";
+			row.innerHTML = `
+				<select name="language_ids">
+
+					<option value=""> Select Language </option>
+
+					<% languages.forEach(language => { %>
+					<option value="<%= language.id %>">
+						<%= language.name %>
+					</option>
+					<% }) %>
+
+				</select>
+				`;
+			languageContainer.appendChild(row);
+		});
+
+		removeLanguage.addEventListener("click", () => {
+			if (languageContainer.children.length > 0) {
+				languageContainer.removeChild(
+					languageContainer.lastElementChild
+				);
+			}
+		});
+
+		addClass.addEventListener("click", () => {
+			const index = classContainer.children.length;
+			const row = document.createElement("div");
+			row.className = "class-row";
+			row.innerHTML = `
+				<div class="form-row">
+
+					<div class="form-field">
+
+						<label>Class</label>
+						<select name="classes[${index}][class_id]">
+
+							<option value="">	Select Class </option>
+
+							<% classes.forEach(cls => { %>
+								<option value="<%= cls.id %>">
+									<%= cls.name %>
+								</option>
+							<% }) %>
+
+						</select>
+
+					</div>
+
+					<div class="form-field">
+						<label>Level</label>
+						<input type="number" min="1" value="1" name="classes[${index}][class_level]">
+					</div>
+
+				</div>
+
+				<div class="form-field">
+					<label>Archetypes</label>
+					<input type="text" name="classes[${index}][archetypes]">
+				</div>
+			`;
+			classContainer.appendChild(row);
+		});
+
+		removeClass.addEventListener("click", () => {
+			if (classContainer.children.length > 0) {
+				classContainer.removeChild(
+					classContainer.lastElementChild
+				);
+			}
+		});
+
+		addMovement.addEventListener("click", () => {
+			const index = movementContainer.children.length;
+			const row = document.createElement("div");
+			row.className = "movement-row";
+			row.innerHTML = `
+				<div class="form-row">
+
+					<div class="form-field">
+
+						<label>Movement Type</label>
+
+						<select
+							name="speeds[${index}][speed_id]">
+
+							<option value=""> Select Movement </option>
+
+							<% speeds.forEach(speed => { %>
+								<option value="<%= speed.id %>">
+									<%= speed.name %>
+								</option>
+							<% }) %>
+
+						</select>
+
+					</div>
+
+					<div class="form-field">
+						<label>Speed Value</label>
+						<input type="number" min="0" value="30" name="speeds[${index}][speed_value]">
+					</div>
+
+				</div>
+			`;
+			movementContainer.appendChild(row);
+		});
+
+		removeMovement.addEventListener("click", () => {
+			if (movementContainer.children.length > 0) {
+				movementContainer.removeChild(
+					movementContainer.lastElementChild
+				);
+			}
+		});
+
+		// Future Feature: Secret Religion
+		// Secret Religion
+		// const addSecretReligion = document.getElementById("add-secret-religion");
+		// const removeSecretReligion = document.getElementById("remove-secret-religion");
+		// const secretReligionContainer = document.getElementById("secret-religion-container");
+		// if (addSecretReligion && secretReligionContainer) {
+
+		// 	addSecretReligion.addEventListener("click", () => {
+		// 		secretReligionContainer.style.display = "block";
+		// 		addSecretReligion.style.display = "none";
+		// 		removeSecretReligion.style.display = "inline-block";
+		// 	});
+
+		// 	removeSecretReligion.addEventListener("click", () => {
+		// 		secretReligionContainer.style.display = "none";
+		// 		removeSecretReligion.style.display = "none";
+		// 		addSecretReligion.style.display = "inline-block";
+		// 	});
+		// }
+	});
+
+	// Formatting Buttons
+	document.querySelectorAll(".fmt-btn[data-tag]").forEach(btn => {
+
+		btn.addEventListener("mousedown", e => e.preventDefault());
+		btn.addEventListener("click", () => {
+			const tag = btn.dataset.tag;
+			const textarea = document.activeElement;
+
+			if (!textarea || textarea.tagName !== "TEXTAREA") return;
+
+			const start = textarea.selectionStart;
+			const end = textarea.selectionEnd;
+			const selected = textarea.value.substring(start, end);
+			const wrapped = `<${tag}>${selected}</${tag}>`;
+
+			textarea.value =
+				textarea.value.substring(0, start) +
+				wrapped +
+				textarea.value.substring(end);
+
+			textarea.selectionStart = start;
+			textarea.selectionEnd = start + wrapped.length;
+		});
+	});
+</script>
+
+<%- include("../../partials/footer") %>

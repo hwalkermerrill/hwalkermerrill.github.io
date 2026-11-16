@@ -1,0 +1,48 @@
+<nav class="character-tabs">
+	<ul>
+
+		<li class="<%= activeTab === 'main' ? 'active' : '' %>">
+			<a href="?tab=main">Main</a>
+		</li>
+
+		<!-- If character exists -->
+		<% if (formMode === "edit") { %>
+
+		<li class="<%= activeTab === 'social' ? 'active' : '' %>">
+			<a href="?tab=social">Social</a>
+		</li>
+
+		<li class="<%= activeTab === 'character' ? 'active' : '' %>">
+			<a href="?tab=character">Character</a>
+		</li>
+
+		<li class="<%= activeTab === 'mechanics' ? 'active' : '' %>">
+			<a href="?tab=mechanics">Mechanics</a>
+		</li>
+
+		<li class="<%= activeTab === 'background' ? 'active' : '' %>">
+			<a href="?tab=background">Background</a>
+		</li>
+
+		<% } else { %>
+
+		<!-- If character is still being created -->
+		<li class="disabled-link">
+			<a onclick="return false;">Social</a>
+		</li>
+
+		<li class="disabled-link">
+			<a onclick="return false;">Character</a>
+		</li>
+
+		<li class="disabled-link">
+			<a onclick="return false;">Mechanics</a>
+		</li>
+
+		<li class="disabled-link">
+			<a onclick="return false;">Background</a>
+		</li>
+
+		<% } %>
+	</ul>
+</nav>
