@@ -121,6 +121,8 @@ const CLASSES_JOIN = (type) => `
 const ACHIEVEMENTS_JOIN = (type) => `
   LEFT JOIN ${type}_achievements ach
     ON ach.${type}_id = character.id
+	LEFT JOIN achievements a
+		ON a.id = ach.achievement_id
 `;
 
 const SCARS_JOIN = (type) => `
@@ -175,6 +177,7 @@ const SOCIAL_GROUP_BY = (type) => {
 const SELECT_GALLERY_AGG = `
   json_agg(
     jsonb_build_object(
+			'gallery_id', g.id,
       'image_url', g.image_url,
       'alt', g.alt,
       'is_main', g.is_main,
@@ -188,6 +191,7 @@ const SELECT_GALLERY_AGG = `
 const SELECT_TITLES_AGG = `
   json_agg(
     jsonb_build_object(
+			'title_row_id', t.id,
       'title_id', t.title_id,
       'title_name', ti.title_name,
       'title_location', t.title_location,
@@ -214,6 +218,7 @@ const SELECT_CLASSES_AGG = `
 const SELECT_SCARS_AGG = `
   json_agg(
     jsonb_build_object(
+			'scar_id', sc.id,
       'scar_cause', sc.scar_cause,
       'scar_description', sc.scar_description,
       'session_received', sc.session_received
@@ -225,6 +230,7 @@ const SELECT_ACHIEVEMENTS_AGG = `
   json_agg(
     jsonb_build_object(
       'achievement_id', ach.achievement_id,
+			'achievement_name', a.achievement_name,
       'is_killing_blow', ach.is_killing_blow
     )
   ) FILTER (WHERE ach.achievement_id IS NOT NULL) AS achievements

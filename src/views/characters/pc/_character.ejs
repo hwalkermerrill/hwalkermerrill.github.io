@@ -100,27 +100,17 @@
 	<div id="language-container">
 		<% if (pc.languages && pc.languages.length) { %>
 		<% pc.languages.forEach(languageId => { %>
-
 		<div class="language-row">
 			<select name="language_ids">
 				<% languages.forEach(language => { %>
-				<option value="<%= language.id %>" <%= Number(language.id) === Number(languageId)
-                  ? "selected"
-                  : "" %>>
+				<option value="<%= language.id %>" <%= Number(language.id) === Number(languageId) ? "selected" : "" %>>
 					<%= language.name %>
 				</option>
 				<% }) %>
 			</select>
 		</div>
-
 		<% }) %>
-		<%} else { %>
-
-		<div class="language-row">
-			<!-- Intentionally empty, populated via script -->
-		</div>
 		<% } %>
-
 	</div>
 
 	<!-- Language Buttons -->
@@ -134,9 +124,42 @@
 
 	<!-- Classes -->
 	<div id="class-container">
+		<% if (pc.classes && pc.classes.length) { %>
+		<% pc.classes.forEach((cls, index) => { %>
 		<div class="class-row">
-			<!-- Intentionally empty, populated via script -->
+			<div class="form-row">
+
+				<div class="form-field">
+					<label>Class</label>
+					<select name="classes[<%= index %>][class_id]">
+
+						<option value=""> Select Class </option>
+
+						<% classes.forEach(classOption => { %>
+						<option value="<%= classOption.id %>"
+							<%= Number(classOption.id) === Number(cls.class_id) ? "selected" : "" %>>
+							<%= classOption.name %>
+						</option>
+						<% }) %>
+
+					</select>
+				</div>
+
+				<div class="form-field">
+					<label>Level</label>
+					<input type="number" min="1" name="classes[<%= index %>][class_level]" value="<%= cls.class_level || 1 %>">
+				</div>
+
+			</div>
+
+			<div class="form-field">
+				<label>Archetypes</label>
+				<input type="text" name="classes[<%= index %>][archetypes]" value="<%= cls.archetype_name || '' %>">
+			</div>
+
 		</div>
+		<% }) %>
+		<% } %>
 	</div>
 
 	<!-- Class Buttons -->

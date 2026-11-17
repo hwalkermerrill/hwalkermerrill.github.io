@@ -1,30 +1,287 @@
 <div class="note-form">
+	<h2>Titles</h2>
 
-	<h2>Background Management</h2>
+	<% if (pc.titles && pc.titles.length) { %>
+	<% pc.titles.forEach(title => { %>
+	<form action="/builder/pc/<%= pc.id %>/edit/title/remove" method="POST" class="inline-form">
+		<strong><%= title.title_name %></strong>
+		<% if (title.title_location) { %>
+		(<%= title.title_location %>)
+		<% } %>
+		<input type="hidden" name="title_row_id" value="<%= title.title_row_id %>">
+		<button type="submit" class="btn btn-danger">
+			Remove
+		</button>
+	</form>
+	<% }) %>
+	<% } %>
 
-	<p>
-		This section manages:
-	</p>
+	<button type="button" class="btn fmt-btn" id="add-title">
+		+ Add Title
+	</button>
 
-	<ul>
-		<li>Titles</li>
-		<li>Achievements</li>
-		<li>Scars</li>
-		<li>Gallery Images</li>
-	</ul>
+	<form id="title-add-form" action="/builder/pc/<%= pc.id %>/edit/title/add" method="POST" style="display:none;">
+		<div class="form-row">
 
-	<p>
-		Mini-builder forms will be attached here.
-	</p>
+			<div class="form-field">
+				<label for="title_id">Title</label>
+				<select id="title_id" name="title_id" required>
 
-	<div class="form-actions">
+					<option value="">
+						Select Title
+					</option>
 
-		<a href="/builder/pc/<%= pc.id %>/edit?tab=mechanics" class="btn fmt-btn">
+					<% titles.forEach(title => { %>
+					<option value="<%= title.id %>">
+						<%= title.title_name %>
+					</option>
+					<% }) %>
+				</select>
+			</div>
 
-			Back
+			<div class="form-field">
+				<label for="use_honorific"> Use Honorific </label>
+				<select id="use_honorific" name="use_honorific">
+					<option value="false" selected> No </option>
+					<option value="true"> Yes </option>
+				</select>
+			</div>
 
-		</a>
+		</div>
 
-	</div>
+		<div class="form-row">
+
+			<div class="form-field">
+				<label for="has_location"> Has Location </label>
+				<select id="has_location" name="has_location">
+					<option value="false" selected> No </option>
+					<option value="true"> Yes </option>
+				</select>
+			</div>
+
+			<div class="form-field" id="title-location-wrapper" style="display:none;">
+				<label for="title_location"> Location </label>
+				<input type="text" id="title_location" name="title_location">
+			</div>
+
+		</div>
+
+		<div class="form-row">
+
+			<div class="form-field">
+				<label for="adjust_ranking"> Adjust Ranking </label>
+				<select id="adjust_ranking" name="adjust_ranking">
+					<option value=""> No </option>
+					<option value="Up"> Up </option>
+					<option value="Down"> Down </option>
+				</select>
+			</div>
+
+			<div class="form-field" id="adjust-value-wrapper" style="display:none;">
+				<label for="adjust_value"> Adjust Value </label>
+				<input type="number" min="1" id="adjust_value" name="adjust_value">
+			</div>
+
+		</div>
+
+		<div class="form-field">
+			<label for="received_session"> Session Received </label>
+			<input type="number" min="1" value="1" id="received_session" name="received_session">
+		</div>
+
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary"> Receive Title </button>
+		</div>
+
+	</form>
+
+</div>
+
+<div class="note-form">
+	<h2>Achievements</h2>
+
+	<% if (pc.achievements && pc.achievements.length) { %>
+	<% pc.achievements.forEach(achievement => { %>
+	<form action="/builder/pc/<%= pc.id %>/edit/achievement/remove" method="POST" class="inline-form">
+		<strong> <%= achievement.achievement_name %> </strong>
+		<% if (achievement.is_killing_blow) { %>
+		(Killing Blow)
+		<% } %>
+		<input type="hidden" name="achievement_id" value="<%= achievement.achievement_id %>">
+		<button type="submit" class="btn btn-danger"> Remove
+		</button>
+	</form>
+	<% }) %>
+	<% } %>
+
+	<button type="button" class="btn fmt-btn" id="add-achievement">
+		+ Add Achievement
+	</button>
+
+	<form id="achievement-add-form" action="/builder/pc/<%= pc.id %>/edit/achievement/add" method="POST"
+		style="display:none;">
+		<div class="form-row">
+
+			<div class="form-field">
+				<label for="achievement_id"> Achievement </label>
+				<select id="achievement_id" name="achievement_id" required>
+
+					<option value=""> Select Achievement </option>
+
+					<% achievements.forEach(a => { %>
+					<option value="<%= a.id %>"> <%= a.achievement_name %> </option>
+					<% }) %>
+
+				</select>
+			</div>
+
+			<div class="form-field">
+				<label for="is_killing_blow"> Killing Blow </label>
+				<select id="is_killing_blow" name="is_killing_blow">
+					<option value="false" selected> No </option>
+					<option value="true"> Yes </option>
+				</select>
+			</div>
+
+		</div>
+
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">
+				Record Achievement
+			</button>
+		</div>
+
+	</form>
+
+</div>
+
+<div class="note-form">
+	<h2>Scars</h2>
+
+	<% if (pc.scars && pc.scars.length) { %>
+	<% pc.scars.forEach(scar => { %>
+	<form action="/builder/pc/<%= pc.id %>/edit/scar/remove" method="POST">
+		<p> <strong> <%= scar.scar_cause %> </strong> (Session <%= scar.session_received %>) </p>
+		<p> <%= scar.scar_description %> </p>
+		<input type="hidden" name="scar_id" value="<%= scar.scar_id %>">
+		<div class="form-actions">
+			<button type="submit" class="btn btn-danger">
+				Remove
+			</button>
+		</div>
+	</form>
+	<% }) %>
+	<% } %>
+
+	<button type="button" class="btn fmt-btn" id="add-scar">
+		+ Add Scar
+	</button>
+
+	<form id="scar-add-form" action="/builder/pc/<%= pc.id %>/edit/scar/add" method="POST" style="display:none;">
+
+		<div class="form-row">
+
+			<div class="form-field">
+				<label for="scar_cause"> Cause </label>
+				<input type="text" id="scar_cause" name="scar_cause" required>
+			</div>
+
+			<div class="form-field">
+				<label for="session_received"> Session Received </label>
+				<input type="number" id="session_received" name="session_received" min="1" value="1">
+			</div>
+
+		</div>
+
+		<div class="form-field">
+			<label for="scar_description"> Description </label>
+			<textarea id="scar_description" name="scar_description" rows="3"></textarea>
+		</div>
+
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">
+				Receive Scar
+			</button>
+		</div>
+
+	</form>
+
+</div>
+
+<div class="note-form">
+	<h2>Gallery Images</h2>
+
+	<% if (pc.gallery && pc.gallery.length) { %>
+	<% pc.gallery.forEach(g => { %>
+	<form action="/builder/pc/<%= pc.id %>/edit/gallery/<%= g.gallery_id %>/update" method="POST" class="gallery-row">
+		<input type="text" name="image_url" value="<%= g.image_url %>" class="gallery-input">
+		<input type="text" name="alt" value="<%= g.alt %>" class="gallery-input">
+
+		<div class="form-row">
+			<select name="gallery_type" class="gallery-input gallery-type">
+				<option value="main" <%= g.is_main ? "selected" : "" %>> Main </option>
+				<option value="hover" <%= g.is_hover ? "selected" : "" %>> Hover </option>
+				<option value="extra" <%= (!g.is_main && !g.is_hover) ? "selected" : "" %>> Extra </option>
+			</select>
+			<select name="hover_visible" class="gallery-input hover-visible">
+				<option value="false" <%= !g.hover_visible ? "selected" : "" %>> Hover Hidden </option>
+				<option value="true" <%= g.hover_visible ? "selected" : "" %>> Hover Visible </option>
+			</select>
+			<select name="is_tall" class="gallery-input">
+				<option value="false" <%= !g.is_tall ? "selected" : "" %>> Normal </option>
+				<option value="true" <%= g.is_tall ? "selected" : "" %>> Tall </option>
+			</select>
+		</div>
+
+		<div class="form-actions">
+			<button type="submit" class="btn fmt-btn">
+				Update
+			</button>
+		</div>
+
+	</form>
+
+	<form action="/builder/pc/<%= pc.id %>/edit/gallery/<%= g.gallery_id %>/remove" method="POST" class="inline-form">
+		<button type="submit" class="btn btn-danger">
+			Remove
+		</button>
+	</form>
+	<% }) %>
+	<% } %>
+
+	<button type="button" class="btn fmt-btn" id="add-gallery">
+		+ Add Image
+	</button>
+
+	<form id="gallery-add-form" action="/builder/pc/<%= pc.id %>/edit/gallery/add" method="POST" style="display:none;">
+
+		<div class="gallery-row">
+			<input type="text" name="image_url" placeholder="Image URL" class="gallery-input">
+			<input type="text" name="alt" placeholder="Alt Text" class="gallery-input">
+			<input type="text" name="figcaption" placeholder="Caption" class="gallery-input">
+			<div class="form-row">
+				<select name="gallery_type" class="gallery-input gallery-type">
+					<option value="main"> Main </option>
+					<option value="hover"> Hover </option>
+					<option value="extra"> Extra </option>
+				</select>
+				<select name="hover_visible" class="gallery-input hover-visible" style="display:none;">
+					<option value="false"> Hover Hidden </option>
+					<option value="true"> Hover Visible </option>
+				</select>
+				<select name="is_tall" class="gallery-input">
+					<option value="false"> Normal </option>
+					<option value="true"> Tall </option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">
+				Add Image
+			</button>
+		</div>
+
+	</form>
 
 </div>

@@ -102,6 +102,8 @@ A great deal of content needs to be created for this newest campaign.
 
 ## Features to be Implemented
 
+- Add campaign recommendations dynamic render to character creator and manager
+- Add mechanic details to dashboards.
 - Migrate character creation from static ejs to dynamic multi-staged process, culminating in a user submission.
 - Change hero image settings to be dynamically settable from an interface.
 - Change spotlight settings to be dynamically settable from an interface.

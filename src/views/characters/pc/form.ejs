@@ -66,7 +66,21 @@
 		const removeMovement = document.getElementById("remove-movement");
 		const movementContainer = document.getElementById("movement-container");
 
-		// Event Listeners
+		// Background
+		const addTitleBtn = document.getElementById("add-title");
+		const titleForm = document.getElementById("title-add-form");
+		const addAchievementBtn = document.getElementById("add-achievement");
+		const achievementForm = document.getElementById("achievement-add-form");
+		const addScarBtn = document.getElementById("add-scar");
+		const scarForm = document.getElementById("scar-add-form");
+		const addGalleryBtn = document.getElementById("add-gallery");
+		const galleryForm = document.getElementById("gallery-add-form");
+		const hasLocationSelect = document.getElementById("has_location");
+		const titleLocationWrapper = document.getElementById("title-location-wrapper");
+		const adjustRanking = document.getElementById("adjust_ranking");
+		const adjustValueWrapper = document.getElementById("adjust-value-wrapper")
+
+		// Add InnerHTML
 		addLanguage.addEventListener("click", () => {
 			const row = document.createElement("div");
 			row.className = "language-row";
@@ -84,14 +98,6 @@
 				</select>
 				`;
 			languageContainer.appendChild(row);
-		});
-
-		removeLanguage.addEventListener("click", () => {
-			if (languageContainer.children.length > 0) {
-				languageContainer.removeChild(
-					languageContainer.lastElementChild
-				);
-			}
 		});
 
 		addClass.addEventListener("click", () => {
@@ -133,14 +139,6 @@
 			classContainer.appendChild(row);
 		});
 
-		removeClass.addEventListener("click", () => {
-			if (classContainer.children.length > 0) {
-				classContainer.removeChild(
-					classContainer.lastElementChild
-				);
-			}
-		});
-
 		addMovement.addEventListener("click", () => {
 			const index = movementContainer.children.length;
 			const row = document.createElement("div");
@@ -177,6 +175,23 @@
 			movementContainer.appendChild(row);
 		});
 
+		// Remove Child
+		removeLanguage.addEventListener("click", () => {
+			if (languageContainer.children.length > 0) {
+				languageContainer.removeChild(
+					languageContainer.lastElementChild
+				);
+			}
+		});
+
+		removeClass.addEventListener("click", () => {
+			if (classContainer.children.length > 0) {
+				classContainer.removeChild(
+					classContainer.lastElementChild
+				);
+			}
+		});
+
 		removeMovement.addEventListener("click", () => {
 			if (movementContainer.children.length > 0) {
 				movementContainer.removeChild(
@@ -184,6 +199,59 @@
 				);
 			}
 		});
+
+		// Display If:
+		if (addTitleBtn && titleForm) {
+			addTitleBtn.addEventListener("click", () => {
+				titleForm.style.display = "block";
+				addTitleBtn.style.display = "none";
+			});
+		}
+
+		if (addAchievementBtn && achievementForm) {
+			addAchievementBtn.addEventListener("click", () => {
+				achievementForm.style.display = "block";
+				addAchievementBtn.style.display = "none";
+			});
+		}
+
+		if (addScarBtn && scarForm) {
+			addScarBtn.addEventListener("click", () => {
+				scarForm.style.display = "block";
+				addScarBtn.style.display = "none";
+			});
+		}
+
+		if (addGalleryBtn && galleryForm) {
+			addGalleryBtn.addEventListener("click", () => {
+				galleryForm.style.display = "block";
+				addGalleryBtn.style.display = "none";
+			});
+		}
+
+		if (hasLocationSelect && titleLocationWrapper) {
+			function updateLocationVisibility() {
+				titleLocationWrapper.style.display =
+					hasLocationSelect.value === "true"
+						? "block"
+						: "none";
+			}
+
+			hasLocationSelect.addEventListener("change", updateLocationVisibility);
+			updateLocationVisibility();
+		}
+
+		if (adjustRanking && adjustValueWrapper) {
+
+			function updateAdjustVisibility() {
+				adjustValueWrapper.style.display =
+					adjustRanking.value
+						? "block"
+						: "none";
+			}
+			adjustRanking.addEventListener("change", updateAdjustVisibility);
+			updateAdjustVisibility();
+		}
 
 		// Future Feature: Secret Religion
 		// Secret Religion

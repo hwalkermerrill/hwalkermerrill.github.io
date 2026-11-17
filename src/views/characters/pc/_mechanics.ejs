@@ -146,7 +146,35 @@
 	<h2>Movement</h2>
 
 	<div id="movement-container">
-		<!-- Intentionally empty, populated via script -->
+		<% if (pc.speeds && pc.speeds.length) { %>
+		<% pc.speeds.forEach((speed, index) => { %>
+		<div class="movement-row">
+			<div class="form-row">
+
+				<div class="form-field">
+					<label> Movement Type </label>
+					<select name="speeds[<%= index %>][speed_id]">
+
+						<option value=""> Select Movement </option>
+
+						<% speeds.forEach(speedOption => { %>
+						<option value="<%= speedOption.id %>"
+							<%= Number(speedOption.id) === Number(speed.speed_id) ? "selected" : "" %>>
+							<%= speedOption.name %>
+						</option>
+						<% }) %>
+					</select>
+				</div>
+
+				<div class="form-field">
+					<label> Speed Value </label>
+					<input type="number" min="0" name="speeds[<%= index %>][speed_value]" value="<%= speed.speed_value || 30 %>">
+				</div>
+
+			</div>
+		</div>
+		<% }) %>
+		<% } %>
 	</div>
 
 	<button type="button" class="btn fmt-btn" id="add-movement">

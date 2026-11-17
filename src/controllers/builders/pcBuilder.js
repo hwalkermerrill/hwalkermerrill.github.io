@@ -686,7 +686,7 @@ async function removePcTitleController(req, res) {
 	}
 
 	try {
-		await removeCharacterTitle("pc", pcId, req.body);
+		await removeCharacterTitle("pc", Number(req.body.title_row_id));
 		req.flash("success", "Title removed.");
 	}
 	catch (err) {
@@ -721,7 +721,7 @@ async function addPcAchievementController(req, res) {
 	}
 
 	try {
-		await addCharacterAchievement("pc", pcId, req.body);
+		await addCharacterAchievement("pc", pcId, Number(req.body.achievement_id), req.body.is_killing_blow === "true");
 		req.flash("success", "Achievement added.");
 	}
 	catch (err) {
@@ -756,7 +756,7 @@ async function removePcAchievementController(req, res) {
 	}
 
 	try {
-		await removeCharacterAchievement("pc", pcId, req.body);
+		await removeCharacterAchievement("pc", pcId, Number(req.body.achievement_id));
 		req.flash("success", "Achievement removed.");
 	}
 	catch (err) {
@@ -826,7 +826,7 @@ async function removePcScarController(req, res) {
 	}
 
 	try {
-		await removeCharacterScar("pc", pcId, req.body);
+		await removeCharacterScar("pc", Number(req.body.scar_id));
 		req.flash("success", "Scar removed.");
 	}
 	catch (err) {
@@ -1196,7 +1196,7 @@ async function removeCompanionTitleController(req, res) {
 	}
 
 	try {
-		await removeCharacterTitle("companion", companionId, req.body);
+		await removeCharacterTitle("companion", Number(req.body.title_row_id));
 		req.flash("success", "Title removed.");
 	}
 	catch (err) {
@@ -1231,7 +1231,7 @@ async function addCompanionAchievementController(req, res) {
 	}
 
 	try {
-		await addCharacterAchievement("companion", companionId, req.body);
+		await addCharacterAchievement("companion", companionId, Number(req.body.achievement_id), req.body.is_killing_blow === "true");
 		req.flash("success", "Achievement added.");
 	}
 	catch (err) {
@@ -1266,7 +1266,7 @@ async function removeCompanionAchievementController(req, res) {
 	}
 
 	try {
-		await removeCharacterAchievement("companion", companionId, req.body);
+		await removeCharacterAchievement("companion", companionId, Number(req.body.achievement_id));
 		req.flash("success", "Achievement removed.");
 	}
 	catch (err) {
@@ -1336,7 +1336,7 @@ async function removeCompanionScarController(req, res) {
 	}
 
 	try {
-		await removeCharacterScar("companion", companionId, req.body);
+		await removeCharacterScar("companion", Number(req.body.scar_id));
 		req.flash("success", "Scar removed.");
 	}
 	catch (err) {
