@@ -211,6 +211,9 @@
 <div class="note-form">
 	<h2>Gallery Images</h2>
 
+	<!-- Feature to Add: -->
+	<!-- Display current images with the details and edit buttons -->
+
 	<% if (pc.gallery && pc.gallery.length) { %>
 	<% pc.gallery.forEach(g => { %>
 	<form action="/builder/pc/<%= pc.id %>/edit/gallery/<%= g.gallery_id %>/update" method="POST" class="gallery-row">

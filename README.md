@@ -126,6 +126,7 @@ A great deal of content needs to be created for this newest campaign.
 
 ## Current Minor Bugs or Visual Errors
 
+- Link validator overly cumbersome, does not allow most foreign links. Needs revision.
 - Database data for tribes does not match hardcoded home data exactly. Minor corrections in wording need to be addressed.
 - Remove development objects from production.
 - Increase top and bottom padding for form entry boxes, as well as internal margin and spacing between form boxes.
