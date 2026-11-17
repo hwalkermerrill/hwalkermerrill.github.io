@@ -139,7 +139,7 @@ async function showCharacterDashboard(req, res) {
 
 		res.render("characters/playerList", {
 			title: "Manage PCs & Companions",
-			activePage: "dashboard",
+			activePage: "character",
 			campaigns,
 			campaign_id: campaignId,
 			active_status,
@@ -334,7 +334,7 @@ async function showCreatePcForm(req, res) {
 
 	res.render("characters/pc/form", {
 		title: "Create PC",
-		activePage: "dashboard",
+		activePage: "character",
 		formMode: "create",
 		activeTab: req.query.tab || "main",
 		pc: null,
@@ -357,7 +357,7 @@ async function showCreateCompanionForm(req, res) {
 
 	res.render("characters/companion/form", {
 		title: "Create Companion",
-		activePage: "dashboard",
+		activePage: "character",
 		formMode: "create",
 		activeTab: req.query.tab || "main",
 		companion: null,
@@ -390,7 +390,7 @@ async function showEditPcForm(req, res) {
 
 	res.render("characters/pc/form", {
 		title: `Edit PC: ${pc.pc_name}`,
-		activePage: "dashboard",
+		activePage: "character",
 		formMode: "edit",
 		activeTab: req.query.tab || "main",
 		pc,
@@ -423,7 +423,7 @@ async function showEditCompanionForm(req, res) {
 
 	res.render("characters/companion/form", {
 		title: `Edit Companion: ${companion.companion_name}`,
-		activePage: "dashboard",
+		activePage: "character",
 		formMode: "edit",
 		activeTab: req.query.tab || "main",
 		companion,
