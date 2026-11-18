@@ -44,24 +44,27 @@ function validateImgUrl(url) {
 	// Must not contain whitespace
 	if (/\s/.test(url)) return false;
 
-	// Allow absolute URLs
-	if (/^https?:\/\//i.test(url)) {
-		// Must end with a common image extension
-		return /\.(png|jpg|jpeg|gif|webp)$/i.test(url);
+	// Only absolute URLS and relative URLS starting with "/"
+	if (!/^https?:\/\//i.test(url) && !url.startsWith("/")) {
+		return false;
 	}
 
-	// Allow relative URLs starting with /
-	if (url.startsWith("/")) {
-		// Must end with a common image extension
-		return /\.(png|jpg|jpeg|gif|webp)$/i.test(url);
-	}
+	// Must end with a common image extension, allowing query parameters
+	return /\.(png|jpg|jpeg|gif|webp)(\?.*)?$/i.test(url);
+}
 
-	// Everything else is invalid
-	return false;
+function normalizeInt(value) {
+	if (
+		value === undefined ||
+		value === null ||
+		String(value).trim() === ""
+	) { return null; }
+	return Number(value);
 }
 
 // Exports
 export {
 	sanitizeText,
 	validateImgUrl,
+	normalizeInt
 };

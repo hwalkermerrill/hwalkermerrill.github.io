@@ -5,17 +5,19 @@
 
 		<div class="form-field">
 			<label>STR</label>
-			<input type="number" name="attributes[strength]" value="">
+			<input type="number" name="attributes[strength]" placeholder="10"
+				value="<%= pc.attributes?.[0]?.strength || '' %>">
 		</div>
 
 		<div class="form-field">
 			<label>DEX</label>
-			<input type="number" name="attributes[dexterity]" value="">
+			<input type="number" name="attributes[dexterity]" placeholder="10"
+				value="<%= pc.attributes?.[0]?.dexterity || '' %>">
 		</div>
 
 		<div class="form-field">
 			<label>CON</label>
-			<input type="number" name="attributes[constitution]" value="">
+			<input type="number" name="attributes[constitution]" value="<%= pc.attributes?.[0]?.constitution || '' %>">
 		</div>
 
 	</div>
@@ -24,17 +26,19 @@
 
 		<div class="form-field">
 			<label>INT</label>
-			<input type="number" name="attributes[intelligence]" value="">
+			<input type="number" name="attributes[intelligence]" placeholder="10"
+				value="<%= pc.attributes?.[0]?.intelligence || '' %>">
 		</div>
 
 		<div class="form-field">
 			<label>WIS</label>
-			<input type="number" name="attributes[wisdom]" value="">
+			<input type="number" name="attributes[wisdom]" placeholder="10" value="<%= pc.attributes?.[0]?.wisdom || '' %>">
 		</div>
 
 		<div class="form-field">
 			<label>CHA</label>
-			<input type="number" name="attributes[charisma]" value="">
+			<input type="number" name="attributes[charisma]" placeholder="10"
+				value="<%= pc.attributes?.[0]?.charisma || '' %>">
 		</div>
 
 	</div>
@@ -43,12 +47,13 @@
 
 		<div class="form-field">
 			<label for="alignment">Alignment</label>
-			<input type="text" id="alignment" name="attributes[alignment]" value="">
+			<input type="text" id="alignment" name="attributes[alignment]" placeholder="Neutral"
+				value="<%= pc.attributes?.[0]?.alignment || '' %>">
 		</div>
 
 		<div class="form-field">
 			<label>Attribute Notes</label>
-			<textarea rows="4" name="attributes[notes]"></textarea>
+			<textarea rows="4" name="attributes[notes]" value="<%= pc.stats?.[0]?.main_ac || '' %>"></textarea>
 		</div>
 
 	</div>
@@ -59,17 +64,17 @@
 
 		<div class="form-field">
 			<label>AC</label>
-			<input type="number" name="stats[main_ac]">
+			<input type="number" name="stats[main_ac]" placeholder="10" value="<%= pc.stats?.[0]?.main_ac || '' %>">
 		</div>
 
 		<div class="form-field">
 			<label>Flat AC</label>
-			<input type="number" name="stats[flat_ac]">
+			<input type="number" name="stats[flat_ac]" placeholder="10" value="<%= pc.stats?.[0]?.flat_ac || '' %>">
 		</div>
 
 		<div class="form-field">
 			<label>Touch AC</label>
-			<input type="number" name="stats[touch_ac]">
+			<input type="number" name="stats[touch_ac]" placeholder="10" value="<%= pc.stats?.[0]?.touch_ac || '' %>">
 		</div>
 
 	</div>
@@ -78,19 +83,19 @@
 
 		<div class="form-field">
 			<label>CMD</label>
-			<input type="number" name="stats[cmd]">
+			<input type="number" name="stats[cmd]" placeholder="10" value="<%= pc.stats?.[0]?.cmd || '' %>">
 		</div>
 
 		<div class="form-field">
 			<label>Max HP</label>
-			<input type="number" name="stats[max_hp]">
+			<input type="number" name="stats[max_hp]" placeholder="8" value="<%= pc.stats?.[0]?.max_hp || '' %>">
 		</div>
 
 	</div>
 
 	<div class="form-field">
 		<label>Conditional Modifiers</label>
-		<textarea rows="4" name="stats[notes]"></textarea>
+		<textarea rows="4" name="stats[notes]"><%= pc.stats?.[0]?.notes || '' %></textarea>
 	</div>
 
 	<h2>Skills & Saves</h2>
@@ -99,17 +104,38 @@
 
 		<div class="form-field">
 			<label>Initiative</label>
-			<input type="number" name="skills[initiative]">
+			<input type="number" name="skills[initiative]" placeholder="0" value="<%= pc.skills?.[0]?.initiative || '' %>">
 		</div>
 
 		<div class="form-field">
 			<label>Perception</label>
-			<input type="number" name="skills[perception]">
+			<input type="number" name="skills[perception]" placeholder="0" value="<%= pc.skills?.[0]?.perception || '' %>">
 		</div>
 
 		<div class="form-field">
 			<label>Sense Motive</label>
-			<input type="number" name="skills[sense_motive]">
+			<input type="number" name="skills[sense_motive]" placeholder="0"
+				value="<%= pc.skills?.[0]?.sense_motive || '' %>">
+		</div>
+
+	</div>
+
+	<div class="form-row">
+
+		<div class="form-field">
+			<label>Disguise</label>
+			<input type="number" name="skills[disguise]" placeholder="0" value="<%= pc.skills?.[0]?.disguise || '' %>">
+		</div>
+
+		<div class="form-field">
+			<label>Stealth</label>
+			<input type="number" name="skills[stealth]" placeholder="0" value="<%= pc.skills?.[0]?.stealth || '' %>">
+		</div>
+
+		<div class="form-field">
+			<label>Disable Device</label>
+			<input type="number" name="skills[disable_device]" placeholder="0"
+				value="<%= pc.skills?.[0]?.disable_device || '' %>">
 		</div>
 
 	</div>
@@ -118,29 +144,29 @@
 
 		<div class="form-field">
 			<label>Reflex</label>
-			<input type="number" name="skills[reflex]">
+			<input type="number" name="skills[reflex]" placeholder="0" value="<%= pc.skills?.[0]?.reflex || '' %>">
 		</div>
 
 		<div class="form-field">
 			<label>Fortitude</label>
-			<input type="number" name="skills[fortitude]">
+			<input type="number" name="skills[fortitude]" placeholder="0" value="<%= pc.skills?.[0]?.fortitude || '' %>">
 		</div>
 
 		<div class="form-field">
 			<label>Will</label>
-			<input type="number" name="skills[will]">
+			<input type="number" name="skills[will]" placeholder="0" value="<%= pc.skills?.[0]?.will || '' %>">
 		</div>
 
 	</div>
 
 	<div class="form-field">
 		<label>Specials (Rerolls, Autos, Extra Dice)</label>
-		<textarea rows="4" name="skills[rerolls]"></textarea>
+		<textarea rows="4" name="skills[rerolls]"><%= pc.skills?.[0]?.rerolls || '' %></textarea>
 	</div>
 
 	<div class="form-field">
 		<label>Conditional Modifiers</label>
-		<textarea rows="4" name="skills[notes]"></textarea>
+		<textarea rows="4" name="skills[notes]"><%= pc.skills?.[0]?.notes || '' %></textarea>
 	</div>
 
 	<h2>Movement</h2>

@@ -34,35 +34,33 @@
 
 	<!-- Names -->
 	<div class="form-row">
-
 		<div class="form-field">
 			<label for="pc_name">Character Name</label>
 			<input type="text" id="pc_name" name="pc_name" maxlength="255" required value="<%= pc ? pc.pc_name : '' %>">
 		</div>
-
-		<div class="form-field">
-			<label for="unknown_name">Unknown Name</label>
-			<input type="text" id="unknown_name" name="unknown_name" maxlength="255"
-				value="<%= pc ? (pc.unknown_name || '') : 'Unknown' %>">
-		</div>
-
 	</div>
 
 	<!-- Identified -->
 	<div class="form-row">
 		<div class="form-field">
-			<label for="is_identified">Identified</label>
+			<label for="is_identified">Has the Party Met You?</label>
 			<select id="is_identified" name="is_identified">
 
 				<option value="false" <%= pc && !pc.is_identified ? "selected" : "" %>>
-					Unidentified
+					Has NOT Been Introduced
 				</option>
 
 				<option value="true" <%= pc && pc.is_identified ? "selected" : "" %>>
-					Identified
+					Has Been Introduced
 				</option>
 
 			</select>
+		</div>
+
+		<div class="form-field">
+			<label for="unknown_name">Name while Unidentified</label>
+			<input type="text" id="unknown_name" name="unknown_name" maxlength="255"
+				value="<%= pc ? (pc.unknown_name || '') : 'Unknown' %>">
 		</div>
 	</div>
 
@@ -70,19 +68,20 @@
 	<div class="form-row">
 
 		<div class="form-field">
-			<label for="secret_name">Secret Name</label>
+			<label for="secret_name">Secret Identity</label>
 			<input type="text" id="secret_name" name="secret_name" maxlength="255"
-				value="<%= pc ? (pc.secret_name || '') : '' %>">
+				placeholder="Do you have a name you don't tell people?" value="<%= pc ? (pc.secret_name || '') : '' %>">
 		</div>
 
-		<div class="form-field">
+		<!-- Irregular Feature: Use secret colors for spirit animals/ special naming -->
+		<!-- <div class="form-field">
 			<label for="secret_color">Secret Color (Hex#)</label>
-			<input type="text" id="secret_color" name="secret_color" maxlength="64"
+			<input type="text" id="secret_color" name="secret_color" maxlength="64" placeholder="Leave blank unless told otherwise"
 				value="<%= pc ? (pc.secret_color || '') : '' %>">
-		</div>
+		</div> -->
 
 		<div class="form-field">
-			<label for="show_secret_name">Reveal Secret Name</label>
+			<label for="show_secret_name">Reveal Secret Identity</label>
 			<select id="show_secret_name" name="show_secret_name">
 
 				<option value="false" <%= pc && !pc.show_secret_name ? "selected" : "" %>>
@@ -134,7 +133,12 @@
 	<!-- Description -->
 	<div class="form-field">
 		<label for="description">Description</label>
-		<textarea id="description" name="description" rows="6"><%= pc && pc.description ? pc.description : '' %></textarea>
+		<p>This space can be as full or empty as you like and is hidden from other
+			players - its just for you and the GM. Use this field to describe your character concept, motivations for
+			adventuring, and any background details you'd like to help you build your character. Feel free to add to this as
+			your story progresses.</p>
+		<textarea id="description" name="description" rows="6"
+			placeholder="Describe your character concept, background, or anything else that helps you and the GM understand the character."><%= pc && pc.description ? pc.description : '' %></textarea>
 	</div>
 
 	<!-- Edit Only Fields -->
@@ -142,19 +146,22 @@
 
 	<div class="form-row">
 
-		<div class="form-field">
+		<div class="form-field" id="retired-reason-wrapper">
 			<label for="retired_reason">Retired Reason</label>
 			<textarea id="retired_reason" name="retired_reason" rows="4"><%= pc.retired_reason || '' %></textarea>
 		</div>
 
-		<div class="form-field">
+		<div class="form-field" id="death-cause-wrapper">
 			<label for="death_cause">Death Cause</label>
 			<textarea id="death_cause" name="death_cause" rows="4"><%= pc.death_cause || '' %></textarea>
 		</div>
 
-		<div class="form-field">
-			<label for="end_session">End Session</label>
-			<input type="number" id="end_session" name="end_session" min="1" value="<%= pc.end_session || '' %>">
+		<!-- Feature to Add: -->
+		<!-- Add a current session feature. Once implemented, have this value default to the current session number, but ONLY while the status is set to 3 or 4 -->
+		<div class="form-field" id="end-session-wrapper">
+			<label for="end_session">Final Session Number</label>
+			<input type="number" id="end_session" name="end_session" min="1" placeholder="Cannot be left blank"
+				value="<%= pc.end_session || '' %>">
 		</div>
 
 	</div>
@@ -174,7 +181,7 @@
 	<div class="form-actions">
 
 		<button type="submit" class="btn btn-primary">
-			<%= formMode === "edit" ? "Save Main Information" : "Create Character" %>
+			<%= formMode === "edit" ? "Save Main Information and Continue" : "Create Character" %>
 		</button>
 
 		<a href="/builder/characters" class="btn fmt-btn">

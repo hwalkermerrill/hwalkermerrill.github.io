@@ -1,68 +1,89 @@
 <form action="/builder/pc/<%= pc.id %>/edit/social" method="POST" class="note-form">
-
 	<!-- Appearance -->
 	<div class="form-field">
 		<label for="appearance"> Appearance </label>
+		<p>A single paragraph describing your characters physical appearance. This is public and is always visible.</p>
 		<textarea id="appearance" name="appearance" rows="6"><%= pc?.social?.appearance || '' %></textarea>
 	</div>
 
 	<!-- Background -->
 	<div class="form-field">
 		<label for="background"> Background </label>
+		<p>A single paragraph describing your characters public background, or what the average person has heard about you,
+			from before you joined the party. This is public and is visible immediately upon being introduced.</p>
 		<textarea id="background" name="background" rows="8"><%= pc?.social?.background || '' %></textarea>
 	</div>
 
 	<!-- Associates -->
 	<div class="form-field">
-		<label for="associates"> Associates </label>
+		<label for="associates"> Associates (Optional)</label>
+		<p>A list of publicly known associates, such as family, friends, colleagues, and enemies.</p>
 		<textarea id="associates" name="associates" rows="4"><%= pc?.social?.associates || '' %></textarea>
 	</div>
 
 	<!-- Rumors -->
 	<div class="form-field">
-		<label for="rumors"> Rumors </label>
+		<label for="rumors"> Rumors (Optional)</label>
+		<p>A rumor or two that people may have heard about you.</p>
 		<textarea id="rumors" name="rumors" rows="4"><%= pc?.social?.rumors || '' %></textarea>
 	</div>
 
 	<!-- Aspirations -->
 	<div class="form-field">
-		<label for="aspirations"> Aspirations </label>
+		<label for="aspirations"> Aspirations (Min: 1, Max: 3)</label>
+		<p>Clearly actionable goals of your character, which have an obvious and reachable end point.</p>
 		<textarea id="aspirations" name="aspirations" rows="4"><%= pc?.social?.aspirations || '' %></textarea>
 	</div>
 
 	<!-- Anathema / Phobias -->
-	<div class="form-row">
+	<div class="form-field">
+		<label for="anathema"> Anathema (Required: 1)</label>
+		<p>One action that you cannot abide - you will never willingly do them or tolerate it happening. The antithesis of
+			who you are and what you stand for.</p>
+		<textarea id="anathema" name="anathema" rows="4"><%= pc?.social?.anathema || '' %></textarea>
+	</div>
 
-		<div class="form-field">
-			<label for="anathema"> Anathema </label>
-			<textarea id="anathema" name="anathema" rows="4"><%= pc?.social?.anathema || '' %></textarea>
-		</div>
-
-		<div class="form-field">
-			<label for="phobias"> Phobias </label>
-			<textarea id="phobias" name="phobias" rows="4"><%= pc?.social?.phobias || '' %></textarea>
-		</div>
-
+	<div class="form-field">
+		<label for="phobias"> Phobias (Min: 1)</label>
+		<p>At least one tangible fear your character possesses. When confronted with your fears, you may become shaken or
+			frightened, or you may gain the power to overcome them.</p>
+		<textarea id="phobias" name="phobias" rows="4"><%= pc?.social?.phobias || '' %></textarea>
 	</div>
 
 	<!-- Quirks / Flaws -->
-	<div class="form-row">
+	<h3>Two Quirks and a Flaw!</h3>
+	<p><em>When you choose an attribute or trait to use as a quirk or flaw, you can dig deeper into
+			the concept by asking yourself how and why. If you're shy, how shy are you? So shy that you can never look anyone
+			directly in the eye? If you're paranoid, why are you paranoid? Maybe everyone you've ever trusted betrayed you?
+			Homing in on desires and fears will help answer those questions.</em></p>
 
-		<div class="form-field">
-			<label for="quirks"> Quirks </label>
-			<textarea id="quirks" name="quirks" rows="4"><%= pc?.social?.quirks || '' %></textarea>
-		</div>
+	<div class="form-field">
+		<label for="quirks"> Quirks (Min: 2)</label>
+		<p>Quirks are specific attributes of your personality or psyche: character traits, compulsions, eccentricities, or
+			uncommon physical features. These shouldn't be commonplace or mundane.
+			<q>Tall</q> is a poor one, but <q>too big for my body</q> could be great.
+			<q>Charismatic</q> is weak, but <q>flirts with nearly everybody I meet</q> is specific and actionable.
+			<q>Homebody</q> is not as good a quirk as <q>feels tired, uncomfortable, and hungry away from home.</q>
+		</p>
+		<textarea id="quirks" name="quirks" rows="4"><%= pc?.social?.quirks || '' %></textarea>
+	</div>
 
-		<div class="form-field">
-			<label for="flaws"> Flaws </label>
-			<textarea id="flaws" name="flaws" rows="4"><%= pc?.social?.flaws || '' %></textarea>
-		</div>
-
+	<div class="form-field">
+		<label for="flaws"> Flaws (Min: 1)</label>
+		<p>Similar to quirks, flaws are the shortcomings that make your character real and should be considered in the
+			same way.
+			Instead of merely being <q>arrogant,</q> maybe you <q>believe you're smarter than anyone else you know.</q>
+			Perhaps you're not so much <q>proud</q> as <q>afraid of being wrong and looking stupid.</q>
+			Rather than <q>greedy,</q> you may be <q>terrified of dying poor and hungry.</q>
+		</p>
+		<textarea id="flaws" name="flaws" rows="4"><%= pc?.social?.flaws || '' %></textarea>
 	</div>
 
 	<!-- Secrets -->
 	<div class="form-field">
-		<label for="secrets"> Secrets </label>
+		<label for="secrets"> Secrets (Optional)</label>
+		<p>Making note of your characters secrets can help bring them to life. They may start with some serious ones, or
+			they may not have any at all, but they should be recorded and managed here.</p>
 		<textarea id="secrets" name="secrets" rows="6"><%= pc?.social?.secrets || '' %></textarea>
 	</div>
 
@@ -79,7 +100,7 @@
 	<div class="form-actions">
 
 		<button type="submit" class="btn btn-primary">
-			Save Social Profile
+			Save Social Profile and Continue
 		</button>
 
 		<a href="/builder/pc/<%= pc.id %>/edit?tab=main" class="btn fmt-btn">

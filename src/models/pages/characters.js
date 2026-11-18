@@ -1,6 +1,6 @@
 // Imports
 import db from "../db.js";
-import { sanitizeText, validateImgUrl } from "../../utils/validation.js";
+import { sanitizeText, validateImgUrl, normalizeInt } from "../../utils/validation.js";
 import { normalizeToArray } from "../../utils/normalization.js";
 import { getGalleryEntries, addGalleryEntry, deleteGalleryEntries, updateGalleryEntries } from "../helpers/gallery.js";
 
@@ -157,6 +157,28 @@ const MERCHANT_JOIN = (type) => `
     ON md.merchant_id = m.id
 `;
 
+const ATTRIBUTES_JOIN = (type) => `
+  LEFT JOIN ${type}_attributes attr
+    ON attr.${type}_id = character.id
+`;
+
+const STATS_JOIN = (type) => `
+  LEFT JOIN ${type}_stats stat
+    ON stat.${type}_id = character.id
+`;
+
+const SKILLS_JOIN = (type) => `
+  LEFT JOIN ${type}_skills skill
+    ON skill.${type}_id = character.id
+`;
+
+const SPEEDS_JOIN = (type) => `
+  LEFT JOIN ${type}_speed spd
+    ON spd.${type}_id = character.id
+  LEFT JOIN speed s
+    ON s.id = spd.speed_id
+`;
+
 // Helpers - Group By
 const SOCIAL_GROUP_BY = (type) => {
 	switch (type) {
@@ -245,7 +267,13 @@ const SELECT_LANGUAGES_AGG = `
 `;
 
 const SELECT_RELIGIONS_AGG = `
-  json_agg(rel.religion_id) FILTER (WHERE rel.religion_id IS NOT NULL) AS religions
+  json_agg(
+    jsonb_build_object(
+      'religion_id', rel.religion_id,
+      'notes', rel.notes,
+      'secrets', rel.secrets
+    )
+  ) FILTER (WHERE rel.religion_id IS NOT NULL) AS religions
 `;
 
 const SELECT_ATTITUDE_OBJECT = `
@@ -272,6 +300,62 @@ const SELECT_ATTITUDE_OBJECT = `
       'secrets', att.secrets
     )
   ) FILTER (WHERE att.attitude_id IS NOT NULL) AS attitude
+`;
+
+const SELECT_ATTRIBUTES_OBJECT = `
+  jsonb_agg(
+    jsonb_build_object(
+      'alignment', attr.alignment,
+      'strength', attr.strength,
+      'dexterity', attr.dexterity,
+      'constitution', attr.constitution,
+      'intelligence', attr.intelligence,
+      'wisdom', attr.wisdom,
+      'charisma', attr.charisma,
+      'notes', attr.notes
+    )
+  ) FILTER (WHERE attr.id IS NOT NULL) AS attributes
+`;
+
+const SELECT_STATS_OBJECT = `
+  jsonb_agg(
+    jsonb_build_object(
+      'main_ac', stat.main_ac,
+      'flat_ac', stat.flat_ac,
+      'touch_ac', stat.touch_ac,
+      'cmd', stat.cmd,
+      'max_hp', stat.max_hp,
+      'notes', stat.notes
+    )
+  ) FILTER (WHERE stat.id IS NOT NULL) AS stats
+`;
+
+const SELECT_SKILLS_OBJECT = `
+  jsonb_agg(
+    jsonb_build_object(
+      'initiative', skill.initiative,
+      'perception', skill.perception,
+      'sense_motive', skill.sense_motive,
+      'disguise', skill.disguise,
+      'stealth', skill.stealth,
+      'disable_device', skill.disable_device,
+      'reflex', skill.reflex,
+      'fortitude', skill.fortitude,
+      'will', skill.will,
+      'rerolls', skill.rerolls,
+      'notes', skill.notes
+    )
+  ) FILTER (WHERE skill.id IS NOT NULL) AS skills
+`;
+
+const SELECT_SPEEDS_AGG = `
+  json_agg(
+    jsonb_build_object(
+      'speed_id', spd.speed_id,
+      'speed_value', spd.speed_value,
+      'speed_name', s.speed_name
+    )
+  ) FILTER (WHERE spd.speed_id IS NOT NULL) AS speeds
 `;
 
 const SELECT_MERCHANT_AGG = `
@@ -371,6 +455,10 @@ function buildCharacterQuery({ type, whereClause }) {
       ${type === "pc" || type === "companion" ? SELECT_CLASSES_AGG : "NULL AS classes"},
       ${type === "pc" || type === "companion" ? SELECT_SCARS_AGG : "NULL AS scars"},
       ${type === "pc" || type === "companion" ? SELECT_ACHIEVEMENTS_AGG : "NULL AS achievements"},
+      ${type === "pc" || type === "companion" ? SELECT_ATTRIBUTES_OBJECT : "NULL AS attributes"},
+      ${type === "pc" || type === "companion" ? SELECT_STATS_OBJECT : "NULL AS stats"},
+      ${type === "pc" || type === "companion" ? SELECT_SKILLS_OBJECT : "NULL AS skills"},
+      ${type === "pc" || type === "companion" ? SELECT_SPEEDS_AGG : "NULL AS speeds"},
       ${type === "npc" || type === "faction" ? SELECT_ATTITUDE_OBJECT : "NULL AS attitude"},
       ${type === "npc" || type === "faction" ? SELECT_QUESTS_AGG : "NULL AS quests"},
       ${type === "npc" || type === "faction" ? SELECT_MERCHANT_AGG : "NULL AS merchant"}
@@ -384,8 +472,12 @@ function buildCharacterQuery({ type, whereClause }) {
     ${type === "pc" || type === "companion" || type === "npc" ? LANGUAGES_JOIN(type) : ""}
     ${type === "pc" || type === "companion" || type === "npc" ? RELIGION_JOIN(type) : ""}
     ${type === "pc" || type === "companion" ? CLASSES_JOIN(type) : ""}
-    ${type === "pc" || type === "companion" ? ACHIEVEMENTS_JOIN(type) : ""}
     ${type === "pc" || type === "companion" ? SCARS_JOIN(type) : ""}
+    ${type === "pc" || type === "companion" ? ACHIEVEMENTS_JOIN(type) : ""}
+    ${type === "pc" || type === "companion" ? ATTRIBUTES_JOIN(type) : ""}
+    ${type === "pc" || type === "companion" ? STATS_JOIN(type) : ""}
+    ${type === "pc" || type === "companion" ? SKILLS_JOIN(type) : ""}
+    ${type === "pc" || type === "companion" ? SPEEDS_JOIN(type) : ""}
     ${type === "npc" || type === "faction" ? ATTITUDE_JOIN(type) : ""}
     ${type === "npc" || type === "faction" ? QUESTS_JOIN(type) : ""}
     ${type === "npc" || type === "faction" ? MERCHANT_JOIN(type) : ""}
@@ -783,7 +875,7 @@ const updatePcMain = async (pcId, data) => {
 		sanitizeText(description),
 		sanitizeText(retired_reason),
 		sanitizeText(death_cause),
-		end_session,
+		normalizeInt(end_session),
 		pcId
 	]);
 };
@@ -1125,7 +1217,7 @@ const updateCompanionMain = async (companionId, data) => {
 		is_female,
 		sanitizeText(description),
 		sanitizeText(death_cause),
-		end_session,
+		normalizeInt(end_session),
 		companionId
 	]);
 };
@@ -1482,7 +1574,7 @@ const updateNpcMain = async (npcId, data) => {
 		sanitizeText(secrets),
 		sanitizeText(retired_reason),
 		sanitizeText(death_cause),
-		end_session,
+		normalizeInt(end_session),
 		pinned,
 		npc_group || null,
 		npcId
@@ -1760,30 +1852,21 @@ const updateFactionMain = async (factionId, data) => {
 
 	const {
 		active_status_id,
-
 		faction_name,
 		unknown_name,
-
 		is_identified,
-
 		secret_name,
 		show_secret_name,
 		secret_color,
-
 		faction_type,
-
 		description,
 		secrets,
-
 		pinned,
-
 		progress_able,
 		progress_made,
 		progress_threshold,
-
 		death_cause,
 		retired_reason,
-
 		start_session,
 		end_session
 	} = data;
@@ -1792,63 +1875,43 @@ const updateFactionMain = async (factionId, data) => {
 		UPDATE factions
 		SET
 			active_status_id = $1,
-
 			faction_name = $2,
 			unknown_name = $3,
-
 			is_identified = $4,
-
 			secret_name = $5,
 			show_secret_name = $6,
 			secret_color = $7,
-
 			faction_type = $8,
-
 			description = $9,
 			secrets = $10,
-
 			pinned = $11,
-
 			progress_able = $12,
 			progress_made = $13,
 			progress_threshold = $14,
-
 			death_cause = $15,
 			retired_reason = $16,
-
 			start_session = $17,
 			end_session = $18
-
 		WHERE id = $19
 	`, [
 		active_status_id,
-
 		faction_name.trim(),
 		unknown_name,
-
 		is_identified,
-
 		sanitizeText(secret_name),
 		show_secret_name,
 		secret_color,
-
 		faction_type,
-
 		sanitizeText(description),
 		sanitizeText(secrets),
-
 		pinned,
-
 		progress_able,
 		Number(progress_made) || 0,
 		Number(progress_threshold) || 10,
-
 		sanitizeText(death_cause),
 		sanitizeText(retired_reason),
-
-		Number(start_session) || 1,
-		end_session,
-
+		normalizeInt(start_session) || 1,
+		normalizeInt(end_session),
 		factionId
 	]);
 };

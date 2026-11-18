@@ -55,6 +55,12 @@
 
 	document.addEventListener("DOMContentLoaded", () => {
 
+		// Status
+		const activeStatusSelect = document.getElementById("active_status_id");
+		const retiredReasonWrapper = document.getElementById("retired-reason-wrapper");
+		const deathCauseWrapper = document.getElementById("death-cause-wrapper");
+		const endSessionWrapper = document.getElementById("end-session-wrapper");
+
 		// Languages
 		const addLanguage = document.getElementById("add-language");
 		const removeLanguage = document.getElementById("remove-language");
@@ -138,7 +144,7 @@
 
 				<div class="form-field">
 					<label>Archetypes</label>
-					<input type="text" name="classes[${index}][archetypes]">
+					<input type="text" name="classes[${index}][archetypes]" placeholder="List your archetypes here. If your class serves a specific diety, append 'of x deity' here">
 				</div>
 			`;
 			classContainer.appendChild(row);
@@ -205,7 +211,32 @@
 			}
 		});
 
-		// Display If:
+		// Conditional Display If Statements:
+		if (activeStatusSelect && retiredReasonWrapper && deathCauseWrapper && endSessionWrapper) {
+			function updateStatusFields() {
+				const status = Number(activeStatusSelect.value);
+
+				// Hide everything first
+				retiredReasonWrapper.style.display = "none";
+				deathCauseWrapper.style.display = "none";
+				endSessionWrapper.style.display = "none";
+
+				// Retired
+				if (status === 3) {
+					retiredReasonWrapper.style.display = "block";
+					endSessionWrapper.style.display = "block";
+				}
+
+				// Deceased
+				if (status === 4) {
+					deathCauseWrapper.style.display = "block";
+					endSessionWrapper.style.display = "block";
+				}
+			}
+			activeStatusSelect.addEventListener("change", updateStatusFields);
+			updateStatusFields();
+		}
+
 		if (addTitleBtn && titleForm) {
 			addTitleBtn.addEventListener("click", () => {
 				titleForm.style.display = "block";

@@ -22,7 +22,8 @@
 
 		<div class="form-field">
 			<label for="race_traits"> Racial Traits </label>
-			<textarea id="race_traits" name="race_traits" rows="5"><%= pc?.race_traits || '' %></textarea>
+			<textarea id="race_traits" name="race_traits" rows="5"
+				placeholder="Record Racial Heritages or Traits Here"><%= pc?.race_traits || '' %></textarea>
 		</div>
 
 	</div>
@@ -37,9 +38,9 @@
 				<option value=""> Select Religion </option>
 
 				<% religions.forEach(religion => { %>
-				<option value="<%= religion.id %>" <%= (pc?.religions || []).includes(religion.id)
-              ? "selected"
-              : "" %>>
+				<option value="<%= religion.id %>" <%= (pc?.religions || []).some( r => Number(r.religion_id) === Number(religion.id))
+						? "selected"
+						: "" %>>
 					<%= religion.name %>
 				</option>
 				<% }) %>
@@ -49,14 +50,16 @@
 
 		<div class="form-field">
 			<label for="religion_notes"> Religion Notes </label>
-			<textarea id="religion_notes" name="religion_notes" rows="4"></textarea>
+			<textarea id="religion_notes" name="religion_notes" rows="4"
+				placeholder="Make any notes about your faith or practices here."><%= pc?.religions?.[0]?.notes || '' %></textarea>
 		</div>
 
 	</div>
 
 	<div class="form-field">
 		<label for="religion_secrets"> Religion Secrets </label>
-		<textarea id="religion_secrets" name="religion_secrets" rows="4"></textarea>
+		<textarea id="religion_secrets" name="religion_secrets" rows="4"
+			placeholder="If you have a secret faith, are secretly not devout, follow irregular practices, etc. make note of that here."><%= pc?.religions?.[0]?.secrets || '' %></textarea>
 	</div>
 
 	<!-- Future Feature: Secret Religion -->
@@ -184,7 +187,7 @@
 	<div class="form-actions">
 
 		<button type="submit" class="btn btn-primary">
-			Save Character Information
+			Save Character and Continue
 		</button>
 
 		<a href="/builder/pc/<%= pc.id %>/edit?tab=social" class="btn fmt-btn">
