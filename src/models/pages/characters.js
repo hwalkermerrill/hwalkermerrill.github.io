@@ -327,7 +327,6 @@ const SELECT_ATTITUDE_OBJECT = `
 const SELECT_ATTRIBUTES_OBJECT = `
   jsonb_agg(
     jsonb_build_object(
-      'alignment', attr.alignment,
       'strength', attr.strength,
       'dexterity', attr.dexterity,
       'constitution', attr.constitution,
@@ -595,7 +594,6 @@ const getFactionById = async (id) =>
 
 // Cross-Character Updaters
 const updateCharacterReligion = async (type, characterId, { religion_id, notes, secrets }) => {
-
 	const table = `${type}_religion`;
 	const column = `${type}_id`;
 
@@ -623,7 +621,6 @@ const updateCharacterReligion = async (type, characterId, { religion_id, notes, 
 };
 
 const updateCharacterRace = async (type, characterId, { race_id, race_traits }) => {
-
 	const table = `${type}_main`;
 
 	await db.query(`
@@ -662,8 +659,21 @@ const updateCharacterLanguage = async (type, characterId, languageIds) => {
 	}
 };
 
-const deleteCharacter = async (type, characterId) => {
+const updateCharacterAlignment = async (type, characterId, alignmentId) => {
+	const table = type === "faction" ? "factions" : `${type}_main`;
 
+	await db.query(`
+		UPDATE ${table}
+		SET alignment_id = $1
+		WHERE id = $2
+	`, [
+		alignmentId ? Number(alignmentId) : null,
+		characterId
+	]);
+
+};
+
+const deleteCharacter = async (type, characterId) => {
 	const table = type === "faction" ? "factions" : `${type}_main`;
 
 	await db.query(`
@@ -970,7 +980,6 @@ const updatePcMechanics = async (pcId, { attributes = {}, stats = {}, skills = {
 	await db.query(`
 		INSERT INTO pc_attributes (
 			pc_id,
-			alignment,
 			strength,
 			dexterity,
 			constitution,
@@ -985,7 +994,6 @@ const updatePcMechanics = async (pcId, { attributes = {}, stats = {}, skills = {
 		)
 	`, [
 		pcId,
-		attributes.alignment || "Neutral",
 		Number(attributes.strength) || 10,
 		Number(attributes.dexterity) || 10,
 		Number(attributes.constitution) || 10,
@@ -1311,7 +1319,6 @@ const updateCompanionMechanics = async (companionId, { attributes = {}, stats = 
 	await db.query(`
 		INSERT INTO companion_attributes (
 			companion_id,
-			alignment,
 			strength,
 			dexterity,
 			constitution,
@@ -1326,7 +1333,6 @@ const updateCompanionMechanics = async (companionId, { attributes = {}, stats = 
 		)
 	`, [
 		companionId,
-		attributes.alignment || "Neutral",
 		Number(attributes.strength) || 10,
 		Number(attributes.dexterity) || 10,
 		Number(attributes.constitution) || 10,
@@ -2150,7 +2156,7 @@ export {
 	getPCs, getCompanions, getNPCs, getFactions,
 	getPcById, getCompanionById, getNpcById, getFactionById,
 	updateCharacterCampaign, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterStatus, updateCharacterAttitudeId,
-	updateCharacterReligion, updateCharacterRace, updateCharacterLanguage, deleteCharacter,
+	updateCharacterReligion, updateCharacterRace, updateCharacterLanguage, updateCharacterAlignment, deleteCharacter,
 	addCharacterAchievement, addCharacterLanguage, addCharacterScar, addCharacterTitle,
 	removeCharacterAchievement, removeCharacterLanguage, removeCharacterScar, removeCharacterTitle,
 	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses, updatePcCampaignTrait,

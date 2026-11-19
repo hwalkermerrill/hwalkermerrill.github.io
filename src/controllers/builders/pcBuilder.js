@@ -2,7 +2,7 @@
 import {
 	getPCs, getCompanions, getPcById, getCompanionById,
 	updateCharacterStatus, updateCharacterIdentified, updateCharacterSecretVisibility, updateCharacterCampaign,
-	updateCharacterReligion, updateCharacterRace, updateCharacterLanguage, deleteCharacter,
+	updateCharacterReligion, updateCharacterRace, updateCharacterLanguage, updateCharacterAlignment, deleteCharacter,
 	addCharacterLanguage, addCharacterTitle, addCharacterAchievement, addCharacterScar,
 	removeCharacterLanguage, removeCharacterTitle, removeCharacterAchievement, removeCharacterScar,
 	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses, updatePcCampaignTrait,
@@ -11,7 +11,7 @@ import {
 import {
 	getCampaigns, getActiveStatus,
 	getPcByCampaign, getCompanionByCampaign, getCampaignTraits,
-	getRaces, getClasses, getReligions, getLanguages, getSpeeds, getTitles, getAchievements
+	getRaces, getClasses, getReligions, getLanguages, getSpeeds, getTitles, getAchievements, getAlignments
 } from "../../models/helpers/select.js";
 import { getGalleryEntries, addGalleryEntry, updateGalleryEntry, deleteGalleryEntry } from "../../models/helpers/gallery.js";
 import { hasRole } from "../../utils/permissions.js";
@@ -57,6 +57,7 @@ async function loadFormData(campaignId) {
 	const speeds = await getSpeeds();
 	const titles = await getTitles();
 	const achievements = await getAchievements();
+	const alignments = await getAlignments();
 
 	return {
 		pcs,
@@ -69,7 +70,8 @@ async function loadFormData(campaignId) {
 		languages,
 		speeds,
 		titles,
-		achievements
+		achievements,
+		alignments
 	};
 }
 
@@ -588,6 +590,7 @@ async function submitPcCharacterEdit(req, res) {
 		await updatePcCampaignTrait(pcId, req.body.campaign_trait_id);
 		await updatePcClasses(pcId, req.body.classes || []);
 		await updateCharacterLanguage("pc", pcId, normalizeToArray(req.body.language_ids));
+		await updateCharacterAlignment("pc", pcId, req.body.alignment_id);
 		req.flash("success", "Character information saved.");
 		return res.redirect(`/builder/pc/${pcId}/edit?tab=mechanics`);
 	}
@@ -1098,6 +1101,7 @@ async function submitCompanionCharacterEdit(req, res) {
 		});
 		await updateCompanionClasses(companionId, req.body.classes || []);
 		await updateCharacterLanguage("companion", companionId, normalizeToArray(req.body.language_ids));
+		await updateCharacterAlignment("companion", companionId, req.body.alignment_id);
 		req.flash("success", "Character information saved.");
 		return res.redirect(`/builder/companion/${companionId}/edit?tab=mechanics`);
 	}

@@ -31,8 +31,8 @@
   const searchString = searchParts.join(" ").trim();
 %>
 
-<section class="character-card <%= type %> <%= item.attitude_class || '' %>" data-type="<%= type %>"
-	data-name="<%= displayName %>" data-search="<%- searchString %>">
+<section class="character-card <%= type %> <%= item.attitude_class || '' %> <%= item.alignment_class || '' %>"
+	data-type="<%= type %>" data-name="<%= displayName %>" data-search="<%- searchString %>">
 
 	<!-- ========================= -->
 	<!--        NAME BLOCK         -->

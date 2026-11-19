@@ -44,18 +44,10 @@
 	</div>
 
 	<div class="form-row">
-
-		<div class="form-field">
-			<label for="alignment">Alignment</label>
-			<input type="text" id="alignment" name="attributes[alignment]" placeholder="Neutral"
-				value="<%= pc.attributes?.[0]?.alignment || '' %>">
-		</div>
-
 		<div class="form-field">
 			<label>Attribute Notes</label>
 			<textarea rows="4" name="attributes[notes]" value="<%= pc.stats?.[0]?.main_ac || '' %>"></textarea>
 		</div>
-
 	</div>
 
 	<h2>Combat Statistics</h2>

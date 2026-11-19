@@ -120,6 +120,11 @@ CREATE TABLE IF NOT EXISTS languages (
   is_ancient BOOLEAN NOT NULL DEFAULT FALSE,
   is_secret BOOLEAN NOT NULL DEFAULT FALSE
 );
+CREATE TABLE IF NOT EXISTS alignments (
+	id SERIAL PRIMARY KEY,
+	alignment_name VARCHAR(50) UNIQUE	NOT NULL,
+	sort_order INTEGER NOT NULL
+);
 -- END GLOBAL TABLES BLOCK
 
 -- START ACHIEVEMENTS AND TITLES TABLES BLOCK
@@ -173,6 +178,9 @@ CREATE TABLE IF NOT EXISTS pc_main (
     ON DELETE RESTRICT,
 	campaign_trait_id INTEGER DEFAULT NULL
 		REFERENCES campaign_traits (id)
+		ON DELETE SET NULL,
+	alignment_id INTEGER
+		REFERENCES alignments (id)
 		ON DELETE SET NULL,
   pc_name VARCHAR(255) NOT NULL,
   unknown_name VARCHAR(255) DEFAULT 'Unknown',
@@ -315,7 +323,6 @@ CREATE TABLE IF NOT EXISTS pc_attributes (
   pc_id INTEGER NOT NULL
     REFERENCES pc_main (id)
     ON DELETE CASCADE,
-  alignment VARCHAR(50) NOT NULL DEFAULT 'Neutral',
   strength INTEGER NOT NULL DEFAULT 10,
   dexterity INTEGER NOT NULL DEFAULT 10,
   constitution INTEGER NOT NULL DEFAULT 10,
@@ -388,6 +395,9 @@ CREATE TABLE IF NOT EXISTS companion_main (
   race_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
     REFERENCES race (id)
     ON DELETE RESTRICT,
+	alignment_id INTEGER
+		REFERENCES alignments (id)
+		ON DELETE SET NULL,
   companion_name VARCHAR(255) NOT NULL,
   secret_name VARCHAR (255),
   show_secret_name BOOLEAN NOT NULL DEFAULT FALSE,
@@ -520,7 +530,6 @@ CREATE TABLE IF NOT EXISTS companion_attributes (
   companion_id INTEGER NOT NULL
     REFERENCES companion_main (id)
     ON DELETE CASCADE,
-  alignment VARCHAR(50) NOT NULL DEFAULT 'Neutral',
   strength INTEGER NOT NULL DEFAULT 10,
   dexterity INTEGER NOT NULL DEFAULT 10,
   constitution INTEGER NOT NULL DEFAULT 10,
@@ -576,6 +585,9 @@ CREATE TABLE IF NOT EXISTS npc_main (
   race_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
     REFERENCES race (id)
     ON DELETE RESTRICT,
+	alignment_id INTEGER
+		REFERENCES alignments (id)
+		ON DELETE SET NULL,
   npc_name VARCHAR(255) NOT NULL,
   unknown_name VARCHAR(255) DEFAULT 'Unknown',
 	npc_group VARCHAR(255) DEFAULT NULL, -- Grouping names

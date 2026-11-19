@@ -29,6 +29,25 @@ VALUES
 ON CONFLICT (id) DO NOTHING;
 -- End Attitude Seeds
 
+-- Seed Alignment (idempotent)
+INSERT INTO alignments (id,	alignment_name,	sort_order)
+VALUES
+	(1, 'Lawful Good', 10),
+	(2, 'True Good', 20),
+	(3, 'Chaotic Good', 30),
+
+	(4, 'Lawful Neutral', 40),
+	(5, 'True Neutral', 50),
+	(6, 'Chaotic Neutral', 60),
+
+	(7, 'Lawful Evil', 70),
+	(8, 'True Evil', 80),
+	(9, 'Chaotic Evil', 90),
+
+	(10, 'Beyond Morality', 100)
+ON CONFLICT (id) DO NOTHING;
+-- End Alignment Seeds
+
 -- Seed Speeds (idempotent - safe to run multiple times)
 INSERT INTO speed (id, speed_name)
 VALUES (1, 'Base')

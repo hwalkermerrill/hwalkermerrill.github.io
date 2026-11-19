@@ -28,29 +28,22 @@
 
 	</div>
 
-	<!-- Campaign Traits -->
+	<!-- Alignment -->
 	<div class="form-field">
-		<label for="campaign_trait_id"> Campaign Trait </label>
-		<select id="campaign_trait_id" name="campaign_trait_id">
+		<label for="alignment_id"> Alignment </label>
+		<select id="alignment_id" name="alignment_id">
 
-			<option value="">
-				Select Campaign Trait
-			</option>
+			<option value=""> Select Alignment </option>
 
-			<% campaign_traits.forEach(trait => { %>
-			<option value="<%= trait.id %>" data-description="<%= trait.description %>" <%= Number(pc?.campaign_trait_id) === Number(trait.id)
-						? "selected"
-						: "" %>>
-				<%= trait.trait_name %>
+			<% alignments.forEach(alignment => { %>
+			<option value="<%= alignment.id %>" <%= Number(pc?.alignment_id) === Number(alignment.id)
+					? "selected"
+					: "" %>>
+				<%= alignment.name %>
 			</option>
 			<% }) %>
 
 		</select>
-	</div>
-
-	<div class="form-field">
-		<label> Campaign Trait Description </label>
-		<textarea id="campaign-trait-description" rows="8" readonly></textarea>
 	</div>
 
 	<!-- Religion -->
@@ -123,6 +116,31 @@
 
 		</div>
 	</div> -->
+
+	<!-- Campaign Traits -->
+	<div class="form-field">
+		<label for="campaign_trait_id"> Campaign Trait </label>
+		<select id="campaign_trait_id" name="campaign_trait_id">
+
+			<option value="">
+				Select Campaign Trait
+			</option>
+
+			<% campaign_traits.forEach(trait => { %>
+			<option value="<%= trait.id %>" data-description="<%= trait.description %>" <%= Number(pc?.campaign_trait_id) === Number(trait.id)
+						? "selected"
+						: "" %>>
+				<%= trait.trait_name %>
+			</option>
+			<% }) %>
+
+		</select>
+	</div>
+
+	<div class="form-field">
+		<label> Campaign Trait Description </label>
+		<textarea id="campaign-trait-description" rows="8" readonly></textarea>
+	</div>
 
 	<!-- Languages -->
 	<div id="language-container">

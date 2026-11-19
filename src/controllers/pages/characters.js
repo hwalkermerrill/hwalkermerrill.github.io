@@ -26,8 +26,20 @@ const FACTION_PRIORITY = {
 	"spirit totem": 3
 };
 
+const ALIGNMENT_CLASS_MAP = {
+	1: "alignmentLG",
+	2: "alignmentTG",
+	3: "alignmentCG",
+	4: "alignmentLN",
+	6: "alignmentCN",
+	7: "alignmentLE",
+	8: "alignmentTE",
+	9: "alignmentCE",
+}
+
 // Helper Functions
 const mapAttitudeClass = (attitudeId) => ATTITUDE_CLASS_MAP[attitudeId] || "";
+const mapAlignmentClass = (alignmentId) => ALIGNMENT_CLASS_MAP[alignmentId] || "";
 
 function factionSortKey(f) {
 	const type = f.faction_type?.toLowerCase() || "";
@@ -189,6 +201,7 @@ function normalizeCharacter(row, type) {
 
 		// Attitude
 		attitude_class: mapAttitudeClass(att?.attitude_id),
+		alignment_class: mapAlignmentClass(row.alignment_id),
 		unlocked_boons,
 		boons_visible: Boolean(unlocked_boons),
 

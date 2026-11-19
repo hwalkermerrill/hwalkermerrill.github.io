@@ -72,10 +72,19 @@ const getCampaignTraits = async (campaignId) => {
 		FROM campaign_traits
 		WHERE campaign_id = $1
 		ORDER BY trait_name ASC
-	`, [
-		campaignId
-	]);
+	`, [campaignId]);
+	return rows;
+};
 
+// Get Alignments
+const getAlignments = async () => {
+	const { rows } = await db.query(`
+		SELECT
+			id,
+			alignment_name AS name
+		FROM alignments
+		ORDER BY sort_order ASC
+	`);
 	return rows;
 };
 
@@ -154,5 +163,5 @@ const getAchievements = async () => {
 export {
 	getCampaigns, getActiveStatus,
 	getPcByCampaign, getCompanionByCampaign, getNpcByCampaign, getFactionByCampaign, getCampaignTraits,
-	getRaces, getClasses, getReligions, getLanguages, getSpeeds, getTitles, getAchievements
+	getRaces, getClasses, getReligions, getLanguages, getSpeeds, getTitles, getAchievements, getAlignments
 }
