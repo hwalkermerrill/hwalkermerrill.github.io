@@ -602,3 +602,98 @@ VALUES
   (5, '/images/pc/pc-dorian-kalder.webp',
       'Dorian Character Portrait',
       TRUE, FALSE, FALSE, TRUE);
+
+-- ============================================
+-- CAMPAIGN TRAITS SEED DATA
+-- ============================================
+
+WITH c_id AS (
+  SELECT id AS campaign_id
+  FROM campaigns
+  WHERE id = 18
+)
+INSERT INTO campaign_traits (
+  campaign_id,
+  trait_name,
+  description
+)
+VALUES
+	((SELECT campaign_id FROM c_id),
+    'Chance Encounter',
+    'You always tended to get in over your head as a child, but your biggest youthful misadventure was the time you <q>accidentally</q> found yourself behind enemy lines
+		in the Worldwound. You probably never would have made it back home to Kenabres if not for the help of a mysterious woman who helped you trick your 
+		way through a group of cultists. The woman never told you her name, but you remember her beauty and a deep sense of sadness she seemed to carry with her. Her skill 
+		with the bow was impressive as well, but the thing you remember most about her was the symbol of Desna she wore-she often held onto it without seeming to realize 
+		it, as if the connection to the goddess was something she clung to in a sense of need, as someone might clutch at a rope while dangling over a vast pit. She left your side 
+		a few moments before you were picked up by a patrol of crusaders, who finished the job of escorting you back to safety, and youve never seen her again. Ever since, youve 
+		just been lucky when it comes to trickery. Once per day, if you fail an Acrobatics, Bluff, Disguise, Sleight of Hand, or Stealth check, you may immediately reroll that check 
+		as a free action. You must take the second result, even if it is worse.
+		<br>Associated Mythic Path: Trickster. 
+		<br>Multiple Characters: You and other characters were all saved by the same mysterious woman in your childhood. This could have been the same event, or she could have saved you on 
+		separate occasions-the discovery that someone else was saved by the mysterious stranger has resulted in a long friendship (or perhaps friendly rivalry) with the others 
+		she rescued. '
+  ),
+	((SELECT campaign_id FROM c_id),
+    'Child of the Crusade',
+    'Your parents were members of the crusade, as were their parents before them. (If you are an elf, gnome, or other long-lived race, these could 
+		be brothers or cousins instead, since its possible that the Worldwound simply didnt exist at a time before you were born.) The righteousness of the crusades 
+		sometimes feels as if it runs in your very blood, and it bolsters you against demonic influence. Your parents may be alive still, or they may have perished 
+		on a mission-that choice is up to you. You grew up knowing them, though, and their zeal and devotion to the crusade is the primary reason you feel the same way. 
+		Theyve told you of other family members who have also been involved in the crusade, and its not uncommon for you to meet a distant cousin or long-lost aunt, uncle, 
+		or other family member while traveling among the border towns of Mendev. This strong family tie bolsters your mind and sense of belonging to the crusade. Once 
+		per day when you fail a saving throw against an effect created by a demon that would possess or incapacitate you mentally, you may immediately reroll that saving 
+		throw as a free action. You must take the second result, even if it is worse.
+		<br> Associated Mythic Path: Marshal. 
+		<br> Multiple Characters: If other characters take this trait, you should all be related-you can be siblings, cousins, or even more distant relations, but you 
+		should all be aware of this shared lineage. '
+  ),
+	((SELECT campaign_id FROM c_id),
+    'Exposed to Awfulness',
+    'When you were a child, you were nearly slain by a demon that managed to make its way through the wardstones into the lands beyond. The demon was slain before it could kill 
+		you, but you lingered at deaths door in a coma for weeks before waking. Ever since then, youve unusually been hale and hearty, as if your body had endured its brush with 
+		awfulness by becoming supernaturally fit. But still, the scars (whether physical or purely mental) of your brush with death remain, and nightmares of what could have happened often plague 
+		your sleep. Something, be it your own personal force of will, some strange "infection" from the assault, or perhaps a combination of both, has made you stronger than before.
+		Youre not sure what to make of the theories that you survived this exposure to awfulness because you yourself have some trace of demonic heritage that helped give you the advantage 
+		you needed to survivebut whatever it was, youre glad for it! Your strange resistance to demonic attacks persists to this day. Once per day when you fail a saving 
+		throw against an effect created by a demon that would kill or physically incapacitate you, you can immediately reroll that saving throw as a free action. You must take 
+		the second result, even if it is worse. 
+		<br> Associated Mythic Path: Guardian.
+		<br> Multiple Characters: You and any others with this trait are related, if only distantly. You could be siblings or cousins - a condition that perhaps lends 
+		some credence to the theory that all of you share more than just a common bloodline. '
+  ),
+	((SELECT campaign_id FROM c_id),
+    'Riftwarden Orphan',
+    'You bear a strange birthmark on your body-something youve learned is the Sign of the Seekers Spiral, a rune associated with the secret society known 
+		as the Riftwardens. You have researched this rune, and have learned that the mark sometimes appears on the children of Riftwardens who have been exposed 
+		to particularly strange planar energies. Unfortunately, you never knew your parents, for you were raised by a foster family in Kenabres. Your foster family has confirmed 
+		that both of your parents were Riftwardens, and has further confirmed that your parents went missing on a secret mission into the Worldwound less than a month after you 
+		were born. Youre not sure what happened to them, but youre certain theyre dead - and your gut tells you that the one who murdered them yet lives! In any event, youve long felt 
+		magic in your blood, and casting spells comes easily to you. You gain a +2 trait bonus on all concentration checks.
+		<br> Associated Mythic Path: Archmage.
+		<br> Multiple Characters: You should be siblings with any other character that takes this trait, so that you share the same missing parents. Your parents could even be foster parents. '
+  ),
+	((SELECT campaign_id FROM c_id),
+    'Stolen Fury',
+		'You were forced to take part in a demonic ritual as a youth after having been captured by cultists. Whatever the rituals purpose may have been, it didnt work out the way your captors 
+		envisioned - rather than corrupting your soul, you absorbed the rituals energy and made it your own before you escaped to safety. Ever since, youve been 
+		haunted by strange nightmares about the ritual, and have long felt that the energies it bathed you in have changed you. Recently, those energies have changed 
+		its as if youve finally managed to come to terms with your past and have turned the rituals aftereffects to your advantage, following the old adage of what doesnt 
+		kill you makes you stronger. Youve been unable to learn more about the ritual or what it was for, but the question lingers in the back of your head to this day. This 
+		nagging has instilled in you a fury against demonkind. Today, when you face demons in combat, those energies bolster your fury, granting you a +2 trait bonus on all 
+		combat maneuver checks against demons. 
+		<br> Associated Mythic Path: Champion.
+		<br> Multiple Characters: You and any other PC who takes this trait were all part of the same ritual, and it was only by working together that you managed to escape-further, the support of your fellow 
+		ritual survivors has played a key role in your coming to terms with it, and you retain a close bond of friendship (or perhaps a friendly rivalry) to this day. '
+  ),
+	((SELECT campaign_id FROM c_id),
+    'Touched by Divinity',
+    'As long as you can remember, youve had an unexplainable interest in one deity in particular. One of your parents may have been a priest of this deity, or you may have been an orphan raised 
+		by the church, but these alone cannot explain your deep connection to the faith. Youve always felt calm and at ease in places holy to the deity, and often have 
+		dreams about the god or goddess visiting you - most often in the form of a sacred animal or creature. Your faith is strong, even if you dont happen to be a divine 
+		spellcaster - if you are a divine spellcaster, you should be a worshiper of this deity. You begin play with a silver holy symbol of your chosen deity for free. In addition, 
+		choose one domain associated with your chosen deity. You gain the use of that domains 1st-level domain spell as a spell-like ability usable once per day (CL equals your character level).
+		<br> Associated Mythic Path: Hierophant. 
+		<br> Multiple Characters: If other characters choose this trait, you should all work together to decide what deity youre associated with-it should be the same deity shared by 
+		all of you. You might even share the same dreams. '
+  )
+ON CONFLICT DO NOTHING;

@@ -61,11 +61,14 @@
 		const deathCauseWrapper = document.getElementById("death-cause-wrapper");
 		const endSessionWrapper = document.getElementById("end-session-wrapper");
 
+		// Campaign Traits
+		const campaignTraitSelect = document.getElementById("campaign_trait_id");
+		const campaignTraitDescription = document.getElementById("campaign-trait-description");
+
 		// Languages
 		const addLanguage = document.getElementById("add-language");
 		const removeLanguage = document.getElementById("remove-language");
-		const languageContainer =
-			document.getElementById("language-container");
+		const languageContainer = document.getElementById("language-container");
 
 		// Classes
 		const addClass = document.getElementById("add-class");
@@ -235,6 +238,16 @@
 			}
 			activeStatusSelect.addEventListener("change", updateStatusFields);
 			updateStatusFields();
+		}
+
+		if (campaignTraitSelect && campaignTraitDescription) {
+			function updateCampaignTraitDescription() {
+				const selected = campaignTraitSelect.options[campaignTraitSelect.selectedIndex];
+				campaignTraitDescription.value = selected?.dataset?.description || "";
+			}
+
+			campaignTraitSelect.addEventListener("change", updateCampaignTraitDescription);
+			updateCampaignTraitDescription();
 		}
 
 		if (addTitleBtn && titleForm) {

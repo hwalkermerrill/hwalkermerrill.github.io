@@ -62,6 +62,23 @@ const getFactionByCampaign = async (campaignId) => {
 	return rows;
 };
 
+// Get campaign traits
+const getCampaignTraits = async (campaignId) => {
+	const { rows } = await db.query(`
+		SELECT
+			id,
+			trait_name,
+			description
+		FROM campaign_traits
+		WHERE campaign_id = $1
+		ORDER BY trait_name ASC
+	`, [
+		campaignId
+	]);
+
+	return rows;
+};
+
 // Get character info table data
 const getRaces = async () => {
 	const { rows } = await db.query(`
@@ -136,6 +153,6 @@ const getAchievements = async () => {
 // Exports
 export {
 	getCampaigns, getActiveStatus,
-	getPcByCampaign, getCompanionByCampaign, getNpcByCampaign, getFactionByCampaign,
+	getPcByCampaign, getCompanionByCampaign, getNpcByCampaign, getFactionByCampaign, getCampaignTraits,
 	getRaces, getClasses, getReligions, getLanguages, getSpeeds, getTitles, getAchievements
 }

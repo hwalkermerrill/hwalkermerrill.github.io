@@ -56,7 +56,7 @@
 	<!-- ========================= -->
 	<% if (item.subtitles && item.subtitles.length > 0) { %>
 	<% item.subtitles.forEach(sub => { %>
-	<strong><%= sub %></strong><br>
+	<small><i><%= sub %></i></small><br>
 	<% }) %>
 	<br>
 	<% } %>
@@ -66,7 +66,6 @@
 	<!-- ========================= -->
 	<% if (item.merchant && item.merchant.merchant_id) { %>
 	<p class="merchant-tag">
-		🛒
 		<strong>
 			<%= item.merchant.shop_name || "Merchant" %>
 		</strong>
@@ -99,14 +98,25 @@
 	</figure>
 
 	<!-- ========================= -->
-	<!--     RETIRED / DEAD        -->
+	<!--       MAJOR DETAILS       -->
 	<!-- ========================= -->
+
+	<!-- <%= JSON.stringify(item, null, 2) %> -->
+
+	<% if (item.campaign_trait_name && item.is_identified) { %>
+	<p><strong>Trait:</strong> <%= item.campaign_trait_name %></p>
+	<% } %>
+
 	<% if (item.active_status_id === 3 && item.retired_reason) { %>
 	<p><strong>Retired:</strong> <%- item.retired_reason %></p>
 	<% } %>
 
 	<% if (item.active_status_id === 4 && item.death_cause) { %>
 	<p><strong>Cause of Death:</strong> <%- item.death_cause %></p>
+	<% } %>
+
+	<% if (item.religion_name && item.is_identified) { %>
+	<p><strong>Faith:</strong> <%= item.religion_name %></p>
 	<% } %>
 
 	<!-- ========================= -->
@@ -142,7 +152,7 @@
 	<ul>
 		<li style="list-style-type:none;"><b>Social Profile:</b></li>
 		<% item.social_profile.forEach(line => { %>
-		<li><%= line %></li>
+		<li><b><%= line.label %></b> <%= line.value %></li>
 		<% }) %>
 	</ul>
 	<% } %>

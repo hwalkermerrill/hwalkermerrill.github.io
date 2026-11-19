@@ -114,6 +114,8 @@ const TITLES_JOIN = (type) => `
 const CLASSES_JOIN = (type) => `
   LEFT JOIN ${type}_class cls
     ON cls.${type}_id = character.id
+	LEFT JOIN classes c
+		ON c.id = cls.class_id
   LEFT JOIN ${type}_class_archetype arch
     ON arch.${type}_class_id = cls.id
 `;
@@ -148,6 +150,8 @@ const LANGUAGES_JOIN = (type) => `
 const RELIGION_JOIN = (type) => `
 	LEFT JOIN ${type}_religion rel
     ON rel.${type}_id = character.id
+	LEFT JOIN religions r
+		ON r.id = rel.religion_id
 `;
 
 const MERCHANT_JOIN = (type) => `
@@ -177,6 +181,11 @@ const SPEEDS_JOIN = (type) => `
     ON spd.${type}_id = character.id
   LEFT JOIN speed s
     ON s.id = spd.speed_id
+`;
+
+const CAMPAIGN_TRAIT_JOIN = `
+  LEFT JOIN campaign_traits ct
+    ON ct.id = character.campaign_trait_id
 `;
 
 // Helpers - Group By
@@ -230,6 +239,7 @@ const SELECT_CLASSES_AGG = `
   json_agg(
     jsonb_build_object(
       'class_id', cls.class_id,
+			'class_name', c.class_name,
       'class_level', cls.class_level,
       'unknown_name', cls.unknown_name,
       'archetype_name', arch.archetype_name
@@ -270,10 +280,22 @@ const SELECT_RELIGIONS_AGG = `
   json_agg(
     jsonb_build_object(
       'religion_id', rel.religion_id,
+			'religion_name', r.religion_name,
       'notes', rel.notes,
       'secrets', rel.secrets
     )
   ) FILTER (WHERE rel.religion_id IS NOT NULL) AS religions
+`;
+
+const SELECT_CAMPAIGN_TRAIT_OBJECT = `
+  jsonb_agg(
+    jsonb_build_object(
+      'trait_name', ct.trait_name,
+      'description', ct.description
+    )
+  ) FILTER (
+    WHERE ct.id IS NOT NULL
+  ) AS campaign_trait
 `;
 
 const SELECT_ATTITUDE_OBJECT = `
@@ -449,6 +471,7 @@ function buildCharacterQuery({ type, whereClause }) {
       ${SELECT_SOCIAL_OBJECT(type)},
       ${SELECT_GALLERY_AGG},
 
+			${type === "pc" ? SELECT_CAMPAIGN_TRAIT_OBJECT : "NULL AS campaign_trait"},
       ${type === "pc" || type === "companion" || type === "npc" ? SELECT_TITLES_AGG : "NULL AS titles"},
       ${type === "pc" || type === "companion" || type === "npc" ? SELECT_LANGUAGES_AGG : "NULL AS languages"},
       ${type === "pc" || type === "companion" || type === "npc" ? SELECT_RELIGIONS_AGG : "NULL AS religions"},
@@ -468,6 +491,7 @@ function buildCharacterQuery({ type, whereClause }) {
     ${SOCIAL_JOIN(type)}
     ${GALLERY_JOIN(type)}
     
+		${type === "pc" ? CAMPAIGN_TRAIT_JOIN : ""}
     ${type === "pc" || type === "companion" || type === "npc" ? TITLES_JOIN(type) : ""}
     ${type === "pc" || type === "companion" || type === "npc" ? LANGUAGES_JOIN(type) : ""}
     ${type === "pc" || type === "companion" || type === "npc" ? RELIGION_JOIN(type) : ""}
@@ -766,6 +790,7 @@ const createPc = async (data) => {
 	const {
 		user_id,
 		campaign_id,
+		campaign_trait_id,
 		active_status_id,
 		race_id,
 		pc_name,
@@ -786,6 +811,7 @@ const createPc = async (data) => {
 		INSERT INTO pc_main (
 			user_id,
 			campaign_id,
+			campaign_trait_id,
 			active_status_id,
 			race_id,
 			pc_name,
@@ -804,12 +830,14 @@ const createPc = async (data) => {
 		VALUES (
 			$1,$2,$3,$4,$5,
 			$6,$7,$8,$9,$10,
-			$11,$12,$13,$14,$15,$16
+			$11,$12,$13,$14,$15,
+			$16,$17
 		)
 		RETURNING id
 	`, [
 		user_id,
 		campaign_id,
+		Number(campaign_trait_id) || null,
 		active_status_id || 1,
 		race_id || 1,
 		pc_name.trim(),
@@ -831,6 +859,7 @@ const createPc = async (data) => {
 const updatePcMain = async (pcId, data) => {
 	const {
 		active_status_id,
+		campaign_trait_id,
 		pc_name,
 		unknown_name,
 		is_identified,
@@ -849,21 +878,23 @@ const updatePcMain = async (pcId, data) => {
 		UPDATE pc_main
 		SET
 			active_status_id = $1,
-			pc_name = $2,
-			unknown_name = $3,
-			is_identified = $4,
-			secret_name = $5,
-			show_secret_name = $6,
-			secret_color = $7,
-			is_gendered = $8,
-			is_female = $9,
-			description = $10,
-			retired_reason = $11,
-			death_cause = $12,
-			end_session = $13
-		WHERE id = $14
+			campaign_trait_id = $2,
+			pc_name = $3,
+			unknown_name = $4,
+			is_identified = $5,
+			secret_name = $6,
+			show_secret_name = $7,
+			secret_color = $8,
+			is_gendered = $9,
+			is_female = $10,
+			description = $11,
+			retired_reason = $12,
+			death_cause = $13,
+			end_session = $14
+		WHERE id = $15
 	`, [
 		active_status_id,
+		Number(campaign_trait_id) || null,
 		pc_name.trim(),
 		unknown_name,
 		is_identified,
@@ -1112,6 +1143,17 @@ const updatePcClasses = async (pcId, classes) => {
 			]);
 		}
 	}
+};
+
+const updatePcCampaignTrait = async (pcId, campaignTraitId) => {
+	await db.query(`
+		UPDATE pc_main
+		SET campaign_trait_id = $1
+		WHERE id = $2
+	`, [
+		campaignTraitId ? Number(campaignTraitId) : null,
+		pcId
+	]);
 };
 
 // Companion Builder Functions
@@ -2111,7 +2153,7 @@ export {
 	updateCharacterReligion, updateCharacterRace, updateCharacterLanguage, deleteCharacter,
 	addCharacterAchievement, addCharacterLanguage, addCharacterScar, addCharacterTitle,
 	removeCharacterAchievement, removeCharacterLanguage, removeCharacterScar, removeCharacterTitle,
-	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses,
+	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses, updatePcCampaignTrait,
 	createCompanion, updateCompanionMain, updateCompanionSocial, updateCompanionGallery, updateCompanionMechanics, updateCompanionClasses,
 	createNpc, updateNpcMain, updateNpcSocial, updateNpcGallery, updateNpcMechanics, updateNpcAttitude,
 	createFaction, updateFactionMain, updateFactionSocial, updateFactionGallery, updateFactionAttitude, addFactionMember, removeFactionMember

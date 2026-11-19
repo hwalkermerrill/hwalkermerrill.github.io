@@ -63,6 +63,17 @@ CREATE TABLE IF NOT EXISTS quests (
 	UNIQUE (campaign_id, quest_name)
 );
 
+-- Campaign traits are optional, many-to-one traits where a pc may select one for their campaign.
+CREATE TABLE IF NOT EXISTS campaign_traits (
+	id SERIAL PRIMARY KEY,
+	campaign_id INTEGER NOT NULL
+		REFERENCES campaigns (id)
+		ON DELETE CASCADE,
+	trait_name VARCHAR(255) NOT NULL,
+	description TEXT,
+	UNIQUE (campaign_id, trait_name)
+);
+
 -- START GLOBAL LOOKUP TABLES BLOCK for references, one-to-many.
 CREATE TABLE IF NOT EXISTS active_status (
   id SERIAL PRIMARY KEY,
@@ -160,6 +171,9 @@ CREATE TABLE IF NOT EXISTS pc_main (
   race_id INTEGER NOT NULL DEFAULT 1 -- Default to 'Unknown'
     REFERENCES race (id)
     ON DELETE RESTRICT,
+	campaign_trait_id INTEGER DEFAULT NULL
+		REFERENCES campaign_traits (id)
+		ON DELETE SET NULL,
   pc_name VARCHAR(255) NOT NULL,
   unknown_name VARCHAR(255) DEFAULT 'Unknown',
   is_identified BOOLEAN NOT NULL DEFAULT FALSE,

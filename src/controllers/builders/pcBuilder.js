@@ -5,12 +5,12 @@ import {
 	updateCharacterReligion, updateCharacterRace, updateCharacterLanguage, deleteCharacter,
 	addCharacterLanguage, addCharacterTitle, addCharacterAchievement, addCharacterScar,
 	removeCharacterLanguage, removeCharacterTitle, removeCharacterAchievement, removeCharacterScar,
-	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses,
+	createPc, updatePcMain, updatePcSocial, updatePcGallery, updatePcMechanics, updatePcClasses, updatePcCampaignTrait,
 	createCompanion, updateCompanionMain, updateCompanionSocial, updateCompanionGallery, updateCompanionMechanics, updateCompanionClasses
 } from "../../models/pages/characters.js";
 import {
 	getCampaigns, getActiveStatus,
-	getPcByCampaign, getCompanionByCampaign,
+	getPcByCampaign, getCompanionByCampaign, getCampaignTraits,
 	getRaces, getClasses, getReligions, getLanguages, getSpeeds, getTitles, getAchievements
 } from "../../models/helpers/select.js";
 import { getGalleryEntries, addGalleryEntry, updateGalleryEntry, deleteGalleryEntry } from "../../models/helpers/gallery.js";
@@ -48,6 +48,7 @@ async function loadFormData(campaignId) {
 
 	const pcs = await getPcByCampaign(campaignId);
 	const companions = await getCompanionByCampaign(campaignId);
+	const campaign_traits = await getCampaignTraits(campaignId);
 	const active_status = await getActiveStatus();
 	const races = await getRaces();
 	const classes = await getClasses();
@@ -60,6 +61,7 @@ async function loadFormData(campaignId) {
 	return {
 		pcs,
 		companions,
+		campaign_traits,
 		active_status,
 		races,
 		classes,
@@ -583,6 +585,7 @@ async function submitPcCharacterEdit(req, res) {
 			notes: req.body.religion_notes,
 			secrets: req.body.religion_secrets
 		});
+		await updatePcCampaignTrait(pcId, req.body.campaign_trait_id);
 		await updatePcClasses(pcId, req.body.classes || []);
 		await updateCharacterLanguage("pc", pcId, normalizeToArray(req.body.language_ids));
 		req.flash("success", "Character information saved.");
