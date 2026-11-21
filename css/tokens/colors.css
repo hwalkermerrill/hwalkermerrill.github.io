@@ -22,6 +22,21 @@
 	--seed-border: #e2e8f0;
 	--seed-border-strong: #050505;
 
+	/* ---- Alignmet Colors ---- */
+	--good-light: oklch(0.92 0.08 95);
+	--good-base: oklch(0.82 0.16 95);
+	--good-dark: oklch(0.6 0.12 85);
+	--neutral-light: oklch(0.68 0.08 65);
+	--neutral-base: oklch(0.55 0.08 65);
+	--neutral-dark: oklch(0.35 0.05 55);
+	--evil-light: oklch(0.6 0.15 25);
+	--evil-base: oklch(0.42 0.18 25);
+	--evil-dark: oklch(0.25 0.08 20);
+
+	--align-good: var(--good-base);
+	--align-neutral: var(--neutral-base);
+	--align-evil: var(--evil-base);
+
 	/* ---- Legacy Seeds ---- */
 	--seed-azlant: oklch(0.45 0.12 162);
 	--seed-serpents: oklch(0.55 0.2 68);
@@ -105,6 +120,83 @@
 		oklch(0.95 0.2 40 / 0.45) 34%,
 		oklch(0.95 0.15 20 / 0.15) 36%,
 		oklch(0.95 0.15 20 / 0) 40%
+	);
+
+	/* Alignment Frames */
+	--metal-good: linear-gradient(
+		135deg,
+		var(--good-light),
+		var(--good-light),
+		var(--good-base),
+		var(--good-dark),
+		var(--good-light)
+	);
+	--wood-good: repeating-linear-gradient(
+		45deg,
+		var(--good-light) 0px,
+		var(--good-light) 4px,
+		var(--good-base) 4px,
+		var(--good-base) 8px,
+		var(--good-dark) 8px,
+		var(--good-dark) 12px
+	);
+	--fire-good: linear-gradient(
+		135deg,
+		oklch(0.98 0.04 100),
+		var(--good-light),
+		var(--good-base),
+		var(--good-dark),
+		oklch(0.45 0.08 75)
+	);
+	--metal-neutral: linear-gradient(
+		135deg,
+		var(--neutral-light),
+		var(--neutral-light),
+		var(--neutral-base),
+		var(--neutral-dark),
+		var(--neutral-light)
+	);
+	--wood-neutral: repeating-linear-gradient(
+		45deg,
+		var(--neutral-light) 0px,
+		var(--neutral-light) 4px,
+		var(--neutral-base) 4px,
+		var(--neutral-base) 8px,
+		var(--neutral-dark) 8px,
+		var(--neutral-dark) 12px
+	);
+	--fire-neutral: linear-gradient(
+		135deg,
+		oklch(0.85 0.04 80),
+		var(--neutral-light),
+		var(--neutral-base),
+		var(--neutral-dark),
+		oklch(0.28 0.03 50)
+	);
+	--metal-evil: linear-gradient(
+		135deg,
+		var(--evil-light),
+		var(--evil-light),
+		var(--evil-base),
+		var(--evil-dark),
+		var(--evil-light)
+	);
+	--wood-evil: repeating-linear-gradient(
+		45deg,
+		var(--evil-light) 0px,
+		var(--evil-light) 4px,
+		var(--evil-base) 4px,
+		var(--evil-base) 8px,
+		var(--evil-dark) 8px,
+		var(--evil-dark) 12px
+	);
+	--fire-evil: linear-gradient(
+		135deg,
+		oklch(0.95 0.05 80),
+		var(--evil-light),
+		var(--evil-base),
+		var(--evil-dark),
+		oklch(0.18 0.04 20)
 	);
 
 	/* ---- Indiana Light-Dark ---- */

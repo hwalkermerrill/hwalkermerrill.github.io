@@ -39,7 +39,7 @@
 	--radius-sm: 0.25rem;
 	--radius-md: 0.5rem;
 	--radius-lg: 1rem;
-	--frame-border: url("/images/core/border-frame.png") 30 round;
+	/* --frame-border: url("/images/core/border-frame.png") 30 round; */
 
 	/* Shadows */
 	--shadow-sm:
