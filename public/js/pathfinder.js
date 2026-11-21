@@ -210,3 +210,43 @@ function makeCollapsible(wrapperSelector, contentSelector = ".collapse-toggle-co
 		});
 	});
 }
+
+// This is a keep-awake utility for certain form pages and views.
+function keepAwake(intervalMinutes = 10, maxHours = 8) { // eslint-disable-line no-unused-vars
+	const startedAt = Date.now();
+	let intervalTimer = null;
+
+	function ping() { fetch("/api/ping").catch(() => { }); }
+	function start() {
+		if (intervalTimer) return;
+
+		intervalTimer = setInterval(() => {
+			const elapsed = Date.now() - startedAt;
+			const maxLifetime = maxHours * 60 * 60 * 1000;
+
+			if (elapsed >= maxLifetime) {
+				stop();
+				return;
+			}
+
+			ping();
+		}, intervalMinutes * 60 * 1000);
+	}
+
+	function stop() {
+		clearInterval(intervalTimer);
+		intervalTimer = null;
+	}
+
+	// Only run while tab is visible
+	if (!document.hidden) { start(); }
+
+	// Stop timer while tab is hidden
+	document.addEventListener("visibilitychange", () => {
+		if (document.hidden) stop();
+		else start();
+	});
+
+	// Clean up if user leaves page
+	window.addEventListener("beforeunload", stop);
+}

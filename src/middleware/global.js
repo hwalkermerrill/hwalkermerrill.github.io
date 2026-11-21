@@ -48,6 +48,7 @@ const addLocalVariables = (req, res, next) => {
 	res.locals.queryParams = { ...req.query };
 	res.locals.versionNumber = `${versionIteration}${now.getFullYear().toString().slice(2)}${(now.getMonth() + 1).toString().padStart(2, "0")}`;
 	res.locals.activePage = activePage;
+	res.locals.keepAwake = false;
 
 	// User and permission info
 	res.locals.user = req.session.user || null;

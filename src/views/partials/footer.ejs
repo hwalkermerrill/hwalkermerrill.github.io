@@ -43,4 +43,14 @@
 
 </body>
 
+<!-- Global Scripts after DOM has loaded -->
+<script>
+	// Event Listener to keep awake if page has keepAwake set to true
+	document.addEventListener("DOMContentLoaded", () => {
+		if (document.body.dataset.keepawake === "true") {
+			keepAwake();
+		}
+	});
+</script>
+
 </html>

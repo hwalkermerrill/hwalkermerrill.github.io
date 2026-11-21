@@ -2,6 +2,7 @@
 import { Router } from "express";
 import { requireLogin, requireRole, requirePermission } from "../middleware/auth.js";
 import { registrationValidation, loginValidation, updateAccountValidation, contactValidation, resetRequestValidation, resetPasswordValidation } from "../middleware/validation/forms.js";
+import { keepAwakePage } from "../middleware/keepAwake.js"
 import builderSubRouter from "./builderRoutes.js";
 import { creationPage, rulesPage, testErrorPage, testUnexpectedError, testNotLoggedInError, testForbiddenError } from "./index.js";
 import { homePage } from "./pages/home.js";
@@ -22,7 +23,7 @@ import { listRequests, approveRequest, denyRequest } from "./forms/passwordReset
 const router = Router();
 
 // Mount sub-routers
-router.use("/builder", builderSubRouter);
+router.use("/builder", keepAwakePage, builderSubRouter);
 
 // Router-level CSS Middleware
 // router.use("/login", (req, res, next) => {
@@ -59,6 +60,16 @@ router.use("/maps", (req, res, next) => {
 	res.addScript("<script src=\"/js/maps.js\"></script>");
 	next();
 });
+
+// Keep-Awake
+router.use([
+	"/dashboard",
+	"/maps",
+	"/journal",
+	"/notes",
+	"/logs",
+	"/quests"
+], keepAwakePage);
 
 // Routes.get
 router.get("/", homePage);
