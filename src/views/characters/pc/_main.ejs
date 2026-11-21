@@ -98,37 +98,31 @@
 	</div>
 
 	<!-- Gender -->
-	<div class="form-row">
+	<div class="form-field">
+		<label for="gender_type"> Gender </label>
+		<select id="gender_type">
 
-		<div class="form-field">
-			<label for="is_gendered">Gendered</label>
-			<select id="is_gendered" name="is_gendered">
+			<option value="non_gendered" <%= pc && !pc.is_gendered ? "selected" : "" %>>
+				Non-Gendered
+			</option>
 
-				<option value="true" <%= !pc || pc.is_gendered ? "selected" : "" %>>
-					Yes
-				</option>
+			<option value="male" <%= (!pc || (pc.is_gendered && !pc.is_female))
+					? "selected"
+					: "" %>>
+				Male
+			</option>
 
-				<option value="false" <%= pc && !pc.is_gendered ? "selected" : "" %>>
-					No
-				</option>
-			</select>
-		</div>
+			<option value="female" <%= pc && pc.is_gendered && pc.is_female
+					? "selected"
+					: "" %>>
+				Female
+			</option>
 
-		<div class="form-field">
-			<label for="is_female">Female</label>
-			<select id="is_female" name="is_female">
-
-				<option value="false" <%= !pc || !pc.is_female ? "selected" : "" %>>
-					No
-				</option>
-
-				<option value="true" <%= pc && pc.is_female ? "selected" : "" %>>
-					Yes
-				</option>
-			</select>
-		</div>
-
+		</select>
 	</div>
+
+	<input type="hidden" id="is_gendered" name="is_gendered" value="<%= !pc ? 'true' : String(pc.is_gendered) %>">
+	<input type="hidden" id="is_female" name="is_female" value="<%= !pc ? 'false' : String(pc.is_female) %>">
 
 	<!-- Description -->
 	<div class="form-field">

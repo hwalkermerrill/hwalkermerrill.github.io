@@ -65,6 +65,11 @@
 		const campaignTraitSelect = document.getElementById("campaign_trait_id");
 		const campaignTraitDescription = document.getElementById("campaign-trait-description");
 
+		// Gender
+		const genderSelect = document.getElementById("gender_type");
+		const isGenderedField = document.getElementById("is_gendered");
+		const isFemaleField = document.getElementById("is_female");
+
 		// Languages
 		const addLanguage = document.getElementById("add-language");
 		const removeLanguage = document.getElementById("remove-language");
@@ -248,6 +253,30 @@
 
 			campaignTraitSelect.addEventListener("change", updateCampaignTraitDescription);
 			updateCampaignTraitDescription();
+		}
+
+		if (genderSelect && isGenderedField && isFemaleField) {
+			function updateGenderFields() {
+				switch (genderSelect.value) {
+
+					case "female":
+						isGenderedField.value = "true";
+						isFemaleField.value = "true";
+						break;
+
+					case "male":
+						isGenderedField.value = "true";
+						isFemaleField.value = "false";
+						break;
+
+					default:
+						isGenderedField.value = "false";
+						isFemaleField.value = "false";
+				}
+			}
+
+			genderSelect.addEventListener("change", updateGenderFields);
+			updateGenderFields();
 		}
 
 		if (addTitleBtn && titleForm) {
